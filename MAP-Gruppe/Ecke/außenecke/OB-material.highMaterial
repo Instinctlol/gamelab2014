@@ -1,0 +1,8 @@
+highLevelMaterial "OB-material"
+{
+	dataSource = "GameLab\\Map\\Ecke\\ganz.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0.04040184 0.3508347
+	specularColor = 0.5 0.5 0.5
+	specularShininess = 20
+}

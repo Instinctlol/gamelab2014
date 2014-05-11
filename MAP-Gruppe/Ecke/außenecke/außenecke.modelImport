@@ -1,0 +1,19 @@
+sourceFile = "GameLab\\Map\\Ecke\\ganz.dae"
+objects
+{
+	mesh
+	{
+		name = ganz
+		pivotPosition = 0.1388464 -1.112022 1.816284
+		sources
+		{
+			item
+			{
+				name = ganz
+				position = 0.1421136 6.440251 0.5984073
+				rotation = -5.277646E-05 0.0005231401 -0.0009731089 0.9999994
+				scale = 1 1 1
+			}
+		}
+	}
+}
