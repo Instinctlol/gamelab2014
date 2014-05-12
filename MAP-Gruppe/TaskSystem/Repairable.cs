@@ -13,7 +13,8 @@ namespace ProjectEntities
     {
         RepairableType _type = null; public new RepairableType Type { get { return _type; } }
 
-        bool repaired = false;
+        [FieldSerialize]
+        private bool repaired = false;
 
 
 

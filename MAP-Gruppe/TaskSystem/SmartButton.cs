@@ -7,33 +7,23 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    public class SmartButton : Button
+    public class SmartButton : Control
     {
+
 
         public delegate void PressedDelegate(SmartButton entity);
 
         [LogicSystemBrowsable(true)]
         public event PressedDelegate Pressed;
 
-
-
-        protected override void OnAttach()
-        {
-            base.OnAttach();
-
-
-            SoundClick = "Sounds/ButtonClick.ogg";
-            SoundMouseOver = "Sounds/ButtonMouseIntoArea.ogg";
-
-            this.Click += SmrtClick;
-        }
-
-        void SmrtClick( Button b )
+        protected void SmartClick( Button b )
         {
             if (Pressed != null)
+            {
                 Pressed(this);
+                Enable = false;
+            }
         }
-
 
         public void AttachRepairable(Repairable r)
         {

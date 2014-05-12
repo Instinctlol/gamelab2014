@@ -20,12 +20,24 @@ namespace ProjectEntities
 
         TerminalType _type = null; public new TerminalType Type { get { return _type; } }
 
+
+        public enum TerminalTaskType
+        {
+            None,
+            PIN
+        };
+
         [FieldSerialize]
         private Repairable repairable = null;
 
         [FieldSerialize]
-        private SmartButton initialButton = new SmartButton();
+        private SmartButton initialButton;
 
+        [FieldSerialize]
+        private Task initialTask;
+
+        [FieldSerialize]
+        private TerminalTaskType taskType;
 
 
         private MapObjectAttachedGui attachedGuiObject;
@@ -36,6 +48,30 @@ namespace ProjectEntities
 
         [LogicSystemBrowsable(true)]
         public event TerminalActionDelegate TerminalAction;
+
+
+        public TerminalTaskType TaskType
+        {
+            get { return taskType;}
+            set { 
+                taskType = value;
+
+                if (taskType == TerminalTaskType.None)
+                {
+                    InitialButton = null;
+                    InitialTask = null;
+                    
+                }
+                else if (taskType == TerminalTaskType.PIN)
+                {
+                    InitialButton = new PINStartSmartButton();
+                    InitialTask = new PINTask();
+                }
+
+            }
+
+        }
+
 
         [Browsable(false)]
         [LogicSystemBrowsable(true)]
@@ -58,9 +94,20 @@ namespace ProjectEntities
             set { repairable = value; }
         }
 
-        /*
-        [Editor(typeof(EditorGuiUITypeEditor), typeof(UITypeEditor))]
-        public string InitialButton
+        protected Task InitialTask
+        {
+            get { return initialTask; }
+            set {   
+                    initialTask = value;
+                    if (initialButton != null)
+                    {
+                        if (initialTask != null)
+                            initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
+                    }
+            }
+        }
+
+        protected SmartButton InitialButton
         {
             get { return initialButton; }
             set
@@ -68,7 +115,8 @@ namespace ProjectEntities
                 if (initialButton != null)
                 {
                     initialButton.DetachRepairable(Repairable);
-                    initialButton.Pressed -= new SmartButton.PressedDelegate(OnButtonPressed);
+                    if (initialTask != null)
+                        initialButton.Pressed -= new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
                 }
 
                 initialButton = value;
@@ -76,12 +124,13 @@ namespace ProjectEntities
                 if (initialButton != null)
                 {
                     initialButton.AttachRepairable(Repairable);
-                    initialButton.Pressed += new SmartButton.PressedDelegate(OnButtonPressed);
+                    if (initialTask != null)
+                        initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
                 }
 
                 CreateMainControl();
             }
-        }*/
+        }
 
         protected override void OnPostCreate(bool loaded)
         {
@@ -96,8 +145,13 @@ namespace ProjectEntities
                     break;
                 }
             }
-            initialButton.Pressed += new SmartButton.PressedDelegate(OnButtonPressed);
-            initialButton.AttachRepairable(repairable);
+
+            if (initialButton != null)
+            {
+                if(initialTask != null)
+                    initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
+                initialButton.AttachRepairable(repairable);
+            }
             CreateMainControl();
         }
 
@@ -108,11 +162,6 @@ namespace ProjectEntities
             base.OnDestroy();
         }
 
-        public void OnButtonPressed(SmartButton b)
-        {
-            if (TerminalAction != null)
-                TerminalAction(this);
-        }
 
         void CreateMainControl()
         {
