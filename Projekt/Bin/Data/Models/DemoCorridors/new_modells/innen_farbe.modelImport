@@ -1,0 +1,18 @@
+sourceFile = "GameLab\\Map\\Ecke\\innenecke\\innen_farbe.dae"
+objects
+{
+	mesh
+	{
+		name = innen_farbe
+		pivotPosition = -0.01831388 -0.7404104 1.737429
+		sources
+		{
+			item
+			{
+				name = innen_farbe
+				position = 1.275704 -0.8461675 0.6834949
+				rotation = 0 0 0.3826836 0.9238794
+			}
+		}
+	}
+}
