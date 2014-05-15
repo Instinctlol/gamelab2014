@@ -1,0 +1,147 @@
+type BasicR
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = -0.002626896 -0.06036377 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 11.90155 -0.0296855 -0.01682854
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = 0.005863309 -12.01666 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 11.92075 -12.0265 -0.01682854
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 11.99402 11.96846 -0.01682854
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = 0.05132246 11.86672 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Pass.mesh"
+			position = 0.1130409 23.86236 0
+			rotation = 0 0 0.7076961 0.7065169
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
+			position = 5.960588 17.71235 0
+			rotation = 0 0 0.6864804 0.7271483
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = -11.93987 11.86665 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = -11.99382 -0.06043942 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Floor.mesh"
+			position = -11.98533 -12.01673 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -23.9021 12.00369 -0.01682854
+			rotation = 0 0 -0.9999971 -0.002396267
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -23.9021 0.003693581 -0.01682854
+			rotation = 0 0 -0.9999971 -0.002396267
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -23.8021 -11.99631 -0.01682854
+			rotation = 0 0 -0.9999971 -0.002396267
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -11.7021 23.70369 -0.01682854
+			rotation = 0 0 -0.7054104 -0.7087992
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
+			position = -17.33941 17.61235 0
+			rotation = 0 0 0.9998894 -0.0148721
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -0.2792517 -23.7265 -0.01682854
+			rotation = 0 0 -0.7071068 0.7071068
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -12.17925 -23.7265 -0.01682854
+			rotation = 0 0 -0.7071068 0.7071068
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
+			position = 5.66059 -17.68765 0
+			rotation = 0 0 -0.0148721 -0.9998894
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
+			position = -18.03941 -17.78765 0
+			rotation = 0 0 0.7271484 -0.6864804
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			position = -7.450581E-09 -11.8 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			position = 0 11.9 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			position = -12 11.9 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			position = -12 0 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			position = -12 -11.8 0
+		}
+	}
+}

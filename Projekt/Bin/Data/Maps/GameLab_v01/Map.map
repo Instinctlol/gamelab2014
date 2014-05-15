@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 2.551017 -8.274409 7.529152
-editorCameraDirection = 1.961945 -0.4550026
+editorCameraPosition = 2.735243 -8.629782 7.671656
+editorCameraDirection = 1.814366 -0.5567522
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -88,4 +88,24 @@ entity
 	items
 	{
 	}
+}
+entity
+{
+	type = SkyBox
+	uin = 7
+	classPrompt = SkyBox
+	enabled = True
+	textureName = "Base\\Types\\SkyBox\\space.dds"
+	color = 1 1 1
+	power = 1
+}
+entity
+{
+	type = StaticMesh
+	uin = 8
+	classPrompt = StaticMesh
+	position = -17.39756 17.52121 -0.02256067
+	rotation = 0 0 -0.9405062 0.3397765
+	name = StaticMesh_Ceiling_0
+	meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 }
