@@ -1,0 +1,40 @@
+type BasicF
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 5.2 -0.6 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -6.8 -0.6 0
+			rotation = 0 0 1 7.54979E-08
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -6.8 -12.5 0
+			rotation = 0 0 1 7.54979E-08
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 5.2 -12.5 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 5.2 11.3 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = -6.8 11.3 0
+			rotation = 0 0 1 7.54979E-08
+		}
+	}
+}

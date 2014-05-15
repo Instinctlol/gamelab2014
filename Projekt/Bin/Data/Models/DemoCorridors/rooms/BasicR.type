@@ -26,7 +26,7 @@ type BasicR
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
-			position = 11.99402 11.96846 -0.01682854
+			position = 11.79402 11.96846 -0.01682854
 		}
 		mesh
 		{
@@ -36,7 +36,7 @@ type BasicR
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Pass.mesh"
-			position = 0.1130409 23.86236 0
+			position = -5.686959 23.86236 0
 			rotation = 0 0 0.7076961 0.7065169
 		}
 		mesh
@@ -81,14 +81,15 @@ type BasicR
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
-			position = -11.7021 23.70369 -0.01682854
+			position = -14.6021 23.80369 -0.01682854
 			rotation = 0 0 -0.7054104 -0.7087992
+			scale = 1 0.5109398 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
-			position = -17.33941 17.61235 0
-			rotation = 0 0 0.9998894 -0.0148721
+			position = -17.63941 17.61235 0
+			rotation = 0 0 0.9995865 0.02875662
 		}
 		mesh
 		{
@@ -142,6 +143,13 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			position = -12 -11.8 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			position = 3.197901 23.80369 -0.01682854
+			rotation = 0 0 -0.7054104 -0.7087992
+			scale = 1 0.4950042 1
 		}
 	}
 }

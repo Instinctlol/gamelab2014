@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 2.735243 -8.629782 7.671656
-editorCameraDirection = 1.814366 -0.5567522
+editorCameraPosition = 5.010761 47.85534 1.127619
+editorCameraDirection = 0.8443004 -0.1871121
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -101,11 +101,38 @@ entity
 }
 entity
 {
-	type = StaticMesh
+	type = BasicR
 	uin = 8
-	classPrompt = StaticMesh
-	position = -17.39756 17.52121 -0.02256067
-	rotation = 0 0 -0.9405062 0.3397765
-	name = StaticMesh_Ceiling_0
-	meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+	classPrompt = MapObject
+	position = -25.98179 6.617968 -0.04426207
+	rotation = 0 0 -0.1218941 0.9925431
+	name = BasicR_0
+}
+entity
+{
+	type = BasicF
+	uin = 9
+	classPrompt = MapObject
+	position = -14.45357 39.81181 0.09031558
+	rotation = -0.01067294 -0.00321591 -0.8989264 -0.4379582
+	name = BasicF_0
+}
+entity
+{
+	type = BasicR
+	uin = 10
+	classPrompt = MapObject
+	position = 20.04228 49.58018 -0.04426207
+	rotation = 0 0 -0.6216344 -0.7833076
+	name = BasicR_1
+}
+entity
+{
+	type = SpawnPoint
+	uin = 11
+	classPrompt = SpawnPoint
+	defaultPoint = False
+	position = 9.195992 52.69693 0.2961448
+	rotation = 0 0 -0.1073978 -0.9942161
+	name = SpawnPoint_0
 }
