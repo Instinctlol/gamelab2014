@@ -7,21 +7,63 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    public class SmartButton : Control
+    public class SmartButton
     {
 
+        private Terminal terminal;
+        private SmartButtonWindow window;
 
+        
         public delegate void PressedDelegate(SmartButton entity);
 
         [LogicSystemBrowsable(true)]
         public event PressedDelegate Pressed;
 
-        protected void SmartClick( Button b )
+        public SmartButton(Terminal terminal)
+        {
+            Terminal = terminal;
+            
+        }
+
+        public void RefreshButton()
+        {
+            switch (terminal.ButtonType)
+            {
+                case Terminal.TerminalSmartButtonType.None:
+                    Window = null;
+                    SmartButtonPressed();
+                    break;
+                case Terminal.TerminalSmartButtonType.Default:
+                    Window = new DefaultSmartButtonWindow(this);
+                    break;
+                default:
+                    Window = null;
+                    SmartButtonPressed();
+                    break;
+            }
+        }
+
+        public Terminal Terminal
+        {
+            get { return terminal; }
+            set { terminal = value; }
+        }
+
+        public SmartButtonWindow Window
+        {
+            get { return window; }
+            set { 
+                window = value;
+                if(terminal != null)
+                    terminal.Window = window;
+                }
+        }
+
+        public void SmartButtonPressed()
         {
             if (Pressed != null)
             {
                 Pressed(this);
-                Enable = false;
             }
         }
 
@@ -48,13 +90,14 @@ namespace ProjectEntities
         {
             if (r.Repaired)
             {
-                Enable = true;
-                Visible = true;
+                if (window != null)
+                    Window = window;
+                else
+                    SmartButtonPressed();
             }
             else
             {
-                Enable = false;
-                Visible = false;
+                terminal.Window = null;
             }
         }
 

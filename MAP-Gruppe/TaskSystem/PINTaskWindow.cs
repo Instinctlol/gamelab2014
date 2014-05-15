@@ -5,45 +5,42 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    public class PINTask : Task
+    public class PINTaskWindow : TaskWindow
     {
-        Control window;
         TextBox output;
 
         string curOutput;
         string pin;
 
-        protected override void OnAttach()
+        public PINTaskWindow(Task task) : base(task)
         {
-            base.OnAttach();
+            CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\PINTaskGUI.gui");
 
-            window = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\PINTaskGUI.gui");
-            Controls.Add(window);
+            output = (TextBox)CurWindow.Controls["Output"];
 
-            output = (TextBox)window.Controls["Output"];
-
-            ((Button)window.Controls["One"]).Click += One_click;
-            ((Button)window.Controls["Two"]).Click += Two_click;
-            ((Button)window.Controls["Three"]).Click += Three_click;
-            ((Button)window.Controls["Four"]).Click += Four_click;
-            ((Button)window.Controls["Five"]).Click += Five_click;
-            ((Button)window.Controls["Six"]).Click += Six_click;
-            ((Button)window.Controls["Seven"]).Click += Seven_click;
-            ((Button)window.Controls["Eight"]).Click += Eight_click;
-            ((Button)window.Controls["Nine"]).Click += Nine_click;
-            ((Button)window.Controls["Zero"]).Click += Zero_click;
-            ((Button)window.Controls["Clear"]).Click += Clear_click;
-
+            ((Button)CurWindow.Controls["One"]).Click += One_click;
+            ((Button)CurWindow.Controls["Two"]).Click += Two_click;
+            ((Button)CurWindow.Controls["Three"]).Click += Three_click;
+            ((Button)CurWindow.Controls["Four"]).Click += Four_click;
+            ((Button)CurWindow.Controls["Five"]).Click += Five_click;
+            ((Button)CurWindow.Controls["Six"]).Click += Six_click;
+            ((Button)CurWindow.Controls["Seven"]).Click += Seven_click;
+            ((Button)CurWindow.Controls["Eight"]).Click += Eight_click;
+            ((Button)CurWindow.Controls["Nine"]).Click += Nine_click;
+            ((Button)CurWindow.Controls["Zero"]).Click += Zero_click;
+            ((Button)CurWindow.Controls["Clear"]).Click += Clear_click;
         }
 
 
-
+        private void UpdateOutput()
+        {
+            output.Text = curOutput;
+        }
         void One_click(Button b)
         {
             curOutput += "1";
             UpdateOutput();
         }
-
         void Two_click(Button b)
         {
             curOutput += "2";
@@ -95,16 +92,6 @@ namespace ProjectEntities
             UpdateOutput();
         }
 
-        void UpdateOutput()
-        {
-            output.Text = curOutput;
-            if(curOutput.Length >= 4)
-            {
-                if (curOutput.Equals("1234"))
-                    Success = true;
-                else
-                    Success = false;
-            }
-        }
+       
     }
 }

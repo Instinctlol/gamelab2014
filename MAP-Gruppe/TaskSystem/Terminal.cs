@@ -27,14 +27,23 @@ namespace ProjectEntities
             PIN
         };
 
+        public enum TerminalSmartButtonType
+        {
+            None,
+            Default
+        };
+
         [FieldSerialize]
         private Repairable repairable = null;
 
         [FieldSerialize]
-        private SmartButton initialButton;
+        private Window initialWindow;
 
         [FieldSerialize]
-        private Task initialTask;
+        private string taskData;
+
+        [FieldSerialize]
+        private TerminalSmartButtonType buttonType;
 
         [FieldSerialize]
         private TerminalTaskType taskType;
@@ -44,32 +53,60 @@ namespace ProjectEntities
         private In3dControlManager controlManager;
         private Control mainControl;
 
+        private Task task;
+
+        
+
+        
+
         public delegate void TerminalActionDelegate(Terminal entity);
 
         [LogicSystemBrowsable(true)]
         public event TerminalActionDelegate TerminalAction;
 
 
+        public string TaskData
+        {
+            get { return taskData; }
+            set { taskData = value; }
+        }
+
+        public Task Task
+        {
+            get { return task; }
+            set { task = value; }
+        }
+        private SmartButton button;
+
+        public SmartButton Button
+        {
+            get { return button; }
+            set { button = value; }
+        }
+
         public TerminalTaskType TaskType
         {
             get { return taskType;}
             set { 
                 taskType = value;
+            }
+        }
 
-                if (taskType == TerminalTaskType.None)
+        public TerminalSmartButtonType ButtonType
+        {
+            get { return buttonType; }
+            set { 
+                buttonType = value;
+                button.RefreshButton();
+
+                //Unschön
+                if (repairable != null)
                 {
-                    InitialButton = null;
-                    InitialTask = null;
-                    
-                }
-                else if (taskType == TerminalTaskType.PIN)
-                {
-                    InitialButton = new PINStartSmartButton();
-                    InitialTask = new PINTask();
+                    button.DetachRepairable(repairable);
+                    button.AttachRepairable(repairable);
                 }
 
             }
-
         }
 
 
@@ -91,50 +128,27 @@ namespace ProjectEntities
         public Repairable Repairable
         {
             get { return repairable; }
-            set { repairable = value; }
-        }
-
-        protected Task InitialTask
-        {
-            get { return initialTask; }
-            set {   
-                    initialTask = value;
-                    if (initialButton != null)
-                    {
-                        if (initialTask != null)
-                            initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
-                    }
+            set { 
+                if(repairable != null)
+                    button.DetachRepairable(repairable);
+                
+                repairable = value;
+                if (repairable != null)
+                    button.AttachRepairable(repairable);
             }
         }
 
-        protected SmartButton InitialButton
-        {
-            get { return initialButton; }
-            set
-            {
-                if (initialButton != null)
-                {
-                    initialButton.DetachRepairable(Repairable);
-                    if (initialTask != null)
-                        initialButton.Pressed -= new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
-                }
-
-                initialButton = value;
-
-                if (initialButton != null)
-                {
-                    initialButton.AttachRepairable(Repairable);
-                    if (initialTask != null)
-                        initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
-                }
-
-                CreateMainControl();
-            }
-        }
 
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
+
+            button = new SmartButton(this);
+            if (repairable != null)
+                button.AttachRepairable(repairable);
+            task = new Task(this);
+            button.RefreshButton();
+            
 
             foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
             {
@@ -146,12 +160,6 @@ namespace ProjectEntities
                 }
             }
 
-            if (initialButton != null)
-            {
-                if(initialTask != null)
-                    initialButton.Pressed += new SmartButton.PressedDelegate(initialTask.OnSmartButtonPressed);
-                initialButton.AttachRepairable(repairable);
-            }
             CreateMainControl();
         }
 
@@ -171,15 +179,24 @@ namespace ProjectEntities
                 mainControl = null;
             }
 
-            if (controlManager != null && initialButton != null)
+            if (controlManager != null && initialWindow != null)
             {
-                mainControl = initialButton;
+                mainControl = initialWindow.CurWindow;
                 if (mainControl != null)
                     controlManager.Controls.Add(mainControl);
             }
 
             //update MapBounds
             SetTransform(Position, Rotation, Scale);
+        }
+
+        public Window Window 
+        { 
+            get { return initialWindow; } 
+            set { 
+                initialWindow = value;
+                CreateMainControl();
+            } 
         }
     }
 }
