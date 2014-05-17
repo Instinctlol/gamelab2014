@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -30.02265 21.45312 8.177722
-editorCameraDirection = 4.690072 -0.3629017
+editorCameraPosition = 1.578295 47.28212 1.396263
+editorCameraDirection = 2.40782 -0.3932648
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -32,6 +32,10 @@ dataForEditor
 rootEditorLayer
 {
 	name = Root Layer
+	layer
+	{
+		name = F3
+	}
 }
 entity
 {
@@ -107,24 +111,27 @@ entity
 	position = -25.98179 6.617968 -0.04426207
 	rotation = 0 0 -0.1218941 0.9925431
 	name = BasicR_0
+	editorLayer = "Root Layer\\F3"
 }
 entity
 {
-	type = BasicF
+	type = Corridor-F3
 	uin = 9
 	classPrompt = MapObject
-	position = -14.45357 39.81181 0.09031558
-	rotation = -0.01067294 -0.00321591 -0.8989264 -0.4379582
-	name = BasicF_0
+	position = -15.38938 40.2723 -0.006972075
+	rotation = -0.01055727 -0.0035774 -0.9133154 -0.4071009
+	name = Corridor-F3_0
+	editorLayer = "Root Layer\\F3"
 }
 entity
 {
 	type = BasicR
 	uin = 10
 	classPrompt = MapObject
-	position = 20.04228 49.58018 -0.04426207
+	position = 20.04228 49.57398 -0.5821795
 	rotation = 0 0 -0.6216344 -0.7833076
 	name = BasicR_1
+	editorLayer = "Root Layer\\F3"
 }
 entity
 {
@@ -132,7 +139,8 @@ entity
 	uin = 11
 	classPrompt = SpawnPoint
 	defaultPoint = False
-	position = 9.195992 52.69693 0.2961448
+	position = 2.674726 48.07311 0.2789254
 	rotation = 0 0 -0.1073978 -0.9942161
 	name = SpawnPoint_0
+	editorLayer = "Root Layer\\F3"
 }

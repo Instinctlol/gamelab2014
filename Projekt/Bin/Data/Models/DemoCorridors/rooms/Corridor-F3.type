@@ -1,4 +1,4 @@
-type BasicF
+type "Corridor-F3"
 {
 	class = MapObject
 	attachedObjects
@@ -20,14 +20,9 @@ type BasicF
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -6.8 -12.5 0
+			position = -6.826104 -10.32682 0
 			rotation = 0 0 1 7.54979E-08
-		}
-		mesh
-		{
-			meshName = "Models\\DemoCorridors\\Wall.mesh"
-			collision = True
-			position = 5.2 -12.5 0
+			scale = 1 0.6286648 1
 		}
 		mesh
 		{
@@ -39,8 +34,15 @@ type BasicF
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -6.8 11.3 0
+			position = -6.76748 9.184736 0
 			rotation = 0 0 1 7.54979E-08
+			scale = 1 0.6456662 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Wall.mesh"
+			collision = True
+			position = 5.151735 -12.52552 0
 		}
 	}
 }
