@@ -1,4 +1,6 @@
-﻿using Engine.MapSystem;
+﻿using Engine;
+using Engine.MapSystem;
+using Engine.MathEx;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +16,13 @@ namespace ProjectEntities
     {
         RingType _type = null; public new RingType Type { get { return _type; } }
 
-        [FieldSerialize]
-        List<Sector> sectors = new List<Sector>();
+
+        public delegate void RotateRingDelegate(Vec3 pos, Quat rot);
+
+
+        [LogicSystemBrowsable(true)]
+        public event RotateRingDelegate RotateRing;
+
 
         public Ring() : base()
         {
@@ -23,33 +30,25 @@ namespace ProjectEntities
             base.Filter = Filters.All;
         }
 
-        /*
-        [Browsable(false)]
-        public override ShapeTypes ShapeType
-        {
-            get { return base.ShapeType; }
-            set { base.ShapeType = value; }
-        }
 
-        [Browsable(false)]
-        public override Filters Filter
-        {
-            get { return base.Filter; }
-            set { base.Filter = value; }
-        }
-        */
-
-        [Editor(typeof (Sector.SectorCollectionEditor),typeof (UITypeEditor))]
-        public List<Sector> Sectors
-        {
-            get { return sectors; }
-            set { sectors = value; }
-        }
 
 
         //TODO: Add parameters and code maybe
-        public void Rotate()
-        { }
+        [LogicSystemBrowsable(true)]
+        public void Rotate(Quat rot)
+        {
+
+            Quat newRot = rot * Rotation.GetInverse();
+            newRot.Normalize();
+
+            Rotation = rot;
+
+            if(RotateRing != null)
+            {
+                RotateRing(this.Position, newRot);
+            }
+        
+        }
 
     }
 }

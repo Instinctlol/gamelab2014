@@ -15,10 +15,59 @@ namespace ProjectEntities
     {
         SectorType _type = null; public new SectorType Type { get { return _type; } }
 
-        private List<DynamicLight> lights;
+        [FieldSerialize]
+        private List<DynamicLight> lights = new List<DynamicLight>();
+        [FieldSerialize]
         private bool lightStatus;
-        private List<Dynamic> dynamics;
-        private List<MapObject> statics;
+        [FieldSerialize]
+        private List<Dynamic> dynamics = new List<Dynamic>();
+        [FieldSerialize]
+        private List<MapObject> statics = new List<MapObject>();
+
+        [FieldSerialize]
+        private Ring ring;
+
+        public Ring Ring
+        {
+            get { return ring; }
+            set {
+                ring = value; 
+            }
+        }
+
+        void OnRotateRing(Vec3 pos, Quat rot)
+        {
+
+            Rotation = rot * Rotation;
+            Vec3 offset = Position - pos;
+            Position = rot * offset + pos;
+
+            Quat newRot = Rotation * OldRotation.GetInverse();
+            newRot.Normalize();
+
+            foreach (MapObject m in lights)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
+
+            foreach (MapObject m in dynamics)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
+
+            foreach (MapObject m in statics)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
+        }
+
+
 
         public Sector() : base()
         {
@@ -26,45 +75,35 @@ namespace ProjectEntities
             base.Filter = Filters.All;
         }
 
-        /*
-        [Browsable(false)]
-        public override ShapeTypes ShapeType
+        protected override void OnObjectIn(MapObject obj)
         {
-            get { return base.ShapeType; }
-            set { base.ShapeType = value; }
-        }
+            base.OnObjectIn(obj);
 
-        [Browsable(false)]
-        public override Filters Filter
-        {
-            get { return base.Filter; }
-            set { base.Filter = value; }
+            if (obj is Sector || obj is Ring)
+                return;
+
+            if (obj is DynamicLight)
+                AddLight((DynamicLight)obj);
+            else if (obj is Dynamic)
+                AddDynamic((Dynamic)obj);
+            else
+                AddStatic(obj);
         }
-         */
 
         protected override void OnPostCreate(bool loaded)
         {
-            Box box = GetBox();
-
-            MapObject[] result = Map.Instance.GetObjects(box);
-
-            foreach (MapObject m in result)
-            {
-                if (m is DynamicLight)
-                    AddLight((DynamicLight)m);
-                else if (m is Dynamic)
-                    AddDynamic((Dynamic)m);
-                else
-                    AddStatic(m);
-
-            }
 
             base.OnPostCreate(loaded);
+
+
+            if(ring != null)
+                ring.RotateRing += new ProjectEntities.Ring.RotateRingDelegate(OnRotateRing);
+            
         }
 
         private void AddStatic(MapObject m)
         {
-            
+            statics.Add(m);
         }
 
         private void AddLight(DynamicLight l)
@@ -102,13 +141,6 @@ namespace ProjectEntities
         public void RemoveDynamic(Dynamic d)
         { }
 
-
-        public class SectorCollectionEditor : Prot
-        {
-            public SectorCollectionEditor()
-                : base(typeof(List<Sector>))
-            { }
-        }
 
     }
 }
