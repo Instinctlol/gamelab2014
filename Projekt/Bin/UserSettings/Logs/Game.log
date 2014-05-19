@@ -1,1 +1,18 @@
-Log started: 5/19/2014 3:20:01 PM
+Log started: 5/19/2014 3:22:48 PM
+Info: Powered by NeoAxis 3D Engine
+Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
+Info: Runtime Framework: Net 2.0.50727.5477
+Info: NeoAxis 3D Engine version: 2.1
+Info: Engine SDK: Free SDK
+Info: Engine 64-bit version
+Info: Application type: Simulation
+Fatal: PhysicsWorld: CreateInstance: Loading assembly failed "PhysXPhysicsSystem.dll" (Die Datei oder Assembly "D:\Daten\Programmierumgebungen\GameLab\Projekt\Bin\PhysXPhysicsSystem.dll" oder eine Abhängigkeit davon wurde nicht gefunden. Das System kann die angegebene Datei nicht finden.).
+   bei System.Environment.get_StackTrace()
+   bei Engine.Log.A()
+   bei Engine.Log.Fatal(String text)
+   bei Engine.Log.Fatal(String format, Object arg0, Object arg1)
+   bei Engine.PhysicsSystem.PhysicsWorld.A(ComponentInfo A)
+   bei Engine.PhysicsSystem.PhysicsWorld._Init(ComponentInfo implementationComponent, Boolean allowHardwareAcceleration, Boolean editor)
+   bei Engine.EngineApp.Create()
+   bei Game.Program.Main2() in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\Program.cs:Zeile 78.
+   bei Game.Program.Main() in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\Program.cs:Zeile 31.
