@@ -127,12 +127,12 @@ namespace Game
 
         void RunAlien_Click(Button sender)
         {
-            GameEngineApp.Instance.SetNeedMapLoad("Maps\\VillageDemo\\Map\\Map.map");
+            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
         }
 
         void RunAstronaut_Click(Button sender)
         {
-            GameEngineApp.Instance.SetNeedMapLoad("Maps\\VillageDemo\\Map\\Map.map");
+            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
         }
 
         TextBlock LoadEngineConfig()
