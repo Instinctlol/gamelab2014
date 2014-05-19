@@ -27,6 +27,7 @@ type F3R3
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
 			position = 11.79402 11.96846 -0.01682854
+			rotation = -0.0001113242 0 0 1
 		}
 		mesh
 		{
@@ -169,8 +170,10 @@ type F3R3
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Pass.mesh"
-			position = 11.90603 -0.01880658 0
-			rotation = 0 0 -0.006177038 0.9999809
+			collision = True
+			position = 11.90603 -0.01886284 -0.01682854
+			rotation = 0 0 0.004297931 0.9999908
+			scale = 1 1.069925 1
 		}
 		mesh
 		{

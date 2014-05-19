@@ -1,0 +1,4 @@
+type Sector
+{
+	class = Sector
+}

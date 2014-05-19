@@ -1,0 +1,11 @@
+type Ring
+{
+	class = Ring
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Base\\Types\\InvisiblePoint.mesh"
+		}
+	}
+}
