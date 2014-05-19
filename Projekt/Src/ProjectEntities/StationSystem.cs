@@ -2,7 +2,6 @@
 using Engine.MathEx;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProjectEntities
 {
