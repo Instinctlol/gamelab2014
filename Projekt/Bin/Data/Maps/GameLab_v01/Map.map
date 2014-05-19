@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 1.578295 47.28212 1.396263
-editorCameraDirection = 2.40782 -0.3932648
+editorCameraPosition = -5.353209 -19.93459 70.80861
+editorCameraDirection = 1.314151 -1.185472
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -105,12 +105,12 @@ entity
 }
 entity
 {
-	type = BasicR
+	type = F3R3
 	uin = 8
 	classPrompt = MapObject
-	position = -25.98179 6.617968 -0.04426207
+	position = -31.17038 7.481083 -0.04426207
 	rotation = 0 0 -0.1218941 0.9925431
-	name = BasicR_0
+	name = F3R3
 	editorLayer = "Root Layer\\F3"
 }
 entity
@@ -118,19 +118,19 @@ entity
 	type = Corridor-F3
 	uin = 9
 	classPrompt = MapObject
-	position = -15.38938 40.2723 -0.006972075
-	rotation = -0.01055727 -0.0035774 -0.9133154 -0.4071009
-	name = Corridor-F3_0
+	position = -20.47812 39.74012 -0.006972075
+	rotation = -0.01073526 -0.003001315 -0.8899665 -0.45589
+	name = F3C_34
 	editorLayer = "Root Layer\\F3"
 }
 entity
 {
-	type = BasicR
+	type = F3R-24
 	uin = 10
 	classPrompt = MapObject
-	position = 20.04228 49.57398 -0.5821795
+	position = 15.11822 48.03541 -0.5821795
 	rotation = 0 0 -0.6216344 -0.7833076
-	name = BasicR_1
+	name = F3R4
 	editorLayer = "Root Layer\\F3"
 }
 entity
@@ -142,5 +142,35 @@ entity
 	position = 2.674726 48.07311 0.2789254
 	rotation = 0 0 -0.1073978 -0.9942161
 	name = SpawnPoint_0
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R-24
+	uin = 12
+	classPrompt = MapObject
+	position = -5.86223 -48.54941 0.5650632
+	rotation = 0.01483066 -0.0254738 0.7821524 -0.6223897
+	name = F3R2
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = Corridor-F3
+	uin = 13
+	classPrompt = MapObject
+	position = 29.69509 -40.15418 -0.634672
+	rotation = -5.222578E-05 -0.0185988 0.4547236 -0.8904387
+	name = F3C_12
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R1
+	uin = 14
+	classPrompt = MapObject
+	position = 40.3037 -7.867594 -0.5638041
+	rotation = -0.02855612 0.007308247 -0.9922706 -0.120541
+	name = F3R1
 	editorLayer = "Root Layer\\F3"
 }

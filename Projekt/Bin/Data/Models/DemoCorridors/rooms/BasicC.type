@@ -1,4 +1,4 @@
-type BasicF
+type BasicC
 {
 	class = MapObject
 	attachedObjects
