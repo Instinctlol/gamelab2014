@@ -1,0 +1,8 @@
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Bin\Game.exe
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Bin\Game.pdb
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Bin\Game.xml
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Src\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Src\Game\obj\Debug\Game.Properties.Resources.resources
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Src\Game\obj\Debug\Game.csproj.GenerateResource.Cache
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Src\Game\obj\Debug\Game.exe
+D:\Daten\Programmierumgebungen\NeoAxis\NeoAxis Engine Free SDK 2.1\Project\Src\Game\obj\Debug\Game.pdb
