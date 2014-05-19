@@ -33,6 +33,7 @@ namespace ProjectEntities
 
         public void RegisterRing(Ring ring)
         {
+            /*
             if (rings.Keys.Contains(ring.Id) || ring.Id < 0)
                 throw new Exception("Duplicated or invalid ID");
 
@@ -47,16 +48,16 @@ namespace ProjectEntities
                 {
                     sectors[ring.Id].Add(s);
                 }
-            }
+            }*/
         }
 
         public void RotateRing(int ringId, int position)
         {
-
+            /*
             if (!rings.Keys.Contains(ringId))
                 return;
 
-            rings[ringId].Rotate(new Engine.MathEx.Quat(0, 0, 2, 1));
+            rings[ringId].Rotate(new Engine.MathEx.Quat(0, 0, 2, 1)); */
         }
 
     }

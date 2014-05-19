@@ -677,6 +677,35 @@
             The piece for puzzle game example.
             </summary>
         </member>
+        <member name="T:ProjectEntities.MySpawnerType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.MySpawner"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.MySpawner">
+            <summary>
+            Spawner for creating small aliens
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.MySpawner.SpawnSmallAlien">
+            <summary>
+            Function for spawning one small alien
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.MySpawner.FindFreePositionForUnit(ProjectEntities.Unit,Engine.MathEx.Vec3)">
+            <summary>
+            Calculates the next valid Position for a small alien to be spawned. If there is no more space (1,-1,-1) will be returned.
+            </summary>
+            <param name="unit"></param>
+            <param name="center"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectEntities.MySpawner.isCloseToPoint">
+            <summary>
+            If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ProjectEntities.RTSBuildingType">
             <summary>
             Defines the <see cref="T:ProjectEntities.RTSBuilding"/> entity type.
@@ -821,22 +850,6 @@
             Defines the <see cref="T:ProjectEntities.SimpleMap"/> entity type. 
             Used for preview types in the Resource Editor.
             </summary>
-        </member>
-        <member name="T:ProjectEntities.TerminalType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Terminal"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.GameGuiObjectType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.GameGuiObject"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.GameGuiObject.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.GameGuiObject.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
         </member>
         <member name="T:ProjectEntities.DecalType">
             <summary>
@@ -1220,6 +1233,17 @@
             <summary>
             Gets or sets the current power.
             </summary>
+        </member>
+        <member name="T:ProjectEntities.GameGuiObjectType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.GameGuiObject"/> entity type.
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.GameGuiObject.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.GameGuiObject.OnDestroy">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
         </member>
         <member name="T:ProjectEntities.GameMapType">
             <summary>
