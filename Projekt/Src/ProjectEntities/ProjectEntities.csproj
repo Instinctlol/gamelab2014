@@ -15,7 +15,8 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <NoWarn>1591</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>ProjectEntities.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,6 +45,7 @@
     <DocumentationFile>ProjectEntities.xml</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DecorativeObjectManager, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
@@ -144,6 +147,8 @@
     <Compile Include="AI.cs" />
     <Compile Include="Aircraft.cs" />
     <Compile Include="BooleanSwitch.cs" />
+    <Compile Include="DefaultSmartButtonWindow.cs" />
+    <Compile Include="DynamicLight.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
     <Compile Include="JigsawPuzzleGame Specific\JigsawPuzzleManager.cs" />
     <Compile Include="JigsawPuzzleGame Specific\JigsawPuzzlePiece.cs" />
