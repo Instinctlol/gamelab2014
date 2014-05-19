@@ -145,14 +145,27 @@
     <Compile Include="Aircraft.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
+    <Compile Include="JigsawPuzzleGame Specific\JigsawPuzzleManager.cs" />
+    <Compile Include="JigsawPuzzleGame Specific\JigsawPuzzlePiece.cs" />
+    <Compile Include="MySpawner.cs" />
     <Compile Include="PINTaskWindow.cs" />
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
+    <Compile Include="RTS Specific\RTSBuilding.cs" />
+    <Compile Include="RTS Specific\RTSBuildingAI.cs" />
+    <Compile Include="RTS Specific\RTSCharacter.cs" />
+    <Compile Include="RTS Specific\RTSFactionManager.cs" />
+    <Compile Include="RTS Specific\RTSMine.cs" />
+    <Compile Include="RTS Specific\RTSUnit.cs" />
+    <Compile Include="RTS Specific\RTSUnitAI.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="SmartButton.cs" />
     <Compile Include="SmartButtonWindow.cs" />
     <Compile Include="StaticLight.cs" />
     <Compile Include="StationSystem.cs" />
+    <Compile Include="TankGame Specific\Minefield.cs" />
+    <Compile Include="TankGame Specific\TankGameExtendedProperties.cs" />
+    <Compile Include="TankGame Specific\TankGameUnitAI.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskWindow.cs" />
     <Compile Include="WaterPlaneClipVolume.cs" />
@@ -202,6 +215,7 @@
     <Compile Include="TurnFloatSwitch.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Weapon.cs" />
+    <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
