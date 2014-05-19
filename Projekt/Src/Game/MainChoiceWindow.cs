@@ -21,16 +21,8 @@ namespace Game
 	/// </summary>
 	public class MainChoiceWindow : Control
 	{
-		static int lastPageIndex;
-
 		Control window;
-		TabControl tabControl;
 		Button[] pageButtons = new Button[ 2 ];
-
-		ComboBox comboBoxResolution;
-		ComboBox comboBoxInputDevices;
-		CheckBox checkBoxDepthBufferAccess;
-		ComboBox comboBoxAntialiasing;
 
 		///////////////////////////////////////////
 
