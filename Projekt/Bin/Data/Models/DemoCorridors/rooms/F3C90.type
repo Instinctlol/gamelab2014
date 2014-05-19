@@ -1,0 +1,11 @@
+type F3C90
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\CornerExt.mesh"
+		}
+	}
+}

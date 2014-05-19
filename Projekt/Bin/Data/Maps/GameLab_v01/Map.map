@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 6.139151 -59.07241 9.018144
-editorCameraDirection = 1.3939 -0.2102714
+editorCameraPosition = 35.88122 -3.57539 98.71981
+editorCameraDirection = 3.395854 -1.387112
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -64,7 +64,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 24
+			subscriptionsToDeletionEvent = 23
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch_0
 			customScriptCodeCreated = False
@@ -72,7 +72,7 @@ entity
 			{
 				type = LogicDesignerMethod
 				uin = 6
-				actions = 27
+				actions = 26
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -80,36 +80,36 @@ entity
 				entity
 				{
 					type = LogicIfThenElseAction
-					uin = 27
-					conditionAction = 28
-					trueActions = 30
-					falseActions = 33
+					uin = 26
+					conditionAction = 27
+					trueActions = 29
+					falseActions = 32
 					entity
 					{
 						type = LogicCallThisMethodAction
-						uin = 28
+						uin = 27
 						entityOwnerProperty = True
-						dotPathAction = 29
+						dotPathAction = 28
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 29
+							uin = 28
 							propertyName = Value
 						}
 					}
 					entity
 					{
 						type = LogicCallGetEntityMethodAction
-						uin = 30
-						subscriptionsToDeletionEvent = 17
-						entity = 17
-						dotPathAction = 35
+						uin = 29
+						subscriptionsToDeletionEvent = 16
+						entity = 16
+						dotPathAction = 34
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 35
+							uin = 34
 							methodName = Rotate
-							parameterActions = 36
+							parameterActions = 35
 							parameterTypeNames
 							{
 								item
@@ -120,7 +120,7 @@ entity
 							entity
 							{
 								type = LogicGetConstantValueAction
-								uin = 36
+								uin = 35
 								valueType = Engine.MathEx.Quat
 								value = 0 0 31415 1
 							}
@@ -129,16 +129,16 @@ entity
 					entity
 					{
 						type = LogicCallGetEntityMethodAction
-						uin = 33
-						subscriptionsToDeletionEvent = 17
-						entity = 17
-						dotPathAction = 32
+						uin = 32
+						subscriptionsToDeletionEvent = 16
+						entity = 16
+						dotPathAction = 31
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 32
+							uin = 31
 							methodName = Rotate
-							parameterActions = 31
+							parameterActions = 30
 							parameterTypeNames
 							{
 								item
@@ -149,7 +149,7 @@ entity
 							entity
 							{
 								type = LogicGetConstantValueAction
-								uin = 31
+								uin = 30
 								valueType = Engine.MathEx.Quat
 								value = 0 0 0 1
 							}
@@ -162,8 +162,275 @@ entity
 }
 entity
 {
-	type = Sun
+	type = MapCompositorManager
 	uin = 7
+	classPrompt = MapCompositorManager
+	items
+	{
+	}
+}
+entity
+{
+	type = SkyBox
+	uin = 8
+	classPrompt = SkyBox
+	enabled = True
+	textureName = "Base\\Types\\SkyBox\\space.dds"
+	color = 1 1 1
+	power = 1
+}
+entity
+{
+	type = F3R3
+	uin = 9
+	classPrompt = MapObject
+	position = -40 0 0
+	name = F3R3
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = Corridor-F3
+	uin = 10
+	classPrompt = MapObject
+	position = -31.04214 31.54012 0
+	rotation = 0 0 -0.9238796 -0.3826834
+	name = F3C_34
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R-24
+	uin = 11
+	classPrompt = MapObject
+	position = 0 40 0
+	rotation = 0 0 -0.7071068 -0.7071068
+	name = F3R4
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = SpawnPoint
+	uin = 12
+	classPrompt = SpawnPoint
+	defaultPoint = False
+	position = -7.725273 -69.02689 1.778926
+	rotation = 0 0 -0.1073978 -0.9942161
+	name = TEst
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R-24
+	uin = 13
+	classPrompt = MapObject
+	position = 0 -40 0
+	rotation = 0 0 -0.7071068 0.7071068
+	name = F3R2
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = Corridor-F3
+	uin = 14
+	classPrompt = MapObject
+	position = 32.59693 -32.23511 0
+	rotation = 0 0 -0.3826835 0.9238795
+	name = F3C_12
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R1
+	uin = 15
+	classPrompt = MapObject
+	position = 40 0 0
+	rotation = 0 0 -1 -4.371139E-08
+	name = F3R1
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = Ring
+	uin = 16
+	classPrompt = Ring
+	subscriptionsToDeletionEvent = 29 32
+	rotatable = True
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0 0 0
+	name = F3_Ring
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Bounds
+}
+entity
+{
+	type = Sector
+	uin = 17
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 39.89509 -0.0558784 1.887303
+	rotation = 0 0 -1 -4.371139E-08
+	scale = 36.09863 49.58686 10.9482
+	name = F3R1-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 18
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -37.90491 -2.155879 2.387303
+	scale = 33.84572 49.58686 10.9482
+	name = F3R3-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 19
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0.3950899 39.74412 2.687303
+	rotation = 0 0 -0.7071068 -0.7071068
+	scale = 36.55113 49.58686 10.9482
+	name = F3R4-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 20
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -1.004913 -41.55587 2.487303
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 36.20875 49.58686 10.9482
+	name = F3R2-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 21
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 31.19509 -31.95589 2.487303
+	rotation = 0 0 -0.3826835 0.9238795
+	scale = 10.45551 40.12164 10.9482
+	name = F3C_12-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 22
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 16
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -30.20491 29.14411 2.487303
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 10.45551 33.87541 10.9482
+	name = F3C_34-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 23
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 5
+	value = False
+	healthFactorAtBeginning = 1
+	position = -1.099998 -66.3 2.100015
+	rotation = 0 0 -0.3910145 0.9203845
+	name = BooleanSwitch_0
+	logicClass = 5
+}
+entity
+{
+	type = DecorativeObjectManager
+	uin = 24
+	classPrompt = DecorativeObjectManager
+	enabled = True
+	visible = True
+	geometries = 
+	itemDataVersion = 2
+	typeItems
+	{
+	}
+}
+entity
+{
+	type = Tree06A
+	uin = 33
+	classPrompt = MapObject
+	position = 7.29999 -38.7 -2.8
+	scale = 1 0.4445446 0.5567388
+}
+entity
+{
+	type = F3R3
+	uin = 25
+	classPrompt = MapObject
+	position = -1.7 -78.81891 0
+	rotation = 0 0 -0.7071068 -0.7071068
+	name = F3R3_0
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = Sun
+	uin = 36
 	classPrompt = Sun
 	billboardTexture = "Base\\Types\\Sun\\SunDefault.png"
 	billboardColor = 1 1 1
@@ -175,7 +442,7 @@ entity
 	lightType = Directional
 	diffuseColor = 1 1 1
 	diffusePower = 1
-	specularColor = 1 1 1
+	specularColor = 0 0 0
 	specularPower = 1
 	attenuationNear = 0
 	attenuationFar = 10
@@ -190,274 +457,6 @@ entity
 	allowStaticLighting = False
 	allowDynamicLighting = True
 	customShaderParameter = 0 0 0 0
-	position = 0 0 7
-	rotation = -0.2743657 -0.2223418 0.6965998 -0.6245288
+	position = 11.3 -1.000003 16.8
 	name = Sun_0
-}
-entity
-{
-	type = MapCompositorManager
-	uin = 8
-	classPrompt = MapCompositorManager
-	items
-	{
-	}
-}
-entity
-{
-	type = SkyBox
-	uin = 9
-	classPrompt = SkyBox
-	enabled = True
-	textureName = "Base\\Types\\SkyBox\\space.dds"
-	color = 1 1 1
-	power = 1
-}
-entity
-{
-	type = F3R3
-	uin = 10
-	classPrompt = MapObject
-	position = -40 0 0
-	name = F3R3
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = Corridor-F3
-	uin = 11
-	classPrompt = MapObject
-	position = -31.04214 31.54012 0
-	rotation = 0 0 -0.9238796 -0.3826834
-	name = F3C_34
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = F3R-24
-	uin = 12
-	classPrompt = MapObject
-	position = 0 40 0
-	rotation = 0 0 -0.7071068 -0.7071068
-	name = F3R4
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = SpawnPoint
-	uin = 13
-	classPrompt = SpawnPoint
-	defaultPoint = False
-	position = -7.725273 -69.02689 1.778926
-	rotation = 0 0 -0.1073978 -0.9942161
-	name = TEst
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = F3R-24
-	uin = 14
-	classPrompt = MapObject
-	position = 0 -40 0
-	rotation = 0 0 -0.7071068 0.7071068
-	name = F3R2
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = Corridor-F3
-	uin = 15
-	classPrompt = MapObject
-	position = 31.59693 -31.03511 0
-	rotation = 0 0 -0.3826835 0.9238795
-	name = F3C_12
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = F3R1
-	uin = 16
-	classPrompt = MapObject
-	position = 40 0 0
-	rotation = 0 0 -1 -4.371139E-08
-	name = F3R1
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = Ring
-	uin = 17
-	classPrompt = Ring
-	subscriptionsToDeletionEvent = 30 33
-	rotatable = True
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 0 0 0
-	name = F3_Ring
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Bounds
-}
-entity
-{
-	type = Sector
-	uin = 18
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 39.89509 -0.0558784 1.887303
-	rotation = 0 0 -1 -4.371139E-08
-	scale = 36.09863 49.58686 10.9482
-	name = F3R1-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 19
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -40.00491 -1.855879 2.387303
-	scale = 33.84572 49.58686 10.9482
-	name = F3R3-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 20
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 0.3950899 39.74412 2.687303
-	rotation = 0 0 -0.7071068 -0.7071068
-	scale = 36.55113 49.58686 10.9482
-	name = F3R4-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 21
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -1.004913 -41.55587 2.487303
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 36.20875 49.58686 10.9482
-	name = F3R2-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 22
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 30.59509 -30.75589 2.487303
-	rotation = 0 0 -0.3826835 0.9238795
-	scale = 10.45551 40.12164 10.9482
-	name = F3C_12-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 23
-	classPrompt = Sector
-	lights = 
-	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 17
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -30.20491 29.14411 2.487303
-	rotation = 0 0 -0.9238796 -0.3826834
-	scale = 10.45551 33.87541 10.9482
-	name = F3C_34-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = BooleanSwitch
-	uin = 24
-	classPrompt = BooleanSwitch
-	subscriptionsToDeletionEvent = 5
-	value = False
-	healthFactorAtBeginning = 1
-	position = -1.099998 -66.3 2.100015
-	rotation = 0 0 -0.3910145 0.9203845
-	name = BooleanSwitch_0
-	logicClass = 5
-}
-entity
-{
-	type = DecorativeObjectManager
-	uin = 25
-	classPrompt = DecorativeObjectManager
-	enabled = True
-	visible = True
-	geometries = 
-	itemDataVersion = 2
-	typeItems
-	{
-	}
-}
-entity
-{
-	type = F3R3
-	uin = 26
-	classPrompt = MapObject
-	position = -1.2 -78.61891 0
-	rotation = 0 0 -0.7071068 -0.7071068
-	name = F3R3_0
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = Tree06A
-	uin = 34
-	classPrompt = MapObject
-	position = 7.29999 -38.7 -2.8
-	scale = 1 0.4445446 0.5567388
 }

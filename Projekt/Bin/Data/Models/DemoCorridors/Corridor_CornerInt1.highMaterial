@@ -1,6 +1,7 @@
 highLevelMaterial Corridor_CornerInt1
 {
 	template = ShaderBaseMaterial
+	doubleSided = True
 	useNormals = False
 	reflectionColor = 1 1 1
 	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"

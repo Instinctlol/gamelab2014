@@ -178,5 +178,10 @@ type BasicR
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallMiddle.mesh"
+			position = -22.0847 11.6863 1.80447
+		}
 	}
 }
