@@ -16,6 +16,14 @@ namespace ProjectEntities
     {
         RingType _type = null; public new RingType Type { get { return _type; } }
 
+        [FieldSerialize]
+        private bool rotatable = true;
+
+        public bool Rotatable
+        {
+            get { return rotatable; }
+            set { rotatable = value; }
+        }
 
         public delegate void RotateRingDelegate(Vec3 pos, Quat rot);
 
@@ -31,12 +39,13 @@ namespace ProjectEntities
         }
 
 
-
-
-        //TODO: Add parameters and code maybe
         [LogicSystemBrowsable(true)]
         public void Rotate(Quat rot)
         {
+
+            //Vllt Error wenn man versucht statischen ring zu drehen
+            if (!Rotatable)
+                return;
 
             Quat newRot = rot * Rotation.GetInverse();
             newRot.Normalize();

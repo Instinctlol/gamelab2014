@@ -1,4 +1,5 @@
-﻿using Engine.MapSystem;
+﻿using Engine.EntitySystem;
+using Engine.MapSystem;
 using Engine.MathEx;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,7 @@ namespace ProjectEntities
         {
             base.ShapeType = ShapeTypes.Box;
             base.Filter = Filters.All;
+            base.CheckType = CheckTypes.Center;
         }
 
         protected override void OnObjectIn(MapObject obj)
@@ -88,6 +90,17 @@ namespace ProjectEntities
                 AddDynamic((Dynamic)obj);
             else
                 AddStatic(obj);
+        }
+
+        protected override void OnObjectOut(MapObject obj)
+        {
+            base.OnObjectOut(obj);
+
+            if (obj is Sector || obj is Ring)
+                return;
+            if (obj is Dynamic)
+                RemoveDynamic((Dynamic)obj);
+
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -108,7 +121,7 @@ namespace ProjectEntities
 
         private void AddLight(DynamicLight l)
         {
-           
+            lights.Add(l);
         }
 
         public void ToggleLights()
@@ -125,21 +138,25 @@ namespace ProjectEntities
             if (lightStatus)
                 foreach (DynamicLight l in lights)
                 {
-                    l.DiffuseColor = l.AltDiffuseColor;
+                    l.TurnOn();
                 }
             else
                 foreach (DynamicLight l in lights)
                 {
-                    l.DiffuseColor = new ColorValue(0,0,0);
+                    l.TurnOff();
                 }
         }
 
 
         public void AddDynamic(Dynamic d)
-        { }
+        {
+            dynamics.Add(d);
+        }
 
         public void RemoveDynamic(Dynamic d)
-        { }
+        {
+            dynamics.Remove(d);
+        }
 
 
     }

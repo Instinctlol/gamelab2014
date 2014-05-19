@@ -28,7 +28,17 @@ namespace ProjectEntities
             AltDiffuseColor = DiffuseColor;
             base.OnPostCreate(loaded);
         }
-        
 
+
+
+        public void TurnOn()
+        {
+            DiffuseColor = AltDiffuseColor;
+        }
+
+        public void TurnOff()
+        {
+            DiffuseColor = new ColorValue(0, 0, 0);
+        }
     }
 }
