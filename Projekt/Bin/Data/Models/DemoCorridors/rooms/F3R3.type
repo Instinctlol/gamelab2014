@@ -7,85 +7,85 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = -0.002626896 -0.06036377 0
+			position = 6.869634 -0.9647045 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = 0.005863309 -12.01666 0
+			position = 6.878124 -12.921 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = 11.92075 -12.0265 -0.01682854
+			position = 18.79301 -12.93084 -0.01682854
 			scale = 1 1.031602 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = 11.79402 11.96846 -0.01682854
+			position = 18.66628 11.06412 -0.01682854
 			rotation = -0.0001113242 0 0 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = 0.05132246 11.86672 0
+			position = 6.923583 10.96238 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Pass.mesh"
 			collision = True
-			position = -5.686959 23.86236 0
+			position = 1.185302 22.95802 0
 			rotation = 0 0 0.7076961 0.7065169
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = 5.960588 17.71235 0
+			position = 12.83285 16.80801 0
 			rotation = 0 0 0.7056096 0.7086009
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = -11.93987 11.86665 0
+			position = -5.067609 10.96231 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = -11.85124 -0.119544 0
+			position = -4.97898 -1.023885 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = -11.98533 -12.01673 0
+			position = -5.113069 -12.92107 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -23.69273 11.93907 -0.01682854
+			position = -16.82047 11.03473 -0.01682854
 			rotation = 0 0 -0.9999971 -0.002396267
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -23.8021 -11.99631 -0.01682854
+			position = -16.92984 -12.90065 -0.01682854
 			rotation = 0 0 -0.9999971 -0.002396267
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -14.6021 23.80369 -0.01682854
+			position = -7.72984 22.89935 -0.01682854
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.5109398 1
 		}
@@ -93,77 +93,78 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = -17.63207 17.60931 0
+			position = -10.75981 16.70497 0
 			rotation = 0 0 1 -0.0002732128
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -0.3867592 -23.68399 -0.01682854
+			position = 6.485501 -24.58833 -0.01682854
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -12.17925 -23.7265 -0.01682854
+			position = -5.306989 -24.63084 -0.01682854
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = 5.630599 -17.82616 0
+			position = 12.50286 -18.7305 0
 			rotation = 0 0 -0.00337009 -0.9999943
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = -17.77714 -17.69689 0
+			position = -10.90488 -18.60123 0
 			rotation = 0 0 0.7271484 -0.6864804
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
+			position = 6.872261 -0.9043407 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
-			position = -7.450581E-09 -11.8 0
+			position = 6.872261 -12.70434 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
-			position = 0 11.9 0
+			position = 6.872261 10.99566 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
-			position = -12 11.9 0
+			position = -5.127739 10.99566 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
-			position = -12 0 0
+			position = -5.127739 -0.9043407 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
 			collision = True
-			position = -12 -11.8 0
+			position = -5.127739 -12.70434 0
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = 3.197901 23.80369 -0.01682854
+			position = 10.07016 22.89935 -0.01682854
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
@@ -171,7 +172,7 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\Pass.mesh"
 			collision = True
-			position = 11.90603 -0.01886284 -0.01682854
+			position = 18.77829 -0.9232036 -0.01682854
 			rotation = 0 0 0.004297931 0.9999908
 			scale = 1 1.069925 1
 		}
@@ -179,7 +180,7 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -23.55999 -0.02501297 -0.01682854
+			position = -16.68773 -0.9293537 -0.01682854
 			rotation = 0 0 -0.9999971 -0.002396267
 		}
 	}
