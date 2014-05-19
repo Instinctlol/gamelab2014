@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -54.46355 -13.56655 102.498
-editorCameraDirection = 6.082043 -1.2547
+editorCameraPosition = -59.54445 -4.62215 63.05069
+editorCameraDirection = 6.050753 -1.022069
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -210,7 +210,7 @@ entity
 	uin = 15
 	classPrompt = MapObject
 	position = -6.626005 -48.03541 0
-	rotation = -0.006661423 -0.0083661 0.782257 -0.6228642
+	rotation = -0.00656996 -0.008251233 0.7822582 -0.6228651
 	name = F3R2
 	editorLayer = "Root Layer\\F3"
 }
