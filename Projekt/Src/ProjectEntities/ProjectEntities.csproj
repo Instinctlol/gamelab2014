@@ -130,13 +130,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action Specific\Car.cs" />
-    <Compile Include="Action Specific\TurretAI.cs" />
+    <Compile Include="Action Specific\Character.cs" />
     <Compile Include="Action Specific\Crane.cs" />
+    <Compile Include="Action Specific\GameCharacter.cs" />
+    <Compile Include="Action Specific\GameCharacterAI.cs" />
+    <Compile Include="Action Specific\JumpPad.cs" />
+    <Compile Include="Action Specific\MapChangeRegion.cs" />
+    <Compile Include="Action Specific\PlayerCharacter.cs" />
+    <Compile Include="Action Specific\PlayerIntellect.cs" />
+    <Compile Include="Action Specific\Tank.cs" />
     <Compile Include="Action Specific\Turret.cs" />
+    <Compile Include="Action Specific\TurretAI.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="Aircraft.cs" />
     <Compile Include="BooleanSwitch.cs" />
-    <Compile Include="Action Specific\Tank.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
     <Compile Include="WaterPlaneClipVolume.cs" />
     <Compile Include="DynamicSinusoidSurface.cs" />
@@ -153,19 +160,15 @@
     <Compile Include="AutomaticOpenDoor.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="BulletItem.cs" />
-    <Compile Include="Action Specific\Character.cs" />
     <Compile Include="Corpse.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Firework.cs" />
     <Compile Include="JumpBlowMeleeWeapon.cs" />
-    <Compile Include="Action Specific\MapChangeRegion.cs" />
     <Compile Include="MeleeWeapon.cs" />
-    <Compile Include="Action Specific\GameCharacterAI.cs" />
     <Compile Include="Dynamic.cs" />
     <Compile Include="Explosion.cs" />
     <Compile Include="Faction.cs" />
     <Compile Include="Fan.cs" />
-    <Compile Include="Action Specific\GameCharacter.cs" />
     <Compile Include="GameGuiObject.cs" />
     <Compile Include="GameMap.cs" />
     <Compile Include="GameWorld.cs" />
@@ -179,9 +182,6 @@
     <Compile Include="Intellect.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemCreator.cs" />
-    <Compile Include="Action Specific\JumpPad.cs" />
-    <Compile Include="Action Specific\PlayerCharacter.cs" />
-    <Compile Include="Action Specific\PlayerIntellect.cs" />
     <Compile Include="PlayerManager.cs" />
     <Compile Include="Teleporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
