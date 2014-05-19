@@ -1,6 +1,1 @@
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Bin\ProjectEntities.dll
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Bin\ProjectEntities.pdb
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Bin\ProjectEntities.xml
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Src\ProjectEntities\obj\Debug\ProjectEntities.csprojResolveAssemblyReference.cache
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Src\ProjectEntities\obj\Debug\ProjectEntities.dll
-D:\Daten\Programmierumgebungen\GameLab\Projekt\Src\ProjectEntities\obj\Debug\ProjectEntities.pdb
+C:\Users\Mattias\Desktop\GameLab\Projekt\Src\ProjectEntities\obj\Debug\ProjectEntities.csprojResolveAssemblyReference.cache
