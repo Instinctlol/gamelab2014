@@ -1,0 +1,11 @@
+type Sector
+{
+	class = Sector
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Base\\Types\\InvisiblePoint.mesh"
+		}
+	}
+}
