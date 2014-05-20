@@ -147,7 +147,6 @@
     <Compile Include="AI.cs" />
     <Compile Include="Aircraft.cs" />
     <Compile Include="BooleanSwitch.cs" />
-    <Compile Include="CutSceneManager.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
     <Compile Include="DynamicLight.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
@@ -174,6 +173,7 @@
     <Compile Include="TankGame Specific\TankGameUnitAI.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskWindow.cs" />
+    <Compile Include="WaterPlaneClipVolume.cs" />
     <Compile Include="DynamicSinusoidSurface.cs" />
     <Compile Include="SimpleMap.cs" />
     <Compile Include="Terminal.cs" />
@@ -181,6 +181,7 @@
     <Compile Include="DecalCreator.cs" />
     <Compile Include="Influences.cs" />
     <Compile Include="ExampleMagicObject.cs" />
+    <Compile Include="CutSceneManager.cs" />
     <Compile Include="DynamicCollision.cs" />
     <Compile Include="ObserveCameraArea.cs" />
     <Compile Include="InfluenceRegion.cs" />
@@ -202,7 +203,6 @@
     <Compile Include="General.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="WaterPlane.cs" />
-    <Compile Include="WaterPlaneClipVolume.cs" />
     <Compile Include="WeaponItem.cs" />
     <Compile Include="HealthItem.cs" />
     <Compile Include="Influence.cs" />
