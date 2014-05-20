@@ -651,6 +651,27 @@
         <member name="M:ProjectEntities.BooleanSwitch.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
+        <member name="T:ProjectEntities.CutSceneManagerType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.CutSceneManager"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.CutSceneManager">
+            <summary>
+            The manager of cut scenes. 
+            That there was an opportunity to create a cut scenes on a map, 
+            it is necessary to create in the Map Editor object "CutSceneManager".
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.CutSceneManager.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.CutSceneManager.OnDestroy">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.CutSceneManager.OnTick">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
+        </member>
         <member name="T:ProjectEntities.JigsawPuzzleManagerType">
             <summary>
             Defines the <see cref="T:ProjectEntities.JigsawPuzzleManager"/> entity type.
@@ -821,20 +842,6 @@
         <member name="M:ProjectEntities.TankGameUnitAI.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.WaterPlaneClipVolumeType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.WaterPlaneClipVolume"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.WaterPlaneClipVolume">
-            <summary>
-            Addition class for WaterPlane.
-            By this class is possible to disable reflections for objects inside specified volume.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.WaterPlaneClipVolume.OnRender(Engine.Renderer.Camera)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
-        </member>
         <member name="T:ProjectEntities.DynamicSinusoidSurfaceType">
             <summary>
             Defines the <see cref="T:ProjectEntities.DynamicSinusoidSurface"/> entity type.
@@ -894,27 +901,6 @@
         </member>
         <member name="M:ProjectEntities.ExampleMagicObject.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.CutSceneManagerType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.CutSceneManager"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.CutSceneManager">
-            <summary>
-            The manager of cut scenes. 
-            That there was an opportunity to create a cut scenes on a map, 
-            it is necessary to create in the Map Editor object "CutSceneManager".
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.CutSceneManager.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.CutSceneManager.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.CutSceneManager.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
         <member name="T:ProjectEntities.DynamicCollisionType">
             <summary>
@@ -1361,6 +1347,20 @@
         </member>
         <member name="M:ProjectEntities.WaterPlane.OnDestroy">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
+        </member>
+        <member name="T:ProjectEntities.WaterPlaneClipVolumeType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.WaterPlaneClipVolume"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.WaterPlaneClipVolume">
+            <summary>
+            Addition class for WaterPlane.
+            By this class is possible to disable reflections for objects inside specified volume.
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.WaterPlaneClipVolume.OnRender(Engine.Renderer.Camera)">
+            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.WeaponItemType">
             <summary>

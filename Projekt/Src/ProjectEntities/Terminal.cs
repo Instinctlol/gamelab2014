@@ -18,7 +18,8 @@ namespace ProjectEntities
     public class Terminal : Dynamic
     {
 
-        TerminalType _type = null; public new TerminalType Type { get { return _type; } }
+        TerminalType _type = null;
+        public new TerminalType Type { get { return _type; } }
 
 
         public enum TerminalTaskType
