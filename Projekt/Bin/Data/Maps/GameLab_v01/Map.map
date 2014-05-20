@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 35.88122 -3.57539 98.71981
-editorCameraDirection = 3.395854 -1.387112
+editorCameraPosition = 27.1844 8.359653 77.11185
+editorCameraDirection = 3.748009 -1.063394
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -64,7 +64,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 23
+			subscriptionsToDeletionEvent = 32
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch_0
 			customScriptCodeCreated = False
@@ -72,7 +72,7 @@ entity
 			{
 				type = LogicDesignerMethod
 				uin = 6
-				actions = 26
+				actions = 7
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -80,36 +80,36 @@ entity
 				entity
 				{
 					type = LogicIfThenElseAction
-					uin = 26
-					conditionAction = 27
-					trueActions = 29
-					falseActions = 32
+					uin = 7
+					conditionAction = 8
+					trueActions = 10
+					falseActions = 13
 					entity
 					{
 						type = LogicCallThisMethodAction
-						uin = 27
+						uin = 8
 						entityOwnerProperty = True
-						dotPathAction = 28
+						dotPathAction = 9
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 28
+							uin = 9
 							propertyName = Value
 						}
 					}
 					entity
 					{
 						type = LogicCallGetEntityMethodAction
-						uin = 29
-						subscriptionsToDeletionEvent = 16
-						entity = 16
-						dotPathAction = 34
+						uin = 10
+						subscriptionsToDeletionEvent = 25
+						entity = 25
+						dotPathAction = 11
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 34
+							uin = 11
 							methodName = Rotate
-							parameterActions = 35
+							parameterActions = 12
 							parameterTypeNames
 							{
 								item
@@ -120,7 +120,7 @@ entity
 							entity
 							{
 								type = LogicGetConstantValueAction
-								uin = 35
+								uin = 12
 								valueType = Engine.MathEx.Quat
 								value = 0 0 31415 1
 							}
@@ -129,16 +129,16 @@ entity
 					entity
 					{
 						type = LogicCallGetEntityMethodAction
-						uin = 32
-						subscriptionsToDeletionEvent = 16
-						entity = 16
-						dotPathAction = 31
+						uin = 13
+						subscriptionsToDeletionEvent = 25
+						entity = 25
+						dotPathAction = 14
 						entity
 						{
 							type = LogicCallNonStaticMethodAction
-							uin = 31
+							uin = 14
 							methodName = Rotate
-							parameterActions = 30
+							parameterActions = 15
 							parameterTypeNames
 							{
 								item
@@ -149,7 +149,7 @@ entity
 							entity
 							{
 								type = LogicGetConstantValueAction
-								uin = 30
+								uin = 15
 								valueType = Engine.MathEx.Quat
 								value = 0 0 0 1
 							}
@@ -163,7 +163,7 @@ entity
 entity
 {
 	type = MapCompositorManager
-	uin = 7
+	uin = 16
 	classPrompt = MapCompositorManager
 	items
 	{
@@ -172,7 +172,7 @@ entity
 entity
 {
 	type = SkyBox
-	uin = 8
+	uin = 17
 	classPrompt = SkyBox
 	enabled = True
 	textureName = "Base\\Types\\SkyBox\\space.dds"
@@ -182,7 +182,7 @@ entity
 entity
 {
 	type = F3R3
-	uin = 9
+	uin = 18
 	classPrompt = MapObject
 	position = -40 0 0
 	name = F3R3
@@ -191,7 +191,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 10
+	uin = 19
 	classPrompt = MapObject
 	position = -31.04214 31.54012 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -201,7 +201,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 11
+	uin = 20
 	classPrompt = MapObject
 	position = 0 40 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -211,7 +211,7 @@ entity
 entity
 {
 	type = SpawnPoint
-	uin = 12
+	uin = 21
 	classPrompt = SpawnPoint
 	defaultPoint = False
 	position = -7.725273 -69.02689 1.778926
@@ -222,7 +222,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 13
+	uin = 22
 	classPrompt = MapObject
 	position = 0 -40 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -232,7 +232,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 14
+	uin = 23
 	classPrompt = MapObject
 	position = 32.59693 -32.23511 0
 	rotation = 0 0 -0.3826835 0.9238795
@@ -242,7 +242,7 @@ entity
 entity
 {
 	type = F3R1
-	uin = 15
+	uin = 24
 	classPrompt = MapObject
 	position = 40 0 0
 	rotation = 0 0 -1 -4.371139E-08
@@ -252,9 +252,9 @@ entity
 entity
 {
 	type = Ring
-	uin = 16
+	uin = 25
 	classPrompt = Ring
-	subscriptionsToDeletionEvent = 29 32
+	subscriptionsToDeletionEvent = 10 13
 	rotatable = True
 	enabled = True
 	shapeType = Box
@@ -267,13 +267,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 17
+	uin = 26
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -287,13 +287,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 18
+	uin = 27
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -306,13 +306,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 19
+	uin = 28
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -326,13 +326,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 20
+	uin = 29
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -346,13 +346,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 21
+	uin = 30
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -366,13 +366,13 @@ entity
 entity
 {
 	type = Sector
-	uin = 22
+	uin = 31
 	classPrompt = Sector
 	lights = 
 	lightStatus = False
 	dynamics = 
 	statics = 
-	ring = 16
+	ring = 25
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -386,7 +386,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 23
+	uin = 32
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 5
 	value = False
@@ -399,7 +399,7 @@ entity
 entity
 {
 	type = DecorativeObjectManager
-	uin = 24
+	uin = 33
 	classPrompt = DecorativeObjectManager
 	enabled = True
 	visible = True
@@ -412,7 +412,7 @@ entity
 entity
 {
 	type = Tree06A
-	uin = 33
+	uin = 34
 	classPrompt = MapObject
 	position = 7.29999 -38.7 -2.8
 	scale = 1 0.4445446 0.5567388
@@ -420,7 +420,7 @@ entity
 entity
 {
 	type = F3R3
-	uin = 25
+	uin = 35
 	classPrompt = MapObject
 	position = -1.7 -78.81891 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -457,6 +457,6 @@ entity
 	allowStaticLighting = False
 	allowDynamicLighting = True
 	customShaderParameter = 0 0 0 0
-	position = 11.3 -1.000003 16.8
+	position = -0.5 2.899997 16.8
 	name = Sun_0
 }
