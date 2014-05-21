@@ -136,6 +136,7 @@
     <Compile Include="Action Specific\GameCharacter.cs" />
     <Compile Include="Action Specific\GameCharacterAI.cs" />
     <Compile Include="Action Specific\JumpPad.cs" />
+    <Compile Include="Action Specific\KleineAlienAI.cs" />
     <Compile Include="Action Specific\MapChangeRegion.cs" />
     <Compile Include="Action Specific\PlayerCharacter.cs" />
     <Compile Include="Action Specific\PlayerIntellect.cs" />
@@ -156,7 +157,6 @@
     <Compile Include="StationSystem.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskWindow.cs" />
-    <Compile Include="WaterPlaneClipVolume.cs" />
     <Compile Include="DynamicSinusoidSurface.cs" />
     <Compile Include="SimpleMap.cs" />
     <Compile Include="Terminal.cs" />
@@ -185,7 +185,12 @@
     <Compile Include="GameWorld.cs" />
     <Compile Include="General.cs" />
     <Compile Include="Gun.cs" />
-    <Compile Include="WaterPlane.cs" />
+    <Compile Include="WaterPlane.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WaterPlaneClipVolume.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WeaponItem.cs" />
     <Compile Include="HealthItem.cs" />
     <Compile Include="Influence.cs" />

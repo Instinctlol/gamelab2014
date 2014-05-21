@@ -199,6 +199,25 @@
         <member name="M:ProjectEntities.JumpPad.OnDestroy">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
         </member>
+        <member name="T:ProjectEntities.KleineAlienAIType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.KleineAlienAI"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.KleineAlienAI">
+            <summary>
+            Defines the AI for the small aliens
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.KleineAlienAI.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.KleineAlienAI.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)"/></summary>
+        </member>
+        <member name="M:ProjectEntities.KleineAlienAI.OnTick">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
+        </member>
         <member name="T:ProjectEntities.MapChangeRegionType">
             <summary>
             Defines the <see cref="T:ProjectEntities.MapChangeRegion"/> entity type.
@@ -335,20 +354,6 @@
             If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:ProjectEntities.WaterPlaneClipVolumeType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.WaterPlaneClipVolume"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.WaterPlaneClipVolume">
-            <summary>
-            Addition class for WaterPlane.
-            By this class is possible to disable reflections for objects inside specified volume.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.WaterPlaneClipVolume.OnRender(Engine.Renderer.Camera)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.DynamicSinusoidSurfaceType">
             <summary>
@@ -876,6 +881,20 @@
         </member>
         <member name="M:ProjectEntities.WaterPlane.OnDestroy">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
+        </member>
+        <member name="T:ProjectEntities.WaterPlaneClipVolumeType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.WaterPlaneClipVolume"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.WaterPlaneClipVolume">
+            <summary>
+            Addition class for WaterPlane.
+            By this class is possible to disable reflections for objects inside specified volume.
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.WaterPlaneClipVolume.OnRender(Engine.Renderer.Camera)">
+            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.WeaponItemType">
             <summary>
