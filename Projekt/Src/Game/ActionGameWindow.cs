@@ -40,11 +40,6 @@ namespace Game
         [Config("Camera", "tpsCameraCenterOffset")]
         static float tpsCameraCenterOffset = 1.6f;
 
-        [Config("Camera", "tpsVehicleCameraDistance")]
-        static float tpsVehicleCameraDistance = 8.7f;
-        [Config("Camera", "tpsVehicleCameraCenterOffset")]
-        static float tpsVehicleCameraCenterOffset = 3.8f;
-
         //For management of pressing of the player on switches and management ingame GUI
         const float playerUseDistance = 3;
         const float playerUseDistanceTPS = 10;
@@ -273,15 +268,7 @@ namespace Game
             {
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                 {
-                    Vec2 mouseOffset = MousePosition;
-
-                    //zoom for Turret
-                    if (EngineApp.Instance.IsMouseButtonPressed(EMouseButtons.Right))
-                        if (GetPlayerUnit() != null && GetPlayerUnit() is Turret)
-                            if (GetRealCameraType() == CameraType.TPS)
-                                mouseOffset /= 3;
-
-                    GameControlsManager.Instance.DoMouseMoveRelative(mouseOffset);
+                    GameControlsManager.Instance.DoMouseMoveRelative(MousePosition);
                 }
             }
         }
@@ -378,17 +365,9 @@ namespace Game
                 float cameraDistance;
                 float cameraCenterOffset;
 
-                if (IsPlayerUnitVehicle())
-                {
-                    cameraDistance = tpsVehicleCameraDistance;
-                    cameraCenterOffset = tpsVehicleCameraCenterOffset;
-                }
-                else
-                {
-                    cameraDistance = tpsCameraDistance;
-                    cameraCenterOffset = tpsCameraCenterOffset;
-                }
-
+                cameraDistance = tpsCameraDistance;
+                cameraCenterOffset = tpsCameraCenterOffset;
+                
                 if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
                 {
                     cameraDistance -= delta * distanceRange.Size() / 20.0f;
@@ -416,17 +395,9 @@ namespace Game
                     if (cameraCenterOffset < centerOffsetRange[0])
                         cameraCenterOffset = centerOffsetRange[0];
                 }
-
-                if (IsPlayerUnitVehicle())
-                {
-                    tpsVehicleCameraDistance = cameraDistance;
-                    tpsVehicleCameraCenterOffset = cameraCenterOffset;
-                }
-                else
-                {
-                    tpsCameraDistance = cameraDistance;
-                    tpsCameraCenterOffset = cameraCenterOffset;
-                }
+                
+                tpsCameraDistance = cameraDistance;
+                tpsCameraCenterOffset = cameraCenterOffset;
             }
 
             //GameControlsManager
@@ -882,16 +853,6 @@ namespace Game
                     PlayerCharacter playerCharacter = playerUnit as PlayerCharacter;
                     if (playerCharacter != null)
                         weapon = playerCharacter.ActiveWeapon;
-
-                    //Turret specific
-                    Turret turret = playerUnit as Turret;
-                    if (turret != null)
-                        weapon = turret.MainGun;
-
-                    //Tank specific
-                    Tank tank = playerUnit as Tank;
-                    if (tank != null)
-                        weapon = tank.MainGun;
                 }
 
                 if (weapon != null)
@@ -978,16 +939,6 @@ namespace Game
                 PlayerCharacter playerCharacter = playerUnit as PlayerCharacter;
                 if (playerCharacter != null)
                     weapon = playerCharacter.ActiveWeapon;
-
-                //Turret specific
-                Turret turret = playerUnit as Turret;
-                if (turret != null)
-                    weapon = turret.MainGun;
-
-                //Tank specific
-                Tank tank = playerUnit as Tank;
-                if (tank != null)
-                    weapon = tank.MainGun;
             }
 
             //draw quad
@@ -1000,66 +951,6 @@ namespace Game
                     .5f - size, .5f - size * aspect,
                     .5f + size, .5f + size * aspect);
                 renderer.AddQuad(rectangle, new Rect(0, 0, 1, 1), texture);
-            }
-
-            //Tank specific
-            DrawTankGunTarget(renderer);
-        }
-
-        //Tank specific
-        void DrawTankGunTarget(GuiRenderer renderer)
-        {
-            Tank tank = GetPlayerUnit() as Tank;
-            if (tank == null)
-                return;
-
-            Gun gun = tank.MainGun;
-            if (gun == null)
-                return;
-
-            Vec3 gunPosition = gun.GetInterpolatedPosition();
-            Vec3 gunDirection = gun.GetInterpolatedRotation() * new Vec3(1, 0, 0);
-
-            RayCastResult[] piercingResult = PhysicsWorld.Instance.RayCastPiercing(
-                new Ray(gunPosition, gunDirection * 1000),
-                (int)ContactGroup.CastOnlyContact);
-
-            bool finded = false;
-            Vec3 pos = Vec3.Zero;
-
-            foreach (RayCastResult result in piercingResult)
-            {
-                bool ignore = false;
-
-                MapObject obj = MapSystemWorld.GetMapObjectByBody(result.Shape.Body);
-
-                Dynamic dynamic = obj as Dynamic;
-                if (dynamic != null && dynamic.GetParentUnit() == tank)
-                    ignore = true;
-
-                if (!ignore)
-                {
-                    finded = true;
-                    pos = result.Position;
-                    break;
-                }
-            }
-
-            if (!finded)
-                pos = gunPosition + gunDirection * 1000;
-
-            //draw quad
-            Vec2 screenPos;
-            if (RendererWorld.Instance.DefaultCamera.ProjectToScreenCoordinates(pos, out screenPos))
-            {
-                Texture texture = TextureManager.Instance.Load("GUI/Cursors/TankTarget.png");
-                float size = .015f;
-                float aspect = RendererWorld.Instance.DefaultCamera.AspectRatio;
-                Rect rectangle = new Rect(
-                    screenPos.X - size, screenPos.Y - size * aspect,
-                    screenPos.X + size, screenPos.Y + size * aspect);
-                renderer.AddQuad(rectangle, new Rect(0, 0, 1, 1), texture,
-                    new ColorValue(0, 1, 0));
             }
         }
 
@@ -1187,29 +1078,6 @@ namespace Game
         {
             //Replacement the camera type depending on a current unit.
             Unit playerUnit = GetPlayerUnit();
-            if (playerUnit != null)
-            {
-                //Turret specific
-                if (playerUnit as Turret != null)
-                {
-                    if (cameraType == CameraType.FPS)
-                        return CameraType.TPS;
-                }
-
-                //Crane specific
-                if (playerUnit as Crane != null)
-                {
-                    if (cameraType == CameraType.TPS)
-                        return CameraType.FPS;
-                }
-
-                //Tank specific
-                if (playerUnit as Tank != null)
-                {
-                    if (cameraType == CameraType.FPS)
-                        return CameraType.TPS;
-                }
-            }
 
             return cameraType;
         }
@@ -1414,26 +1282,11 @@ namespace Game
                 case CameraType.TPS:
                     {
                         //Calculate orientation of a TPS camera.
-
-                        float cameraDistance;
-                        float cameraCenterOffset;
-
-                        if (IsPlayerUnitVehicle())
-                        {
-                            cameraDistance = tpsVehicleCameraDistance;
-                            cameraCenterOffset = tpsVehicleCameraCenterOffset;
-                        }
-                        else
-                        {
-                            cameraDistance = tpsCameraDistance;
-                            cameraCenterOffset = tpsCameraCenterOffset;
-                        }
-
                         PlayerIntellect.Instance.UpdateTransformBeforeCameraPositionCalculation();
 
                         //To calculate orientation of a TPS camera.
-                        Vec3 lookAt = unit.GetInterpolatedPosition() + new Vec3(0, 0, cameraCenterOffset);
-                        position = CalculateTPSCameraPosition(lookAt, -cameraLookDir, cameraDistance, unit);
+                        Vec3 lookAt = unit.GetInterpolatedPosition() + new Vec3(0, 0, tpsCameraCenterOffset);
+                        position = CalculateTPSCameraPosition(lookAt, -cameraLookDir, tpsCameraDistance, unit);
                         forward = (lookAt - position).GetNormalize();
                     }
                     break;
@@ -1444,30 +1297,6 @@ namespace Game
 
                         PlayerIntellect.Instance.UpdateTransformBeforeCameraPositionCalculation();
 
-                        if (unit is Turret)
-                        {
-                            //Turret specific
-                            Gun mainGun = ((Turret)unit).MainGun;
-                            position = mainGun.GetInterpolatedPosition();
-                            position += unit.Type.FPSCameraOffset * mainGun.GetInterpolatedRotation();
-                        }
-                        else if (unit is Tank)
-                        {
-                            //Tank specific
-                            Gun mainGun = ((Tank)unit).MainGun;
-                            position = mainGun.GetInterpolatedPosition();
-                            position += unit.Type.FPSCameraOffset * mainGun.GetInterpolatedRotation();
-                        }
-                        else if (unit is Car)
-                        {
-                            //Car specific
-                            position = unit.GetInterpolatedPosition();
-                            position += unit.Type.FPSCameraOffset * unit.GetInterpolatedRotation();
-
-                            //update camera direction
-                            cameraLookDir = unit.GetInterpolatedRotation().GetForward();
-                        }
-                        else
                         {
                             //Characters, etc
                             position = unit.GetInterpolatedPosition();
@@ -1538,23 +1367,9 @@ namespace Game
             }
 
             //To update data in player intellect about type of the camera
-            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;
+            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;         
 
-            float cameraOffset;
-            if (IsPlayerUnitVehicle())
-                cameraOffset = tpsVehicleCameraCenterOffset;
-            else
-                cameraOffset = tpsCameraCenterOffset;
-
-            PlayerIntellect.Instance.TPSCameraCenterOffset = cameraOffset;
-
-            //zoom for Turret
-            if (EngineApp.Instance.IsMouseButtonPressed(EMouseButtons.Right))
-            {
-                if (GetPlayerUnit() as Turret != null)
-                    if (GetRealCameraType() == CameraType.TPS)
-                        cameraFov /= 3;
-            }
+            PlayerIntellect.Instance.TPSCameraCenterOffset = tpsCameraCenterOffset;
         }
 
         /// <summary>
@@ -1669,19 +1484,12 @@ namespace Game
             return true;
         }
 
-        bool IsPlayerUnitVehicle()
-        {
-            Unit playerUnit = GetPlayerUnit();
-
-            //Tank specific
-            if (playerUnit as Tank != null)
-                return true;
-            //Car specific
-            if (playerUnit as Car != null)
-                return true;
-
-            return false;
-        }
+        //bool IsPlayerUnitVehicle()
+        //{
+        //    Unit playerUnit = GetPlayerUnit();
+//
+  //          return false;
+    //    }
 
         static void ConsoleCommand_MovePlayerUnitToCamera(string arguments)
         {

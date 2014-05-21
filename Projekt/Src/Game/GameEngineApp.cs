@@ -921,9 +921,6 @@ namespace Game
 
 			//Create specific game window
 			if( GameMap.Instance != null )
-				gameWindow = CreateGameWindowByGameType( GameMap.Instance.GameType );
-
-			if( gameWindow == null )
 				gameWindow = new ActionGameWindow();
 
 			controlManager.Controls.Add( gameWindow );
@@ -1219,11 +1216,6 @@ namespace Game
 		{
 			needFadingOutAndExit = true;
 			fadingOutTimer = fadingTime;
-		}
-
-		GameWindow CreateGameWindowByGameType( GameMap.GameTypes gameType )
-		{
-				return new VillageDemoGameWindow();
 		}
 
 		public void Client_OnConnectedToServer()

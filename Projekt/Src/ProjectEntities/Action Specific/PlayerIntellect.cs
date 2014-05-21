@@ -245,16 +245,6 @@ namespace ProjectEntities
 			Character character = ControlledObject as Character;
 			if( character != null )
 				character.SetTurnToPosition( turnToPosition );
-
-			//Turret
-			Turret turret = ControlledObject as Turret;
-			if( turret != null )
-				turret.SetMomentaryTurnToPosition( turnToPosition );
-
-			//Tank
-			Tank tank = ControlledObject as Tank;
-			if( tank != null )
-				tank.SetNeedTurnToPosition( turnToPosition );
 		}
 
 		void GameControlsManager_GameControlsEvent( GameControlsEventData e )
@@ -349,17 +339,8 @@ namespace ProjectEntities
 					offset.X += GetControlKeyStrength( GameControlKeys.LookRight );
 					offset.Y += GetControlKeyStrength( GameControlKeys.LookUp );
 					offset.Y -= GetControlKeyStrength( GameControlKeys.LookDown );
-
-					//Turret specific
-					if( ControlledObject != null && ControlledObject is Turret )
-					{
-						offset.X -= GetControlKeyStrength( GameControlKeys.Left );
-						offset.X += GetControlKeyStrength( GameControlKeys.Right );
-						offset.Y += GetControlKeyStrength( GameControlKeys.Forward );
-						offset.Y -= GetControlKeyStrength( GameControlKeys.Backward );
-					}
-
-					offset *= evt.Delta * sensitivity;
+                    
+                    offset *= evt.Delta * sensitivity;
 
 					lookDirection.Horizontal -= offset.X;
 					lookDirection.Vertical += offset.Y;
@@ -405,17 +386,6 @@ namespace ProjectEntities
 			//update look direction
 			if( ControlledObject != null )
 				lookDirection = SphereDir.FromVector( ControlledObject.Rotation * new Vec3( 1, 0, 0 ) );
-
-			//TankGame specific
-			{
-				//set small damage for player tank
-				Tank oldTank = oldObject as Tank;
-				if( oldTank != null )
-					oldTank.ReceiveDamageCoefficient = 1;
-				Tank tank = ControlledObject as Tank;
-				if( tank != null )
-					tank.ReceiveDamageCoefficient = .1f;
-			}
 		}
 
 		public override bool IsActive()
@@ -570,16 +540,6 @@ namespace ProjectEntities
 				mainNotActiveUnit.Server_EnableSynchronizationPositionsToClients = true;
 
 				mainNotActiveUnit.Position = mainNotActiveUnitRestorePosition;
-				//find free position for movable player controlled units
-				if( ControlledObject != null )
-				{
-					//Tank, Car specific
-					if( ControlledObject is Tank || ControlledObject is Car )
-					{
-						mainNotActiveUnit.Position = FindFreePositionForUnit(
-							mainNotActiveUnit, ControlledObject.Position );
-					}
-				}
 
 				mainNotActiveUnit.OldPosition = mainNotActiveUnit.Position;
 

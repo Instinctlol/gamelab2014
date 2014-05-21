@@ -76,11 +76,6 @@
             Defines a window class for Profiling Tool.
             </summary>
         </member>
-        <member name="T:Game.VillageDemoGameWindow">
-            <summary>
-            Defines a game window for Mountain Village Demo.
-            </summary>
-        </member>
         <member name="T:Game.ProductLogoWindow">
             <summary>
             Defines a your project logo window.

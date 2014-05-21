@@ -21,7 +21,7 @@ namespace Game
 		{
 			base.OnAttach();
 
-			Control window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MenuWindowDemo.gui" );
+			Control window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MenuWindow.gui" );
 			Controls.Add( window );
 
 			( (Button)window.Controls[ "LoadSave" ] ).Click += loadSaveButton_Click;

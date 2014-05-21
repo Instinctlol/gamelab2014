@@ -4,9 +4,9 @@
         <name>ProjectEntities</name>
     </assembly>
     <members>
-        <member name="T:ProjectEntities.CarType">
+        <member name="T:ProjectEntities.CharacterType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Car"/> entity type.
+            Defines the <see cref="T:ProjectEntities.Character"/> entity type.
             </summary>
         </member>
         <member name="T:ProjectEntities.UnitType">
@@ -47,272 +47,9 @@
             Gets or sets the camera offset which will be considered at a FPS mode.
             </summary>
         </member>
-        <member name="P:ProjectEntities.CarType.DifferentialType">
+        <member name="T:ProjectEntities.Character">
             <summary>
-            Type of differential.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialFrontRearSplit">
-            <summary>
-            Ratio of torque split between front and rear (more than 0.5 means more to front, less than 0.5 means more to rear). 
-            Only applied to LimitedSlipAllWheelDrive and OpenAllWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialFrontLeftRightSplit">
-            <summary>
-            Ratio of torque split between front-left and front-right (more than 0.5 means more to front-left, less than 0.5 
-            means more to front-right). Only applied to LimitedSlipAllWheelDrive, OpenAllWheelDrive and 
-            LimitedSlipFrontWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialRearLeftRightSplit">
-            <summary>
-            Ratio of torque split between rear-left and rear-right (more than 0.5 means more to rear-left, less than 0.5 means 
-            more to rear-right). Only applied to LimitedSlipAllWheelDrive, OpenAllWheelDrive and 
-            LimitedSlipRearWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialCenterBias">
-            <summary>
-            Maximum allowed ratio of average front wheel rotation speed and rear wheel rotation speeds. 
-            Only applied to LimitedSlipAllWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialFrontBias">
-            <summary>
-            Maximum allowed ratio of front-left and front-right wheel rotation speeds. 
-            Only applied to LimitedSlipAllWheelDrive and LimitedSlipFrontWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.DifferentialRearBias">
-            <summary>
-            Maximum allowed ratio of rear-left and rear-right wheel rotation speeds. 
-            Only applied to LimitedSlipAllWheelDrive and LimitedSlipRearWheelDrive differential types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EnginePeakTorque">
-            <summary>
-            Maximum torque available to apply to the engine, specified in Nm. Please note that to optimize the implementation 
-            the engine has a hard-coded inertia of 1kgm^2. As a consequence the magnitude of the engine's angular acceleration 
-            is exactly equal to the magnitude of the torque driving the engine. To simulate engines with different inertias 
-            (!=1kgm^2) adjust either the entries of EngineTorqueCurve or EnginePeakTorque accordingly.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineMaxRPM">
-            <summary>
-            Maximum rotation speed of the engine, specified in revolutions per minute (RPM).
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineDampingRateFullThrottle">
-            <summary>
-            Damping rate of engine in s^-1 when full throttle is applied. Damping rate applied at run-time is an interpolation 
-            between EngineDampingRateZeroThrottleClutchEngaged and EngineDampingRateFullThrottle if the clutch is engaged.
-            If the clutch is disengaged (in neutral gear) the damping rate applied at run-time is an interpolation between 
-            EngineDampingRateZeroThrottleClutchDisengaged and EngineDampingRateFullThrottle.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineDampingRateZeroThrottleClutchEngaged">
-            <summary>
-            Damping rate of engine in s^-1 at zero throttle when the clutch is engaged. Damping rate applied at run-time is an 
-            interpolation between EngineDampingRateZeroThrottleClutchEngaged and EngineDampingRateFullThrottle if the clutch 
-            is engaged. If the clutch is disengaged (in neutral gear) the damping rate applied at run-time is an interpolation 
-            between EngineDampingRateZeroThrottleClutchDisengaged and EngineDampingRateFullThrottle.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineDampingRateZeroThrottleClutchDisengaged">
-            <summary>
-            Damping rate of engine in s^-1 at zero throttle when the clutch is disengaged (in neutral gear). Damping rate applied 
-            at run-time is an interpolation between EngineDampingRateZeroThrottleClutchEngaged and EngineDampingRateFullThrottle 
-            if the clutch is engaged.  If the clutch is disengaged (in neutral gear) the damping rate applied at run-time is an 
-            interpolation between EngineDampingRateZeroThrottleClutchDisengaged and EngineDampingRateFullThrottle.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineTorqueCurve">
-            <summary>
-            Graph of normalized torque (torque/maxTorque) against normalized engine revs (revs/maxRevs).
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.Gears">
-            <summary>
-            The list of gears.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.GearsSwitchTime">
-            <summary>
-            Time it takes to switch gear, specified in seconds.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.ClutchStrength">
-            <summary>
-            Strength of clutch. Torque generated by clutch is proportional to the clutch strength and the velocity difference 
-            between the engine speed and the speed of the driven wheels after accounting for the gear ratio.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.AckermannSteerAccuracy">
-            <summary>
-            Accuracy of Ackermann steer calculation. Accuracy with value 0.0f results in no Ackermann steer-correction. 
-            Accuracy with value 1.0 results in perfect Ackermann steer-correction.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypes">
-            <summary>
-            The list of tire types.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.SteerVsForwardSpeedTable">
-            <summary>
-            Table of steer multipliers depending on the forward speed.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineTorqueCurveItem.NormalizedTorque">
-            <summary>
-            Normalised torque (torque/maxTorque).
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.EngineTorqueCurveItem.NormalizedRev">
-            <summary>
-            Normalised engine revs (revs/maxRevs).
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.GearItem.Number">
-            <summary>
-            The number of the gear. Set -1 to for reverse gear, set 0 for neutral gear.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.GearItem.Ratio">
-            <summary>
-            Gear ratio.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.Name">
-            <summary>
-            Gets or sets type of tire name.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.TireLatStiffX">
-            <summary>
-            Tire lateral stiffness is typically a graph of tire load that has linear behaviour near zero load and flattens 
-            at large loads.  mLatStiffX describes the minimum normalised load (load/restLoad) that gives a flat lateral 
-            stiffness response.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.TireLatStiffY">
-            <summary>
-            Tire lateral stiffness is a graph of tire load that has linear behavior near zero load and flattens at large 
-            loads. TireLatStiffY describes the maximum possible lateral stiffness divided by the rest tire load, specified 
-            in "per radian".
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.TireLongitudinalStiffnessPerUnitGravity">
-            <summary>
-            Tire Longitudinal stiffness per unit longitudinal slip per unit gravity, specified in N per radian per unit 
-            gravitational acceleration Longitudinal stiffness of the tire per unit longitudinal slip is calculated as 
-            gravitationalAcceleration * TireLongitudinalStiffnessPerUnitGravity.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.TireCamberStiffness">
-            <summary>
-            Camber stiffness, specified in N per radian.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.FrictionVsSlipGraphZeroLongitudinalSlip">
-            <summary>
-            Graph of friction vs longitudinal slip with 3 points. This is the friction available at zero longitudinal slip.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.FrictionVsSlipGraphLongitudinalSlipWithMaximumFriction">
-            <summary>
-            Graph of friction vs longitudinal slip with 3 points. This is the value of longitudinal slip with maximum 
-            friction.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.FrictionVsSlipGraphMaximumFriction">
-            <summary>
-            Graph of friction vs longitudinal slip with 3 points. This is the maximum friction.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.FrictionVsSlipGraphEndPointOfGraph">
-            <summary>
-            Graph of friction vs longitudinal slip with 3 points. This is the end point of the graph.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.TireWheelItem.FrictionVsSlipGraphValueOfFrictionForSlipsGreaterThanEndPointOfGraph">
-            <summary>
-            Graph of friction vs longitudinal slip with 3 points. This is the value of friction for slips greater than end 
-            point of the graph.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.FrictionMultiplierItem.SurfaceMaterialName">
-            <summary>
-            Gets or sets physical material of the surface. If you specify an empty string, the value will be used for all 
-            materials which are not specified in this list.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.TireTypeItem.FrictionMultiplierItem.Value">
-            <summary>
-            Gets or sets friction value.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.WheelDampingRate">
-            <summary>
-            Damping rate applied to wheel.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.WheelMaxBrakeTorque">
-            <summary>
-            Max brake torque that can be applied to wheel, specified in Nm.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.WheelMaxHandBrakeTorque">
-            <summary>
-            Max handbrake torque that can be applied to wheel, specified in Nm.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.WheelMaxSteer">
-            <summary>
-            Max steer angle that can be achieved by the wheel, specified in degrees.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.WheelToeAngle">
-            <summary>
-            Wheel toe angle, specified in degrees.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionSpringStrength">
-            <summary>
-            Spring strength of suspension unit, specified in N m^-1.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionSpringDamperRate">
-            <summary>
-            Spring damper rate of suspension unit, specified in s^-1.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionMaxCompression">
-            <summary>
-            Maximum compression allowed by suspension spring, specified in m.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionMaxDroop">
-            <summary>
-            Maximum elongation allowed by suspension spring, specified in m.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionSprungMassCoefficient">
-            <summary>
-            Mass of vehicle that is supported by suspension spring, specified in coefficient of the chassis mass.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.SuspensionForceApplicationPointOffset">
-            <summary>
-            Gets or sets the application point of the suspension force of the suspension of the wheel. Specified relative to 
-            the centre of the wheel.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.CarType.WheelItem.TireForceApplicationPointOffset">
-            <summary>
-            Gets or sets the application point of the tire force of the tire of the wheel. Specified relative to the centre 
-            of the wheel.
+            Defines the physical characters.
             </summary>
         </member>
         <member name="T:ProjectEntities.Unit">
@@ -386,16 +123,6 @@
             Gets or sets a artificial intelligence which will be appointed to a unit at its creation.
             </summary>
         </member>
-        <member name="T:ProjectEntities.CharacterType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Character"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.Character">
-            <summary>
-            Defines the physical characters.
-            </summary>
-        </member>
         <member name="M:ProjectEntities.Character.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
@@ -404,31 +131,6 @@
         </member>
         <member name="M:ProjectEntities.Character.Client_OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.Client_OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.CraneType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Crane"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.Crane">
-            <summary>
-            Gives an opportunity of creation of the crane and his control via <see cref="T:ProjectEntities.Intellect"/>.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Crane.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Crane.OnPostCreate2(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate2(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Crane.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Crane.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)"/></summary>
-        </member>
-        <member name="M:ProjectEntities.Crane.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
         <member name="T:ProjectEntities.GameCharacterType">
             <summary>
@@ -568,52 +270,6 @@
             In networking mode each client will have different instance. Reference to the his intellect.
             </summary>
         </member>
-        <member name="T:ProjectEntities.TankType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Tank"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Tank.OnPreCreate">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPreCreate"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Tank.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Tank.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.TurretType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Turret"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.Turret">
-            <summary>
-            Gives an opportunity of creation of the turrets.
-            A turret can be rotated. Guns are attached on the tower and player can 
-            control the aiming and shooting of the turret.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Turret.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Turret.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.TurretAIType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.TurretAI"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.TurretAI.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.TurretAI.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)"/></summary>
-        </member>
-        <member name="M:ProjectEntities.TurretAI.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
         <member name="T:ProjectEntities.AircraftType">
             <summary>
             Defines the <see cref="T:ProjectEntities.Aircraft"/> entity type.
@@ -651,32 +307,6 @@
         <member name="M:ProjectEntities.BooleanSwitch.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.JigsawPuzzleManagerType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.JigsawPuzzleManager"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.JigsawPuzzleManager">
-            <summary>
-            The pieces manager for puzzle game example.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.JigsawPuzzleManager.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.JigsawPuzzleManager.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.JigsawPuzzlePieceType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.JigsawPuzzlePiece"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.JigsawPuzzlePiece">
-            <summary>
-            The piece for puzzle game example.
-            </summary>
-        </member>
         <member name="T:ProjectEntities.MySpawnerType">
             <summary>
             Defines the <see cref="T:ProjectEntities.MySpawner"/> entity type.
@@ -705,121 +335,6 @@
             If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:ProjectEntities.RTSBuildingType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSBuilding"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.RTSUnitType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSUnit"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.RTSUnit.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSBuilding.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSBuilding.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.RTSBuildingAIType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSBuildingAI"/> entity type.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.RTSUnitAIType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSUnitAI"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.RTSUnitAI.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSUnitAI.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSUnitAI.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)"/></summary>
-        </member>
-        <member name="M:ProjectEntities.RTSUnitAI.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.RTSCharacterType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSCharacter"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.RTSCharacter.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSCharacter.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSCharacter.OnRender(Engine.Renderer.Camera)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSCharacter.GetMotionMapRectanglesForObject(Engine.GridBasedNavigationSystem,Engine.MapSystem.MapObject,System.Collections.Generic.List{Engine.MathEx.Rect})">
-            <summary>
-            Implements GridBasedNavigationSystem.IOverrideObjectBehavior
-            </summary>
-            <param name="navigationSystem"></param>
-            <param name="obj"></param>
-            <param name="rectangles"></param>
-        </member>
-        <member name="T:ProjectEntities.RTSFactionManagerType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSFactionManager"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.RTSFactionManager.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSFactionManager.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="P:ProjectEntities.RTSFactionManager.Factions">
-            <summary>
-            Don't modify
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.RTSMineType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.RTSMine"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.RTSMine.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.RTSMine.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.MinefieldType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Minefield"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Minefield.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Minefield.OnDestroy">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Minefield.OnCalculateMapBounds(Engine.MathEx.Bounds@)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnCalculateMapBounds(Engine.MathEx.Bounds@)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Minefield.OnRender(Engine.Renderer.Camera)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
-        </member>
-        <member name="T:ProjectEntities.TankGameUnitAIType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.TankGameUnitAI"/> entity type.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.TankGameUnitAI.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.WaterPlaneClipVolumeType">
             <summary>
