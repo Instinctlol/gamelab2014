@@ -44,5 +44,10 @@ type "Corridor-F3"
 			collision = True
 			position = 5.151735 -12.52552 0
 		}
+		light
+		{
+			attenuationFar = 10
+			position = -0.7202721 4.392833 3.64965
+		}
 	}
 }

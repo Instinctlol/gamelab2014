@@ -183,5 +183,10 @@ type BasicR
 			meshName = "Models\\DemoCorridors\\WallMiddle.mesh"
 			position = -22.0847 11.6863 1.80447
 		}
+		light
+		{
+			attenuationFar = 10
+			position = -5.05147 1.115105 0
+		}
 	}
 }

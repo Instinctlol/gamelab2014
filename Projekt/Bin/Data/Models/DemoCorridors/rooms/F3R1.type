@@ -180,5 +180,35 @@ type F3R1
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
+		light
+		{
+			attenuationFar = 10
+			position = 7.272944 -14.73585 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -6.772579 -14.55105 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -6.790389 -1.186689 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 7.255135 -1.371483 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -6.935413 12.05195 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 7.110111 11.86715 0
+		}
 	}
 }

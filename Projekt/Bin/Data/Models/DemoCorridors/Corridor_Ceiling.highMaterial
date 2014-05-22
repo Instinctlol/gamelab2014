@@ -2,6 +2,7 @@ highLevelMaterial Corridor_Ceiling
 {
 	template = ShaderBaseMaterial
 	useNormals = False
+	diffuseColor = 0.5372549 0.5372549 0.5372549
 	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"
 	emissionColor = 1 1 1
 	emissionPower = 1.3

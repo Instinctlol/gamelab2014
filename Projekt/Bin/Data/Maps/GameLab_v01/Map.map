@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 27.1844 8.359653 77.11185
-editorCameraDirection = 3.748009 -1.063394
+editorCameraPosition = 43.75359 1.406543 -1.563017
+editorCameraDirection = 1.147353 -0.1218485
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -426,37 +426,4 @@ entity
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F3R3_0
 	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = Sun
-	uin = 36
-	classPrompt = Sun
-	billboardTexture = "Base\\Types\\Sun\\SunDefault.png"
-	billboardColor = 1 1 1
-	billboardPower = 1
-	billboardSize = 1
-	billboardRenderQueueGroup = Main
-	billboardOverridePosition = 0 0 0
-	enabled = True
-	lightType = Directional
-	diffuseColor = 1 1 1
-	diffusePower = 1
-	specularColor = 0 0 0
-	specularPower = 1
-	attenuationNear = 0
-	attenuationFar = 10
-	attenuationPower = 2
-	ffpAttenuationConstant = 1
-	ffpAttenuationLinear = 0
-	ffpAttenuationQuadric = 0
-	spotlightInnerAngle = 30
-	spotlightOuterAngle = 40
-	spotlightFalloff = 1
-	castShadows = True
-	allowStaticLighting = False
-	allowDynamicLighting = True
-	customShaderParameter = 0 0 0 0
-	position = -0.5 2.899997 16.8
-	name = Sun_0
 }
