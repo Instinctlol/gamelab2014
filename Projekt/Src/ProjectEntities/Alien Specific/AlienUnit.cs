@@ -25,7 +25,7 @@ namespace ProjectEntities.Alien_Specific
         [DefaultValue(10.0f)]
         float buildTime = 10;
 
-        //
+        // 
 
         [DefaultValue(typeof(Range), "0 0")]
         public Range OptimalAttackDistanceRange
