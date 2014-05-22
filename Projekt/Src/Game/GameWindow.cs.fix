@@ -1,0 +1,21 @@
+
+// ....
+
+		protected override void OnAttach()
+		{
+			// ...
+			
+            if (CaveManager.Instance == null)
+                CaveManager.Init();
+		}
+
+		protected override void OnDetach()
+		{
+            if (CaveManager.Instance != null)
+                CaveManager.Shutdown();
+
+			// ...
+		}
+
+		
+// ....

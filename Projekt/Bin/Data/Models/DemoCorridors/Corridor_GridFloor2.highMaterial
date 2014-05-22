@@ -2,6 +2,7 @@ highLevelMaterial Corridor_GridFloor2
 {
 	template = ShaderBaseMaterial
 	useNormals = False
+	diffuseColor = 0.5372549 0.5372549 0.5372549
 	specularColor = 1 1 1
 	diffuse1Map
 	{

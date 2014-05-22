@@ -2,6 +2,7 @@ highLevelMaterial Corridor_WallMiddle2
 {
 	template = ShaderBaseMaterial
 	useNormals = False
+	diffuseColor = 0.5372549 0.5372549 0.5372549
 	reflectionColor = 1 1 1
 	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"
 	specularColor = 1 1 1

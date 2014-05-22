@@ -59,7 +59,7 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
-			position = -4.97898 -1.023885 0
+			position = -5.07898 -0.923885 0
 		}
 		mesh
 		{
@@ -180,8 +180,38 @@ type F3R3
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -16.68773 -0.9293537 -0.01682854
+			position = -16.88773 -0.9293537 -0.01682854
 			rotation = 0 0 -0.9999971 -0.002396267
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 8.6 13 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -5.900001 12.8 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -5.900001 -2.2 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 8.6 -1.999999 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -5.800001 -14.4 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 8.7 -14.2 0
 		}
 	}
 }

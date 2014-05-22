@@ -2,6 +2,7 @@ highLevelMaterial Corridor_Gates
 {
 	template = ShaderBaseMaterial
 	useNormals = False
+	diffuseColor = 0.5372549 0.5372549 0.5372549
 	reflectionColor = 0.4980392 0.4980392 0.4980392
 	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"
 	specularColor = 0.4980392 0.4980392 0.4980392

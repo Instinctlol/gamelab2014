@@ -1,0 +1,26 @@
+
+sampler2D RT : register(s0);
+
+uniform float4 tctl;
+uniform float4 tctr;
+uniform float4 tcbl;
+uniform float4 tcbr;
+
+
+float4 main_fp(float2 iTexCoord : TEXCOORD0) : COLOR
+{
+	float4 t0e;
+	float4 t1e;
+	float4 p;
+	
+	float tcx = iTexCoord.x;
+	float tcy = iTexCoord.y;
+	
+	t0e = (1.0 - tcy) * tctl + tcy * tcbl;
+	t1e = (1.0 - tcy) * tctr + tcy * tcbr;
+	p   = (1.0 - tcx) * t0e + tcx * t1e;
+	
+	float4 color = float4(tex2D(RT, p.xy).rgb, 1);
+	
+	return color;
+}

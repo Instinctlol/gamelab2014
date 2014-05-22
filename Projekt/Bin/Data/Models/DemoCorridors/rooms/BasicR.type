@@ -96,22 +96,22 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -14.6021 23.80369 -0.01682854
+			position = -14.7021 23.80369 -0.01682854
 			rotation = 0 0 -0.7054104 -0.7087992
-			scale = 1 0.5109398 1
+			scale = 1 0.5547808 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = -17.51035 17.85572 0
+			position = -17.91035 17.85572 0
 			rotation = 0 0 0.9998346 -0.01819437
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Wall.mesh"
 			collision = True
-			position = -0.2792517 -23.7265 -0.01682854
+			position = 0.1207483 -23.7265 -0.01682854
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
@@ -125,7 +125,7 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = 5.199883 -17.71768 0
+			position = 5.999883 -17.71768 0
 			rotation = 0 0 -0.00337009 -0.9999943
 		}
 		mesh
@@ -178,15 +178,35 @@ type BasicR
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
-		mesh
+		light
 		{
-			meshName = "Models\\DemoCorridors\\WallMiddle.mesh"
-			position = -22.0847 11.6863 1.80447
+			attenuationFar = 10
+			position = -14.08707 -12.73813 0
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -5.05147 1.115105 0
+			position = 0.02838659 -12.99648 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -14.03227 0.04136476 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 0.9822259 -0.1399193 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = -14.41881 14.86238 0
+		}
+		light
+		{
+			attenuationFar = 10
+			position = 1.027165 14.80246 0
 		}
 	}
 }
