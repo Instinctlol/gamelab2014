@@ -12,22 +12,37 @@ namespace ProjectEntities
     public class SectorType : RegionType
     { }
 
+    /*
+    * Klasse für Sektoren. Versorgt sich mit den meisten Daten von selbst
+    */
     public class Sector : Region
     {
         SectorType _type = null; public new SectorType Type { get { return _type; } }
 
+        //Liste der Lichter wird automatisch generiert
         [FieldSerialize]
         private List<DynamicLight> lights = new List<DynamicLight>();
+
+        //Aktueller status der Lichter
         [FieldSerialize]
         private bool lightStatus;
+
+        //Lister aller Dynamischen Objekte wird automatisch generiert
         [FieldSerialize]
         private List<Dynamic> dynamics = new List<Dynamic>();
+
+        //Liste aller statischen Objekte wird automatisch generiert
         [FieldSerialize]
         private List<MapObject> statics = new List<MapObject>();
 
+        //Ring zu dem dieser Sektore gehört
         [FieldSerialize]
         private Ring ring;
 
+
+        //***************************
+        //*******Getter-Setter*******
+        //*************************** 
         public Ring Ring
         {
             get { return ring; }
@@ -35,8 +50,85 @@ namespace ProjectEntities
                 ring = value; 
             }
         }
+        //***************************
 
-        void OnRotateRing(Vec3 pos, Quat rot)
+
+        public Sector() : base()
+        {
+            base.ShapeType = ShapeTypes.Box;
+            base.Filter = Filters.All;
+            base.CheckType = CheckTypes.Center;
+        }
+
+        //Toggled die Lichter
+        public void ToggleLights()
+        {
+            lightStatus = !lightStatus;
+            SetLights(lightStatus);
+        }
+
+        //Setzt die Lichter zu bestimmten status
+        public void SetLights(bool status)
+        {
+            if (lightStatus != status)
+                lightStatus = status;
+
+            if (lightStatus)
+                foreach (DynamicLight l in lights)
+                {
+                    l.TurnOn();
+                }
+            else
+                foreach (DynamicLight l in lights)
+                {
+                    l.TurnOff();
+                }
+        }
+
+        //Registriert wenn ein Objekt den Sektor betritt
+        protected override void OnObjectIn(MapObject obj)
+        {
+            base.OnObjectIn(obj);
+
+            if (obj is Sector || obj is Ring)
+                return;
+
+            if (obj is DynamicLight)
+                AddLight((DynamicLight)obj);
+            else if (obj is Dynamic)
+                AddDynamic((Dynamic)obj);
+            else
+                AddStatic(obj);
+        }
+
+        //Registriert wenn ein Object den Sektor verlässt
+        protected override void OnObjectOut(MapObject obj)
+        {
+            base.OnObjectOut(obj);
+
+            if (obj is Sector || obj is Ring)
+                return;
+            if (obj is Dynamic)
+                RemoveDynamic((Dynamic)obj);
+
+        }
+
+        //Initialisieren bestimmter Teile wenn Sektor erstellt wird
+        protected override void OnPostCreate(bool loaded)
+        {
+
+            base.OnPostCreate(loaded);
+
+
+            //Wenn Ring vorhanden bei seinem Event unterschreiben
+            if (ring != null)
+                ring.RotateRing += new ProjectEntities.Ring.RotateRingDelegate(OnRotateRing);
+
+        }
+
+
+        //Wenn Ring rotiert alles im Sektor rotieren
+        private void OnRotateRing(Vec3 pos, Quat rot)
         {
 
             Rotation = rot * Rotation;
@@ -69,51 +161,7 @@ namespace ProjectEntities
         }
 
 
-
-        public Sector() : base()
-        {
-            base.ShapeType = ShapeTypes.Box;
-            base.Filter = Filters.All;
-            base.CheckType = CheckTypes.Center;
-        }
-
-        protected override void OnObjectIn(MapObject obj)
-        {
-            base.OnObjectIn(obj);
-
-            if (obj is Sector || obj is Ring)
-                return;
-
-            if (obj is DynamicLight)
-                AddLight((DynamicLight)obj);
-            else if (obj is Dynamic)
-                AddDynamic((Dynamic)obj);
-            else
-                AddStatic(obj);
-        }
-
-        protected override void OnObjectOut(MapObject obj)
-        {
-            base.OnObjectOut(obj);
-
-            if (obj is Sector || obj is Ring)
-                return;
-            if (obj is Dynamic)
-                RemoveDynamic((Dynamic)obj);
-
-        }
-
-        protected override void OnPostCreate(bool loaded)
-        {
-
-            base.OnPostCreate(loaded);
-
-
-            if(ring != null)
-                ring.RotateRing += new ProjectEntities.Ring.RotateRingDelegate(OnRotateRing);
-            
-        }
-
+        //Private Methoden zum verwalten der Listen
         private void AddStatic(MapObject m)
         {
             statics.Add(m);
@@ -124,36 +172,12 @@ namespace ProjectEntities
             lights.Add(l);
         }
 
-        public void ToggleLights()
-        {
-            lightStatus = !lightStatus;
-            SetLights(lightStatus);
-        }
-
-        public void SetLights(bool status)
-        {
-            if(lightStatus != status)
-                lightStatus = status;
-
-            if (lightStatus)
-                foreach (DynamicLight l in lights)
-                {
-                    l.TurnOn();
-                }
-            else
-                foreach (DynamicLight l in lights)
-                {
-                    l.TurnOff();
-                }
-        }
-
-
-        public void AddDynamic(Dynamic d)
+        private void AddDynamic(Dynamic d)
         {
             dynamics.Add(d);
         }
 
-        public void RemoveDynamic(Dynamic d)
+        private void RemoveDynamic(Dynamic d)
         {
             dynamics.Remove(d);
         }

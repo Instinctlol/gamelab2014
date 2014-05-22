@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ProjectEntities
 {
+    /*
+     * Klasse für ein statisches Licht (DiffuseColor fest vom Type), ob man die braucht weiss ich nicht
+     */
     public class StaticLightType : LightType
     {
         ColorValue diffuseColor;

@@ -1,10 +1,15 @@
 ﻿using Engine.MapSystem;
 using Engine.MathEx;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 
 namespace ProjectEntities
 {
+    /*
+     * Klasse zur Verwaltung von allem möglichen was auf der Station vor sich geht
+     * Was genau hier alles passiert ist noch ungewiss
+     */
     public class StationSystem
     {
         //************* Singleton ***************
@@ -23,41 +28,43 @@ namespace ProjectEntities
                 return instance;
             }
         }
-        //***************************************
+        //***************************************        
 
-        private Dictionary<int, Ring> rings = new Dictionary<int, Ring>();
-        private Dictionary<int, List<Sector>> sectors = new Dictionary<int,List<Sector>>();
-
-        //Positionen einfach Hardcoden
-        private Dictionary<int, Dictionary<int, Quat>> ringPosition = new Dictionary<int, Dictionary<int, Quat>>();
-
-        public void RegisterRing(Ring ring)
+        //Sektor zu einer Position  kriegen
+        public Sector GetSector(Vec2 position)
         {
-            /*
-            if (rings.Keys.Contains(ring.Id) || ring.Id < 0)
-                throw new Exception("Duplicated or invalid ID");
+            Sector result = null;
+
+            Vec3 source = new Vec3(position, 1);
+            Vec3 direction = new Vec3(0, 0, -1);
+            Ray ray = new Ray(source, direction);
 
 
-            rings.Add(ring.Id, ring);
-
-            sectors.Add(ring.Id, new List<Sector>());
-
-            foreach(Sector s in Map.Instance.Children.OfType<Sector>())
+            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
             {
-                if(s.Ring.Id == ring.Id)
+                Sector sec = obj as Sector;
+
+                if(sec!= null)
                 {
-                    sectors[ring.Id].Add(s);
+                    result = sec;
+                    return false;
                 }
-            }*/
+
+                return true;
+            });
+
+            return result;
         }
 
-        public void RotateRing(int ringId, int position)
+        //Ring zu einer Position kriegen
+        public Ring GetRing(Vec2 position)
         {
-            /*
-            if (!rings.Keys.Contains(ringId))
-                return;
+            Sector sec = GetSector(position);
 
-            rings[ringId].Rotate(new Engine.MathEx.Quat(0, 0, 2, 1)); */
+            if (sec != null)
+                return sec.Ring;
+            else
+                return null;
         }
 
     }

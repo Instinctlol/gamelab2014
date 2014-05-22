@@ -12,16 +12,34 @@ namespace ProjectEntities
 
     public class RingType : RegionType
     {}
+
+    /*
+     * Klasse für Ringe. Unterstützt drehen nach links/rechts
+     */
     public class Ring : Region
     {
         RingType _type = null; public new RingType Type { get { return _type; } }
 
+
+        //Variable ob der Ring drehbar sein soll
         [FieldSerialize]
         private bool rotatable = true;
 
+        //Deprecated
         [FieldSerialize]
         private int id = -1;
 
+        //Anzahl der Ecken des Ringes, standard 8. Nur gebraucht für drehen, ist egal bei festen Ringen
+        [FieldSerialize]
+        private int corners = 8;
+
+        //Aktuelle Position des Ringes
+        private int position;
+
+
+        //***************************
+        //*******Getter-Setter*******
+        //*************************** 
         public bool Rotatable
         {
             get { return rotatable; }
@@ -34,11 +52,23 @@ namespace ProjectEntities
             set { id = value; }
         }
 
+        public int Corners
+        {
+            get { return corners; }
+            set { corners = value; }
+        }
+        //*************************** 
+
+        //******************************
+        //*******Delegates/Events*******
+        //****************************** 
         public delegate void RotateRingDelegate(Vec3 pos, Quat rot);
 
 
         [LogicSystemBrowsable(true)]
         public event RotateRingDelegate RotateRing;
+        //*****************************
+
 
 
         public Ring() : base()
@@ -47,32 +77,59 @@ namespace ProjectEntities
             base.Filter = Filters.All;
         }
 
-        protected override void OnPostCreate(bool loaded)
-        {
-            base.OnPostCreate(loaded);
 
-            if (loaded && Id >= 0)
-                StationSystem.Instance.RegisterRing(this);
-        }
-
+        //Rotiert "links" herum
         [LogicSystemBrowsable(true)]
-        public void Rotate(Quat rot)
+        public void RotateLeft()
         {
 
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
                 return;
 
+            position = (position + corners - 1);
+
+            double angle = position * (Math.PI / corners);
+
+            Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
+
             Quat newRot = rot * Rotation.GetInverse();
             newRot.Normalize();
 
             Rotation = rot;
 
-            if(RotateRing != null)
+            if (RotateRing != null)
             {
                 RotateRing(this.Position, newRot);
             }
         
+        }
+
+        //Rotiert "rechts" herum
+        [LogicSystemBrowsable(true)]
+        public void RotateRight()
+        {
+
+            //Vllt Error wenn man versucht statischen ring zu drehen
+            if (!Rotatable)
+                return;
+
+            position = (position + 1) % corners;
+
+            double angle = position * (Math.PI/corners);
+
+            Quat rot = new Quat(0,0,(float) Math.Sin( angle ), (float) Math.Cos( angle ));
+
+            Quat newRot = rot * Rotation.GetInverse();
+            newRot.Normalize();
+
+            Rotation = rot;
+
+            if (RotateRing != null)
+            {
+                RotateRing(this.Position, newRot);
+            }
+
         }
 
     }
