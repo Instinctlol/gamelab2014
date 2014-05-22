@@ -66,11 +66,6 @@
             Defines a about us window.
             </summary>
         </member>
-        <member name="T:Game.MainChoiceWindow">
-            <summary>
-            Defines a window of options.
-            </summary>
-        </member>
         <member name="T:ProjectCommon.ProfilingToolWindow">
             <summary>
             Defines a window class for Profiling Tool.

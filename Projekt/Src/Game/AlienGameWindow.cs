@@ -48,14 +48,6 @@ namespace Game
         Vec2 selectStartPos;
         bool selectDraggedMouse;
 
-        //Task target choose
-        int taskTargetChooseIndex = -1;
-
-        //Task target build Building
-        RTSBuildingType taskTargetBuildingType;
-        MeshObject taskTargetBuildMeshObject;
-        SceneNode taskTargetBuildSceneNode;
-
         //Player Faction
         FactionType playerFaction;
 
@@ -122,10 +114,6 @@ namespace Game
 
             InitControlPanelButtons();
             UpdateControlPanel();
-
-            //set playerFaction
-            if (RTSFactionManager.Instance != null && RTSFactionManager.Instance.Factions.Count != 0)
-                playerFaction = RTSFactionManager.Instance.Factions[0].FactionType;
 
             //minimap
             minimapControl = hudControl.Controls["Minimap"];
@@ -280,7 +268,7 @@ namespace Game
             }
 
             //minimap mouse change camera position
-            if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
+            if (button == EMouseButtons.Left)
             {
                 if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
                 {
@@ -337,18 +325,8 @@ namespace Game
                 if (pickingSuccess)
                 {
                     //do tasks
-                    if (TaskTargetChooseIndex != -1)
-                    {
-                        if (button == EMouseButtons.Left)
-                            DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
-                        if (button == EMouseButtons.Right)
-                            TaskTargetChooseIndex = -1;
-                    }
-                    else
-                    {
                         if (button == EMouseButtons.Right)
                             DoRightClickTasks(mouseMapPos, mouseOnObject);
-                    }
                 }
             }
 
@@ -361,114 +339,6 @@ namespace Game
                 minimapChangeCameraPosition = false;
 
             return base.OnMouseUp(button);
-        }
-
-        bool IsEnableTaskTypeInTasks(List<RTSUnitAI.UserControlPanelTask> tasks, RTSUnitAI.Task.Types taskType)
-        {
-            if (tasks == null)
-                return false;
-            foreach (RTSUnitAI.UserControlPanelTask task in tasks)
-                if (task.Task.Type == taskType && task.Enable)
-                    return true;
-            return false;
-        }
-
-        void DoTaskTargetChooseTasks(Vec3 mouseMapPos, Unit mouseOnObject)
-        {
-            //Do task after task target choose
-
-            bool toQueue = EngineApp.Instance.IsKeyPressed(EKeys.Shift);
-
-            List<RTSUnitAI.UserControlPanelTask> tasks = GetControlTasks();
-            int index = TaskTargetChooseIndex;
-
-            if (tasks != null && index < tasks.Count && tasks[index].Enable)
-            {
-                foreach (Unit unit in selectedUnits)
-                {
-                    RTSUnitAI intellect = unit.Intellect as RTSUnitAI;
-                    if (intellect == null)
-                        continue;
-
-                    RTSUnitAI.Task.Types taskType = tasks[index].Task.Type;
-
-                    List<RTSUnitAI.UserControlPanelTask> aiTasks = intellect.GetControlPanelTasks();
-
-                    if (!IsEnableTaskTypeInTasks(aiTasks, taskType))
-                        continue;
-
-                    switch (taskType)
-                    {
-                        //Move, Attack, Repair
-                        case RTSUnitAI.Task.Types.Move:
-                        case RTSUnitAI.Task.Types.Attack:
-                        case RTSUnitAI.Task.Types.Repair:
-                            if (mouseOnObject != null)
-                                intellect.DoTask(new RTSUnitAI.Task(taskType, mouseOnObject), toQueue);
-                            else
-                            {
-                                if (taskType == RTSUnitAI.Task.Types.Move)
-                                    intellect.DoTask(new RTSUnitAI.Task(taskType, mouseMapPos), toQueue);
-
-                                if (taskType == RTSUnitAI.Task.Types.Attack ||
-                                    taskType == RTSUnitAI.Task.Types.Repair)
-                                {
-                                    intellect.DoTask(new RTSUnitAI.Task(RTSUnitAI.Task.Types.BreakableMove,
-                                        mouseMapPos), toQueue);
-                                }
-                            }
-                            break;
-
-                        //BuildBuilding
-                        case RTSUnitAI.Task.Types.BuildBuilding:
-                            {
-                                if (!taskTargetBuildSceneNode.Visible)
-                                    return;
-
-                                Vec3 pos = taskTargetBuildSceneNode.Position;
-
-                                //RTSMine specific
-                                bool mineFound = false;
-                                if (taskTargetBuildingType is RTSMineType)
-                                {
-                                    Bounds bounds = new Bounds(pos - new Vec3(2, 2, 2),
-                                        pos + new Vec3(2, 2, 2));
-                                    Map.Instance.GetObjects(bounds, delegate(MapObject obj)
-                                    {
-                                        if (obj.Type.Name == "RTSGeyser")
-                                        {
-                                            mineFound = true;
-                                            mouseMapPos = obj.Position;
-                                        }
-                                    });
-
-                                    if (!mineFound)
-                                    {
-                                        //no mine for build
-                                        return;
-                                    }
-                                }
-
-                                if (IsFreeForBuildTaskTargetBuild(pos))
-                                {
-                                    intellect.DoTask(new RTSUnitAI.Task(taskType, pos,
-                                        tasks[index].Task.EntityType), toQueue);
-
-                                    GameEngineApp.Instance.ControlManager.PlaySound(
-                                        "Maps\\RTSDemo\\Sounds\\BuildBuilding.ogg");
-                                }
-                                else
-                                {
-                                    //no free for build
-                                    return;
-                                }
-                            }
-                            break;
-
-                    }
-                }
-            }
-            TaskTargetChooseIndex = -1;
         }
 
         void DoRightClickTasks(Vec3 mouseMapPos, Unit mouseOnObject)
