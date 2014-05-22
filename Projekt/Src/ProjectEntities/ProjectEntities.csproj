@@ -148,7 +148,6 @@
     <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
-    <Compile Include="DynamicLight.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
     <Compile Include="PINTaskWindow.cs" />
     <Compile Include="Repairable.cs" />
@@ -156,7 +155,6 @@
     <Compile Include="Sector.cs" />
     <Compile Include="SmartButton.cs" />
     <Compile Include="SmartButtonWindow.cs" />
-    <Compile Include="StaticLight.cs" />
     <Compile Include="StationSystem.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskWindow.cs" />

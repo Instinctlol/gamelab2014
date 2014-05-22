@@ -19,20 +19,19 @@ namespace ProjectEntities
     {
         SectorType _type = null; public new SectorType Type { get { return _type; } }
 
+        private List<MapObjectAttachedLight> attachedLights = new List<MapObjectAttachedLight>();
+
         //Liste der Lichter wird automatisch generiert
-        [FieldSerialize]
-        private List<DynamicLight> lights = new List<DynamicLight>();
+        private List<Light> lights = new List<Light>();
 
         //Aktueller status der Lichter
         [FieldSerialize]
         private bool lightStatus;
 
         //Lister aller Dynamischen Objekte wird automatisch generiert
-        [FieldSerialize]
         private List<Dynamic> dynamics = new List<Dynamic>();
 
         //Liste aller statischen Objekte wird automatisch generiert
-        [FieldSerialize]
         private List<MapObject> statics = new List<MapObject>();
 
         //Ring zu dem dieser Sektore gehört
@@ -74,16 +73,29 @@ namespace ProjectEntities
                 lightStatus = status;
 
             if (lightStatus)
-                foreach (DynamicLight l in lights)
+            {
+                foreach (Light l in lights)
                 {
-                    l.TurnOn();
+                    l.Visible = true;
                 }
+                foreach (MapObjectAttachedLight l in attachedLights)
+                {
+                    l.Visible = true;
+                }
+            }
             else
-                foreach (DynamicLight l in lights)
+            {
+                foreach (Light l in lights)
                 {
-                    l.TurnOff();
+                    l.Visible = false;
                 }
+                foreach (MapObjectAttachedLight l in attachedLights)
+                {
+                    l.Visible = false;
+                }
+            }
         }
+
 
         //Registriert wenn ein Objekt den Sektor betritt
         protected override void OnObjectIn(MapObject obj)
@@ -93,8 +105,8 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
-            if (obj is DynamicLight)
-                AddLight((DynamicLight)obj);
+            if (obj is Light)
+                AddLight((Light)obj);
             else if (obj is Dynamic)
                 AddDynamic((Dynamic)obj);
             else
@@ -119,10 +131,12 @@ namespace ProjectEntities
 
             base.OnPostCreate(loaded);
 
+            if (!loaded)
+                return;
 
             //Wenn Ring vorhanden bei seinem Event unterschreiben
             if (ring != null)
-                ring.RotateRing += new ProjectEntities.Ring.RotateRingDelegate(OnRotateRing);
+                ring.RotateRing += OnRotateRing;
 
         }
 
@@ -165,11 +179,22 @@ namespace ProjectEntities
         private void AddStatic(MapObject m)
         {
             statics.Add(m);
+
+            foreach (MapObjectAttachedObject obj in m.AttachedObjects)
+            {
+                if (obj is MapObjectAttachedLight)
+                    AddAttachedLight((MapObjectAttachedLight)obj);
+            }
         }
 
-        private void AddLight(DynamicLight l)
+        private void AddLight(Light l)
         {
             lights.Add(l);
+        }
+
+        private void AddAttachedLight(MapObjectAttachedLight l)
+        {
+            attachedLights.Add(l);
         }
 
         private void AddDynamic(Dynamic d)
