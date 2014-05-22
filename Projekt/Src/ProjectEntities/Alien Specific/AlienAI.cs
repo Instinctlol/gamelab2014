@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+using Engine;
+using Engine.MathEx;
+using Engine.EntitySystem;
+using Engine.MapSystem;
+using Engine.PhysicsSystem;
 
 namespace ProjectEntities.Alien_Specific
 {
     /// <summary>
     /// Defines the <see cref="AlienAI"/> entity type.
     /// </summary>
-    public class AlienAIType : AIType
+    public class AlienAIType : AlienUnitAIType
     {
     }
 
     /// <summary>
-    /// base AI for both, AlienUnitAI and AlienSpawnerAI.
-    /// contains the logic which will be used from spawnpoint and small alien.
+    /// AI for small aliens
+    /// 
+    /// bleibt erstmal leer, muss nachher code von AlienUnitAI rüberkopiert werden, der nicht von der AlienSpawnerAI verwendet wird
     /// </summary>
-    class AlienAI : AI
+    class AlienAI : AlienUnitAI
     {
         AlienAIType _type = null; public new AlienAIType Type { get { return _type; } }
+
+        
     }
 }
