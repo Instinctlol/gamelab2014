@@ -120,8 +120,7 @@ namespace Game
 
 		void Multiplayer_Click( Button sender )
 		{
-            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
-			//Controls.Add( new MultiplayerLoginWindow() );
+			Controls.Add( new MultiplayerLoginWindow() );
 		}
 
 		void Options_Click( Button sender )
