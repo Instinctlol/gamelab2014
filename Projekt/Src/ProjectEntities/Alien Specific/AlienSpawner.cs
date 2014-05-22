@@ -18,14 +18,14 @@ namespace ProjectEntities
     /// <summary>
     /// Defines the <see cref="MySpawner"/> entity type.
     /// </summary>
-    public class MySpawnerType : MapObjectType
+    public class MySpawnerType : UnitType
     {
     }
 
     /// <summary>
     /// Spawner for creating small aliens
     /// </summary>
-    public class MySpawner : MapObject
+    public class MySpawner : Unit  // ableiten von AlienUnit (neu zu erstellen, wie RTSBUILDING von RTSUnit) oder von Unit
     {
         [FieldSerialize]
         AIType aiType;
