@@ -140,7 +140,6 @@
     <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AboutWindow.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs" />
-    <Compile Include="MainChoiceWindow.cs" />
     <Compile Include="MultiViewConfigurationWindow.cs" />
     <Compile Include="GUISamples2Window.cs" />
     <Compile Include="ProfilingToolWindow.cs" />
