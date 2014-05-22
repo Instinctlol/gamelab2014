@@ -14,10 +14,5 @@ namespace ProjectEntities
         {
             this.task = task;
         }
-
-
-
-
-
     }
 }

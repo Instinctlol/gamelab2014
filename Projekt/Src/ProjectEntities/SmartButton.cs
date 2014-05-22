@@ -13,18 +13,42 @@ namespace ProjectEntities
         private Terminal terminal;
         private SmartButtonWindow window;
 
-        
+        //***************************
+        //*******Getter-Setter*******
+        //*************************** 
+        public Terminal Terminal
+        {
+            get { return terminal; }
+            set { terminal = value; }
+        }
+
+        public SmartButtonWindow Window
+        {
+            get { return window; }
+            set
+            {
+                window = value;
+                if (terminal != null)
+                    terminal.Window = window;
+            }
+        }
+        //*************************** 
+
+        //******************************
+        //*******Delegates/Events*******
+        //****************************** 
         public delegate void PressedDelegate(SmartButton entity);
 
         [LogicSystemBrowsable(true)]
         public event PressedDelegate Pressed;
+        //****************************** 
 
         public SmartButton(Terminal terminal)
         {
             Terminal = terminal;
-            
         }
 
+        //Aktualisiert den Button
         public void RefreshButton()
         {
             switch (terminal.ButtonType)
@@ -41,22 +65,6 @@ namespace ProjectEntities
                     SmartButtonPressed();
                     break;
             }
-        }
-
-        public Terminal Terminal
-        {
-            get { return terminal; }
-            set { terminal = value; }
-        }
-
-        public SmartButtonWindow Window
-        {
-            get { return window; }
-            set { 
-                window = value;
-                if(terminal != null)
-                    terminal.Window = window;
-                }
         }
 
         public void SmartButtonPressed()

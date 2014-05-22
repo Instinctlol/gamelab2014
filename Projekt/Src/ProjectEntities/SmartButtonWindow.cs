@@ -14,6 +14,7 @@ namespace ProjectEntities
             this.button = button;
         }
 
+        //Dieese Methode an den Control Button übergeben
         protected void SmartClick(Button sender)
         {
             button.SmartButtonPressed();

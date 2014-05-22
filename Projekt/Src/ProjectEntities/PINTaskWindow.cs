@@ -7,17 +7,24 @@ namespace ProjectEntities
 {
     public class PINTaskWindow : TaskWindow
     {
-        TextBox output;
+        //Textfeld in dem ausgegeben werden soll
+        private TextBox output;
 
-        string curOutput;
-        string pin;
+        //Momentan eingegebene Sequenz
+        private string curOutput;
+
+        //Einzugebene PIN
+        private string pin;
 
         public PINTaskWindow(Task task) : base(task)
         {
+            //GUI erzeugen
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\PINTaskGUI.gui");
 
+            //Output feld setzen
             output = (TextBox)CurWindow.Controls["Output"];
 
+            //Methoden für die Button klicks
             ((Button)CurWindow.Controls["One"]).Click += One_click;
             ((Button)CurWindow.Controls["Two"]).Click += Two_click;
             ((Button)CurWindow.Controls["Three"]).Click += Three_click;
@@ -92,6 +99,7 @@ namespace ProjectEntities
             curOutput = "";
             UpdateOutput();
         }
+
         void Enter_click(Button b)
         {
             if (task.Terminal.TaskData.Equals(curOutput))
