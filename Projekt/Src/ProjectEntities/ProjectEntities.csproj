@@ -142,11 +142,14 @@
     <Compile Include="Action Specific\PlayerIntellect.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="Aircraft.cs" />
+    <Compile Include="Alien Specific\AlienAI.cs" />
+    <Compile Include="Alien Specific\AlienSpawner.cs" />
+    <Compile Include="Alien Specific\AlienSpawnerAI.cs" />
+    <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
     <Compile Include="DynamicLight.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
-    <Compile Include="MySpawner.cs" />
     <Compile Include="PINTaskWindow.cs" />
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />

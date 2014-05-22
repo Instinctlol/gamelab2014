@@ -300,31 +300,16 @@
         <member name="M:ProjectEntities.Aircraft.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.BooleanSwitchType">
+        <member name="T:ProjectEntities.Alien_Specific.AlienAIType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.BooleanSwitch"/> entity type.
+            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienAI"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.SwitchType">
+        <member name="T:ProjectEntities.Alien_Specific.AlienAI">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Switch"/> entity type.
+            base AI for both, AlienUnitAI and AlienSpawnerAI.
+            contains the logic which will be used from spawnpoint and small alien.
             </summary>
-        </member>
-        <member name="T:ProjectEntities.BooleanSwitch">
-            <summary>
-            Defines the user boolean switches.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.Switch">
-            <summary>
-            Base class for defines the user switches. (Booleans and quantitatives).
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Switch.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.BooleanSwitch.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.MySpawnerType">
             <summary>
@@ -354,6 +339,52 @@
             If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:ProjectEntities.Alien_Specific.AlienSpawnerAIType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienSpawnerAI"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.Alien_Specific.AlienSpawnerAI">
+            <summary>
+            AI for small-alien-spawnpoint
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.Alien_Specific.AlienUnitAIType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienUnitAI"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.Alien_Specific.AlienUnitAI">
+            <summary>
+            AI for small aliens
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.BooleanSwitchType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.BooleanSwitch"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.SwitchType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.Switch"/> entity type.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.BooleanSwitch">
+            <summary>
+            Defines the user boolean switches.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.Switch">
+            <summary>
+            Base class for defines the user switches. (Booleans and quantitatives).
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.Switch.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.BooleanSwitch.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
         <member name="T:ProjectEntities.DynamicSinusoidSurfaceType">
             <summary>
