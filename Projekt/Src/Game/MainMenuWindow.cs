@@ -118,14 +118,10 @@ namespace Game
 				DestroyMap();
 		}
 
-		void Run_Click( Button sender )
-		{
-            Controls.Add(new MainChoiceWindow());
-		}
-
 		void Multiplayer_Click( Button sender )
 		{
-			Controls.Add( new MultiplayerLoginWindow() );
+            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
+			//Controls.Add( new MultiplayerLoginWindow() );
 		}
 
 		void Options_Click( Button sender )
