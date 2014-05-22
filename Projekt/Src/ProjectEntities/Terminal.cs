@@ -188,12 +188,9 @@ namespace ProjectEntities
 
             //Task setzen
             task = new Task(this);
-<<<<<<< .mine
+            task.TaskFinished += OnTaskFinished;
 
             //Button refreshen
-=======
-            task.TaskFinished += OnTaskFinished;
->>>>>>> .r119
             button.RefreshButton();
             
             //AttachedGUIObjekt finden
