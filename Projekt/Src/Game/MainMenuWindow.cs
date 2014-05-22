@@ -50,7 +50,7 @@ namespace Game
 			EngineApp.Instance.Config.RegisterClassParameters( GetType() );
 
 			//create main menu window
-			window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MainMenuWindowDemo.gui" );
+			window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MainMenuWindow.gui" );
 
 			window.ColorMultiplier = new ColorValue( 1, 1, 1, 0 );
 			Controls.Add( window );
@@ -60,8 +60,6 @@ namespace Game
 				window.Controls[ "NoShaderModel3" ].Visible = !RenderSystem.Instance.HasShaderModel3();
 
 			//button handlers
-			if( window.Controls[ "Run" ] != null )
-				( (Button)window.Controls[ "Run" ] ).Click += Run_Click;
 			if( window.Controls[ "Multiplayer" ] != null )
 				( (Button)window.Controls[ "Multiplayer" ] ).Click += Multiplayer_Click;
 			if( window.Controls[ "Options" ] != null )
