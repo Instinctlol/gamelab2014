@@ -25,7 +25,7 @@ namespace ProjectEntities.Alien_Specific
     /// <summary>
     /// Spawner for creating small aliens
     /// </summary>
-    public class AlienSpawner : AlienUnit  // ableiten von AlienUnit (neu zu erstellen, wie RTSBUILDING von RTSUnit) oder von Unit
+    class AlienSpawner : AlienUnit  // ableiten von AlienUnit (neu zu erstellen, wie RTSBUILDING von RTSUnit) oder von Unit
     {
         /*von RTSBuilding.cs*/
         [FieldSerialize]
@@ -314,17 +314,17 @@ namespace ProjectEntities.Alien_Specific
 
         /* von RTSBuilding.cs */
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
-        protected override void OnPostCreate(bool loaded)
-        {
-            base.OnPostCreate(loaded);
-            SubscribeToTickEvent();
+        //protected override void OnPostCreate(bool loaded)
+        //{
+        //    base.OnPostCreate(loaded);
+        //    SubscribeToTickEvent();
 
-            //for world load/save
-            if (productUnitType != null)
-                CreateProductUnitAttachedMesh();
+        //    //for world load/save
+        //    if (productUnitType != null)
+        //        CreateProductUnitAttachedMesh();
 
-            UpdateAttachedObjectsVisibility();
-        }
+        //    UpdateAttachedObjectsVisibility();
+        //}
 
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
         protected override void OnTick()
