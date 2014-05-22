@@ -142,9 +142,11 @@
     <Compile Include="Action Specific\PlayerIntellect.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="Aircraft.cs" />
+    <Compile Include="Alien Specific\Alien.cs" />
     <Compile Include="Alien Specific\AlienAI.cs" />
     <Compile Include="Alien Specific\AlienSpawner.cs" />
     <Compile Include="Alien Specific\AlienSpawnerAI.cs" />
+    <Compile Include="Alien Specific\AlienUnit.cs" />
     <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
