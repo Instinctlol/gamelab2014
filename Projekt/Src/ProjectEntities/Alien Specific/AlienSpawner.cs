@@ -16,7 +16,7 @@ using ProjectCommon;
 namespace ProjectEntities.Alien_Specific
 {
     /// <summary>
-    /// Defines the <see cref="MySpawner"/> entity type.
+    /// Defines the <see cref="AlienSpawner"/> entity type.
     /// </summary>
     public class AlienSpawnerType : AlienUnitType
     {

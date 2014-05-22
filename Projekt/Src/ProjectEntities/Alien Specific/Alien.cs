@@ -13,7 +13,7 @@ using Engine.Utils;
 namespace ProjectEntities.Alien_Specific
 {
     /// <summary>
-	/// Defines the <see cref="RTSUnit"/> entity type.
+	/// Defines the <see cref="Alien"/> entity type.
 	/// </summary>
 	public class AlienType : AlienUnitType
 	{

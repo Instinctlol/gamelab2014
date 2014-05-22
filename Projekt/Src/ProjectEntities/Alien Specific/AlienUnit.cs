@@ -9,7 +9,7 @@ using Engine.MathEx;
 namespace ProjectEntities.Alien_Specific
 {
     /// <summary>
-    /// Defines the <see cref="RTSUnit"/> entity type.
+    /// Defines the <see cref="AlienUnit"/> entity type.
     /// </summary>
     public class AlienUnitType : UnitType
     {
