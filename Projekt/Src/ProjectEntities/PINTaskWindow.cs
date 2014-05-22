@@ -29,6 +29,7 @@ namespace ProjectEntities
             ((Button)CurWindow.Controls["Nine"]).Click += Nine_click;
             ((Button)CurWindow.Controls["Zero"]).Click += Zero_click;
             ((Button)CurWindow.Controls["Clear"]).Click += Clear_click;
+            ((Button)CurWindow.Controls["Enter"]).Click += Enter_click;
         }
 
 
@@ -91,7 +92,12 @@ namespace ProjectEntities
             curOutput = "";
             UpdateOutput();
         }
-
-       
+        void Enter_click(Button b)
+        {
+            if (task.Terminal.TaskData.Equals(curOutput))
+                task.Success = true;
+            else
+                task.Success = false;
+        }
     }
 }

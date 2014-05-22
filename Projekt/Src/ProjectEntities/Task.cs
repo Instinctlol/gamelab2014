@@ -71,10 +71,13 @@ namespace ProjectEntities
 
 
 
-        public virtual void OnTaskFinished()
+        public void OnTaskFinished()
         {
             if( TaskFinished != null)
-                TaskFinished(this);
+            { TaskFinished(this);
+                
+            }
+                
         }
     }
 }

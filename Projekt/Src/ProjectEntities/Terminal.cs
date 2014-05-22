@@ -1,6 +1,7 @@
 ﻿using Engine;
 using Engine.MapSystem;
 using Engine.UISystem;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -147,6 +148,7 @@ namespace ProjectEntities
             if (repairable != null)
                 button.AttachRepairable(repairable);
             task = new Task(this);
+            task.TaskFinished += OnTaskFinished;
             button.RefreshButton();
             
 
@@ -161,6 +163,15 @@ namespace ProjectEntities
             }
 
             CreateMainControl();
+        }
+
+        private void OnTaskFinished(Task task)
+        {
+            Window = button.Window;
+            if (task.Success)
+                TaskSuccessful();
+            else
+                TaskFailed();
         }
 
         protected override void OnDestroy()
@@ -197,6 +208,16 @@ namespace ProjectEntities
                 initialWindow = value;
                 CreateMainControl();
             } 
+        }
+
+        private void TaskFailed()
+        {
+            EngineConsole.Instance.Print("Failed");
+        }
+
+        private void TaskSuccessful()
+        {
+            EngineConsole.Instance.Print("Successful");
         }
     }
 }

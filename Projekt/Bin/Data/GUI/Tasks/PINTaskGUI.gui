@@ -55,7 +55,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 160 190
+		position = ScaleByResolution 159.9999 190
 		size = ScaleByResolution 70 60
 		name = Nine
 		text = 9
@@ -88,5 +88,12 @@ control Control
 		size = Parent 0.9977463 0.1123722
 		name = Output
 		backColor = 1 1 1
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution 159.9999 260
+		size = ScaleByResolution 70 60
+		name = Enter
+		text = Act.
 	}
 }

@@ -8,7 +8,7 @@ namespace ProjectEntities
     public class TaskWindow : Window
     {
 
-        Task task;
+        protected Task task;
 
         public TaskWindow(Task task)
         {
