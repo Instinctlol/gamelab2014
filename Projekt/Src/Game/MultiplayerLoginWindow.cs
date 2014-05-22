@@ -20,10 +20,11 @@ namespace Game
 		static string connectToAddress = "127.0.0.1";
 
 		Control window;
-		EditBox editBoxUserName;
+
 		EditBox editBoxConnectTo;
 		Button buttonCreateServer;
 		Button buttonConnect;
+        Button buttonConnect2;
 
 		bool notDisposeClientOnDetach;
 
@@ -41,7 +42,7 @@ namespace Game
 
 			//create window
 			window = ControlDeclarationManager.Instance.CreateControl(
-				"Gui\\MultiplayerLoginWindow.gui" );
+                "Gui\\CustomMultiplayerLoginWindow.gui");
 			Controls.Add( window );
 
 			MouseCover = true;
@@ -55,6 +56,9 @@ namespace Game
 			buttonConnect = (Button)window.Controls[ "Connect" ];
 			buttonConnect.Click += Connect_Click;
 
+            buttonConnect2 = (Button)window.Controls["Connect2"];
+            buttonConnect2.Click += Connect_Click;
+
 			( (Button)window.Controls[ "Exit" ] ).Click += Exit_Click;
 
 			//generate user name
@@ -63,10 +67,6 @@ namespace Game
 				EngineRandom random = new EngineRandom();
 				userName = "Player" + random.Next( 1000 ).ToString( "D03" );
 			}
-
-			editBoxUserName = (EditBox)window.Controls[ "UserName" ];
-			editBoxUserName.Text = userName;
-			editBoxUserName.TextChange += editBoxUserName_TextChange;
 
 			editBoxConnectTo = (EditBox)window.Controls[ "ConnectTo" ];
 			editBoxConnectTo.Text = connectToAddress;
@@ -98,11 +98,6 @@ namespace Game
 			}
 
 			return false;
-		}
-
-		void editBoxUserName_TextChange( Control sender )
-		{
-			userName = editBoxUserName.Text.Trim();
 		}
 
 		void editBoxConnectTo_TextChange( Control sender )
@@ -171,7 +166,6 @@ namespace Game
 				return;
 			}
 
-			editBoxUserName.Enable = false;
 			editBoxConnectTo.Enable = false;
 			buttonCreateServer.Enable = false;
 			buttonConnect.Enable = false;
@@ -190,7 +184,6 @@ namespace Game
 			if( GameNetworkClient.Instance != null )
 				GameNetworkClient.Instance.Dispose();
 
-			editBoxUserName.Enable = true;
 			editBoxConnectTo.Enable = true;
 			buttonCreateServer.Enable = true;
 			buttonConnect.Enable = true;
