@@ -1,6 +1,7 @@
 highLevelMaterial Corridor_PassDown2
 {
 	template = ShaderBaseMaterial
+	doubleSided = True
 	useNormals = False
 	diffuseColor = 0.5372549 0.5372549 0.5372549
 	reflectionColor = 1 1 1

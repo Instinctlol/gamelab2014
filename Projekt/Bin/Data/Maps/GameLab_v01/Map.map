@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -18.34193 -12.30983 84.70809
-editorCameraDirection = 0.02246147 -1.509218
+editorCameraPosition = 68.02545 -51.80107 4.247828
+editorCameraDirection = 1.196899 0.1885528
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -184,7 +184,7 @@ entity
 	type = F3R3
 	uin = 18
 	classPrompt = MapObject
-	position = -40 0 0
+	position = -34 0 0
 	name = F3R3
 	editorLayer = "Root Layer\\F3"
 }
@@ -193,7 +193,7 @@ entity
 	type = F3R-24
 	uin = 19
 	classPrompt = MapObject
-	position = 0 40 0
+	position = 0 47 0
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F3R4
 	editorLayer = "Root Layer\\F3"
@@ -204,7 +204,7 @@ entity
 	uin = 20
 	classPrompt = SpawnPoint
 	defaultPoint = False
-	position = -7.725273 -69.02689 1.778926
+	position = 64.17473 -66.9269 1.778926
 	rotation = 0 0 -0.1073978 -0.9942161
 	name = TEst
 	editorLayer = "Root Layer\\F3"
@@ -214,7 +214,7 @@ entity
 	type = F3R-24
 	uin = 21
 	classPrompt = MapObject
-	position = 0 -40 0
+	position = 0 -47 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = F3R2
 	editorLayer = "Root Layer\\F3"
@@ -224,7 +224,7 @@ entity
 	type = F3R1
 	uin = 22
 	classPrompt = MapObject
-	position = 40 0 0
+	position = 34 0 0
 	rotation = 0 0 -1 -4.371139E-08
 	name = F3R1
 	editorLayer = "Root Layer\\F3"
@@ -401,7 +401,7 @@ entity
 	type = F3R3
 	uin = 33
 	classPrompt = MapObject
-	position = -1.7 -78.81891 0
+	position = -0.4 -71.61891 0
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F3R3_0
 	editorLayer = "Root Layer\\F3"
@@ -411,7 +411,7 @@ entity
 	type = F3C90
 	uin = 34
 	classPrompt = MapObject
-	position = -36.4 38.9 0
+	position = -36.5 38.9 0
 	name = F3C90_0
 	editorLayer = "Root Layer\\F3"
 }
@@ -420,8 +420,16 @@ entity
 	type = F3C90
 	uin = 35
 	classPrompt = MapObject
-	position = 36.1 -39.1 0
+	position = 36.9 -38.8 0
 	rotation = 0 0 -1 -4.371139E-08
 	name = F3C90_1
 	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = BasicR
+	uin = 36
+	classPrompt = MapObject
+	position = 72.1 -65.2 0
+	name = BasicR_0
 }
