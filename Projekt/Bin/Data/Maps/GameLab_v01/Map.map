@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -35.14129 -33.74772 182.7512
-editorCameraDirection = 1.887233 -1.560796
+editorCameraPosition = -14.38242 119.1803 104.1935
+editorCameraDirection = 4.689976 -1.018608
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -601,4 +601,23 @@ entity
 	rotation = 0 0 -0.975753 0.2188754
 	scale = 0.625 1.137498 0.625
 	name = F1C45
+}
+entity
+{
+	type = "Gro\x00dfraum22"
+	uin = 54
+	classPrompt = MapObject
+	position = 79.5 87.5 0
+	rotation = 0 0 -0.3826835 -0.9238795
+	name = F1R1
+}
+entity
+{
+	type = Corridor-F3
+	uin = 55
+	classPrompt = MapObject
+	position = 43.66648 106.105 0
+	rotation = 0 0 0.5827719 0.8126359
+	scale = 0.6190478 1.149387 0.7549194
+	name = Corridor-F3_0
 }
