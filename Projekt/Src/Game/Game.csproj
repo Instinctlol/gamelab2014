@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AboutWindow.cs" />
+    <Compile Include="AlienGameWindow.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs" />
     <Compile Include="MultiViewConfigurationWindow.cs" />
     <Compile Include="GUISamples2Window.cs" />

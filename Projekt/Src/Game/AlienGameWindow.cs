@@ -57,8 +57,8 @@ namespace Game
 
         //Spawning
         int possibleNumberSpawnAliens = 10;
-        ScrollBar numberSpawnUnits;
-        int spawnNumber = 2;
+        ListBox numberSpawnUnitsList;
+        int spawnNumber = 1;
 
         //Select mode
         bool selectMode;
@@ -129,11 +129,16 @@ namespace Game
             }
 
             // default listbox for number of spawn aliens is disabled
-            numberSpawnUnits = hudControl.Controls["NumberSpawnUnits"] as ScrollBar;
-            if (numberSpawnUnits != null)
+            numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
+            if (numberSpawnUnitsList != null)
             {
-                numberSpawnUnits.ValueRange = new Range(1, possibleNumberSpawnAliens);
-                numberSpawnUnits.ValueChange += numberSpawnUnits_ValueChange;
+                for (int i = 1; i <= possibleNumberSpawnAliens; i++)
+                {
+                    numberSpawnUnitsList.Items.Add(i);
+                }
+                numberSpawnUnitsList.SelectedIndex = 0;
+                numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
+                numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
             }
 
             InitControlPanelButtons();
@@ -1003,10 +1008,10 @@ namespace Game
                     TaskTargetChooseIndex = -1;
             }
 
-
-            numberSpawnUnits.Visible = false;
+            // Controls fürs Spawning zunächst verstecken
             Control controlNumberSpawnUnitsText = hudControl.Controls["NumberSpawnUnitsText"];
             controlNumberSpawnUnitsText.Visible = false;
+            numberSpawnUnitsList.Visible = false;
 
             // make all buttons visible or not
             for (int n = 0; ; n++)
@@ -1032,10 +1037,7 @@ namespace Game
                         // if task is to spawn aliens we have to show the listbox so that the player can choose the number of aliens to be spawned
                         if (tasks[n].Task.EntityType.FullName == "Alien")
                         {
-                            numberSpawnUnits.ValueRange = new Range(1, possibleNumberSpawnAliens);
-                            numberSpawnUnits.Value = 1;
-                            numberSpawnUnits.Visible = true;
-                            numberSpawnUnits.Enable = true;
+                            numberSpawnUnitsList.Visible = true;
                             controlNumberSpawnUnitsText.Visible = true;
                         }
                     }
@@ -1330,9 +1332,17 @@ namespace Game
             cameraDirection.Vertical = sender.Value;
         }
 
-        void numberSpawnUnits_ValueChange(ScrollBar sender)
+        void numberSpawnUnitsList_SelectedIndexChange(ListBox sender)
         {
-            spawnNumber = (int)sender.Value;
+            // Den Index (beginnt bei 0) plus 1
+            spawnNumber = (int)sender.SelectedIndex + 1;
+            EngineConsole.Instance.Print("changed" + spawnNumber);
+        }
+
+        void numberSpawnUnitsList_ItemMouseDoubleClick(object sender, ListBox.ItemMouseEventArgs e)
+        {
+            spawnNumber = (int)e.ItemIndex + 1;
+            EngineConsole.Instance.Print("doubleclick" + e.Item + " " + spawnNumber);
         }
 
         void UpdateCameraScrollBars()
