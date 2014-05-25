@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 68.02545 -51.80107 4.247828
-editorCameraDirection = 1.196899 0.1885528
+editorCameraPosition = 89.99891 -64.14395 2.490803
+editorCameraDirection = 5.540667 -0.4467328
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -46,6 +46,8 @@ rootEditorLayer
 		layer
 		{
 			name = F3
+			visible = False
+			allowSelect = False
 		}
 	}
 }
@@ -195,7 +197,7 @@ entity
 	classPrompt = MapObject
 	position = 0 47 0
 	rotation = 0 0 -0.7071068 -0.7071068
-	name = F3R4
+	name = F3R2
 	editorLayer = "Root Layer\\F3"
 }
 entity
@@ -204,8 +206,8 @@ entity
 	uin = 20
 	classPrompt = SpawnPoint
 	defaultPoint = False
-	position = 64.17473 -66.9269 1.778926
-	rotation = 0 0 -0.1073978 -0.9942161
+	position = 74.73986 -4.824345 0
+	rotation = 0.5886112 -0.1464609 -0.406009 -0.6835515
 	name = TEst
 	editorLayer = "Root Layer\\F3"
 }
@@ -216,7 +218,7 @@ entity
 	classPrompt = MapObject
 	position = 0 -47 0
 	rotation = 0 0 -0.7071068 0.7071068
-	name = F3R2
+	name = F3R4
 	editorLayer = "Root Layer\\F3"
 }
 entity
@@ -240,6 +242,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -257,9 +260,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 39.89509 -0.0558784 1.887303
+	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
+	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -277,8 +281,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -37.90491 -2.155879 2.387303
+	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
+	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -296,9 +301,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 0.3950899 39.74412 2.687303
+	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
+	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -316,9 +322,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -1.004913 -41.55587 2.487303
+	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -338,6 +345,7 @@ entity
 	filter = All
 	position = 34.79509 -37.25589 2.487303
 	scale = 24.40987 27.17273 10.9482
+	visible = False
 	name = F3C_12-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -358,6 +366,7 @@ entity
 	position = -36.90491 34.74411 2.487303
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 24.63699 26.3679 10.9482
+	visible = False
 	name = F3C_34-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -401,7 +410,7 @@ entity
 	type = F3R3
 	uin = 33
 	classPrompt = MapObject
-	position = -0.4 -71.61891 0
+	position = -113.3016 -164.2365 0.5234061
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F3R3_0
 	editorLayer = "Root Layer\\F3"
@@ -430,6 +439,138 @@ entity
 	type = BasicR
 	uin = 36
 	classPrompt = MapObject
-	position = 72.1 -65.2 0
+	position = 73.66868 -132.9285 0
 	name = BasicR_0
+}
+entity
+{
+	type = F3R-24
+	uin = 37
+	classPrompt = MapObject
+	position = 82 0 0
+	name = F2R8
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = F3R-24
+	uin = 38
+	classPrompt = MapObject
+	position = -82 0 0
+	rotation = 0 0 -1 1.216796E-08
+	name = F2R4
+	editorLayer = "Root Layer\\F3"
+}
+entity
+{
+	type = BasicL2
+	uin = 39
+	classPrompt = MapObject
+	position = 51 50 0
+	rotation = 0 0 -0.9238795 0.3826834
+	name = F2R1
+}
+entity
+{
+	type = Corridor-F3
+	uin = 40
+	classPrompt = MapObject
+	position = 74.64777 31.54088 0
+	rotation = 0 0 0.1695079 0.9855289
+	scale = 0.625 0.625 0.625
+	name = F2C81
+}
+entity
+{
+	type = BasicL2
+	uin = 41
+	classPrompt = MapObject
+	position = 0 70 0
+	rotation = 0 0 -0.7071068 0.7071068
+	name = F2R2
+}
+entity
+{
+	type = Corridor-F3
+	uin = 42
+	classPrompt = MapObject
+	position = 31.11989 73.79716 0
+	rotation = 0 0 0.5827719 0.8126359
+	scale = 0.6190478 0.6019946 0.7549194
+	name = F2C12
+}
+entity
+{
+	type = BasicL2
+	uin = 43
+	classPrompt = MapObject
+	position = 51 226.9742 270.7515
+	rotation = 0 0 -0.9238795 0.3826834
+	name = BasicL2_0
+}
+entity
+{
+	type = BasicL2
+	uin = 44
+	classPrompt = MapObject
+	position = -58 -59 0
+	rotation = 0 0 -0.9238795 0.3826834
+	name = F2R5
+}
+entity
+{
+	type = Corridor-F3
+	uin = 45
+	classPrompt = MapObject
+	position = -74.06651 -31.11581 0
+	rotation = 0 0 -0.975753 0.2188754
+	scale = 0.625 0.625 0.625
+	name = F2C45
+}
+entity
+{
+	type = BasicX2
+	uin = 46
+	classPrompt = MapObject
+	position = -54 53 0
+	rotation = 0 0 -0.3826834 0.9238795
+	name = F2R3
+}
+entity
+{
+	type = Corridor-F3
+	uin = 47
+	classPrompt = MapObject
+	position = -32.24294 75.45021 0
+	rotation = 0 0 0.7713037 0.6364676
+	scale = 0.5548231 0.6965175 1.197344
+	name = F2C23
+}
+entity
+{
+	type = BasicX2
+	uin = 48
+	classPrompt = MapObject
+	position = 0 -70 0
+	rotation = 0 0 -0.7071068 -0.7071068
+	name = F2R6
+}
+entity
+{
+	type = Corridor-F3
+	uin = 49
+	classPrompt = MapObject
+	position = -30.74488 -73.34302 0
+	rotation = 0 0 -0.8121647 0.5834287
+	scale = 0.625 0.625 0.625
+	name = F2C56
+}
+entity
+{
+	type = BasicP2
+	uin = 50
+	classPrompt = MapObject
+	position = 63 -64 0
+	rotation = 0 0 -0.3826834 0.9238795
+	name = BasicP2_0
 }
