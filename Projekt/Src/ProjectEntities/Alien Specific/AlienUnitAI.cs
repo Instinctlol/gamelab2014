@@ -8,7 +8,7 @@ using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.PhysicsSystem;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
     /// Defines the <see cref="AlienUnitAI"/> entity type.
@@ -21,7 +21,7 @@ namespace ProjectEntities.Alien_Specific
     /// base AI for both, AlienUnitAI and AlienSpawnerAI.
     /// contains the logic which will be used from spawnpoint and small alien.
     /// </summary>
-    class AlienUnitAI : AI
+    public class AlienUnitAI : AI
     {
         AlienUnitAIType _type = null; public new AlienUnitAIType Type { get { return _type; } }
 
@@ -54,6 +54,10 @@ namespace ProjectEntities.Alien_Specific
 			[FieldSerialize]
 			Dynamic entity;
 
+            [FieldSerialize]
+            [DefaultValue( 1 )]
+            int spawnNumber;
+
 			public enum Types
 			{
 				None,
@@ -63,9 +67,9 @@ namespace ProjectEntities.Alien_Specific
 				Move,
 				BreakableMove,//for automatic attacks
 				Attack,
-				Repair,
+                Repair,
 				BreakableRepair,//for automatic repair
-				BuildBuilding,
+                //BuildBuilding,
 				ProductUnit,
 				SelfDestroy,//for cancel build building 
 			}
@@ -76,6 +80,7 @@ namespace ProjectEntities.Alien_Specific
 				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
 				this.entityType = null;
 				this.entity = null;
+                this.spawnNumber = 1;
 			}
 
 			public Task( Types type, Vec3 position )
@@ -84,6 +89,7 @@ namespace ProjectEntities.Alien_Specific
 				this.position = position;
 				this.entityType = null;
 				this.entity = null;
+                this.spawnNumber = 1;
 			}
 
 			public Task( Types type, DynamicType entityType )
@@ -91,7 +97,8 @@ namespace ProjectEntities.Alien_Specific
 				this.type = type;
 				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
 				this.entityType = entityType;
-				this.entity = null;
+                this.entity = null;
+                this.spawnNumber = 1;
 			}
 
 			public Task( Types type, Vec3 position, DynamicType entityType )
@@ -100,6 +107,7 @@ namespace ProjectEntities.Alien_Specific
 				this.position = position;
 				this.entityType = entityType;
 				this.entity = null;
+                this.spawnNumber = 1;
 			}
 
 			public Task( Types type, Dynamic entity )
@@ -108,7 +116,17 @@ namespace ProjectEntities.Alien_Specific
 				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
 				this.entityType = null;
 				this.entity = entity;
+                this.spawnNumber = 1;
 			}
+
+            public Task(Types type, DynamicType entityType, int spawnNumber)
+            {
+                this.type = type;
+                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
+                this.entityType = entityType;
+                this.entity = null;
+                this.spawnNumber = spawnNumber;
+            }
 
 			public Types Type
 			{
@@ -129,6 +147,11 @@ namespace ProjectEntities.Alien_Specific
 			{
 				get { return entity; }
 			}
+
+            public int SpawnNumber
+            {
+                get { return spawnNumber;  }
+            }
 
 			public override string ToString()
 			{
@@ -191,7 +214,6 @@ namespace ProjectEntities.Alien_Specific
 
 		///////////////////////////////////////////
 
-		//RTSUnitAIType _type = null; public new RTSUnitAIType Type { get { return _type; } }
 
 		public AlienUnitAI()
 		{
@@ -675,30 +697,30 @@ namespace ProjectEntities.Alien_Specific
 				currentTask.Type == Task.Types.Move || currentTask.Type == Task.Types.BreakableMove ) );
 
 			//RTSConstructor specific
-			if( ControlledObject.Type.Name == "RTSConstructor" )
-			{
-				list.Add( new UserControlPanelTask( new Task( Task.Types.Repair ),
-					currentTask.Type == Task.Types.Repair || currentTask.Type == Task.Types.BreakableRepair ) );
+            //if( ControlledObject.Type.Name == "RTSConstructor" )
+            //{
+            //    list.Add( new UserControlPanelTask( new Task( Task.Types.Repair ),
+            //        currentTask.Type == Task.Types.Repair || currentTask.Type == Task.Types.BreakableRepair ) );
 
-				AlienSpawnerType buildingType;
+            //    AlienSpawnerType buildingType;
 
-				buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName( "RTSHeadquaters" );
-				list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-					CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName( "RTSHeadquaters" );
+            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
 
-                buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSMine");
-				list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-					CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSMine");
+            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
 
-                buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSFactory");
-				list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-					CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
-			}
-			else
-			{
+            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSFactory");
+            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+            //}
+            //else
+            //{
 				list.Add( new UserControlPanelTask( new Task( Task.Types.Attack ),
 					currentTask.Type == Task.Types.Attack || currentTask.Type == Task.Types.BreakableAttack ) );
-			}
+            //}
 
 			return list;
 		}

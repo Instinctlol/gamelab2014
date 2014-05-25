@@ -6,7 +6,7 @@ using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.MathEx;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
     /// Defines the <see cref="AlienUnit"/> entity type.
@@ -49,7 +49,7 @@ namespace ProjectEntities.Alien_Specific
         }
     }
 
-    class AlienUnit : Unit
+    public class AlienUnit : Unit
     {
         [FieldSerialize]
         [DefaultValue(false)]

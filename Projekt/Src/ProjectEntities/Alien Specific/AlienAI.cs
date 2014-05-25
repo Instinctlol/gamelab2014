@@ -8,7 +8,7 @@ using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.PhysicsSystem;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
     /// Defines the <see cref="AlienAI"/> entity type.
@@ -22,7 +22,7 @@ namespace ProjectEntities.Alien_Specific
     /// 
     /// bleibt erstmal leer, muss nachher code von AlienUnitAI rüberkopiert werden, der nicht von der AlienSpawnerAI verwendet wird
     /// </summary>
-    class AlienAI : AlienUnitAI
+    public class AlienAI : AlienUnitAI
     {
         AlienAIType _type = null; public new AlienAIType Type { get { return _type; } }
 

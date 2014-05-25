@@ -10,7 +10,7 @@ using Engine.MapSystem;
 using Engine.Renderer;
 using Engine.Utils;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
 	/// Defines the <see cref="Alien"/> entity type.
@@ -54,7 +54,7 @@ namespace ProjectEntities.Alien_Specific
 	}
 
 
-    class Alien : AlienUnit, GridBasedNavigationSystem.IOverrideObjectBehavior
+    public class Alien : AlienUnit, GridBasedNavigationSystem.IOverrideObjectBehavior
     {
         Body mainBody;
 

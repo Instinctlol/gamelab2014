@@ -6,7 +6,7 @@ using Engine.MathEx;
 using Engine.EntitySystem;
 using Engine.MapSystem;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
     /// Defines the <see cref="AlienSpawnerAI"/> entity type.
@@ -18,7 +18,7 @@ namespace ProjectEntities.Alien_Specific
     /// <summary>
     /// AI for small-alien-spawnpoint
     /// </summary>
-    class AlienSpawnerAI : AlienUnitAI
+    public class AlienSpawnerAI : AlienUnitAI
     {
         AlienSpawnerAIType _type = null; public new AlienSpawnerAIType Type { get { return _type; } }
 
@@ -26,37 +26,26 @@ namespace ProjectEntities.Alien_Specific
         {
             List<UserControlPanelTask> list = new List<UserControlPanelTask>();
 
-            if (ControlledObject.BuildedProgress == 1)
-            {
-                if (ControlledObject.BuildUnitType == null)
+            //if (ControlledObject.BuildedProgress == 1)
+            //{
+                if (ControlledObject.SpawnedUnit == null)
                 {
-                    //RTSHeadquaters specific
-                    if (ControlledObject.Type.Name == "RTSHeadquaters")
-                    {
-                        AlienUnitType unitType = (AlienUnitType)EntityTypes.Instance.GetByName("RTSConstructor");
-                        list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
-                            CurrentTask.Type == Task.Types.ProductUnit));
-                    }
-
-                    //RTSFactory specific
-                    if (ControlledObject.Type.Name == "RTSFactory")
-                    {
-                        AlienUnitType unitType = (AlienUnitType)EntityTypes.Instance.GetByName("RTSRobot");
-                        list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
-                            CurrentTask.Type == Task.Types.ProductUnit));
-                    }
+                    // Create task for producing small aliens
+                    AlienType unitType = (AlienType)EntityTypes.Instance.GetByName("Alien");
+                    list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
+                        CurrentTask.Type == Task.Types.ProductUnit));
                 }
                 else
                 {
                     list.Add(new UserControlPanelTask(new Task(Task.Types.Stop),
                         CurrentTask.Type == Task.Types.Stop));
                 }
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 //building
-                list.Add(new UserControlPanelTask(new Task(Task.Types.SelfDestroy)));
-            }
+                //list.Add(new UserControlPanelTask(new Task(Task.Types.SelfDestroy)));
+            //}
 
             return list;
         }
@@ -79,7 +68,7 @@ namespace ProjectEntities.Alien_Specific
             {
 
                 case Task.Types.ProductUnit:
-                    if (ControlledObject.BuildUnitType == null)
+                    if (ControlledObject.SpawnedUnit == null)
                         DoTask(new Task(Task.Types.Stop), false);
                     break;
             }
@@ -95,7 +84,7 @@ namespace ProjectEntities.Alien_Specific
 
             if (task.Type == Task.Types.ProductUnit)
             {
-                ControlledObject.StartProductUnit((AlienUnitType)task.EntityType);
+                ControlledObject.StartProductUnit((AlienType)task.EntityType, task.SpawnNumber);
             }
         }
     }

@@ -13,7 +13,7 @@ using Engine.SoundSystem;
 using Engine.Utils;
 using ProjectCommon;
 
-namespace ProjectEntities.Alien_Specific
+namespace ProjectEntities
 {
     /// <summary>
     /// Defines the <see cref="AlienSpawner"/> entity type.
@@ -25,12 +25,9 @@ namespace ProjectEntities.Alien_Specific
     /// <summary>
     /// Spawner for creating small aliens
     /// </summary>
-    class AlienSpawner : AlienUnit  // ableiten von AlienUnit (neu zu erstellen, wie RTSBUILDING von RTSUnit) oder von Unit
+    public class AlienSpawner : AlienUnit
     {
         /*von RTSBuilding.cs*/
-        [FieldSerialize]
-        AlienUnitType productUnitType;
-
         [FieldSerialize]
         [DefaultValue(0.0f)]
         float productUnitProgress;
@@ -51,7 +48,7 @@ namespace ProjectEntities.Alien_Specific
         FactionType faction;
 
         [FieldSerialize]
-        UnitType spawnedUnit;
+        AlienType spawnedUnit; // war vorher productUnitType
 
         //[FieldSerialize]
         //float spawnTime;
@@ -69,7 +66,7 @@ namespace ProjectEntities.Alien_Specific
         //float spawnCounter;
 
         //the amount of entities left to spawn
-        int popAmount;
+        int aliensToSpawn;
 
 
         AlienSpawnerType _type = null; public new AlienSpawnerType Type { get { return _type; } }
@@ -97,8 +94,9 @@ namespace ProjectEntities.Alien_Specific
             set { spawnRadius = value; }
         }
 
-        [Description("UnitType that will be spawned, the small alien")]
-        public UnitType SpawnedUnit
+        [Description("AlienUnitType that will be spawned, the small alien")]
+        [Browsable(false)]
+        public AlienType SpawnedUnit
         {
             get { return spawnedUnit; }
             set { spawnedUnit = value; }
@@ -125,13 +123,39 @@ namespace ProjectEntities.Alien_Specific
             get { return securityRadius; }
             set { securityRadius = value; }
         }
-        
+
+        [Browsable(false)]
+        public float BuildUnitProgress
+        {
+            get { return productUnitProgress; }
+        }
+
+        [DefaultValue(1.0f)]
+        public float BuildedProgress
+        {
+            get { return buildedProgress; }
+            set
+            {
+                buildedProgress = value;
+
+                UpdateAttachedObjectsVisibility();
+            }
+        }
+
+        /// <summary>
+        /// Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.
+        /// </summary>
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
-                
             //spawnCounter = 0.0f;
-            //SubscribeToTickEvent();
+            SubscribeToTickEvent();
+
+            //for world load/save
+            if (spawnedUnit != null)
+                CreateProductUnitAttachedMesh();
+
+            UpdateAttachedObjectsVisibility();
         }
         
         /// <summary>
@@ -142,42 +166,42 @@ namespace ProjectEntities.Alien_Specific
         public void SpawnSmallAlien()
         {
             //EngineConsole.Instance.Print("Hello Console!");
-            if (isCloseToPoint()) return;
+            //if (isCloseToPoint()) return;
 
-            popAmount++;
-            // max amount of small aliens is not reached?
-            if (popAmount <= PopNumber)
-            {
-                // create new small alien object
-                Unit i = (Unit)Entities.Instance.Create(SpawnedUnit, Parent);
+            //popAmount++;
+            //// max amount of small aliens is not reached?
+            //if (popAmount <= PopNumber)
+            //{
+            //    // create new small alien object
+            //    Unit i = (Unit)Entities.Instance.Create(SpawnedUnit, Parent);
 
-                // add AI to small alien
-                if (AIType != null)
-                {
-                    i.InitialAI = AIType;
-                }
+            //    // add AI to small alien
+            //    if (AIType != null)
+            //    {
+            //        i.InitialAI = AIType;
+            //    }
 
-                if (i == null) return;
+            //    if (i == null) return;
 
-                // calculate position for small alien to be spawned
-                i.Position = FindFreePositionForUnit(i, Position);
-                // no valid position found?
-                if (i.Position.Z == -1)
-                {
-                    // no small alien is allowed to be spawned
-                    return;
-                }
-                i.Rotation = Rotation;
-                    
-                // set good or bad faction
-                if (Faction != null)
-                {
-                    i.InitialFaction = Faction;
-                }
+            //    // calculate position for small alien to be spawned
+            //    i.Position = FindFreePositionForUnit(i, Position);
+            //    // no valid position found?
+            //    if (i.Position.Z == -1)
+            //    {
+            //        // no small alien is allowed to be spawned
+            //        return;
+            //    }
+            //    i.Rotation = Rotation;
 
-                // create small alien into map
-                i.PostCreate();
-            }
+            //    // set good or bad faction
+            //    if (Faction != null)
+            //    {
+            //        i.InitialFaction = Faction;
+            //    }
+
+            //    // create small alien into map
+            //    i.PostCreate();
+            //}
         }
 
         /// <summary>
@@ -236,7 +260,7 @@ namespace ProjectEntities.Alien_Specific
                 {
                     // cast to PlayerCharacter, so that only player will be examined
                     PlayerCharacter pchar = mapObject as PlayerCharacter;
-                        
+
                     // If a PlayerCharacter is found in this sphere and if it is no small alien then it must be an astronout
                     if (pchar != null && pchar.Type.Name != "Rabbit") // TODO ändern in Alien
                     {
@@ -247,6 +271,232 @@ namespace ProjectEntities.Alien_Specific
             }
             return returnValue;
         }
+
+        
+        /* von RTSBuilding.cs */
+        
+
+        /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
+        protected override void OnTick()
+        {
+            base.OnTick();
+            TickProductUnit();
+        }
+
+        void TickProductUnit()
+        {
+            if (spawnedUnit == null)
+                return;
+
+            productUnitProgress += TickDelta / spawnedUnit.BuildTime;
+
+            Degree angleDelta = TickDelta * 20;
+
+            if (productUnitAttachedMesh != null)
+                productUnitAttachedMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
+
+            if (BuildUnitProgress >= 1)
+            {
+                CreateProductedUnit();
+                StopProductUnit();
+            }
+
+            MapObjectAttachedObject buildPlatformMesh = GetFirstAttachedObjectByAlias("buildPlatform");
+            if (buildPlatformMesh != null)
+                buildPlatformMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
+        }
+
+        public void StartProductUnit(AlienType unitType, int spawnNumber)
+        {
+            StopProductUnit();
+
+            //check cost
+            //RTSFactionManager.FactionItem factionItem = RTSFactionManager.Instance.
+            //    GetFactionItemByType(Intellect.Faction);
+            //if (factionItem != null)
+            //{
+            //    float cost = unitType.BuildCost;
+
+            //    if (factionItem.Money - cost < 0)
+            //        return;
+
+            //    factionItem.Money -= cost;
+            //}
+
+            spawnedUnit = unitType;
+            aliensToSpawn = spawnNumber;
+            productUnitProgress = 0;
+
+            CreateProductUnitAttachedMesh();
+
+            UpdateAttachedObjectsVisibility();
+        }
+
+        public void StopProductUnit()
+        {
+            DestroyProductUnitAttachedMesh();
+
+            spawnedUnit = null;
+            productUnitProgress = 0;
+
+            UpdateAttachedObjectsVisibility();
+        }
+
+        void CreateProductUnitAttachedMesh()
+        {
+            productUnitAttachedMesh = new MapObjectAttachedMesh();
+            Attach(productUnitAttachedMesh);
+
+            string meshName = null;
+            Vec3 meshOffset = Vec3.Zero;
+            Vec3 meshScale = new Vec3(1, 1, 1);
+            {
+                foreach (MapObjectTypeAttachedObject typeAttachedObject in
+                    spawnedUnit.AttachedObjects)
+                {
+                    MapObjectTypeAttachedMesh typeAttachedMesh =
+                        typeAttachedObject as MapObjectTypeAttachedMesh;
+                    if (typeAttachedMesh == null)
+                        continue;
+
+                    meshName = typeAttachedMesh.GetMeshNameFullPath();
+                    meshOffset = typeAttachedMesh.Position;
+                    meshScale = typeAttachedMesh.Scale;
+                    break;
+                }
+            }
+
+            productUnitAttachedMesh.MeshName = meshName;
+
+            Vec3 pos = meshOffset;
+            {
+                MapObjectAttachedObject buildPointAttachedHelper = GetFirstAttachedObjectByAlias("productUnitPoint");
+                if (buildPointAttachedHelper != null)
+                    pos += buildPointAttachedHelper.PositionOffset;
+            }
+            productUnitAttachedMesh.PositionOffset = pos;
+
+            productUnitAttachedMesh.ScaleOffset = meshScale;
+
+            //if (Type.Name == "RTSHeadquaters")
+            //{
+            //    foreach (MeshObject.SubObject subMesh in productUnitAttachedMesh.MeshObject.SubObjects)
+            //        subMesh.MaterialName = "RTSBuildMaterial";
+            //}
+        }
+
+        void DestroyProductUnitAttachedMesh()
+        {
+            if (productUnitAttachedMesh != null)
+            {
+                Detach(productUnitAttachedMesh);
+                productUnitAttachedMesh = null;
+            }
+        }
+
+        void CreateProductedUnit()
+        {
+            while (aliensToSpawn > 0)
+            {
+                AlienUnit unit = (AlienUnit)Entities.Instance.Create(spawnedUnit, Map.Instance);
+
+                Alien character = unit as Alien;
+                if (character == null)
+                    Log.Fatal("RTSBuilding: CreateProductedUnit: character == null");
+
+                GridBasedNavigationSystem navigationSystem = GridBasedNavigationSystem.Instances[0];
+                Vec2 p = navigationSystem.GetNearestFreePosition(Position.ToVec2(), character.Type.Radius * 2);
+                unit.Position = new Vec3(p.X, p.Y, navigationSystem.GetMotionMapHeight(p) + character.Type.Height * .5f);
+
+                if (Intellect != null)
+                    unit.InitialFaction = Intellect.Faction;
+
+                unit.PostCreate();
+                aliensToSpawn--;
+            }
+        }
+
+        // Der Spawnpoint soll nicht zerstörbar sein
+        //
+        //protected override void OnDamage(MapObject prejudicial, Vec3 pos, Shape shape, float damage,
+        //    bool allowMoveDamageToParent)
+        //{
+        //    float oldLife = Health;
+
+        //    base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
+
+        //    if (damage < 0 && BuildedProgress != 1)
+        //    {
+        //        BuildedProgress += (-damage) / Type.HealthMax;
+        //        if (BuildedProgress > 1)
+        //            BuildedProgress = 1;
+
+        //        if (BuildedProgress != 1 && Health == Type.HealthMax)
+        //            Health = Type.HealthMax - .01f;
+        //    }
+
+        //    float halfLife = Type.HealthMax * .5f;
+        //    if (Health > halfLife && oldLife <= halfLife)
+        //        UpdateAttachedObjectsVisibility();
+        //    else if (Health < halfLife && oldLife >= halfLife)
+        //        UpdateAttachedObjectsVisibility();
+
+        //    float quarterLife = Type.HealthMax * .25f;
+        //    if (Health > quarterLife && oldLife <= quarterLife)
+        //        UpdateAttachedObjectsVisibility();
+        //    else if (Health < quarterLife && oldLife >= quarterLife)
+        //        UpdateAttachedObjectsVisibility();
+        //}
+
+        void UpdateAttachedObjectsVisibility()
+        {
+            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+            {
+                //lessHalfLife
+                if (attachedObject.Alias == "lessHalfLife")
+                {
+                    attachedObject.Visible = (Health < Type.HealthMax * .5f && buildedProgress == 1);
+                    continue;
+                }
+
+                //lessQuarterLife
+                if (attachedObject.Alias == "lessQuarterLife")
+                {
+                    attachedObject.Visible = (Health < Type.HealthMax * .25f && buildedProgress == 1);
+                    continue;
+                }
+
+                //spawnedUnit
+                if (attachedObject.Alias == "spawnedUnit")
+                {
+                    attachedObject.Visible = spawnedUnit != null;
+                    continue;
+                }
+
+                //building
+                //{
+                //    string showAlias = null;
+
+                //    if (buildedProgress < .25f)
+                //        showAlias = "building0";
+                //    else if (buildedProgress < .5f)
+                //        showAlias = "building1";
+                //    else if (buildedProgress < 1)
+                //        showAlias = "building2";
+
+                //    if (showAlias != null)
+                //        attachedObject.Visible = (attachedObject.Alias == showAlias);
+                //    else
+                //        attachedObject.Visible = !attachedObject.Alias.Contains("building");
+                //}
+
+            }
+        }
+
+        /* Ende RTSBuilding.cs*/
+
+
+
 
         /* Reste
         private bool createElement()
@@ -307,259 +557,5 @@ namespace ProjectEntities.Alien_Specific
                 SpawnSmallAlien();
             }
         }*/
-
-
-
-
-
-        /* von RTSBuilding.cs */
-        /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
-        //protected override void OnPostCreate(bool loaded)
-        //{
-        //    base.OnPostCreate(loaded);
-        //    SubscribeToTickEvent();
-
-        //    //for world load/save
-        //    if (productUnitType != null)
-        //        CreateProductUnitAttachedMesh();
-
-        //    UpdateAttachedObjectsVisibility();
-        //}
-
-        /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
-        protected override void OnTick()
-        {
-            base.OnTick();
-            TickProductUnit();
-        }
-
-        void TickProductUnit()
-        {
-            if (productUnitType == null)
-                return;
-
-            productUnitProgress += TickDelta / productUnitType.BuildTime;
-
-            Degree angleDelta = TickDelta * 20;
-
-            if (productUnitAttachedMesh != null)
-                productUnitAttachedMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
-
-            if (BuildUnitProgress >= 1)
-            {
-                CreateProductedUnit();
-                StopProductUnit();
-            }
-
-            MapObjectAttachedObject buildPlatformMesh = GetFirstAttachedObjectByAlias("buildPlatform");
-            if (buildPlatformMesh != null)
-                buildPlatformMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
-        }
-
-        public void StartProductUnit(AlienUnitType unitType)
-        {
-            //StopProductUnit();
-
-            ////check cost
-            //RTSFactionManager.FactionItem factionItem = RTSFactionManager.Instance.
-            //    GetFactionItemByType(Intellect.Faction);
-            //if (factionItem != null)
-            //{
-            //    float cost = unitType.BuildCost;
-
-            //    if (factionItem.Money - cost < 0)
-            //        return;
-
-            //    factionItem.Money -= cost;
-            //}
-
-            //productUnitType = unitType;
-            //productUnitProgress = 0;
-
-            //CreateProductUnitAttachedMesh();
-
-            //UpdateAttachedObjectsVisibility();
-        }
-
-        public void StopProductUnit()
-        {
-            DestroyProductUnitAttachedMesh();
-
-            productUnitType = null;
-            productUnitProgress = 0;
-
-            UpdateAttachedObjectsVisibility();
-        }
-
-        void CreateProductUnitAttachedMesh()
-        {
-            productUnitAttachedMesh = new MapObjectAttachedMesh();
-            Attach(productUnitAttachedMesh);
-
-            string meshName = null;
-            Vec3 meshOffset = Vec3.Zero;
-            Vec3 meshScale = new Vec3(1, 1, 1);
-            {
-                foreach (MapObjectTypeAttachedObject typeAttachedObject in
-                    productUnitType.AttachedObjects)
-                {
-                    MapObjectTypeAttachedMesh typeAttachedMesh =
-                        typeAttachedObject as MapObjectTypeAttachedMesh;
-                    if (typeAttachedMesh == null)
-                        continue;
-
-                    meshName = typeAttachedMesh.GetMeshNameFullPath();
-                    meshOffset = typeAttachedMesh.Position;
-                    meshScale = typeAttachedMesh.Scale;
-                    break;
-                }
-            }
-
-            productUnitAttachedMesh.MeshName = meshName;
-
-            Vec3 pos = meshOffset;
-            {
-                MapObjectAttachedObject buildPointAttachedHelper = GetFirstAttachedObjectByAlias("productUnitPoint");
-                if (buildPointAttachedHelper != null)
-                    pos += buildPointAttachedHelper.PositionOffset;
-            }
-            productUnitAttachedMesh.PositionOffset = pos;
-
-            productUnitAttachedMesh.ScaleOffset = meshScale;
-
-            if (Type.Name == "RTSHeadquaters")
-            {
-                foreach (MeshObject.SubObject subMesh in productUnitAttachedMesh.MeshObject.SubObjects)
-                    subMesh.MaterialName = "RTSBuildMaterial";
-            }
-        }
-
-        void DestroyProductUnitAttachedMesh()
-        {
-            if (productUnitAttachedMesh != null)
-            {
-                Detach(productUnitAttachedMesh);
-                productUnitAttachedMesh = null;
-            }
-        }
-
-        [Browsable(false)]
-        public AlienUnitType BuildUnitType
-        {
-            get { return productUnitType; }
-        }
-
-        [Browsable(false)]
-        public float BuildUnitProgress
-        {
-            get { return productUnitProgress; }
-        }
-
-        void CreateProductedUnit()
-        {
-            AlienUnit unit = (AlienUnit)Entities.Instance.Create(productUnitType, Map.Instance);
-
-            Alien character = unit as Alien;
-            if (character == null)
-                Log.Fatal("RTSBuilding: CreateProductedUnit: character == null");
-
-            GridBasedNavigationSystem navigationSystem = GridBasedNavigationSystem.Instances[0];
-            Vec2 p = navigationSystem.GetNearestFreePosition(Position.ToVec2(), character.Type.Radius * 2);
-            unit.Position = new Vec3(p.X, p.Y, navigationSystem.GetMotionMapHeight(p) + character.Type.Height * .5f);
-
-            if (Intellect != null)
-                unit.InitialFaction = Intellect.Faction;
-
-            unit.PostCreate();
-        }
-
-        [DefaultValue(1.0f)]
-        public float BuildedProgress
-        {
-            get { return buildedProgress; }
-            set
-            {
-                buildedProgress = value;
-
-                UpdateAttachedObjectsVisibility();
-            }
-        }
-
-        protected override void OnDamage(MapObject prejudicial, Vec3 pos, Shape shape, float damage,
-            bool allowMoveDamageToParent)
-        {
-            float oldLife = Health;
-
-            base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
-
-            if (damage < 0 && BuildedProgress != 1)
-            {
-                BuildedProgress += (-damage) / Type.HealthMax;
-                if (BuildedProgress > 1)
-                    BuildedProgress = 1;
-
-                if (BuildedProgress != 1 && Health == Type.HealthMax)
-                    Health = Type.HealthMax - .01f;
-            }
-
-            float halfLife = Type.HealthMax * .5f;
-            if (Health > halfLife && oldLife <= halfLife)
-                UpdateAttachedObjectsVisibility();
-            else if (Health < halfLife && oldLife >= halfLife)
-                UpdateAttachedObjectsVisibility();
-
-            float quarterLife = Type.HealthMax * .25f;
-            if (Health > quarterLife && oldLife <= quarterLife)
-                UpdateAttachedObjectsVisibility();
-            else if (Health < quarterLife && oldLife >= quarterLife)
-                UpdateAttachedObjectsVisibility();
-        }
-
-        void UpdateAttachedObjectsVisibility()
-        {
-            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-            {
-                //lessHalfLife
-                if (attachedObject.Alias == "lessHalfLife")
-                {
-                    attachedObject.Visible = (Health < Type.HealthMax * .5f && buildedProgress == 1);
-                    continue;
-                }
-
-                //lessQuarterLife
-                if (attachedObject.Alias == "lessQuarterLife")
-                {
-                    attachedObject.Visible = (Health < Type.HealthMax * .25f && buildedProgress == 1);
-                    continue;
-                }
-
-                //productUnit
-                if (attachedObject.Alias == "productUnit")
-                {
-                    attachedObject.Visible = productUnitType != null;
-                    continue;
-                }
-
-                //building
-                {
-                    string showAlias = null;
-
-                    if (buildedProgress < .25f)
-                        showAlias = "building0";
-                    else if (buildedProgress < .5f)
-                        showAlias = "building1";
-                    else if (buildedProgress < 1)
-                        showAlias = "building2";
-
-                    if (showAlias != null)
-                        attachedObject.Visible = (attachedObject.Alias == showAlias);
-                    else
-                        attachedObject.Visible = !attachedObject.Alias.Contains("building");
-                }
-
-            }
-        }
-
-        /* Ende RTSBuilding.cs*/
     }
 }
