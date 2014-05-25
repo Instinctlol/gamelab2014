@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 89.99891 -64.14395 2.490803
-editorCameraDirection = 5.540667 -0.4467328
+editorCameraPosition = -35.14129 -33.74772 182.7512
+editorCameraDirection = 1.887233 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -407,18 +407,8 @@ entity
 }
 entity
 {
-	type = F3R3
-	uin = 33
-	classPrompt = MapObject
-	position = -113.3016 -164.2365 0.5234061
-	rotation = 0 0 -0.7071068 -0.7071068
-	name = F3R3_0
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
 	type = F3C90
-	uin = 34
+	uin = 33
 	classPrompt = MapObject
 	position = -36.5 38.9 0
 	name = F3C90_0
@@ -427,7 +417,7 @@ entity
 entity
 {
 	type = F3C90
-	uin = 35
+	uin = 34
 	classPrompt = MapObject
 	position = 36.9 -38.8 0
 	rotation = 0 0 -1 -4.371139E-08
@@ -436,16 +426,8 @@ entity
 }
 entity
 {
-	type = BasicR
-	uin = 36
-	classPrompt = MapObject
-	position = 73.66868 -132.9285 0
-	name = BasicR_0
-}
-entity
-{
 	type = F3R-24
-	uin = 37
+	uin = 36
 	classPrompt = MapObject
 	position = 82 0 0
 	name = F2R8
@@ -454,7 +436,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 38
+	uin = 37
 	classPrompt = MapObject
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
@@ -464,7 +446,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 39
+	uin = 38
 	classPrompt = MapObject
 	position = 51 50 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -473,7 +455,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 40
+	uin = 39
 	classPrompt = MapObject
 	position = 74.64777 31.54088 0
 	rotation = 0 0 0.1695079 0.9855289
@@ -483,7 +465,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 41
+	uin = 40
 	classPrompt = MapObject
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -492,7 +474,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 42
+	uin = 41
 	classPrompt = MapObject
 	position = 31.11989 73.79716 0
 	rotation = 0 0 0.5827719 0.8126359
@@ -502,7 +484,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 43
+	uin = 42
 	classPrompt = MapObject
 	position = 51 226.9742 270.7515
 	rotation = 0 0 -0.9238795 0.3826834
@@ -511,7 +493,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 44
+	uin = 43
 	classPrompt = MapObject
 	position = -58 -59 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -520,7 +502,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 45
+	uin = 44
 	classPrompt = MapObject
 	position = -74.06651 -31.11581 0
 	rotation = 0 0 -0.975753 0.2188754
@@ -530,7 +512,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 46
+	uin = 45
 	classPrompt = MapObject
 	position = -54 53 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -539,7 +521,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 47
+	uin = 46
 	classPrompt = MapObject
 	position = -32.24294 75.45021 0
 	rotation = 0 0 0.7713037 0.6364676
@@ -549,7 +531,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 48
+	uin = 47
 	classPrompt = MapObject
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -558,7 +540,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 49
+	uin = 48
 	classPrompt = MapObject
 	position = -30.74488 -73.34302 0
 	rotation = 0 0 -0.8121647 0.5834287
@@ -568,9 +550,55 @@ entity
 entity
 {
 	type = BasicP2
-	uin = 50
+	uin = 49
 	classPrompt = MapObject
 	position = 63 -64 0
 	rotation = 0 0 -0.3826834 0.9238795
-	name = BasicP2_0
+	name = F2R7
+}
+entity
+{
+	type = "Gro\x00dfraum12"
+	uin = 50
+	classPrompt = MapObject
+	position = -6.5 104.5 0
+	rotation = 0 0 -0.7071068 0.7071068
+	name = F1R2
+}
+entity
+{
+	type = "Gro\x00dfraum12"
+	uin = 51
+	classPrompt = MapObject
+	position = -86 -79.5 0
+	rotation = 0 0 -0.9238795 0.3826834
+	name = F1R5
+}
+entity
+{
+	type = "Gro\x00dfraum22"
+	uin = 52
+	classPrompt = MapObject
+	position = 75 -83 0
+	rotation = 0 0 -0.9238796 -0.3826834
+	name = F1R7
+}
+entity
+{
+	type = "Gro\x00dfraum22"
+	uin = 35
+	classPrompt = MapObject
+	position = -116.4543 -5.95177 0
+	rotation = 0 0 -1 1.216796E-08
+	name = F1R4
+}
+entity
+{
+	type = Corridor-F3
+	uin = 53
+	classPrompt = MapObject
+	position = -104.2226 -44.17335 0
+	rotation = 0 0 -0.975753 0.2188754
+	scale = 0.625 1.137498 0.625
+	name = F1C45
 }
