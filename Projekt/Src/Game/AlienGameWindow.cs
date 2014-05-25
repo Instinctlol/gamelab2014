@@ -15,6 +15,18 @@ using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
 
+
+
+/*
+ * TODO's:
+ * es wurde was an Game/GameEngineApp.cs geändert für den GameType AlienGame
+ * genauso wurde an ProjectEntities/GameMap.cs was geändert für den GameType AlienGame
+ * 
+ * 1. Irgendwie herausfinden, wie sich die Gebäude anklicken lassen und das für den MySqawner nachbauen, damit dieser spawnt.
+ * 2. aliens/rabbits auswählbar machen (so wie hier die units)
+ * 3. Tasks implementieren (active, passive), auch in die KI und dann auswählbar per Button machen (GUI)
+ * 
+ */
 namespace Game
 {
     public class AlienGameWindow : GameWindow
@@ -43,14 +55,19 @@ namespace Game
         //Select
         List<Unit> selectedUnits = new List<Unit>();
 
+        //Spawning
+        int possibleNumberSpawnAliens = 10;
+        ScrollBar numberSpawnUnits;
+        int spawnNumber = 2;
+
         //Select mode
         bool selectMode;
         Vec2 selectStartPos;
         bool selectDraggedMouse;
 
-        //Player Faction
-        FactionType playerFaction;
-
+        //Task target choose
+        int taskTargetChooseIndex = -1;
+        
         //Minimap
         bool minimapChangeCameraPosition;
         Control minimapControl;
@@ -61,8 +78,7 @@ namespace Game
         ScrollBar cameraHeightScrollBar;
         bool disableUpdatingCameraScrollBars;
 
-        //
-
+        // Beim Starten des Spiels GUI initialisieren und co
         protected override void OnAttach()
         {
             base.OnAttach();
@@ -70,7 +86,7 @@ namespace Game
             EngineApp.Instance.KeysAndMouseButtonUpAll();
 
             //hudControl
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Maps\\RTSDemo\\Gui\\HUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Maps\\AlienDemo\\Gui\\HUD.gui");
             Controls.Add(hudControl);
 
             ((Button)hudControl.Controls["Menu"]).Click += delegate(Button sender)
@@ -112,8 +128,21 @@ namespace Game
                 cameraHeightScrollBar.ValueChange += cameraHeightScrollBar_ValueChange;
             }
 
+            // default listbox for number of spawn aliens is disabled
+            numberSpawnUnits = hudControl.Controls["NumberSpawnUnits"] as ScrollBar;
+            if (numberSpawnUnits != null)
+            {
+                numberSpawnUnits.ValueRange = new Range(1, possibleNumberSpawnAliens);
+                numberSpawnUnits.ValueChange += numberSpawnUnits_ValueChange;
+            }
+
             InitControlPanelButtons();
             UpdateControlPanel();
+
+            //set playerFaction for small aliens
+            //playerFaction = (FactionType)EntityTypes.Instance.GetByName("BadFaction");
+            //if (RTSFactionManager.Instance != null && RTSFactionManager.Instance.Factions.Count != 0)
+            //playerFaction = RTSFactionManager.Instance.Factions[0].FactionType;
 
             //minimap
             minimapControl = hudControl.Controls["Minimap"];
@@ -158,22 +187,7 @@ namespace Game
             UpdateCameraScrollBars();
         }
 
-        public override void OnBeforeWorldSave()
-        {
-            base.OnBeforeWorldSave();
-
-            //World serialized data
-            World.Instance.ClearAllCustomSerializationValues();
-            World.Instance.SetCustomSerializationValue("cameraDistance", cameraDistance);
-            World.Instance.SetCustomSerializationValue("cameraDirection", cameraDirection);
-            World.Instance.SetCustomSerializationValue("cameraPosition", cameraPosition);
-            for (int n = 0; n < selectedUnits.Count; n++)
-            {
-                Unit unit = selectedUnits[n];
-                World.Instance.SetCustomSerializationValue("selectedUnit" + n.ToString(), unit);
-            }
-        }
-
+        // Beim Beenden des Spiels minimap freigeben
         protected override void OnDetach()
         {
             //minimap
@@ -193,46 +207,46 @@ namespace Game
                 return base.OnKeyDown(e);
 
             //change camera type
-            if (e.Key == EKeys.F7)
-            {
-                cameraType = (CameraType)((int)GetRealCameraType() + 1);
-                if (cameraType == CameraType.Count)
-                    cameraType = (CameraType)0;
+            //if (e.Key == EKeys.F7)
+            //{
+            //    cameraType = (CameraType)((int)GetRealCameraType() + 1);
+            //    if (cameraType == CameraType.Count)
+            //        cameraType = (CameraType)0;
 
-                FreeCameraEnabled = cameraType == CameraType.Free;
+            //    FreeCameraEnabled = cameraType == CameraType.Free;
 
-                GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
+            //    GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
 
-                return true;
-            }
+            //    return true;
+            //}
 
             //select another demo map
-            if (e.Key == EKeys.F3)
-            {
-                GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
-                return true;
-            }
+            //if (e.Key == EKeys.F3)
+            //{
+            //    GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
+            //    return true;
+            //}
 
             // Aliens spawnen
-            if (e.Key == EKeys.F1)
-            {
-                List<MapObject> myspawnerpoints = Map.Instance.SceneGraphObjects.FindAll(delegate(MapObject obj)
-                {
-                    ProjectEntities.MySpawner myspawnpoint = obj as ProjectEntities.MySpawner;
+            //if (e.Key == EKeys.F1)
+            //{
+            //    List<MapObject> myspawnerpoints = Map.Instance.SceneGraphObjects.FindAll(delegate(MapObject obj)
+            //    {
+            //        ProjectEntities.MySpawner myspawnpoint = obj as ProjectEntities.MySpawner;
 
-                    if (myspawnpoint != null)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                });
+            //        if (myspawnpoint != null)
+            //        {
+            //            return true;
+            //        }
+            //        else
+            //        {
+            //            return false;
+            //        }
+            //    });
 
-                ProjectEntities.MySpawner mypawnpoint = myspawnerpoints[0] as ProjectEntities.MySpawner;
-                mypawnpoint.SpawnSmallAlien();
-            }
+            //    ProjectEntities.MySpawner mypawnpoint = myspawnerpoints[0] as ProjectEntities.MySpawner;
+            //    mypawnpoint.SpawnSmallAlien();
+            //}
 
             return base.OnKeyDown(e);
         }
@@ -259,6 +273,7 @@ namespace Game
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);
 
+            // Mouse click for select unit
             if (button == EMouseButtons.Left && IsMouseInActiveArea() && TaskTargetChooseIndex == -1)
             {
                 selectMode = true;
@@ -268,7 +283,7 @@ namespace Game
             }
 
             //minimap mouse change camera position
-            if (button == EMouseButtons.Left)
+            if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
             {
                 if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
                 {
@@ -325,8 +340,21 @@ namespace Game
                 if (pickingSuccess)
                 {
                     //do tasks
-                        if (button == EMouseButtons.Right)
-                            DoRightClickTasks(mouseMapPos, mouseOnObject);
+                        //if (button == EMouseButtons.Right)
+                        //    DoRightClickTasks(mouseMapPos, mouseOnObject);
+                    // TODO hier ganz anders: das bräuchte ich:
+                        if (TaskTargetChooseIndex != -1)
+                        {
+                            if (button == EMouseButtons.Left)
+                                DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
+                            if (button == EMouseButtons.Right)
+                                TaskTargetChooseIndex = -1;
+                        }
+                        else
+                        {
+                            if (button == EMouseButtons.Right)
+                                DoRightClickTasks(mouseMapPos, mouseOnObject);
+                        }
                 }
             }
 
@@ -341,52 +369,113 @@ namespace Game
             return base.OnMouseUp(button);
         }
 
+        bool IsEnableTaskTypeInTasks(List<AlienUnitAI.UserControlPanelTask> tasks, AlienUnitAI.Task.Types taskType)
+        {
+            if (tasks == null)
+                return false;
+            foreach (AlienUnitAI.UserControlPanelTask task in tasks)
+                if (task.Task.Type == taskType && task.Enable)
+                    return true;
+            return false;
+        }
+
+        void DoTaskTargetChooseTasks(Vec3 mouseMapPos, Unit mouseOnObject)
+        {
+            //Do task after task target choose
+
+            bool toQueue = EngineApp.Instance.IsKeyPressed(EKeys.Shift);
+
+            List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
+            int index = TaskTargetChooseIndex;
+
+            if (tasks != null && index < tasks.Count && tasks[index].Enable)
+            {
+                foreach (Unit unit in selectedUnits)
+                {
+                    AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
+                    if (intellect == null)
+                        continue;
+
+                    AlienUnitAI.Task.Types taskType = tasks[index].Task.Type;
+
+                    List<AlienUnitAI.UserControlPanelTask> aiTasks = intellect.GetControlPanelTasks();
+
+                    if (!IsEnableTaskTypeInTasks(aiTasks, taskType))
+                        continue;
+
+                    switch (taskType)
+                    {
+                        //Move, Attack, Repair
+                        case AlienUnitAI.Task.Types.Move:
+                        case AlienUnitAI.Task.Types.Attack:
+                        case AlienUnitAI.Task.Types.Repair:
+                            if (mouseOnObject != null)
+                                intellect.DoTask(new AlienUnitAI.Task(taskType, mouseOnObject), toQueue);
+                            else
+                            {
+                                if (taskType == AlienUnitAI.Task.Types.Move)
+                                    intellect.DoTask(new AlienUnitAI.Task(taskType, mouseMapPos), toQueue);
+
+                                if (taskType == AlienUnitAI.Task.Types.Attack ||
+                                    taskType == AlienUnitAI.Task.Types.Repair)
+                                {
+                                    intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.BreakableMove,
+                                        mouseMapPos), toQueue);
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+            TaskTargetChooseIndex = -1;
+        }
+
         void DoRightClickTasks(Vec3 mouseMapPos, Unit mouseOnObject)
         {
             bool toQueue = EngineApp.Instance.IsKeyPressed(EKeys.Shift);
 
             foreach (Unit unit in selectedUnits)
             {
-                RTSUnitAI intellect = unit.Intellect as RTSUnitAI;
+                AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
                 if (intellect == null)
                     continue;
 
-                if (intellect.Faction != playerFaction)
-                    continue;
+                //if (intellect.Faction != playerFaction)
+                //    continue;
 
-                List<RTSUnitAI.UserControlPanelTask> tasks = intellect.GetControlPanelTasks();
+                List<AlienUnitAI.UserControlPanelTask> tasks = intellect.GetControlPanelTasks();
 
                 if (mouseOnObject != null)
                 {
                     bool tasked = false;
 
-                    if (IsEnableTaskTypeInTasks(tasks, RTSUnitAI.Task.Types.Attack) &&
+                    if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Attack) &&
                         mouseOnObject.Intellect != null &&
                         intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
                         intellect.Faction != mouseOnObject.Intellect.Faction)
                     {
-                        intellect.DoTask(new RTSUnitAI.Task(RTSUnitAI.Task.Types.Attack,
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Attack,
                             mouseOnObject), toQueue);
                         tasked = true;
                     }
 
-                    if (IsEnableTaskTypeInTasks(tasks, RTSUnitAI.Task.Types.Repair) &&
+                    if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Repair) &&
                         mouseOnObject.Intellect != null &&
                         intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
                         intellect.Faction == mouseOnObject.Intellect.Faction)
                     {
-                        intellect.DoTask(new RTSUnitAI.Task(RTSUnitAI.Task.Types.Repair,
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Repair,
                             mouseOnObject), toQueue);
                         tasked = true;
                     }
 
-                    if (!tasked && IsEnableTaskTypeInTasks(tasks, RTSUnitAI.Task.Types.Move))
-                        intellect.DoTask(new RTSUnitAI.Task(RTSUnitAI.Task.Types.Move, mouseOnObject), toQueue);
+                    if (!tasked && IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Move))
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Move, mouseOnObject), toQueue);
                 }
                 else
                 {
-                    if (IsEnableTaskTypeInTasks(tasks, RTSUnitAI.Task.Types.Move))
-                        intellect.DoTask(new RTSUnitAI.Task(RTSUnitAI.Task.Types.Move, mouseMapPos), toQueue);
+                    if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Move))
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Move, mouseMapPos), toQueue);
                 }
             }
         }
@@ -395,7 +484,7 @@ namespace Game
         {
             selectMode = false;
 
-            List<Unit> areaObjs = new List<Unit>();
+            List<AlienUnit> areaObjs = new List<AlienUnit>();
             {
                 if (selectDraggedMouse)
                 {
@@ -405,7 +494,7 @@ namespace Game
                     Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
                         MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
                         {
-                            Unit unit = (Unit)obj;
+                            AlienUnit unit = (AlienUnit)obj;
                             areaObjs.Add(unit);
                         });
                 }
@@ -418,7 +507,7 @@ namespace Game
                         (int)ContactGroup.CastOnlyContact);
                     if (result.Shape != null)
                     {
-                        Unit unit = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
+                        AlienUnit unit = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as AlienUnit;
                         if (unit != null)
                             areaObjs.Add(unit);
                     }
@@ -426,7 +515,6 @@ namespace Game
             }
 
             //do select/unselect
-
             if (!EngineApp.Instance.IsKeyPressed(EKeys.Shift))
                 ClearEntitySelection();
 
@@ -436,7 +524,7 @@ namespace Game
             if (!selectDraggedMouse && EngineApp.Instance.IsKeyPressed(EKeys.Shift))
             {
                 //unselect
-                foreach (Unit obj in areaObjs)
+                foreach (AlienUnit obj in areaObjs)
                 {
                     if (selectedUnits.Contains(obj))
                     {
@@ -445,55 +533,11 @@ namespace Game
                     }
                 }
             }
-
-            bool needFactionSetted = false;
-            FactionType needFaction = null;
-
-            if (selectedUnits.Count == 0 && playerFaction != null)
+            
+            // alle objekte aus der area durchgehen
+            // nur die als selected hinzunehmen, die auch...
+            foreach (AlienUnit obj in areaObjs)
             {
-                foreach (Unit obj in areaObjs)
-                {
-                    FactionType objFaction = null;
-                    if (obj.Intellect != null)
-                        objFaction = obj.Intellect.Faction;
-
-                    if (playerFaction == objFaction)
-                    {
-                        needFactionSetted = true;
-                        needFaction = playerFaction;
-                        break;
-                    }
-                }
-            }
-
-            if (selectedUnits.Count != 0)
-            {
-                needFactionSetted = true;
-                needFaction = null;
-                if (selectedUnits[0].Intellect != null)
-                    needFaction = selectedUnits[0].Intellect.Faction;
-            }
-
-            if (!needFactionSetted && selectedUnits.Count == 0)
-            {
-                needFactionSetted = true;
-                needFaction = null;
-                if (areaObjs[0].Intellect != null)
-                    needFaction = areaObjs[0].Intellect.Faction;
-            }
-
-            foreach (Unit obj in areaObjs)
-            {
-                FactionType objFaction = null;
-                if (obj.Intellect != null)
-                    objFaction = obj.Intellect.Faction;
-
-                if (needFaction != objFaction)
-                    continue;
-
-                if (selectedUnits.Count != 0 && needFaction != playerFaction)
-                    break;
-
                 SetEntitySelected(obj, true);
             }
         }
@@ -572,7 +616,7 @@ namespace Game
                     UpdateCameraScrollBars();
                 }
 
-                //rtsCameraDirection
+                //alienCameraDirection
 
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
                 {
@@ -658,22 +702,24 @@ namespace Game
 
                     foreach (Entity entity in Map.Instance.Children)
                     {
-                        RTSUnit unit = entity as RTSUnit;
+                        Unit unit = entity as Unit;
                         if (unit == null)
                             continue;
-                        if (unit.Intellect == null)
-                            continue;
-                        if (unit.Intellect.Faction == playerFaction)
-                            existsAlly = true;
-                        else
+                        if (unit is Alien)
+                        {
                             existsEnemy = true;
+                        }
+                        else if (unit is GameCharacter)// TODO Astronaut
+                        {
+                            existsAlly = true;
+                        }
                     }
 
                     string gameStatus = "";
                     if (!existsAlly)
-                        gameStatus = "!!! Defeat !!!";
-                    if (!existsEnemy)
                         gameStatus = "!!! Victory !!!";
+                    if (!existsEnemy)
+                        gameStatus = "!!! Defeat !!!";
 
                     hudControl.Controls["GameStatus"].Text = gameStatus;
                 }
@@ -696,144 +742,74 @@ namespace Game
 
             hudControl.Visible = EngineDebugSettings.DrawGui;
 
-            //Selected units bounds
-            if (taskTargetBuildMeshObject == null)
+            Vec3 mouseMapPos = Vec3.Zero;
+            Unit mouseOnObject = null;
+
+            bool pickingSuccess = false;
+
+            if (!EngineApp.Instance.MouseRelativeMode)
             {
-                Vec3 mouseMapPos = Vec3.Zero;
-                Unit mouseOnObject = null;
-
-                bool pickingSuccess = false;
-
-                if (!EngineApp.Instance.MouseRelativeMode)
+                Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
+                if (!float.IsNaN(ray.Direction.X))
                 {
-                    Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
-                    if (!float.IsNaN(ray.Direction.X))
+                    RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
+                        (int)ContactGroup.CastOnlyContact);
+                    if (result.Shape != null)
                     {
-                        RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
-                            (int)ContactGroup.CastOnlyContact);
-                        if (result.Shape != null)
-                        {
-                            pickingSuccess = true;
-                            mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
-                            mouseMapPos = result.Position;
-                        }
-                    }
-
-                    if (selectMode && selectDraggedMouse)
-                    {
-                        Rect rect = new Rect(selectStartPos);
-                        rect.Add(EngineApp.Instance.MousePosition);
-
-                        Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
-                            MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
-                            {
-                                Unit unit = (Unit)obj;
-
-                                camera.DebugGeometry.Color = new ColorValue(1, 1, 0);
-                                Bounds bounds = obj.MapBounds;
-                                bounds.Expand(.1f);
-                                camera.DebugGeometry.AddBounds(bounds);
-                            });
-                    }
-                    else
-                    {
-                        if (pickingSuccess && IsMouseInActiveArea())
-                        {
-                            if (mouseOnObject != null)
-                            {
-                                camera.DebugGeometry.Color = new ColorValue(1, 1, 0);
-
-                                Bounds bounds = mouseOnObject.MapBounds;
-                                bounds.Expand(.1f);
-                                camera.DebugGeometry.AddBounds(bounds);
-                            }
-                            else
-                            {
-                                camera.DebugGeometry.Color = new ColorValue(1, 0, 0);
-                                camera.DebugGeometry.AddSphere(new Sphere(mouseMapPos, .4f), 16);
-                            }
-                        }
+                        pickingSuccess = true;
+                        mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as AlienUnit;
+                        mouseMapPos = result.Position;
                     }
                 }
 
-                //objects selected
-                foreach (Unit unit in selectedUnits)
+                if (selectMode && selectDraggedMouse)
                 {
-                    ColorValue color;
+                    Rect rect = new Rect(selectStartPos);
+                    rect.Add(EngineApp.Instance.MousePosition);
 
-                    if (playerFaction == null || unit.Intellect == null || unit.Intellect.Faction == null)
-                        color = new ColorValue(1, 1, 0);
-                    else if (playerFaction == unit.Intellect.Faction)
-                        color = new ColorValue(0, 1, 0);
-                    else
-                        color = new ColorValue(1, 0, 0);
+                    Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
+                        MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
+                        {
+                            Unit unit = (Unit)obj;
 
-                    camera.DebugGeometry.Color = color;
-                    camera.DebugGeometry.AddBounds(unit.MapBounds);
+                            camera.DebugGeometry.Color = new ColorValue(1, 1, 0);
+                            Bounds bounds = obj.MapBounds;
+                            bounds.Expand(.1f);
+                            camera.DebugGeometry.AddBounds(bounds);
+                        });
+                }
+                else
+                {
+                    // Wenn nichts ausgewählt ist
+                    if (pickingSuccess && IsMouseInActiveArea())
+                    {
+                        // Befindet sich die Maus auf einem AlienUnit-Objekt?
+                        if (mouseOnObject != null)
+                        {
+                            // Dann zeichnen wir einen Quader um das Objekt
+                            //camera.DebugGeometry.Color = new ColorValue(1, 1, 0);
+                            camera.DebugGeometry.Color = GetColor(mouseOnObject);
+
+                            Bounds bounds = mouseOnObject.MapBounds;
+                            bounds.Expand(.1f);
+                            camera.DebugGeometry.AddBounds(bounds);
+                        }
+                        else
+                        {
+                            // ansonsten passiert nichts?!
+                            camera.DebugGeometry.Color = new ColorValue(1, 0, 0);
+                            camera.DebugGeometry.AddSphere(new Sphere(mouseMapPos, .4f), 16);
+                        }
+                    }
                 }
             }
 
-            //taskTargetBuild
-            if (taskTargetBuildMeshObject != null)
+            //objects selected
+            foreach (Unit unit in selectedUnits)
             {
-                taskTargetBuildSceneNode.Visible = false;
-
-                Ray ray = new Ray(Vec3.Zero, Vec3.Zero);
-
-                //pick on active area
-                if (IsMouseInActiveArea())
-                    ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
-
-                //pick on minimap
-                if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
-                {
-                    Vec2 p = GetMapPositionByMouseOnMinimap();
-                    ray = new Ray(new Vec3(p.X, p.Y, 1000), new Vec3(.001f, .001f, -2000));
-                }
-
-                if (ray.Direction != Vec3.Zero)
-                {
-                    RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
-                        (int)ContactGroup.CastOnlyCollision);
-                    if (result.Shape != null)
-                    {
-                        Vec3 mouseMapPos = result.Position;
-
-                        //snap
-                        mouseMapPos = new Vec3((int)(mouseMapPos.X + .5f),
-                            (int)(mouseMapPos.Y + .5f), mouseMapPos.Z);
-
-                        //RTSMine specific
-                        bool mineFound = false;
-                        if (taskTargetBuildingType is RTSMineType)
-                        {
-                            Bounds bounds = new Bounds(mouseMapPos - new Vec3(2, 2, 2),
-                                mouseMapPos + new Vec3(2, 2, 2));
-                            Map.Instance.GetObjects(bounds, delegate(MapObject obj)
-                            {
-                                if (obj.Type.Name == "RTSGeyser")
-                                {
-                                    mineFound = true;
-                                    mouseMapPos = obj.Position;
-                                }
-                            });
-                        }
-
-                        taskTargetBuildSceneNode.Position = mouseMapPos;
-                        taskTargetBuildSceneNode.Visible = true;
-
-                        //check free for build
-                        bool free = IsFreeForBuildTaskTargetBuild(mouseMapPos);
-
-                        //RTSMine specific
-                        if (taskTargetBuildingType is RTSMineType)
-                            if (!mineFound)
-                                free = false;
-
-                        foreach (MeshObject.SubObject subMesh in taskTargetBuildMeshObject.SubObjects)
-                            subMesh.MaterialName = free ? "Green" : "Red";
-                    }
-                }
+                ColorValue color = GetColor(unit);
+                camera.DebugGeometry.Color = color;
+                camera.DebugGeometry.AddBounds(unit.MapBounds);
             }
 
             //Selected units HUD
@@ -861,10 +837,10 @@ namespace Game
                         FactionType faction = unit.Intellect.Faction;
                         text += string.Format("- Faction: {0}\n", faction != null ? faction.ToString() : "null");
 
-                        RTSUnitAI rtsUnitAI = unit.Intellect as RTSUnitAI;
-                        if (rtsUnitAI != null)
+                        AlienUnitAI AlienUnitAI = unit.Intellect as AlienUnitAI;
+                        if (AlienUnitAI != null)
                         {
-                            text += string.Format("- CurrentTask: {0}\n", rtsUnitAI.CurrentTask.ToString());
+                            text += string.Format("- CurrentTask: {0}\n", AlienUnitAI.CurrentTask.ToString());
                         }
                     }
                     else
@@ -877,95 +853,63 @@ namespace Game
                 UpdateControlPanel();
             }
 
-            //RTSFactionManager
-            {
-                string text = "";
-
-                if (RTSFactionManager.Instance != null)
-                {
-                    foreach (RTSFactionManager.FactionItem item in RTSFactionManager.Instance.Factions)
-                    {
-                        string s = "  " + item.ToString();
-                        s += ", Money " + ((int)item.Money).ToString();
-                        if (item.FactionType == playerFaction)
-                            s += " (Player)";
-                        text += s + "\n";
-                    }
-                }
-                else
-                    text += "RTSFactionManager not exists\n";
-
-                hudControl.Controls["DebugText"].Text = text;
-            }
-
             UpdateHUDControlIcon();
         }
 
-        bool IsFreeForBuildTaskTargetBuild(Vec3 pos)
+        /// <summary>
+        /// Farbe für kleine Aliens und Spawnpoint verschieden
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        ColorValue GetColor(Unit unit)
         {
-            Bounds bounds;
+            if (unit is Alien)
             {
-                PhysicsModel physicsModel = PhysicsWorld.Instance.LoadPhysicsModel(
-                    taskTargetBuildingType.GetPhysicsModelFullPath());
-                if (physicsModel == null)
-                {
-                    Log.Fatal(string.Format("No physics model for \"{0}\"", taskTargetBuildingType.ToString()));
-                    return false;
-                }
-                bounds = physicsModel.GetGlobalBounds();
-                physicsModel.Dispose();
-
-                bounds += pos;
+                return new ColorValue(1, 0, 0);
             }
-
-            Rect rect = new Rect(bounds.Minimum.ToVec2(), bounds.Maximum.ToVec2());
-            return GridBasedNavigationSystem.Instances[0].IsFreeInMapMotion(rect);
+            else if (unit is AlienSpawner)
+            {
+                return new ColorValue(0, 1, 0);
+            }
+            return new ColorValue();
         }
 
-        List<RTSUnitAI.UserControlPanelTask> GetControlTasks()
+        List<AlienUnitAI.UserControlPanelTask> GetControlTasks()
         {
-            List<RTSUnitAI.UserControlPanelTask> tasks = null;
+            List<AlienUnitAI.UserControlPanelTask> tasks = null;
 
             if (selectedUnits.Count != 0)
             {
-                FactionType faction = null;
-                if (selectedUnits[0].Intellect != null)
-                    faction = selectedUnits[0].Intellect.Faction;
-
-                if (faction == playerFaction)
+                foreach (Unit unit in selectedUnits)
                 {
-                    foreach (Unit unit in selectedUnits)
+                    AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
+                    if (intellect != null)
                     {
-                        RTSUnitAI intellect = unit.Intellect as RTSUnitAI;
-                        if (intellect != null)
+                        List<AlienUnitAI.UserControlPanelTask> t = intellect.GetControlPanelTasks();
+                        if (tasks == null)
                         {
-                            List<RTSUnitAI.UserControlPanelTask> t = intellect.GetControlPanelTasks();
-                            if (tasks == null)
+                            tasks = t;
+                        }
+                        else
+                        {
+                            for (int n = 0; n < tasks.Count; n++)
                             {
-                                tasks = t;
-                            }
-                            else
-                            {
-                                for (int n = 0; n < tasks.Count; n++)
+                                if (n >= t.Count)
+                                    continue;// break??
+
+                                if (tasks[n].Task.Type != t[n].Task.Type)
+                                    continue;
+                                if (t[n].Active)
                                 {
-                                    if (n >= t.Count)
-                                        continue;
+                                    tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                                        tasks[n].Task, true, tasks[n].Enable);
+                                }
 
-                                    if (tasks[n].Task.Type != t[n].Task.Type)
-                                        continue;
-                                    if (t[n].Active)
-                                    {
-                                        tasks[n] = new RTSUnitAI.UserControlPanelTask(
-                                            tasks[n].Task, true, tasks[n].Enable);
-                                    }
-
-                                    if (tasks[n].Task.Type == RTSUnitAI.Task.Types.ProductUnit ||
-                                        tasks[n].Task.Type == RTSUnitAI.Task.Types.BuildBuilding)
-                                    {
-                                        if (tasks[n].Task.EntityType != t[n].Task.EntityType)
-                                            tasks[n] = new RTSUnitAI.UserControlPanelTask(
-                                                new RTSUnitAI.Task(RTSUnitAI.Task.Types.None));
-                                    }
+                                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
+                                {
+                                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
+                                        tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                                            new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
                                 }
                             }
                         }
@@ -987,100 +931,70 @@ namespace Game
             }
         }
 
+        // Wenn ein Button zum Navigieren der Aliens/Spawnpoints geklickt wurde
         void ControlPanelButton_Click(Button sender)
         {
             int index = int.Parse(sender.Name.Substring("ControlPanelButton".Length));
 
             TaskTargetChooseIndex = -1;
 
-            List<RTSUnitAI.UserControlPanelTask> tasks = GetControlTasks();
+            List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
 
             if (tasks == null || index >= tasks.Count)
                 return;
             if (!tasks[index].Enable)
                 return;
 
-            RTSUnitAI.Task.Types taskType = tasks[index].Task.Type;
+            AlienUnitAI.Task.Types taskType = tasks[index].Task.Type;
 
             switch (taskType)
             {
                 //Stop, SelfDestroy
-                case RTSUnitAI.Task.Types.Stop:
-                case RTSUnitAI.Task.Types.SelfDestroy:
+                case AlienUnitAI.Task.Types.Stop:
+                case AlienUnitAI.Task.Types.SelfDestroy:
                     foreach (Unit unit in selectedUnits)
                     {
-                        RTSUnitAI intellect = unit.Intellect as RTSUnitAI;
+                        AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
                         if (intellect == null)
                             continue;
 
                         if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
-                            intellect.DoTask(new RTSUnitAI.Task(taskType), false);
+                            intellect.DoTask(new AlienUnitAI.Task(taskType), false);
                     }
                     break;
 
                 //ProductUnit
-                case RTSUnitAI.Task.Types.ProductUnit:
+                case AlienUnitAI.Task.Types.ProductUnit:
                     foreach (Unit unit in selectedUnits)
                     {
-                        RTSBuildingAI intellect = unit.Intellect as RTSBuildingAI;
+                        AlienSpawnerAI intellect = unit.Intellect as AlienSpawnerAI;
                         if (intellect == null)
                             continue;
 
                         if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
-                            intellect.DoTask(new RTSUnitAI.Task(taskType, tasks[index].Task.EntityType), false);
+                        {
+                            EngineConsole.Instance.Print("number" + spawnNumber);
+                            spawnNumber = 2;
+                            intellect.DoTask(new AlienUnitAI.Task(taskType, tasks[index].Task.EntityType, spawnNumber), false);
+                        }
                     }
                     break;
 
                 //Move, Attack, Repair
-                case RTSUnitAI.Task.Types.Move:
-                case RTSUnitAI.Task.Types.Attack:
-                case RTSUnitAI.Task.Types.Repair:
+                case AlienUnitAI.Task.Types.Move:
+                case AlienUnitAI.Task.Types.Attack:
+                case AlienUnitAI.Task.Types.Repair:
                     //do taskTargetChoose
                     TaskTargetChooseIndex = index;
-                    break;
-
-                //BuildBuilding
-                case RTSUnitAI.Task.Types.BuildBuilding:
-                    if (selectedUnits.Count == 1)
-                    {
-                        Unit unit = selectedUnits[0];
-                        RTSUnitAI intellect = unit.Intellect as RTSUnitAI;
-                        if (intellect != null)
-                        {
-                            //do taskTargetChoose
-                            TaskTargetChooseIndex = index;
-
-                            taskTargetBuildingType = (RTSBuildingType)tasks[index].Task.EntityType;
-
-                            string meshName = null;
-                            {
-                                foreach (MapObjectTypeAttachedObject typeAttachedObject in
-                                    taskTargetBuildingType.AttachedObjects)
-                                {
-                                    MapObjectTypeAttachedMesh typeMeshAttachedObject = typeAttachedObject as
-                                        MapObjectTypeAttachedMesh;
-                                    if (typeMeshAttachedObject != null)
-                                    {
-                                        meshName = typeMeshAttachedObject.GetMeshNameFullPath();
-                                        break;
-                                    }
-                                }
-                            }
-
-                            taskTargetBuildMeshObject = SceneManager.Instance.CreateMeshObject(meshName);
-                            taskTargetBuildSceneNode = new SceneNode();
-                            taskTargetBuildSceneNode.Attach(taskTargetBuildMeshObject);
-                            taskTargetBuildSceneNode.Visible = false;
-                        }
-                    }
                     break;
 
             }
         }
 
+        // Buttons zum Navigieren der kleinen aliens zeichnen
         void UpdateControlPanel()
         {
-            List<RTSUnitAI.UserControlPanelTask> tasks = GetControlTasks();
+            List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
 
             //check for need reset taskTargetChooseIndex
             if (TaskTargetChooseIndex != -1)
@@ -1089,6 +1003,12 @@ namespace Game
                     TaskTargetChooseIndex = -1;
             }
 
+
+            numberSpawnUnits.Visible = false;
+            Control controlNumberSpawnUnitsText = hudControl.Controls["NumberSpawnUnitsText"];
+            controlNumberSpawnUnitsText.Visible = false;
+
+            // make all buttons visible or not
             for (int n = 0; ; n++)
             {
                 Control control = hudControl.Controls["ControlPanelButton" + n.ToString()];
@@ -1099,7 +1019,7 @@ namespace Game
                 control.Visible = tasks != null && n < tasks.Count;
 
                 if (control.Visible)
-                    if (tasks[n].Task.Type == RTSUnitAI.Task.Types.None)
+                    if (tasks[n].Task.Type == AlienUnitAI.Task.Types.None)
                         control.Visible = false;
 
                 if (control.Visible)
@@ -1107,10 +1027,22 @@ namespace Game
                     string text = null;
 
                     if (tasks[n].Task.EntityType != null)
+                    {
                         text += tasks[n].Task.EntityType.FullName;
-
+                        // if task is to spawn aliens we have to show the listbox so that the player can choose the number of aliens to be spawned
+                        if (tasks[n].Task.EntityType.FullName == "Alien")
+                        {
+                            numberSpawnUnits.ValueRange = new Range(1, possibleNumberSpawnAliens);
+                            numberSpawnUnits.Value = 1;
+                            numberSpawnUnits.Visible = true;
+                            numberSpawnUnits.Enable = true;
+                            controlNumberSpawnUnitsText.Visible = true;
+                        }
+                    }
                     if (text == null)
+                    {
                         text = tasks[n].Task.ToString();
+                    }
 
                     control.Text = text;
                     control.Enable = tasks[n].Enable;
@@ -1125,6 +1057,7 @@ namespace Game
             }
         }
 
+        // Rechtecke zeichnen für ausgewählte Elemente
         void DrawHUD(GuiRenderer renderer)
         {
             if (selectMode && selectDraggedMouse)
@@ -1170,7 +1103,7 @@ namespace Game
 
             foreach (Entity entity in Map.Instance.Children)
             {
-                RTSUnit unit = entity as RTSUnit;
+                AlienUnit unit = entity as AlienUnit;
                 if (unit == null)
                     continue;
 
@@ -1188,14 +1121,16 @@ namespace Game
                 //increase 1 pixel
                 rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
 
-                ColorValue color;
+                ColorValue color = GetColor(unit);
 
-                if (playerFaction == null || unit.Intellect == null || unit.Intellect.Faction == null)
-                    color = new ColorValue(1, 1, 0);
-                else if (playerFaction == unit.Intellect.Faction)
-                    color = new ColorValue(0, 1, 0);
-                else
-                    color = new ColorValue(1, 0, 0);
+                //if (playerFaction == null || unit.Intellect == null || unit.Intellect.Faction == null)
+                //    color = new ColorValue(1, 1, 0);
+                //else if (playerFaction == unit.Intellect.Faction)
+                //    color = new ColorValue(0, 1, 0);
+                //else
+                //    color = new ColorValue(1, 0, 0);
+
+
 
                 renderer.AddQuad(rect, color);
             }
@@ -1262,30 +1197,37 @@ namespace Game
             return cameraType;
         }
 
+        /// <summary>
+        /// removes all small aliens from selectedUnits
+        /// </summary>
         public void ClearEntitySelection()
         {
             while (selectedUnits.Count != 0)
                 SetEntitySelected(selectedUnits[selectedUnits.Count - 1], false);
         }
 
+        /// <summary>
+        /// Adds or removes a small alien from selectedUnits
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="selected"></param>
         public void SetEntitySelected(Unit entity, bool selected)
         {
-            bool modified = false;
-
-            if (selected)
+            if (entity is AlienUnit)
             {
-                if (!selectedUnits.Contains(entity))
-                {
-                    selectedUnits.Add(entity);
-                    modified = true;
-                }
-            }
-            else
-                modified = selectedUnits.Remove(entity);
+                bool modified = false;
 
-            //if( modified )
-            //{
-            //}
+                if (selected)
+                {
+                    if (!selectedUnits.Contains(entity))
+                    {
+                        selectedUnits.Add(entity);
+                        modified = true;
+                    }
+                }
+                else
+                    modified = selectedUnits.Remove(entity);
+            }
         }
 
         int TaskTargetChooseIndex
@@ -1294,18 +1236,13 @@ namespace Game
             set
             {
                 taskTargetChooseIndex = value;
-
-                if (taskTargetChooseIndex == -1 && taskTargetBuildMeshObject != null)
-                {
-                    taskTargetBuildSceneNode.Detach(taskTargetBuildMeshObject);
-                    taskTargetBuildMeshObject.Dispose();
-                    taskTargetBuildMeshObject = null;
-                    taskTargetBuildSceneNode.Dispose();
-                    taskTargetBuildSceneNode = null;
-                }
             }
         }
 
+        /// <summary>
+        /// Changes Map position by calculating the position from the position of the mouse on the minimap
+        /// </summary>
+        /// <returns></returns>
         Vec2 GetMapPositionByMouseOnMinimap()
         {
             Rect screenMapRect = minimapControl.GetScreenRectangle();
@@ -1362,7 +1299,7 @@ namespace Game
         }
 
         protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward,
-            out Vec3 up, ref Degree cameraFov)
+           out Vec3 up, ref Degree cameraFov)
         {
             Vec3 offset;
             {
@@ -1393,6 +1330,11 @@ namespace Game
             cameraDirection.Vertical = sender.Value;
         }
 
+        void numberSpawnUnits_ValueChange(ScrollBar sender)
+        {
+            spawnNumber = (int)sender.Value;
+        }
+
         void UpdateCameraScrollBars()
         {
             disableUpdatingCameraScrollBars = true;
@@ -1401,6 +1343,23 @@ namespace Game
             if (cameraHeightScrollBar != null)
                 cameraHeightScrollBar.Value = cameraDirection.Vertical;
             disableUpdatingCameraScrollBars = false;
+        }
+
+        // Brauchen wir das??
+        public override void OnBeforeWorldSave()
+        {
+            base.OnBeforeWorldSave();
+
+            //World serialized data
+            World.Instance.ClearAllCustomSerializationValues();
+            World.Instance.SetCustomSerializationValue("cameraDistance", cameraDistance);
+            World.Instance.SetCustomSerializationValue("cameraDirection", cameraDirection);
+            World.Instance.SetCustomSerializationValue("cameraPosition", cameraPosition);
+            for (int n = 0; n < selectedUnits.Count; n++)
+            {
+                Unit unit = selectedUnits[n];
+                World.Instance.SetCustomSerializationValue("selectedUnit" + n.ToString(), unit);
+            }
         }
 
     }
