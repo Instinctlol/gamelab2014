@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -14.38242 119.1803 104.1935
-editorCameraDirection = 4.689976 -1.018608
+editorCameraPosition = 7.041039 -59.94011 192.7228
+editorCameraDirection = 3.115656 -1.559234
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -427,7 +427,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 36
+	uin = 35
 	classPrompt = MapObject
 	position = 82 0 0
 	name = F2R8
@@ -436,7 +436,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 37
+	uin = 36
 	classPrompt = MapObject
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
@@ -446,7 +446,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 38
+	uin = 37
 	classPrompt = MapObject
 	position = 51 50 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -455,7 +455,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 39
+	uin = 38
 	classPrompt = MapObject
 	position = 74.64777 31.54088 0
 	rotation = 0 0 0.1695079 0.9855289
@@ -465,7 +465,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 40
+	uin = 39
 	classPrompt = MapObject
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -474,7 +474,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 41
+	uin = 40
 	classPrompt = MapObject
 	position = 31.11989 73.79716 0
 	rotation = 0 0 0.5827719 0.8126359
@@ -484,7 +484,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 42
+	uin = 41
 	classPrompt = MapObject
 	position = 51 226.9742 270.7515
 	rotation = 0 0 -0.9238795 0.3826834
@@ -493,7 +493,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 43
+	uin = 42
 	classPrompt = MapObject
 	position = -58 -59 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -502,7 +502,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 44
+	uin = 43
 	classPrompt = MapObject
 	position = -74.06651 -31.11581 0
 	rotation = 0 0 -0.975753 0.2188754
@@ -512,7 +512,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 45
+	uin = 44
 	classPrompt = MapObject
 	position = -54 53 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -521,7 +521,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 46
+	uin = 45
 	classPrompt = MapObject
 	position = -32.24294 75.45021 0
 	rotation = 0 0 0.7713037 0.6364676
@@ -531,7 +531,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 47
+	uin = 46
 	classPrompt = MapObject
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -540,7 +540,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 48
+	uin = 47
 	classPrompt = MapObject
 	position = -30.74488 -73.34302 0
 	rotation = 0 0 -0.8121647 0.5834287
@@ -550,7 +550,7 @@ entity
 entity
 {
 	type = BasicP2
-	uin = 49
+	uin = 48
 	classPrompt = MapObject
 	position = 63 -64 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -559,7 +559,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 50
+	uin = 49
 	classPrompt = MapObject
 	position = -6.5 104.5 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -568,7 +568,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 51
+	uin = 50
 	classPrompt = MapObject
 	position = -86 -79.5 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -577,7 +577,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 52
+	uin = 51
 	classPrompt = MapObject
 	position = 75 -83 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -586,7 +586,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 35
+	uin = 52
 	classPrompt = MapObject
 	position = -116.4543 -5.95177 0
 	rotation = 0 0 -1 1.216796E-08
@@ -619,5 +619,34 @@ entity
 	position = 43.66648 106.105 0
 	rotation = 0 0 0.5827719 0.8126359
 	scale = 0.6190478 1.149387 0.7549194
+	name = F1C12
+}
+entity
+{
+	type = "Gro\x00dfraum32"
+	uin = 56
+	classPrompt = MapObject
+	position = -6.280982 -115.8718 0
+	rotation = 0 0 -0.7071068 0.7071068
+	name = F1R6
+}
+entity
+{
+	type = Corridor-F3
+	uin = 57
+	classPrompt = MapObject
+	position = -42.15703 -104.9251 0
+	rotation = 0 0 -0.8121647 0.5834287
+	scale = 0.625 1.11727 0.625
 	name = Corridor-F3_0
+}
+entity
+{
+	type = Corridor-F3
+	uin = 58
+	classPrompt = MapObject
+	position = 45.82729 -107.9929 0
+	rotation = 0 0 -0.6334885 0.7737526
+	scale = 0.625 1.241295 0.625
+	name = F1C67
 }
