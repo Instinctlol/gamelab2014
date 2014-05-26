@@ -67,5 +67,16 @@ namespace ProjectEntities
                 return null;
         }
 
+        //SectorGroup zzu einer Position kriegen
+        public SectorGroup GetGroup(Vec2 position)
+        {
+            Sector sec = GetSector(position);
+
+            if (sec != null)
+                return sec.Group;
+            else
+                return null;
+        }
+
     }
 }

@@ -1,6 +1,6 @@
-type Ring
+type SectorGroup
 {
-	class = Ring
+	class = SectorGroup
 	attachedObjects
 	{
 		mesh

@@ -38,7 +38,9 @@ namespace ProjectEntities
         [FieldSerialize]
         private Ring ring;
 
-
+        //Sektor Gruppe dem dieser Sektor angehört
+        [FieldSerialize]
+        private SectorGroup group;
         //***************************
         //*******Getter-Setter*******
         //*************************** 
@@ -48,6 +50,12 @@ namespace ProjectEntities
             set {
                 ring = value; 
             }
+        }
+
+        public SectorGroup Group
+        {
+            get { return group; }
+            set { group = value; }
         }
         //***************************
 
@@ -59,15 +67,8 @@ namespace ProjectEntities
             base.CheckType = CheckTypes.Center;
         }
 
-        //Toggled die Lichter
-        public void ToggleLights()
-        {
-            lightStatus = !lightStatus;
-            SetLights(lightStatus);
-        }
-
         //Setzt die Lichter zu bestimmten status
-        public void SetLights(bool status)
+        public void SwitchLights(bool status)
         {
             if (lightStatus != status)
                 lightStatus = status;
@@ -137,6 +138,9 @@ namespace ProjectEntities
             //Wenn Ring vorhanden bei seinem Event unterschreiben
             if (ring != null)
                 ring.RotateRing += OnRotateRing;
+
+            if (group != null)
+                group.SwitchLight += SwitchLights;
 
         }
 

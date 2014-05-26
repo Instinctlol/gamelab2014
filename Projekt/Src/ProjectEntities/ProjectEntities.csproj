@@ -155,6 +155,7 @@
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
     <Compile Include="Sector.cs" />
+    <Compile Include="SectorGroup.cs" />
     <Compile Include="SmartButton.cs" />
     <Compile Include="SmartButtonWindow.cs" />
     <Compile Include="StationSystem.cs" />
