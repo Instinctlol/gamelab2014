@@ -63,8 +63,7 @@ namespace Game
 			EngineApp.Instance.Config.RegisterClassParameters( GetType() );
 
 			//create window
-			window = ControlDeclarationManager.Instance.CreateControl(
-				"Gui\\MultiplayerLobbyWindow.gui" );
+			window = ControlDeclarationManager.Instance.CreateControl("Gui\\MultiplayerLobbyWindow.gui" );
 			Controls.Add( window );
 
 			MouseCover = true;

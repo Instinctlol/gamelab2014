@@ -300,29 +300,29 @@
         <member name="M:ProjectEntities.Aircraft.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienType">
+        <member name="T:ProjectEntities.AlienType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.Alien"/> entity type.
+            Defines the <see cref="T:ProjectEntities.Alien"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienUnitType">
+        <member name="T:ProjectEntities.AlienUnitType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienUnit"/> entity type.
+            Defines the <see cref="T:ProjectEntities.AlienUnit"/> entity type.
             </summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienUnit.OnPostCreate(System.Boolean)">
+        <member name="M:ProjectEntities.AlienUnit.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.Alien.OnPostCreate(System.Boolean)">
+        <member name="M:ProjectEntities.Alien.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.Alien.OnTick">
+        <member name="M:ProjectEntities.Alien.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.Alien.OnRender(Engine.Renderer.Camera)">
+        <member name="M:ProjectEntities.Alien.OnRender(Engine.Renderer.Camera)">
             <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnRender(Engine.Renderer.Camera)"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.Alien.GetMotionMapRectanglesForObject(Engine.GridBasedNavigationSystem,Engine.MapSystem.MapObject,System.Collections.Generic.List{Engine.MathEx.Rect})">
+        <member name="M:ProjectEntities.Alien.GetMotionMapRectanglesForObject(Engine.GridBasedNavigationSystem,Engine.MapSystem.MapObject,System.Collections.Generic.List{Engine.MathEx.Rect})">
             <summary>
             Implements GridBasedNavigationSystem.IOverrideObjectBehavior
             </summary>
@@ -330,57 +330,62 @@
             <param name="obj"></param>
             <param name="rectangles"></param>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienAIType">
+        <member name="T:ProjectEntities.AlienAIType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienAI"/> entity type.
+            Defines the <see cref="T:ProjectEntities.AlienAI"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienUnitAIType">
+        <member name="T:ProjectEntities.AlienUnitAIType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienUnitAI"/> entity type.
+            Defines the <see cref="T:ProjectEntities.AlienUnitAI"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienAI">
+        <member name="T:ProjectEntities.AlienAI">
             <summary>
             AI for small aliens
             
             bleibt erstmal leer, muss nachher code von AlienUnitAI rüberkopiert werden, der nicht von der AlienSpawnerAI verwendet wird
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienUnitAI">
+        <member name="T:ProjectEntities.AlienUnitAI">
             <summary>
             base AI for both, AlienUnitAI and AlienSpawnerAI.
             contains the logic which will be used from spawnpoint and small alien.
             </summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienUnitAI.OnPostCreate(System.Boolean)">
+        <member name="M:ProjectEntities.AlienUnitAI.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienUnitAI.OnDestroy">
+        <member name="M:ProjectEntities.AlienUnitAI.OnDestroy">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienUnitAI.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
+        <member name="M:ProjectEntities.AlienUnitAI.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Engine.EntitySystem.Entity)"/></summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienUnitAI.OnTick">
+        <member name="M:ProjectEntities.AlienUnitAI.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienSpawnerType">
+        <member name="T:ProjectEntities.AlienSpawnerType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienSpawner"/> entity type.
+            Defines the <see cref="T:ProjectEntities.AlienSpawner"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienSpawner">
+        <member name="T:ProjectEntities.AlienSpawner">
             <summary>
             Spawner for creating small aliens
             </summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienSpawner.SpawnSmallAlien">
+        <member name="M:ProjectEntities.AlienSpawner.OnPostCreate(System.Boolean)">
+            <summary>
+            Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.AlienSpawner.SpawnSmallAlien">
             <summary>
             Function for spawning one small alien
             </summary>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienSpawner.FindFreePositionForUnit(ProjectEntities.Unit,Engine.MathEx.Vec3)">
+        <member name="M:ProjectEntities.AlienSpawner.FindFreePositionForUnit(ProjectEntities.Unit,Engine.MathEx.Vec3)">
             <summary>
             Calculates the next valid Position for a small alien to be spawned. If there is no more space (1,-1,-1) will be returned.
             </summary>
@@ -388,21 +393,21 @@
             <param name="center"></param>
             <returns></returns>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienSpawner.isCloseToPoint">
+        <member name="M:ProjectEntities.AlienSpawner.isCloseToPoint">
             <summary>
             If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ProjectEntities.Alien_Specific.AlienSpawner.OnTick">
+        <member name="M:ProjectEntities.AlienSpawner.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienSpawnerAIType">
+        <member name="T:ProjectEntities.AlienSpawnerAIType">
             <summary>
-            Defines the <see cref="T:ProjectEntities.Alien_Specific.AlienSpawnerAI"/> entity type.
+            Defines the <see cref="T:ProjectEntities.AlienSpawnerAI"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.Alien_Specific.AlienSpawnerAI">
+        <member name="T:ProjectEntities.AlienSpawnerAI">
             <summary>
             AI for small-alien-spawnpoint
             </summary>

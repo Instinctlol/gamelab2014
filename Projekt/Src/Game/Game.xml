@@ -66,6 +66,31 @@
             Defines a about us window.
             </summary>
         </member>
+        <member name="M:Game.AlienGameWindow.GetColor(ProjectEntities.Unit)">
+            <summary>
+            Farbe für kleine Aliens und Spawnpoint verschieden
+            </summary>
+            <param name="unit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Game.AlienGameWindow.ClearEntitySelection">
+            <summary>
+            removes all small aliens from selectedUnits
+            </summary>
+        </member>
+        <member name="M:Game.AlienGameWindow.SetEntitySelected(ProjectEntities.Unit,System.Boolean)">
+            <summary>
+            Adds or removes a small alien from selectedUnits
+            </summary>
+            <param name="entity"></param>
+            <param name="selected"></param>
+        </member>
+        <member name="M:Game.AlienGameWindow.GetMapPositionByMouseOnMinimap">
+            <summary>
+            Changes Map position by calculating the position from the position of the mouse on the minimap
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ProjectCommon.ProfilingToolWindow">
             <summary>
             Defines a window class for Profiling Tool.
