@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 70.26074 214.6298 268.3635
-editorCameraDirection = 4.386269 -0.5420467
+editorCameraPosition = -52.69747 144.2224 137.3226
+editorCameraDirection = 4.97593 -1.090484
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -46,8 +46,6 @@ rootEditorLayer
 		layer
 		{
 			name = F3
-			visible = False
-			allowSelect = False
 		}
 	}
 }
@@ -242,7 +240,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -263,7 +260,6 @@ entity
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
-	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -283,7 +279,6 @@ entity
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
-	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -304,8 +299,7 @@ entity
 	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
-	visible = False
-	name = F3R4-S
+	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
 }
@@ -325,8 +319,7 @@ entity
 	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
-	visible = False
-	name = F3R2-S
+	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
 }
@@ -345,7 +338,6 @@ entity
 	filter = All
 	position = 34.79509 -37.25589 2.487303
 	scale = 24.40987 27.17273 10.9482
-	visible = False
 	name = F3C_12-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -366,7 +358,6 @@ entity
 	position = -36.90491 34.74411 2.487303
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 24.63699 26.3679 10.9482
-	visible = False
 	name = F3C_34-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -676,4 +667,102 @@ entity
 	classPrompt = MapObject
 	position = 117.2715 -6.203758 0
 	name = F1R8
+}
+entity
+{
+	type = Sector
+	uin = 62
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 23
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 76.38126 -0.6724877 3
+	scale = 33.84572 49.58686 10.9482
+	name = F2R8-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 63
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 23
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -75.9137 0 3
+	scale = 33.84572 49.58686 10.9482
+	name = F2R4-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 64
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 23
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0 -76.63119 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 36.20875 49.58686 10.9482
+	name = F2R6-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 65
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 23
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0.6402804 76.1175 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 36.20875 49.58686 10.9482
+	name = F2R2-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 66
+	classPrompt = Sector
+	lights = 
+	lightStatus = False
+	dynamics = 
+	statics = 
+	ring = 23
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -57.21292 57.05568 3
+	rotation = 0 0 -0.3826834 0.9238795
+	scale = 36.20875 49.58686 10.9482
+	name = F2R3-S
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Center
 }
