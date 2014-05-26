@@ -1,7 +1,11 @@
 <<<<<<< .mine
+Log started: 5/26/2014 2:17:35 PM
+=======
+<<<<<<< .mine
 Log started: 5/26/2014 2:12:07 PM
 =======
 Log started: 5/26/2014 1:37:43 PM
+>>>>>>> .r161
 >>>>>>> .r158
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (32-bit)
@@ -42,9 +46,13 @@ Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
 <<<<<<< .mine
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=4982658 vsync=true 
+=======
+<<<<<<< .mine
 Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=655508 vsync=true 
 =======
 Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=1312572 vsync=true 
+>>>>>>> .r161
 >>>>>>> .r158
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 10x10, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
@@ -377,6 +385,58 @@ Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TP
 Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TPSCamera\ScarRifle_3.highMaterial
 Info: Initializing high level material: Types\Weapons\SubmachineGun\SubmachineGunFire.highMaterial
 Info: Sound system is initialized (Driver: OpenAL 1.1 ALSOFT 1.13, Device: DirectSound Default)
+<<<<<<< .mine
+Error: EntityTypes: The class with name "SectorGroup" is not exists. File "Types\Rotation\SectorGroup\SectorGroup.type".
+   bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   bei System.Environment.get_StackTrace()
+   bei Engine.Log.A()
+   bei Engine.Log.Error(String text)
+   bei Engine.EntitySystem.EntityTypes.A(String A, String a, String B)
+   bei Engine.EntitySystem.EntityTypes.A(TextBlock A, String a, String B)
+   bei Engine.EntitySystem.EntityTypes.A(String A)
+   bei Engine.EntitySystem.EntityTypes.LoadGroupOfTypes(String virtualDirectory, SearchOption searchOption, List`1& loadedTypes)
+   bei Engine.EntitySystem.EntityTypes.A()
+   bei Engine.EntitySystem.EntitySystemWorld.A()
+   bei Engine.EntitySystem.EntitySystemWorld.Init(EntitySystemWorld overridedObject)
+   bei ResourceEditor.ResourceEditorEngineApp.OnCreate()
+   bei Engine.EngineApp.Create()
+   bei ResourceEditor.MainForm.MainForm_Load(Object sender, EventArgs e)
+   bei System.Windows.Forms.Form.OnLoad(EventArgs e)
+   bei System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   bei System.Windows.Forms.Control.CreateControl()
+   bei System.Windows.Forms.Control.WmShowWindow(Message& m)
+   bei System.Windows.Forms.Control.WndProc(Message& m)
+   bei System.Windows.Forms.Form.WndProc(Message& m)
+   bei System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
+   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
+   bei System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   bei ResourceEditor.Program.Main2()
+   bei ResourceEditor.Program.Main()Error: EntityTypes: Entity type loading failed "Types\Rotation\SectorGroup\SectorGroup.type".
+   bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   bei System.Environment.get_StackTrace()
+   bei Engine.Log.A()
+   bei Engine.Log.Error(String text)
+   bei Engine.EntitySystem.EntityTypes.LoadGroupOfTypes(String virtualDirectory, SearchOption searchOption, List`1& loadedTypes)
+   bei Engine.EntitySystem.EntityTypes.A()
+   bei Engine.EntitySystem.EntitySystemWorld.A()
+   bei Engine.EntitySystem.EntitySystemWorld.Init(EntitySystemWorld overridedObject)
+   bei ResourceEditor.ResourceEditorEngineApp.OnCreate()
+   bei Engine.EngineApp.Create()
+   bei ResourceEditor.MainForm.MainForm_Load(Object sender, EventArgs e)
+   bei System.Windows.Forms.Form.OnLoad(EventArgs e)
+   bei System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   bei System.Windows.Forms.Control.CreateControl()
+   bei System.Windows.Forms.Control.WmShowWindow(Message& m)
+   bei System.Windows.Forms.Control.WndProc(Message& m)
+   bei System.Windows.Forms.Form.WndProc(Message& m)
+   bei System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
+   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
+   bei System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   bei ResourceEditor.Program.Main2()
+   bei ResourceEditor.Program.Main()Info: NativeMemoryManager: Leaks statistics begin
+=======
 Info: OGRE: !!! Direct3D Device Lost!
 Info: OGRE: D3D9TextureManager released:
 Info: OGRE: 0 unmanaged textures
@@ -423,6 +483,7 @@ Info: OGRE: Mesh: Loading Base\Types\InvisiblePoint.mesh.
 Info: OGRE: Mesh: Loading Base\Tools\ResourceEditorGrid\ResourceEditorGrid.mesh.
 Info: OGRE: RenderTarget "MainWindow": destroyAdditionalMRTs
 Info: NativeMemoryManager: Leaks statistics begin
+>>>>>>> .r161
 <<<<<<< .mine
 Info: Leak - type: Renderer, size: 9712 x 1 = 9712 (file: NULL)
 Info: Leak - type: Renderer, size: 1132 x 1 = 1132 (file: NULL)
@@ -483,12 +544,12 @@ Info: Leak - type: Renderer, size: 104 x 3 = 312 (file: NULL)
 Info: Leak - type: Renderer, size: 88 x 2 = 176 (file: NULL)
 Info: Leak - type: Renderer, size: 80 x 7 = 560 (file: NULL)
 Info: Leak - type: Renderer, size: 72 x 23 = 1656 (file: NULL)
-Info: Leak - type: Renderer, size: 64 x 2 = 128 (file: NULL)
-Info: Leak - type: Renderer, size: 48 x 1312 = 62976 (file: NULL)
+Info: Leak - type: Renderer, size: 64 x 1 = 64 (file: NULL)
+Info: Leak - type: Renderer, size: 48 x 4 = 192 (file: NULL)
 Info: Leak - type: Renderer, size: 40 x 9 = 360 (file: NULL)
-Info: Leak - type: Renderer, size: 24 x 34 = 816 (file: NULL)
+Info: Leak - type: Renderer, size: 24 x 7 = 168 (file: NULL)
 Info: Leak - type: Renderer, size: 16 x 1 = 16 (file: NULL)
-Info: Leak - type: Renderer, size: 8 x 3 = 24 (file: NULL)
+Info: Leak - type: Renderer, size: 8 x 2 = 16 (file: NULL)
 Info: Leak - type: Renderer, size: 4 x 1 = 4 (file: NULL)
 Info: Leak - type: Physics, size: 4143 x 5 = 20715 (file: ExtSharedQueueEntryPool.h:86)
 Info: Leak - type: Physics, size: 248 x 1 = 248 (file: ExtDefaultCpuDispatcher.cpp:81)
@@ -496,7 +557,7 @@ Info: Leak - type: Physics, size: 80 x 1 = 80 (file: ExtDefaultCpuDispatcher.cpp
 Info: Leak - type: Physics, size: 64 x 4 = 256 (file: PsWindowsThread.cpp:92)
 Info: Leak - type: Physics, size: 40 x 10 = 400 (file: PsSList.h:92)
 Info: Leak - type: Physics, size: 32 x 1 = 32 (file: PsWindowsSync.cpp:48)
-Info: Total size: 108031
+Info: Total size: 44527
 >>>>>>> .r158
 Info: NativeMemoryManager: Leaks statistics end
 Program END
