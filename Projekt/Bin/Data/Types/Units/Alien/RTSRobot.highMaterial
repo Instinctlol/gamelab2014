@@ -1,0 +1,8 @@
+highLevelMaterial RTSRobot22
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\Robot.dds"
+	}
+}

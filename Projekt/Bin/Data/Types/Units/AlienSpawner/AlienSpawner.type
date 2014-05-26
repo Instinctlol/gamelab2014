@@ -1,0 +1,13 @@
+type AlienSpawner
+{
+	class = AlienSpawner
+	initialAI = AlienSpawnerAI
+	substance = Metal
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\RTSFactory.mesh"
+		}
+	}
+}

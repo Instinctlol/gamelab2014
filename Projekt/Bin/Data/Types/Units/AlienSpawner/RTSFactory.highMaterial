@@ -1,0 +1,8 @@
+highLevelMaterial RTSFactory32
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\RTSFactory.dds"
+	}
+}

@@ -1,0 +1,13 @@
+type Alien
+{
+	class = Alien
+	initialAI = AlienAI
+	substance = Metal
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Robot.mesh"
+		}
+	}
+}
