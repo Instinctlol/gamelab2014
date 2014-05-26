@@ -94,11 +94,6 @@ namespace Game
                 Controls.Add(new MenuWindow());
             };
 
-            ((Button)hudControl.Controls["Exit"]).Click += delegate(Button sender)
-            {
-                GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
-            };
-
             ((Button)hudControl.Controls["Help"]).Click += delegate(Button sender)
             {
                 hudControl.Controls["HelpWindow"].Visible = !hudControl.Controls["HelpWindow"].Visible;
@@ -109,10 +104,10 @@ namespace Game
                 hudControl.Controls["HelpWindow"].Visible = false;
             };
 
-            ((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
-            {
-                mapDrawPathMotionMap = !mapDrawPathMotionMap;
-            };
+            //((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
+            //{
+            //    mapDrawPathMotionMap = !mapDrawPathMotionMap;
+            //};
 
             cameraDistanceScrollBar = hudControl.Controls["CameraDistance"] as ScrollBar;
             if (cameraDistanceScrollBar != null)
