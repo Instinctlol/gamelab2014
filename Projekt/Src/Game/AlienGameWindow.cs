@@ -43,10 +43,10 @@ namespace Game
         [Config("Map", "drawPathMotionMap")]
         public static bool mapDrawPathMotionMap;
 
-        Range cameraDistanceRange = new Range(10, 300);
-        Range cameraAngleRange = new Range(.001f, MathFunctions.PI / 2 - .001f);
+        //Range cameraDistanceRange = new Range(10, 300);
+        //Range cameraAngleRange = new Range(.001f, MathFunctions.PI / 2 - .001f);
         float cameraDistance = 23;
-        SphereDir cameraDirection = new SphereDir(1.5f, .85f);
+        SphereDir cameraDirection = new SphereDir(1.5f, 1.0f);
         Vec2 cameraPosition;
 
         //HUD
@@ -73,10 +73,6 @@ namespace Game
         Control minimapControl;
 
         float timeForUpdateGameStatus;
-
-        ScrollBar cameraDistanceScrollBar;
-        ScrollBar cameraHeightScrollBar;
-        bool disableUpdatingCameraScrollBars;
 
         // Beim Starten des Spiels GUI initialisieren und co
         protected override void OnAttach()
