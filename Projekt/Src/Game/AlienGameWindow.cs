@@ -38,7 +38,7 @@ namespace Game
 
             Count
         }
-        static CameraType cameraType;
+        static CameraType cameraType = CameraType.Game;// vielleicht brauchen wir zuweisung nicht
 
         [Config("Map", "drawPathMotionMap")]
         public static bool mapDrawPathMotionMap;

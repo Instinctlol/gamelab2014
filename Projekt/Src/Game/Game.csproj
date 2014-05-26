@@ -137,7 +137,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AboutWindow.cs" />
     <Compile Include="AlienGameWindow.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs" />

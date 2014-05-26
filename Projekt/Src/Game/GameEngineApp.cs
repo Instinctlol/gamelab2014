@@ -920,9 +920,21 @@ namespace Game
 			GameWindow gameWindow = null;
 
 			//Create specific game window
-			if( GameMap.Instance != null )
-				gameWindow = new ActionGameWindow();
-
+            // Je nachdem welcher Spielertyp man ist, muss hier der entsprechende Gametype ausgewählt werden.
+            if (GameMap.Instance != null)
+            {
+                //gameWindow = new ActionGameWindow();
+                if (true)
+                {
+                    //Ich bin Alien
+                    gameWindow = new AlienGameWindow();
+                }
+                else
+                {
+                    // Ich bin Astronaut
+                    // vielleicht Occulus, vielleicht auch Cave...
+                }
+            }
 			controlManager.Controls.Add( gameWindow );
 		}
 
