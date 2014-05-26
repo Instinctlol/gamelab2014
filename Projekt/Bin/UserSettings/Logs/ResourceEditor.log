@@ -1,4 +1,4 @@
-Log started: 5/26/2014 3:23:13 PM
+Log started: 5/26/2014 3:36:21 PM
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
@@ -37,7 +37,7 @@ Info: OGRE: Driver description: ATI Mobility Radeon HD 5650
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
-Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=7341762 vsync=true 
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=1639986 vsync=true 
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 10x10, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
@@ -369,82 +369,73 @@ Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TP
 Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TPSCamera\ScarRifle_3.highMaterial
 Info: Initializing high level material: Types\Weapons\SubmachineGun\SubmachineGunFire.highMaterial
 Info: Sound system is initialized (Driver: OpenAL 1.1 ALSOFT 1.13, Device: DirectSound Default)
-Error: EntityTypes: The class with name "OutDoor" is not exists. File "Types\Dynamic\OutDoor\OutDoor.type".
-   bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
-   bei System.Environment.get_StackTrace()
-   bei Engine.Log.A()
-   bei Engine.Log.Error(String text)
-   bei Engine.EntitySystem.EntityTypes.A(String A, String a, String B)
-   bei Engine.EntitySystem.EntityTypes.A(TextBlock A, String a, String B)
-   bei Engine.EntitySystem.EntityTypes.A(String A)
-   bei Engine.EntitySystem.EntityTypes.LoadGroupOfTypes(String virtualDirectory, SearchOption searchOption, List`1& loadedTypes)
-   bei Engine.EntitySystem.EntityTypes.A()
-   bei Engine.EntitySystem.EntitySystemWorld.A()
-   bei Engine.EntitySystem.EntitySystemWorld.Init(EntitySystemWorld overridedObject)
-   bei ResourceEditor.ResourceEditorEngineApp.OnCreate()
-   bei Engine.EngineApp.Create()
-   bei ResourceEditor.MainForm.MainForm_Load(Object sender, EventArgs e)
-   bei System.Windows.Forms.Form.OnLoad(EventArgs e)
-   bei System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
-   bei System.Windows.Forms.Control.CreateControl()
-   bei System.Windows.Forms.Control.WmShowWindow(Message& m)
-   bei System.Windows.Forms.Control.WndProc(Message& m)
-   bei System.Windows.Forms.Form.WndProc(Message& m)
-   bei System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
-   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
-   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
-   bei System.Windows.Forms.Form.SetVisibleCore(Boolean value)
-   bei ResourceEditor.Program.Main2()
-   bei ResourceEditor.Program.Main()Error: EntityTypes: Entity type loading failed "Types\Dynamic\OutDoor\OutDoor.type".
-   bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
-   bei System.Environment.get_StackTrace()
-   bei Engine.Log.A()
-   bei Engine.Log.Error(String text)
-   bei Engine.EntitySystem.EntityTypes.LoadGroupOfTypes(String virtualDirectory, SearchOption searchOption, List`1& loadedTypes)
-   bei Engine.EntitySystem.EntityTypes.A()
-   bei Engine.EntitySystem.EntitySystemWorld.A()
-   bei Engine.EntitySystem.EntitySystemWorld.Init(EntitySystemWorld overridedObject)
-   bei ResourceEditor.ResourceEditorEngineApp.OnCreate()
-   bei Engine.EngineApp.Create()
-   bei ResourceEditor.MainForm.MainForm_Load(Object sender, EventArgs e)
-   bei System.Windows.Forms.Form.OnLoad(EventArgs e)
-   bei System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
-   bei System.Windows.Forms.Control.CreateControl()
-   bei System.Windows.Forms.Control.WmShowWindow(Message& m)
-   bei System.Windows.Forms.Control.WndProc(Message& m)
-   bei System.Windows.Forms.Form.WndProc(Message& m)
-   bei System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
-   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
-   bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
-   bei System.Windows.Forms.Form.SetVisibleCore(Boolean value)
-   bei ResourceEditor.Program.Main2()
-   bei ResourceEditor.Program.Main()Info: NativeMemoryManager: Leaks statistics begin
+Info: OGRE: !!! Direct3D Device Lost!
+Info: OGRE: D3D9TextureManager released:
+Info: OGRE: 0 unmanaged textures
+Info: OGRE: D3D9HardwareBufferManager released:
+Info: OGRE: 0 unmanaged vertex buffers
+Info: OGRE: 0 unmanaged index buffers
+Info: OGRE: D3D9TextureManager released:
+Info: OGRE: 0 unmanaged textures
+Info: OGRE: D3D9HardwareBufferManager released:
+Info: OGRE: 0 unmanaged vertex buffers
+Info: OGRE: 0 unmanaged index buffers
+Info: OGRE: Reset device ok w:938 h:774
+Info: OGRE: D3D9TextureManager recreated:
+Info: OGRE: 0 unmanaged textures
+Info: OGRE: D3D9HardwareBufferManager recreated:
+Info: OGRE: 0 unmanaged vertex buffers
+Info: OGRE: 0 unmanaged index buffers
+Info: OGRE: !!! Direct3D Device successfully restored.
+Info: OGRE: RenderTarget "MainWindow": createAdditionalMRTs
+Info: OGRE: Mesh: Loading Base\Tools\ResourceEditorGrid\ResourceEditorGrid.mesh.
+Info: OGRE: Texture: Base\Tools\ResourceEditorGrid\ResourceEditorGrid_2.png: Loading 1 faces(PF_R8G8B8,4x4x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,4x4x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorGrid\ResourceEditorGrid_1.png: Loading 1 faces(PF_R8G8B8,4x4x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,4x4x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_fr.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_bk.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_lf.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_rt.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_up.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_dn.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Gui\Textures\Circle.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
+Info: OGRE: Texture: Base\Shaders\White.jpg: Loading 1 faces(PF_R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,32x32x1.
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCirclePortrait.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/HealthEnergyPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+Info: OGRE: Texture: Gui/HUD/HealthBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/EnergyBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/WeaponsCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/ItemsPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+Info: OGRE: RenderTarget "MainWindow": destroyAdditionalMRTs
+Info: NativeMemoryManager: Leaks statistics begin
 Info: Leak - type: Renderer, size: 10480 x 1 = 10480 (file: NULL)
 Info: Leak - type: Renderer, size: 2056 x 1 = 2056 (file: NULL)
 Info: Leak - type: Renderer, size: 1152 x 1 = 1152 (file: NULL)
 Info: Leak - type: Renderer, size: 1120 x 1 = 1120 (file: NULL)
+Info: Leak - type: Renderer, size: 648 x 1 = 648 (file: NULL)
 Info: Leak - type: Renderer, size: 448 x 1 = 448 (file: NULL)
 Info: Leak - type: Renderer, size: 440 x 1 = 440 (file: NULL)
 Info: Leak - type: Renderer, size: 432 x 1 = 432 (file: NULL)
 Info: Leak - type: Renderer, size: 360 x 1 = 360 (file: NULL)
-Info: Leak - type: Renderer, size: 344 x 1 = 344 (file: NULL)
+Info: Leak - type: Renderer, size: 344 x 2 = 688 (file: NULL)
 Info: Leak - type: Renderer, size: 264 x 1 = 264 (file: NULL)
 Info: Leak - type: Renderer, size: 216 x 1 = 216 (file: NULL)
 Info: Leak - type: Renderer, size: 192 x 7 = 1344 (file: NULL)
+Info: Leak - type: Renderer, size: 184 x 1 = 184 (file: NULL)
 Info: Leak - type: Renderer, size: 176 x 1 = 176 (file: OgreD3D9HardwareBufferManager.h:79)
 Info: Leak - type: Renderer, size: 176 x 1 = 176 (file: NULL)
-Info: Leak - type: Renderer, size: 136 x 1 = 136 (file: NULL)
+Info: Leak - type: Renderer, size: 136 x 3 = 408 (file: NULL)
 Info: Leak - type: Renderer, size: 128 x 1 = 128 (file: NULL)
 Info: Leak - type: Renderer, size: 104 x 3 = 312 (file: NULL)
 Info: Leak - type: Renderer, size: 88 x 2 = 176 (file: NULL)
 Info: Leak - type: Renderer, size: 80 x 7 = 560 (file: NULL)
-Info: Leak - type: Renderer, size: 72 x 23 = 1656 (file: NULL)
-Info: Leak - type: Renderer, size: 64 x 1 = 64 (file: NULL)
-Info: Leak - type: Renderer, size: 48 x 4 = 192 (file: NULL)
+Info: Leak - type: Renderer, size: 72 x 21 = 1512 (file: NULL)
+Info: Leak - type: Renderer, size: 64 x 3 = 192 (file: NULL)
+Info: Leak - type: Renderer, size: 48 x 1312 = 62976 (file: NULL)
 Info: Leak - type: Renderer, size: 40 x 9 = 360 (file: NULL)
-Info: Leak - type: Renderer, size: 24 x 7 = 168 (file: NULL)
-Info: Leak - type: Renderer, size: 16 x 1 = 16 (file: NULL)
-Info: Leak - type: Renderer, size: 8 x 2 = 16 (file: NULL)
+Info: Leak - type: Renderer, size: 24 x 38 = 912 (file: NULL)
+Info: Leak - type: Renderer, size: 16 x 2 = 32 (file: NULL)
+Info: Leak - type: Renderer, size: 8 x 12 = 96 (file: NULL)
 Info: Leak - type: Renderer, size: 4 x 1 = 4 (file: NULL)
 Info: Leak - type: Physics, size: 4143 x 5 = 20715 (file: ExtSharedQueueEntryPool.h:86)
 Info: Leak - type: Physics, size: 248 x 1 = 248 (file: ExtDefaultCpuDispatcher.cpp:81)
@@ -452,6 +443,6 @@ Info: Leak - type: Physics, size: 80 x 1 = 80 (file: ExtDefaultCpuDispatcher.cpp
 Info: Leak - type: Physics, size: 64 x 4 = 256 (file: PsWindowsThread.cpp:92)
 Info: Leak - type: Physics, size: 40 x 10 = 400 (file: PsSList.h:92)
 Info: Leak - type: Physics, size: 32 x 1 = 32 (file: PsWindowsSync.cpp:48)
-Info: Total size: 44527
+Info: Total size: 109583
 Info: NativeMemoryManager: Leaks statistics end
 Program END

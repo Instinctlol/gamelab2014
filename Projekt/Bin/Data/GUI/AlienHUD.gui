@@ -10,12 +10,6 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 880 0
-		size = Screen 0.1503906 0.7942709
-		backColor = 0 0 0 0.5
-	}
-	control Control
-	{
 		position = ScaleByResolution 0 600
 		size = Screen 1 0.2317708
 		backColor = 0 0 0 0.5
@@ -32,6 +26,7 @@ control Control
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+		active = True
 		position = ScaleByResolution -13 240
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
@@ -158,8 +153,8 @@ control Control
 		textVerticalAlign = Top
 		shadow = True
 		shadowOffset = ScaleByResolution 2 2
-		position = ScaleByResolution 0 60
-		size = Parent 1 0.0234375
+		position = ScaleByResolution 0 0
+		size = Parent 1 0.04947916
 		name = GameStatus
 	}
 	control TextBox

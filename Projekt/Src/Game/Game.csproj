@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutWindow.cs" />
+    <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AlienGameWindow.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs" />
     <Compile Include="MultiViewConfigurationWindow.cs" />
