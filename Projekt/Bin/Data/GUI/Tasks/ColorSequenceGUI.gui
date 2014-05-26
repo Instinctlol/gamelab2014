@@ -7,11 +7,11 @@ control Control
 		position = ScaleByResolution 240 110
 		size = ScaleByResolution 250 250
 		name = Green
+		backColor = 0.3215686 1 0.2196079
 		defaultControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			backColor = 0.2078432 0.6470588 0.1411765
-			backTextureTile = True
 		}
 		overControl TextBox
 		{
@@ -25,6 +25,18 @@ control Control
 			backColor = 0.3215686 1 0.2196079
 			visible = False
 		}
+		activeControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.3215686 1 0.2196079
+			visible = False
+		}
+		disableControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.2078432 0.6470588 0.1411765
+			visible = False
+		}
 	}
 	control Button
 	{
@@ -35,7 +47,6 @@ control Control
 		{
 			position = ScaleByResolution 0 0
 			backColor = 0.1960784 0.2196079 0.6784314
-			backTextureTile = True
 		}
 		overControl TextBox
 		{
@@ -49,6 +60,18 @@ control Control
 			backColor = 0.2078432 0.4705883 1
 			visible = False
 		}
+		activeControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.2078432 0.4705883 1
+			visible = False
+		}
+		disableControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.1960784 0.2196079 0.6784314
+			visible = False
+		}
 	}
 	control Button
 	{
@@ -59,7 +82,6 @@ control Control
 		{
 			position = ScaleByResolution 0 0
 			backColor = 0.7686275 0.7568628 0.003921569
-			backTextureTile = True
 		}
 		overControl TextBox
 		{
@@ -68,6 +90,18 @@ control Control
 			visible = False
 		}
 		pushControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 1 0.9803922 0.007843138
+			visible = False
+		}
+		disableControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.7686275 0.7568628 0.003921569
+			visible = False
+		}
+		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			backColor = 1 0.9803922 0.007843138
@@ -83,16 +117,26 @@ control Control
 		{
 			position = ScaleByResolution 0 0
 			backColor = 0.6784314 0.07450981 0.1019608
-			backTextureTile = True
 		}
 		overControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			backColor = 0.7686275 0.08235294 0.1294118
-			backTextureTile = True
 			visible = False
 		}
 		pushControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 1 0.1098039 0.1686275
+			visible = False
+		}
+		disableControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backColor = 0.6784314 0.07450981 0.1019608
+			visible = False
+		}
+		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			backColor = 1 0.1098039 0.1686275
