@@ -94,11 +94,6 @@ namespace Game
                 Controls.Add(new MenuWindow());
             };
 
-            ((Button)hudControl.Controls["Exit"]).Click += delegate(Button sender)
-            {
-                GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
-            };
-
             ((Button)hudControl.Controls["Help"]).Click += delegate(Button sender)
             {
                 hudControl.Controls["HelpWindow"].Visible = !hudControl.Controls["HelpWindow"].Visible;
@@ -113,20 +108,6 @@ namespace Game
             {
                 mapDrawPathMotionMap = !mapDrawPathMotionMap;
             };
-
-            cameraDistanceScrollBar = hudControl.Controls["CameraDistance"] as ScrollBar;
-            if (cameraDistanceScrollBar != null)
-            {
-                cameraDistanceScrollBar.ValueRange = cameraDistanceRange;
-                cameraDistanceScrollBar.ValueChange += cameraDistanceScrollBar_ValueChange;
-            }
-
-            cameraHeightScrollBar = hudControl.Controls["CameraHeight"] as ScrollBar;
-            if (cameraHeightScrollBar != null)
-            {
-                cameraHeightScrollBar.ValueRange = cameraAngleRange;
-                cameraHeightScrollBar.ValueChange += cameraHeightScrollBar_ValueChange;
-            }
 
             // default listbox for number of spawn aliens is disabled
             numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
@@ -188,8 +169,6 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
-
-            UpdateCameraScrollBars();
         }
 
         // Beim Beenden des Spiels minimap freigeben
@@ -223,34 +202,6 @@ namespace Game
             //    GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
 
             //    return true;
-            //}
-
-            //select another demo map
-            //if (e.Key == EKeys.F3)
-            //{
-            //    GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
-            //    return true;
-            //}
-
-            // Aliens spawnen
-            //if (e.Key == EKeys.F1)
-            //{
-            //    List<MapObject> myspawnerpoints = Map.Instance.SceneGraphObjects.FindAll(delegate(MapObject obj)
-            //    {
-            //        ProjectEntities.MySpawner myspawnpoint = obj as ProjectEntities.MySpawner;
-
-            //        if (myspawnpoint != null)
-            //        {
-            //            return true;
-            //        }
-            //        else
-            //        {
-            //            return false;
-            //        }
-            //    });
-
-            //    ProjectEntities.MySpawner mypawnpoint = myspawnerpoints[0] as ProjectEntities.MySpawner;
-            //    mypawnpoint.SpawnSmallAlien();
             //}
 
             return base.OnKeyDown(e);
@@ -608,55 +559,7 @@ namespace Game
 
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
-                {
-                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance < cameraDistanceRange[0])
-                        cameraDistance = cameraDistanceRange[0];
-                    UpdateCameraScrollBars();
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
-                {
-                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance > cameraDistanceRange[1])
-                        cameraDistance = cameraDistanceRange[1];
-                    UpdateCameraScrollBars();
-                }
-
-                //alienCameraDirection
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
-                {
-                    cameraDirection.Vertical += delta * (cameraAngleRange[1] - cameraAngleRange[0]) / 2;
-                    if (cameraDirection.Vertical >= cameraAngleRange[1])
-                        cameraDirection.Vertical = cameraAngleRange[1];
-                    UpdateCameraScrollBars();
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.End))
-                {
-                    cameraDirection.Vertical -= delta * (cameraAngleRange[1] - cameraAngleRange[0]) / 2;
-                    if (cameraDirection.Vertical < cameraAngleRange[0])
-                        cameraDirection.Vertical = cameraAngleRange[0];
-                    UpdateCameraScrollBars();
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.Q))
-                {
-                    cameraDirection.Horizontal += delta * 2;
-                    if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
-                        cameraDirection.Horizontal -= MathFunctions.PI * 2;
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.E))
-                {
-                    cameraDirection.Horizontal -= delta * 2;
-                    if (cameraDirection.Horizontal < 0)
-                        cameraDirection.Horizontal += MathFunctions.PI * 2;
-                }
-
-
+                
                 //change cameraPosition
                 if (!selectMode && Time > 2)
                 {
@@ -723,6 +626,7 @@ namespace Game
                         }
                     }
 
+                    //ToDo Bitte ändern
                     string gameStatus = "";
                     if (!existsAlly)
                         gameStatus = "!!! Victory !!!";
@@ -1321,20 +1225,6 @@ namespace Game
             up = new Vec3(0, 0, 1);
         }
 
-        void cameraDistanceScrollBar_ValueChange(ScrollBar sender)
-        {
-            if (disableUpdatingCameraScrollBars)
-                return;
-            cameraDistance = sender.Value;
-        }
-
-        void cameraHeightScrollBar_ValueChange(ScrollBar sender)
-        {
-            if (disableUpdatingCameraScrollBars)
-                return;
-            cameraDirection.Vertical = sender.Value;
-        }
-
         void numberSpawnUnitsList_SelectedIndexChange(ListBox sender)
         {
             // Den Index (beginnt bei 0) plus 1
@@ -1346,16 +1236,6 @@ namespace Game
         {
             spawnNumber = (int)e.ItemIndex + 1;
             EngineConsole.Instance.Print("doubleclick" + e.Item + " " + spawnNumber);
-        }
-
-        void UpdateCameraScrollBars()
-        {
-            disableUpdatingCameraScrollBars = true;
-            if (cameraDistanceScrollBar != null)
-                cameraDistanceScrollBar.Value = cameraDistance;
-            if (cameraHeightScrollBar != null)
-                cameraHeightScrollBar.Value = cameraDirection.Vertical;
-            disableUpdatingCameraScrollBars = false;
         }
 
         // Brauchen wir das??
