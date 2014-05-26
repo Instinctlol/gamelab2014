@@ -438,6 +438,56 @@
         <member name="M:ProjectEntities.BooleanSwitch.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
+        <member name="T:ProjectEntities.DoorType">
+            <summary>
+            Defines the <see cref="T:ProjectEntities.Door"/> entity type.
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.DoorType.OpenDoorBodyOffset">
+            <summary>
+            Gets or sets the displacement a position of a body "door" when the door is open.
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.DoorType.OpenDoor2BodyOffset">
+            <summary>
+            Gets or sets the displacement a position of a body "door2" when the door is open.
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.DoorType.OpenTime">
+            <summary>
+            Gets or set the time of opening/closing of a door.
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.DoorType.SoundOpen">
+            <summary>
+            Gets or sets the sound at opening a door.
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.DoorType.SoundClose">
+            <summary>
+            Gets or sets the sound at closing a door.
+            </summary>
+        </member>
+        <member name="T:ProjectEntities.Door">
+            <summary>
+            Defines the doors. That doors worked, it is necessary that the physical 
+            model had a body with a name "door". This body will move at change of a status of a door.
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.Door.OnPostCreate(System.Boolean)">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.Door.OnSetTransform(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@)">
+            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnSetTransform(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@)"/>.</summary>
+        </member>
+        <member name="M:ProjectEntities.Door.OnTick">
+            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
+        </member>
+        <member name="P:ProjectEntities.Door.Opened">
+            <summary>
+            Gets or sets a value indicating whether the door is currently open.
+            </summary>
+        </member>
         <member name="T:ProjectEntities.DynamicSinusoidSurfaceType">
             <summary>
             Defines the <see cref="T:ProjectEntities.DynamicSinusoidSurface"/> entity type.
@@ -566,59 +616,9 @@
             Defines the <see cref="T:ProjectEntities.AutomaticOpenDoor"/> entity type.
             </summary>
         </member>
-        <member name="T:ProjectEntities.DoorType">
-            <summary>
-            Defines the <see cref="T:ProjectEntities.Door"/> entity type.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.DoorType.OpenDoorBodyOffset">
-            <summary>
-            Gets or sets the displacement a position of a body "door" when the door is open.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.DoorType.OpenDoor2BodyOffset">
-            <summary>
-            Gets or sets the displacement a position of a body "door2" when the door is open.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.DoorType.OpenTime">
-            <summary>
-            Gets or set the time of opening/closing of a door.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.DoorType.SoundOpen">
-            <summary>
-            Gets or sets the sound at opening a door.
-            </summary>
-        </member>
-        <member name="P:ProjectEntities.DoorType.SoundClose">
-            <summary>
-            Gets or sets the sound at closing a door.
-            </summary>
-        </member>
         <member name="T:ProjectEntities.AutomaticOpenDoor">
             <summary>
             Defines automatically opening doors.
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.Door">
-            <summary>
-            Defines the doors. That doors worked, it is necessary that the physical 
-            model had a body with a name "door". This body will move at change of a status of a door.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Door.OnPostCreate(System.Boolean)">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Door.OnSetTransform(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@)">
-            <summary>Overridden from <see cref="M:Engine.MapSystem.MapObject.OnSetTransform(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@)"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.Door.OnTick">
-            <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="P:ProjectEntities.Door.Opened">
-            <summary>
-            Gets or sets a value indicating whether the door is currently open.
             </summary>
         </member>
         <member name="M:ProjectEntities.AutomaticOpenDoor.OnPostCreate(System.Boolean)">

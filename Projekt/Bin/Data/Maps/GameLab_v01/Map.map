@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -500
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -52.69747 144.2224 137.3226
-editorCameraDirection = 4.97593 -1.090484
+editorCameraPosition = 84.76918 -2.667823 7.613026
+editorCameraDirection = 0.4529853 -1.024654
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -236,6 +236,8 @@ entity
 	classPrompt = Ring
 	subscriptionsToDeletionEvent = 10 13
 	rotatable = True
+	id = -1
+	corners = 8
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -249,10 +251,7 @@ entity
 	type = Sector
 	uin = 24
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -269,10 +268,7 @@ entity
 	type = Sector
 	uin = 25
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -288,10 +284,7 @@ entity
 	type = Sector
 	uin = 26
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -308,10 +301,7 @@ entity
 	type = Sector
 	uin = 27
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -328,10 +318,7 @@ entity
 	type = Sector
 	uin = 28
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -347,10 +334,7 @@ entity
 	type = Sector
 	uin = 29
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -673,10 +657,7 @@ entity
 	type = Sector
 	uin = 62
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -692,10 +673,7 @@ entity
 	type = Sector
 	uin = 63
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -711,10 +689,7 @@ entity
 	type = Sector
 	uin = 64
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -731,10 +706,7 @@ entity
 	type = Sector
 	uin = 65
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -751,10 +723,7 @@ entity
 	type = Sector
 	uin = 66
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
 	ring = 23
 	enabled = True
 	shapeType = Box
@@ -765,4 +734,28 @@ entity
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
+}
+entity
+{
+	type = OutDoor
+	uin = 67
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 93.61119 0.1099737 1.956365
+	name = OutDoor_0
+}
+entity
+{
+	type = OutDoor
+	uin = 68
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 94.35629 0.1964426 1.744081
+	name = OutDoor_1
 }

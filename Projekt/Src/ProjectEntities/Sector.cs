@@ -28,6 +28,9 @@ namespace ProjectEntities
         [FieldSerialize]
         private bool lightStatus;
 
+        //Lister aller OutDoor Objekte wird automatisch generiert
+        private List<OutDoor> outDoors = new List<OutDoor>();
+
         //Lister aller Dynamischen Objekte wird automatisch generiert
         private List<Dynamic> dynamics = new List<Dynamic>();
 
@@ -106,7 +109,9 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
-            if (obj is Light)
+            if (obj is OutDoor)
+                AddOutDoor((OutDoor)obj);
+            else if (obj is Light)
                 AddLight((Light)obj);
             else if (obj is Dynamic)
                 AddDynamic((Dynamic)obj);
@@ -141,6 +146,12 @@ namespace ProjectEntities
 
             if (group != null)
                 group.SwitchLight += SwitchLights;
+
+            foreach (OutDoor door in outDoors)
+            {
+                ring.RotateRing += door.OnRotate;
+            }
+
 
         }
 
@@ -211,6 +222,10 @@ namespace ProjectEntities
             dynamics.Remove(d);
         }
 
+        private void AddOutDoor(OutDoor d)
+        {
+            outDoors.Add(d);
+        }
 
     }
 }
