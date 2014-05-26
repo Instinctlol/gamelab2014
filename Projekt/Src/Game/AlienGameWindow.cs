@@ -98,10 +98,10 @@ namespace Game
                 hudControl.Controls["HelpWindow"].Visible = false;
             };
 
-            ((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
-            {
-                mapDrawPathMotionMap = !mapDrawPathMotionMap;
-            };
+            //((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
+            //{
+            //    mapDrawPathMotionMap = !mapDrawPathMotionMap;
+            //};
 
             // default listbox for number of spawn aliens is disabled
             numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
