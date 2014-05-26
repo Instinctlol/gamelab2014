@@ -155,14 +155,6 @@
     <Compile Include="GUISamples1Window.cs" />
     <Compile Include="MultiplayerLobbyWindow.cs" />
     <Compile Include="MultiplayerLoginWindow.cs" />
-    <Compile Include="TuioClient.cs" />
-    <Compile Include="TuioContainer.cs" />
-    <Compile Include="TuioCursor.cs" />
-    <Compile Include="TuioDump.cs" />
-    <Compile Include="TuioListener.cs" />
-    <Compile Include="TuioObject.cs" />
-    <Compile Include="TuioPoint.cs" />
-    <Compile Include="TuioTime.cs" />
     <Compile Include="WorldLoadSaveWindow.cs" />
     <Compile Include="ProductLogoWindow.cs" />
     <Compile Include="GameEngineApp.cs" />
