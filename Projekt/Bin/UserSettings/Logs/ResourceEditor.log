@@ -1,23 +1,27 @@
+<<<<<<< .mine
+Log started: 5/26/2014 2:12:07 PM
+=======
 Log started: 5/26/2014 1:37:43 PM
+>>>>>>> .r158
 Info: Powered by NeoAxis 3D Engine
-Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
+Info: Operating System: Microsoft Windows 6.1.7601.65536 (32-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
 Info: NeoAxis 3D Engine version: 2.1
 Info: Engine SDK: Free SDK
-Info: Engine 64-bit version
+Info: Engine 32-bit version
 Info: Application type: ResourceEditor
 Info: Physics system is initialized (Driver: NVIDIA PhysX 3.2.1)
-Info: OGRE: Added resource location 'D:\Daten\Programmierumgebungen\GameLab\Projekt\Bin\Data' of type 'VirtualFileSystem' to resource group 'General' with recursive option
+Info: OGRE: Added resource location 'C:\Users\Mattias\Desktop\GameLab\Projekt\Bin\Data' of type 'VirtualFileSystem' to resource group 'General' with recursive option
 Info: OGRE: Loading library RenderSystem_Direct3D9.dll
 Info: OGRE: Installing plugin: D3D9 RenderSystem
 Info: OGRE: D3D9 : Direct3D9 Rendering Subsystem created.
 Info: OGRE: D3D9: Driver Detection Starts
-Info: OGRE: D3D9: Driver: \\.\DISPLAY1; ATI Mobility Radeon HD 5650 
+Info: OGRE: D3D9: Driver: \\.\DISPLAY1; Mobile Intel(R) 4 Series Express Chipset Family
 Info: OGRE: D3D9: Driver Detection Ends
 Info: OGRE: Plugin successfully installed
 Info: OGRE: CPU Identifier & Features
 Info: OGRE: -------------------------
-Info: OGRE:  *   CPU ID: GenuineIntel: Intel(R) Core(TM) i5 CPU       M 460  @ 2.53GHz
+Info: OGRE:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU          900  @ 2.20GHz
 Info: OGRE:  *      SSE: yes
 Info: OGRE:  *     SSE2: yes
 Info: OGRE:  *     SSE3: yes
@@ -32,22 +36,26 @@ Info: OGRE:  *      PRO: yes
 Info: OGRE:  *       HT: no
 Info: OGRE: -------------------------
 Info: OGRE: D3D9 : Subsystem Initialising
-Info: OGRE: Driver name: atiu9p64.dll
-Info: OGRE: Driver description: ATI Mobility Radeon HD 5650
+Info: OGRE: Driver name: igdumdx32.dll
+Info: OGRE: Driver description: Mobile Intel(R) 4 Series Express Chipset Family
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
+<<<<<<< .mine
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=655508 vsync=true 
+=======
 Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=1312572 vsync=true 
+>>>>>>> .r158
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 10x10, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
-Info: OGRE: D3D9: Vertex texture format supported - PF_L8 PF_L16 PF_A8 PF_A4L4 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_DXT1 PF_DXT2 PF_DXT3 PF_DXT4 PF_DXT5 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_R8G8B8A8 PF_DEPTH24 PF_SHORT_RGBA PF_FLOAT16_R PF_FLOAT32_R PF_SHORT_GR PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB PF_PVRTC_RGB2 PF_PVRTC_RGBA2 PF_PVRTC_RGB4 PF_PVRTC_RGBA4 PF_3DC
+Info: OGRE: D3D9: Vertex texture format supported - PF_L8 PF_L16 PF_A8 PF_A4L4 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_DXT1 PF_DXT2 PF_DXT3 PF_DXT4 PF_DXT5 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_R8G8B8A8 PF_DEPTH24 PF_SHORT_RGBA PF_FLOAT16_R PF_FLOAT32_R PF_SHORT_GR PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB PF_PVRTC_RGB2 PF_PVRTC_RGBA2 PF_PVRTC_RGB4 PF_PVRTC_RGBA4 PF_3DC
 Info: OGRE: RenderSystem capabilities
 Info: OGRE: -------------------------
 Info: OGRE: RenderSystem Name: Direct3D9 Rendering Subsystem
-Info: OGRE: GPU Vendor: ati
-Info: OGRE: Device Name: ATI Mobility Radeon HD 5650
-Info: OGRE: Driver Version: 8.14.1.6099
+Info: OGRE: GPU Vendor: intel
+Info: OGRE: Device Name: Mobile Intel(R) 4 Series Express Chipset Family
+Info: OGRE: Driver Version: 8.15.10.2869
 Info: OGRE:  * Fixed function pipeline: yes
 Info: OGRE:  * Hardware generation of mipmaps: yes
 Info: OGRE:  * Texture blending: yes
@@ -99,18 +107,18 @@ Info: OGRE:  * Number of vertex blend matrices: 0
 Info: OGRE:    - Max vertex textures: 4
 Info: OGRE:    - Vertex textures shared: no
 Info: OGRE:  * Render to Vertex Buffer: no
-Info: OGRE:  * Alpha to coverage: yes
-Info: OGRE:  * Fetch4: yes
+Info: OGRE:  * Alpha to coverage: no
+Info: OGRE:  * Fetch4: no
 Info: OGRE:  * Hardware Instancing: yes
 Info: OGRE:  * Depth Buffer As Texture (INTZ): yes
 Info: OGRE:  * DirectX per stage constants: yes
-Info: OGRE:  * Max texture size: 16384
+Info: OGRE:  * Max texture size: 4096
 Info: OGRE: DefaultWorkQueue('Root') initialising on thread main.
 Info: OGRE: Particle Renderer Type 'billboard' registered
-Info: Renderer: GPU description: ATI Mobility Radeon HD 5650
-Info: Renderer: GPU codename: Radeon_R800
+Info: Renderer: GPU description: Mobile Intel(R) 4 Series Express Chipset Family
+Info: Renderer: GPU codename: Intel_Unknown
 Info: Renderer: Shader Model 3.0: yes
-Info: 2D texture render target pixel formats: R5G6B5 A4R4G4B4 A1R5G5B5 A8R8G8B8 A2R10G10B10 A2B10G10R10 Float16RGBA Float32RGBA X8R8G8B8 X8B8G8R8 Depth24 ShortRGBA Float16R Float32R ShortGR Float16GR Float32GR
+Info: 2D texture render target pixel formats: R5G6B5 A4R4G4B4 A1R5G5B5 A8R8G8B8 A2R10G10B10 A2B10G10R10 Float16RGBA Float32RGBA X8R8G8B8 ShortRGBA Float16R Float32R ShortGR Float16GR Float32GR
 Info: OGRE: Parsing scripts for resource group General
 Info: OGRE: Parsing script Base\Shaders\AmbientOneTexture.program
 Info: OGRE: Parsing script Base\Shaders\StdQuad_vp.program
@@ -380,7 +388,7 @@ Info: OGRE: 0 unmanaged textures
 Info: OGRE: D3D9HardwareBufferManager released:
 Info: OGRE: 0 unmanaged vertex buffers
 Info: OGRE: 0 unmanaged index buffers
-Info: OGRE: Reset device ok w:938 h:774
+Info: OGRE: Reset device ok w:801 h:641
 Info: OGRE: D3D9TextureManager recreated:
 Info: OGRE: 0 unmanaged textures
 Info: OGRE: D3D9HardwareBufferManager recreated:
@@ -388,10 +396,73 @@ Info: OGRE: 0 unmanaged vertex buffers
 Info: OGRE: 0 unmanaged index buffers
 Info: OGRE: !!! Direct3D Device successfully restored.
 Info: OGRE: RenderTarget "MainWindow": createAdditionalMRTs
+<<<<<<< .mine
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCirclePortrait.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/HealthEnergyPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+Info: OGRE: Texture: Gui/HUD/HealthBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/EnergyBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/WeaponsCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/ItemsPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+=======
 Info: OGRE: Texture: Gui\Textures\Circle.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
+>>>>>>> .r158
 Info: OGRE: Texture: Base\Shaders\White.jpg: Loading 1 faces(PF_R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,32x32x1.
+Info: OGRE: Mesh: Loading Base\Tools\ResourceEditorGrid\ResourceEditorGrid.mesh.
+Info: OGRE: Texture: Base\Tools\ResourceEditorGrid\ResourceEditorGrid_2.png: Loading 1 faces(PF_R8G8B8,4x4x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,4x4x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorGrid\ResourceEditorGrid_1.png: Loading 1 faces(PF_R8G8B8,4x4x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,4x4x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_fr.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_bk.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_lf.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_rt.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_up.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Texture: Base\Tools\ResourceEditorSkyBox\Cubemap_dn.png: Loading 1 faces(PF_R8G8B8,512x512x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+Info: OGRE: Mesh: Loading Base\Types\InvisiblePoint.mesh.
+Info: OGRE: Mesh: Loading Base\Tools\ResourceEditorGrid\ResourceEditorGrid.mesh.
+Info: OGRE: Mesh: Loading Base\Types\InvisiblePoint.mesh.
+Info: OGRE: Mesh: Loading Base\Tools\ResourceEditorGrid\ResourceEditorGrid.mesh.
 Info: OGRE: RenderTarget "MainWindow": destroyAdditionalMRTs
 Info: NativeMemoryManager: Leaks statistics begin
+<<<<<<< .mine
+Info: Leak - type: Renderer, size: 9712 x 1 = 9712 (file: NULL)
+Info: Leak - type: Renderer, size: 1132 x 1 = 1132 (file: NULL)
+Info: Leak - type: Renderer, size: 1028 x 1 = 1028 (file: NULL)
+Info: Leak - type: Renderer, size: 544 x 3 = 1632 (file: NULL)
+Info: Leak - type: Renderer, size: 532 x 1 = 532 (file: NULL)
+Info: Leak - type: Renderer, size: 308 x 1 = 308 (file: NULL)
+Info: Leak - type: Renderer, size: 304 x 1 = 304 (file: NULL)
+Info: Leak - type: Renderer, size: 292 x 1 = 292 (file: NULL)
+Info: Leak - type: Renderer, size: 228 x 3 = 684 (file: NULL)
+Info: Leak - type: Renderer, size: 184 x 1 = 184 (file: NULL)
+Info: Leak - type: Renderer, size: 168 x 1 = 168 (file: NULL)
+Info: Leak - type: Renderer, size: 152 x 1 = 152 (file: NULL)
+Info: Leak - type: Renderer, size: 120 x 10 = 1200 (file: NULL)
+Info: Leak - type: Renderer, size: 88 x 1 = 88 (file: OgreD3D9HardwareBufferManager.h:79)
+Info: Leak - type: Renderer, size: 88 x 1 = 88 (file: NULL)
+Info: Leak - type: Renderer, size: 76 x 1 = 76 (file: NULL)
+Info: Leak - type: Renderer, size: 72 x 1 = 72 (file: NULL)
+Info: Leak - type: Renderer, size: 60 x 1 = 60 (file: NULL)
+Info: Leak - type: Renderer, size: 56 x 5 = 280 (file: NULL)
+Info: Leak - type: Renderer, size: 52 x 4 = 208 (file: NULL)
+Info: Leak - type: Renderer, size: 48 x 4 = 192 (file: NULL)
+Info: Leak - type: Renderer, size: 44 x 16 = 704 (file: NULL)
+Info: Leak - type: Renderer, size: 36 x 6 = 216 (file: NULL)
+Info: Leak - type: Renderer, size: 32 x 3 = 96 (file: NULL)
+Info: Leak - type: Renderer, size: 28 x 1 = 28 (file: NULL)
+Info: Leak - type: Renderer, size: 24 x 1312 = 31488 (file: NULL)
+Info: Leak - type: Renderer, size: 20 x 9 = 180 (file: NULL)
+Info: Leak - type: Renderer, size: 16 x 4 = 64 (file: NULL)
+Info: Leak - type: Renderer, size: 12 x 41 = 492 (file: NULL)
+Info: Leak - type: Renderer, size: 8 x 1 = 8 (file: NULL)
+Info: Leak - type: Renderer, size: 4 x 30 = 120 (file: NULL)
+Info: Leak - type: Physics, size: 2079 x 2 = 4158 (file: ExtSharedQueueEntryPool.h:86)
+Info: Leak - type: Physics, size: 52 x 1 = 52 (file: ExtDefaultCpuDispatcher.cpp:46)
+Info: Leak - type: Physics, size: 48 x 1 = 48 (file: ExtDefaultCpuDispatcher.cpp:81)
+Info: Leak - type: Physics, size: 44 x 1 = 44 (file: PsWindowsThread.cpp:92)
+Info: Leak - type: Physics, size: 28 x 4 = 112 (file: PsSList.h:92)
+Info: Leak - type: Physics, size: 24 x 1 = 24 (file: PsWindowsSync.cpp:48)
+Info: Total size: 56226
+=======
 Info: Leak - type: Renderer, size: 10480 x 1 = 10480 (file: NULL)
 Info: Leak - type: Renderer, size: 2056 x 1 = 2056 (file: NULL)
 Info: Leak - type: Renderer, size: 1152 x 1 = 1152 (file: NULL)
@@ -426,5 +497,6 @@ Info: Leak - type: Physics, size: 64 x 4 = 256 (file: PsWindowsThread.cpp:92)
 Info: Leak - type: Physics, size: 40 x 10 = 400 (file: PsSList.h:92)
 Info: Leak - type: Physics, size: 32 x 1 = 32 (file: PsWindowsSync.cpp:48)
 Info: Total size: 108031
+>>>>>>> .r158
 Info: NativeMemoryManager: Leaks statistics end
 Program END
