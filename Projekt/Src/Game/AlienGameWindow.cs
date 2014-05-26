@@ -382,7 +382,7 @@ namespace Game
         void DoTaskTargetChooseTasks(Vec3 mouseMapPos, Unit mouseOnObject)
         {
             //Do task after task target choose
-
+            EngineConsole.Instance.Print("taskindex"+taskTargetChooseIndex);
             bool toQueue = EngineApp.Instance.IsKeyPressed(EKeys.Shift);
 
             List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();

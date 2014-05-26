@@ -128,6 +128,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="UISystem, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bin\UISystem.dll</HintPath>
@@ -155,6 +156,30 @@
     <Compile Include="GUISamples1Window.cs" />
     <Compile Include="MultiplayerLobbyWindow.cs" />
     <Compile Include="MultiplayerLoginWindow.cs" />
+    <Compile Include="TuioClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioCursor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioDump.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuioTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WorldLoadSaveWindow.cs" />
     <Compile Include="ProductLogoWindow.cs" />
     <Compile Include="GameEngineApp.cs" />
