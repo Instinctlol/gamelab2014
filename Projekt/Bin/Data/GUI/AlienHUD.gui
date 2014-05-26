@@ -4,13 +4,13 @@ control Control
 {
 	control Control
 	{
-		position = ScaleByResolution 0 50
-		size = Screen 1 0.7161459
+		position = ScaleByResolution 0 0
+		size = Screen 1 0.7812501
 		name = ActiveArea
 	}
 	control Control
 	{
-		position = ScaleByResolution 870 0
+		position = ScaleByResolution 880 0
 		size = Screen 0.1503906 0.7942709
 		backColor = 0 0 0 0.5
 	}

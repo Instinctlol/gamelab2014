@@ -1,4 +1,4 @@
-Log started: 5/26/2014 2:19:22 PM
+Log started: 5/26/2014 3:23:13 PM
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
@@ -37,7 +37,7 @@ Info: OGRE: Driver description: ATI Mobility Radeon HD 5650
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
-Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=3868152 vsync=true 
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=7341762 vsync=true 
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 10x10, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
@@ -369,7 +369,7 @@ Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TP
 Info: Initializing high level material: Types\Weapons\SubmachineGun\ScarRifle_TPSCamera\ScarRifle_3.highMaterial
 Info: Initializing high level material: Types\Weapons\SubmachineGun\SubmachineGunFire.highMaterial
 Info: Sound system is initialized (Driver: OpenAL 1.1 ALSOFT 1.13, Device: DirectSound Default)
-Error: EntityTypes: The class with name "SectorGroup" is not exists. File "Types\Rotation\SectorGroup\SectorGroup.type".
+Error: EntityTypes: The class with name "OutDoor" is not exists. File "Types\Dynamic\OutDoor\OutDoor.type".
    bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
    bei System.Environment.get_StackTrace()
    bei Engine.Log.A()
@@ -395,7 +395,7 @@ Error: EntityTypes: The class with name "SectorGroup" is not exists. File "Types
    bei System.Windows.Forms.UnsafeNativeMethods.SendMessage(HandleRef hWnd, Int32 msg, Int32 wParam, Int32 lParam)
    bei System.Windows.Forms.Form.SetVisibleCore(Boolean value)
    bei ResourceEditor.Program.Main2()
-   bei ResourceEditor.Program.Main()Error: EntityTypes: Entity type loading failed "Types\Rotation\SectorGroup\SectorGroup.type".
+   bei ResourceEditor.Program.Main()Error: EntityTypes: Entity type loading failed "Types\Dynamic\OutDoor\OutDoor.type".
    bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
    bei System.Environment.get_StackTrace()
    bei Engine.Log.A()
