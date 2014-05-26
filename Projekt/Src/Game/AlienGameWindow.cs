@@ -43,10 +43,8 @@ namespace Game
         [Config("Map", "drawPathMotionMap")]
         public static bool mapDrawPathMotionMap;
 
-        //Range cameraDistanceRange = new Range(10, 300);
-        //Range cameraAngleRange = new Range(.001f, MathFunctions.PI / 2 - .001f);
-        float cameraDistance = 23;
-        SphereDir cameraDirection = new SphereDir(1.5f, 1.0f);
+        float cameraDistance = 15;
+        SphereDir cameraDirection = new SphereDir(0.5f, 1.0f);
         Vec2 cameraPosition;
 
         //HUD
