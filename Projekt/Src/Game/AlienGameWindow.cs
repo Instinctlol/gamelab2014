@@ -86,7 +86,7 @@ namespace Game
             EngineApp.Instance.KeysAndMouseButtonUpAll();
 
             //hudControl
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Maps\\AlienDemo\\Gui\\HUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
             Controls.Add(hudControl);
 
             ((Button)hudControl.Controls["Menu"]).Click += delegate(Button sender)
