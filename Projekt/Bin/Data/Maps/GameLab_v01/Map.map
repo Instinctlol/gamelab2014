@@ -7,7 +7,7 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -178.4091 0.5651379 153.7518
+editorCameraPosition = -136.161 0.6863011 89.64904
 editorCameraDirection = 0.002867877 -0.9880702
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
@@ -174,7 +174,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 67
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -192,7 +192,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 68
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -209,7 +209,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 68
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -227,7 +227,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 67
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -245,7 +245,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 67
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -262,7 +262,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
-	group = 68
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -850,7 +850,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 68
+	uin = 67
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -863,7 +863,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 67
+	uin = 68
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -872,4 +872,57 @@ entity
 	name = F3SG2
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
+}
+entity
+{
+	type = Alien
+	uin = 69
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -110.2233 9.776023 1.174224
+	name = Alien_0
+}
+entity
+{
+	type = Alien
+	uin = 70
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -110.6045 7.26648 1.167779
+	name = Alien_1
+}
+entity
+{
+	type = Alien
+	uin = 71
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -110.9751 4.194906 1.170434
+	name = Alien_2
+}
+entity
+{
+	type = AlienSpawner
+	uin = 72
+	classPrompt = AlienSpawner
+	aiType = AlienAI
+	faction = BadFaction
+	spawnRadius = 5
+	popNumber = 5
+	securityRadius = 5
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienSpawnerAI
+	initialFaction = GoodFaction
+	healthFactorAtBeginning = 1
+	position = -117.4477 -14.92408 5.081102
+	name = AlienSpawner_0
 }
