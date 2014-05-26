@@ -35,9 +35,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void ValueChange()
 		{
-			Engine.EntitySystem.LogicClass __class = Engine.EntitySystem.LogicSystemManager.Instance.MapClassManager.GetByName( "BooleanSwitch_0" );
-			Engine.EntitySystem.LogicSystem.LogicDesignerMethod __method = (Engine.EntitySystem.LogicSystem.LogicDesignerMethod)__class.GetMethodByName( "ValueChange" );
-			__method.Execute( this, new object[ 0 ]{  } );
+			((Ring)Entities.Instance.GetByName("F3_Ring")).RotateLeft();
 		}
 
 	}
