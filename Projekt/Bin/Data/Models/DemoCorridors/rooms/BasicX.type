@@ -192,63 +192,74 @@ type BasicX2
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\PassDown.mesh"
+			collision = True
 			position = -5.5 23.8 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = 11.97119 -12.00914 -0.009132147
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = 11.79929 -0.09446065 -0.04653931
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = 11.87869 11.79061 -0.03103113
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = 0.03447533 23.77132 -0.01172662
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = -11.97007 23.77132 -0.01804149
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = -24 12 -7.450581E-09
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = -24 -1.907349E-06 -7.450581E-09
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = -24 -12 -7.450581E-09
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = -11.93396 -23.68938 -0.05201578
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			collision = True
 			position = 0.0730679 -23.68402 -0.05201578
 			rotation = 0 0 -0.7071068 0.7071068
 		}

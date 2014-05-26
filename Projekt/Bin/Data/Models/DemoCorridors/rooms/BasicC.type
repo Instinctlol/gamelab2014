@@ -20,7 +20,7 @@ type BasicC
 		light
 		{
 			attenuationFar = 10
-			position = 6.523992 2.40207 1.467014
+			position = 5.623158 -0.757015 1.467014
 		}
 		mesh
 		{
@@ -57,7 +57,7 @@ type BasicC
 		light
 		{
 			attenuationFar = 10
-			position = -4.557915 2.492707 0
+			position = -5.458749 -0.666378 0
 		}
 		mesh
 		{

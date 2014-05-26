@@ -176,6 +176,7 @@ type "Gro\x00dfraum32"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\PassDown.mesh"
+			collision = True
 			position = -5.6 35.6 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
@@ -266,6 +267,7 @@ type "Gro\x00dfraum32"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\PassDown.mesh"
+			collision = True
 			position = -6.436134 -23.69508 0
 			rotation = 0 0 0.7071069 -0.707107
 		}
@@ -331,6 +333,7 @@ type "Gro\x00dfraum32"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\PassDown.mesh"
+			collision = True
 			position = -23.8656 6.370527 0
 			rotation = 0 0 -1 -1.049952E-08
 		}

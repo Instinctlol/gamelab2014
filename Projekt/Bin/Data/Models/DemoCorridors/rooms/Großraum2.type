@@ -205,6 +205,7 @@ type "Gro\x00dfraum22"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\PassDown.mesh"
+			collision = True
 			position = -5.5 23.8 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
