@@ -5,15 +5,10 @@ gameMusic = "Sounds\\Music\\Game.ogg"
 windDirection = 0
 windSpeed = 1
 resetYCoordinateForDynamicBodies = False
-destroyObjectsBelowHeight = -500
+destroyObjectsBelowHeight = -200
 ambientLight = 0.2 0.2 0.2
-<<<<<<< .mine
-editorCameraPosition = -22.99996 -134.1157 80.45465
-editorCameraDirection = 1.404485 -0.6387198
-=======
-editorCameraPosition = 84.76918 -2.667823 7.613026
-editorCameraDirection = 0.4529853 -1.024654
->>>>>>> .r174
+editorCameraPosition = -178.4091 0.5651379 153.7518
+editorCameraDirection = 0.002867877 -0.9880702
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -179,6 +174,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -196,6 +192,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -212,6 +209,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -229,6 +227,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -246,6 +245,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 67
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -262,6 +262,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 13
+	group = 68
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -568,7 +569,7 @@ entity
 	classPrompt = MapObject
 	position = 45.82729 -107.9929 0
 	rotation = 0 0 -0.6334885 0.7737526
-	scale = 0.625 1.241295 1
+	scale = 1 1.241295 1
 	name = F1C67
 	editorLayer = "Root Layer\\F1"
 }
@@ -608,7 +609,7 @@ entity
 	uin = 52
 	classPrompt = Sector
 	lightStatus = False
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -624,7 +625,7 @@ entity
 	uin = 53
 	classPrompt = Sector
 	lightStatus = False
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -657,7 +658,7 @@ entity
 	uin = 55
 	classPrompt = Sector
 	lightStatus = False
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -674,7 +675,7 @@ entity
 	uin = 56
 	classPrompt = Sector
 	lightStatus = False
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -685,7 +686,6 @@ entity
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
-<<<<<<< .mine
 entity
 {
 	type = SpawnPoint
@@ -700,11 +700,8 @@ entity
 	type = Sector
 	uin = 58
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -720,11 +717,8 @@ entity
 	type = Sector
 	uin = 59
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -740,11 +734,8 @@ entity
 	type = Sector
 	uin = 60
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -760,11 +751,8 @@ entity
 	type = Sector
 	uin = 61
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -780,11 +768,8 @@ entity
 	type = Sector
 	uin = 62
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -800,11 +785,8 @@ entity
 	type = Sector
 	uin = 63
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -820,11 +802,8 @@ entity
 	type = Sector
 	uin = 64
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -840,11 +819,8 @@ entity
 	type = Sector
 	uin = 65
 	classPrompt = Sector
-	lights = 
 	lightStatus = False
-	dynamics = 
-	statics = 
-	ring = 13
+	ring = 66
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -855,29 +831,45 @@ entity
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
-=======
 entity
 {
-	type = OutDoor
-	uin = 67
-	classPrompt = OutDoor
-	opened = False
-	needOpen = False
-	openDoorOffsetCoefficient = 0
-	healthFactorAtBeginning = 1
-	position = 93.61119 0.1099737 1.956365
-	name = OutDoor_0
+	type = Ring
+	uin = 66
+	classPrompt = Ring
+	rotatable = True
+	id = -1
+	corners = 8
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0 0 0
+	name = F2_Ring
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
 }
 entity
 {
-	type = OutDoor
+	type = SectorGroup
 	uin = 68
-	classPrompt = OutDoor
-	opened = False
-	needOpen = False
-	openDoorOffsetCoefficient = 0
-	healthFactorAtBeginning = 1
-	position = 94.35629 0.1964426 1.744081
-	name = OutDoor_1
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = -15.24333 16.67706 -0.09931804
+	name = F3SG1
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Bounds
 }
->>>>>>> .r174
+entity
+{
+	type = SectorGroup
+	uin = 67
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 16.66936 -16.39301 -0.09931804
+	name = F3SG2
+	editorLayer = "Root Layer\\Rotation\\F3"
+	checkType = Bounds
+}
