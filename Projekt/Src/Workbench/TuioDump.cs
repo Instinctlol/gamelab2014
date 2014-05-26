@@ -53,7 +53,7 @@ using TUIO;
 			//Console.WriteLine("refresh "+frameTime.getTotalMilliseconds());
 		}
 
-		public static void Main(String[] argv) {
+		public void runTuio(String[] argv) {
 			TuioDump demo = new TuioDump();
 			TuioClient client = null;
 
