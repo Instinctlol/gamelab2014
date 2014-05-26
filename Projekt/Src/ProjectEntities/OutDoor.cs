@@ -42,7 +42,7 @@ namespace ProjectEntities
             partnerDoor = null;
 
             Box bounds = GetBox();
-            bounds.Expand(3);
+            bounds.Expand(1);
 
             foreach( MapObject obj in Map.Instance.GetObjects(bounds) )
             {
