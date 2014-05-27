@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -79.78116 -73.12833 221.2626
-editorCameraDirection = 0.8137786 -1.435796
+editorCameraPosition = 2.839176 26.39099 207.4554
+editorCameraDirection = 4.765021 -1.559234
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1089,6 +1089,91 @@ entity
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
 	name = F1R5-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 83
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -104.0742 -43.92505 3
+	rotation = 0 0 -0.9743701 0.224951
+	scale = 9.572958 36.35155 10.9482
+	name = F1S45
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 84
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -41.48233 -103.6254 3
+	rotation = 0 0 -0.8120835 0.5835412
+	scale = 9.572958 36.35155 10.9482
+	name = F1S56
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 85
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 46.13393 -106.0181 3
+	rotation = 0 0 -0.6333808 0.7738402
+	scale = 9.572958 38.91988 10.9482
+	name = F1S67
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 86
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 43.45355 104.5948 3
+	rotation = 0 0 -0.5828322 -0.8125925
+	scale = 9.572958 38.91988 10.9482
+	name = F1S12
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 87
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -44.05093 105.4387 3
+	rotation = 0 0 -0.7986355 -0.601815
+	scale = 9.572958 38.91988 10.9482
+	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
