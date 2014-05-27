@@ -740,6 +740,7 @@ namespace Game
 						fadingOutTimer = 0;
 				}
 
+                
 				if( fadingOutTimer == 0 )
 				{
 					//close all windows
@@ -752,12 +753,12 @@ namespace Game
 						needMapLoadName = null;
 						ServerOrSingle_MapLoad( name, EntitySystemWorld.Instance.DefaultWorldType, false );
 					}
-					else if( needRunExampleOfProceduralMapCreation )
+				/*	else if( needRunExampleOfProceduralMapCreation )
 					{
 						needRunExampleOfProceduralMapCreation = false;
 						ExampleOfProceduralMapCreation.ServerOrSingle_MapCreate();
 					}
-					else if( needWorldLoadName != null )
+				*/	else if( needWorldLoadName != null )
 					{
 						string name = needWorldLoadName;
 						needWorldLoadName = null;
@@ -765,6 +766,7 @@ namespace Game
 					}
 				}
 			}
+            
 
 			//exit application fading out
 			if( needFadingOutAndExit )
@@ -861,10 +863,8 @@ namespace Game
 					float alpha = message.timeRemaining;
 					if( alpha > 1 )
 						alpha = 1;
-					renderer.AddText( message.text, pos + shadowOffset, HorizontalAlign.Left,
-						VerticalAlign.Bottom, new ColorValue( 0, 0, 0, alpha / 2 ) );
-					renderer.AddText( message.text, pos, HorizontalAlign.Left, VerticalAlign.Bottom,
-						new ColorValue( 1, 1, 1, alpha ) );
+					renderer.AddText( message.text, pos + shadowOffset, HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue( 0, 0, 0, alpha / 2 ) );
+					renderer.AddText( message.text, pos, HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue( 1, 1, 1, alpha ) );
 
 					pos.Y -= renderer.DefaultFont.Height;
 				}
@@ -933,6 +933,7 @@ namespace Game
                 {
                     // Ich bin Astronaut
                     // vielleicht Occulus, vielleicht auch Cave...
+                    gameWindow = new ActionGameWindow();
                 }
             }
 			controlManager.Controls.Add( gameWindow );
@@ -1114,8 +1115,7 @@ namespace Game
 
 			//world loading window
 			{
-				worldLoadingWindow = ControlDeclarationManager.Instance.CreateControl(
-					"Gui\\WorldLoadingWindow.gui" );
+				worldLoadingWindow = ControlDeclarationManager.Instance.CreateControl("Gui\\WorldLoadingWindow.gui" );
 				if( worldLoadingWindow != null )
 				{
 					worldLoadingWindow.Text = fileName;

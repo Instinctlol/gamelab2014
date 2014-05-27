@@ -1,4 +1,4 @@
-Log started: 5/27/2014 11:31:38 AM
+Log started: 5/27/2014 1:04:22 PM
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
@@ -37,7 +37,7 @@ Info: OGRE: Driver description: ATI Mobility Radeon HD 5650
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
-Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=263954 vsync=true 
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=1049394 vsync=true 
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 10x10, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
@@ -390,10 +390,26 @@ Info: OGRE: 0 unmanaged vertex buffers
 Info: OGRE: 0 unmanaged index buffers
 Info: OGRE: !!! Direct3D Device successfully restored.
 Info: OGRE: RenderTarget "MainWindow": createAdditionalMRTs
-Info: OGRE: Texture: Gui\Textures\Circle.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
 Info: OGRE: Texture: Base\Shaders\White.jpg: Loading 1 faces(PF_R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,32x32x1.
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCirclePortrait.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/PlayerUnitCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/HealthEnergyPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+Info: OGRE: Texture: Gui/HUD/HealthBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/EnergyBar.png: Loading 1 faces(PF_A8R8G8B8,256x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x32x1.
+Info: OGRE: Texture: Gui/HUD/WeaponsCircle.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+Info: OGRE: Texture: Gui/HUD/ItemsPanel.png: Loading 1 faces(PF_A8R8G8B8,256x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x64x1.
+Info: OGRE: Texture: Gui\Textures\Circle.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
+Info: OGRE: Texture: Gui\Textures\Utilities_256x256.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+Info: OGRE: Texture: Gui\Textures\NeoAxisLogo_400x150.png: Loading 1 faces(PF_A8R8G8B8,400x150x1) with 8 generated mipmaps from Image. Internal format is PF_A8R8G8B8,400x150x1.
+Info: OGRE: Texture: Gui\Textures\SourceSDK.png: Loading 1 faces(PF_A8R8G8B8,243x350x1) with 8 generated mipmaps from Image. Internal format is PF_A8R8G8B8,243x350x1.
+Info: OGRE: Texture: GUI\Textures\UnlimitedSDK.png: Loading 1 faces(PF_A8R8G8B8,243x350x1) with 8 generated mipmaps from Image. Internal format is PF_A8R8G8B8,243x350x1.
+Info: OGRE: Texture: GUI\Textures\ProfessionalSDK.png: Loading 1 faces(PF_A8R8G8B8,243x350x1) with 8 generated mipmaps from Image. Internal format is PF_A8R8G8B8,243x350x1.
+Info: OGRE: Texture: GUI\Textures\FreeSDK.png: Loading 1 faces(PF_A8R8G8B8,243x350x1) with 8 generated mipmaps from Image. Internal format is PF_A8R8G8B8,243x350x1.
 Info: OGRE: Texture: Gui\Textures\Check.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
 Info: OGRE: Texture: Gui\Textures\ComboBoxButton.png: Loading 1 faces(PF_A8R8G8B8,64x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,64x64x1.
+Info: OGRE: Mesh: Loading Base\Simple Models\Box.mesh.
+Info: OGRE: Texture: Gui\Textures\NeoAxis_256x256.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+Info: OGRE: Texture: Gui\Textures\NeoAxisLogo.png: Loading 1 faces(PF_A8R8G8B8,800x300x1) with 9 generated mipmaps from Image. Internal format is PF_A8R8G8B8,800x300x1.
 Info: OGRE: Texture: Gui\Textures\ProgressIndicator.png: Loading 1 faces(PF_A8R8G8B8,512x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,512x64x1.
 Info: OGRE: RenderTarget "MainWindow": destroyAdditionalMRTs
 Info: NativeMemoryManager: Leaks statistics begin

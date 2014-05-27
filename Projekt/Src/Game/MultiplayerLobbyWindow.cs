@@ -15,43 +15,11 @@ namespace Game
 {
 	public class MultiplayerLobbyWindow : Control
 	{
-		const string exampleOfProceduralMapCreationText = "[The example of a procedural map creation]";
-
-		[Config( "MultiplayerLobbyWindow", "lastMapName" )]
-		static string lastMapName = "Maps\\JigsawPuzzleGame\\Map\\Map.map";//Jigsaw puzzle by default
-
 		Control window;
-		ComboBox comboBoxMaps;
 		CheckBox checkBoxAllowToConnectDuringGame;
 		Button buttonStart;
 		ListBox listBoxUsers;
 		EditBox editBoxChatMessage;
-
-		///////////////////////////////////////////
-
-		class MapItem
-		{
-			public string mapName;
-			public bool recommended;
-			public bool noNetworkingSupport;
-
-			public MapItem( string mapName, bool recommended, bool noMultiplayerSupport )
-			{
-				this.mapName = mapName;
-				this.recommended = recommended;
-				this.noNetworkingSupport = noMultiplayerSupport;
-			}
-
-			public override string ToString()
-			{
-				string text = mapName;
-				if( recommended )
-					text += " (NETWORKING EXAMPLE)";
-				if( noNetworkingSupport )
-					text += " (no networking support)";
-				return text;
-			}
-		}
 
 		///////////////////////////////////////////
 
@@ -80,52 +48,11 @@ namespace Game
 			listBoxUsers = (ListBox)window.Controls[ "Users" ];
 
 			editBoxChatMessage = (EditBox)window.Controls[ "ChatMessage" ];
-			editBoxChatMessage.PreKeyDown += editBoxChatMessage_PreKeyDown;
-
-			//comboBoxMaps
-			{
-				comboBoxMaps = (ComboBox)window.Controls[ "Maps" ];
-
-				if( GameNetworkServer.Instance != null )
-				{
-					//procedural map creation
-					comboBoxMaps.Items.Add( new MapItem( exampleOfProceduralMapCreationText, false, false ) );
-					if( lastMapName == exampleOfProceduralMapCreationText )
-						comboBoxMaps.SelectedIndex = comboBoxMaps.Items.Count - 1;
-
-					string[] mapList = VirtualDirectory.GetFiles( "", "*.map",
-						SearchOption.AllDirectories );
-
-					foreach( string mapName in mapList )
-					{
-						//check for network support
-						bool noMultiplayerSupport = VirtualFile.Exists(
-							string.Format( "{0}\\NoNetworkSupport.txt", Path.GetDirectoryName( mapName ) ) );
-
-						bool recommended =
-							mapName.Contains( "JigsawPuzzleGame" ) ||
-							mapName.Contains( "TankDemo" );
-
-						comboBoxMaps.Items.Add( new MapItem( mapName, recommended, noMultiplayerSupport ) );
-						if( mapName == lastMapName )
-							comboBoxMaps.SelectedIndex = comboBoxMaps.Items.Count - 1;
-					}
-
-					comboBoxMaps.SelectedIndexChange += comboBoxMaps_SelectedIndexChange;
-
-					if( comboBoxMaps.Items.Count != 0 && comboBoxMaps.SelectedIndex == -1 )
-						comboBoxMaps.SelectedIndex = 0;
-				}
-				else
-				{
-					comboBoxMaps.Enable = false;
-				}
-			}
+			editBoxChatMessage.PreKeyDown += editBoxChatMessage_PreKeyDown;	
 
 			//checkBoxAllowToConnectDuringGame
 			{
-				checkBoxAllowToConnectDuringGame = (CheckBox)window.Controls[
-					"AllowToConnectDuringGame" ];
+				checkBoxAllowToConnectDuringGame = (CheckBox)window.Controls[ "AllowToConnectDuringGame" ];
 
 				if( GameNetworkServer.Instance != null )
 				{
@@ -289,11 +216,9 @@ namespace Game
 		{
 			GameNetworkServer server = GameNetworkServer.Instance;
 			//send map name to new client
-			server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_MapName",
-				SelectedMapName );
+			server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_MapName", "Maps\\GameLab_v01\\Map.map" );
 			//send AllowToConnectDuringGame flag to new client
-			server.CustomMessagesService.SendToClient( user.ConnectedNode,
-				"Lobby_AllowToConnectDuringGame", checkBoxAllowToConnectDuringGame.Checked.ToString() );
+			server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_AllowToConnectDuringGame", checkBoxAllowToConnectDuringGame.Checked.ToString() );
 		}
 
 		void Server_ChatService_ReceiveText( ChatServerNetworkService sender,
@@ -311,17 +236,8 @@ namespace Game
 			AddMessage( string.Format( "{0}: {1}", userName, text ) );
 		}
 
-		void Client_CustomMessagesService_ReceiveMessage( CustomMessagesClientNetworkService sender,
-			string message, string data )
+		void Client_CustomMessagesService_ReceiveMessage( CustomMessagesClientNetworkService sender, string message, string data )
 		{
-			if( message == "Lobby_MapName" )
-			{
-				//update map name on client
-				comboBoxMaps.Items.Clear();
-				comboBoxMaps.Items.Add( new MapItem( data, false, false ) );
-				comboBoxMaps.SelectedIndex = 0;
-			}
-
 			if( message == "Lobby_AllowToConnectDuringGame" )
 			{
 				//update AllowToConnectDuringGame check box on client
@@ -359,27 +275,6 @@ namespace Game
 			editBoxChatMessage.Text = "";
 		}
 
-		string SelectedMapName
-		{
-			get
-			{
-				MapItem mapItem = comboBoxMaps.SelectedItem as MapItem;
-				if( mapItem == null )
-					return null;
-				return mapItem.mapName;
-			}
-		}
-
-		void comboBoxMaps_SelectedIndexChange( ComboBox sender )
-		{
-			lastMapName = SelectedMapName;
-
-			//send map name to clients
-			GameNetworkServer server = GameNetworkServer.Instance;
-			if( server != null )
-				server.CustomMessagesService.SendToAllClients( "Lobby_MapName", SelectedMapName );
-		}
-
 		void checkBoxAllowToConnectDuringGame_CheckedChange( CheckBox sender )
 		{
 			//send AllowToConnectDuringGame to clients
@@ -394,23 +289,17 @@ namespace Game
 		void UpdateControls()
 		{
 			if( GameNetworkServer.Instance != null )
-				buttonStart.Enable = !string.IsNullOrEmpty( SelectedMapName );
+                buttonStart.Enable = !string.IsNullOrEmpty("Maps\\GameLab_v01\\Map.map");
 		}
 
 		void Start_Click( Button sender )
 		{
-			if( string.IsNullOrEmpty( SelectedMapName ) )
-				return;
-
 			GameNetworkServer server = GameNetworkServer.Instance;
 
 			//AllowToConnectDuringGame
 			server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
 
-			if( SelectedMapName == exampleOfProceduralMapCreationText )
-				GameEngineApp.Instance.SetNeedRunExampleOfProceduralMapCreation();
-			else
-				GameEngineApp.Instance.SetNeedMapLoad( SelectedMapName );
+            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
 		}
 
 	}

@@ -55,8 +55,8 @@ namespace Game
 			buttonConnect = (Button)window.Controls[ "Connect" ];
 			buttonConnect.Click += Connect_Click;
 
-            //buttonConnect2 = (Button)window.Controls["Connect2"];
-            //buttonConnect2.Click += Connect_Click;
+            buttonConnect2 = (Button)window.Controls["Connect2"];
+            buttonConnect2.Click += Connect_Click;
 
 			( (Button)window.Controls[ "Exit" ] ).Click += Exit_Click;
 
