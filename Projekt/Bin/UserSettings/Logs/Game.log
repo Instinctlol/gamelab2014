@@ -1,4 +1,8 @@
+<<<<<<< .mine
+Log started: 5/26/2014 4:02:59 PM
+=======
 Log started: 5/26/2014 6:44:56 PM
+>>>>>>> .r194
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
@@ -37,8 +41,13 @@ Info: OGRE: Driver description: Intel(R) HD Graphics
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
+<<<<<<< .mine
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 debugger=true externalWindowHandle=2688598 vsync=true 
+Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 784x562, 32bpp
+=======
 Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 fullscreen  miscParams: colourDepth=32 externalWindowHandle=13238524 vsync=true 
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 1440x900, 32bpp
+>>>>>>> .r194
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
 Info: OGRE: D3D9: Vertex texture format supported - PF_L8 PF_L16 PF_A8 PF_A4L4 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_DXT1 PF_DXT2 PF_DXT3 PF_DXT4 PF_DXT5 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_R8G8B8A8 PF_DEPTH24 PF_SHORT_RGBA PF_FLOAT16_R PF_FLOAT32_R PF_SHORT_GR PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB PF_PVRTC_RGB2 PF_PVRTC_RGBA2 PF_PVRTC_RGB4 PF_PVRTC_RGBA4 PF_3DC
@@ -820,46 +829,41 @@ Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Mode
 Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+Error: Parsing text block failed "Maps\GameLab_v01\Map.map" (Invalid file format (line - 11)).
+   bei System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   bei System.Environment.get_StackTrace()
+   bei Engine.Log.A()
+   bei Engine.Log.Error(String text)
+   bei Engine.FileSystem.TextBlockUtils.LoadFromVirtualFile(String path)
+   bei Engine.MapSystem.MapSystemWorld.MapLoad(String virtualFileName)
+   bei Game.GameEngineApp.ServerOrSingle_MapLoad(String fileName, WorldType worldType, Boolean noChangeWindows) in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\GameEngineApp.cs:Zeile 1028.
+   bei Game.GameEngineApp.OnTick(Single delta) in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\GameEngineApp.cs:Zeile 753.
+   bei Engine.EngineApp.DoTick()
+   bei Engine.EngineApp.A(Boolean A)
+   bei a.ac.RunMessageLoop()
+   bei Engine.EngineApp.Run()
+   bei Game.Program.Main2() in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\Program.cs:Zeile 79.
+   bei Game.Program.Main() in d:\Daten\Programmierumgebungen\GameLab\Projekt\Src\Game\Program.cs:Zeile 31.Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
-Info: OGRE: Error loading texture Models\DemoCorridors\SkyBox\CorridorSkyBox.jpg. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: Skeleton: Loading Types\Units\Alien\Robot.skeleton
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
@@ -1229,6 +1233,13 @@ Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Mode
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+<<<<<<< .mine
+Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
+=======
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
 Info: OGRE: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Models\DemoCorridors\SkyBox\CorridorSkyBox_rt.jpg in resource group General. in ResourceGroupManager::openResource at ..\src\OgreResourceGroupManager.cpp (line 694)
@@ -3030,3 +3041,4 @@ Info: OGRE: D3D9HardwareBufferManager released:
 Info: OGRE: 8 unmanaged vertex buffers
 Info: OGRE: 0 unmanaged index buffers
 Info: OGRE: RenderTarget "MainWindow": destroyAdditionalMRTs
+>>>>>>> .r194
