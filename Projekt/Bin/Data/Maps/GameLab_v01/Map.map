@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -136.161 0.6863011 89.64904
-editorCameraDirection = 0.002867877 -0.9880702
+editorCameraPosition = -79.78116 -73.12833 221.2626
+editorCameraDirection = 0.8137786 -1.435796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -925,4 +925,170 @@ entity
 	healthFactorAtBeginning = 1
 	position = -117.4477 -14.92408 5.081102
 	name = AlienSpawner_0
+}
+entity
+{
+	type = Sector
+	uin = 73
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -75.9137 0 3
+	scale = 33.84572 49.58686 10.9482
+	name = Sector_0
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 74
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -110.2594 0 3
+	scale = 33.84572 58.90884 10.9482
+	name = F1R4-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 75
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -110.2594 0 3
+	scale = 33.84572 58.90884 10.9482
+	name = Sector_1
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 76
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -0.9446892 -110.041 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 33.84572 58.90884 10.9482
+	name = F1R6-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 77
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 110.73 0 3
+	scale = 33.84572 58.90884 10.9482
+	name = F1R8-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 78
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -0.9446892 111.8426 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 33.84572 58.90884 10.9482
+	name = F1R2-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 79
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -81.79011 82.54621 3
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 33.84572 58.90884 10.9482
+	name = F1R3-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 80
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 78.37129 79.25614 3
+	rotation = 0 0 -0.3826835 -0.9238795
+	scale = 33.84572 58.90884 10.9482
+	name = F1R1-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 81
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 83.65987 -81.88248 3
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 33.84572 58.90884 10.9482
+	name = F1R7-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 82
+	classPrompt = Sector
+	lightStatus = False
+	ring = 66
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -75.8792 -79.86818 3
+	rotation = 0 0 -0.9238795 0.3826834
+	scale = 33.84572 58.90884 10.9482
+	name = F1R5-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
 }
