@@ -152,7 +152,6 @@
     <Compile Include="OSCPacket.cs" />
     <Compile Include="OSCReceiver.cs" />
     <Compile Include="OSCTransmitter.cs" />
-    <Compile Include="ProfilingToolWindow.cs" />
     <Compile Include="GUISamples1Window.cs" />
     <Compile Include="MultiplayerLobbyWindow.cs" />
     <Compile Include="MultiplayerLoginWindow.cs" />

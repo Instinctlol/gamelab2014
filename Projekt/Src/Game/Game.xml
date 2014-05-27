@@ -116,11 +116,6 @@
             OSCTransmitter
             </summary>
         </member>
-        <member name="T:ProjectCommon.ProfilingToolWindow">
-            <summary>
-            Defines a window class for Profiling Tool.
-            </summary>
-        </member>
         <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioClient" ignoriert -->
         <member name="M:TUIO.TuioClient.#ctor">
             The default constructor creates a client that listens to the default TUIO port 3333

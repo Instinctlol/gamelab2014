@@ -104,10 +104,10 @@ namespace Game
                 hudControl.Controls["HelpWindow"].Visible = false;
             };
 
-            //((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
-            //{
-            //    mapDrawPathMotionMap = !mapDrawPathMotionMap;
-            //};
+            ((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
+            {
+                mapDrawPathMotionMap = !mapDrawPathMotionMap;
+            };
 
             cameraDistanceScrollBar = hudControl.Controls["CameraDistance"] as ScrollBar;
             if (cameraDistanceScrollBar != null)
@@ -170,8 +170,7 @@ namespace Game
                 cameraPosition = (Vec2)World.Instance.GetCustomSerializationValue("cameraPosition");
             for (int n = 0; ; n++)
             {
-                Unit unit = World.Instance.GetCustomSerializationValue(
-                    "selectedUnit" + n.ToString()) as Unit;
+                Unit unit = World.Instance.GetCustomSerializationValue("selectedUnit" + n.ToString()) as Unit;
                 if (unit == null)
                     break;
                 SetEntitySelected(unit, true);
@@ -562,8 +561,7 @@ namespace Game
             //select mode
             if (selectMode)
             {
-                Vec2 diffPixels = (MousePosition - selectStartPos) *
-                    new Vec2(EngineApp.Instance.VideoMode.X, EngineApp.Instance.VideoMode.Y);
+                Vec2 diffPixels = (MousePosition - selectStartPos) * new Vec2(EngineApp.Instance.VideoMode.X, EngineApp.Instance.VideoMode.Y);
                 if (Math.Abs(diffPixels.X) >= 3 || Math.Abs(diffPixels.Y) >= 3)
                 {
                     selectDraggedMouse = true;
@@ -617,7 +615,7 @@ namespace Game
                 }
 
                 //alienCameraDirection
-
+                //ToDo Home und End-Taste verändern den Winkel der Kamera
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
                 {
                     cameraDirection.Vertical += delta * (cameraAngleRange[1] - cameraAngleRange[0]) / 2;
