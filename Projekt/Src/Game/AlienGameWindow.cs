@@ -493,8 +493,11 @@ namespace Game
                     Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
                         MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
                         {
-                            AlienUnit unit = (AlienUnit)obj;
-                            areaObjs.Add(unit);
+                            if (obj is AlienUnit)
+                            {
+                                AlienUnit unit = (AlienUnit)obj;
+                                areaObjs.Add(unit);
+                            }
                         });
                 }
                 else
