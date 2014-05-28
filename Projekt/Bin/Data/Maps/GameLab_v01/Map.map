@@ -7,7 +7,7 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.2 0.2 0.2
-editorCameraPosition = 2.839176 26.39099 207.4554
+editorCameraPosition = -20.10313 24.01367 106.5192
 editorCameraDirection = 4.765021 -1.559234
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
@@ -875,61 +875,8 @@ entity
 }
 entity
 {
-	type = Alien
-	uin = 69
-	classPrompt = Alien
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -110.2233 9.776023 1.174224
-	name = Alien_0
-}
-entity
-{
-	type = Alien
-	uin = 70
-	classPrompt = Alien
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -110.6045 7.26648 1.167779
-	name = Alien_1
-}
-entity
-{
-	type = Alien
-	uin = 71
-	classPrompt = Alien
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -110.9751 4.194906 1.170434
-	name = Alien_2
-}
-entity
-{
-	type = AlienSpawner
-	uin = 72
-	classPrompt = AlienSpawner
-	aiType = AlienAI
-	faction = BadFaction
-	spawnRadius = 5
-	popNumber = 5
-	securityRadius = 5
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienSpawnerAI
-	initialFaction = GoodFaction
-	healthFactorAtBeginning = 1
-	position = -117.4477 -14.92408 5.081102
-	name = AlienSpawner_0
-}
-entity
-{
 	type = Sector
-	uin = 73
+	uin = 69
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -945,7 +892,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 74
+	uin = 70
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -961,7 +908,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 75
+	uin = 71
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -977,7 +924,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 76
+	uin = 72
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -994,7 +941,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 77
+	uin = 73
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1010,7 +957,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 78
+	uin = 74
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1027,7 +974,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 79
+	uin = 75
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1044,7 +991,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 80
+	uin = 76
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1061,7 +1008,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 81
+	uin = 77
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1078,7 +1025,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 82
+	uin = 78
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1095,7 +1042,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 83
+	uin = 79
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1112,7 +1059,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 84
+	uin = 80
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1129,7 +1076,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 85
+	uin = 81
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1146,7 +1093,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 86
+	uin = 82
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1163,7 +1110,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 87
+	uin = 83
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
@@ -1176,4 +1123,58 @@ entity
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
+}
+entity
+{
+	type = AlienSpawner
+	uin = 84
+	classPrompt = AlienSpawner
+	aiType = AlienAI
+	faction = BadFaction
+	spawnRadius = 10
+	popNumber = 10
+	securityRadius = 5
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienSpawnerAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -75.59758 -7.567012 5.080671
+	name = AlienSpawner_0
+}
+entity
+{
+	type = GridBasedNavigationSystem
+	uin = 85
+	classPrompt = GridBasedNavigationSystem
+	gridBounds = -100 -100 100 100
+	gridCellSize = 1
+	agentHeight = 2
+	agentMaxSlope = 30
+	heightByTerrainOnly = True
+	alwaysDrawGrid = False
+	drawGridDistance = 300
+}
+entity
+{
+	type = Alien
+	uin = 86
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -82.72911 4.124202 1.174866
+	name = Alien_0
+}
+entity
+{
+	type = Alien
+	uin = 87
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -74.90673 9.033578 1.173554
+	name = Alien_1
 }

@@ -412,6 +412,31 @@
             AI for small-alien-spawnpoint
             </summary>
         </member>
+        <member name="T:ProjectEntities.Computer">
+            <summary>
+            Main computer that can be controlled by the boss alien and
+            the astronauts
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.Computer.ShowState">
+            <summary>
+            Show the state of the station, e.g. how many life the astronauts 
+            still have, how the rings are positioned...
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.Computer.RotateRing(System.Int32,System.Boolean)">
+            <summary>
+            Do one rotation of one ring to the left or to the right side.
+            </summary>
+            <param name="ringNumber"></param>
+            <param name="left"></param>
+        </member>
+        <member name="M:ProjectEntities.Computer.SetSectorPower(System.Boolean)">
+            <summary>
+            Switches off or on the power of one sector (room)
+            </summary>
+            <param name="on"></param>
+        </member>
         <member name="T:ProjectEntities.BooleanSwitchType">
             <summary>
             Defines the <see cref="T:ProjectEntities.BooleanSwitch"/> entity type.

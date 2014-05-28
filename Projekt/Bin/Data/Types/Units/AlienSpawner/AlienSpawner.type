@@ -2,7 +2,12 @@ type AlienSpawner
 {
 	class = AlienSpawner
 	initialAI = AlienSpawnerAI
+	healthMax = 300
 	substance = Metal
+	soundMinDistance = 10
+	soundMaxDistance = 100
+	physicsModel = ".\\RTSFactory.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
