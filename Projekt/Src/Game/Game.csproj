@@ -144,7 +144,9 @@
     <Compile Include="AboutWindow.cs" />
     <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AlienGameWindow.cs" />
-    <Compile Include="ExampleOfProceduralMapCreation.cs" />
+    <Compile Include="ExampleOfProceduralMapCreation.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiViewConfigurationWindow.cs" />
     <Compile Include="GUISamples2Window.cs" />
     <Compile Include="OSCBundle.cs" />
@@ -179,10 +181,8 @@
     <Compile Include="TuioTime.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WorldLoadSaveWindow.cs" />
     <Compile Include="ProductLogoWindow.cs" />
     <Compile Include="GameEngineApp.cs" />
-    <Compile Include="MapsWindow.cs" />
     <Compile Include="MenuWindow.cs" />
     <Compile Include="MessageBoxWindow.cs" />
     <Compile Include="OptionsWindow.cs" />

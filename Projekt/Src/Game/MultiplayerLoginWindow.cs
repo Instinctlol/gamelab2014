@@ -114,8 +114,7 @@ namespace Game
 
 			SetInfo( "Creating server...", false );
 
-			GameNetworkServer server = new GameNetworkServer( "NeoAxis Server",
-				EngineVersionInformation.Version, 128, true );
+			GameNetworkServer server = new GameNetworkServer( "NeoAxis Server",	EngineVersionInformation.Version, 128, true );
 
 			int port = 56565;
 
@@ -157,8 +156,7 @@ namespace Game
 			string password = "";
 
 			string error;
-			if( !client.BeginConnect( connectToAddress, port, EngineVersionInformation.Version,
-				userName, password, out error ) )
+			if( !client.BeginConnect( connectToAddress, port, EngineVersionInformation.Version, userName, password, out error ) )
 			{
 				Log.Error( error );
 				DisposeClient();

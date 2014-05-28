@@ -765,7 +765,6 @@ namespace Game
 
         void UpdateHUDControlIcon(Control control, string iconName)
         {
-            /*
             if (!string.IsNullOrEmpty(iconName))
             {
                 string fileName = string.Format("Gui\\HUD\\Icons\\{0}.png", iconName);
@@ -793,7 +792,6 @@ namespace Game
             }
             else
                 control.BackTexture = null;
-             * */
         }
 
         /// <summary>
@@ -801,14 +799,12 @@ namespace Game
         /// </summary>
         void UpdateHUD()
         {
-            /*
             Unit playerUnit = GetPlayerUnit();
 
             hudControl.Visible = EngineDebugSettings.DrawGui;
 
             //Game
-
-            //hudControl.Controls["Game"].Visible = GetRealCameraType() != CameraType.Free;
+            hudControl.Controls["Game"].Visible = GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled();
 
             //Player
             string playerTypeName = playerUnit != null ? playerUnit.Type.Name : "";
@@ -925,7 +921,6 @@ namespace Game
                     }
                 }
             }
-             * */
         }
 
         /// <summary>
@@ -955,7 +950,6 @@ namespace Game
                     .5f + size, .5f + size * aspect);
                 renderer.AddQuad(rectangle, new Rect(0, 0, 1, 1), texture);
             }
-             
         }
 
         /// <summary>

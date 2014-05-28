@@ -26,7 +26,6 @@ control Control
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		active = True
 		position = ScaleByResolution -13 240
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30

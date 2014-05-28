@@ -24,7 +24,7 @@ namespace Game
 			Control window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MenuWindow.gui" );
 			Controls.Add( window );
 
-			( (Button)window.Controls[ "LoadSave" ] ).Click += loadSaveButton_Click;
+			//( (Button)window.Controls[ "LoadSave" ] ).Click += loadSaveButton_Click;
 			( (Button)window.Controls[ "Options" ] ).Click += optionsButton_Click;
 			( (Button)window.Controls[ "ProfilingTool" ] ).Click += ProfilingToolButton_Click;
 			( (Button)window.Controls[ "About" ] ).Click += aboutButton_Click;
@@ -50,7 +50,7 @@ namespace Game
 		{
 			foreach( Control control in Controls )
 				control.Visible = false;
-			Controls.Add( new WorldLoadSaveWindow() );
+			//Controls.Add( new WorldLoadSaveWindow() );
 		}
 
 		void optionsButton_Click( object sender )
@@ -78,8 +78,8 @@ namespace Game
 			base.OnControlDetach( control );
 
 			if( ( control as OptionsWindow ) != null ||
-				( control as MapsWindow ) != null ||
-				( control as WorldLoadSaveWindow ) != null ||
+				//( control as MapsWindow ) != null ||
+				//( control as WorldLoadSaveWindow ) != null ||
 				( control as AboutWindow ) != null )
 			{
 				foreach( Control c in Controls )

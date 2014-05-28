@@ -421,8 +421,7 @@ namespace ProjectEntities
 
 		void Server_SendIntellectToClients( IList<RemoteEntityWorld> remoteEntityWorlds )
 		{
-			SendDataWriter writer = BeginNetworkMessage( remoteEntityWorlds, typeof( Unit ),
-				(ushort)NetworkMessages.IntellectToClient );
+			SendDataWriter writer = BeginNetworkMessage( remoteEntityWorlds, typeof( Unit ), (ushort)NetworkMessages.IntellectToClient );
 			//zero will sent if intellect NetworkType != Synchronized
 			writer.WriteVariableUInt32( Intellect != null ? Intellect.NetworkUIN : (uint)0 );
 			writer.Write( intellectShouldDeleteAfterDetach );

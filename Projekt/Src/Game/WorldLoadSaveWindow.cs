@@ -132,7 +132,7 @@ namespace Game
 
 		void Load( string fileName )
 		{
-			GameEngineApp.Instance.SetNeedWorldLoad( fileName );
+			//GameEngineApp.Instance.SetNeedWorldLoad( fileName );
 		}
 
 		void Save( string fileName )

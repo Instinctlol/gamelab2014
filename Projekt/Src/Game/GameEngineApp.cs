@@ -262,8 +262,7 @@ namespace Game
 
 		//
 
-		public GameEngineApp()
-			: base( ApplicationTypes.Simulation )
+		public GameEngineApp() : base( ApplicationTypes.Simulation )
 		{
 		}
 
@@ -460,8 +459,7 @@ namespace Game
 			camera.Position = new Vec3( -10, -10, 10 );
 			camera.LookAt( new Vec3( 0, 0, 0 ) );
 
-			Control programLoadingWindow = ControlDeclarationManager.Instance.CreateControl(
-				"Gui\\ProgramLoadingWindow.gui" );
+			Control programLoadingWindow = ControlDeclarationManager.Instance.CreateControl("Gui\\ProgramLoadingWindow.gui" );
 			if( programLoadingWindow != null )
 				controlManager.Controls.Add( programLoadingWindow );
 
@@ -753,12 +751,12 @@ namespace Game
 						needMapLoadName = null;
 						ServerOrSingle_MapLoad( name, EntitySystemWorld.Instance.DefaultWorldType, false );
 					}
-				/*	else if( needRunExampleOfProceduralMapCreation )
+					else if( needRunExampleOfProceduralMapCreation )
 					{
 						needRunExampleOfProceduralMapCreation = false;
 						ExampleOfProceduralMapCreation.ServerOrSingle_MapCreate();
 					}
-				*/	else if( needWorldLoadName != null )
+					else if( needWorldLoadName != null )
 					{
 						string name = needWorldLoadName;
 						needWorldLoadName = null;
@@ -809,8 +807,7 @@ namespace Game
 					{
 						Client_DisconnectFromServer();
 
-						Log.Error( "Disconnected from server.\n\nReason: \"{0}\"",
-							client.DisconnectionReason );
+						Log.Error( "Disconnected from server.\n\nReason: \"{0}\"", client.DisconnectionReason );
 					}
 				}
 			}
@@ -924,17 +921,12 @@ namespace Game
             if (GameMap.Instance != null)
             {
                 //gameWindow = new ActionGameWindow();
-                if (false)
-                {
+                //if (EntitySystemWorld.Instance.IsServer())
                     //Ich bin Alien
-                    gameWindow = new AlienGameWindow();
-                }
-                else
-                {
-                    // Ich bin Astronaut
-                    // vielleicht Occulus, vielleicht auch Cave...
+                //    gameWindow = new AlienGameWindow();
+                //else
+                    // Ich bin Astronaut; vielleicht Occulus, vielleicht auch Cave...
                     gameWindow = new ActionGameWindow();
-                }
             }
 			controlManager.Controls.Add( gameWindow );
 		}
@@ -952,8 +944,7 @@ namespace Game
 			}
 		}
 
-		public bool ServerOrSingle_MapLoad( string fileName, WorldType worldType,
-			bool noChangeWindows )
+		public bool ServerOrSingle_MapLoad( string fileName, WorldType worldType, bool noChangeWindows )
 		{
 			GameNetworkServer server = GameNetworkServer.Instance;
 
@@ -1178,8 +1169,7 @@ namespace Game
 			//Control worldSavingWindow = null;
 			////world saving window
 			//{
-			//   worldSavingWindow = ControlDeclarationManager.Instance.CreateControl(
-			//      "Gui\\WorldSavingWindow.gui" );
+			//   worldSavingWindow = ControlDeclarationManager.Instance.CreateControl( "Gui\\WorldSavingWindow.gui" );
 			//   if( worldSavingWindow != null )
 			//   {
 			//      worldSavingWindow.Text = fileName;
@@ -1212,7 +1202,7 @@ namespace Game
 			fadingOutTimer = fadingTime;
 		}
 
-		public void SetNeedRunExampleOfProceduralMapCreation()
+        public void SetNeedRunExampleOfProceduralMapCreation()
 		{
 			needRunExampleOfProceduralMapCreation = true;
 			fadingOutTimer = fadingTime;
@@ -1223,7 +1213,7 @@ namespace Game
 			needWorldLoadName = fileName;
 			fadingOutTimer = fadingTime;
 		}
-
+        
 		public void SetFadeOutScreenAndExit()
 		{
 			needFadingOutAndExit = true;
@@ -1323,8 +1313,7 @@ namespace Game
 			//Subcribe to callbacks during engine loading. We will render scene from callback.
 			if( client_mapLoadingWindow != null )
 			{
-				LongOperationCallbackManager.Subscribe( LongOperationCallbackManager_LoadingCallback,
-					client_mapLoadingWindow );
+				LongOperationCallbackManager.Subscribe( LongOperationCallbackManager_LoadingCallback, client_mapLoadingWindow );
 			}
 		}
 
