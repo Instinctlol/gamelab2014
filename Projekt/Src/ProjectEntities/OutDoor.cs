@@ -20,9 +20,6 @@ namespace ProjectEntities
 
         private OutDoor partnerDoor;
 
-
-
-
         //***************************
         //*******Getter-Setter*******
         //***************************
