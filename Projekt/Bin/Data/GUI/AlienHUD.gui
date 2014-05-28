@@ -5,12 +5,12 @@ control Control
 	control Control
 	{
 		position = ScaleByResolution 0 0
-		size = Screen 1 0.7812501
+		size = Screen 0.8632813 0.7812501
 		name = ActiveArea
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 600
+		position = ScaleByResolution 0 590
 		size = Screen 1 0.2317708
 		backColor = 0 0 0 0.5
 	}
@@ -153,7 +153,7 @@ control Control
 		shadow = True
 		shadowOffset = ScaleByResolution 2 2
 		position = ScaleByResolution 0 0
-		size = Parent 1 0.04947916
+		size = Parent 0.8632813 0.04947916
 		name = GameStatus
 	}
 	control TextBox
@@ -170,5 +170,11 @@ control Control
 		position = ScaleByResolution 850 650
 		size = ScaleByResolution 90 80
 		name = NumberSpawnUnitsList
+	}
+	control Control
+	{
+		position = ScaleByResolution 870 0
+		size = Screen 0.1503906 0.7916666
+		backColor = 0 0 0 0.5
 	}
 }
