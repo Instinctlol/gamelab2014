@@ -5,13 +5,20 @@ control Control
 	control Control
 	{
 		position = ScaleByResolution 0 0
+		horizontalAlign = Right
+		size = Screen 0.15 0.756
+		backColor = 0 0 0 0.5
+	}
+	control Control
+	{
+		position = ScaleByResolution 0 0
 		size = Screen 0.8632813 0.7812501
 		name = ActiveArea
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 590
-		size = Screen 1 0.2317708
+		position = ScaleByResolution 0 580
+		size = Screen 1 0.25
 		backColor = 0 0 0 0.5
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
@@ -170,11 +177,5 @@ control Control
 		position = ScaleByResolution 850 650
 		size = ScaleByResolution 90 80
 		name = NumberSpawnUnitsList
-	}
-	control Control
-	{
-		position = ScaleByResolution 870 0
-		size = Screen 0.1503906 0.7916666
-		backColor = 0 0 0 0.5
 	}
 }
