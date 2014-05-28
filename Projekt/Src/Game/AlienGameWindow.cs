@@ -123,19 +123,6 @@ namespace Game
                 cameraHeightScrollBar.ValueChange += cameraHeightScrollBar_ValueChange;
             }
 
-            // default listbox for number of spawn aliens is disabled
-            numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
-            if (numberSpawnUnitsList != null)
-            {
-                for (int i = 1; i <= possibleNumberSpawnAliens; i++)
-                {
-                    numberSpawnUnitsList.Items.Add(i);
-                }
-                numberSpawnUnitsList.SelectedIndex = 0;
-                numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
-                numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
-            }
-
             InitControlPanelButtons();
             UpdateControlPanel();
 
@@ -929,6 +916,19 @@ namespace Game
                 if (button == null)
                     break;
                 button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
+            }
+
+            // default listbox for number of spawn aliens is disabled
+            numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
+            if (numberSpawnUnitsList != null)
+            {
+                for (int i = 1; i <= possibleNumberSpawnAliens; i++)
+                {
+                    numberSpawnUnitsList.Items.Add(i);
+                }
+                numberSpawnUnitsList.SelectedIndex = 0;
+                numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
+                numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
             }
         }
 

@@ -1,4 +1,4 @@
-Log started: 5/27/2014 9:45:20 PM
+Log started: 5/28/2014 3:23:13 PM
 Info: Powered by NeoAxis 3D Engine
 Info: Operating System: Microsoft Windows 6.1.7601.65536 (64-bit)
 Info: Runtime Framework: Net 4.0.30319.18444
@@ -37,7 +37,7 @@ Info: OGRE: Driver description: Intel(R) HD Graphics
 Info: OGRE: ***************************************
 Info: OGRE: *** D3D9 : Subsystem Initialised OK ***
 Info: OGRE: ***************************************
-Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=41223884 vsync=true 
+Info: OGRE: D3D9RenderSystem::_createRenderWindow "MainWindow", 640x480 windowed  miscParams: colourDepth=32 externalWindowHandle=11338350 vsync=true 
 Info: OGRE: D3D9 : Created D3D9 Rendering Window 'MainWindow' : 1423x861, 32bpp
 Info: OGRE: Registering ResourceManager for type Texture
 Info: OGRE: Registering ResourceManager for type GpuProgram
@@ -3017,9 +3017,9 @@ Info: Leak - type: Renderer, size: 88 x 2 = 176 (file: NULL)
 Info: Leak - type: Renderer, size: 80 x 7 = 560 (file: NULL)
 Info: Leak - type: Renderer, size: 72 x 31 = 2232 (file: NULL)
 Info: Leak - type: Renderer, size: 64 x 4 = 256 (file: NULL)
-Info: Leak - type: Renderer, size: 48 x 1353 = 64944 (file: NULL)
+Info: Leak - type: Renderer, size: 48 x 1354 = 64992 (file: NULL)
 Info: Leak - type: Renderer, size: 40 x 10 = 400 (file: NULL)
-Info: Leak - type: Renderer, size: 24 x 89 = 2136 (file: NULL)
+Info: Leak - type: Renderer, size: 24 x 88 = 2112 (file: NULL)
 Info: Leak - type: Renderer, size: 16 x 27 = 432 (file: NULL)
 Info: Leak - type: Renderer, size: 8 x 211 = 1688 (file: NULL)
 Info: Leak - type: Renderer, size: 4 x 1 = 4 (file: NULL)
@@ -3029,6 +3029,6 @@ Info: Leak - type: Physics, size: 80 x 1 = 80 (file: ExtDefaultCpuDispatcher.cpp
 Info: Leak - type: Physics, size: 64 x 4 = 256 (file: PsWindowsThread.cpp:92)
 Info: Leak - type: Physics, size: 40 x 10 = 400 (file: PsSList.h:92)
 Info: Leak - type: Physics, size: 32 x 1 = 32 (file: PsWindowsSync.cpp:48)
-Info: Total size: 138191
+Info: Total size: 138215
 Info: NativeMemoryManager: Leaks statistics end
 Program END
