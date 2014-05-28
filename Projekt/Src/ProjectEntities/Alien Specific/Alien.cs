@@ -53,7 +53,9 @@ namespace ProjectEntities
         }
 	}
 
-
+    /// <summary>
+    /// The Alien character.
+    /// </summary>
     public class Alien : AlienUnit, GridBasedNavigationSystem.IOverrideObjectBehavior
     {
         Body mainBody;
