@@ -310,6 +310,11 @@
             Defines the <see cref="T:ProjectEntities.AlienUnit"/> entity type.
             </summary>
         </member>
+        <member name="T:ProjectEntities.Alien">
+            <summary>
+            The Alien character.
+            </summary>
+        </member>
         <member name="M:ProjectEntities.AlienUnit.OnPostCreate(System.Boolean)">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.</summary>
         </member>
