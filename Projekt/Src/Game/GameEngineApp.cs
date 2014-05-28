@@ -924,7 +924,7 @@ namespace Game
             if (GameMap.Instance != null)
             {
                 //gameWindow = new ActionGameWindow();
-                if (true)
+                if (false)
                 {
                     //Ich bin Alien
                     gameWindow = new AlienGameWindow();
