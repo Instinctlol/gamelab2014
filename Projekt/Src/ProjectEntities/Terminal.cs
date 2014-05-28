@@ -27,7 +27,8 @@ namespace ProjectEntities
         public enum TerminalTaskType
         {
             None,
-            PIN
+            PIN,
+            ColorSequence
         };
 
         //SmartButton type, spezifizieren welche art von Button initial angezeigt wird

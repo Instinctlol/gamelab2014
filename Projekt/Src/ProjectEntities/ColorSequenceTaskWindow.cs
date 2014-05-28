@@ -18,12 +18,14 @@ namespace ProjectEntities
         private string[] solution;
         private string[] playerResult;
 
+        private List<string> playerResultList=new List<string>();
+
         private int currPlayerResultPos=0;
 
         public ColorSequenceTaskWindow(Task task) : base(task)
         {
             //GUI Erzeugen
-            CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\ColorSequenceGUI");
+            CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\ColorSequenceGUI.gui");
 
             //Methoden für Buttons
             ((Button)CurWindow.Controls["Green"]).Click += Green_click;
@@ -34,33 +36,66 @@ namespace ProjectEntities
 
             string taskData = task.Terminal.TaskData;
 
-            if (!IsLegit(taskData))
-                console.Print("Given TaskData not correct");
-            else
+            //if (IsLegit(taskData))
                 solution = TaskDataToArray(taskData);
+            //else
+                //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
         }
 
         private void Blue_click(Button sender)
         {
-            throw new NotImplementedException();
+            if (currPlayerResultPos < solution.Length)
+            {
+                playerResultList.Add(blue);
+                if (++currPlayerResultPos == solution.Length)
+                {
+                    checkSolution();
+                }
+            }
+            else
+            {
+                console.Print("Not allowed to add more colors to solution");
+            }
         }
 
         private void Red_click(Button sender)
         {
-            throw new NotImplementedException();
+            if (currPlayerResultPos < solution.Length)
+            {
+                playerResultList.Add(red);
+                if (++currPlayerResultPos == solution.Length)
+                {
+                    checkSolution();
+                }
+            }
+            else
+            {
+                console.Print("Not allowed to add more colors to solution");
+            }
         }
 
         private void Yellow_click(Button sender)
         {
-            throw new NotImplementedException();
+            if (currPlayerResultPos < solution.Length)
+            {
+                playerResultList.Add(yellow);
+                if (++currPlayerResultPos == solution.Length)
+                {
+                    checkSolution();
+                }
+            }
+            else
+            {
+                console.Print("Not allowed to add more colors to solution");
+            }
         }
 
         private void Green_click(Button sender)
         {
-            if (currPlayerResultPos<solution.Length)
+            if(currPlayerResultPos < solution.Length)
             {
-                playerResult[currPlayerResultPos] = green;
-                if(++currPlayerResultPos == solution.Length-1)
+                playerResultList.Add(green);
+                if (++currPlayerResultPos == solution.Length)
                 {
                     checkSolution();
                 }
@@ -73,21 +108,44 @@ namespace ProjectEntities
 
         private void checkSolution()
         {
-            throw new NotImplementedException();
+            if(compareSolutions())
+            {
+                task.Success = true;
+            }
+            else
+            {
+                task.Success = false;
+            }
+        }
+
+        private bool compareSolutions()
+        {
+            bool check=false;
+
+            playerResult=playerResultList.ToArray();
+
+            if (solution.Length != playerResult.Length)
+                return false;
+            else
+            {
+                for (int i = 0; i < solution.Length; i++ )
+                {
+                    if (String.Compare(solution[i], playerResult[i], true)==0)
+                    {
+                        check = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return check;
         }
 
         private string[] TaskDataToArray(string tskdt)
         {
-            int[] indexes = CharPos(tskdt, ',');
-            string[] rtrn = new string[tskdt.Split(',').Length];
-            int pos=0;
-
-            for (int i = 0; i <= indexes.Length; i++)
-            {
-                rtrn[pos] = tskdt.Substring(pos, indexes[i] - 1);
-                pos = indexes[i] + 1;
-            }
-
+            string[] rtrn = tskdt.Split(',');
             return rtrn;
         }
 
@@ -98,7 +156,7 @@ namespace ProjectEntities
 
             int pos = 0;
 
-            for (int i = 0; i <= indexes.Length; i++)
+            for (int i = 0; i < indexes.Length; i++)
             {
                 if (input.Substring(pos, indexes[i]-1) == blue || input.Substring(pos, indexes[i]-1) == red ||
                     input.Substring(pos, indexes[i]-1) == yellow || input.Substring(pos, indexes[i]-1) == green)
@@ -108,6 +166,15 @@ namespace ProjectEntities
                 }
                 else
                     return false;
+            }
+            if (input.Substring(pos, input.Length - 1) == blue || input.Substring(pos, input.Length - 1) == red ||
+                    input.Substring(pos, input.Length - 1) == yellow || input.Substring(pos, input.Length - 1) == green)
+            {
+                check = true;
+            }
+            else
+            {
+                return false;
             }
 
             return check;

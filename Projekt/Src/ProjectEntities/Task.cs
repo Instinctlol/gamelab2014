@@ -73,6 +73,9 @@ namespace ProjectEntities
                 case Terminal.TerminalTaskType.PIN:
                     Window = new PINTaskWindow(this);
                     break;
+                case Terminal.TerminalTaskType.ColorSequence:
+                    Window = new ColorSequenceTaskWindow(this);
+                    break;
                 default:
                     Window = null;
                     break;

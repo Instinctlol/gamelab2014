@@ -150,6 +150,7 @@
     <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="Alien Specific\Computer.cs" />
     <Compile Include="BooleanSwitch.cs" />
+    <Compile Include="ColorSequenceTaskWindow.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
     <Compile Include="OutDoor.cs" />
