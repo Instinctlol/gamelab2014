@@ -59,6 +59,12 @@ namespace ProjectEntities
             list.Add(new UserControlPanelTask(new Task(Task.Types.Attack),
                 CurrentTask.Type == Task.Types.Attack || CurrentTask.Type == Task.Types.BreakableAttack));
 
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Active),
+                CurrentTask.Type == Task.Types.Active));
+            
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Passive),
+                CurrentTask.Type == Task.Types.Passive));
+
             return list;
         }
 
@@ -86,21 +92,20 @@ namespace ProjectEntities
             return 0;
         }
 
-        //TODO
         bool InactiveFindTask()
         {
             if (initialWeapons.Count == 0)
                 return false;
 
-            //AlienUnit controlledObj = controlledObject;
-            if (ControlledObject == null)
+            Alien controlledObj = ControlledObject;
+            if (controlledObj == null)
                 return false;
 
             Dynamic newTaskAttack = null;
             float attackObjectPriority = 0;
 
-            Vec3 controlledObjPos = ControlledObject.Position;
-            float radius = ControlledObject./*Type.*/ViewRadius;
+            Vec3 controlledObjPos = controlledObj.Position;
+            float radius = controlledObj./*Type.*/ViewRadius;
 
             Map.Instance.GetObjects(new Sphere(controlledObjPos, radius),
                 MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject mapObject)
@@ -125,12 +130,7 @@ namespace ProjectEntities
 
             if (newTaskAttack != null)
             {
-                //RTSConstructor specific
-                if (ControlledObject.Type.Name == "RTSConstructor")
-                    DoTask(new Task(Task.Types.BreakableRepair, newTaskAttack), false);
-                else
-                    DoTask(new Task(Task.Types.BreakableAttack, newTaskAttack), false);
-
+                DoTask(new Task(Task.Types.BreakableAttack, newTaskAttack), false);
                 return true;
             }
 
@@ -190,11 +190,13 @@ namespace ProjectEntities
                     }
                     break;
 
-                //Attack, Repair
+                //Attack, Repair, Active, Passive
                 case Task.Types.Attack:
                 case Task.Types.BreakableAttack:
                 case Task.Types.Repair:
                 case Task.Types.BreakableRepair:
+                case Task.Types.Active:
+                case Task.Types.Passive:
                 {
                     //healed
                     if ((CurrentTask.Type == Task.Types.Repair ||
@@ -254,7 +256,7 @@ namespace ProjectEntities
                         if (lineVisibility)
                         {
                             //stop
-                            ControlledObject.Stop();
+                            controlledObj.Stop();
 
                             Alien character = controlledObj as Alien;
                             if (character != null)

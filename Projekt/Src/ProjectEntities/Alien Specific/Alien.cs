@@ -28,9 +28,7 @@ namespace ProjectEntities
         const float maxVelocityDefault = 5;
         [FieldSerialize]
         float maxVelocity = maxVelocityDefault;
-
-        //
-
+        
         [DefaultValue(heightDefault)]
         public float Height
         {
@@ -70,9 +68,7 @@ namespace ProjectEntities
 
         Vec3 oldMainBodyPosition;
         Vec3 mainBodyVelocity;
-
-        //
-
+        
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>

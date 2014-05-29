@@ -25,8 +25,6 @@ namespace ProjectEntities
         [DefaultValue(10.0f)]
         float buildTime = 10;
 
-        // 
-
         [DefaultValue(typeof(Range), "0 0")]
         public Range OptimalAttackDistanceRange
         {
@@ -59,8 +57,6 @@ namespace ProjectEntities
         [DefaultValue(typeof(Vec3), "0 0 0")]
         Vec3 movePosition;
 
-        //
-
         AlienUnitType _type = null; public new AlienUnitType Type { get { return _type; } }
 
         public void Stop()
@@ -91,7 +87,7 @@ namespace ProjectEntities
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
-            UpdateSkin();
+            //UpdateSkin();
         }
 
         public override MapObjectCreateObjectCollection.CreateObjectsResultItem[] DieObjects_Create()
@@ -109,18 +105,20 @@ namespace ProjectEntities
                         //Corpse copy forceMaterial to meshes
                         if (mapObject is Corpse && InitialFaction != null)
                         {
-                            bool badFaction = InitialFaction.Name == "BadFaction";
+                            (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
+                                    SubObjects[0].MaterialName = "Alien";
+                            //bool badFaction = InitialFaction.Name == "BadFaction";
 
-                            if (Type.Name == "RTSRobot")
-                            {
-                                (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                                    SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
-                            }
-                            else if (Type.Name == "RTSConstructor")
-                            {
-                                (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                                    SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
-                            }
+                            //if (Type.Name == "RTSRobot")
+                            //{
+                            //    (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
+                            //        SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
+                            //}
+                            //else if (Type.Name == "RTSConstructor")
+                            //{
+                            //    (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
+                            //        SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
+                            //}
                         }
                     }
                 }
@@ -135,65 +133,65 @@ namespace ProjectEntities
             set
             {
                 base.InitialFaction = value;
-                if (IsPostCreated)
-                    UpdateSkin();
+                //if (IsPostCreated)
+                //    UpdateSkin();
             }
         }
 
-        void UpdateSkin()
-        {
-            if (InitialFaction == null)
-                return;
+        //void UpdateSkin()
+        //{
+        //    if (InitialFaction == null)
+        //        return;
 
-            //!!!!!!temp. not universal
+        //    //!!!!!!temp. not universal
 
-            bool badFaction = InitialFaction.Name == "BadFaction";
+        //    bool badFaction = InitialFaction.Name == "BadFaction";
 
-            if (Type.Name == "RTSRobot")
-            {
-                (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                    SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
-            }
-            else if (Type.Name == "RTSConstructor")
-            {
-                (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                    SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
-            }
-            else if (Type.Name == "RTSMine" || Type.Name == "RTSHeadquaters")
-            {
-                foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-                {
-                    MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
-                    if (meshAttachedObject != null)
-                    {
-                        MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
+        //    if (Type.Name == "RTSRobot")
+        //    {
+        //        (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
+        //            SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
+        //    }
+        //    else if (Type.Name == "RTSConstructor")
+        //    {
+        //        (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
+        //            SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
+        //    }
+        //    else if (Type.Name == "RTSMine" || Type.Name == "RTSHeadquaters")
+        //    {
+        //        foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+        //        {
+        //            MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
+        //            if (meshAttachedObject != null)
+        //            {
+        //                MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
 
-                        if (typeObject.ForceMaterial == "")
-                        {
-                            meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
-                                badFaction ? (Type.Name + "2") : Type.Name);
-                        }
-                    }
-                }
-            }
-            else if (Type.Name == "RTSFactory")
-            {
-                foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-                {
-                    MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
-                    if (meshAttachedObject != null)
-                    {
-                        MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
+        //                if (typeObject.ForceMaterial == "")
+        //                {
+        //                    meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
+        //                        badFaction ? (Type.Name + "2") : Type.Name);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    else if (Type.Name == "RTSFactory")
+        //    {
+        //        foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+        //        {
+        //            MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
+        //            if (meshAttachedObject != null)
+        //            {
+        //                MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
 
-                        if (typeObject.ForceMaterial == "")
-                        {
-                            meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
-                                badFaction ? (Type.Name + "2") : Type.Name);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+        //                if (typeObject.ForceMaterial == "")
+        //                {
+        //                    meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
+        //                        badFaction ? (Type.Name + "2") : Type.Name);
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

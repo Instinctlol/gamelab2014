@@ -83,9 +83,10 @@ namespace ProjectEntities
 				Attack,
                 Repair,
 				BreakableRepair,//for automatic repair
-                //BuildBuilding,
 				ProductUnit,
 				SelfDestroy,//for cancel build building 
+                Active,
+                Passive
 			}
 
 			public Task( Types type )
@@ -264,26 +265,7 @@ namespace ProjectEntities
 		protected override void OnTick()
 		{
 			base.OnTick();
-
-            //if( initialWeapons == null )
-            //    UpdateInitialWeapons();
-
-			TickTasks();
-
-            //if( ( currentTask.Type == Task.Types.Stop ||
-            //    currentTask.Type == Task.Types.BreakableMove ||
-            //    currentTask.Type == Task.Types.BreakableAttack ||
-            //    currentTask.Type == Task.Types.BreakableRepair
-            //    ) && tasks.Count == 0 )
-            //{
-            //    inactiveFindTaskTimer -= TickDelta;
-            //    if( inactiveFindTaskTimer <= 0 )
-            //    {
-            //        inactiveFindTaskTimer += 1.0f;
-            //        if( !InactiveFindTask() )
-            //            inactiveFindTaskTimer += .5f;
-            //    }
-            //}
+            TickTasks();
 		}
 
         protected virtual void TickTasks()      
@@ -375,40 +357,5 @@ namespace ProjectEntities
 		}
 
         public abstract List<UserControlPanelTask> GetControlPanelTasks();
-        //{
-        //    List<UserControlPanelTask> list = new List<UserControlPanelTask>();
-
-        //    list.Add( new UserControlPanelTask( new Task( Task.Types.Stop ), currentTask.Type == Task.Types.Stop ) );
-        //    list.Add( new UserControlPanelTask( new Task( Task.Types.Move ),
-        //        currentTask.Type == Task.Types.Move || currentTask.Type == Task.Types.BreakableMove ) );
-
-        //    //RTSConstructor specific
-        //    //if( ControlledObject.Type.Name == "RTSConstructor" )
-        //    //{
-        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.Repair ),
-        //    //        currentTask.Type == Task.Types.Repair || currentTask.Type == Task.Types.BreakableRepair ) );
-
-        //    //    AlienSpawnerType buildingType;
-
-        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName( "RTSHeadquaters" );
-        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
-
-        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSMine");
-        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
-
-        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSFactory");
-        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
-        //    //}
-        //    //else
-        //    //{
-        //        list.Add( new UserControlPanelTask( new Task( Task.Types.Attack ),
-        //            currentTask.Type == Task.Types.Attack || currentTask.Type == Task.Types.BreakableAttack ) );
-        //    //}
-
-        //    return list;
-        //}
     }
 }
