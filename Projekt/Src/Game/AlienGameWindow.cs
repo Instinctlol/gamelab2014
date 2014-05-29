@@ -945,6 +945,7 @@ namespace Game
                 if (button == null)
                     return;
                 button.Click += new Button.ClickDelegate(ComputerButton_Click);
+                button.Visible = false;
             }
         }
 
@@ -957,7 +958,10 @@ namespace Game
                 button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
                 if (button == null)
                     return;
+                EngineConsole.Instance.Print("visible:"+n+":"+button.Visible);
                 button.Visible = !button.Visible;
+                EngineConsole.Instance.Print("visible:" + n + ":" + button.Visible);
+                button.Text = ((Computer.Actions)n).ToString();
             }
         }
 
@@ -1113,17 +1117,6 @@ namespace Game
                     else
                         control.ColorMultiplier = new ColorValue(1, 1, 1);
                 }
-            }
-
-            // Make all buttons for computer invisible. they become visible by clicking the main computer button
-            for (int n = 0; ; n++)
-            {
-                Control control = hudControl.Controls["ComputerButton" + n.ToString()];
-
-                if (control == null)
-                    break;
-
-                control.Visible = false;
             }
         }
 
