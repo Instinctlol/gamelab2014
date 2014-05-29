@@ -16,15 +16,25 @@ namespace ProjectEntities
     /// Main computer that can be controlled by the boss alien and
     /// the astronauts
     /// </summary>
-    class Computer : Dynamic
+    public class Computer : Dynamic
     {
         ComputerType _type = null; public new ComputerType Type { get { return _type; } }
+
+        // Alle Aktionen, die man über den Zentralcomputer steuern kann
+        public enum Actions
+        {
+            State,
+            RotateLeft,
+            RotateRight,
+            LightOn,
+            LightOff
+        }
 
         /// <summary>
         /// Show the state of the station, e.g. how many life the astronauts 
         /// still have, how the rings are positioned...
         /// </summary>
-        public void ShowState()
+        public static void ShowState()
         {
 
         }
@@ -34,7 +44,7 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="ring"></param>
         /// <param name="left"></param>
-        public void RotateRing(Ring ring, bool left)
+        public static void RotateRing(Ring ring, bool left)
         {
             if (left)
             {
@@ -51,7 +61,7 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="sector"></param>
         /// <param name="on"></param>
-        public void SetSectorPower(Sector sector, bool on)
+        public static void SetSectorPower(Sector sector, bool on)
         {
             //IEnumerable<Sector> sectors = Map.Instance.SceneGraphObjects.OfType<Sector>();
             //foreach (Sector sector in sectors)

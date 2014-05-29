@@ -52,8 +52,11 @@ namespace Game
         //HUD
         Control hudControl;
 
-        //Select
+        //Select for Alien Tasks
         List<Unit> selectedUnits = new List<Unit>();
+
+        //Select for Computer Tasks
+        Region selectedRegion;
 
         //Spawning
         int possibleNumberSpawnAliens = 10;
@@ -910,9 +913,11 @@ namespace Game
 
         void InitControlPanelButtons()
         {
+            Button button;
+            // ControlPanelButtons vorbereiten mit Click-Event-Funktionen
             for (int n = 0; ; n++)
             {
-                Button button = (Button)hudControl.Controls["ControlPanelButton" + n.ToString()];
+                button = (Button)hudControl.Controls["ControlPanelButton" + n.ToString()];
                 if (button == null)
                     break;
                 button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
@@ -929,6 +934,62 @@ namespace Game
                 numberSpawnUnitsList.SelectedIndex = 0;
                 numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
                 numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
+            }
+
+            // ComputerButtons vorbereiten
+            button = (Button)hudControl.Controls["ComputerButton"];
+            button.Click += new Button.ClickDelegate(MainComputerButton_Click);
+            for (int n = 0; ; n++)
+            {
+                button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
+                if (button == null)
+                    return;
+                button.Click += new Button.ClickDelegate(ComputerButton_Click);
+            }
+        }
+
+        // Haupt Computer Button, der alle anderen Computer sichtbar/unsichtbar machen kann
+        void MainComputerButton_Click(Button sender)
+        {
+            Button button;
+            for (int n = 0; ; n++)
+            {
+                button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
+                if (button == null)
+                    return;
+                button.Visible = !button.Visible;
+            }
+        }
+
+        // Wenn ein Button zum Bedienen des Zentralcomputers geklickt wurde
+        void ComputerButton_Click(Button sender)
+        {
+            // Wenn nichts ausgewählt, dann kann auch nichts geklickt werden
+            if (selectedRegion == null)
+                return;
+
+            int index = int.Parse(sender.Name.Substring("ControlPanelButton".Length));
+            Computer.Actions action = (Computer.Actions)index;
+
+            switch( action )
+            {
+                case Computer.Actions.State:
+                    Computer.ShowState();
+                    break;
+                case Computer.Actions.RotateLeft:
+                case Computer.Actions.RotateRight:
+                    if (selectedRegion is Ring)
+                    {
+                        Computer.RotateRing((Ring)selectedRegion, (action == Computer.Actions.RotateLeft));
+                    }
+                    break;
+                case Computer.Actions.LightOn:
+                case Computer.Actions.LightOff:
+                    if (selectedRegion is Ring)
+                    {
+                        Computer.SetSectorPower((Sector)selectedRegion, action == Computer.Actions.LightOn);
+                    }
+                    break;
             }
         }
 
@@ -992,7 +1053,7 @@ namespace Game
             }
         }
 
-        // Buttons zum Navigieren der kleinen aliens zeichnen
+        // Buttons zum Durchführen der Alien/AlienSpawner/Computer Logik
         void UpdateControlPanel()
         {
             List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
@@ -1009,7 +1070,7 @@ namespace Game
             controlNumberSpawnUnitsText.Visible = false;
             numberSpawnUnitsList.Visible = false;
 
-            // make all buttons visible or not
+            // make all buttons for AlienUnit visible or not
             for (int n = 0; ; n++)
             {
                 Control control = hudControl.Controls["ControlPanelButton" + n.ToString()];
@@ -1052,6 +1113,17 @@ namespace Game
                     else
                         control.ColorMultiplier = new ColorValue(1, 1, 1);
                 }
+            }
+
+            // Make all buttons for computer invisible. they become visible by clicking the main computer button
+            for (int n = 0; ; n++)
+            {
+                Control control = hudControl.Controls["ComputerButton" + n.ToString()];
+
+                if (control == null)
+                    break;
+
+                control.Visible = false;
             }
         }
 

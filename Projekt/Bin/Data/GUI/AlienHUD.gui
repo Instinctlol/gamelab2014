@@ -166,7 +166,7 @@ control Control
 	control TextBox
 	{
 		textHorizontalAlign = Left
-		position = ScaleByResolution -20 610
+		position = ScaleByResolution -190 650
 		horizontalAlign = Right
 		size = Parent 0.1503906 0.04947914
 		name = NumberSpawnUnitsText
@@ -174,8 +174,49 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultListBox.gui"
 	{
-		position = ScaleByResolution 850 650
+		position = ScaleByResolution -84 650
+		horizontalAlign = Right
 		size = ScaleByResolution 90 80
 		name = NumberSpawnUnitsList
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -13 360
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton
+		text = Computer
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -13 400
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton0
+		text = 0
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -13 440
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton1
+		text = 1
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -13 520
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton3
+		text = 3
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -13 480
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton2
+		text = 2
 	}
 }
