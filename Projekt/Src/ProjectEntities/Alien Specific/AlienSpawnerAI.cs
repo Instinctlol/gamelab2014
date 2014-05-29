@@ -22,34 +22,33 @@ namespace ProjectEntities
     {
         AlienSpawnerAIType _type = null; public new AlienSpawnerAIType Type { get { return _type; } }
 
+        /// <summary>
+        /// Get all tasks for AlienSpawner
+        /// </summary>
+        /// <returns></returns>
         public override List<AlienUnitAI.UserControlPanelTask> GetControlPanelTasks()
         {
             List<UserControlPanelTask> list = new List<UserControlPanelTask>();
-
-            //if (ControlledObject.BuildedProgress == 1)
-            //{
-                if (ControlledObject.SpawnedUnit == null)
-                {
-                    // Create task for producing small aliens
-                    AlienType unitType = (AlienType)EntityTypes.Instance.GetByName("Alien");
-                    list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
-                        CurrentTask.Type == Task.Types.ProductUnit));
-                }
-                else
-                {
-                    list.Add(new UserControlPanelTask(new Task(Task.Types.Stop),
-                        CurrentTask.Type == Task.Types.Stop));
-                }
-            //}
-            //else
-            //{
-                //building
-                //list.Add(new UserControlPanelTask(new Task(Task.Types.SelfDestroy)));
-            //}
+            if (ControlledObject.SpawnedUnit == null)
+            {
+                // Create task for producing small aliens
+                AlienType unitType = (AlienType)EntityTypes.Instance.GetByName("Alien");
+                list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
+                    CurrentTask.Type == Task.Types.ProductUnit));
+            }
+            else
+            {
+                // stop task for producing small aliens
+                list.Add(new UserControlPanelTask(new Task(Task.Types.Stop),
+                    CurrentTask.Type == Task.Types.Stop));
+            }
 
             return list;
         }
 
+        /// <summary>
+        /// Getter for AlienSpawner Object
+        /// </summary>
         [Browsable(false)]
         public new AlienSpawner ControlledObject
         {
@@ -66,7 +65,6 @@ namespace ProjectEntities
 
             switch (CurrentTask.Type)
             {
-
                 case Task.Types.ProductUnit:
                     if (ControlledObject.SpawnedUnit == null)
                         DoTask(new Task(Task.Types.Stop), false);
@@ -75,6 +73,10 @@ namespace ProjectEntities
 
         }
 
+        /// <summary>
+        /// Task intern ausführen
+        /// </summary>
+        /// <param name="task"></param>
         protected override void DoTaskInternal(AlienUnitAI.Task task)
         {
             if (task.Type != Task.Types.ProductUnit)

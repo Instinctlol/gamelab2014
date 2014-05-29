@@ -370,6 +370,21 @@
         <member name="M:ProjectEntities.AlienUnitAI.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
+        <member name="M:ProjectEntities.AlienUnitAI.ClearTaskList">
+            <summary>
+            Alle Tasks löschen
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.AlienAI.#ctor">
+            <summary>
+            Konstruktor
+            </summary>
+        </member>
+        <member name="P:ProjectEntities.AlienAI.ControlledObject">
+            <summary>
+            Getter for Alien Object
+            </summary>
+        </member>
         <member name="T:ProjectEntities.AlienSpawnerType">
             <summary>
             Defines the <see cref="T:ProjectEntities.AlienSpawner"/> entity type.
@@ -388,21 +403,8 @@
         <member name="M:ProjectEntities.AlienSpawner.SpawnSmallAlien">
             <summary>
             Function for spawning one small alien
+            LogicSystemBrowsable(true) Make function visible in LogicEditor
             </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.FindFreePositionForUnit(ProjectEntities.Unit,Engine.MathEx.Vec3)">
-            <summary>
-            Calculates the next valid Position for a small alien to be spawned. If there is no more space (1,-1,-1) will be returned.
-            </summary>
-            <param name="unit"></param>
-            <param name="center"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.isCloseToPoint">
-            <summary>
-            If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:ProjectEntities.AlienSpawner.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
@@ -415,6 +417,23 @@
         <member name="T:ProjectEntities.AlienSpawnerAI">
             <summary>
             AI for small-alien-spawnpoint
+            </summary>
+        </member>
+        <member name="M:ProjectEntities.AlienSpawnerAI.GetControlPanelTasks">
+            <summary>
+            Get all tasks for AlienSpawner
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectEntities.AlienSpawnerAI.DoTaskInternal(ProjectEntities.AlienUnitAI.Task)">
+            <summary>
+            Task intern ausführen
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="P:ProjectEntities.AlienSpawnerAI.ControlledObject">
+            <summary>
+            Getter for AlienSpawner Object
             </summary>
         </member>
         <member name="T:ProjectEntities.Computer">

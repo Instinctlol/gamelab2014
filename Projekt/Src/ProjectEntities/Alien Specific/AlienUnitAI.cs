@@ -21,20 +21,34 @@ namespace ProjectEntities
     /// base AI for both, AlienUnitAI and AlienSpawnerAI.
     /// contains the logic which will be used from spawnpoint and small alien.
     /// </summary>
-    public class AlienUnitAI : AI
+    public abstract class AlienUnitAI : AI
     {
         AlienUnitAIType _type = null; public new AlienUnitAIType Type { get { return _type; } }
 
-        //optimization
-		List<Weapon> initialWeapons;
-
-		float inactiveFindTaskTimer;
 
 		[FieldSerialize]
 		Task currentTask = new Task( Task.Types.Stop );
 
 		[FieldSerialize]
 		List<Task> tasks = new List<Task>();
+
+        //// Getter ////////////////////////////////
+        [Browsable(false)]
+        public List<Task> Tasks
+        {
+            get { return tasks; }
+        }
+
+        public Task CurrentTask
+        {
+            get { return currentTask; }
+        }
+
+        [Browsable(false)]
+        public new AlienUnit ControlledObject
+        {
+            get { return (AlienUnit)base.ControlledObject; }
+        }
 
 		///////////////////////////////////////////
 
@@ -214,12 +228,6 @@ namespace ProjectEntities
 
 		///////////////////////////////////////////
 
-
-		public AlienUnitAI()
-		{
-			inactiveFindTaskTimer = World.Instance.Random.NextFloat() * 2;
-		}
-
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
 		protected override void OnPostCreate( bool loaded )
 		{
@@ -252,367 +260,50 @@ namespace ProjectEntities
 				DoNextTask();
 		}
 
-		//protected float GetMoveObjectPriority( Unit obj )
-		//{
-		//	return 0;
-		//}
-
-		protected float GetAttackObjectPriority( Unit obj )
-		{
-			if( ControlledObject == obj )
-				return 0;
-
-			if( obj.Intellect == null )
-				return 0;
-
-			//RTSConstructor specific
-			if( ControlledObject.Type.Name == "RTSConstructor" )
-			{
-				if( Faction == obj.Intellect.Faction )
-				{
-					if( obj.Health < obj.Type.HealthMax )
-					{
-						Vec3 distance = obj.Position - ControlledObject.Position;
-						float len = distance.Length();
-						return 1.0f / len + 1.0f;
-					}
-				}
-			}
-			else
-			{
-				if( Faction != null && obj.Intellect.Faction != null && Faction != obj.Intellect.Faction )
-				{
-					Vec3 distance = obj.Position - ControlledObject.Position;
-					float len = distance.Length();
-					return 1.0f / len + 1.0f;
-				}
-			}
-
-			return 0;
-		}
-
-		bool InactiveFindTask()
-		{
-			if( initialWeapons.Count == 0 )
-				return false;
-
-            AlienUnit controlledObj = ControlledObject;// oder besser AlienUnit ???
-			if( controlledObj == null )
-				return false;
-
-			Dynamic newTaskAttack = null;
-			float attackObjectPriority = 0;
-
-			Vec3 controlledObjPos = controlledObj.Position;
-			float radius = controlledObj./*Type.*/ViewRadius;
-
-			Map.Instance.GetObjects( new Sphere( controlledObjPos, radius ),
-				MapObjectSceneGraphGroups.UnitGroupMask, delegate( MapObject mapObject )
-			{
-				Unit obj = (Unit)mapObject;
-
-				Vec3 objPos = obj.Position;
-
-				//check distance
-				Vec3 diff = objPos - controlledObjPos;
-				float objDistance = diff.Length();
-				if( objDistance > radius )
-					return;
-
-				float priority = GetAttackObjectPriority( obj );
-				if( priority != 0 && priority > attackObjectPriority )
-				{
-					attackObjectPriority = priority;
-					newTaskAttack = obj;
-				}
-			} );
-
-			if( newTaskAttack != null )
-			{
-				//RTSConstructor specific
-				if( ControlledObject.Type.Name == "RTSConstructor" )
-					DoTask( new Task( Task.Types.BreakableRepair, newTaskAttack ), false );
-				else
-					DoTask( new Task( Task.Types.BreakableAttack, newTaskAttack ), false );
-
-				return true;
-			}
-
-			return false;
-		}
-
-		[Browsable( false )]
-		public new AlienUnit ControlledObject
-		{
-			get { return (AlienUnit)base.ControlledObject; }
-		}
-
-		void UpdateInitialWeapons()
-		{
-			AlienUnit controlledObj = ControlledObject;
-
-			initialWeapons = new List<Weapon>();
-
-			foreach( MapObjectAttachedObject attachedObject in controlledObj.AttachedObjects )
-			{
-				MapObjectAttachedMapObject attachedMapObject = attachedObject as MapObjectAttachedMapObject;
-				if( attachedMapObject != null )
-				{
-					Weapon weapon = attachedMapObject.MapObject as Weapon;
-					if( weapon != null )
-					{
-						initialWeapons.Add( weapon );
-					}
-				}
-			}
-		}
-
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
 		protected override void OnTick()
 		{
 			base.OnTick();
 
-			if( initialWeapons == null )
-				UpdateInitialWeapons();
+            //if( initialWeapons == null )
+            //    UpdateInitialWeapons();
 
 			TickTasks();
 
-			if( ( currentTask.Type == Task.Types.Stop ||
-				currentTask.Type == Task.Types.BreakableMove ||
-				currentTask.Type == Task.Types.BreakableAttack ||
-				currentTask.Type == Task.Types.BreakableRepair
-				) && tasks.Count == 0 )
-			{
-				inactiveFindTaskTimer -= TickDelta;
-				if( inactiveFindTaskTimer <= 0 )
-				{
-					inactiveFindTaskTimer += 1.0f;
-					if( !InactiveFindTask() )
-						inactiveFindTaskTimer += .5f;
-				}
-			}
-		}
-
-		protected virtual void TickTasks()
-		{
-            AlienUnit controlledObj = ControlledObject;
-			if( controlledObj == null )
-				return;
-
-			switch( currentTask.Type )
-			{
-
-			//Stop
-			case Task.Types.Stop:
-				controlledObj.Stop();
-				break;
-
-			//Move
-			case Task.Types.Move:
-			case Task.Types.BreakableMove:
-				if( currentTask.Entity != null )
-				{
-					controlledObj.Move( currentTask.Entity.Position );
-				}
-				else
-				{
-					Vec3 pos = currentTask.Position;
-
-					if( ( controlledObj.Position.ToVec2() - pos.ToVec2() ).Length() < 1.5f &&
-						Math.Abs( controlledObj.Position.Z - pos.Z ) < 3.0f )
-					{
-						//get to
-						DoNextTask();
-					}
-					else
-						controlledObj.Move( pos );
-				}
-				break;
-
-			//Attack, Repair
-			case Task.Types.Attack:
-			case Task.Types.BreakableAttack:
-			case Task.Types.Repair:
-			case Task.Types.BreakableRepair:
-				{
-					//healed
-					if( ( currentTask.Type == Task.Types.Repair ||
-						currentTask.Type == Task.Types.BreakableRepair )
-						&& currentTask.Entity != null )
-					{
-						if( currentTask.Entity.Health == currentTask.Entity.Type.HealthMax )
-						{
-							DoNextTask();
-							break;
-						}
-					}
-
-					float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
-
-					Vec3 targetPos;
-					if( currentTask.Entity != null )
-						targetPos = currentTask.Entity.Position;
-					else
-						targetPos = currentTask.Position;
-
-					float distance = ( controlledObj.Position - targetPos ).Length();
-
-					if( distance != 0 )
-					{
-						bool lineVisibility = false;
-						{
-							if( distance < needDistance )
-							{
-								lineVisibility = true;
-
-								//direct line visibility check 
-
-								Vec3 start = initialWeapons[ 0 ].Position;
-								Ray ray = new Ray( start, targetPos - start );
-
-								RayCastResult[] piercingResult = PhysicsWorld.Instance.RayCastPiercing(
-									ray, (int)ContactGroup.CastOnlyContact );
-
-								foreach( RayCastResult result in piercingResult )
-								{
-									MapObject obj = MapSystemWorld.GetMapObjectByBody( result.Shape.Body );
-
-									if( obj != null && obj == currentTask.Entity )
-										break;
-
-									if( obj != controlledObj )
-									{
-										lineVisibility = false;
-										break;
-									}
-								}
-							}
-						}
-
-						//movement control 
-						if( lineVisibility )
-						{
-							//stop
-							controlledObj.Stop();
-
-							Alien character = controlledObj as Alien;
-							if( character != null )
-								character.SetLookDirection( targetPos );
-						}
-						else
-						{
-							//move to target
-							controlledObj.Move( targetPos );
-						}
-
-						//weapons control
-						if( lineVisibility )
-						{
-							foreach( Weapon weapon in initialWeapons )
-							{
-								Vec3 pos = targetPos;
-								Gun gun = weapon as Gun;
-								if( gun != null && currentTask.Entity != null )
-									gun.GetAdvanceAttackTargetPosition( false, currentTask.Entity, false, out pos );
-								weapon.SetForceFireRotationLookTo( pos );
-
-								if( weapon.Ready )
-								{
-									Range range;
-
-									range = weapon.Type.WeaponNormalMode.UseDistanceRange;
-									if( distance >= range.Minimum && distance <= range.Maximum )
-										weapon.TryFire( false );
-
-									range = weapon.Type.WeaponAlternativeMode.UseDistanceRange;
-									if( distance >= range.Minimum && distance <= range.Maximum )
-										weapon.TryFire( true );
-								}
-							}
-						}
-					}
-
-				}
-				break;
-
-			//BuildBuilding
-            //case Task.Types.BuildBuilding:
+            //if( ( currentTask.Type == Task.Types.Stop ||
+            //    currentTask.Type == Task.Types.BreakableMove ||
+            //    currentTask.Type == Task.Types.BreakableAttack ||
+            //    currentTask.Type == Task.Types.BreakableRepair
+            //    ) && tasks.Count == 0 )
+            //{
+            //    inactiveFindTaskTimer -= TickDelta;
+            //    if( inactiveFindTaskTimer <= 0 )
             //    {
-            //        float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
-
-            //        Vec3 targetPos = currentTask.Position;
-
-            //        float distance = ( controlledObj.Position - targetPos ).Length();
-
-            //        if( distance < needDistance )
-            //        {
-            //            controlledObj.Stop();
-
-            //            //get to
-
-            //            //check free area for build
-            //            bool free;
-            //            {
-            //                Bounds bounds;
-            //                {
-            //                    PhysicsModel physicsModel = PhysicsWorld.Instance.LoadPhysicsModel(
-            //                        currentTask.EntityType.GetPhysicsModelFullPath() );
-            //                    if( physicsModel == null )
-            //                        Log.Fatal( string.Format( "No physics model for \"{0}\"",
-            //                            currentTask.EntityType.ToString() ) );
-            //                    bounds = physicsModel.GetGlobalBounds();
-
-            //                    bounds += targetPos;
-            //                }
-
-            //                Rect rect = new Rect( bounds.Minimum.ToVec2(), bounds.Maximum.ToVec2() );
-            //                free = GridBasedNavigationSystem.Instances[ 0 ].IsFreeInMapMotion( rect );
-            //            }
-
-            //            if( !free )
-            //            {
-            //                //not free
-            //                DoNextTask();
-            //                break;
-            //            }
-
-            //            //check cost
-            //            RTSFactionManager.FactionItem factionItem = RTSFactionManager.Instance.GetFactionItemByType( Faction );
-            //            if( factionItem != null )
-            //            {
-            //                float cost = ( (RTSBuildingType)currentTask.EntityType ).BuildCost;
-
-            //                if( factionItem.Money - cost < 0 )
-            //                {
-            //                    //No money
-            //                    DoNextTask();
-            //                    break;
-            //                }
-
-            //                factionItem.Money -= cost;
-            //            }
-
-
-            //            RTSBuilding building = (RTSBuilding)Entities.Instance.Create( currentTask.EntityType, Map.Instance );
-            //            building.Position = currentTask.Position;
-
-            //            building.InitialFaction = Faction;
-
-            //            building.PostCreate();
-            //            building.BuildedProgress = 0;
-            //            building.Health = 1;
-
-            //            //Repair
-            //            DoTaskInternal( new Task( Task.Types.Repair, building ) );
-            //        }
-            //        else
-            //            controlledObj.Move( targetPos );
+            //        inactiveFindTaskTimer += 1.0f;
+            //        if( !InactiveFindTask() )
+            //            inactiveFindTaskTimer += .5f;
             //    }
-            //    break;
-
-			}
+            //}
 		}
 
+        protected virtual void TickTasks()      
+        {
+            AlienUnit controlledObj = ControlledObject;
+            if (controlledObj == null)
+                return;
+
+            switch (currentTask.Type)
+            {
+                //Stop
+                case Task.Types.Stop:
+                    controlledObj.Stop();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Alle Tasks löschen
+        /// </summary>
 		void ClearTaskList()
 		{
 			foreach( Task task in tasks )
@@ -683,46 +374,41 @@ namespace ProjectEntities
 			}
 		}
 
-		public Task CurrentTask
-		{
-			get { return currentTask; }
-		}
+        public abstract List<UserControlPanelTask> GetControlPanelTasks();
+        //{
+        //    List<UserControlPanelTask> list = new List<UserControlPanelTask>();
 
-		public virtual List<UserControlPanelTask> GetControlPanelTasks()
-		{
-			List<UserControlPanelTask> list = new List<UserControlPanelTask>();
+        //    list.Add( new UserControlPanelTask( new Task( Task.Types.Stop ), currentTask.Type == Task.Types.Stop ) );
+        //    list.Add( new UserControlPanelTask( new Task( Task.Types.Move ),
+        //        currentTask.Type == Task.Types.Move || currentTask.Type == Task.Types.BreakableMove ) );
 
-			list.Add( new UserControlPanelTask( new Task( Task.Types.Stop ), currentTask.Type == Task.Types.Stop ) );
-			list.Add( new UserControlPanelTask( new Task( Task.Types.Move ),
-				currentTask.Type == Task.Types.Move || currentTask.Type == Task.Types.BreakableMove ) );
+        //    //RTSConstructor specific
+        //    //if( ControlledObject.Type.Name == "RTSConstructor" )
+        //    //{
+        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.Repair ),
+        //    //        currentTask.Type == Task.Types.Repair || currentTask.Type == Task.Types.BreakableRepair ) );
 
-			//RTSConstructor specific
-            //if( ControlledObject.Type.Name == "RTSConstructor" )
-            //{
-            //    list.Add( new UserControlPanelTask( new Task( Task.Types.Repair ),
-            //        currentTask.Type == Task.Types.Repair || currentTask.Type == Task.Types.BreakableRepair ) );
+        //    //    AlienSpawnerType buildingType;
 
-            //    AlienSpawnerType buildingType;
+        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName( "RTSHeadquaters" );
+        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
 
-            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName( "RTSHeadquaters" );
-            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSMine");
+        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
 
-            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSMine");
-            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+        //    //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSFactory");
+        //    //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
+        //    //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
+        //    //}
+        //    //else
+        //    //{
+        //        list.Add( new UserControlPanelTask( new Task( Task.Types.Attack ),
+        //            currentTask.Type == Task.Types.Attack || currentTask.Type == Task.Types.BreakableAttack ) );
+        //    //}
 
-            //    buildingType = (AlienSpawnerType)EntityTypes.Instance.GetByName("RTSFactory");
-            //    list.Add( new UserControlPanelTask( new Task( Task.Types.BuildBuilding, buildingType ),
-            //        CurrentTask.Type == Task.Types.BuildBuilding && CurrentTask.EntityType == buildingType ) );
-            //}
-            //else
-            //{
-				list.Add( new UserControlPanelTask( new Task( Task.Types.Attack ),
-					currentTask.Type == Task.Types.Attack || currentTask.Type == Task.Types.BreakableAttack ) );
-            //}
-
-			return list;
-		}
+        //    return list;
+        //}
     }
 }
