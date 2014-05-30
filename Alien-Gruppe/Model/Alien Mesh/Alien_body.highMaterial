@@ -1,0 +1,8 @@
+highLevelMaterial MultiMat_0_Alien_Warrior_body__Alien_Warrior_body_D_tga
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\Alien_body_texture.tga"
+	}
+}

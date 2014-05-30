@@ -1,0 +1,9 @@
+highLevelMaterial MultiMat_0_Alien_Warrior_head__Alien_Warrior_head_D_tga
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.512 0.512 0.512
+	diffuse1Map
+	{
+		texture = ".\\Alien_head_texture.tga"
+	}
+}
