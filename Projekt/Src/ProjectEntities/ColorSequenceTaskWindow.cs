@@ -3,6 +3,7 @@ using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Timers;
 
 namespace ProjectEntities
 {
@@ -24,11 +25,12 @@ namespace ProjectEntities
 
         private Button greenButton, redButton, yellowButton, blueButton, playButton;
 
+        //Zeug zum abspielen von Sequenzen
         private bool play = false;
         private bool buttonLighted = false;
-        private static float initialTime = 30;
-        private float time = initialTime;
+        private static float initialTime = 1000; //Zeit zwischen jeweiligem highlighten der Buttons
         private int currLightButton = 0;
+        private static Timer aTimer;
 
 
         public ColorSequenceTaskWindow(Task task) : base(task)
@@ -55,13 +57,51 @@ namespace ProjectEntities
                 solution = TaskDataToArray(taskData);
             //else
                 //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
+
+            
         }
+
+        private void playButtons(object sender, ElapsedEventArgs e)
+        {
+            if(play)
+            {
+                if(currLightButton<=solution.Length && !buttonLighted)
+                {
+                    lightButton(solution[currLightButton], true);
+                    buttonLighted = true;
+                }
+                else if(currLightButton <=solution.Length && buttonLighted)
+                {
+                    lightButton(solution[currLightButton], false);
+                    buttonLighted = false;
+                    if (currLightButton == solution.Length-1)
+                    {
+                        //letzter Button -> nicht mehr spielen, zaehler wieder auf 0 setzen, playButton zeigen, timer ausstellen
+                        console.Print("done playing");
+                        play = false;
+                        currLightButton = 0;
+                        playButton.Enable = true;
+                        playButton.Visible = true;
+                        aTimer.Enabled = false;
+                    }
+                    else
+                    {
+                        //nicht letzter Button -> naechsten Button setzen
+                        currLightButton++;
+                    }
+                }
+            }
+        }
+
 
         private void Play_click(Button sender)
         {
             play = true;
             playButton.Visible = false;
             playButton.Enable = false;
+            aTimer = new System.Timers.Timer(initialTime);
+            aTimer.Elapsed += playButtons;
+            aTimer.Enabled = true;
         }
 
         private void Blue_click(Button sender)
@@ -125,53 +165,6 @@ namespace ProjectEntities
             else
             {
                 console.Print("Not allowed to add more colors to solution");
-            }
-        }
-
-        protected override void OnTick(float delta)
-        {
-            base.OnTick(delta);
-            console.Print("Using OnTick in ColorSequenceTaskWindow");
-            if(play==true)
-            {
-                console.Print("Entering play block");
-                if(time<=0)
-                {
-                    console.Print("Entering time lower equals 0 interval");
-                    //Wenn currLightButton nicht Loesungs-Array ueberschreitet und der Button nicht beleuchtet wurde -> anmachen
-                    if(currLightButton<=solution.Length && !buttonLighted)
-                    {
-                        lightButton(solution[currLightButton], !buttonLighted);
-                        buttonLighted=true;
-                    }
-                    //Wenn currLightButton nicht Loesungs-Array ueberschreitet und der Button beleuchtet wurde -> ausmachen, ggf. naechsten Button setzen ODER aufhoeren vorzuspielen 
-                    else if(currLightButton<=solution.Length && buttonLighted)
-                    {
-                        lightButton(solution[currLightButton], !buttonLighted);
-                        buttonLighted = false;
-                        if (currLightButton == solution.Length)
-                        {
-                            //letzter Button -> nicht mehr spielen, zaehler wieder auf 0 setzen, playButton zeigen
-                            play=false;
-                            currLightButton=0;
-                            playButton.Visible = true;
-                            playButton.Enable = true;
-                        }
-                        else
-                        {
-                            //nicht letzter Button -> naechsten Button setzen
-                            currLightButton++;
-                        }
-
-                    }
-
-                    time = initialTime;
-                }
-                else
-                {
-                    console.Print("Entering time greater 0 interval");
-                    time = time - delta;
-                }
             }
         }
 

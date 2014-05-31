@@ -207,6 +207,8 @@ namespace ProjectEntities
 
             //MainControl erzeugen zum anzeigen der GUI
             CreateMainControl();
+
+            SubscribeToTickEvent();
         }
 
         //Beim zerstören alles wieder rückgängig
