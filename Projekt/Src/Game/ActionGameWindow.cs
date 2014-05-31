@@ -75,7 +75,8 @@ namespace Game
             base.OnAttach();
 
             //To load the HUD screen
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
+            //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
 

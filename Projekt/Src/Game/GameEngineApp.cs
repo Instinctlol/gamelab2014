@@ -923,10 +923,10 @@ namespace Game
                 //gameWindow = new ActionGameWindow();
                 //if (EntitySystemWorld.Instance.IsServer())
                     //Ich bin Alien
-                    gameWindow = new AlienGameWindow();
+                    //gameWindow = new AlienGameWindow();
                 //else
                     // Ich bin Astronaut; vielleicht Occulus, vielleicht auch Cave...
-                   //gameWindow = new ActionGameWindow();
+                   gameWindow = new ActionGameWindow();
             }
 			controlManager.Controls.Add( gameWindow );
 		}

@@ -216,6 +216,11 @@ namespace ProjectEntities
             controlManager = null;
             base.OnDestroy();
         }
+
+        protected override void OnTick()
+        {
+            base.OnTick();
+        }
         
         private void OnTaskFinished(Task task)
         {

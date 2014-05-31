@@ -22,6 +22,15 @@ namespace ProjectEntities
 
         private int currPlayerResultPos=0;
 
+        private Button greenButton, redButton, yellowButton, blueButton, playButton;
+
+        private bool play = false;
+        private bool buttonLighted = false;
+        private static float initialTime = 30;
+        private float time = initialTime;
+        private int currLightButton = 0;
+
+
         public ColorSequenceTaskWindow(Task task) : base(task)
         {
             //GUI Erzeugen
@@ -32,7 +41,13 @@ namespace ProjectEntities
             ((Button)CurWindow.Controls["Yellow"]).Click += Yellow_click;
             ((Button)CurWindow.Controls["Red"]).Click += Red_click;
             ((Button)CurWindow.Controls["Blue"]).Click += Blue_click;
+            ((Button)CurWindow.Controls["Play"]).Click += Play_click;
 
+            greenButton = ((Button)CurWindow.Controls["Green"]);
+            yellowButton = ((Button)CurWindow.Controls["Yellow"]);
+            redButton = ((Button)CurWindow.Controls["Red"]);
+            blueButton = ((Button)CurWindow.Controls["Blue"]);
+            playButton = ((Button)CurWindow.Controls["Play"]);
 
             string taskData = task.Terminal.TaskData;
 
@@ -40,6 +55,13 @@ namespace ProjectEntities
                 solution = TaskDataToArray(taskData);
             //else
                 //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
+        }
+
+        private void Play_click(Button sender)
+        {
+            play = true;
+            playButton.Visible = false;
+            playButton.Enable = false;
         }
 
         private void Blue_click(Button sender)
@@ -103,6 +125,88 @@ namespace ProjectEntities
             else
             {
                 console.Print("Not allowed to add more colors to solution");
+            }
+        }
+
+        protected override void OnTick(float delta)
+        {
+            base.OnTick(delta);
+            console.Print("Using OnTick in ColorSequenceTaskWindow");
+            if(play==true)
+            {
+                console.Print("Entering play block");
+                if(time<=0)
+                {
+                    console.Print("Entering time lower equals 0 interval");
+                    //Wenn currLightButton nicht Loesungs-Array ueberschreitet und der Button nicht beleuchtet wurde -> anmachen
+                    if(currLightButton<=solution.Length && !buttonLighted)
+                    {
+                        lightButton(solution[currLightButton], !buttonLighted);
+                        buttonLighted=true;
+                    }
+                    //Wenn currLightButton nicht Loesungs-Array ueberschreitet und der Button beleuchtet wurde -> ausmachen, ggf. naechsten Button setzen ODER aufhoeren vorzuspielen 
+                    else if(currLightButton<=solution.Length && buttonLighted)
+                    {
+                        lightButton(solution[currLightButton], !buttonLighted);
+                        buttonLighted = false;
+                        if (currLightButton == solution.Length)
+                        {
+                            //letzter Button -> nicht mehr spielen, zaehler wieder auf 0 setzen, playButton zeigen
+                            play=false;
+                            currLightButton=0;
+                            playButton.Visible = true;
+                            playButton.Enable = true;
+                        }
+                        else
+                        {
+                            //nicht letzter Button -> naechsten Button setzen
+                            currLightButton++;
+                        }
+
+                    }
+
+                    time = initialTime;
+                }
+                else
+                {
+                    console.Print("Entering time greater 0 interval");
+                    time = time - delta;
+                }
+            }
+        }
+
+        private void lightButton(String color, bool lighted)
+        {
+            switch(color)
+            {
+                case "green":
+                    if (lighted)
+                        greenButton.Active = true;
+                    else
+                        greenButton.Active = false;
+                    
+                    break;
+                case "blue":
+                    if(lighted)
+                        blueButton.Active = true;
+                    else
+                        blueButton.Active = false;
+                    break;
+                case "yellow":
+                    if(lighted)
+                        yellowButton.Active = true;
+                    else
+                        yellowButton.Active = false;
+                    break;
+                case "red":
+                    if (lighted)
+                        redButton.Active = true;
+                    else
+                        redButton.Active = false;
+                    break;
+                default:
+                    console.Print("Something went wrong lighting buttons...");
+                    break;
             }
         }
 
@@ -183,7 +287,6 @@ namespace ProjectEntities
         private int[] CharPos(string Input, char C)
         {
             var foundIndexes = new List<int>();
-            int[] rtrn;
 
             for (int i = Input.IndexOf(C); i > -1; i = Input.IndexOf(C, i + 1))
             {

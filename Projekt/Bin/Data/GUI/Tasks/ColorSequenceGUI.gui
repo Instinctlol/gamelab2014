@@ -143,4 +143,30 @@ control Control
 			visible = False
 		}
 	}
+	control Button
+	{
+		position = ScaleByResolution 880 630
+		size = ScaleByResolution 140 130
+		name = Play
+		defaultControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			text = Play
+			backColor = 0.4588236 0.1294118 0.6470588
+		}
+		overControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			text = Play
+			backColor = 0.5137255 0.145098 0.7294118
+			visible = False
+		}
+		pushControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			text = Play
+			backColor = 0.6627451 0.1843137 0.937255
+			visible = False
+		}
+	}
 }
