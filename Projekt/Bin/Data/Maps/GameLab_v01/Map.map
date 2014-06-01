@@ -1131,9 +1131,6 @@ entity
 	classPrompt = AlienSpawner
 	aiType = AlienAI
 	faction = BadFaction
-	spawnRadius = 10
-	popNumber = 10
-	securityRadius = 5
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1180,40 +1177,12 @@ entity
 }
 entity
 {
-	type = Girl
+	type = Bug
 	uin = 88
-	classPrompt = PlayerCharacter
-	contusionTimeRemaining = 0
+	classPrompt = GameCharacter
 	intellectShouldDeleteAfterDetach = False
 	initialFaction = GoodFaction
 	healthFactorAtBeginning = 1
-	position = -82.74058 13.97894 1.542245
-	name = Girl_0
-	weapons
-	{
-		item
-		{
-			exists = False
-			normalBulletCount = 0
-			normalMagazineCount = 0
-			alternativeBulletCount = 0
-			alternativeMagazineCount = 0
-		}
-		item
-		{
-			exists = False
-			normalBulletCount = 0
-			normalMagazineCount = 0
-			alternativeBulletCount = 0
-			alternativeMagazineCount = 0
-		}
-		item
-		{
-			exists = False
-			normalBulletCount = 0
-			normalMagazineCount = 0
-			alternativeBulletCount = 0
-			alternativeMagazineCount = 0
-		}
-	}
+	position = -82.28185 15.91225 1.05778
+	name = Bug_0
 }
