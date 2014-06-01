@@ -39,14 +39,14 @@ namespace ProjectEntities
             partnerDoor = null;
 
             Box bounds = GetBox();
-            bounds.Expand(1);
+            bounds.Expand(15);
 
             foreach( MapObject obj in Map.Instance.GetObjects(bounds) )
             {
 
 
                 OutDoor d = obj as OutDoor;
-                if(d != null)
+                if(d != null && d != this)
                 {
                     partnerDoor = d;
                     partnerDoor.Opened = true;

@@ -146,13 +146,6 @@ namespace ProjectEntities
 
             if (group != null)
                 group.SwitchLight += SwitchLights;
-
-            foreach (OutDoor door in outDoors)
-            {
-                ring.RotateRing += door.OnRotate;
-            }
-
-
         }
 
 
@@ -166,6 +159,13 @@ namespace ProjectEntities
 
             Quat newRot = Rotation * OldRotation.GetInverse();
             newRot.Normalize();
+
+            foreach (MapObject m in outDoors)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
 
             foreach (MapObject m in lights)
             {
@@ -225,6 +225,8 @@ namespace ProjectEntities
         private void AddOutDoor(OutDoor d)
         {
             outDoors.Add(d);
+            if (ring != null)
+                ring.RotateRing += d.OnRotate;
         }
 
     }
