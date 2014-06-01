@@ -394,7 +394,9 @@ namespace Game
 
                     switch (taskType)
                     {
-                        //Move, Attack, Repair
+                        //Passive, Active, Move, Attack, Repair
+                        case AlienUnitAI.Task.Types.Passive:
+                        case AlienUnitAI.Task.Types.Active:
                         case AlienUnitAI.Task.Types.Move:
                         case AlienUnitAI.Task.Types.Attack:
                         case AlienUnitAI.Task.Types.Repair:
@@ -437,6 +439,28 @@ namespace Game
                 if (mouseOnObject != null)
                 {
                     bool tasked = false;
+
+                    //Hinzugefügt für "passive" & "active"
+                    if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Active) &&
+                        mouseOnObject.Intellect != null &&
+                        intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
+                        intellect.Faction == mouseOnObject.Intellect.Faction)
+                    {
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Active,
+                            mouseOnObject), toQueue);
+                        tasked = true;
+                    }
+
+                    if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Passive) &&
+                      mouseOnObject.Intellect != null &&
+                      intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
+                      intellect.Faction == mouseOnObject.Intellect.Faction)
+                    {
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Passive,
+                            mouseOnObject), toQueue);
+                        tasked = true;
+                    }
+                    //
 
                     if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Attack) &&
                         mouseOnObject.Intellect != null &&
@@ -1046,7 +1070,9 @@ namespace Game
                     }
                     break;
 
-                //Move, Attack, Repair
+                //Active, Passive, Move, Attack, Repair
+                case AlienUnitAI.Task.Types.Active:
+                case AlienUnitAI.Task.Types.Passive:
                 case AlienUnitAI.Task.Types.Move:
                 case AlienUnitAI.Task.Types.Attack:
                 case AlienUnitAI.Task.Types.Repair:
