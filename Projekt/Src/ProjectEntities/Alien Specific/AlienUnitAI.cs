@@ -85,8 +85,8 @@ namespace ProjectEntities
 				BreakableRepair,//for automatic repair
 				ProductUnit,
 				SelfDestroy,//for cancel build building 
-                Active,
-                Passive
+                Active, //for active state of small Alien (walks independently through the world to find enemies and attacks them)
+                Passive //for passive state of small Alien (doesn't move as long as there's no enemy in range, but attacks enemies in a certain radius automatically)
 			}
 
 			public Task( Types type )
