@@ -1178,3 +1178,42 @@ entity
 	position = -74.90673 9.033578 1.173554
 	name = Alien_1
 }
+entity
+{
+	type = Girl
+	uin = 88
+	classPrompt = PlayerCharacter
+	contusionTimeRemaining = 0
+	intellectShouldDeleteAfterDetach = False
+	initialFaction = GoodFaction
+	healthFactorAtBeginning = 1
+	position = -82.74058 13.97894 1.542245
+	name = Girl_0
+	weapons
+	{
+		item
+		{
+			exists = False
+			normalBulletCount = 0
+			normalMagazineCount = 0
+			alternativeBulletCount = 0
+			alternativeMagazineCount = 0
+		}
+		item
+		{
+			exists = False
+			normalBulletCount = 0
+			normalMagazineCount = 0
+			alternativeBulletCount = 0
+			alternativeMagazineCount = 0
+		}
+		item
+		{
+			exists = False
+			normalBulletCount = 0
+			normalMagazineCount = 0
+			alternativeBulletCount = 0
+			alternativeMagazineCount = 0
+		}
+	}
+}
