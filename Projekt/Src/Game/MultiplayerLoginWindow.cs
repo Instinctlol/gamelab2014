@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Net;
 using Engine;
 using Engine.UISystem;
 using Engine.MathEx;
@@ -17,7 +18,7 @@ namespace Game
 		static string userName;
 
 		[Config( "Multiplayer", "connectToAddress" )]
-		static string connectToAddress = "127.0.0.1";
+		static string connectToAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0].ToString(); //"127.0.0.1";
 
 		Control window;
 
