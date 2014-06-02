@@ -1,0 +1,11 @@
+type TestRepairable
+{
+	class = Repairable
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeCorner.mesh"
+		}
+	}
+}

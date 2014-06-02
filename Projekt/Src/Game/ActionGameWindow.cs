@@ -48,8 +48,12 @@ namespace Game
         //Which player can switch the current switch
         ProjectEntities.Switch currentSwitch;
 
+        ProjectEntities.Repairable currentRepairable;
+
         //For an opportunity to change an active unit and for work with float switches
         bool switchUsing;
+
+        bool repairableUsing;
 
         //HUD screen
         Control hudControl;
@@ -571,6 +575,35 @@ namespace Game
                     currentAttachedGuiObject.ControlManager.DoMouseMove(screenPosition);
             }
 
+            //currentRepairable
+            {
+                ProjectEntities.Repairable overRepairable = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                    {
+                        ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+
+                        if(r != null)
+                        {
+                            overRepairable = r;
+                            return false;
+                        }
+                        return true;
+                    });
+
+                //draw selection border
+                if (overRepairable != null)
+                {
+                    Bounds bounds = overRepairable.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                if (overRepairable != currentRepairable)
+                {
+                    currentRepairable = overRepairable;
+                }
+            }
+
             //currentFloatSwitch
             {
                 ProjectEntities.Switch overSwitch = null;
@@ -1087,6 +1120,21 @@ namespace Game
             return PlayerIntellect.Instance.ControlledObject;
         }
 
+        bool RepairableUseStart()
+        {
+            if (repairableUsing)
+                return false;
+
+            if (currentRepairable == null)
+                return false;
+
+            //Einfach reparieren
+            currentRepairable.Repaired = true;
+
+            repairableUsing = true;
+            return true;
+        }
+
         bool SwitchUseStart()
         {
             if (switchUsing)
@@ -1535,6 +1583,10 @@ namespace Game
 
                         //key down for switch use
                         if (SwitchUseStart())
+                            return;
+
+                        //key down for repairable use
+                        if (RepairableUseStart())
                             return;
 
                         if (CurrentUnitAllowPlayerControlUse())

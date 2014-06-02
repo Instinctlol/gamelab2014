@@ -11,6 +11,7 @@ namespace ProjectEntities
     {
 
         private Terminal terminal;
+        
         private SmartButtonWindow window;
 
         //***************************
@@ -46,6 +47,7 @@ namespace ProjectEntities
         public SmartButton(Terminal terminal)
         {
             Terminal = terminal;
+            RefreshButton();
         }
 
         //Aktualisiert den Button
@@ -79,7 +81,7 @@ namespace ProjectEntities
         {
             if (r != null)
             {
-                r.Repair += new Repairable.RepairDelegate(OnRepair);
+                r.Repair += OnRepair;
                 OnRepair(r);
             }
         }
@@ -88,7 +90,7 @@ namespace ProjectEntities
         {
             if (r != null)
             {
-                r.Repair -= new Repairable.RepairDelegate(OnRepair);
+                r.Repair -= OnRepair;
                 OnRepair(r);
             }
         }
@@ -99,7 +101,7 @@ namespace ProjectEntities
             if (r.Repaired)
             {
                 if (window != null)
-                    Window = window;
+                    terminal.Window = window;
                 else
                     SmartButtonPressed();
             }

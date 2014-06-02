@@ -183,9 +183,6 @@ namespace ProjectEntities
             //SmartButton setzen
             button = new SmartButton(this);
 
-            //Ggfs repairable an Button weiter reichen
-            if (repairable != null)
-                button.AttachRepairable(repairable);
 
             //Task setzen
             task = new Task(this);
@@ -193,6 +190,10 @@ namespace ProjectEntities
 
             //Button refreshen
             button.RefreshButton();
+
+            //Ggfs repairable an Button weiter reichen
+            if (repairable != null)
+                button.AttachRepairable(repairable);
             
             //AttachedGUIObjekt finden
             foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
