@@ -35,7 +35,7 @@ namespace ProjectEntities
         {
             if (partnerDoor != null)
                 partnerDoor.Opened = false;
-            this.Opened = false;
+            Opened = false;
             partnerDoor = null;
 
             Box bounds = GetBox();
@@ -51,7 +51,7 @@ namespace ProjectEntities
                     partnerDoor = d;
                     d.Opened = true;
                     d.PartnerDoor = this;
-                    this.Opened = true;
+                    Opened = true;
                     return;
                 }
             }

@@ -35,7 +35,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void ValueChange()
 		{
-			((Ring)Entities.Instance.GetByName("F3_Ring")).RotateLeft();
+			((Ring)Entities.Instance.GetByName("F2_Ring")).RotateLeft();
 		}
 
 	}
