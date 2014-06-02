@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = 2.673208 -105.2353 7.115403
-editorCameraDirection = 1.979858 -0.2597453
+editorCameraPosition = -71.9194 -15.96091 3.370456
+editorCameraDirection = 1.931763 0.0122757
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -82,7 +82,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 97
+			subscriptionsToDeletionEvent = 95
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch_0
 			customScriptCodeCreated = False
@@ -594,7 +594,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -611,7 +611,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 86
+	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -628,7 +628,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 86
+	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -646,7 +646,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -664,7 +664,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -692,7 +692,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 86
+	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -710,7 +710,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 88
+	group = 86
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -728,7 +728,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -746,7 +746,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -764,7 +764,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -782,7 +782,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 85
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -800,7 +800,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 86
+	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -818,7 +818,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 64
-	group = 86
+	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -877,8 +877,8 @@ entity
 	uin = 67
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -894,8 +894,8 @@ entity
 	uin = 68
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -912,8 +912,8 @@ entity
 	uin = 69
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 88
+	ring = 82
+	group = 86
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -929,8 +929,8 @@ entity
 	uin = 70
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 89
+	ring = 82
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -947,8 +947,8 @@ entity
 	uin = 71
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 89
+	ring = 82
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -965,8 +965,8 @@ entity
 	uin = 72
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 89
+	ring = 82
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -983,8 +983,8 @@ entity
 	uin = 73
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1001,8 +1001,8 @@ entity
 	uin = 74
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1019,8 +1019,8 @@ entity
 	uin = 75
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1037,8 +1037,8 @@ entity
 	uin = 76
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1055,8 +1055,8 @@ entity
 	uin = 77
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 87
+	ring = 82
+	group = 85
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1073,8 +1073,8 @@ entity
 	uin = 78
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 89
+	ring = 82
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1091,8 +1091,8 @@ entity
 	uin = 79
 	classPrompt = Sector
 	lightStatus = False
-	ring = 84
-	group = 89
+	ring = 82
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1114,7 +1114,7 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = -75.59758 -7.567012 5.080671
+	position = -75.59758 -7.567012 0.5730705
 	name = AlienSpawner_0
 }
 entity
@@ -1132,32 +1132,8 @@ entity
 }
 entity
 {
-	type = Alien
-	uin = 82
-	classPrompt = Alien
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -82.72911 4.124202 1.174866
-	name = Alien_0
-}
-entity
-{
-	type = Alien
-	uin = 83
-	classPrompt = Alien
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -74.90673 9.033578 1.173554
-	name = Alien_1
-}
-entity
-{
 	type = Ring
-	uin = 84
+	uin = 82
 	classPrompt = Ring
 	rotatable = True
 	id = -1
@@ -1173,7 +1149,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 85
+	uin = 83
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1186,7 +1162,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 86
+	uin = 84
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1199,7 +1175,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 87
+	uin = 85
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1212,7 +1188,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 88
+	uin = 86
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1225,7 +1201,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 89
+	uin = 87
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1238,7 +1214,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 90
+	uin = 88
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1252,9 +1228,9 @@ entity
 entity
 {
 	type = Terminal
-	uin = 91
+	uin = 89
 	classPrompt = Terminal
-	repairable = 92
+	repairable = 90
 	buttonType = Default
 	taskType = ColorSequence
 	actionType = Rotation
@@ -1267,7 +1243,7 @@ entity
 entity
 {
 	type = TestRepairable
-	uin = 92
+	uin = 90
 	classPrompt = Repairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1279,7 +1255,7 @@ entity
 entity
 {
 	type = ShotgunBulletsItem
-	uin = 93
+	uin = 91
 	classPrompt = BulletItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1289,7 +1265,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 94
+	uin = 92
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1299,7 +1275,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 95
+	uin = 93
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1313,7 +1289,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 96
+	uin = 94
 	classPrompt = Terminal
 	taskData = 1234
 	buttonType = None
@@ -1326,7 +1302,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 97
+	uin = 95
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 5
 	value = False

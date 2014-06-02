@@ -7,6 +7,17 @@ using Engine.MathEx;
 using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.PhysicsSystem;
+using ProjectCommon;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.ComponentModel;
+using Engine.EntitySystem;
+using Engine;
+using Engine.MathEx;
+using Engine.PhysicsSystem;
+using Engine.MapSystem;
+using Engine.Renderer;
 
 namespace ProjectEntities
 {
@@ -239,8 +250,9 @@ namespace ProjectEntities
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnDestroy()"/>.</summary>
 		protected override void OnDestroy()
 		{
-			ClearTaskList();
-			base.OnDestroy();
+            EngineConsole.Instance.Print("ondestroy");
+            ClearTaskList();
+            base.OnDestroy();
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnDeleteSubscribedToDeletionEvent(Entity)"/></summary>
@@ -314,7 +326,9 @@ namespace ProjectEntities
 			//SelfDestroy
 			if( task.Type == Task.Types.SelfDestroy )
 			{
-				ControlledObject.Die();
+                EngineConsole.Instance.Print("die");
+
+                ControlledObject.Die();
 			}
 		}
 
