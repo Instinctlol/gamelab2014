@@ -49,7 +49,7 @@ namespace ProjectEntities
                 if(d != null && d != this)
                 {
                     partnerDoor = d;
-                    partnerDoor.Opened = true;
+                    d.Opened = true;
                     d.PartnerDoor = this;
                     this.Opened = true;
                     return;

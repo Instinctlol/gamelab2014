@@ -592,7 +592,7 @@ namespace Game
                     });
 
                 //draw selection border
-                if (overRepairable != null)
+                if (overRepairable != null  &&  overRepairable.Repaired == false)
                 {
                     Bounds bounds = overRepairable.MapBounds;
                     DrawObjectSelectionBorder(bounds);
