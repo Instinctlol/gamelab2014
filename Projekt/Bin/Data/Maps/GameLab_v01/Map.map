@@ -8,8 +8,13 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
+<<<<<<< .mine
+editorCameraPosition = 70.92348 -74.74021 3.399756
+editorCameraDirection = 1.562708 -0.5146157
+=======
 editorCameraPosition = -71.9194 -15.96091 3.370456
 editorCameraDirection = 1.931763 0.0122757
+>>>>>>> .r259
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -634,7 +639,7 @@ entity
 	filter = All
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
-	scale = 34.45994 49.58686 10.9482
+	scale = 33.13409 49.58686 10.9482
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -899,9 +904,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.8943577 -110.8455 3
+	position = -0.8943577 -110.7355 3
 	rotation = 0 0 -0.7071068 0.7071068
-	scale = 33.84572 58.90884 10.9482
+	scale = 34.97242 58.90884 10.9482
 	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
