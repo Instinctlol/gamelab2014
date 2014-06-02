@@ -153,6 +153,7 @@
     <Compile Include="ColorSequenceTaskWindow.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
+    <Compile Include="LightActionWindow.cs" />
     <Compile Include="OutDoor.cs" />
     <Compile Include="PINTaskWindow.cs" />
     <Compile Include="Repairable.cs" />

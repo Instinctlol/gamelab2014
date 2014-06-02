@@ -164,6 +164,11 @@
             LightScattering scene post processing compositor instance.
             </summary>
         </member>
+        <member name="T:ProjectCommon.OVRCompositorInstance">
+            <summary>
+            Represents work with the OVR post effect.
+            </summary>
+        </member>
         <member name="T:ProjectCommon.ShowDepthCompositorInstance">
             <summary>
             Represents work with the ShowDepth post effect.
