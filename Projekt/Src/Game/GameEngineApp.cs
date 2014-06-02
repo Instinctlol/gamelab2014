@@ -1,6 +1,7 @@
 // Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
@@ -920,7 +921,6 @@ namespace Game
             // Je nachdem welcher Spielertyp man ist, muss hier der entsprechende Gametype ausgewählt werden.
             if (GameMap.Instance != null)
             {
-                //gameWindow = new ActionGameWindow();
                 if (EntitySystemWorld.Instance.IsServer())
                 {
                     //Ich bin Alien

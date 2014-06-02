@@ -729,6 +729,13 @@ namespace Game
                 GridBasedNavigationSystem.Instances[0].AlwaysDrawGrid = mapDrawPathMotionMap;
 
             UpdateHUD();
+
+            //TODO: Spawner verstecken. Das sollte bei den Astronauten rein
+            //IEnumerable<AlienSpawner> spawnerList = Map.Instance.SceneGraphObjects.OfType<AlienSpawner>();
+            //foreach (AlienSpawner spawner in spawnerList)
+            //{
+            //    spawner.Visible = false;
+            //}
         }
 
         void UpdateHUD()
