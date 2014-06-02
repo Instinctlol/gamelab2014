@@ -167,6 +167,7 @@ namespace Game
 			editBoxConnectTo.Enable = false;
 			buttonCreateServer.Enable = false;
 			buttonConnect.Enable = false;
+            buttonConnect2.Enable = false;
 		}
 
 		void RemoveEventsForClient()
@@ -185,6 +186,7 @@ namespace Game
 			editBoxConnectTo.Enable = true;
 			buttonCreateServer.Enable = true;
 			buttonConnect.Enable = true;
+            buttonConnect2.Enable = true;
 		}
 
 		void Exit_Click( Button sender )
