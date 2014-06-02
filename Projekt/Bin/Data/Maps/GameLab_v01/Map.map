@@ -7,8 +7,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0 0 0
-editorCameraPosition = -20.10572 24.51673 114.7311
-editorCameraDirection = 2.23326 -1.43742
+editorCameraPosition = -67.90995 10.0956 0.3955517
+editorCameraDirection = 4.450139 0.4200925
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1129,7 +1129,7 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = -75.59758 -7.567012 5.080671
+	position = -75.59758 -7.567012 0.02738142
 	name = AlienSpawner_0
 }
 entity
@@ -1249,4 +1249,28 @@ entity
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
+}
+entity
+{
+	type = Alien
+	uin = 92
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = GoodFaction
+	healthFactorAtBeginning = 1
+	position = -68.14015 5.671124 0.3120758
+	name = Alien_2
+}
+entity
+{
+	type = Alien
+	uin = 93
+	classPrompt = Alien
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -70.06472 8.197106 0.3015607
+	name = Alien_3
 }
