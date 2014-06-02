@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Text;
-
 namespace ProjectEntities
 {
     public class SectorType : RegionType
@@ -27,6 +26,8 @@ namespace ProjectEntities
         //Aktueller status der Lichter
         [FieldSerialize]
         private bool lightStatus;
+
+        private int aliensInSector = 0;
 
         //Lister aller OutDoor Objekte wird automatisch generiert
         private List<OutDoor> outDoors = new List<OutDoor>();
@@ -106,6 +107,12 @@ namespace ProjectEntities
         {
             base.OnObjectIn(obj);
 
+            if (obj is AlienUnit)
+            {
+                aliensInSector++;
+                HideDynamics(false);
+            }
+
             if (obj is Sector || obj is Ring)
                 return;
 
@@ -123,6 +130,16 @@ namespace ProjectEntities
         protected override void OnObjectOut(MapObject obj)
         {
             base.OnObjectOut(obj);
+
+            if (obj is AlienUnit)
+            {
+                aliensInSector--;
+                if (aliensInSector<=0)
+                {
+                    aliensInSector = 0;
+                    HideDynamics(true);
+                }
+            }
 
             if (obj is Sector || obj is Ring)
                 return;
@@ -146,6 +163,23 @@ namespace ProjectEntities
 
             if (group != null)
                 group.SwitchLight += SwitchLights;
+
+            if(aliensInSector <= 0)
+            {
+                aliensInSector = 0;
+                HideDynamics(true);
+            }
+        }
+
+
+        private void HideDynamics(bool b)
+        {
+            if( GameMap.Instance.IsAlien )
+            {
+                b = !b;
+                foreach (Dynamic d in dynamics)
+                    d.Visible = b;
+            }
         }
 
 
@@ -215,6 +249,10 @@ namespace ProjectEntities
         private void AddDynamic(Dynamic d)
         {
             dynamics.Add(d);
+            if (aliensInSector <= 0 && GameMap.Instance.IsAlien)
+            {
+                d.Visible = false;
+            }
         }
 
         private void RemoveDynamic(Dynamic d)

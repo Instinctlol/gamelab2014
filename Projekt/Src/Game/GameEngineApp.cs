@@ -922,11 +922,17 @@ namespace Game
             {
                 //gameWindow = new ActionGameWindow();
                 if (EntitySystemWorld.Instance.IsServer())
+                {
                     //Ich bin Alien
                     gameWindow = new AlienGameWindow();
+                    GameMap.Instance.IsAlien = true;
+                }
                 else
+                {
                     // Ich bin Astronaut; vielleicht Occulus, vielleicht auch Cave...
-                   gameWindow = new ActionGameWindow();
+                    gameWindow = new ActionGameWindow();
+                    GameMap.Instance.IsAlien = false;
+                }
             }
 			controlManager.Controls.Add( gameWindow );
 		}

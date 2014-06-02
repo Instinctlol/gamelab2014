@@ -27,6 +27,15 @@ namespace ProjectEntities
 	{
 		static GameMap instance;
 
+        //If alien playing set to true
+        bool isAlien = false;
+
+        public bool IsAlien
+        {
+            get { return isAlien; }
+            set { isAlien = value; }
+        }
+
 		[FieldSerialize]
 		[DefaultValue( GameMap.GameTypes.Action )]
 		GameTypes gameType = GameTypes.Action;
