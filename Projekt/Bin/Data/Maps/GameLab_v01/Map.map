@@ -6,9 +6,9 @@ windDirection = 0
 windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
-ambientLight = 0.2 0.2 0.2
-editorCameraPosition = -20.10313 24.01367 106.5192
-editorCameraDirection = 4.765021 -1.559234
+ambientLight = 0 0 0
+editorCameraPosition = -20.10572 24.51673 114.7311
+editorCameraDirection = 2.23326 -1.43742
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -610,6 +610,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -626,6 +627,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 88
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -641,7 +643,8 @@ entity
 	uin = 54
 	classPrompt = Sector
 	lightStatus = False
-	ring = 13
+	ring = 66
+	group = 88
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -659,6 +662,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -676,6 +680,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -702,6 +707,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 88
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -719,6 +725,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 90
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -736,6 +743,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -753,6 +761,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -770,6 +779,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -787,6 +797,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 87
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -804,6 +815,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 88
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -821,6 +833,7 @@ entity
 	classPrompt = Sector
 	lightStatus = False
 	ring = 66
+	group = 88
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -856,7 +869,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
-	name = F3SG1
+	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
 }
@@ -869,7 +882,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
-	name = F3SG2
+	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
 }
@@ -879,14 +892,15 @@ entity
 	uin = 69
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -75.9137 0 3
-	scale = 33.84572 49.58686 10.9482
-	name = Sector_0
-	editorLayer = "Root Layer\\Rotation\\F2"
+	position = -110.2594 0 3
+	scale = 33.84572 58.90884 10.9482
+	name = F1R4-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -895,14 +909,16 @@ entity
 	uin = 70
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -110.2594 0 3
+	position = -0.9446892 -110.041 3
+	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	name = F1R4-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R6-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -911,14 +927,15 @@ entity
 	uin = 71
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 90
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -110.2594 0 3
+	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
-	name = Sector_1
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R8-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -927,15 +944,16 @@ entity
 	uin = 72
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 91
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.9446892 -110.041 3
+	position = -0.9446892 111.8426 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	name = F1R6-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R2-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -944,14 +962,16 @@ entity
 	uin = 73
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 91
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 110.73 0 3
+	position = -81.79011 82.54621 3
+	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	name = F1R8-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R3-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -960,15 +980,16 @@ entity
 	uin = 74
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 91
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.9446892 111.8426 3
-	rotation = 0 0 -0.7071068 0.7071068
+	position = 78.37129 79.25614 3
+	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
-	name = F1R2-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R1-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -977,15 +998,16 @@ entity
 	uin = 75
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -81.79011 82.54621 3
+	position = 83.65987 -81.88248 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	name = F1R3-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R7-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -994,15 +1016,16 @@ entity
 	uin = 76
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 78.37129 79.25614 3
-	rotation = 0 0 -0.3826835 -0.9238795
+	position = -75.8792 -79.86818 3
+	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
-	name = F1R1-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	name = F1R5-S
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -1011,15 +1034,16 @@ entity
 	uin = 77
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 83.65987 -81.88248 3
-	rotation = 0 0 -0.9238796 -0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R7-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	position = -104.0742 -43.92505 3
+	rotation = 0 0 -0.9743701 0.224951
+	scale = 9.572958 36.35155 10.9482
+	name = F1S45
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -1028,15 +1052,16 @@ entity
 	uin = 78
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -75.8792 -79.86818 3
-	rotation = 0 0 -0.9238795 0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R5-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	position = -41.48233 -103.6254 3
+	rotation = 0 0 -0.8120835 0.5835412
+	scale = 9.572958 36.35155 10.9482
+	name = F1S56
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -1045,15 +1070,16 @@ entity
 	uin = 79
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 89
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -104.0742 -43.92505 3
-	rotation = 0 0 -0.9743701 0.224951
-	scale = 9.572958 36.35155 10.9482
-	name = F1S45
-	editorLayer = "Root Layer\\Rotation\\F2"
+	position = 46.13393 -106.0181 3
+	rotation = 0 0 -0.6333808 0.7738402
+	scale = 9.572958 38.91988 10.9482
+	name = F1S67
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -1062,15 +1088,16 @@ entity
 	uin = 80
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 91
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -41.48233 -103.6254 3
-	rotation = 0 0 -0.8120835 0.5835412
-	scale = 9.572958 36.35155 10.9482
-	name = F1S56
-	editorLayer = "Root Layer\\Rotation\\F2"
+	position = 43.45355 104.5948 3
+	rotation = 0 0 -0.5828322 -0.8125925
+	scale = 9.572958 38.91988 10.9482
+	name = F1S12
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
@@ -1079,41 +1106,8 @@ entity
 	uin = 81
 	classPrompt = Sector
 	lightStatus = False
-	ring = 66
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 46.13393 -106.0181 3
-	rotation = 0 0 -0.6333808 0.7738402
-	scale = 9.572958 38.91988 10.9482
-	name = F1S67
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 82
-	classPrompt = Sector
-	lightStatus = False
-	ring = 66
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 43.45355 104.5948 3
-	rotation = 0 0 -0.5828322 -0.8125925
-	scale = 9.572958 38.91988 10.9482
-	name = F1S12
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 83
-	classPrompt = Sector
-	lightStatus = False
-	ring = 66
+	ring = 86
+	group = 91
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1121,13 +1115,13 @@ entity
 	rotation = 0 0 -0.7986355 -0.601815
 	scale = 9.572958 38.91988 10.9482
 	name = F1S23
-	editorLayer = "Root Layer\\Rotation\\F2"
+	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
 entity
 {
 	type = AlienSpawner
-	uin = 84
+	uin = 82
 	classPrompt = AlienSpawner
 	aiType = AlienAI
 	faction = BadFaction
@@ -1141,7 +1135,7 @@ entity
 entity
 {
 	type = GridBasedNavigationSystem
-	uin = 85
+	uin = 83
 	classPrompt = GridBasedNavigationSystem
 	gridBounds = -100 -100 100 100
 	gridCellSize = 1
@@ -1154,7 +1148,7 @@ entity
 entity
 {
 	type = Alien
-	uin = 86
+	uin = 84
 	classPrompt = Alien
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienAI
@@ -1166,7 +1160,7 @@ entity
 entity
 {
 	type = Alien
-	uin = 87
+	uin = 85
 	classPrompt = Alien
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienAI
@@ -1177,12 +1171,82 @@ entity
 }
 entity
 {
-	type = Bug
+	type = Ring
+	uin = 86
+	classPrompt = Ring
+	rotatable = True
+	id = -1
+	corners = 8
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 0 0 0
+	name = F1_Ring
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 87
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 42.09188 37.10183 -0.09931804
+	name = F2SG-D
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
 	uin = 88
-	classPrompt = GameCharacter
-	intellectShouldDeleteAfterDetach = False
-	initialFaction = GoodFaction
-	healthFactorAtBeginning = 1
-	position = -82.28185 15.91225 1.05778
-	name = Bug_0
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = -31.63795 -35.92422 -0.09931804
+	name = F2SG-E
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 89
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 43.60439 -93.08067 -0.09931804
+	name = F2SG-C
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 90
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 75.04897 -32.51239 -0.09931804
+	name = F1SG-A
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 91
+	classPrompt = SectorGroup
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = -40.03176 91.02027 -0.09931804
+	name = F1SG-B
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Bounds
 }
