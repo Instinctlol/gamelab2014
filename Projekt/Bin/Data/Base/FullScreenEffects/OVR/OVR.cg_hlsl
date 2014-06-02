@@ -1,0 +1,73 @@
+// sampler RT : register(s0);
+
+// float4 main_fp(
+	// uniform float intensity,
+	// float2 texCoord : TEXCOORD0
+	// ) : COLOR
+// {
+	// float3 sourceColor = tex2D(RT, texCoord).rgb;
+	// float value = dot(sourceColor, float3(0.3, 0.59, 0.11));
+	// float3 color = lerp(sourceColor, value, intensity);
+	// return float4(color, 1.0);
+// }
+
+
+
+
+
+sampler2D RT : register(s0);
+uniform float2 LensCenter;
+uniform float2 ScreenCenter;
+uniform float2 Scale;
+uniform float2 ScaleIn;
+uniform float4 HmdWarpParam;
+uniform float  ProjectionCorrection;
+
+float2 HmdWarpFake(float2 in01)
+{
+	return in01;
+}
+
+float fake()
+{
+	float4 dummy = HmdWarpParam;
+	dummy.xy += LensCenter;
+	dummy.xy += Scale;
+	dummy.xy += ScaleIn;
+	
+	if (dummy.x < 0)
+		dummy.x = 0;
+	if (dummy.x > 1)
+		dummy.x = 1;
+		
+	return dummy.x;
+}
+
+// Scales input texture coordinates for distortion.
+float2 HmdWarp(float2 in01)
+{
+   float2 theta = (in01 - LensCenter) * ScaleIn; // Scales to [-1, 1]
+   //float2 theta = (in01 - 1.0f) / 2.0f - LensCenter;
+   
+   float rSq = theta.x * theta.x + theta.y * theta.y;
+   float2 rvector = theta * (HmdWarpParam.x + HmdWarpParam.y * rSq + HmdWarpParam.z * rSq * rSq + HmdWarpParam.w * rSq * rSq * rSq);
+   return LensCenter + Scale * rvector;
+}
+
+float4 main_fp(float2 iTexCoord : TEXCOORD0) : COLOR
+{
+	float projOffset = ProjectionCorrection * 2.0f;//(LensCenter.x - 0.5f) * 0.5f;
+	float2 texCoord = iTexCoord;
+	texCoord.x += projOffset;
+	
+	float2 tc = HmdWarp(texCoord);
+	
+	//float2 tc = HmdWarpFake(texCoord);
+	//float d = fake();
+	
+	
+	float4 result = float4(tex2D(RT, tc).rgb,1);
+	//result.w = d;
+	
+	return result;
+}

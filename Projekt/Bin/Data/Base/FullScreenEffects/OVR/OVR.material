@@ -1,0 +1,43 @@
+
+fragment_program Compositor/OVR_fp_cg cg
+{
+	source Base\FullScreenEffects\OVR\OVR.cg_hlsl
+	entry_point main_fp
+	profiles arbfp1
+}
+
+material Compositor/OVR
+{
+	technique
+	{
+
+		pass
+		{
+			cull_hardware none
+			cull_software none
+			depth_check off
+			depth_write off
+			polygon_mode_overrideable false
+			polygon_mode solid
+
+			vertex_program_ref Compositor/StdQuad_vp
+			{
+			}
+
+			fragment_program_ref Compositor/OVR_fp_cg
+			{
+			}
+
+			texture_unit
+			{
+				//tex_address_mode clamp
+				//filtering none
+				
+				tex_coord_set 0
+				tex_address_mode border
+				tex_border_colour 0 0 0
+				filtering linear linear linear
+			}
+		}
+	}
+}

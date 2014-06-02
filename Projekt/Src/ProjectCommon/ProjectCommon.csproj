@@ -126,6 +126,7 @@
     <Compile Include="Post Processing\DepthOfFieldCompositorInstance.cs" />
     <Compile Include="Post Processing\FXAACompositorInstance.cs" />
     <Compile Include="Post Processing\LightScatteringCompositorInstance.cs" />
+    <Compile Include="Post Processing\OVRCompositorInstance.cs" />
     <Compile Include="Post Processing\ShowDepthCompositorInstance.cs" />
     <Compile Include="Post Processing\RadialBlurCompositorInstance.cs" />
     <Compile Include="Post Processing\SSAOCompositorInstance.cs" />
