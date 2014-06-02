@@ -13,14 +13,12 @@ type OutDoor
 		mesh
 		{
 			meshName = "Types\\Dynamic\\Door\\Door.mesh"
-			collision = True
 			body = door1
 			position = 0 -0.76 0
 		}
 		mesh
 		{
 			meshName = "Types\\Dynamic\\Door\\Door.mesh"
-			collision = True
 			body = door2
 			position = 0 0.76 0
 			rotation = 0 0 -1 1.216796E-08
