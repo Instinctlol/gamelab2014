@@ -7,9 +7,9 @@ windDirection = 0
 windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
-ambientLight = 0 0 0
-editorCameraPosition = 8.567648 -38.49681 7.721438
-editorCameraDirection = 1.835895 0.4814112
+ambientLight = 0.3921569 0.3921569 0.3921569
+editorCameraPosition = 2.673208 -105.2353 7.115403
+editorCameraDirection = 1.979858 -0.2597453
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -47,6 +47,7 @@ rootEditorLayer
 		layer
 		{
 			name = F3
+			allowSelect = False
 		}
 		layer
 		{
@@ -60,6 +61,10 @@ rootEditorLayer
 	layer
 	{
 		name = F1
+		layer
+		{
+			name = Dynamics
+		}
 	}
 }
 entity
@@ -77,6 +82,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
+			subscriptionsToDeletionEvent = 97
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch_0
 			customScriptCodeCreated = False
@@ -84,7 +90,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 6
-				code = "((Ring)Entities.Instance.GetByName(\"F3_Ring\")).RotateLeft();"
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -371,9 +377,8 @@ entity
 	type = BasicL2
 	uin = 29
 	classPrompt = MapObject
-	position = 51 226.9742 270.7515
-	rotation = 0 0 -0.9238795 0.3826834
-	name = BasicL2_0
+	position = 0 0 -100
+	name = Endkampf-Room
 }
 entity
 {
@@ -629,7 +634,7 @@ entity
 	filter = All
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
-	scale = 36.20875 49.58686 10.9482
+	scale = 34.45994 49.58686 10.9482
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -676,8 +681,9 @@ entity
 	uin = 55
 	classPrompt = SpawnPoint
 	defaultPoint = False
-	position = 62.73986 -50.92435 0
+	position = -4.344627 -105.2482 0.6073232
 	name = SpawnPoint_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -893,7 +899,7 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.9446892 -110.041 3
+	position = -0.8943577 -110.8455 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
 	name = F1R6-S
@@ -1228,4 +1234,104 @@ entity
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
+}
+entity
+{
+	type = OutDoor
+	uin = 90
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -0.04645407 -93.62017 1.897754
+	rotation = 0 0 -0.7071068 0.7071068
+	name = OutDoor_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Terminal
+	uin = 91
+	classPrompt = Terminal
+	repairable = 92
+	buttonType = Default
+	taskType = ColorSequence
+	actionType = Rotation
+	healthFactorAtBeginning = 1
+	position = 3.899243 -96.98579 1.991622
+	rotation = 0 0 -1 -4.371139E-08
+	name = Terminal_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = TestRepairable
+	uin = 92
+	classPrompt = Repairable
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = 3.299399 -97.04075 0.5640113
+	rotation = 0.5 0.5 0.5 0.5
+	name = TestRepairable_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = ShotgunBulletsItem
+	uin = 93
+	classPrompt = BulletItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -16.09287 -96.94664 0.2534336
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = ShotgunItem
+	uin = 94
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -13.59504 -97.06379 0.3548818
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 95
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 69.98986 -71.25241 1.974061
+	rotation = 0 0 -0.3826835 0.9238795
+	name = OutDoor_1
+	editorLayer = "Root Layer\\F2"
+}
+entity
+{
+	type = Terminal
+	uin = 96
+	classPrompt = Terminal
+	taskData = 1234
+	buttonType = None
+	taskType = PIN
+	actionType = Rotation
+	healthFactorAtBeginning = 1
+	position = 63.44387 -69.60484 1.990149
+	name = Terminal_1
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 97
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 5
+	value = False
+	healthFactorAtBeginning = 1
+	position = -2.774967 -96.94933 1.093226
+	name = BooleanSwitch_0
+	logicClass = 5
 }
