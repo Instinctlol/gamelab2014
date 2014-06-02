@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using System.ComponentModel;
-//using Engine.EntitySystem;
+using Engine.EntitySystem;
 using Engine.MapSystem;
 using ProjectCommon;
 
@@ -30,8 +29,8 @@ namespace ProjectEntities
             State,
             RotateRing1Left,
             RotateRing1Right,
-            RotateRing2Left,
-            RotateRing2Right,
+            RotateRing3Left,
+            RotateRing3Right,
             LightSector1,
             LightSector2
         }
@@ -48,11 +47,11 @@ namespace ProjectEntities
         /// <summary>
         /// Do one rotation of one ring to the left or to the right side.
         /// </summary>
-        /// <param name="ring"></param>
+        /// <param name="ringName"></param>
         /// <param name="left"></param>
-        public static void RotateRing(Ring ring, bool left)
+        public static void RotateRing(String ringName, bool left)
         {
-            ring = Map.Instance.SceneGraphObjects.OfType<Ring>().First<Ring>();
+            Ring ring = ((Ring)Entities.Instance.GetByName(ringName));
             if (left)
             {
                 ring.RotateLeft();
@@ -66,56 +65,11 @@ namespace ProjectEntities
         /// <summary>
         /// Switches off or on the power of one sector (room)
         /// </summary>
-        /// <param name="sector"></param>
-        /// <param name="on"></param>
-        public static void SetSectorPower(Sector sector, bool on)
+        /// <param name="sectorName"></param>
+        public static void SetSectorPower(String sectorName)
         {
-            //sector = Map.Instance.SceneGraphObjects.OfType<Sector>().First<Sector>();
-
-            //IEnumerable<Sector> sectors = Map.Instance.SceneGraphObjects.OfType<Sector>();
-            //foreach (Sector sector in sectors)
-            //{
-            //    // TODO lese den entsprechenden ring zu ringNumber aus
-            //    if (sector.Id == sectorId)
-            //    {
-                    sector.SwitchLights(on);
-            //    }
-            //}
+            Sector sector = ((Sector)Entities.Instance.GetByName(sectorName));
+            sector.SwitchLights(!sector.LightStatus);
         }
-
-        //public void RotateRing(int ringId, bool left)
-        //{
-
-        //    IEnumerable<Ring> rings = Map.Instance.SceneGraphObjects.OfType<Ring>();
-        //    foreach (Ring ring in rings)
-        //    {
-        //        // TODO lese den entsprechenden ring zu ringNumber aus
-        //        if (ring.Id == ringId)
-        //        {
-        //            if (left)
-        //            {
-        //                ring.RotateLeft();
-        //            }
-        //            else
-        //            {
-        //                ring.RotateRight();
-        //            }
-        //        }
-        //    }
-        // Alternative zum Suchen der Ring-Objekte
-        //List<MapObject> myspawnerpoints = Map.Instance.SceneGraphObjects.FindAll(delegate(MapObject obj)
-        //{
-        //    ProjectEntities.Ring ring = obj as ProjectEntities.Ring;
-
-        //    if (ring != null)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //});
-        //}
     }
 }

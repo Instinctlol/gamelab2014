@@ -921,7 +921,7 @@ namespace Game
             if (GameMap.Instance != null)
             {
                 //gameWindow = new ActionGameWindow();
-                if (true)//EntitySystemWorld.Instance.IsServer()
+                if (EntitySystemWorld.Instance.IsServer())
                 {
                     //Ich bin Alien
                     gameWindow = new AlienGameWindow();

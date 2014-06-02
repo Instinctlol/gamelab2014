@@ -448,19 +448,18 @@
             still have, how the rings are positioned...
             </summary>
         </member>
-        <member name="M:ProjectEntities.Computer.RotateRing(ProjectEntities.Ring,System.Boolean)">
+        <member name="M:ProjectEntities.Computer.RotateRing(System.String,System.Boolean)">
             <summary>
             Do one rotation of one ring to the left or to the right side.
             </summary>
-            <param name="ring"></param>
+            <param name="ringName"></param>
             <param name="left"></param>
         </member>
-        <member name="M:ProjectEntities.Computer.SetSectorPower(ProjectEntities.Sector,System.Boolean)">
+        <member name="M:ProjectEntities.Computer.SetSectorPower(System.String)">
             <summary>
             Switches off or on the power of one sector (room)
             </summary>
-            <param name="sector"></param>
-            <param name="on"></param>
+            <param name="sectorName"></param>
         </member>
         <member name="T:ProjectEntities.BooleanSwitchType">
             <summary>

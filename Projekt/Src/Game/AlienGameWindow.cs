@@ -16,18 +16,6 @@ using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
 
-
-
-/*
- * TODO's:
- * es wurde was an Game/GameEngineApp.cs geändert für den GameType AlienGame
- * genauso wurde an ProjectEntities/GameMap.cs was geändert für den GameType AlienGame
- * 
- * 1. Irgendwie herausfinden, wie sich die Gebäude anklicken lassen und das für den MySqawner nachbauen, damit dieser spawnt.
- * 2. aliens/rabbits auswählbar machen (so wie hier die units)
- * 3. Tasks implementieren (active, passive), auch in die KI und dann auswählbar per Button machen (GUI)
- * 
- */
 namespace Game
 {
     public class AlienGameWindow : GameWindow
@@ -55,11 +43,7 @@ namespace Game
 
         //Select for Alien Tasks
         List<Unit> selectedUnits = new List<Unit>();
-
-        //Select for Computer Tasks
-        Region selectedRegion;
-        bool computerMode;
-
+        
         //Spawning
         int possibleNumberSpawnAliens = 10;
         ListBox numberSpawnUnitsList;
@@ -304,44 +288,13 @@ namespace Game
                         EngineApp.Instance.MousePosition);
                     if (!float.IsNaN(ray.Direction.X))
                     {
-                        // Wenn ein Objekt ausgewählt wurde, gucken, ob ein Computer-Button aktiv ist
-                        if (computerMode)
+                        RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
+                            (int)ContactGroup.CastOnlyContact);
+                        if (result.Shape != null)
                         {
-                            // schauen, in welchem Sektor das ausgewählte Objekt liegt
-                            Sector result = null;
-                            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
-                            {
-                                //check by sphere
-                                Sphere sphere = new Sphere(obj.Position, .5f);
-                                if (sphere.RayIntersection(ray))
-                                {
-                                    //find entities with Dynamic class only
-                                    Sector sector = obj as Sector;
-                                    if (sector != null)
-                                    {
-                                        result = sector;
-                                        //stop GetObjects
-                                        return false;
-                                    }
-                                }
-                                //find next object
-                                return true;
-                            });
-                            selectedRegion = result;
-                            // Methode beenden
-                            return base.OnMouseUp(button);
-                        }
-                        else
-                        {
-                            // Ansonsten müssen wir das ausgewählte Objekt speichern
-                            RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
-                                (int)ContactGroup.CastOnlyContact);
-                            if (result.Shape != null)
-                            {
-                                pickingSuccess = true;
-                                mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
-                                mouseMapPos = result.Position;
-                            }
+                            pickingSuccess = true;
+                            mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
+                            mouseMapPos = result.Position;
                         }
                     }
                 }
@@ -399,7 +352,6 @@ namespace Game
         void DoTaskTargetChooseTasks(Vec3 mouseMapPos, Unit mouseOnObject)
         {
             //Do task after task target choose
-            EngineConsole.Instance.Print("taskindex"+taskTargetChooseIndex);
             bool toQueue = EngineApp.Instance.IsKeyPressed(EKeys.Shift);
 
             List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
@@ -1010,9 +962,7 @@ namespace Game
                 button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
                 if (button == null)
                     return;
-                EngineConsole.Instance.Print("visible:"+n+":"+button.Visible);
                 button.Visible = !button.Visible;
-                EngineConsole.Instance.Print("visible:" + n + ":" + button.Visible);
                 button.Text = ((Computer.Actions)n).ToString();
             }
         }
@@ -1020,10 +970,6 @@ namespace Game
         // Wenn ein Button zum Bedienen des Zentralcomputers geklickt wurde
         void ComputerButton_Click(Button sender)
         {
-            // Wenn nichts ausgewählt, dann kann auch nichts geklickt werden
-            if (selectedRegion == null)
-                return;
-
             int index = int.Parse(sender.Name.Substring("ComputerButton".Length));
             Computer.Actions action = (Computer.Actions)index;
 
@@ -1041,17 +987,17 @@ namespace Game
                     break;
                 case Computer.Actions.RotateRing1Left:
                 case Computer.Actions.RotateRing1Right:
-                    if (selectedRegion is Ring)
-                    {
-                        Computer.RotateRing((Ring)selectedRegion, (action == Computer.Actions.RotateRing1Left));
-                    }
+                    Computer.RotateRing("F1_Ring", (action == Computer.Actions.RotateRing1Left));
+                    break;
+                case Computer.Actions.RotateRing3Left:
+                case Computer.Actions.RotateRing3Right:
+                    Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateRing1Left));
                     break;
                 case Computer.Actions.LightSector1:
+                    Computer.SetSectorPower("F2R4-S");
+                    break;
                 case Computer.Actions.LightSector2:
-                    if (selectedRegion is Ring)
-                    {
-                        Computer.SetSectorPower((Sector)selectedRegion, action == Computer.Actions.LightSector1);
-                    }
+                    Computer.SetSectorPower("F3R4-S");
                     break;
             }
         }
@@ -1098,8 +1044,6 @@ namespace Game
 
                         if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
                         {
-                            EngineConsole.Instance.Print("number" + spawnNumber);
-                            spawnNumber = 2;
                             intellect.DoTask(new AlienUnitAI.Task(taskType, tasks[index].Task.EntityType, spawnNumber), false);
                         }
                     }
@@ -1458,13 +1402,11 @@ namespace Game
         {
             // Den Index (beginnt bei 0) plus 1
             spawnNumber = (int)sender.SelectedIndex + 1;
-            EngineConsole.Instance.Print("changed" + spawnNumber);
         }
 
         void numberSpawnUnitsList_ItemMouseDoubleClick(object sender, ListBox.ItemMouseEventArgs e)
         {
             spawnNumber = (int)e.ItemIndex + 1;
-            EngineConsole.Instance.Print("doubleclick" + e.Item + " " + spawnNumber);
         }
 
         void UpdateCameraScrollBars()

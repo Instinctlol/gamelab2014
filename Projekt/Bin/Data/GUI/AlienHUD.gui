@@ -235,4 +235,12 @@ control Control
 		name = ComputerButton5
 		text = 5
 	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -9 530
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton6
+		text = 6
+	}
 }
