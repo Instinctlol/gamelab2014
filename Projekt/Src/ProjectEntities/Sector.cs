@@ -61,6 +61,12 @@ namespace ProjectEntities
             get { return group; }
             set { group = value; }
         }
+
+        public bool LightStatus
+        {
+            get { return lightStatus; }
+            set { lightStatus = value; }
+        }
         //***************************
 
 

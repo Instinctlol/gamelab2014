@@ -44,7 +44,32 @@ namespace ProjectEntities
             {
                 Sector sec = obj as Sector;
 
-                if(sec!= null)
+                if (sec != null)
+                {
+                    result = sec;
+                    return false;
+                }
+
+                return true;
+            });
+
+            return result;
+        }
+
+        public Sector GetSector(Vec3 position)
+        {
+            Sector result = null;
+
+            Vec3 source = position;
+            Vec3 direction = new Vec3(0, 0, -1);
+            Ray ray = new Ray(source, direction);
+
+
+            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+            {
+                Sector sec = obj as Sector;
+
+                if (sec != null)
                 {
                     result = sec;
                     return false;
