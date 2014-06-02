@@ -8,13 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-<<<<<<< .mine
-editorCameraPosition = 70.92348 -74.74021 3.399756
-editorCameraDirection = 1.562708 -0.5146157
-=======
 editorCameraPosition = -71.9194 -15.96091 3.370456
 editorCameraDirection = 1.931763 0.0122757
->>>>>>> .r259
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
