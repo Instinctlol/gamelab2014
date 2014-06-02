@@ -13,6 +13,7 @@ type AlienSpawner
 		mesh
 		{
 			meshName = ".\\RTSFactory.mesh"
+			scale = 0.4672898 0.4672898 0.4672898
 		}
 	}
 }

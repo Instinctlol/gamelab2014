@@ -24,7 +24,7 @@ control Control
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -13 280
+		position = ScaleByResolution -9 190
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = Help
@@ -33,7 +33,7 @@ control Control
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -13 240
+		position = ScaleByResolution -9 150
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = DebugPath
@@ -42,7 +42,7 @@ control Control
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -13 200
+		position = ScaleByResolution -9 110
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = Menu
@@ -181,7 +181,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -13 360
+		position = ScaleByResolution -9 250
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = ComputerButton
@@ -189,7 +189,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -13 400
+		position = ScaleByResolution -9 290
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = ComputerButton0
@@ -197,7 +197,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -13 440
+		position = ScaleByResolution -9 330
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = ComputerButton1
@@ -205,7 +205,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -13 520
+		position = ScaleByResolution -9 410
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = ComputerButton3
@@ -213,10 +213,26 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -13 480
+		position = ScaleByResolution -9 370
 		horizontalAlign = Right
 		size = ScaleByResolution 125 30
 		name = ComputerButton2
 		text = 2
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -9 450
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton4
+		text = 4
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		position = ScaleByResolution -9 490
+		horizontalAlign = Right
+		size = ScaleByResolution 125 30
+		name = ComputerButton5
+		text = 5
 	}
 }

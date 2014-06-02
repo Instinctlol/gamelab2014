@@ -1,6 +1,7 @@
 ﻿// Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Engine;
 using Engine.Renderer;
@@ -57,6 +58,7 @@ namespace Game
 
         //Select for Computer Tasks
         Region selectedRegion;
+        bool computerMode;
 
         //Spawning
         int possibleNumberSpawnAliens = 10;
@@ -128,11 +130,6 @@ namespace Game
 
             InitControlPanelButtons();
             UpdateControlPanel();
-
-            //set playerFaction for small aliens
-            //playerFaction = (FactionType)EntityTypes.Instance.GetByName("BadFaction");
-            //if (RTSFactionManager.Instance != null && RTSFactionManager.Instance.Factions.Count != 0)
-            //playerFaction = RTSFactionManager.Instance.Factions[0].FactionType;
 
             //minimap
             minimapControl = hudControl.Controls["Minimap"];
@@ -307,13 +304,44 @@ namespace Game
                         EngineApp.Instance.MousePosition);
                     if (!float.IsNaN(ray.Direction.X))
                     {
-                        RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
-                            (int)ContactGroup.CastOnlyContact);
-                        if (result.Shape != null)
+                        // Wenn ein Objekt ausgewählt wurde, gucken, ob ein Computer-Button aktiv ist
+                        if (computerMode)
                         {
-                            pickingSuccess = true;
-                            mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
-                            mouseMapPos = result.Position;
+                            // schauen, in welchem Sektor das ausgewählte Objekt liegt
+                            Sector result = null;
+                            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                            {
+                                //check by sphere
+                                Sphere sphere = new Sphere(obj.Position, .5f);
+                                if (sphere.RayIntersection(ray))
+                                {
+                                    //find entities with Dynamic class only
+                                    Sector sector = obj as Sector;
+                                    if (sector != null)
+                                    {
+                                        result = sector;
+                                        //stop GetObjects
+                                        return false;
+                                    }
+                                }
+                                //find next object
+                                return true;
+                            });
+                            selectedRegion = result;
+                            // Methode beenden
+                            return base.OnMouseUp(button);
+                        }
+                        else
+                        {
+                            // Ansonsten müssen wir das ausgewählte Objekt speichern
+                            RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
+                                (int)ContactGroup.CastOnlyContact);
+                            if (result.Shape != null)
+                            {
+                                pickingSuccess = true;
+                                mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
+                                mouseMapPos = result.Position;
+                            }
                         }
                     }
                 }
@@ -996,26 +1024,33 @@ namespace Game
             if (selectedRegion == null)
                 return;
 
-            int index = int.Parse(sender.Name.Substring("ControlPanelButton".Length));
+            int index = int.Parse(sender.Name.Substring("ComputerButton".Length));
             Computer.Actions action = (Computer.Actions)index;
+
+            /*RotateRing1Left,
+            RotateRing1Right,
+            RotateRing2Left,
+            RotateRing2Right,
+            LightSector1,
+            LightSector2*/
 
             switch( action )
             {
                 case Computer.Actions.State:
                     Computer.ShowState();
                     break;
-                case Computer.Actions.RotateLeft:
-                case Computer.Actions.RotateRight:
+                case Computer.Actions.RotateRing1Left:
+                case Computer.Actions.RotateRing1Right:
                     if (selectedRegion is Ring)
                     {
-                        Computer.RotateRing((Ring)selectedRegion, (action == Computer.Actions.RotateLeft));
+                        Computer.RotateRing((Ring)selectedRegion, (action == Computer.Actions.RotateRing1Left));
                     }
                     break;
-                case Computer.Actions.LightOn:
-                case Computer.Actions.LightOff:
+                case Computer.Actions.LightSector1:
+                case Computer.Actions.LightSector2:
                     if (selectedRegion is Ring)
                     {
-                        Computer.SetSectorPower((Sector)selectedRegion, action == Computer.Actions.LightOn);
+                        Computer.SetSectorPower((Sector)selectedRegion, action == Computer.Actions.LightSector1);
                     }
                     break;
             }

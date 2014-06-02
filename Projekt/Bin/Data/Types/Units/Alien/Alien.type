@@ -1,0 +1,19 @@
+type Alien
+{
+	class = Alien
+	allowPlayerControl = True
+	initialAI = AlienAI
+	healthMax = 150
+	soundCollision = "Sounds\\Beep.ogg"
+	substance = Metal
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Alien.mesh"
+			collision = True
+			rotation = 0.5 0.5 -0.5 -0.5
+		}
+	}
+}

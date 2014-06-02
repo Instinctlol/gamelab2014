@@ -5,6 +5,7 @@ using System.Text;
 //using System.ComponentModel;
 //using Engine.EntitySystem;
 using Engine.MapSystem;
+using ProjectCommon;
 
 namespace ProjectEntities
 {
@@ -20,14 +21,19 @@ namespace ProjectEntities
     {
         ComputerType _type = null; public new ComputerType Type { get { return _type; } }
 
+        // der Zentralcomputer soll alle Images für die Minimap verwalten und immer das korrekte anzeigen
+        // Zentralcomputer speichert also indirekt, wie die Ringe stehen
+
         // Alle Aktionen, die man über den Zentralcomputer steuern kann
         public enum Actions
         {
             State,
-            RotateLeft,
-            RotateRight,
-            LightOn,
-            LightOff
+            RotateRing1Left,
+            RotateRing1Right,
+            RotateRing2Left,
+            RotateRing2Right,
+            LightSector1,
+            LightSector2
         }
 
         /// <summary>
@@ -46,6 +52,7 @@ namespace ProjectEntities
         /// <param name="left"></param>
         public static void RotateRing(Ring ring, bool left)
         {
+            ring = Map.Instance.SceneGraphObjects.OfType<Ring>().First<Ring>();
             if (left)
             {
                 ring.RotateLeft();
@@ -63,6 +70,8 @@ namespace ProjectEntities
         /// <param name="on"></param>
         public static void SetSectorPower(Sector sector, bool on)
         {
+            //sector = Map.Instance.SceneGraphObjects.OfType<Sector>().First<Sector>();
+
             //IEnumerable<Sector> sectors = Map.Instance.SceneGraphObjects.OfType<Sector>();
             //foreach (Sector sector in sectors)
             //{

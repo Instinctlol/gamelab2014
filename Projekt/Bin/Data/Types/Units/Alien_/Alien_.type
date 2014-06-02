@@ -1,0 +1,15 @@
+type Alien_
+{
+	class = Alien
+	initialAI = AlienAI
+	healthMax = 150
+	substance = Metal
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Robot.mesh"
+		}
+	}
+}
