@@ -107,8 +107,7 @@ namespace Game
             //add game specific console command
             if (EngineConsole.Instance != null)
             {
-                EngineConsole.Instance.AddCommand("movePlayerUnitToCamera",
-                    ConsoleCommand_MovePlayerUnitToCamera);
+                EngineConsole.Instance.AddCommand("movePlayerUnitToCamera", ConsoleCommand_MovePlayerUnitToCamera);
             }
 
             //accept commands of the player
@@ -143,8 +142,8 @@ namespace Game
                 if (cameraType == CameraType.Count)
                     cameraType = (CameraType)0;
 
-                if (GetPlayerUnit() == null)
-                    cameraType = CameraType.Free;
+                //if (GetPlayerUnit() == null)
+                //    cameraType = CameraType.Free;
 
                 FreeCameraEnabled = cameraType == CameraType.Free;
 

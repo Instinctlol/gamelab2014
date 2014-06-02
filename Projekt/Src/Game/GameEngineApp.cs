@@ -921,10 +921,10 @@ namespace Game
             if (GameMap.Instance != null)
             {
                 //gameWindow = new ActionGameWindow();
-                //if (EntitySystemWorld.Instance.IsServer())
+                if (EntitySystemWorld.Instance.IsServer())
                     //Ich bin Alien
-                    //gameWindow = new AlienGameWindow();
-                //else
+                    gameWindow = new AlienGameWindow();
+                else
                     // Ich bin Astronaut; vielleicht Occulus, vielleicht auch Cave...
                    gameWindow = new ActionGameWindow();
             }
