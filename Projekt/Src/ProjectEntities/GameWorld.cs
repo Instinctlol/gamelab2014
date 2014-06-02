@@ -38,7 +38,9 @@ namespace ProjectEntities
 
 
 
-		GameWorldType _type = null; public new GameWorldType Type { get { return _type; } }
+		GameWorldType _type = null;
+        
+        public new GameWorldType Type { get { return _type; } }
 
 		public GameWorld()
 		{
@@ -112,7 +114,8 @@ namespace ProjectEntities
 					GameMap.Instance.GameType == GameMap.GameTypes.TPSArcade ||
 					GameMap.Instance.GameType == GameMap.GameTypes.TurretDemo ||
 					GameMap.Instance.GameType == GameMap.GameTypes.VillageDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo )
+					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.AVA)
 				{
 					if( PlayerManager.Instance != null )
 					{
@@ -211,7 +214,8 @@ namespace ProjectEntities
 					GameMap.Instance.GameType == GameMap.GameTypes.TPSArcade ||
 					GameMap.Instance.GameType == GameMap.GameTypes.TurretDemo ||
 					GameMap.Instance.GameType == GameMap.GameTypes.VillageDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo )
+					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.AVA)
 				{
 					string playerName = "__SinglePlayer__";
 

@@ -73,6 +73,7 @@ namespace ProjectEntities
 			CatapultGame,
 			PlatformerDemo,
 			PathfindingDemo,
+            AVA,
 
 			//Put here your game type.
 		}
