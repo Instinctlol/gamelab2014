@@ -24,7 +24,9 @@ using TUIO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading;
 using Engine;
+using System.Collections.Generic;
 
 
 	public class TuioDump : TuioListener
@@ -32,7 +34,8 @@ using Engine;
         //members
         private const UInt32 MouseEventLeftDown = 0x0002;
         private const UInt32 MouseEventLeftUp = 0x0004;
-
+        public static Mutex mutexLock = new Mutex();
+        public static List<int[]> dataPoints = new List<int[]>();
         public enum MouseActionAdresses
         {
             LEFTDOWN = 0x00000002,
@@ -74,44 +77,42 @@ using Engine;
 		}
 
 		public void addTuioCursor(TuioCursor tcur) {
+            //OnAddCursor
 			Console.WriteLine("add cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY());
-            if (tcur.getCursorID().Equals(0))
-            {
-                Cursor.Position = new Point((int)(tcur.getX() * 1024), (int)(tcur.getY() * 768));
-                //mouse_event((UInt32)MouseActionAdresses.ABSOLUTE, (uint)(tcur.getX() * 1024), 0, 0, new System.IntPtr());
-                mouse_event((UInt32)MouseActionAdresses.LEFTDOWN, 0, 0, 0, new System.IntPtr());
-                Console.WriteLine("Klick");
-                //EngineApp.Instance.MousePosition = new Engine.MathEx.Vec2(500,500);
-                //EngineApp.Instance.DoMouseMove();
-            }
-            else if (tcur.getCursorID().Equals(1)) {
-                mouse_event((UInt32)MouseActionAdresses.LEFTUP, 0, 0, 0, new System.IntPtr());
-                Cursor.Position = new Point((int)(tcur.getX() * 1024), (int)(tcur.getY() * 768));
-                mouse_event((UInt32)MouseActionAdresses.RIGHTDOWN, 0, 0, 0, new System.IntPtr());
-            }
-            //LeftClick((int)(tcur.getX() * 1024), (int)(tcur.getY() * 1024));
 		}
 
 		public void updateTuioCursor(TuioCursor tcur) {
-            Cursor.Position = new Point((int)(tcur.getX() * 1024), (int)(tcur.getY() * 768));
+            //OnUpdateCursor
 			Console.WriteLine("set cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY()+" "+tcur.getMotionSpeed()+" "+tcur.getMotionAccel());
+
 		}
 
 		public void removeTuioCursor(TuioCursor tcur) {
+            //OnRemoveCursor
 			Console.WriteLine("del cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+")");
-            if (tcur.getCursorID().Equals(0))
-            {
-                mouse_event((UInt32)MouseActionAdresses.LEFTUP, 0, 0, 0, new System.IntPtr());
-            }
-            else if (tcur.getCursorID().Equals(1))
-            {
-                mouse_event((UInt32)MouseActionAdresses.RIGHTUP, 0, 0, 0, new System.IntPtr());
-            }
 		}
 
 		public void refresh(TuioTime frameTime) {
+            //OnRefresh
 			//Console.WriteLine("refresh "+frameTime.getTotalMilliseconds());
 		}
+
+        public void writeData(int id, int sid, int insttype, int xcord, int ycord, int speed, int accel) {
+            mutexLock.WaitOne();
+
+            int[] newpoint = new int[] { id, sid, DateTime.Now.Millisecond, insttype, xcord, ycord, speed, accel };
+
+            dataPoints.Add(newpoint);
+
+            mutexLock.ReleaseMutex();
+        }
+
+        public static int[] getData() {
+            mutexLock.WaitOne();
+
+            mutexLock.ReleaseMutex();
+            return new int[0];
+        }
 
 		static public void runTuio() {
 			TuioDump demo = new TuioDump();
