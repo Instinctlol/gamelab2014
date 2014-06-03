@@ -8,8 +8,13 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
+<<<<<<< .mine
+editorCameraPosition = 2.024393 -98.1018 1.884484
+editorCameraDirection = 0.2342869 -0.5397861
+=======
 editorCameraPosition = -1.889581 -15.26062 126.0983
 editorCameraDirection = 0.5820574 -1.526421
+>>>>>>> .r281
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1245,6 +1250,19 @@ entity
 	name = BooleanSwitch_0
 	logicClass = 5
 }
+<<<<<<< .mine
+entity
+{
+	type = TestProgressRepairable
+	uin = 96
+	classPrompt = ProgressRepairable
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = 4.2 -99 0.7676113
+	rotation = 0.7071068 0 0 0.7071068
+	name = TestProgressRepairable_0
+}
+=======
 entity
 {
 	type = Corridor-F3
@@ -1301,3 +1319,4 @@ entity
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
+>>>>>>> .r281
