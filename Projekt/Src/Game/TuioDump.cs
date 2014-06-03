@@ -35,7 +35,7 @@ using System.Collections.Generic;
         private const UInt32 MouseEventLeftDown = 0x0002;
         private const UInt32 MouseEventLeftUp = 0x0004;
         public static Mutex mutexLock = new Mutex();
-        public static List<int[]> dataPoints = new List<int[]>();
+        public static List<float[]> dataPoints = new List<float[]>();
         public enum MouseActionAdresses
         {
             LEFTDOWN = 0x00000002,
@@ -78,17 +78,20 @@ using System.Collections.Generic;
 
 		public void addTuioCursor(TuioCursor tcur) {
             //OnAddCursor
+            writeData(tcur.getCursorID(), tcur.getSessionID(), 1, tcur.getX(), tcur.getY(), 0, 0);
 			Console.WriteLine("add cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY());
 		}
 
 		public void updateTuioCursor(TuioCursor tcur) {
             //OnUpdateCursor
+            writeData(tcur.getCursorID(), tcur.getSessionID(), 2, tcur.getX(), tcur.getY(), tcur.getMotionSpeed(), tcur.getMotionAccel());
 			Console.WriteLine("set cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY()+" "+tcur.getMotionSpeed()+" "+tcur.getMotionAccel());
 
 		}
 
 		public void removeTuioCursor(TuioCursor tcur) {
             //OnRemoveCursor
+            writeData(tcur.getCursorID(), tcur.getSessionID(), 3,0, 0, 0, 0);
 			Console.WriteLine("del cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+")");
 		}
 
@@ -97,10 +100,10 @@ using System.Collections.Generic;
 			//Console.WriteLine("refresh "+frameTime.getTotalMilliseconds());
 		}
 
-        public void writeData(int id, int sid, int insttype, int xcord, int ycord, int speed, int accel) {
+        public void writeData(float id, float sid, float insttype, float xcord, float ycord, float speed, float accel) {
             mutexLock.WaitOne();
 
-            int[] newpoint = new int[] { id, sid, DateTime.Now.Millisecond, insttype, xcord, ycord, speed, accel };
+            float[] newpoint = new float[] { id, sid, DateTime.Now.Millisecond, insttype, xcord, ycord, speed, accel };
 
             dataPoints.Add(newpoint);
 
