@@ -198,7 +198,7 @@ namespace ProjectEntities
                 case Task.Types.Active:
                 case Task.Types.Passive:
                 {
-                    //healed
+                    /*//healed
                     if ((CurrentTask.Type == Task.Types.Repair ||
                         CurrentTask.Type == Task.Types.BreakableRepair)
                         && CurrentTask.Entity != null)
@@ -209,6 +209,7 @@ namespace ProjectEntities
                             break;
                         }
                     }
+                    */
 
                     float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
 
