@@ -156,6 +156,7 @@
     <Compile Include="LightActionWindow.cs" />
     <Compile Include="OutDoor.cs" />
     <Compile Include="PINTaskWindow.cs" />
+    <Compile Include="ProgressRepairable.cs" />
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
     <Compile Include="Sector.cs" />

@@ -1,13 +1,13 @@
-type TestRepairable
+type TestProgressRepairable
 {
-	class = Repairable
+	class = ProgressRepairable
 	soundRepaired = "Sounds\\steam-hiss.ogg"
 	soundUsing = "Sounds\\hammer.ogg"
 	attachedObjects
 	{
 		mesh
 		{
-			meshName = "Models\\Pipes\\PipeCorner.mesh"
+			meshName = "Models\\Pipes\\PipeDirect1.mesh"
 			collision = True
 			collisionMaterialName = Metal
 		}

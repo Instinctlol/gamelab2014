@@ -72,11 +72,10 @@ namespace ProjectEntities
                     lightStatus = value;
                     SetLights(lightStatus);
                 }
-                
-                
- }
+            }
         }
 
+        //Sets the room to be hidden for the alien
         public bool IsHidden
         {
             get { return isHidden; }
@@ -109,7 +108,7 @@ namespace ProjectEntities
         }
 
         
-        //DEPRECATED!!!
+        //DEPRECATED!!! Use setter from lightStatus
         //Setzt die Lichter zu bestimmten status
         public void SwitchLights(bool status)
         {
@@ -144,9 +143,6 @@ namespace ProjectEntities
         {
             base.OnObjectOut(obj);
 
-            if (obj is AlienUnit)
-                OnAlienOut((AlienUnit)obj);
-
             if (obj is Sector || obj is Ring)
                 return;
 
@@ -154,6 +150,9 @@ namespace ProjectEntities
                 OnLightOut((Light)obj);
             else if (obj is Dynamic)
                 OnDynamicOut((Dynamic)obj);
+
+            if (obj is AlienUnit)
+                OnAlienOut((AlienUnit)obj);
 
         }
 

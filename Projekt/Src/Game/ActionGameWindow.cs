@@ -1129,10 +1129,18 @@ namespace Game
                 return false;
 
             //Einfach reparieren
-            currentRepairable.Repaired = true;
+            currentRepairable.Press();
 
             repairableUsing = true;
             return true;
+        }
+
+        void RepairableUseEnd()
+        {
+            repairableUsing = false;
+
+            if (currentRepairable == null)
+                return;
         }
 
         bool SwitchUseStart()
@@ -1611,6 +1619,9 @@ namespace Game
 
                         //key up for switch use
                         SwitchUseEnd();
+
+                        //Key up for repairable use
+                        RepairableUseEnd();
                     }
 
                     return;
