@@ -26,7 +26,7 @@ control Control
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
 		position = ScaleByResolution -9 190
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = Help
 		text = Help
 	}
@@ -35,7 +35,7 @@ control Control
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
 		position = ScaleByResolution -9 150
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = DebugPath
 		text = Path
 	}
@@ -44,7 +44,7 @@ control Control
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
 		position = ScaleByResolution -9 110
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = Menu
 		text = Menu
 	}
@@ -183,7 +183,7 @@ control Control
 	{
 		position = ScaleByResolution -9 250
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton
 		text = Computer
 	}
@@ -191,7 +191,7 @@ control Control
 	{
 		position = ScaleByResolution -9 290
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton0
 		text = 0
 	}
@@ -199,7 +199,7 @@ control Control
 	{
 		position = ScaleByResolution -9 330
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton1
 		text = 1
 	}
@@ -207,7 +207,7 @@ control Control
 	{
 		position = ScaleByResolution -9 410
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton3
 		text = 3
 	}
@@ -215,7 +215,7 @@ control Control
 	{
 		position = ScaleByResolution -9 370
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton2
 		text = 2
 	}
@@ -223,7 +223,7 @@ control Control
 	{
 		position = ScaleByResolution -9 450
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton4
 		text = 4
 	}
@@ -231,7 +231,7 @@ control Control
 	{
 		position = ScaleByResolution -9 490
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton5
 		text = 5
 	}
@@ -239,7 +239,7 @@ control Control
 	{
 		position = ScaleByResolution -9 530
 		horizontalAlign = Right
-		size = ScaleByResolution 125 30
+		size = ScaleByResolution 135 30
 		name = ComputerButton6
 		text = 6
 	}

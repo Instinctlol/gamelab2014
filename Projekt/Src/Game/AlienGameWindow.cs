@@ -992,18 +992,18 @@ namespace Game
                 case Computer.Actions.State:
                     Computer.ShowState();
                     break;
-                case Computer.Actions.RotateRing1Left:
-                case Computer.Actions.RotateRing1Right:
-                    Computer.RotateRing("F1_Ring", (action == Computer.Actions.RotateRing1Left));
+                case Computer.Actions.RotateR1Left:
+                case Computer.Actions.RotateR1Right:
+                    Computer.RotateRing("F1_Ring", (action == Computer.Actions.RotateR1Left));
                     break;
-                case Computer.Actions.RotateRing3Left:
-                case Computer.Actions.RotateRing3Right:
-                    Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateRing1Left));
+                case Computer.Actions.RotateR3Left:
+                case Computer.Actions.RotateR3Right:
+                    Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateR3Left));
                     break;
-                case Computer.Actions.LightSector1:
+                case Computer.Actions.LightS1:
                     Computer.SetSectorPower("F2R4-S");
                     break;
-                case Computer.Actions.LightSector2:
+                case Computer.Actions.LightS2:
                     Computer.SetSectorPower("F3R4-S");
                     break;
             }

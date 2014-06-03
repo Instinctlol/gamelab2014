@@ -26,12 +26,12 @@ namespace ProjectEntities
         public enum Actions
         {
             State,
-            RotateRing1Left,
-            RotateRing1Right,
-            RotateRing3Left,
-            RotateRing3Right,
-            LightSector1,
-            LightSector2
+            RotateR1Left,
+            RotateR1Right,
+            RotateR3Left,
+            RotateR3Right,
+            LightS1,
+            LightS2
         }
 
         /// <summary>
