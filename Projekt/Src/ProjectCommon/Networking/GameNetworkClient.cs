@@ -17,6 +17,9 @@ namespace ProjectCommon
 		ChatClientNetworkService chatService;
 		EntitySystemClientNetworkService entitySystemService;
 
+
+        
+
 		///////////////////////////////////////////
 
 		public GameNetworkClient( bool entitySystemServiceEnabled )
@@ -90,5 +93,10 @@ namespace ProjectCommon
 
 			Log.Error( "GameNetworkClient: {0} from server.", message );
 		}
+
+
+        public bool isOculus { get; set; }
+        
+
 	}
 }

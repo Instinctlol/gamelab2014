@@ -919,6 +919,9 @@ namespace Game
 
 			//Create specific game window
             // Je nachdem welcher Spielertyp man ist, muss hier der entsprechende Gametype ausgewählt werden.
+
+            GameNetworkClient client = GameNetworkClient.Instance;
+
             if (GameMap.Instance != null)
             {
                 if (EntitySystemWorld.Instance.IsServer())
@@ -927,11 +930,18 @@ namespace Game
                     gameWindow = new AlienGameWindow();
                     GameMap.Instance.IsAlien = true;
                 }
-                else
+                else 
                 {
-                    // Ich bin Astronaut; vielleicht Occulus, vielleicht auch Cave...
-                    gameWindow = new ActionGameWindow();
-                    GameMap.Instance.IsAlien = false;
+                    if(client.isOculus == true)
+                    {
+                        gameWindow = new OculusGameWindow();
+                        GameMap.Instance.IsAlien = false;
+                    }
+                    else
+                    {
+                        gameWindow = new ActionGameWindow();
+                        GameMap.Instance.IsAlien = false;
+                    }
                 }
             }
 			controlManager.Controls.Add( gameWindow );

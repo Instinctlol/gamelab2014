@@ -117,7 +117,7 @@ namespace Game
 
 			GameNetworkServer server = new GameNetworkServer( "NeoAxis Server",	EngineVersionInformation.Version, 128, true );
 
-			int port = 56565;
+			int port = 17000;
 
 			string error;
 			if( !server.BeginListen( port, out error ) )
@@ -151,9 +151,14 @@ namespace Game
 			SetInfo( "Connecting to the server...", false );
 
 			GameNetworkClient client = new GameNetworkClient( true );
+            if (sender.Name == "Connect")
+                client.isOculus = true;
+            else if(sender.Name == "Connect2")
+                client.isOculus = false;
+
 			client.ConnectionStatusChanged += Client_ConnectionStatusChanged;
 
-			int port = 56565;
+			int port = 17000;
 			string password = "";
 
 			string error;

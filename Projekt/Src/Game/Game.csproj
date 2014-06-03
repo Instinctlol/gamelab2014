@@ -46,7 +46,7 @@
     <NoWarn>1591</NoWarn>
     <DocumentationFile>Game.xml</DocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -55,6 +55,7 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="DecorativeObjectManager, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
