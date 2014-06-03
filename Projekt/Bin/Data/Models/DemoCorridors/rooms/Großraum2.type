@@ -175,32 +175,32 @@ type "Gro\x00dfraum22"
 		light
 		{
 			attenuationFar = 10
-			position = -14.08707 -12.73813 0
+			position = -14.08707 -12.73813 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 0.9283866 -12.59648 0
+			position = 0.9283866 -12.59648 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -14.03227 0.04136476 0
+			position = -14.03227 0.04136476 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 0.9822259 -0.1399193 0
+			position = 0.9822259 -0.1399193 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -14.41881 14.86238 0
+			position = -14.41881 14.86238 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 1.027165 14.80246 0
+			position = 1.027165 14.80246 2.5
 		}
 		mesh
 		{
@@ -321,12 +321,12 @@ type "Gro\x00dfraum22"
 		light
 		{
 			attenuationFar = 10
-			position = -14.08707 -26.63813 -1.2
+			position = -14.08707 -26.63813 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 1.01293 -26.33813 -1.2
+			position = 1.01293 -26.33813 2.5
 		}
 	}
 }
