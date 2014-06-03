@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = -71.9194 -15.96091 3.370456
-editorCameraDirection = 1.931763 0.0122757
+editorCameraPosition = -76.98811 -24.63804 40.99015
+editorCameraDirection = 0.379381 -1.535585
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -178,7 +178,6 @@ entity
 	type = Sector
 	uin = 14
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 66
 	enabled = True
@@ -196,7 +195,6 @@ entity
 	type = Sector
 	uin = 15
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 65
 	enabled = True
@@ -213,7 +211,6 @@ entity
 	type = Sector
 	uin = 16
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 65
 	enabled = True
@@ -231,7 +228,6 @@ entity
 	type = Sector
 	uin = 17
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 66
 	enabled = True
@@ -249,7 +245,6 @@ entity
 	type = Sector
 	uin = 18
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 66
 	enabled = True
@@ -266,7 +261,6 @@ entity
 	type = Sector
 	uin = 19
 	classPrompt = Sector
-	lightStatus = False
 	ring = 13
 	group = 65
 	enabled = True
@@ -592,7 +586,6 @@ entity
 	type = Sector
 	uin = 50
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -609,14 +602,13 @@ entity
 	type = Sector
 	uin = 51
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -75.9137 0 3
-	scale = 33.84572 49.58686 10.9482
+	scale = 33.84572 44.35646 10.9482
 	name = F2R4-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -626,7 +618,6 @@ entity
 	type = Sector
 	uin = 52
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 84
 	enabled = True
@@ -644,7 +635,6 @@ entity
 	type = Sector
 	uin = 53
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -662,7 +652,6 @@ entity
 	type = Sector
 	uin = 54
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -690,7 +679,6 @@ entity
 	type = Sector
 	uin = 56
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 84
 	enabled = True
@@ -708,7 +696,6 @@ entity
 	type = Sector
 	uin = 57
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 86
 	enabled = True
@@ -726,7 +713,6 @@ entity
 	type = Sector
 	uin = 58
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -744,7 +730,6 @@ entity
 	type = Sector
 	uin = 59
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -762,7 +747,6 @@ entity
 	type = Sector
 	uin = 60
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -780,7 +764,6 @@ entity
 	type = Sector
 	uin = 61
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 83
 	enabled = True
@@ -798,7 +781,6 @@ entity
 	type = Sector
 	uin = 62
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 84
 	enabled = True
@@ -816,15 +798,14 @@ entity
 	type = Sector
 	uin = 63
 	classPrompt = Sector
-	lightStatus = False
 	ring = 64
 	group = 84
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -71.85971 -31.58249 3
+	position = -76.15971 -31.38249 3
 	rotation = 0 0 -0.9743701 0.224951
-	scale = 9.572958 22.87252 10.9482
+	scale = 9.572958 15.65579 10.9482
 	name = F2S45
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -876,7 +857,6 @@ entity
 	type = Sector
 	uin = 67
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -893,7 +873,6 @@ entity
 	type = Sector
 	uin = 68
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -911,7 +890,6 @@ entity
 	type = Sector
 	uin = 69
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 86
 	enabled = True
@@ -928,7 +906,6 @@ entity
 	type = Sector
 	uin = 70
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 87
 	enabled = True
@@ -946,7 +923,6 @@ entity
 	type = Sector
 	uin = 71
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 87
 	enabled = True
@@ -964,7 +940,6 @@ entity
 	type = Sector
 	uin = 72
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 87
 	enabled = True
@@ -982,7 +957,6 @@ entity
 	type = Sector
 	uin = 73
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -1000,7 +974,6 @@ entity
 	type = Sector
 	uin = 74
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -1018,7 +991,6 @@ entity
 	type = Sector
 	uin = 75
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -1036,7 +1008,6 @@ entity
 	type = Sector
 	uin = 76
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -1054,7 +1025,6 @@ entity
 	type = Sector
 	uin = 77
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 85
 	enabled = True
@@ -1072,7 +1042,6 @@ entity
 	type = Sector
 	uin = 78
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 87
 	enabled = True
@@ -1090,7 +1059,6 @@ entity
 	type = Sector
 	uin = 79
 	classPrompt = Sector
-	lightStatus = False
 	ring = 82
 	group = 87
 	enabled = True

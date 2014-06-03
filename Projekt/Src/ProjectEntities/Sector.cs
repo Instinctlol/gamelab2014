@@ -18,19 +18,20 @@ namespace ProjectEntities
     {
         SectorType _type = null; public new SectorType Type { get { return _type; } }
 
+        private bool loaded = false;
+
         private List<MapObjectAttachedLight> attachedLights = new List<MapObjectAttachedLight>();
 
         //Liste der Lichter wird automatisch generiert
         private List<Light> lights = new List<Light>();
 
         //Aktueller status der Lichter
-        [FieldSerialize]
-        private bool lightStatus;
+        //[FieldSerialize]
+        private bool lightStatus = true;
+
+        private bool isHidden = false;
 
         private int aliensInSector = 0;
-
-        //Lister aller OutDoor Objekte wird automatisch generiert
-        private List<OutDoor> outDoors = new List<OutDoor>();
 
         //Lister aller Dynamischen Objekte wird automatisch generiert
         private List<Dynamic> dynamics = new List<Dynamic>();
@@ -65,7 +66,37 @@ namespace ProjectEntities
         public bool LightStatus
         {
             get { return lightStatus; }
-            set { lightStatus = value; }
+            set { 
+                if(lightStatus != value)
+                {
+                    lightStatus = value;
+                    SetLights(lightStatus);
+                }
+                
+                
+ }
+        }
+
+        public bool IsHidden
+        {
+            get { return isHidden; }
+            set
+            {
+
+                if (isHidden != value)
+                {
+                    isHidden = value;
+
+                    if(isHidden)
+                    {
+                        SetFoWEnabled(true);
+                    }
+                    else
+                    {
+                        SetFoWEnabled(false);
+                    }
+                }
+            }
         }
         //***************************
 
@@ -77,34 +108,12 @@ namespace ProjectEntities
             base.CheckType = CheckTypes.Center;
         }
 
+        
+        //DEPRECATED!!!
         //Setzt die Lichter zu bestimmten status
         public void SwitchLights(bool status)
         {
-            if (lightStatus != status)
-                lightStatus = status;
-
-            if (lightStatus)
-            {
-                foreach (Light l in lights)
-                {
-                    l.Visible = true;
-                }
-                foreach (MapObjectAttachedLight l in attachedLights)
-                {
-                    l.Visible = true;
-                }
-            }
-            else
-            {
-                foreach (Light l in lights)
-                {
-                    l.Visible = false;
-                }
-                foreach (MapObjectAttachedLight l in attachedLights)
-                {
-                    l.Visible = false;
-                }
-            }
+            LightStatus = status;
         }
 
 
@@ -113,23 +122,21 @@ namespace ProjectEntities
         {
             base.OnObjectIn(obj);
 
-            if (obj is AlienUnit)
-            {
-                aliensInSector++;
-                HideDynamics(false);
-            }
-
             if (obj is Sector || obj is Ring)
                 return;
 
-            if (obj is OutDoor)
-                AddOutDoor((OutDoor)obj);
-            else if (obj is Light)
-                AddLight((Light)obj);
+
+            if (obj is AlienUnit)
+                OnAlienIn((AlienUnit)obj);
+            else if (obj is OutDoor && ring != null)
+                ring.RotateRing += ((OutDoor)obj).OnRotate;
+
+            if (obj is Light)
+                OnLightIn((Light)obj);
             else if (obj is Dynamic)
-                AddDynamic((Dynamic)obj);
+                OnDynamicIn((Dynamic)obj);
             else
-                AddStatic(obj);
+                OnStaticIn(obj);
         }
 
         //Registriert wenn ein Object den Sektor verlässt
@@ -138,19 +145,15 @@ namespace ProjectEntities
             base.OnObjectOut(obj);
 
             if (obj is AlienUnit)
-            {
-                aliensInSector--;
-                if (aliensInSector<=0)
-                {
-                    aliensInSector = 0;
-                    HideDynamics(true);
-                }
-            }
+                OnAlienOut((AlienUnit)obj);
 
             if (obj is Sector || obj is Ring)
                 return;
-            if (obj is Dynamic)
-                RemoveDynamic((Dynamic)obj);
+
+            if(obj is Light)
+                OnLightOut((Light)obj);
+            else if (obj is Dynamic)
+                OnDynamicOut((Dynamic)obj);
 
         }
 
@@ -159,8 +162,13 @@ namespace ProjectEntities
         {
 
             base.OnPostCreate(loaded);
+        }
 
-            if (!loaded)
+        protected override void OnRender(Engine.Renderer.Camera camera)
+        {
+            base.OnRender(camera);
+
+            if (loaded)
                 return;
 
             //Wenn Ring vorhanden bei seinem Event unterschreiben
@@ -170,22 +178,49 @@ namespace ProjectEntities
             if (group != null)
                 group.SwitchLight += SwitchLights;
 
-            if(aliensInSector <= 0)
+            if (aliensInSector <= 0  && GameMap.Instance.IsAlien)
             {
                 aliensInSector = 0;
-                HideDynamics(true);
+                IsHidden = true;
             }
+
+            loaded = true;
+
         }
 
 
-        private void HideDynamics(bool b)
+        private void SetFoWEnabled(bool status)
         {
             if( GameMap.Instance.IsAlien )
             {
-                b = !b;
+
+                if (status)
+                {
+                    SetLights(false);
+                }
+                else
+                {
+                    SetLights(lightStatus);
+                }
+
+                status = !status;
                 foreach (Dynamic d in dynamics)
-                    d.Visible = b;
+                    d.Visible = status;
+
             }
+        }
+
+        private void SetLights(bool status)
+        {
+
+                foreach (Light l in lights)
+                {
+                    l.Visible = status;
+                }
+                foreach (MapObjectAttachedLight l in attachedLights)
+                {
+                    l.Visible = status;
+                }
         }
 
 
@@ -199,13 +234,6 @@ namespace ProjectEntities
 
             Quat newRot = Rotation * OldRotation.GetInverse();
             newRot.Normalize();
-
-            foreach (MapObject m in outDoors)
-            {
-                m.Rotation = newRot * m.Rotation;
-                offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
-            }
 
             foreach (MapObject m in lights)
             {
@@ -229,49 +257,79 @@ namespace ProjectEntities
             }
         }
 
-
-        //Private Methoden zum verwalten der Listen
-        private void AddStatic(MapObject m)
+        private void OnStaticIn(MapObject obj)
         {
-            statics.Add(m);
+            statics.Add(obj);
 
-            foreach (MapObjectAttachedObject obj in m.AttachedObjects)
+            foreach (MapObjectAttachedObject o in obj.AttachedObjects)
             {
-                if (obj is MapObjectAttachedLight)
-                    AddAttachedLight((MapObjectAttachedLight)obj);
+                if (o is MapObjectAttachedLight)
+                    AddAttachedLight((MapObjectAttachedLight)o);
             }
         }
 
-        private void AddLight(Light l)
+        private void OnDynamicIn(Dynamic obj)
         {
-            lights.Add(l);
+            dynamics.Add(obj);
+
+            if (isHidden)
+                obj.Visible = false;
+            else
+                obj.Visible = true;
+
         }
+
+        private void OnDynamicOut(Dynamic obj)
+        {
+            dynamics.Remove(obj);
+        }
+
+        private void OnLightIn(Light obj)
+        {
+            lights.Add(obj);
+
+            if (isHidden)
+                obj.Visible = false;
+            else
+                obj.Visible = true;
+
+        }
+
+        private void OnLightOut(Light obj)
+        {
+            lights.Remove(obj);
+        }
+
+        private void OnAlienIn(AlienUnit obj)
+        {
+            if (GameMap.Instance.IsAlien)
+            {
+                aliensInSector++;
+                IsHidden = false;
+            }
+        }
+
+        private void OnAlienOut(AlienUnit obj)
+        {
+            if (GameMap.Instance.IsAlien)
+            {
+                aliensInSector--;
+                if (aliensInSector <= 0)
+                {
+                    aliensInSector = 0;
+                    IsHidden = true;
+                }
+            }
+        }
+
 
         private void AddAttachedLight(MapObjectAttachedLight l)
         {
             attachedLights.Add(l);
+            if (isHidden)
+                l.Visible = false;
+            else
+                l.Visible = true;
         }
-
-        private void AddDynamic(Dynamic d)
-        {
-            dynamics.Add(d);
-            if (aliensInSector <= 0 && GameMap.Instance.IsAlien)
-            {
-                d.Visible = false;
-            }
-        }
-
-        private void RemoveDynamic(Dynamic d)
-        {
-            dynamics.Remove(d);
-        }
-
-        private void AddOutDoor(OutDoor d)
-        {
-            outDoors.Add(d);
-            if (ring != null)
-                ring.RotateRing += d.OnRotate;
-        }
-
     }
 }

@@ -29,7 +29,7 @@ namespace ProjectEntities
 
         private void SwitchButton_click(Button sender)
         {
-            currSector.SwitchLights(!currSector.LightStatus);
+            //currSector.SwitchLights(!currSector.LightStatus);
         }
     }
 }
