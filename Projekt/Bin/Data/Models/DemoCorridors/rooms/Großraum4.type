@@ -191,13 +191,13 @@ type "Gro\x00dfraum42"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
-			position = 0.03447533 23.77132 -0.01172662
+			position = 0.03447533 35.56658 -0.01172662
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
-			position = -11.97007 23.77132 -0.01804149
+			position = -11.97007 35.56658 -0.01804149
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
@@ -234,7 +234,7 @@ type "Gro\x00dfraum42"
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = -24.05676 23.94214 0.01728749
+			position = -24.05676 35.7374 0.01728749
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
@@ -248,7 +248,7 @@ type "Gro\x00dfraum42"
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = 11.97842 23.69495 0.04348636
+			position = 11.97842 35.49021 0.04348636
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
@@ -344,6 +344,29 @@ type "Gro\x00dfraum42"
 			collision = True
 			position = -5.652591 35.65539 -0.01682854
 			rotation = 0 0 0.7071068 0.7071068
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			position = 11.87869 23.51238 -0.03103113
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			collision = True
+			position = 0 23.62177 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
+			collision = True
+			position = -12 23.62177 0
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallUp.mesh"
+			position = -24 23.72177 -7.450581E-09
+			rotation = 0 0 -1 -4.371139E-08
 		}
 	}
 }
