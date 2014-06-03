@@ -110,11 +110,19 @@ using System.Collections.Generic;
             mutexLock.ReleaseMutex();
         }
 
-        public static int[] getData() {
+        public static float[,] getData() {
             mutexLock.WaitOne();
-
+            int zahlElemente = dataPoints.Count;
+            float[,] data = new float[zahlElemente,8];
+            for (int i = 0; i < zahlElemente; i++){
+                for(int j = 0; j<8; j++){
+                    data[i,j] = dataPoints[i][j];
+                }
+            }
+            
+            dataPoints = new List<float[]>();
             mutexLock.ReleaseMutex();
-            return new int[0];
+            return data;
         }
 
 		static public void runTuio() {
