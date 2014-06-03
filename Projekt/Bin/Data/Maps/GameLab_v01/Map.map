@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = -76.98811 -24.63804 40.99015
-editorCameraDirection = 0.379381 -1.535585
+editorCameraPosition = -1.889581 -15.26062 126.0983
+editorCameraDirection = 0.5820574 -1.526421
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -43,6 +43,8 @@ rootEditorLayer
 		layer
 		{
 			name = F1
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
@@ -82,7 +84,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 95
+			subscriptionsToDeletionEvent = 91
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch_0
 			customScriptCodeCreated = False
@@ -179,7 +181,7 @@ entity
 	uin = 14
 	classPrompt = Sector
 	ring = 13
-	group = 66
+	group = 62
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -196,7 +198,7 @@ entity
 	uin = 15
 	classPrompt = Sector
 	ring = 13
-	group = 65
+	group = 61
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -212,7 +214,7 @@ entity
 	uin = 16
 	classPrompt = Sector
 	ring = 13
-	group = 65
+	group = 61
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -229,7 +231,7 @@ entity
 	uin = 17
 	classPrompt = Sector
 	ring = 13
-	group = 66
+	group = 62
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -242,41 +244,8 @@ entity
 }
 entity
 {
-	type = Sector
-	uin = 18
-	classPrompt = Sector
-	ring = 13
-	group = 66
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 34.59509 -35.95589 2.487303
-	scale = 24.40987 25.6329 10.9482
-	name = F3C_12-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 19
-	classPrompt = Sector
-	ring = 13
-	group = 65
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -36.90491 34.74411 2.487303
-	rotation = 0 0 -0.7071068 -0.7071068
-	scale = 24.63699 26.3679 10.9482
-	name = F3C_34-S
-	editorLayer = "Root Layer\\Rotation\\F3"
-	checkType = Center
-}
-entity
-{
 	type = DecorativeObjectManager
-	uin = 20
+	uin = 18
 	classPrompt = DecorativeObjectManager
 	enabled = True
 	visible = True
@@ -288,27 +257,8 @@ entity
 }
 entity
 {
-	type = F3C90
-	uin = 21
-	classPrompt = MapObject
-	position = -36.5 38.9 0
-	name = F3C90_0
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
-	type = F3C90
-	uin = 22
-	classPrompt = MapObject
-	position = 36.9 -38.8 0
-	rotation = 0 0 -1 -4.371139E-08
-	name = F3C90_1
-	editorLayer = "Root Layer\\F3"
-}
-entity
-{
 	type = F3R-24
-	uin = 23
+	uin = 19
 	classPrompt = MapObject
 	position = 82 0 0
 	name = F2R8
@@ -317,7 +267,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 24
+	uin = 20
 	classPrompt = MapObject
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
@@ -327,7 +277,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 25
+	uin = 21
 	classPrompt = MapObject
 	position = 51 50 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -337,7 +287,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 26
+	uin = 22
 	classPrompt = MapObject
 	position = 74.14777 30.54088 0
 	rotation = 0 0 -0.1736483 -0.9848077
@@ -348,7 +298,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 27
+	uin = 23
 	classPrompt = MapObject
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -358,7 +308,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 28
+	uin = 24
 	classPrompt = MapObject
 	position = 31.11989 73.79716 0
 	rotation = 0 0 -0.5877852 -0.8090171
@@ -369,7 +319,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 29
+	uin = 25
 	classPrompt = MapObject
 	position = 0 0 -100
 	name = Endkampf-Room
@@ -377,7 +327,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 30
+	uin = 26
 	classPrompt = MapObject
 	position = -58 -59 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -387,7 +337,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 31
+	uin = 27
 	classPrompt = MapObject
 	position = -74.06651 -31.11581 0
 	rotation = 0 0 -0.9743701 0.224951
@@ -398,7 +348,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 32
+	uin = 28
 	classPrompt = MapObject
 	position = -54 53 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -408,7 +358,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 33
+	uin = 29
 	classPrompt = MapObject
 	position = -32.24294 75.45021 0
 	rotation = 0 0 -0.7660444 -0.6427876
@@ -419,7 +369,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 34
+	uin = 30
 	classPrompt = MapObject
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -429,7 +379,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 35
+	uin = 31
 	classPrompt = MapObject
 	position = -30.04488 -73.74302 0
 	rotation = 0 0 -0.809017 0.5877853
@@ -440,7 +390,7 @@ entity
 entity
 {
 	type = BasicP2
-	uin = 36
+	uin = 32
 	classPrompt = MapObject
 	position = 63 -64 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -450,7 +400,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 37
+	uin = 33
 	classPrompt = MapObject
 	position = -6.5 104.5 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -460,7 +410,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 38
+	uin = 34
 	classPrompt = MapObject
 	position = -86 -79.5 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -470,7 +420,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 39
+	uin = 35
 	classPrompt = MapObject
 	position = 75 -83 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -480,7 +430,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 40
+	uin = 36
 	classPrompt = MapObject
 	position = -116.4543 -5.95177 0
 	rotation = 0 0 -1 1.216796E-08
@@ -490,7 +440,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 41
+	uin = 37
 	classPrompt = MapObject
 	position = -104.2226 -44.17335 0
 	rotation = 0 0 -0.975753 0.2188754
@@ -501,7 +451,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 42
+	uin = 38
 	classPrompt = MapObject
 	position = 79.5 87.5 0
 	rotation = 0 0 -0.3826835 -0.9238795
@@ -511,7 +461,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 43
+	uin = 39
 	classPrompt = MapObject
 	position = 43.66648 106.105 0
 	rotation = 0 0 0.5827719 0.8126359
@@ -522,7 +472,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum32"
-	uin = 44
+	uin = 40
 	classPrompt = MapObject
 	position = -6.280982 -115.8718 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -532,7 +482,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 45
+	uin = 41
 	classPrompt = MapObject
 	position = -42.15703 -104.9251 0
 	rotation = 0 0 -0.8121647 0.5834287
@@ -543,7 +493,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 46
+	uin = 42
 	classPrompt = MapObject
 	position = 45.82729 -107.9929 0
 	rotation = 0 0 -0.6334885 0.7737526
@@ -554,7 +504,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum42"
-	uin = 47
+	uin = 43
 	classPrompt = MapObject
 	position = -82.47575 90.3977 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -564,7 +514,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 48
+	uin = 44
 	classPrompt = MapObject
 	position = -46.08652 106.8015 0
 	rotation = 0 0 0.7983319 0.602218
@@ -575,7 +525,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum52"
-	uin = 49
+	uin = 45
 	classPrompt = MapObject
 	position = 117.2715 -6.203758 0
 	name = F1R8
@@ -584,10 +534,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 50
+	uin = 46
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -600,10 +550,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 51
+	uin = 47
 	classPrompt = Sector
-	ring = 64
-	group = 84
+	ring = 60
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -616,10 +566,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 52
+	uin = 48
 	classPrompt = Sector
-	ring = 64
-	group = 84
+	ring = 60
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -633,10 +583,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 53
+	uin = 49
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -650,14 +600,14 @@ entity
 entity
 {
 	type = Sector
-	uin = 54
+	uin = 50
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -57.21292 57.05568 3
+	position = -57.20925 55.48879 3
 	rotation = 0 0 -0.3826834 0.9238795
 	scale = 36.20875 49.58686 10.9482
 	name = F2R3-S
@@ -667,7 +617,7 @@ entity
 entity
 {
 	type = SpawnPoint
-	uin = 55
+	uin = 51
 	classPrompt = SpawnPoint
 	defaultPoint = False
 	position = -4.344627 -105.2482 0.6073232
@@ -677,10 +627,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 56
+	uin = 52
 	classPrompt = Sector
-	ring = 64
-	group = 84
+	ring = 60
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -694,10 +644,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 57
+	uin = 53
 	classPrompt = Sector
-	ring = 64
-	group = 86
+	ring = 60
+	group = 82
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -711,10 +661,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 58
+	uin = 54
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -728,10 +678,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 59
+	uin = 55
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -745,10 +695,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 60
+	uin = 56
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -762,10 +712,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 61
+	uin = 57
 	classPrompt = Sector
-	ring = 64
-	group = 83
+	ring = 60
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -779,10 +729,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 62
+	uin = 58
 	classPrompt = Sector
-	ring = 64
-	group = 84
+	ring = 60
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -796,10 +746,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 63
+	uin = 59
 	classPrompt = Sector
-	ring = 64
-	group = 84
+	ring = 60
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -813,7 +763,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 64
+	uin = 60
 	classPrompt = Ring
 	rotatable = True
 	id = -1
@@ -829,7 +779,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 65
+	uin = 61
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -842,7 +792,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 66
+	uin = 62
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -855,16 +805,88 @@ entity
 entity
 {
 	type = Sector
-	uin = 67
+	uin = 63
 	classPrompt = Sector
-	ring = 82
-	group = 85
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R4-S
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 64
+	classPrompt = Sector
+	ring = 78
+	group = 81
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -0.8943577 -110.7355 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 34.97242 58.90884 10.9482
+	visible = False
+	name = F1R6-S
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 65
+	classPrompt = Sector
+	ring = 78
+	group = 82
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 110.73 0 3
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R8-S
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 66
+	classPrompt = Sector
+	ring = 78
+	group = 83
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -0.9446892 111.8426 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R2-S
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 67
+	classPrompt = Sector
+	ring = 78
+	group = 83
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -81.79011 82.54621 3
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -873,15 +895,16 @@ entity
 	type = Sector
 	uin = 68
 	classPrompt = Sector
-	ring = 82
-	group = 85
+	ring = 78
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.8943577 -110.7355 3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 34.97242 58.90884 10.9482
-	name = F1R6-S
+	position = 78.37129 79.25614 3
+	rotation = 0 0 -0.3826835 -0.9238795
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R1-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -890,14 +913,16 @@ entity
 	type = Sector
 	uin = 69
 	classPrompt = Sector
-	ring = 82
-	group = 86
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 110.73 0 3
+	position = 83.65987 -81.88248 3
+	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	name = F1R8-S
+	visible = False
+	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -906,15 +931,16 @@ entity
 	type = Sector
 	uin = 70
 	classPrompt = Sector
-	ring = 82
-	group = 87
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.9446892 111.8426 3
-	rotation = 0 0 -0.7071068 0.7071068
+	position = -75.8792 -79.86818 3
+	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
-	name = F1R2-S
+	visible = False
+	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -923,15 +949,16 @@ entity
 	type = Sector
 	uin = 71
 	classPrompt = Sector
-	ring = 82
-	group = 87
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -81.79011 82.54621 3
-	rotation = 0 0 -0.9238796 -0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R3-S
+	position = -104.0742 -43.92505 3
+	rotation = 0 0 -0.9743701 0.224951
+	scale = 9.572958 36.35155 10.9482
+	visible = False
+	name = F1S45
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -940,15 +967,16 @@ entity
 	type = Sector
 	uin = 72
 	classPrompt = Sector
-	ring = 82
-	group = 87
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 78.37129 79.25614 3
-	rotation = 0 0 -0.3826835 -0.9238795
-	scale = 33.84572 58.90884 10.9482
-	name = F1R1-S
+	position = -41.48233 -103.6254 3
+	rotation = 0 0 -0.8120835 0.5835412
+	scale = 9.572958 36.35155 10.9482
+	visible = False
+	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -957,15 +985,16 @@ entity
 	type = Sector
 	uin = 73
 	classPrompt = Sector
-	ring = 82
-	group = 85
+	ring = 78
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 83.65987 -81.88248 3
-	rotation = 0 0 -0.9238796 -0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R7-S
+	position = 46.13393 -106.0181 3
+	rotation = 0 0 -0.6333808 0.7738402
+	scale = 9.572958 38.91988 10.9482
+	visible = False
+	name = F1S67
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -974,15 +1003,16 @@ entity
 	type = Sector
 	uin = 74
 	classPrompt = Sector
-	ring = 82
-	group = 85
+	ring = 78
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -75.8792 -79.86818 3
-	rotation = 0 0 -0.9238795 0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R5-S
+	position = 43.45355 104.5948 3
+	rotation = 0 0 -0.5828322 -0.8125925
+	scale = 9.572958 38.91988 10.9482
+	visible = False
+	name = F1S12
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -991,82 +1021,15 @@ entity
 	type = Sector
 	uin = 75
 	classPrompt = Sector
-	ring = 82
-	group = 85
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -104.0742 -43.92505 3
-	rotation = 0 0 -0.9743701 0.224951
-	scale = 9.572958 36.35155 10.9482
-	name = F1S45
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 76
-	classPrompt = Sector
-	ring = 82
-	group = 85
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -41.48233 -103.6254 3
-	rotation = 0 0 -0.8120835 0.5835412
-	scale = 9.572958 36.35155 10.9482
-	name = F1S56
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 77
-	classPrompt = Sector
-	ring = 82
-	group = 85
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 46.13393 -106.0181 3
-	rotation = 0 0 -0.6333808 0.7738402
-	scale = 9.572958 38.91988 10.9482
-	name = F1S67
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 78
-	classPrompt = Sector
-	ring = 82
-	group = 87
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 43.45355 104.5948 3
-	rotation = 0 0 -0.5828322 -0.8125925
-	scale = 9.572958 38.91988 10.9482
-	name = F1S12
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 79
-	classPrompt = Sector
-	ring = 82
-	group = 87
+	ring = 78
+	group = 83
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -44.05093 105.4387 3
 	rotation = 0 0 -0.7986355 -0.601815
 	scale = 9.572958 38.91988 10.9482
+	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1074,7 +1037,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 80
+	uin = 76
 	classPrompt = AlienSpawner
 	aiType = AlienAI
 	faction = BadFaction
@@ -1088,7 +1051,7 @@ entity
 entity
 {
 	type = GridBasedNavigationSystem
-	uin = 81
+	uin = 77
 	classPrompt = GridBasedNavigationSystem
 	gridBounds = -100 -100 100 100
 	gridCellSize = 1
@@ -1101,7 +1064,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 82
+	uin = 78
 	classPrompt = Ring
 	rotatable = True
 	id = -1
@@ -1110,6 +1073,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1117,7 +1081,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 83
+	uin = 79
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1130,7 +1094,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 84
+	uin = 80
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1143,12 +1107,13 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 85
+	uin = 81
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 43.60439 -93.08067 -0.09931804
+	visible = False
 	name = F2SG-C
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1156,7 +1121,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 86
+	uin = 82
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1169,12 +1134,13 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 87
+	uin = 83
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
+	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1182,7 +1148,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 88
+	uin = 84
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1196,9 +1162,9 @@ entity
 entity
 {
 	type = Terminal
-	uin = 89
+	uin = 85
 	classPrompt = Terminal
-	repairable = 90
+	repairable = 86
 	buttonType = Default
 	taskType = ColorSequence
 	actionType = Rotation
@@ -1211,7 +1177,7 @@ entity
 entity
 {
 	type = TestRepairable
-	uin = 90
+	uin = 86
 	classPrompt = Repairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1223,7 +1189,7 @@ entity
 entity
 {
 	type = ShotgunBulletsItem
-	uin = 91
+	uin = 87
 	classPrompt = BulletItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1233,7 +1199,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 92
+	uin = 88
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1243,7 +1209,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 93
+	uin = 89
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1257,7 +1223,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 94
+	uin = 90
 	classPrompt = Terminal
 	taskData = 1234
 	buttonType = None
@@ -1270,7 +1236,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 95
+	uin = 91
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 5
 	value = False
@@ -1278,4 +1244,60 @@ entity
 	position = -2.774967 -96.94933 1.093226
 	name = BooleanSwitch_0
 	logicClass = 5
+}
+entity
+{
+	type = Corridor-F3
+	uin = 92
+	classPrompt = MapObject
+	position = -30.93774 32.32301 0
+	rotation = 0 0 0.9264106 0.3765153
+	scale = 0.5548231 0.9028758 1
+	name = F3C23
+	editorLayer = "Root Layer\\F1"
+}
+entity
+{
+	type = Sector
+	uin = 93
+	classPrompt = Sector
+	ring = 60
+	group = 79
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -32.0114 32.72062 3
+	rotation = 0 0 -0.917141 -0.3985627
+	scale = 8.717884 23.83522 10.9482
+	name = F3C23-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Corridor-F3
+	uin = 94
+	classPrompt = MapObject
+	position = 32.60133 -31.67697 0
+	rotation = 0 0 0.4027202 -0.9153234
+	scale = 0.5548231 0.9028758 1
+	name = F3C14
+	editorLayer = "Root Layer\\F1"
+}
+entity
+{
+	type = Sector
+	uin = 95
+	classPrompt = Sector
+	ring = 60
+	group = 79
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 32.56227 -32.53202 3
+	rotation = 0 0 -0.917141 -0.3985627
+	scale = 8.717884 27.64234 10.9482
+	name = F3C14-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
 }
