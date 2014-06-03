@@ -18,6 +18,7 @@ namespace ProjectEntities
         private string green = "green";
         private string[] colors = {"blue", "red", "yellow", "green"};
         private Button greenButton, redButton, yellowButton, blueButton, playButton;
+        private Engine.MathEx.ColorValue yellowOVC, greenOVC, redOVC, blueOVC, yellowPSC, greenPSC, redPSC, bluePSC;
         private static Timer aTimer;
         private Random rnd = new Random();
         private int solvedCount = 0;    //zaehlt wie oft bereits geloest wurde
@@ -25,6 +26,7 @@ namespace ProjectEntities
         private int currLightButton = 0; //Laufzaehler, der alle solution Farben durchgehen soll
         private bool play = false;  //Indikator, prueft ob Sequenz abgespielt wird
         private bool buttonLighted = false; //Indikator, prueft ob ein Button beleuchtet ist
+        private bool clickable = false; //Indikator, wenn true, kann der Spieler die Buttons benutzen
         private string[] solution;  //enthaelt die Loesung, von der Form z.B. : {"blue","red","yellow",...}
         private List<string> playerResultList=new List<string>(); //enthaelt die Spielereingaben
         
@@ -55,6 +57,16 @@ namespace ProjectEntities
             redButton = ((Button)CurWindow.Controls["Red"]);
             blueButton = ((Button)CurWindow.Controls["Blue"]);
             playButton = ((Button)CurWindow.Controls["Play"]);
+
+            greenOVC = greenButton.OverControl.BackColor;
+            yellowOVC = yellowButton.OverControl.BackColor;
+            redOVC = redButton.OverControl.BackColor;
+            blueOVC = blueButton.OverControl.BackColor;
+
+            greenPSC = greenButton.PushControl.BackColor;
+            yellowPSC = yellowButton.PushControl.BackColor;
+            redPSC = redButton.PushControl.BackColor;
+            bluePSC = blueButton.PushControl.BackColor;
 
 
 
@@ -91,6 +103,11 @@ namespace ProjectEntities
                         currLightButton = 0;
 
                         aTimer.Enabled = false;
+                        switchControlForButton(yellowButton, true);
+                        switchControlForButton(redButton, true);
+                        switchControlForButton(blueButton, true);
+                        switchControlForButton(greenButton, true);
+                        clickable = true;
                     }
                     else
                     {
@@ -107,6 +124,11 @@ namespace ProjectEntities
             play = true;
             playButton.Visible = false;
             playButton.Enable = false;
+            clickable = false;
+            switchControlForButton(yellowButton, false);
+            switchControlForButton(redButton, false);
+            switchControlForButton(blueButton, false);
+            switchControlForButton(greenButton, false);
             aTimer = new System.Timers.Timer(initialTime);
             aTimer.Elapsed += playButtons;  //playButtons wird jedes mal ausgefuehrt, wenn Timer initialTime erreicht hat
             aTimer.Enabled = true;          //timer startet
@@ -115,66 +137,141 @@ namespace ProjectEntities
         //Farbbuttons fuegen Eingabe in die Spielereingabe zu und pruefen, falls SpielerEingabe gleich groß ist wie solution, ob richtig eingegeben wurde
         private void Blue_click(Button sender)
         {
-            if (currPlayerResultPos < solution.Length)
+            if(clickable)
             {
-                playerResultList.Add(blue);
-                if (++currPlayerResultPos == solution.Length)
+                if (currPlayerResultPos < solution.Length)
                 {
-                    checkSolution();
+                    playerResultList.Add(blue);
+                    if (++currPlayerResultPos == solution.Length)
+                    {
+                        checkSolution();
+                    }
+                }
+                else //Hier sollte es nie hingehen
+                {
+                    console.Print("Not allowed to add more colors to solution");
                 }
             }
-            else //Hier sollte es nie hingehen
+            else
             {
-                console.Print("Not allowed to add more colors to solution");
+                console.Print("Did not play yet or is currently playing.");
             }
+            
         }
 
         private void Red_click(Button sender)
         {
-            if (currPlayerResultPos < solution.Length)
+            if(clickable)
             {
-                playerResultList.Add(red);
-                if (++currPlayerResultPos == solution.Length)
+                if (currPlayerResultPos < solution.Length)
                 {
-                    checkSolution();
+                    playerResultList.Add(red);
+                    if (++currPlayerResultPos == solution.Length)
+                    {
+                        checkSolution();
+                    }
+                }
+                else //Hier sollte es nie hingehen
+                {
+                    console.Print("Not allowed to add more colors to solution");
                 }
             }
-            else //Hier sollte es nie hingehen
+            else
             {
-                console.Print("Not allowed to add more colors to solution");
+                console.Print("Did not play yet or is currently playing.");
             }
         }
 
         private void Yellow_click(Button sender)
         {
-            if (currPlayerResultPos < solution.Length)
+            if(clickable)
             {
-                playerResultList.Add(yellow);
-                if (++currPlayerResultPos == solution.Length)
+                if (currPlayerResultPos < solution.Length)
                 {
-                    checkSolution();
+                    playerResultList.Add(yellow);
+                    if (++currPlayerResultPos == solution.Length)
+                    {
+                        checkSolution();
+                    }
+                }
+                else //Hier sollte es nie hingehen
+                {
+                    console.Print("Not allowed to add more colors to solution");
                 }
             }
-            else //Hier sollte es nie hingehen
+            else
             {
-                console.Print("Not allowed to add more colors to solution");
+                console.Print("Did not play yet or is currently playing.");
             }
         }
 
         private void Green_click(Button sender)
         {
-            if(currPlayerResultPos < solution.Length)
+            if(clickable)
             {
-                playerResultList.Add(green);
-                if (++currPlayerResultPos == solution.Length)
+                if (currPlayerResultPos < solution.Length)
                 {
-                    checkSolution();
+                    playerResultList.Add(green);
+                    if (++currPlayerResultPos == solution.Length)
+                    {
+                        checkSolution();
+                    }
+                }
+                else //Hier sollte es nie hingehen
+                {
+                    console.Print("Not allowed to add more colors to solution");
                 }
             }
-            else //Hier sollte es nie hingehen
+            else
             {
-                console.Print("Not allowed to add more colors to solution");
+                console.Print("Did not play yet or is currently playing.");
             }
+        }
+
+        //Zeigt die MouseOverControl des Buttons oder verbirgt sie.
+        private void switchControlForButton(Button b, bool show)
+        {
+            if(!show)
+            {
+                b.OverControl.BackColor = b.DefaultControl.BackColor;
+                b.PushControl.BackColor = b.DefaultControl.BackColor;
+            }
+            else
+            {
+                switch(b.Name)
+                {
+                    case "Yellow":
+                        {
+                            b.OverControl.BackColor = yellowOVC;
+                            b.PushControl.BackColor = yellowPSC;
+                            break;
+                        }
+                    case "Red":
+                        {
+                            b.OverControl.BackColor = redOVC;
+                            b.PushControl.BackColor = redPSC;
+                            break;
+                        }
+                    case "Green":
+                        {
+                            b.OverControl.BackColor = greenOVC;
+                            b.PushControl.BackColor = greenPSC;
+                            break;
+                        }
+                    case "Blue":
+                        {
+                            b.OverControl.BackColor = blueOVC;
+                            b.PushControl.BackColor = bluePSC;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            
+                
         }
 
         //Beleuchtet einen Button, falls lighted=true, sonst wird er nicht mehr beleuchtet
