@@ -146,7 +146,7 @@ namespace ProjectEntities
         {
             Dynamic targetObj = null;
             {
-                AlienUnitAI ai = Intellect as AlienUnitAI;
+                AlienAI ai = Intellect as AlienAI;
                 if (ai != null)
                     targetObj = ai.CurrentTask.Entity;
             }
