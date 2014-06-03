@@ -169,32 +169,32 @@ type F3R3
 		light
 		{
 			attenuationFar = 10
-			position = -14.08707 -12.73813 0
+			position = -14.08707 -12.73813 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 0.02838659 -12.99648 0
+			position = 0.8754776 -13.00854 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -14.03227 0.04136476 0
+			position = -14.03227 0.04136476 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 0.9822259 -0.1399193 0
+			position = 0.9822259 -0.1399193 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -14.41881 14.86238 0
+			position = -14.41881 14.86238 2.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = 1.027165 14.80246 0
+			position = 1.027165 14.80246 2.5
 		}
 		mesh
 		{
