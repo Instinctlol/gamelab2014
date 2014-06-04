@@ -23,7 +23,7 @@ namespace Game
         enum CameraType
         {
             Game,
-            Free,
+            //Free,
 
             Count
         }
@@ -122,6 +122,7 @@ namespace Game
             minimapControl.BackTexture = minimapTexture;
             minimapControl.RenderUI += new RenderUIDelegate(Minimap_RenderUI);
 
+            //ToDO: Initialisierung der Camera
             //set camera position
             foreach (Entity entity in Map.Instance.Children)
             {
@@ -177,46 +178,18 @@ namespace Game
                 return base.OnKeyDown(e);
 
             //change camera type
-            //if (e.Key == EKeys.F7)
-            //{
-            //    cameraType = (CameraType)((int)GetRealCameraType() + 1);
-            //    if (cameraType == CameraType.Count)
-            //        cameraType = (CameraType)0;
+            if (e.Key == EKeys.F7)
+            {
+                cameraType = (CameraType)((int)GetRealCameraType() + 1);
+                if (cameraType == CameraType.Count)
+                    cameraType = (CameraType)0;
 
-            //    FreeCameraEnabled = cameraType == CameraType.Free;
+                FreeCameraEnabled = false; // cameraType == CameraType.Free;
+                
+                GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
 
-            //    GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
-
-            //    return true;
-            //}
-
-            //select another demo map
-            //if (e.Key == EKeys.F3)
-            //{
-            //    GameWorld.Instance.NeedChangeMap("Maps\\MainDemo\\Map.map", "Teleporter_Maps", null);
-            //    return true;
-            //}
-
-            // Aliens spawnen
-            //if (e.Key == EKeys.F1)
-            //{
-            //    List<MapObject> myspawnerpoints = Map.Instance.SceneGraphObjects.FindAll(delegate(MapObject obj)
-            //    {
-            //        ProjectEntities.MySpawner myspawnpoint = obj as ProjectEntities.MySpawner;
-
-            //        if (myspawnpoint != null)
-            //        {
-            //            return true;
-            //        }
-            //        else
-            //        {
-            //            return false;
-            //        }
-            //    });
-
-            //    ProjectEntities.MySpawner mypawnpoint = myspawnerpoints[0] as ProjectEntities.MySpawner;
-            //    mypawnpoint.SpawnSmallAlien();
-            //}
+                return true;
+            }
 
             return base.OnKeyDown(e);
         }
@@ -273,8 +246,7 @@ namespace Game
                 return base.OnMouseUp(button);
 
             //do tasks
-            if ((button == EMouseButtons.Right || button == EMouseButtons.Left) &&
-                (!FreeCameraMouseRotating || !EngineApp.Instance.MouseRelativeMode))
+            if ((button == EMouseButtons.Right || button == EMouseButtons.Left) && (!FreeCameraMouseRotating || !EngineApp.Instance.MouseRelativeMode))
             {
                 bool pickingSuccess = false;
                 Vec3 mouseMapPos = Vec3.Zero;
@@ -593,6 +565,7 @@ namespace Game
 
             bool activeConsole = EngineConsole.Instance != null && EngineConsole.Instance.Active;
 
+            
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
                 if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
@@ -682,7 +655,7 @@ namespace Game
                 }
 
             }
-
+            
 
             //gameStatus
             if (string.IsNullOrEmpty(hudControl.Controls["GameStatus"].Text))
@@ -1163,6 +1136,7 @@ namespace Game
             }
         }
 
+        // ToDo: Minimap anpassen
         //Draw minimap
         void Minimap_RenderUI(Control sender, GuiRenderer renderer)
         {
@@ -1314,6 +1288,7 @@ namespace Game
             }
         }
 
+        // ToDo: Minimap anpassen
         /// <summary>
         /// Changes Map position by calculating the position from the position of the mouse on the minimap
         /// </summary>
@@ -1373,8 +1348,7 @@ namespace Game
                 control.BackTexture = null;
         }
 
-        protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward,
-           out Vec3 up, ref Degree cameraFov)
+        protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward, out Vec3 up, ref Degree cameraFov)
         {
             Vec3 offset;
             {
