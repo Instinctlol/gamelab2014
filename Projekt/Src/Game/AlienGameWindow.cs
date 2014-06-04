@@ -23,7 +23,6 @@ namespace Game
         enum CameraType
         {
             Game,
-            //Free,
 
             Count
         }
@@ -565,7 +564,6 @@ namespace Game
 
             bool activeConsole = EngineConsole.Instance != null && EngineConsole.Instance.Active;
 
-            
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
                 if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
@@ -584,6 +582,7 @@ namespace Game
                     UpdateCameraScrollBars();
                 }
 
+             /*
                 //alienCameraDirection
                 //ToDo Home und End-Taste verändern den Winkel der Kamera
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
@@ -601,7 +600,7 @@ namespace Game
                         cameraDirection.Vertical = cameraAngleRange[0];
                     UpdateCameraScrollBars();
                 }
-
+            */
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Q))
                 {
                     cameraDirection.Horizontal += delta * 2;
