@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = 32.17203 -97.90762 39.50331
-editorCameraDirection = 1.813383 -0.8466049
+editorCameraPosition = 52.77335 -93.76672 29.03986
+editorCameraDirection = 1.286076 -0.8888127
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -84,19 +84,81 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 91
-			entityClassName = BooleanSwitch
-			className = BooleanSwitch_0
+			subscriptionsToDeletionEvent = 85
+			entityClassName = Terminal
+			className = Terminal_0
 			customScriptCodeCreated = False
 			entity
 			{
-				type = LogicScriptMethod
+				type = LogicDesignerMethod
 				uin = 6
-				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
-				methodName = ValueChange
+				actions = 97
+				methodName = TerminalAction
 				returnType = System.Void
 				parameters = 
 				isEntityEventMethod = True
+				entity
+				{
+					type = LogicCallGetEntityMethodAction
+					uin = 97
+					subscriptionsToDeletionEvent = 60
+					entity = 60
+					dotPathAction = 98
+					entity
+					{
+						type = LogicCallNonStaticMethodAction
+						uin = 98
+						methodName = RotateLeft
+					}
+				}
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 99
+			subscriptionsToDeletionEvent = 90
+			entityClassName = Terminal
+			className = Terminal_1
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicDesignerMethod
+				uin = 100
+				actions = 101
+				methodName = TerminalAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+				entity
+				{
+					type = LogicCallGetEntityMethodAction
+					uin = 101
+					subscriptionsToDeletionEvent = 82
+					entity = 82
+					dotPathAction = 102
+					entity
+					{
+						type = LogicCallNonStaticMethodAction
+						uin = 102
+						methodName = DoSwitchLight
+						parameterActions = 103
+						parameterTypeNames
+						{
+							item
+							{
+								value = Boolean
+							}
+						}
+						entity
+						{
+							type = LogicGetConstantValueAction
+							uin = 103
+							valueType = System.Boolean
+							value = False
+						}
+					}
+				}
 			}
 		}
 	}
@@ -766,6 +828,7 @@ entity
 	type = Ring
 	uin = 60
 	classPrompt = Ring
+	subscriptionsToDeletionEvent = 97
 	rotatable = True
 	id = -1
 	corners = 8
@@ -1124,6 +1187,7 @@ entity
 	type = SectorGroup
 	uin = 82
 	classPrompt = SectorGroup
+	subscriptionsToDeletionEvent = 101
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1165,14 +1229,15 @@ entity
 	type = Terminal
 	uin = 85
 	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 5
 	repairable = 86
 	buttonType = Default
 	taskType = ColorSequence
-	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_0
+	logicClass = 5
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
@@ -1226,25 +1291,24 @@ entity
 	type = Terminal
 	uin = 90
 	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 99
 	taskData = 1234
 	buttonType = None
 	taskType = PIN
-	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 63.44387 -69.60484 1.990149
 	name = Terminal_1
+	logicClass = 99
 }
 entity
 {
 	type = BooleanSwitch
 	uin = 91
 	classPrompt = BooleanSwitch
-	subscriptionsToDeletionEvent = 5
 	value = False
 	healthFactorAtBeginning = 1
 	position = -2.774967 -96.94933 1.093226
 	name = BooleanSwitch_0
-	logicClass = 5
 }
 entity
 {

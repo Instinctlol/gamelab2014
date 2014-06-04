@@ -39,13 +39,6 @@ namespace ProjectEntities
             Default
         };
 
-        public enum TerminalActionType
-        {
-            Rotation,
-            Lights,
-            Doors
-        }
-
         //Repairable das zunächst reperiert werden muss
         [FieldSerialize]
         private Repairable repairable = null;
@@ -61,9 +54,6 @@ namespace ProjectEntities
         //TaskType
         [FieldSerialize]
         private TerminalTaskType taskType;
-
-        [FieldSerialize]
-        private TerminalActionType actionType;
 
         //GUI Fenster das auf dem Terminal angezeigt wird
         private Window initialWindow;
@@ -116,15 +106,6 @@ namespace ProjectEntities
                     button.AttachRepairable(repairable);
                 }
 
-            }
-        }
-
-        public TerminalActionType ActionType
-        {
-            get { return actionType; }
-            set
-            {
-                actionType = value;
             }
         }
 
@@ -189,6 +170,12 @@ namespace ProjectEntities
         [LogicSystemBrowsable(true)]
         public event TerminalActionDelegate TerminalAction;
         //*****************************
+
+        public void OnTerminalFinished()
+        {
+            if (TerminalAction != null)
+                TerminalAction(this);
+        }
 
 
         //Ausführen beim laden des Objektes
@@ -277,24 +264,12 @@ namespace ProjectEntities
 
         private void TaskFailed()
         {
-            EngineConsole.Instance.Print("Task failed");
             button.RefreshButton();
         }
 
         private void TaskSuccessful()
         {
-            EngineConsole.Instance.Print("Successful");
-            switch(actionType)
-            {
-                case TerminalActionType.Lights:
-                    {
-                        Window = new LightActionWindow(this);
-                        break;
-                    }
-                    
-                default:
-                    break;
-            }
+            Window = new FinishedWindow(this);
         }
     }
 }

@@ -6,30 +6,28 @@ using System.Timers;
 
 namespace ProjectEntities
 {
-    public class LightActionWindow : Window
+    public class FinishedWindow : Window
     {
         //Textfeld in dem ausgegeben werden soll
-        private TextBox countdownBox;
         private Button switchButton;
-        private Sector currSector;
 
-        public LightActionWindow(Terminal terminal)
+        private Terminal terminal;
+
+        public FinishedWindow(Terminal terminal)
         {
             //GUI erzeugen
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\ActionWindows\\LightActionGUI.gui");
-
-            countdownBox = (TextBox)CurWindow.Controls["Output"];
             switchButton = ((Button)CurWindow.Controls["SwitchButton"]);
 
             //Methode anmelden
             switchButton.Click += SwitchButton_click;
 
-            currSector = StationSystem.Instance.GetSector(terminal.Position);
+            this.terminal = terminal;
         }
 
         private void SwitchButton_click(Button sender)
         {
-            //currSector.SwitchLights(!currSector.LightStatus);
+            terminal.OnTerminalFinished();
         }
     }
 }
