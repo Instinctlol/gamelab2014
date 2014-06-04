@@ -932,7 +932,7 @@ namespace Game
                 }
                 else 
                 {
-                    if(false)
+                    if(client.isOculus == true)
                     {
                         gameWindow = new OculusGameWindow();
                         GameMap.Instance.IsAlien = false;
