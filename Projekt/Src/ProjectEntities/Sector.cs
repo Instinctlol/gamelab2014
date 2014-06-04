@@ -126,7 +126,7 @@ namespace ProjectEntities
 
 
             if (obj is AlienUnit)
-                OnAlienIn((AlienUnit)obj);
+                OnAlienIn();
             else if (obj is OutDoor && ring != null)
                 ring.RotateRing += ((OutDoor)obj).OnRotate;
 
@@ -152,7 +152,7 @@ namespace ProjectEntities
                 OnDynamicOut((Dynamic)obj);
 
             if (obj is AlienUnit)
-                OnAlienOut((AlienUnit)obj);
+                OnAlienOut();
 
         }
 
@@ -161,6 +161,16 @@ namespace ProjectEntities
         {
 
             base.OnPostCreate(loaded);
+
+            if (!loaded)
+                return;
+
+            //Wenn Ring vorhanden bei seinem Event unterschreiben
+            if (ring != null)
+                ring.RotateRing += OnRotateRing;
+
+            if (group != null)
+                group.SwitchLight += SwitchLights;
         }
 
         protected override void OnRender(Engine.Renderer.Camera camera)
@@ -170,19 +180,12 @@ namespace ProjectEntities
             if (loaded)
                 return;
 
-            //Wenn Ring vorhanden bei seinem Event unterschreiben
-            if (ring != null)
-                ring.RotateRing += OnRotateRing;
-
-            if (group != null)
-                group.SwitchLight += SwitchLights;
-
-            if (aliensInSector <= 0  && GameMap.Instance.IsAlien)
+            if (aliensInSector <= 0 && GameMap.Instance.IsAlien)
             {
                 aliensInSector = 0;
                 IsHidden = true;
             }
-
+            
             loaded = true;
 
         }
@@ -299,7 +302,7 @@ namespace ProjectEntities
             lights.Remove(obj);
         }
 
-        private void OnAlienIn(AlienUnit obj)
+        private void OnAlienIn()
         {
             if (GameMap.Instance.IsAlien)
             {
@@ -308,7 +311,7 @@ namespace ProjectEntities
             }
         }
 
-        private void OnAlienOut(AlienUnit obj)
+        private void OnAlienOut()
         {
             if (GameMap.Instance.IsAlien)
             {
@@ -328,7 +331,7 @@ namespace ProjectEntities
             if (isHidden)
                 l.Visible = false;
             else
-                l.Visible = true;
+                l.Visible = lightStatus;
         }
     }
 }

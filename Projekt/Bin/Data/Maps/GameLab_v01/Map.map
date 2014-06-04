@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = 2.024393 -98.1018 1.884484
-editorCameraDirection = 0.2342869 -0.5397861
+editorCameraPosition = 32.17203 -97.90762 39.50331
+editorCameraDirection = 1.813383 -0.8466049
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -619,7 +619,8 @@ entity
 	type = SpawnPoint
 	uin = 51
 	classPrompt = SpawnPoint
-	defaultPoint = False
+	faction = GoodFaction
+	defaultPoint = True
 	position = -4.344627 -105.2482 0.6073232
 	name = SpawnPoint_0
 	editorLayer = "Root Layer\\F1\\Dynamics"
@@ -1045,7 +1046,7 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = -75.59758 -7.567012 0.5730705
+	position = 42.38326 -60.38409 0.5730705
 	name = AlienSpawner_0
 }
 entity
@@ -1245,11 +1246,10 @@ entity
 	name = BooleanSwitch_0
 	logicClass = 5
 }
-
 entity
 {
 	type = TestProgressRepairable
-	uin = 96
+	uin = 92
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1257,11 +1257,10 @@ entity
 	rotation = 0.7071068 0 0 0.7071068
 	name = TestProgressRepairable_0
 }
-
 entity
 {
 	type = Corridor-F3
-	uin = 92
+	uin = 93
 	classPrompt = MapObject
 	position = -30.93774 32.32301 0
 	rotation = 0 0 0.9264106 0.3765153
@@ -1272,7 +1271,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 93
+	uin = 94
 	classPrompt = Sector
 	ring = 60
 	group = 79
@@ -1289,7 +1288,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 94
+	uin = 95
 	classPrompt = MapObject
 	position = 32.60133 -31.67697 0
 	rotation = 0 0 0.4027202 -0.9153234
@@ -1300,7 +1299,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 95
+	uin = 96
 	classPrompt = Sector
 	ring = 60
 	group = 79
