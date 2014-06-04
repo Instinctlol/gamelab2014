@@ -526,7 +526,8 @@ namespace Game
 				EngineConsole.Instance.AddCommand( "showProfilingTool", ConsoleCommand_ShowProfilingTool );
 
 			//example of custom input device
-			//ExampleCustomInputDevice.InitDevice();
+			
+            ExampleCustomInputDevice.InitDevice();
 
 			return true;
 		}
