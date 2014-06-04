@@ -25,6 +25,7 @@ namespace ProjectEntities
 	public class AlienType : AlienUnitType
 	{
         const float heightDefault = 1.8f;
+
         [FieldSerialize]
         float height = heightDefault;
 
@@ -75,6 +76,9 @@ namespace ProjectEntities
 
         Vec3 oldMainBodyPosition;
         Vec3 mainBodyVelocity;
+        // Channel zum abspielen des Default-Sounds für die kleinen Aliens
+        Sound alienSound;
+        VirtualChannel alienChannel;
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
@@ -93,6 +97,9 @@ namespace ProjectEntities
             body.Static = true;
             body.Position = Position;
             body.Rotation = Rotation;
+
+            // Sound erstellen
+            alienSound = SoundWorld.Instance.SoundCreate(this._type.SoundCollision, SoundMode.Record);
 
             float length = Type.Height - Type.Radius * 2;
             if (length < 0)
@@ -307,7 +314,14 @@ namespace ProjectEntities
             if (mainBodyVelocity.ToVec2().Length() > .1f)
             {
                 move = true;
+                EngineConsole.Instance.Print("move sound");
                 moveSpeed = (Rotation.GetInverse() * mainBodyVelocity).X;
+                if ( alienChannel != null)
+                {
+                    alienChannel.Stop();
+                }
+                // Play sound
+                this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
             }
 
             tree.SetParameterValue("move", move ? 1 : 0);

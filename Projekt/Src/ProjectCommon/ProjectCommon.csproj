@@ -117,7 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicMeshManagerImpl.cs" />
-    <Compile Include="ExampleCustomInputDevice.cs" />
+    <Compile Include="ExampleCustomInputDevice.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiViewRenderingManager.cs" />
     <Compile Include="MyNativeDLL.cs" />
     <Compile Include="EngineConsole.cs" />
