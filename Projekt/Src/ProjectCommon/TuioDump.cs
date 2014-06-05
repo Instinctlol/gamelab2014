@@ -102,27 +102,23 @@ using System.Collections.Generic;
 
         public void writeData(float id, float sid, float insttype, float xcord, float ycord, float speed, float accel) {
             mutexLock.WaitOne();
-
-            float[] newpoint = new float[] { id, sid, DateTime.Now.Millisecond, insttype, xcord, ycord, speed, accel };
+            float timestamp = DateTime.Now.Millisecond+DateTime.Now.Second*1000+DateTime.Now.Minute*60000+DateTime.Now.Hour*3600000;
+            float[] newpoint = new float[] { id, sid, timestamp , insttype, xcord, ycord, speed, accel };
 
             dataPoints.Add(newpoint);
-
             mutexLock.ReleaseMutex();
         }
 
-        public static float[,] getData() {
+        public static List<float[]> getData() {
             mutexLock.WaitOne();
             int zahlElemente = dataPoints.Count;
-            float[,] data = new float[zahlElemente,8];
-            for (int i = 0; i < zahlElemente; i++){
-                for(int j = 0; j<8; j++){
-                    data[i,j] = dataPoints[i][j];
-                }
+            List<float[]> dataTemp = new List<float[]>();
+            for (int i = 0; i < zahlElemente; i++) {
+                dataTemp.Add(dataPoints[i]);
             }
-            
             dataPoints = new List<float[]>();
             mutexLock.ReleaseMutex();
-            return data;
+            return dataTemp;
         }
 
 		static public void runTuio() {
