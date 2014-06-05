@@ -16,8 +16,8 @@ namespace ProjectCommon
 
         WiimoteCollection wmc = null;
         bool wiiMoteInitialized = false;
-        Wiimote wm = new Wiimote();
-        WiimoteState lastState = null;
+        public Wiimote wm = new Wiimote();
+        public WiimoteState lastState = null;
         bool useWiiMote = true; // 
         
 
@@ -30,11 +30,6 @@ namespace ProjectCommon
             get { return instanceWM; }
 
         }
-
-        //public static WiiManager InstanceWM
-        //{
-        //    get { return InstanceWM;}
-        //}
 
         public static void InitMote()
         {
