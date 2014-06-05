@@ -188,21 +188,42 @@ namespace ProjectEntities
         public delegate void TerminalActionDelegate(Terminal entity);
 
         [LogicSystemBrowsable(true)]
-        public event TerminalActionDelegate TerminalAction;
+        public event TerminalActionDelegate TerminalSwitchAction;
         [LogicSystemBrowsable(true)]
-        public event TerminalActionDelegate TerminalAction2;
+        public event TerminalActionDelegate TerminalLightAction;
+        [LogicSystemBrowsable(true)]
+        public event TerminalActionDelegate TerminalDoorAction;
+        [LogicSystemBrowsable(true)]
+        public event TerminalActionDelegate TerminalRotateLeftAction;
+        [LogicSystemBrowsable(true)]
+        public event TerminalActionDelegate TerminalRotateRightAction;
 
         //*****************************
 
-        public void OnTerminalFinished()
+        public void OnTerminalFinishedDoLight()
         {
-            if (TerminalAction != null)
-                TerminalAction(this);
+            if (TerminalLightAction != null)
+                TerminalLightAction(this);
         }
-        public void OnTerminalFinished2()
+        public void OnTerminalFinishedDoDoor()
         {
-            if (TerminalAction2 != null)
-                TerminalAction2(this);
+            if (TerminalDoorAction != null)
+                TerminalDoorAction(this);
+        }
+        public void OnTerminalFinishedDoSwitch()
+        {
+            if (TerminalSwitchAction != null)
+                TerminalSwitchAction(this);
+        }
+        public void OnTerminalFinishedDoRotateLeft()
+        {
+            if (TerminalRotateLeftAction != null)
+                TerminalRotateLeftAction(this);
+        }
+        public void OnTerminalFinishedDoRotateRight()
+        {
+            if (TerminalRotateRightAction != null)
+                TerminalRotateRightAction(this);
         }
 
 

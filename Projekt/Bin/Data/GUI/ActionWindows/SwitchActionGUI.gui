@@ -6,6 +6,6 @@ control Window
 	{
 		position = ScaleByResolution 420 370
 		name = SwitchButton
-		text = Switch Lights
+		text = Switch
 	}
 }
