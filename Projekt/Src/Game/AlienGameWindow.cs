@@ -31,10 +31,8 @@ namespace Game
         [Config("Map", "drawPathMotionMap")]
         public static bool mapDrawPathMotionMap;
 
-        Range cameraDistanceRange = new Range(10, 300);
-        Range cameraAngleRange = new Range(.001f, MathFunctions.PI / 2 - .001f);
-        float cameraDistance = 23;
-        SphereDir cameraDirection = new SphereDir(1.5f, .85f);
+        float cameraDistance = 20;
+        SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
         Vec2 cameraPosition;
 
         //HUD
@@ -61,10 +59,6 @@ namespace Game
         Control minimapControl;
 
         float timeForUpdateGameStatus;
-
-        ScrollBar cameraDistanceScrollBar;
-        ScrollBar cameraHeightScrollBar;
-        bool disableUpdatingCameraScrollBars;
 
         // Beim Starten des Spiels GUI initialisieren und co
         protected override void OnAttach()
@@ -96,20 +90,6 @@ namespace Game
             {
                 mapDrawPathMotionMap = !mapDrawPathMotionMap;
             };
-
-            cameraDistanceScrollBar = hudControl.Controls["CameraDistance"] as ScrollBar;
-            if (cameraDistanceScrollBar != null)
-            {
-                cameraDistanceScrollBar.ValueRange = cameraDistanceRange;
-                cameraDistanceScrollBar.ValueChange += cameraDistanceScrollBar_ValueChange;
-            }
-
-            cameraHeightScrollBar = hudControl.Controls["CameraHeight"] as ScrollBar;
-            if (cameraHeightScrollBar != null)
-            {
-                cameraHeightScrollBar.ValueRange = cameraAngleRange;
-                cameraHeightScrollBar.ValueChange += cameraHeightScrollBar_ValueChange;
-            }
 
             InitControlPanelButtons();
             UpdateControlPanel();
@@ -154,7 +134,7 @@ namespace Game
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
 
-            UpdateCameraScrollBars();
+            //UpdateCameraScrollBars();
         }
 
         // Beim Beenden des Spiels minimap freigeben
@@ -566,23 +546,7 @@ namespace Game
 
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
-                {
-                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance < cameraDistanceRange[0])
-                        cameraDistance = cameraDistanceRange[0];
-                    UpdateCameraScrollBars();
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
-                {
-                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance > cameraDistanceRange[1])
-                        cameraDistance = cameraDistanceRange[1];
-                    UpdateCameraScrollBars();
-                }
-
-             /*
+                /*          
                 //alienCameraDirection
                 //ToDo Home und End-Taste verändern den Winkel der Kamera
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
@@ -683,10 +647,10 @@ namespace Game
                     }
 
                     string gameStatus = "";
-                    if (!existsAlly)
-                        gameStatus = "!!! Victory !!!";
-                    if (!existsEnemy)
-                        gameStatus = "!!! Defeat !!!";
+                    //if (!existsAlly)
+                    //    gameStatus = "!!! Victory !!!";
+                    //if (!existsEnemy)
+                    //    gameStatus = "!!! Defeat !!!";
 
                     hudControl.Controls["GameStatus"].Text = gameStatus;
                 }
@@ -1178,8 +1142,6 @@ namespace Game
                 //else
                 //    color = new ColorValue(1, 0, 0);
 
-
-
                 renderer.AddQuad(rect, color);
             }
 
@@ -1364,20 +1326,6 @@ namespace Game
             up = new Vec3(0, 0, 1);
         }
 
-        void cameraDistanceScrollBar_ValueChange(ScrollBar sender)
-        {
-            if (disableUpdatingCameraScrollBars)
-                return;
-            cameraDistance = sender.Value;
-        }
-
-        void cameraHeightScrollBar_ValueChange(ScrollBar sender)
-        {
-            if (disableUpdatingCameraScrollBars)
-                return;
-            cameraDirection.Vertical = sender.Value;
-        }
-
         void numberSpawnUnitsList_SelectedIndexChange(ListBox sender)
         {
             // Den Index (beginnt bei 0) plus 1
@@ -1387,16 +1335,6 @@ namespace Game
         void numberSpawnUnitsList_ItemMouseDoubleClick(object sender, ListBox.ItemMouseEventArgs e)
         {
             spawnNumber = (int)e.ItemIndex + 1;
-        }
-
-        void UpdateCameraScrollBars()
-        {
-            disableUpdatingCameraScrollBars = true;
-            if (cameraDistanceScrollBar != null)
-                cameraDistanceScrollBar.Value = cameraDistance;
-            if (cameraHeightScrollBar != null)
-                cameraHeightScrollBar.Value = cameraDirection.Vertical;
-            disableUpdatingCameraScrollBars = false;
         }
 
         // Brauchen wir das??
