@@ -563,20 +563,21 @@ namespace Game
 
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
-//                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
-//               {
-//                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-//                    if (cameraDistance < cameraDistanceRange[0])
-//                        cameraDistance = cameraDistanceRange[0];
-//                    UpdateCameraScrollBars();
-//                }
-//                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
-//                {
-//                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-//                    if (cameraDistance > cameraDistanceRange[1])
-//                        cameraDistance = cameraDistanceRange[1];
-//                    UpdateCameraScrollBars();
-//                }
+                /*
+                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
+               {
+                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
+                    if (cameraDistance < cameraDistanceRange[0])
+                      cameraDistance = cameraDistanceRange[0];
+                    UpdateCameraScrollBars();
+                }
+                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
+                {
+                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
+                    if (cameraDistance > cameraDistanceRange[1])
+                        cameraDistance = cameraDistanceRange[1];
+                    UpdateCameraScrollBars();
+                }
 
                 //alienCameraDirection
                 //ToDo Home und End-Taste verändern den Winkel der Kamera
