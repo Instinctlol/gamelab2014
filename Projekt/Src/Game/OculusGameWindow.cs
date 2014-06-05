@@ -282,68 +282,68 @@ namespace Game
         //}
 
 
-        //static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
-        //{
-        //    Vec2 result = value;
-        //    result *= viewportSize;
-        //    result = new Vec2((int)result.X, (int)result.Y);
-        //    result /= viewportSize;
-        //    return result;
-        //}
+        static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
+        {
+            Vec2 result = value;
+            result *= viewportSize;
+            result = new Vec2((int)result.X, (int)result.Y);
+            result /= viewportSize;
+            return result;
+        }
 
 
-        //void DrawObjectSelectionBorder(Bounds bounds)
-        //{
-        //    Camera camera = RendererWorld.Instance.DefaultCamera;
-        //    GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
+        void DrawObjectSelectionBorder(Bounds bounds)
+        {
+            Camera camera = RendererWorld.Instance.DefaultCamera;
+            GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
 
-        //    Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
-        //    Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
+            Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
+            Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
 
-        //    float sizeY = .08f;
-        //    Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
-        //    float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
+            float sizeY = .08f;
+            Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
+            float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
 
-        //    Rect screenRectangle = Rect.Cleared;
-        //    {
-        //        Vec3[] points = null;
-        //        bounds.ToPoints(ref points);
-        //        foreach (Vec3 point in points)
-        //        {
-        //            Vec2 screenPoint;
-        //            if (camera.ProjectToScreenCoordinates(point, out screenPoint))
-        //            {
-        //                screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
-        //                screenRectangle.Add(screenPoint);
-        //            }
-        //        }
+            Rect screenRectangle = Rect.Cleared;
+            {
+                Vec3[] points = null;
+                bounds.ToPoints(ref points);
+                foreach (Vec3 point in points)
+                {
+                    Vec2 screenPoint;
+                    if (camera.ProjectToScreenCoordinates(point, out screenPoint))
+                    {
+                        screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
+                        screenRectangle.Add(screenPoint);
+                    }
+                }
 
-        //        Vec2[] screenPositions = new Vec2[] { 
-        //            new Vec2( 0, 0 ), 
-        //            new Vec2( 1, 0 ), 
-        //            new Vec2( 0, 1 ), 
-        //            new Vec2( 1, 1 ) };
-        //        foreach (Vec2 screenPosition in screenPositions)
-        //        {
-        //            Ray ray = camera.GetCameraToViewportRay(screenPosition);
-        //            if (bounds.RayIntersection(ray))
-        //                screenRectangle.Add(screenPosition);
-        //        }
+                Vec2[] screenPositions = new Vec2[] { 
+                    new Vec2( 0, 0 ), 
+                    new Vec2( 1, 0 ), 
+                    new Vec2( 0, 1 ), 
+                    new Vec2( 1, 1 ) };
+                foreach (Vec2 screenPosition in screenPositions)
+                {
+                    Ray ray = camera.GetCameraToViewportRay(screenPosition);
+                    if (bounds.RayIntersection(ray))
+                        screenRectangle.Add(screenPosition);
+                }
 
-        //        if (screenRectangle.GetSize().X < size.X * 2)
-        //        {
-        //            screenRectangle = new Rect(
-        //                screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
-        //                screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
-        //        }
-        //        if (screenRectangle.GetSize().Y < size.Y * 2)
-        //        {
-        //            screenRectangle = new Rect(
-        //                screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
-        //                screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
-        //        }
-        //    }
+                if (screenRectangle.GetSize().X < size.X * 2)
+                {
+                    screenRectangle = new Rect(
+                        screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
+                        screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                }
+                if (screenRectangle.GetSize().Y < size.Y * 2)
+                {
+                    screenRectangle = new Rect(
+                        screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
+                        screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                }
+            }
 
-        //}
+        }
     }
 }
