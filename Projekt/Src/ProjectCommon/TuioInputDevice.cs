@@ -13,9 +13,9 @@ namespace ProjectCommon
 	//For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
 	//in the GameEngineApp.cs. After it you will see this device in the Game Options window.
 
-	public class ExampleCustomInputDeviceSpecialEvent : InputEvent
+	public class TuioInputDeviceSpecialEvent : InputEvent
 	{
-		public ExampleCustomInputDeviceSpecialEvent( InputDevice device )
+		public TuioInputDeviceSpecialEvent( InputDevice device )
 			: base( device )
 		{
 		}
@@ -118,15 +118,15 @@ namespace ProjectCommon
                 if (detected[0] && dataelement[0] == 0 && dataelement[3] == 3) {
                     detected[0] = false;
 
-                    ExampleCustomInputDeviceSpecialEvent customEvent =
-                        new ExampleCustomInputDeviceSpecialEvent(this);
+                    TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(this);
                     InputDeviceManager.Instance.SendEvent(customEvent);
                     Console.WriteLine("send");
                     used.Add(dataelement);
                 }
                 if (dataelement[0] == 0 && dataelement[3] == 2 && detected[0]) {
-                    ExampleCustomInputDeviceSpecialEvent customEvent =
-                        new ExampleCustomInputDeviceSpecialEvent(this);
+                    TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(this);
                     InputDeviceManager.Instance.SendEvent(customEvent);
                 }
             }

@@ -10,9 +10,9 @@ namespace ProjectCommon
     //For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
     //in the GameEngineApp.cs. After it you will see this device in the Game Options window.
 
-    public class ExampleCustomInputDeviceSpecialEvent : InputEvent
+    public class ExampleCustomDeviceSpecialEvent : InputEvent
     {
-        public ExampleCustomInputDeviceSpecialEvent(InputDevice device)
+        public ExampleCustomDeviceSpecialEvent(InputDevice device)
             : base(device)
         {
         }

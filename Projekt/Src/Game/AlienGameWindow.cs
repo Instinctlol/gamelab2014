@@ -152,7 +152,7 @@ namespace Game
         }
 		
 		 protected override bool OnCustomInputDeviceEvent(InputEvent e) {
-            ExampleCustomInputDeviceSpecialEvent test = (ExampleCustomInputDeviceSpecialEvent)e;
+            TuioInputDeviceSpecialEvent test = (TuioInputDeviceSpecialEvent)e;
             if (test != null)
             {
 
