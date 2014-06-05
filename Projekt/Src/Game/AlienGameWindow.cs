@@ -26,6 +26,7 @@ namespace Game
 
             Count
         }
+		static float mydelta  = 0;
         static CameraType cameraType = CameraType.Game;// vielleicht brauchen wir zuweisung nicht
 
         [Config("Map", "drawPathMotionMap")]
@@ -134,7 +135,7 @@ namespace Game
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
 
-            //UpdateCameraScrollBars();
+
         }
 
         // Beim Beenden des Spiels minimap freigeben
@@ -149,7 +150,23 @@ namespace Game
 
             base.OnDetach();
         }
+		
+		 protected override bool OnCustomInputDeviceEvent(InputEvent e) {
+            ExampleCustomInputDeviceSpecialEvent test = (ExampleCustomInputDeviceSpecialEvent)e;
+            if (test != null)
+            {
 
+                cameraDirection.Horizontal += mydelta * 2;
+
+                if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
+                    Console.WriteLine("im If");
+                    cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                
+                Console.WriteLine("Cam");
+            }
+            return false;
+        }
+		
         protected override bool OnKeyDown(KeyEvent e)
         {
             //If atop openly any window to not process
@@ -546,7 +563,21 @@ namespace Game
 
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
-                /*          
+//                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
+//               {
+//                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
+//                    if (cameraDistance < cameraDistanceRange[0])
+//                        cameraDistance = cameraDistanceRange[0];
+//                    UpdateCameraScrollBars();
+//                }
+//                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
+//                {
+//                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
+//                    if (cameraDistance > cameraDistanceRange[1])
+//                        cameraDistance = cameraDistanceRange[1];
+//                    UpdateCameraScrollBars();
+//                }
+
                 //alienCameraDirection
                 //ToDo Home und End-Taste verändern den Winkel der Kamera
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Home))

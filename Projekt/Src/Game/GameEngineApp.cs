@@ -19,6 +19,7 @@ using Engine.Networking;
 using ProjectCommon;
 using ProjectEntities;
 
+
 namespace Game
 {
 	/// <summary>
@@ -528,6 +529,7 @@ namespace Game
 			//example of custom input device
 			
             ExampleCustomInputDevice.InitDevice();
+			TuioInputDevice.InitDevice();
 
 			return true;
 		}
