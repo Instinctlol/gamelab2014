@@ -77,93 +77,12 @@ entity
 	{
 		type = LogicClassManager
 		uin = 4
-		entity
-		{
-			type = LogicEntityClass
-			uin = 5
-			subscriptionsToDeletionEvent = 92
-			entityClassName = Terminal
-			className = Terminal_0
-			customScriptCodeCreated = False
-			entity
-			{
-				type = LogicDesignerMethod
-				uin = 6
-				actions = 7
-				methodName = TerminalAction
-				returnType = System.Void
-				parameters = 
-				isEntityEventMethod = True
-				entity
-				{
-					type = LogicCallGetEntityMethodAction
-					uin = 7
-					subscriptionsToDeletionEvent = 67
-					entity = 67
-					dotPathAction = 8
-					entity
-					{
-						type = LogicCallNonStaticMethodAction
-						uin = 8
-						methodName = RotateLeft
-					}
-				}
-			}
-		}
-		entity
-		{
-			type = LogicEntityClass
-			uin = 9
-			subscriptionsToDeletionEvent = 97
-			entityClassName = Terminal
-			className = Terminal_1
-			customScriptCodeCreated = False
-			entity
-			{
-				type = LogicDesignerMethod
-				uin = 10
-				actions = 11
-				methodName = TerminalAction
-				returnType = System.Void
-				parameters = 
-				isEntityEventMethod = True
-				entity
-				{
-					type = LogicCallGetEntityMethodAction
-					uin = 11
-					subscriptionsToDeletionEvent = 89
-					entity = 89
-					dotPathAction = 12
-					entity
-					{
-						type = LogicCallNonStaticMethodAction
-						uin = 12
-						methodName = DoSwitchLight
-						parameterActions = 13
-						parameterTypeNames
-						{
-							item
-							{
-								value = Boolean
-							}
-						}
-						entity
-						{
-							type = LogicGetConstantValueAction
-							uin = 13
-							valueType = System.Boolean
-							value = False
-						}
-					}
-				}
-			}
-		}
 	}
 }
 entity
 {
 	type = MapCompositorManager
-	uin = 14
+	uin = 5
 	classPrompt = MapCompositorManager
 	items
 	{
@@ -172,7 +91,7 @@ entity
 entity
 {
 	type = SkyBox
-	uin = 15
+	uin = 6
 	classPrompt = SkyBox
 	enabled = True
 	textureName = "Base\\Types\\SkyBox\\space.dds"
@@ -182,7 +101,7 @@ entity
 entity
 {
 	type = F3R3
-	uin = 16
+	uin = 7
 	classPrompt = MapObject
 	position = -34 0 0
 	name = F3R3
@@ -191,7 +110,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 17
+	uin = 8
 	classPrompt = MapObject
 	position = 0 47 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -201,7 +120,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 18
+	uin = 9
 	classPrompt = MapObject
 	position = 0 -47 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -211,7 +130,7 @@ entity
 entity
 {
 	type = F3R1
-	uin = 19
+	uin = 10
 	classPrompt = MapObject
 	position = 34 0 0
 	rotation = 0 0 -1 -4.371139E-08
@@ -221,7 +140,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 20
+	uin = 11
 	classPrompt = Ring
 	rotatable = True
 	id = -1
@@ -237,10 +156,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 21
+	uin = 12
 	classPrompt = Sector
-	ring = 20
-	group = 69
+	ring = 11
+	group = 60
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -254,10 +173,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 22
+	uin = 13
 	classPrompt = Sector
-	ring = 20
-	group = 68
+	ring = 11
+	group = 59
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -270,10 +189,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 23
+	uin = 14
 	classPrompt = Sector
-	ring = 20
-	group = 68
+	ring = 11
+	group = 59
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -287,10 +206,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 24
+	uin = 15
 	classPrompt = Sector
-	ring = 20
-	group = 69
+	ring = 11
+	group = 60
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -304,7 +223,7 @@ entity
 entity
 {
 	type = DecorativeObjectManager
-	uin = 25
+	uin = 16
 	classPrompt = DecorativeObjectManager
 	enabled = True
 	visible = True
@@ -317,7 +236,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 26
+	uin = 17
 	classPrompt = MapObject
 	position = 82 0 0
 	name = F2R8
@@ -326,7 +245,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 27
+	uin = 18
 	classPrompt = MapObject
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
@@ -336,7 +255,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 28
+	uin = 19
 	classPrompt = MapObject
 	position = 47.72524 48.80709 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -346,7 +265,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 29
+	uin = 20
 	classPrompt = MapObject
 	position = 74.14777 30.54088 0
 	rotation = 0 0 -0.1736483 -0.9848077
@@ -357,7 +276,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 30
+	uin = 21
 	classPrompt = MapObject
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -367,7 +286,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 31
+	uin = 22
 	classPrompt = MapObject
 	position = 31.11989 73.79716 0
 	rotation = 0 0 -0.5877852 -0.8090171
@@ -378,7 +297,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 32
+	uin = 23
 	classPrompt = MapObject
 	position = 0 0 -100
 	name = Endkampf-Room
@@ -386,7 +305,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 33
+	uin = 24
 	classPrompt = MapObject
 	position = -56.22261 -57.11971 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -396,7 +315,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 34
+	uin = 25
 	classPrompt = MapObject
 	position = -74.06651 -31.11581 0
 	rotation = 0 0 -0.9743701 0.224951
@@ -407,7 +326,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 35
+	uin = 26
 	classPrompt = MapObject
 	position = -47.54507 48.79118 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -417,7 +336,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 36
+	uin = 27
 	classPrompt = MapObject
 	position = -32.24294 75.45021 0
 	rotation = 0 0 -0.7660444 -0.6427876
@@ -428,7 +347,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 37
+	uin = 28
 	classPrompt = MapObject
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -438,7 +357,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 38
+	uin = 29
 	classPrompt = MapObject
 	position = -30.04488 -73.74302 0
 	rotation = 0 0 -0.809017 0.5877853
@@ -449,7 +368,7 @@ entity
 entity
 {
 	type = BasicP2
-	uin = 39
+	uin = 30
 	classPrompt = MapObject
 	position = 56.75548 -57.5299 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -459,7 +378,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 40
+	uin = 31
 	classPrompt = MapObject
 	position = -6.5 104.5 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -469,7 +388,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 41
+	uin = 32
 	classPrompt = MapObject
 	position = -85.11515 -77.92515 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -479,7 +398,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 42
+	uin = 33
 	classPrompt = MapObject
 	position = 70.96076 -77.96041 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -489,7 +408,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 43
+	uin = 34
 	classPrompt = MapObject
 	position = -116.4543 -5.95177 0
 	rotation = 0 0 -1 1.216796E-08
@@ -499,7 +418,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 44
+	uin = 35
 	classPrompt = MapObject
 	position = -104.2226 -44.17335 0
 	rotation = 0 0 -0.975753 0.2188754
@@ -510,7 +429,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 45
+	uin = 36
 	classPrompt = MapObject
 	position = 78.85506 86.56708 0
 	rotation = 0 0 -0.3826835 -0.9238795
@@ -520,7 +439,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 46
+	uin = 37
 	classPrompt = MapObject
 	position = 43.66648 106.105 0
 	rotation = 0 0 0.5827719 0.8126359
@@ -531,7 +450,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum32"
-	uin = 47
+	uin = 38
 	classPrompt = MapObject
 	position = -6.280982 -115.8718 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -541,7 +460,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 48
+	uin = 39
 	classPrompt = MapObject
 	position = -42.15703 -104.9251 0
 	rotation = 0 0 -0.8121647 0.5834287
@@ -552,7 +471,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 49
+	uin = 40
 	classPrompt = MapObject
 	position = 44.16408 -105.611 0
 	rotation = 0 0 -0.5979915 0.8015029
@@ -563,7 +482,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum42"
-	uin = 50
+	uin = 41
 	classPrompt = MapObject
 	position = -77.90519 87.95537 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -573,7 +492,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 51
+	uin = 42
 	classPrompt = MapObject
 	position = -46.08652 106.8015 0
 	rotation = 0 0 0.7983319 0.602218
@@ -584,7 +503,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum52"
-	uin = 52
+	uin = 43
 	classPrompt = MapObject
 	position = 117.2715 -6.203758 0
 	name = F1R8
@@ -593,10 +512,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 53
+	uin = 44
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -609,10 +528,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 54
+	uin = 45
 	classPrompt = Sector
-	ring = 67
-	group = 87
+	ring = 58
+	group = 78
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -625,10 +544,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 55
+	uin = 46
 	classPrompt = Sector
-	ring = 67
-	group = 87
+	ring = 58
+	group = 78
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -642,10 +561,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 56
+	uin = 47
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -659,10 +578,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 57
+	uin = 48
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -676,7 +595,7 @@ entity
 entity
 {
 	type = SpawnPoint
-	uin = 58
+	uin = 49
 	classPrompt = SpawnPoint
 	faction = GoodFaction
 	defaultPoint = True
@@ -687,10 +606,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 59
+	uin = 50
 	classPrompt = Sector
-	ring = 67
-	group = 87
+	ring = 58
+	group = 78
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -704,10 +623,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 60
+	uin = 51
 	classPrompt = Sector
-	ring = 67
-	group = 89
+	ring = 58
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -721,10 +640,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 61
+	uin = 52
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -738,10 +657,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 62
+	uin = 53
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -755,10 +674,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 63
+	uin = 54
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -772,10 +691,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 64
+	uin = 55
 	classPrompt = Sector
-	ring = 67
-	group = 86
+	ring = 58
+	group = 77
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -789,10 +708,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 65
+	uin = 56
 	classPrompt = Sector
-	ring = 67
-	group = 87
+	ring = 58
+	group = 78
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -806,10 +725,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 66
+	uin = 57
 	classPrompt = Sector
-	ring = 67
-	group = 87
+	ring = 58
+	group = 78
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -823,9 +742,8 @@ entity
 entity
 {
 	type = Ring
-	uin = 67
+	uin = 58
 	classPrompt = Ring
-	subscriptionsToDeletionEvent = 7
 	rotatable = True
 	id = -1
 	corners = 8
@@ -840,7 +758,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 68
+	uin = 59
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -853,7 +771,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 69
+	uin = 60
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -866,10 +784,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 70
+	uin = 61
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -882,10 +800,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 71
+	uin = 62
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -899,10 +817,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 72
+	uin = 63
 	classPrompt = Sector
-	ring = 85
-	group = 89
+	ring = 76
+	group = 80
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -915,10 +833,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 73
+	uin = 64
 	classPrompt = Sector
-	ring = 85
-	group = 90
+	ring = 76
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -932,10 +850,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 74
+	uin = 65
 	classPrompt = Sector
-	ring = 85
-	group = 90
+	ring = 76
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -949,10 +867,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 75
+	uin = 66
 	classPrompt = Sector
-	ring = 85
-	group = 90
+	ring = 76
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -966,10 +884,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 76
+	uin = 67
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -983,10 +901,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 77
+	uin = 68
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1000,10 +918,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 78
+	uin = 69
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1017,10 +935,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 79
+	uin = 70
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1034,10 +952,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 80
+	uin = 71
 	classPrompt = Sector
-	ring = 85
-	group = 88
+	ring = 76
+	group = 79
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1051,10 +969,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 81
+	uin = 72
 	classPrompt = Sector
-	ring = 85
-	group = 90
+	ring = 76
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1068,10 +986,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 82
+	uin = 73
 	classPrompt = Sector
-	ring = 85
-	group = 90
+	ring = 76
+	group = 81
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1085,7 +1003,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 83
+	uin = 74
 	classPrompt = AlienSpawner
 	aiType = AlienAI
 	faction = BadFaction
@@ -1099,7 +1017,7 @@ entity
 entity
 {
 	type = GridBasedNavigationSystem
-	uin = 84
+	uin = 75
 	classPrompt = GridBasedNavigationSystem
 	gridBounds = -100 -100 100 100
 	gridCellSize = 1
@@ -1112,7 +1030,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 85
+	uin = 76
 	classPrompt = Ring
 	rotatable = True
 	id = -1
@@ -1128,7 +1046,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 86
+	uin = 77
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1141,7 +1059,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 87
+	uin = 78
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1154,7 +1072,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 88
+	uin = 79
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1167,9 +1085,8 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 89
+	uin = 80
 	classPrompt = SectorGroup
-	subscriptionsToDeletionEvent = 11
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1181,7 +1098,7 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 90
+	uin = 81
 	classPrompt = SectorGroup
 	enabled = True
 	shapeType = Box
@@ -1194,7 +1111,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 91
+	uin = 82
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1208,23 +1125,22 @@ entity
 entity
 {
 	type = Terminal
-	uin = 92
+	uin = 83
 	classPrompt = Terminal
-	subscriptionsToDeletionEvent = 5
-	repairable = 93
+	repairable = 84
 	buttonType = Default
 	taskType = ColorSequence
+	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_0
-	logicClass = 5
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
 	type = TestRepairable
-	uin = 93
+	uin = 84
 	classPrompt = Repairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1236,7 +1152,7 @@ entity
 entity
 {
 	type = ShotgunBulletsItem
-	uin = 94
+	uin = 85
 	classPrompt = BulletItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1246,7 +1162,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 95
+	uin = 86
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -1256,7 +1172,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 96
+	uin = 87
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1270,21 +1186,20 @@ entity
 entity
 {
 	type = Terminal
-	uin = 97
+	uin = 88
 	classPrompt = Terminal
-	subscriptionsToDeletionEvent = 9
 	taskData = 1234
 	buttonType = None
 	taskType = PIN
+	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 63.44387 -69.60484 1.990149
 	name = Terminal_1
-	logicClass = 9
 }
 entity
 {
 	type = BooleanSwitch
-	uin = 98
+	uin = 89
 	classPrompt = BooleanSwitch
 	value = False
 	healthFactorAtBeginning = 1
@@ -1294,7 +1209,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 99
+	uin = 90
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1305,7 +1220,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 100
+	uin = 91
 	classPrompt = MapObject
 	position = -30.93774 32.32301 0
 	rotation = 0 0 0.9264106 0.3765153
@@ -1316,10 +1231,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 101
+	uin = 92
 	classPrompt = Sector
-	ring = 20
-	group = 69
+	ring = 11
+	group = 60
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -1333,7 +1248,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 102
+	uin = 93
 	classPrompt = MapObject
 	position = 32.60133 -31.67697 0
 	rotation = 0 0 0.4027202 -0.9153234
@@ -1344,10 +1259,10 @@ entity
 entity
 {
 	type = Sector
-	uin = 103
+	uin = 94
 	classPrompt = Sector
-	ring = 20
-	group = 69
+	ring = 11
+	group = 60
 	enabled = True
 	shapeType = Box
 	filter = All
