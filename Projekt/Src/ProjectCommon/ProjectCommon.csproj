@@ -100,6 +100,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="UISystem, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bin\UISystem.dll</HintPath>
@@ -127,6 +128,11 @@
     <Compile Include="GameControlsManager.cs" />
     <Compile Include="GameEngineInitialization.cs" />
     <Compile Include="HighLevel Materials\DefaultShadowCasterMaterial.cs" />
+    <Compile Include="OSCBundle.cs" />
+    <Compile Include="OSCMessage.cs" />
+    <Compile Include="OSCPacket.cs" />
+    <Compile Include="OSCReceiver.cs" />
+    <Compile Include="OSCTransmitter.cs" />
     <Compile Include="Post Processing\ColorCorrectionCompositorInstance.cs" />
     <Compile Include="Post Processing\GrayscaleCompositorInstance.cs" />
     <Compile Include="Post Processing\DepthOfFieldCompositorInstance.cs" />
@@ -157,6 +163,16 @@
     <Compile Include="Post Processing\HDRCompositorInstance.cs" />
     <Compile Include="Post Processing\MotionBlurCompositorInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TuioClient.cs" />
+    <Compile Include="TuioContainer.cs" />
+    <Compile Include="TuioControlsManager.cs" />
+    <Compile Include="TuioCursor.cs" />
+    <Compile Include="TuioDump.cs" />
+    <Compile Include="TuioInputDevice.cs" />
+    <Compile Include="TuioListener.cs" />
+    <Compile Include="TuioObject.cs" />
+    <Compile Include="TuioPoint.cs" />
+    <Compile Include="TuioTime.cs" />
     <Compile Include="WiiManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

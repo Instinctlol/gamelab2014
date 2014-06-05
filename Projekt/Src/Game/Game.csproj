@@ -155,38 +155,9 @@
     <Compile Include="GUISamples2Window.cs" />
     <Compile Include="OculusGameWindow.cs" />
     <Compile Include="OculusManager.cs" />
-    <Compile Include="OSCBundle.cs" />
-    <Compile Include="OSCMessage.cs" />
-    <Compile Include="OSCPacket.cs" />
-    <Compile Include="OSCReceiver.cs" />
-    <Compile Include="OSCTransmitter.cs" />
     <Compile Include="GUISamples1Window.cs" />
     <Compile Include="MultiplayerLobbyWindow.cs" />
     <Compile Include="MultiplayerLoginWindow.cs" />
-    <Compile Include="TuioClient.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioContainer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioCursor.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioDump.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioListener.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioObject.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioPoint.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TuioTime.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ProductLogoWindow.cs" />
     <Compile Include="GameEngineApp.cs" />
     <Compile Include="MenuWindow.cs" />
