@@ -529,7 +529,7 @@ namespace Game
 			//example of custom input device
 			
             ExampleCustomInputDevice.InitDevice();
-			TuioInputDevice.InitDevice();
+		//TuioInputDevice.InitDevice();
 
 			return true;
 		}
