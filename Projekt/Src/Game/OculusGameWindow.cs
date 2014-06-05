@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
-using System.Collections.ObjectModel;
 using Engine;
 using Engine.Renderer;
 using Engine.MathEx;
@@ -43,13 +43,21 @@ namespace Game
 
             if (OculusManager.Instance != null)
                 OculusManager.Shutdown();
-        
+
         }
 
 
         protected override void OnRenderUI(GuiRenderer renderer)
         {
             base.OnRenderUI(renderer);
+
+            //Spawner vor den Astronauten verstecken
+            IEnumerable<AlienSpawner> spawnerList = Map.Instance.SceneGraphObjects.OfType<AlienSpawner>();
+            foreach (AlienSpawner spawner in spawnerList)
+            {
+                spawner.Visible = false;
+            }
+
 
             if (OculusManager.Instance != null)
                 OculusManager.Instance.RenderScreenUI(renderer);
@@ -273,7 +281,69 @@ namespace Game
         //        control.BackTexture = null;
         //}
 
-        
-    }
 
+        //static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
+        //{
+        //    Vec2 result = value;
+        //    result *= viewportSize;
+        //    result = new Vec2((int)result.X, (int)result.Y);
+        //    result /= viewportSize;
+        //    return result;
+        //}
+
+
+        //void DrawObjectSelectionBorder(Bounds bounds)
+        //{
+        //    Camera camera = RendererWorld.Instance.DefaultCamera;
+        //    GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
+
+        //    Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
+        //    Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
+
+        //    float sizeY = .08f;
+        //    Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
+        //    float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
+
+        //    Rect screenRectangle = Rect.Cleared;
+        //    {
+        //        Vec3[] points = null;
+        //        bounds.ToPoints(ref points);
+        //        foreach (Vec3 point in points)
+        //        {
+        //            Vec2 screenPoint;
+        //            if (camera.ProjectToScreenCoordinates(point, out screenPoint))
+        //            {
+        //                screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
+        //                screenRectangle.Add(screenPoint);
+        //            }
+        //        }
+
+        //        Vec2[] screenPositions = new Vec2[] { 
+        //            new Vec2( 0, 0 ), 
+        //            new Vec2( 1, 0 ), 
+        //            new Vec2( 0, 1 ), 
+        //            new Vec2( 1, 1 ) };
+        //        foreach (Vec2 screenPosition in screenPositions)
+        //        {
+        //            Ray ray = camera.GetCameraToViewportRay(screenPosition);
+        //            if (bounds.RayIntersection(ray))
+        //                screenRectangle.Add(screenPosition);
+        //        }
+
+        //        if (screenRectangle.GetSize().X < size.X * 2)
+        //        {
+        //            screenRectangle = new Rect(
+        //                screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
+        //                screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+        //        }
+        //        if (screenRectangle.GetSize().Y < size.Y * 2)
+        //        {
+        //            screenRectangle = new Rect(
+        //                screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
+        //                screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+        //        }
+        //    }
+
+        //}
+    }
 }
