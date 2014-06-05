@@ -39,6 +39,15 @@ namespace ProjectEntities
             Default
         };
 
+        public enum TerminalActionType
+        {
+            Rotation,
+            Switch,
+            DoubleSwitch,
+            RotateAndDoubleSwitch,
+            RotateAndSingleSwitch
+        }
+
         //Repairable das zunächst reperiert werden muss
         [FieldSerialize]
         private Repairable repairable = null;
@@ -54,6 +63,11 @@ namespace ProjectEntities
         //TaskType
         [FieldSerialize]
         private TerminalTaskType taskType;
+
+        [FieldSerialize]
+        private TerminalActionType actionType;
+
+        
 
         //GUI Fenster das auf dem Terminal angezeigt wird
         private Window initialWindow;
@@ -80,6 +94,12 @@ namespace ProjectEntities
         {
             get { return taskData; }
             set { taskData = value; }
+        }
+
+        public TerminalActionType ActionType
+        {
+            get { return actionType; }
+            set { actionType = value; }
         }
 
         public TerminalTaskType TaskType
@@ -169,12 +189,20 @@ namespace ProjectEntities
 
         [LogicSystemBrowsable(true)]
         public event TerminalActionDelegate TerminalAction;
+        [LogicSystemBrowsable(true)]
+        public event TerminalActionDelegate TerminalAction2;
+
         //*****************************
 
         public void OnTerminalFinished()
         {
             if (TerminalAction != null)
                 TerminalAction(this);
+        }
+        public void OnTerminalFinished2()
+        {
+            if (TerminalAction2 != null)
+                TerminalAction2(this);
         }
 
 
