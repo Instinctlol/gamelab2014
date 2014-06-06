@@ -1019,7 +1019,7 @@ entity
 	type = GridBasedNavigationSystem
 	uin = 75
 	classPrompt = GridBasedNavigationSystem
-	gridBounds = -100 -100 100 100
+	gridBounds = -140 -140 140 140
 	gridCellSize = 1
 	agentHeight = 2
 	agentMaxSlope = 30
