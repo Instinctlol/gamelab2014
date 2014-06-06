@@ -16,5 +16,10 @@ type Alien
 			animationTree = ".\\Alien.animationTree"
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
+		mesh
+		{
+			meshName = "Types\\Weapons\\Shotgun\\Shotgun.mesh"
+			position = 0.4981303 0 1.039323
+		}
 	}
 }
