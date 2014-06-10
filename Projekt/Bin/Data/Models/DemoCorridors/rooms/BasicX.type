@@ -253,14 +253,14 @@ type BasicX2
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = -11.93396 -23.68938 -0.05201578
+			position = -11.93396 -22.23648 -0.05201578
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = 0.0730679 -23.68402 -0.05201578
+			position = 0.0730679 -22.81911 -0.05201578
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh

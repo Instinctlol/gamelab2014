@@ -225,7 +225,7 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = 11.87869 11.79061 -0.03103113
+			position = 11.74224 11.79061 -0.03103113
 		}
 		mesh
 		{

@@ -26,7 +26,7 @@ type BasicC
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = 11.51942 5.124242 0.02603561
+			position = 11.38703 5.124242 0.02603561
 			rotation = 0 0 -0.7071068 -0.7071068
 			scale = 1 0.5020761 1
 		}
@@ -34,7 +34,7 @@ type BasicC
 		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
-			position = 11.34394 5.107786 0
+			position = 11.13712 5.10921 0
 			rotation = 0 0 -0.7071068 -0.7071068
 			scale = 1 0.5020761 1
 		}
@@ -42,7 +42,7 @@ type BasicC
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = 11.51942 -6.775759 -0.07396439
+			position = 10.93913 -6.57373 -0.07396439
 			rotation = 0 0 -0.7071068 0.7071068
 			scale = 1 0.5020761 1
 		}

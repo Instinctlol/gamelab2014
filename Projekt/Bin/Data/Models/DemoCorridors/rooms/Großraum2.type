@@ -217,7 +217,7 @@ type "Gro\x00dfraum22"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
-			position = 11.79929 -0.09446065 -0.04653931
+			position = 11.23485 -0.09446065 -0.04653931
 		}
 		mesh
 		{
