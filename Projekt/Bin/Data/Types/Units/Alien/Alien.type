@@ -22,4 +22,15 @@ type Alien
 			position = 0.4981303 0 1.039323
 		}
 	}
+	dieObjects
+	{
+		particle
+		{
+			particleName = ExplosionParticle
+		}
+		sound
+		{
+			soundName = "Sounds\\Explode.ogg"
+		}
+	}
 }
