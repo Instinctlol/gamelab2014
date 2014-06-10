@@ -76,7 +76,7 @@ namespace ProjectEntities
 				BreakableAttack,//for automatic attacks
 				Hold,
 				Move,
-				BreakableMove,//for automatic attacks
+				BreakableMove,//for automatic moves
 				Attack,
                 Repair,
 				BreakableRepair,//for automatic repair
@@ -230,6 +230,10 @@ namespace ProjectEntities
 		protected override void OnPostCreate( bool loaded )
 		{
 			base.OnPostCreate( loaded );
+
+            //we want to take items
+            AllowTakeItems = true;
+           
 			SubscribeToTickEvent();
 		}
 
