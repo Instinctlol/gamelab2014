@@ -1,0 +1,12 @@
+type AlienDead
+{
+	class = Dynamic
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Alien_dead_body.mesh"
+			position = 0 0 0.4823026
+		}
+	}
+}
