@@ -32,5 +32,9 @@ type Alien
 		{
 			soundName = "Sounds\\Explode.ogg"
 		}
+		mapObject
+		{
+			type = AlienDead
+		}
 	}
 }
