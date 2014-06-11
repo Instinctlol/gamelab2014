@@ -36,5 +36,9 @@ type Alien
 		{
 			type = AlienDead
 		}
+		mapObject
+		{
+			type = ShotgunItem
+		}
 	}
 }
