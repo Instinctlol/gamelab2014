@@ -53,6 +53,7 @@ namespace ProjectEntities
             List<UserControlPanelTask> list = new List<UserControlPanelTask>();
 
             list.Add(new UserControlPanelTask(new Task(Task.Types.Stop), CurrentTask.Type == Task.Types.Stop));
+
             list.Add(new UserControlPanelTask(new Task(Task.Types.Move),
                 CurrentTask.Type == Task.Types.Move || CurrentTask.Type == Task.Types.BreakableMove));
 

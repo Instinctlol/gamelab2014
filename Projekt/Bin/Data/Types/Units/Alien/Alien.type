@@ -1,9 +1,12 @@
 type Alien
 {
 	class = Alien
+	optimalAttackDistanceRange = 0 40
 	allowPlayerControl = True
 	initialAI = AlienAI
+	viewRadius = 70
 	healthMax = 150
+	targetPriority = 1
 	soundCollision = "Sounds\\Beep.ogg"
 	substance = Metal
 	networkType = Synchronized
@@ -20,6 +23,10 @@ type Alien
 		{
 			meshName = "Types\\Weapons\\Shotgun\\Shotgun.mesh"
 			position = 0.4981303 0 1.039323
+		}
+		mapObject
+		{
+			type = Shotgun
 		}
 	}
 	dieObjects
