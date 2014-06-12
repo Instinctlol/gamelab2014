@@ -4,13 +4,15 @@ control Window
 {
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 290 360
+		position = ScaleByResolution 140 310
+		size = ScaleByResolution 370 140
 		name = LeftButton
 		text = Rotate Left
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 540 360
+		position = ScaleByResolution 540 310
+		size = ScaleByResolution 370 140
 		name = RightButton
 		text = Rotate Right
 	}

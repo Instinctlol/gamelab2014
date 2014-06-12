@@ -3,96 +3,96 @@
 control Control
 {
 	position = Parent 0.4492188 0.2994792
-	size = Parent 0.2285156 0.4140625
+	size = Parent 0.2285157 0.4140625
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 0 50.00001
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution -70.00003 9.999905
+		size = ScaleByResolution 100 100
 		name = One
 		text = 1
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 80 50.00001
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 39.99997 9.999897
+		size = ScaleByResolution 100 100
 		name = Two
 		text = 2
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 160 50.00001
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 150 9.999897
+		size = ScaleByResolution 100 100
 		name = Three
 		text = 3
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 0 120
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution -70.00003 119.9999
+		size = ScaleByResolution 100 100
 		name = Four
 		text = 4
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 80 120
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 39.99997 119.9999
+		size = ScaleByResolution 100 100
 		name = Five
 		text = 5
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 160 120
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 150 119.9999
+		size = ScaleByResolution 100 100
 		name = Six
 		text = 6
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 80 190
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 39.99997 229.9999
+		size = ScaleByResolution 100 100
 		name = Eight
 		text = 8
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 159.9999 190
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 150 229.9999
+		size = ScaleByResolution 100 100
 		name = Nine
 		text = 9
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 80 260
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 39.99997 339.9998
+		size = ScaleByResolution 100 100
 		name = Zero
 		text = 0
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 0 190
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution -70.00003 229.9999
+		size = ScaleByResolution 100 100
 		name = Seven
 		text = 7
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 0 260
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution -70.00003 339.9998
+		size = ScaleByResolution 100 100
 		name = Clear
 		text = C
 	}
 	control TextBox
 	{
 		textColor = 0 0 0
-		position = ScaleByResolution 0 9.536743E-06
-		size = Parent 0.9977463 0.1123722
+		position = ScaleByResolution -70.00003 -80.0001
+		size = Parent 1.382362 0.2067118
 		name = Output
 		backColor = 1 1 1
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 159.9999 260
-		size = ScaleByResolution 70 60
+		position = ScaleByResolution 150 339.9999
+		size = ScaleByResolution 100 100
 		name = Enter
 		text = Act.
 	}

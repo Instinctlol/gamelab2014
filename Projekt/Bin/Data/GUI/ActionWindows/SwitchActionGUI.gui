@@ -4,7 +4,8 @@ control Window
 {
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 420 370
+		position = ScaleByResolution 340 310
+		size = ScaleByResolution 370 140
 		name = SwitchButton
 		text = Switch
 	}

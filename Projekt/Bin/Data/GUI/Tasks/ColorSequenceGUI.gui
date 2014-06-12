@@ -145,8 +145,8 @@ control Control
 	}
 	control Button
 	{
-		position = ScaleByResolution 880 630
-		size = ScaleByResolution 140 130
+		position = ScaleByResolution 420 290
+		size = ScaleByResolution 200 200
 		name = Play
 		defaultControl TextBox
 		{

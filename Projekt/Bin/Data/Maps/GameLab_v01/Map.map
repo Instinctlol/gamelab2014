@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = 16.63691 -65.35295 138.6632
-editorCameraDirection = 4.027194 -1.560796
+editorCameraPosition = -5.017927 -112.9716 24.37933
+editorCameraDirection = 1.461888 -1.327659
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -77,6 +77,74 @@ entity
 	{
 		type = LogicClassManager
 		uin = 4
+		entity
+		{
+			type = LogicEntityClass
+			uin = 96
+			subscriptionsToDeletionEvent = 83
+			entityClassName = Terminal
+			className = Ring2Rotation
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 95
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
+				methodName = TerminalRotateLeftAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 97
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateRight();"
+				methodName = TerminalRotateRightAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 98
+			subscriptionsToDeletionEvent = 83
+			entityClassName = Terminal
+			className = Ring2RotationAndF1R6LightSwitcher
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 99
+				code = "Sector s = ((Sector)Entities.Instance.GetByName(\"F1R6-S\"));\r\ns.LightStatus = !s.LightStatus;"
+				methodName = TerminalSwitchAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 100
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
+				methodName = TerminalRotateLeftAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 101
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateRight();"
+				methodName = TerminalRotateRightAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
 	}
 }
 entity
@@ -1127,14 +1195,17 @@ entity
 	type = Terminal
 	uin = 83
 	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 96 98
 	repairable = 84
+	taskData = 1234
 	buttonType = Default
-	taskType = ColorSequence
-	actionType = Rotation
+	taskType = PIN
+	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_0
+	logicClass = 98
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity

@@ -4,20 +4,22 @@ control Window
 {
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 550 350
+		position = ScaleByResolution 540 220
+		size = ScaleByResolution 370 140
 		name = RightButton
 		text = Rotate Right
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 300 350
+		position = ScaleByResolution 140 220
+		size = ScaleByResolution 370 140
 		name = LeftButton
 		text = Rotate Left
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 430 420
-		size = ScaleByResolution 190 30
+		position = ScaleByResolution 340 390
+		size = ScaleByResolution 370 140
 		name = SwitchButton
 		text = Switch
 	}
