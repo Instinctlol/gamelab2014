@@ -61,7 +61,10 @@ namespace ProjectEntities
         [FieldSerialize]
         private string taskFailSound;
 
-
+        //Sound der abgespielt wird, falls ein Task erfolgreich beendet wurde
+        [FieldSerialize]
+        private string taskSuccessSound;
+        
         //ButtonType
         [FieldSerialize]
         private TerminalSmartButtonType buttonType;
@@ -196,6 +199,15 @@ namespace ProjectEntities
         {
             get { return taskFailSound; }
             set { taskFailSound = value; }
+        }
+
+        [LocalizedDescription("The file name of the sound to play, when a task was failed.", "TaskFailSound")]
+        [DefaultValue("Sounds\\taskSuccess.ogg")]
+        [Editor(typeof(EditorSoundUITypeEditor), typeof(UITypeEditor))]
+        public string TaskSuccessSound
+        {
+            get { return taskSuccessSound; }
+            set { taskSuccessSound = value; }
         }
         //*********************************
 
@@ -337,6 +349,7 @@ namespace ProjectEntities
         private void TaskSuccessful()
         {
             Window = new FinishedWindow(this);
+            SoundPlay3D(TaskSuccessSound, .5f, false);
         }
     }
 }
