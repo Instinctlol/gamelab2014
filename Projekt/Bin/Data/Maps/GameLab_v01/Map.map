@@ -1197,11 +1197,10 @@ entity
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
 	repairable = 91
-	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = Default
-	taskType = PIN
+	taskType = ColorSequence
 	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622

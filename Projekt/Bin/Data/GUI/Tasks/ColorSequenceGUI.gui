@@ -4,7 +4,7 @@ control Control
 {
 	control Button
 	{
-		position = ScaleByResolution 240 110
+		position = ScaleByResolution 550 110
 		size = ScaleByResolution 250 250
 		name = Green
 		backColor = 0.3215686 1 0.2196079
@@ -110,7 +110,7 @@ control Control
 	}
 	control Button
 	{
-		position = ScaleByResolution 550 110
+		position = ScaleByResolution 240 110
 		size = ScaleByResolution 250 250
 		name = Red
 		defaultControl TextBox

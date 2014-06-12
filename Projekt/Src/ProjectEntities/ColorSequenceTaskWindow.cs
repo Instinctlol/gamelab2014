@@ -33,8 +33,8 @@ namespace ProjectEntities
         
 
         //KANN GEAENDERT WERDEN:
-        private static float initialTime = 500; //Zeit zwischen jeweiligem highlighten der Buttons, 1000=1sek
-        private int solvedMax = 1; //Wie oft der Spieler abgefragt werden soll
+        private static float initialTime = 200; //Zeit zwischen jeweiligem highlighten der Buttons, 1000=1sek
+        private int solvedMax = 8; //Wie oft der Spieler abgefragt werden soll
         private int colorsToAdd = 1; // Wie viele Farben hinzukommen sollen
         private int solutionStartColors = 1; //Mit wie vielen Farben gestartet wird
         
@@ -156,6 +156,10 @@ namespace ProjectEntities
             {
                 console.Print("Did not play yet or is currently playing.");
             }
+            if(!play)
+            {
+                task.Terminal.SoundPlay3D("Sounds\\blueSimon.ogg", .5f, false);
+            }
             
         }
 
@@ -180,6 +184,10 @@ namespace ProjectEntities
             {
                 console.Print("Did not play yet or is currently playing.");
             }
+            if (!play)
+            {
+                task.Terminal.SoundPlay3D("Sounds\\redSimon.ogg", .5f, false);
+            }
         }
 
         private void Yellow_click(Button sender)
@@ -203,6 +211,10 @@ namespace ProjectEntities
             {
                 console.Print("Did not play yet or is currently playing.");
             }
+            if (!play)
+            {
+                task.Terminal.SoundPlay3D("Sounds\\yellowSimon.ogg", .5f, false);
+            }
         }
 
         private void Green_click(Button sender)
@@ -225,6 +237,10 @@ namespace ProjectEntities
             else
             {
                 console.Print("Did not play yet or is currently playing.");
+            }
+            if (!play)
+            {
+                task.Terminal.SoundPlay3D("Sounds\\greenSimon.ogg", .5f, false);
             }
         }
 
@@ -281,26 +297,38 @@ namespace ProjectEntities
             {
                 case "green":
                     if (lighted)
+                    {
                         greenButton.Active = true;
+                        task.Terminal.SoundPlay3D("Sounds\\greenSimon.ogg", .5f, false);
+                    }  
                     else
                         greenButton.Active = false;
                     
                     break;
                 case "blue":
                     if(lighted)
+                    {
                         blueButton.Active = true;
+                        task.Terminal.SoundPlay3D("Sounds\\blueSimon.ogg", .5f, false);
+                    }
                     else
                         blueButton.Active = false;
                     break;
                 case "yellow":
-                    if(lighted)
+                    if (lighted)
+                    {
                         yellowButton.Active = true;
+                        task.Terminal.SoundPlay3D("Sounds\\yellowSimon.ogg", .5f, false);
+                    }
                     else
                         yellowButton.Active = false;
                     break;
                 case "red":
                     if (lighted)
+                    {
                         redButton.Active = true;
+                        task.Terminal.SoundPlay3D("Sounds\\redSimon.ogg", .5f, false);
+                    }
                     else
                         redButton.Active = false;
                     break;
