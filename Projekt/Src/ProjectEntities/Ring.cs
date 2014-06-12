@@ -57,6 +57,12 @@ namespace ProjectEntities
             get { return corners; }
             set { corners = value; }
         }
+
+        public int RingPosition
+        {
+            get { return position; }
+            set { position = value; }
+        }
         //*************************** 
 
         //******************************

@@ -1,6 +1,7 @@
 ﻿using Engine;
 using Engine.MapSystem;
 using Engine.UISystem;
+using Engine.Utils;
 using ProjectCommon;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,11 @@ namespace ProjectEntities
         [FieldSerialize]
         private string taskData;
 
+        //Sound der abgespielt wird, falls ein Task nicht erfolgreich beendet wurde
+        [FieldSerialize]
+        private string taskFailSound;
+
+
         //ButtonType
         [FieldSerialize]
         private TerminalSmartButtonType buttonType;
@@ -96,6 +102,8 @@ namespace ProjectEntities
             set { taskData = value; }
         }
 
+        [LocalizedDescription("This will show a different GUI for every ActionType, Logic for the GUI is defined in the LogicClass of this Object", "ActionType")]
+        [DefaultValue(TerminalActionType.Switch)]
         public TerminalActionType ActionType
         {
             get { return actionType; }
@@ -179,6 +187,15 @@ namespace ProjectEntities
                 initialWindow = value;
                 CreateMainControl();
             }
+        }
+
+        [LocalizedDescription("The file name of the sound to play, when a task was failed.", "TaskFailSound")]
+        [DefaultValue("Sounds\\taskFail.ogg")]
+        [Editor(typeof(EditorSoundUITypeEditor), typeof(UITypeEditor))]
+        public string TaskFailSound
+        {
+            get { return taskFailSound; }
+            set { taskFailSound = value; }
         }
         //*********************************
 
@@ -314,6 +331,7 @@ namespace ProjectEntities
         private void TaskFailed()
         {
             button.RefreshButton();
+            SoundPlay3D(TaskFailSound, .5f, false);
         }
 
         private void TaskSuccessful()

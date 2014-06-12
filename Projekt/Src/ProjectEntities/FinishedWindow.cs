@@ -72,10 +72,6 @@ namespace ProjectEntities
                         break;
                     }
             }
-            
-
-            //Methode anmelden
-            
 
             this.terminal = terminal;
         }
