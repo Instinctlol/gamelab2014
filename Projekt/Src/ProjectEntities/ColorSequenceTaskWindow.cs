@@ -158,7 +158,7 @@ namespace ProjectEntities
             }
             if(!play)
             {
-                task.Terminal.SoundPlay3D("Sounds\\blueSimon.ogg", .5f, false);
+                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
             }
             
         }
@@ -186,7 +186,7 @@ namespace ProjectEntities
             }
             if (!play)
             {
-                task.Terminal.SoundPlay3D("Sounds\\redSimon.ogg", .5f, false);
+                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
             }
         }
 
@@ -213,7 +213,7 @@ namespace ProjectEntities
             }
             if (!play)
             {
-                task.Terminal.SoundPlay3D("Sounds\\yellowSimon.ogg", .5f, false);
+                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
             }
         }
 
@@ -240,7 +240,7 @@ namespace ProjectEntities
             }
             if (!play)
             {
-                task.Terminal.SoundPlay3D("Sounds\\greenSimon.ogg", .5f, false);
+                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
             }
         }
 
@@ -299,7 +299,7 @@ namespace ProjectEntities
                     if (lighted)
                     {
                         greenButton.Active = true;
-                        task.Terminal.SoundPlay3D("Sounds\\greenSimon.ogg", .5f, false);
+                        task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
                     }  
                     else
                         greenButton.Active = false;
@@ -309,7 +309,7 @@ namespace ProjectEntities
                     if(lighted)
                     {
                         blueButton.Active = true;
-                        task.Terminal.SoundPlay3D("Sounds\\blueSimon.ogg", .5f, false);
+                        task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
                     }
                     else
                         blueButton.Active = false;
@@ -318,7 +318,7 @@ namespace ProjectEntities
                     if (lighted)
                     {
                         yellowButton.Active = true;
-                        task.Terminal.SoundPlay3D("Sounds\\yellowSimon.ogg", .5f, false);
+                        task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
                     }
                     else
                         yellowButton.Active = false;
@@ -327,7 +327,7 @@ namespace ProjectEntities
                     if (lighted)
                     {
                         redButton.Active = true;
-                        task.Terminal.SoundPlay3D("Sounds\\redSimon.ogg", .5f, false);
+                        task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
                     }
                     else
                         redButton.Active = false;

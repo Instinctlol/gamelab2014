@@ -59,11 +59,11 @@ namespace ProjectEntities
 
         //Sound der abgespielt wird, falls ein Task nicht erfolgreich beendet wurde
         [FieldSerialize]
-        private string taskFailSound;
+        private string taskFailSound = "Sounds\\taskFail.ogg";
 
         //Sound der abgespielt wird, falls ein Task erfolgreich beendet wurde
         [FieldSerialize]
-        private string taskSuccessSound;
+        private string taskSuccessSound = "Sounds\\taskSuccess.ogg";
         
         //ButtonType
         [FieldSerialize]
@@ -99,6 +99,7 @@ namespace ProjectEntities
         //***************************
         //*******Getter-Setter*******
         //***************************   
+        [LocalizedDescription("A string which some tasks use. \n"+"For PINTasks enter the code e.g. 1234", "TaskData")]
         public string TaskData
         {
             get { return taskData; }
@@ -113,6 +114,7 @@ namespace ProjectEntities
             set { actionType = value; }
         }
 
+        [LocalizedDescription("Choose what kind of task is to be assigned to this Terminal", "TaskType")]
         public TerminalTaskType TaskType
         {
             get { return taskType; }
@@ -122,6 +124,7 @@ namespace ProjectEntities
             }
         }
 
+        [LocalizedDescription("None: Task is directly shown \n"+"Default: You have to click on a button to start and show the task", "ButtonType")]
         public TerminalSmartButtonType ButtonType
         {
             get { return buttonType; }
