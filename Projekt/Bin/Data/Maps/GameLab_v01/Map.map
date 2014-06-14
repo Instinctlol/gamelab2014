@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = -3.018067 -101.8966 3.770732
-editorCameraDirection = 0.6401188 -0.4274511
+editorCameraPosition = 18.89353 -67.60527 13.32062
+editorCameraDirection = 0.6401188 -0.5973635
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1075,6 +1075,7 @@ entity
 	classPrompt = AlienSpawner
 	aiType = AlienAI
 	faction = BadFaction
+	sector = 58
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1197,8 +1198,6 @@ entity
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
 	repairable = 91
-	taskFailSound = "Sounds\\taskFail.ogg"
-	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = Default
 	taskType = ColorSequence
 	actionType = RotateAndSingleSwitch
@@ -1344,4 +1343,16 @@ entity
 	name = F3C14-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
+}
+entity
+{
+	type = Bug
+	uin = 102
+	classPrompt = GameCharacter
+	intellectShouldDeleteAfterDetach = False
+	initialAI = DefaultGameCharacterAI
+	initialFaction = GoodFaction
+	healthFactorAtBeginning = 1
+	position = 42.14505 -47.69991 1.056375
+	name = Bug_0
 }

@@ -13,6 +13,9 @@ namespace ProjectEntities
     /// </summary>
     public class AlienUnitType : UnitType
     {
+        /*************/
+        /* Attribute */
+        /*************/
         [FieldSerialize]
         [DefaultValue(typeof(Range), "0 0")]
         Range optimalAttackDistanceRange;
@@ -25,6 +28,11 @@ namespace ProjectEntities
         [DefaultValue(10.0f)]
         float buildTime = 10;
 
+
+
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
         [DefaultValue(typeof(Range), "0 0")]
         public Range OptimalAttackDistanceRange
         {
@@ -49,6 +57,9 @@ namespace ProjectEntities
 
     public class AlienUnit : Unit
     {
+        /*************/
+        /* Attribute */
+        /*************/
         [FieldSerialize]
         [DefaultValue(false)]
         bool moveEnabled;
@@ -59,18 +70,11 @@ namespace ProjectEntities
 
         AlienUnitType _type = null; public new AlienUnitType Type { get { return _type; } }
 
-        public void Stop()
-        {
-            moveEnabled = false;
-            movePosition = Vec3.Zero;
-        }
+        
 
-        public void Move(Vec3 pos)
-        {
-            moveEnabled = true;
-            movePosition = pos;
-        }
-
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
         [Browsable(false)]
         protected bool MoveEnabled
         {
@@ -83,11 +87,27 @@ namespace ProjectEntities
             get { return movePosition; }
         }
 
+
+
+        /**************/
+        /* Funktionen */
+        /**************/
+        public void Stop()
+        {
+            moveEnabled = false;
+            movePosition = Vec3.Zero;
+        }
+
+        public void Move(Vec3 pos)
+        {
+            moveEnabled = true;
+            movePosition = pos;
+        }
+
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
-            //UpdateSkin();
         }
 
         public override MapObjectCreateObjectCollection.CreateObjectsResultItem[] DieObjects_Create()
@@ -107,18 +127,6 @@ namespace ProjectEntities
                         {
                             (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
                                     SubObjects[0].MaterialName = "Alien";
-                            //bool badFaction = InitialFaction.Name == "BadFaction";
-
-                            //if (Type.Name == "RTSRobot")
-                            //{
-                            //    (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                            //        SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
-                            //}
-                            //else if (Type.Name == "RTSConstructor")
-                            //{
-                            //    (mapObject.AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-                            //        SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
-                            //}
                         }
                     }
                 }
@@ -133,65 +141,7 @@ namespace ProjectEntities
             set
             {
                 base.InitialFaction = value;
-                //if (IsPostCreated)
-                //    UpdateSkin();
             }
         }
-
-        //void UpdateSkin()
-        //{
-        //    if (InitialFaction == null)
-        //        return;
-
-        //    //!!!!!!temp. not universal
-
-        //    bool badFaction = InitialFaction.Name == "BadFaction";
-
-        //    if (Type.Name == "RTSRobot")
-        //    {
-        //        (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-        //            SubObjects[0].MaterialName = badFaction ? "Robot2" : "Robot";
-        //    }
-        //    else if (Type.Name == "RTSConstructor")
-        //    {
-        //        (AttachedObjects[0] as MapObjectAttachedMesh).MeshObject.
-        //            SubObjects[0].MaterialName = badFaction ? "Red" : "Blue";
-        //    }
-        //    else if (Type.Name == "RTSMine" || Type.Name == "RTSHeadquaters")
-        //    {
-        //        foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-        //        {
-        //            MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
-        //            if (meshAttachedObject != null)
-        //            {
-        //                MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
-
-        //                if (typeObject.ForceMaterial == "")
-        //                {
-        //                    meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
-        //                        badFaction ? (Type.Name + "2") : Type.Name);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    else if (Type.Name == "RTSFactory")
-        //    {
-        //        foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-        //        {
-        //            MapObjectAttachedMesh meshAttachedObject = attachedObject as MapObjectAttachedMesh;
-        //            if (meshAttachedObject != null)
-        //            {
-        //                MapObjectTypeAttachedMesh typeObject = (MapObjectTypeAttachedMesh)meshAttachedObject.TypeObject;
-
-        //                if (typeObject.ForceMaterial == "")
-        //                {
-        //                    meshAttachedObject.MeshObject.SetMaterialNameForAllSubObjects(
-        //                        badFaction ? (Type.Name + "2") : Type.Name);
-        //                    break;
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

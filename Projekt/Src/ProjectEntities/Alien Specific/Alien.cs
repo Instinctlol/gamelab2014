@@ -82,6 +82,18 @@ namespace ProjectEntities
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
+        protected override void OnDie(MapObject prejudicial)
+        {
+            //TODO: play death animation funktioniert noch nicht
+            // vielleicht so wie bei zombi und zombidead
+            AnimationTree tree = GetFirstAnimationTree();
+            if (tree != null)
+                tree.ActivateTrigger("death");
+            EngineConsole.Instance.Print("ich sterbe");
+            Computer.DecrementUsedAliens();
+            base.OnDie(prejudicial);
+        }
+
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
         protected override void OnPostCreate(bool loaded)
         {
@@ -305,6 +317,14 @@ namespace ProjectEntities
             base.OnRenderFrame();
         }
 
+        public void testDeath()
+        {
+            AnimationTree tree = GetFirstAnimationTree();
+            if (tree != null)
+                tree.ActivateTrigger("death");
+            EngineConsole.Instance.Print("ich sterbe");
+        }
+
         void UpdateAnimationTree(AnimationTree tree)
         {
             bool move = false;
@@ -314,7 +334,6 @@ namespace ProjectEntities
             if (mainBodyVelocity.ToVec2().Length() > .1f)
             {
                 move = true;
-                EngineConsole.Instance.Print("move sound");
                 moveSpeed = (Rotation.GetInverse() * mainBodyVelocity).X;
                 if ( alienChannel != null)
                 {

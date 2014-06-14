@@ -460,8 +460,10 @@ namespace ProjectEntities
 				MathFunctions.Clamp( ref newHealth, Type.HealthMin, Type.HealthMax );
 				Health = newHealth;
 
-				if( Health == 0 )
-					Die( prejudicial );
+                if (Health == 0)
+                {
+                    Die(prejudicial);
+                }
 			}
 			else
 			{

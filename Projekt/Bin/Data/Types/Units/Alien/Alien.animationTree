@@ -120,7 +120,7 @@ blocks
 	{
 		uin = 501
 		animationName = "Death"
-		speed = 1
+		speed = 0.1
 	}
 
 }

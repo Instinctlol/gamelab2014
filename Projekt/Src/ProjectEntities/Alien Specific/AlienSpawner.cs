@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 using System.Drawing.Design;
+using Engine.UISystem;
 using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
@@ -12,6 +13,9 @@ using Engine.Renderer;
 using Engine.SoundSystem;
 using Engine.Utils;
 using ProjectCommon;
+
+using Engine.FileSystem;
+using ProjectEntities;
 
 namespace ProjectEntities
 {
@@ -27,11 +31,16 @@ namespace ProjectEntities
     /// </summary>
     public class AlienSpawner : AlienUnit
     {
+        /*************/
+        /* Attribute */
+        /*************/
         [FieldSerialize]
         [DefaultValue(0.0f)]
         float productUnitProgress;
-
         MapObjectAttachedMesh productUnitAttachedMesh;
+
+        [FieldSerialize]
+        AlienType spawnedUnit;
 
         [DefaultValue(1.0f)]
         [FieldSerialize]
@@ -41,31 +50,27 @@ namespace ProjectEntities
         AIType aiType;
 
         [FieldSerialize]
-        FactionType faction;
-
-        [FieldSerialize]
-        AlienType spawnedUnit;
-
-        //[FieldSerialize]
-        //float spawnRadius;
-
-        //[FieldSerialize]
-        //int popNumber;
-
-        //[FieldSerialize]
-        //float securityRadius;
+        Sector sector;
 
         //the amount of entities left to spawn
         int aliensToSpawn;
 
+        // Event und Delegate für Spawner-Nachrichten
+        public event AlienSpawnerEventDelegate showMessage;
+        public delegate void AlienSpawnerEventDelegate(String message);
+
         AlienSpawnerType _type = null; public new AlienSpawnerType Type { get { return _type; } }
 
-        //// Getter / Setter ///////////////////////////////////
-        [Description("Initial Faction or null for neutral")]
-        public FactionType Faction
+
+
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
+        [Description("Sector in which the Spawner is")]
+        public Sector Sector
         {
-            get { return faction; }
-            set { faction = value; }
+            get { return sector; }
+            set { sector = value; }
         }
 
         [Description("AlienUnitType that will be spawned, the small alien")]
@@ -77,34 +82,12 @@ namespace ProjectEntities
         }
 
         [Description("Default AI for this unit or none for empty unit, in general this should be the AI for the small alien")]
+        [Browsable(false)]
         public AIType AIType
         {
             get { return aiType; }
             set { aiType = value; }
         }
-
-        //[Description("max amount of entities that will be created")]
-        //public int PopNumber
-        //{
-        //    get { return popNumber; }
-        //    set { popNumber = value; }
-        //}
-
-        //[Description("when astronout enters this radius the entities will not spawn")]
-        //[DefaultValueAttribute(10.0f)]
-        //public float SecurityRadius
-        //{
-        //    get { return securityRadius; }
-        //    set { securityRadius = value; }
-        //}
-
-        //[Description("Spawn radius in which small aliens can be spawned. if there's no more space within this radius, no small aliens can be spawned")]
-        //[DefaultValue(10.0f)]
-        //public float SpawnRadius
-        //{
-        //    get { return spawnRadius; }
-        //    set { spawnRadius = value; }
-        //}
 
         [Browsable(false)]
         public float BuildUnitProgress
@@ -119,18 +102,21 @@ namespace ProjectEntities
             set
             {
                 buildedProgress = value;
-
                 UpdateAttachedObjectsVisibility();
             }
         }
 
+
+
+        /**************/
+        /* Funktionen */
+        /**************/
         /// <summary>
         /// Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.
         /// </summary>
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
-            //spawnCounter = 0.0f;
             SubscribeToTickEvent();
 
             //for world load/save
@@ -140,120 +126,6 @@ namespace ProjectEntities
             UpdateAttachedObjectsVisibility();
         }
         
-        /// <summary>
-        /// Function for spawning one small alien
-        /// LogicSystemBrowsable(true) Make function visible in LogicEditor
-        /// </summary>
-        [LogicSystemBrowsable(true)]
-        public void SpawnSmallAlien()
-        {
-            //EngineConsole.Instance.Print("Hello Console!");
-            //if (isCloseToPoint()) return;
-
-            //popAmount++;
-            //// max amount of small aliens is not reached?
-            //if (popAmount <= PopNumber)
-            //{
-            //    // create new small alien object
-            //    Unit i = (Unit)Entities.Instance.Create(SpawnedUnit, Parent);
-
-            //    // add AI to small alien
-            //    if (AIType != null)
-            //    {
-            //        i.InitialAI = AIType;
-            //    }
-
-            //    if (i == null) return;
-
-            //    // calculate position for small alien to be spawned
-            //    i.Position = FindFreePositionForUnit(i, Position);
-            //    // no valid position found?
-            //    if (i.Position.Z == -1)
-            //    {
-            //        // no small alien is allowed to be spawned
-            //        return;
-            //    }
-            //    i.Rotation = Rotation;
-
-            //    // set good or bad faction
-            //    if (Faction != null)
-            //    {
-            //        i.InitialFaction = Faction;
-            //    }
-
-            //    // create small alien into map
-            //    i.PostCreate();
-            //}
-        }
-
-        /// <summary>
-        /// Calculates the next valid Position for a small alien to be spawned. If there is no more space (1,-1,-1) will be returned.
-        /// </summary>
-        /// <param name="unit"></param>
-        /// <param name="center"></param>
-        /// <returns></returns>
-        //Vec3 FindFreePositionForUnit(Unit unit, Vec3 center)
-        //{
-        //    Vec3 volumeSize = unit.MapBounds.GetSize() + new Vec3(2, 2, 0);
-        //    float zOffset = 0;
-
-        //    // In einem Kreis mit max. spawnRadius + 3 Abstand zum Spawnpoint Position für kleines Alien berechnen
-        //    // The position for the new small alien will be calculated within a circle and with max spawnRadius+3 distance to the spawnpoint 
-        //    for (float radius = 3; radius < 3 + spawnRadius; radius += .6f)
-        //    {
-        //        for (float angle = 0; angle < MathFunctions.PI * 2; angle += MathFunctions.PI / 32)
-        //        {
-        //            // new position
-        //            Vec3 pos = center + new Vec3(MathFunctions.Cos(angle),
-        //                MathFunctions.Sin(angle), 0) * radius + new Vec3(0, 0, zOffset);
-        //            // bound with central point pos
-        //            Bounds volume = new Bounds(pos);
-        //            volume.Expand(volumeSize * .5f);
-        //            // select all elements within the bound
-        //            Body[] bodies = PhysicsWorld.Instance.VolumeCast(
-        //                volume, (int)ContactGroup.CastOnlyContact);
-        //            // if there is no other element spawning is possible at this position
-        //            if (bodies.Length == 0)
-        //                return pos;
-        //        }
-        //    }
-        //    // no valid position found: return invalid position
-        //    return new Vec3(-1, -1, -1);
-        //}
-
-        /// <summary>
-        /// If the astronout is too near to the spawnpoint, no small aliens are allowed to be spawned.
-        /// </summary>
-        /// <returns></returns>
-        //bool isCloseToPoint()
-        //{
-
-        //    bool returnValue = false;
-        //    // invalid value for security radius
-        //    if (SecurityRadius <= 0)
-        //    {
-        //        // no spawning allowed
-        //        returnValue = true;
-        //    }
-        //    else
-        //    {
-        //        // find all MapObjects in the sphere around the position of this spawnpoint
-        //        Map.Instance.GetObjects(new Sphere(Position, SecurityRadius), delegate(MapObject mapObject)
-        //        {
-        //            // cast to PlayerCharacter, so that only player will be examined
-        //            PlayerCharacter pchar = mapObject as PlayerCharacter;
-
-        //            // If a PlayerCharacter is found in this sphere and if it is no small alien then it must be an astronout
-        //            if (pchar != null && pchar.Type.Name != "Rabbit") // TODO ändern in Alien
-        //            {
-        //                // no spawning allowed
-        //                returnValue = true;
-        //            }
-        //        });
-        //    }
-        //    return returnValue;
-        //}
-        
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
         protected override void OnTick()
         {
@@ -261,6 +133,9 @@ namespace ProjectEntities
             TickProductUnit();
         }
 
+        /// <summary>
+        /// Wird bei jedem Tick-Event ausgeführt. Überprüfung, ob die Zeit schon rum ist, um die zu spawnenden Aliens freizugeben.
+        /// </summary>
         void TickProductUnit()
         {
             if (spawnedUnit == null)
@@ -284,6 +159,11 @@ namespace ProjectEntities
                 buildPlatformMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
         }
 
+        /// <summary>
+        /// Produktion von Aliens starten (Wird in der AlienSpawnerAI aufgerufen, wenn ein entsprechender Task ausgeführt werden soll).
+        /// </summary>
+        /// <param name="unitType"></param>
+        /// <param name="spawnNumber"></param>
         public void StartProductUnit(AlienType unitType, int spawnNumber)
         {
             StopProductUnit();
@@ -301,15 +181,54 @@ namespace ProjectEntities
             //    factionItem.Money -= cost;
             //}
 
-            spawnedUnit = unitType;
-            aliensToSpawn = spawnNumber;
-            productUnitProgress = 0;
+            bool spawningAllowed = true;
+            // Befinden sich Astronauten im Raum?
+            if (IsAstronoutInSector())
+            {
+                spawningAllowed = false;
+                // Nachricht anzeigen und nicht spawnen
+                if (showMessage != null)
+                {
+                    showMessage(StringFormatter.cleanUmlaute("Es befinden sich Astronauten in unmittelbarer Nähe"));
+                }
+            }
 
-            CreateProductUnitAttachedMesh();
+            // Prüfung ob genügend Aliens verfügbar sind
+            if (Computer.AvailableAliens == 0)
+            {
+                // Kein Alien verfügbar
+                spawningAllowed = false;
+                // Nachricht anzeigen
+                if (showMessage != null)
+                {
+                    showMessage(StringFormatter.cleanUmlaute("Es sind keine Aliens verfügbar"));
+                }
+            }
+            else if (Computer.AvailableAliens < spawnNumber)
+            {
+                // Nicht Genügend Aliens verfügbar, aber min. ein Alien kann gespawnt werden
+                // Nachricht anzeigen
+                if (showMessage != null)
+                {
+                    showMessage(StringFormatter.cleanUmlaute(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens)));
+                }
+            }
 
-            UpdateAttachedObjectsVisibility();
+            // Darf noch gespawnt werden?
+            if (spawningAllowed)
+            {
+                // spawnedUnit setzen, damit diese gespawnt werden können
+                spawnedUnit = unitType;
+                aliensToSpawn = spawnNumber;
+                productUnitProgress = 0;
+                CreateProductUnitAttachedMesh();
+                UpdateAttachedObjectsVisibility();
+            }
         }
 
+        /// <summary>
+        /// Produktion stoppen
+        /// </summary>
         public void StopProductUnit()
         {
             DestroyProductUnitAttachedMesh();
@@ -320,6 +239,9 @@ namespace ProjectEntities
             UpdateAttachedObjectsVisibility();
         }
 
+        /// <summary>
+        /// Mesh für das neue Alien erzeugen
+        /// </summary>
         void CreateProductUnitAttachedMesh()
         {
             productUnitAttachedMesh = new MapObjectAttachedMesh();
@@ -355,14 +277,15 @@ namespace ProjectEntities
             productUnitAttachedMesh.PositionOffset = pos;
 
             productUnitAttachedMesh.ScaleOffset = meshScale;
-
-            //if (Type.Name == "RTSHeadquaters")
-            //{
-            //    foreach (MeshObject.SubObject subMesh in productUnitAttachedMesh.MeshObject.SubObjects)
-            //        subMesh.MaterialName = "RTSBuildMaterial";
-            //}
+            EngineConsole.Instance.Print("bounds1:" + productUnitAttachedMesh.GetBox().ToBounds().ToString());
+            EngineConsole.Instance.Print("bounds2:" + productUnitAttachedMesh.MeshObject.Bounds.ToString());
+            productUnitAttachedMesh.MeshObject.SetCustomBoundsAndRadius(productUnitAttachedMesh.GetBox().ToBounds(), 0.5f);
+            EngineConsole.Instance.Print("bounds3:" + productUnitAttachedMesh.MeshObject.Bounds.ToString());
         }
 
+        /// <summary>
+        /// Mesh für Alien zerstören, wenn Produktion abgebrochen wurde
+        /// </summary>
         void DestroyProductUnitAttachedMesh()
         {
             if (productUnitAttachedMesh != null)
@@ -372,104 +295,103 @@ namespace ProjectEntities
             }
         }
 
+        /// <summary>
+        /// So viele Aliens wie geordert (und möglich) produzieren und an die berechnete Position setzen.
+        /// </summary>
         void CreateProductedUnit()
         {
-            while (aliensToSpawn > 0)
+            while (aliensToSpawn > 0 && Computer.AvailableAliens > 0)
             {
-                AlienUnit unit = (AlienUnit)Entities.Instance.Create(spawnedUnit, Map.Instance);
+                // Objekt erstellen
+                Alien alien = (Alien)Entities.Instance.Create(spawnedUnit, Map.Instance);
 
-                Alien character = unit as Alien;
-                if (character == null)
+                if (alien == null)
                     Log.Fatal("RTSBuilding: CreateProductedUnit: character == null");
 
+                // Position berechnen
                 GridBasedNavigationSystem navigationSystem = GridBasedNavigationSystem.Instances[0];
-                Vec2 p = navigationSystem.GetNearestFreePosition(Position.ToVec2(), character.Type.Radius * 2);
-                unit.Position = new Vec3(p.X, p.Y, navigationSystem.GetMotionMapHeight(p) + character.Type.Height * .5f);
+                Vec2 p = navigationSystem.GetNearestFreePosition(Position.ToVec2(), alien.Type.Radius * 2);
+                alien.Position = new Vec3(p.X, p.Y, navigationSystem.GetMotionMapHeight(p) + alien.Type.Height * .5f);
 
+                // Faction und AI setzen
                 if (Intellect != null)
-                    unit.InitialFaction = Intellect.Faction;
+                    alien.InitialFaction = Intellect.Faction;
 
-                unit.PostCreate();
+                // Alien in Map erstellen
+                alien.PostCreate();
+
+                // Anzahl zu spawnender Aliens anpassen
                 aliensToSpawn--;
+                // Computer aktualisieren
+                Computer.AddUsedAlien();
             }
         }
 
+        /// <summary>
+        /// If the astronout is in the same sector as the activated spawnpoint, no small aliens are allowed to be spawned.
+        /// </summary>
+        /// <returns></returns>
+        bool IsAstronoutInSector()
+        {
+            // Iteriere durch alle MapObjects in dem Sector
+            foreach (MapObject obj in sector.ObjectsInRegion)
+            {
+                // wurde ein Astronaut gefunden?
+                if (obj.Type is AlienType)// TODO: GameCharacterType
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         // Der Spawnpoint soll nicht zerstörbar sein
-        //
-        //protected override void OnDamage(MapObject prejudicial, Vec3 pos, Shape shape, float damage,
-        //    bool allowMoveDamageToParent)
-        //{
-        //    float oldLife = Health;
+        protected override void OnDamage(MapObject prejudicial, Vec3 pos, Shape shape, float damage,
+            bool allowMoveDamageToParent)
+        {
+            // Einfach nichts machen
+            return;
+            //float oldLife = Health;
 
-        //    base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
+            //base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
 
-        //    if (damage < 0 && BuildedProgress != 1)
-        //    {
-        //        BuildedProgress += (-damage) / Type.HealthMax;
-        //        if (BuildedProgress > 1)
-        //            BuildedProgress = 1;
+            //if (damage < 0 && BuildedProgress != 1)
+            //{
+            //    BuildedProgress += (-damage) / Type.HealthMax;
+            //    if (BuildedProgress > 1)
+            //        BuildedProgress = 1;
 
-        //        if (BuildedProgress != 1 && Health == Type.HealthMax)
-        //            Health = Type.HealthMax - .01f;
-        //    }
+            //    if (BuildedProgress != 1 && Health == Type.HealthMax)
+            //        Health = Type.HealthMax - .01f;
+            //}
 
-        //    float halfLife = Type.HealthMax * .5f;
-        //    if (Health > halfLife && oldLife <= halfLife)
-        //        UpdateAttachedObjectsVisibility();
-        //    else if (Health < halfLife && oldLife >= halfLife)
-        //        UpdateAttachedObjectsVisibility();
+            //float halfLife = Type.HealthMax * .5f;
+            //if (Health > halfLife && oldLife <= halfLife)
+            //    UpdateAttachedObjectsVisibility();
+            //else if (Health < halfLife && oldLife >= halfLife)
+            //    UpdateAttachedObjectsVisibility();
 
-        //    float quarterLife = Type.HealthMax * .25f;
-        //    if (Health > quarterLife && oldLife <= quarterLife)
-        //        UpdateAttachedObjectsVisibility();
-        //    else if (Health < quarterLife && oldLife >= quarterLife)
-        //        UpdateAttachedObjectsVisibility();
-        //}
+            //float quarterLife = Type.HealthMax * .25f;
+            //if (Health > quarterLife && oldLife <= quarterLife)
+            //    UpdateAttachedObjectsVisibility();
+            //else if (Health < quarterLife && oldLife >= quarterLife)
+            //    UpdateAttachedObjectsVisibility();
+        }
 
+        /// <summary>
+        /// Alien sichtbar machen
+        /// </summary>
         void UpdateAttachedObjectsVisibility()
         {
             foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
             {
-                //lessHalfLife
-                if (attachedObject.Alias == "lessHalfLife")
-                {
-                    attachedObject.Visible = (Health < Type.HealthMax * .5f && buildedProgress == 1);
-                    continue;
-                }
-
-                //lessQuarterLife
-                if (attachedObject.Alias == "lessQuarterLife")
-                {
-                    attachedObject.Visible = (Health < Type.HealthMax * .25f && buildedProgress == 1);
-                    continue;
-                }
-
                 //spawnedUnit
                 if (attachedObject.Alias == "spawnedUnit")
                 {
                     attachedObject.Visible = spawnedUnit != null;
                     continue;
                 }
-
-                //building
-                //{
-                //    string showAlias = null;
-
-                //    if (buildedProgress < .25f)
-                //        showAlias = "building0";
-                //    else if (buildedProgress < .5f)
-                //        showAlias = "building1";
-                //    else if (buildedProgress < 1)
-                //        showAlias = "building2";
-
-                //    if (showAlias != null)
-                //        attachedObject.Visible = (attachedObject.Alias == showAlias);
-                //    else
-                //        attachedObject.Visible = !attachedObject.Alias.Contains("building");
-                //}
-
             }
         }
-
     }
 }

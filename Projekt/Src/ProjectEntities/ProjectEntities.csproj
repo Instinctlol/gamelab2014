@@ -164,6 +164,7 @@
     <Compile Include="SmartButton.cs" />
     <Compile Include="SmartButtonWindow.cs" />
     <Compile Include="StationSystem.cs" />
+    <Compile Include="StringFormatter.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskWindow.cs" />
     <Compile Include="DynamicSinusoidSurface.cs" />

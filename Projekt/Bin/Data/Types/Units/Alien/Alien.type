@@ -4,11 +4,11 @@ type Alien
 	optimalAttackDistanceRange = 0 40
 	allowPlayerControl = True
 	initialAI = AlienAI
-	viewRadius = 70
+	viewRadius = 30
 	healthMax = 150
 	targetPriority = 1
 	soundCollision = "Sounds\\Beep.ogg"
-	substance = Metal
+	substance = Flesh
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -27,14 +27,6 @@ type Alien
 	}
 	dieObjects
 	{
-		particle
-		{
-			particleName = ExplosionParticle
-		}
-		sound
-		{
-			soundName = "Sounds\\Explode.ogg"
-		}
 		mapObject
 		{
 			type = AlienDead

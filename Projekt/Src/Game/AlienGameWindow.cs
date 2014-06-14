@@ -20,46 +20,83 @@ namespace Game
 {
     public class AlienGameWindow : GameWindow
     {
+        /*************/
+        /* Attribute */
+        /*************/
+        // Kameraattribute
         enum CameraType
         {
             Game,
-
             Count
         }
 		static float mydelta  = 0;
-        static CameraType cameraType = CameraType.Game;// vielleicht brauchen wir zuweisung nicht
-
-        [Config("Map", "drawPathMotionMap")]
-        public static bool mapDrawPathMotionMap;
-
+        static CameraType cameraType = CameraType.Game;
         float cameraDistance = 20;
         SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
         Vec2 cameraPosition;
 
-        //HUD
+        // Pathfinding Attribute
+        [Config("Map", "drawPathMotionMap")]
+        public static bool mapDrawPathMotionMap;
+
+        // GUI Attribute
         Control hudControl;
 
-        //Select for Alien Tasks
-        List<Unit> selectedUnits = new List<Unit>();
-        
-        //Spawning
+        // Spawning
         int possibleNumberSpawnAliens = 10;
         ListBox numberSpawnUnitsList;
         int spawnNumber = 1;
 
-        //Select mode
+        // Select mode
+        List<Unit> selectedUnits = new List<Unit>();
         bool selectMode;
         Vec2 selectStartPos;
         bool selectDraggedMouse;
 
-        //Task target choose
+        // Task Attribute
         int taskTargetChooseIndex = -1;
 
-        //Minimap
+        // Minimap
         bool minimapChangeCameraPosition;
         Control minimapControl;
 
+        // Time Counter
         float timeForUpdateGameStatus;
+        float timeForUpdateNotificationStatus;
+        float timeForDeleteNotificationMessage;
+
+
+
+        /**************/
+        /* Funktionen */
+        /**************/
+        /// <summary>
+        /// Funktion für notSpawnableEvent aus der AlienSpawner-Klasse. Dieses Event wird getriggert, wenn in der AlienSpawner-Klasse 
+        /// festgestellt wird, dass keine Aliens gespawnt werden dürfen/können. Dann muss nämlich eine entsprechende Nachricht angezeigt werden.
+        /// </summary>
+        /// <param name="message"></param>
+        public void AddNotificationMessage(String message)
+        {
+            hudControl.Controls["ActiveArea"].Controls["StatusMessage"].Text = message;
+            // Restzeit setzen für Anzeige und das dann bei ontick runterzählen, damit irgendwann text gelöscht wird
+            timeForDeleteNotificationMessage = 5;
+        }
+
+        /// <summary>
+        /// Event Listener initialisieren
+        /// </summary>
+        private void InitializeEventListener()
+        {
+            // Event für Computer initialisieren
+            Computer.showMessage += new Computer.ComputerEventDelegate(AddNotificationMessage);
+
+            // Event für Spawner initialisieren
+            IEnumerable<AlienSpawner> spawnerList = Entities.Instance.EntitiesCollection.OfType<AlienSpawner>();
+            foreach (AlienSpawner spawner in spawnerList)
+            {
+                spawner.showMessage += new AlienSpawner.AlienSpawnerEventDelegate(AddNotificationMessage);
+            }
+        }
 
         // Beim Starten des Spiels GUI initialisieren und co
         protected override void OnAttach()
@@ -67,11 +104,12 @@ namespace Game
             base.OnAttach();
 
             EngineApp.Instance.KeysAndMouseButtonUpAll();
+            InitializeEventListener();
 
             //hudControl
             hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
             Controls.Add(hudControl);
-
+            
             ((Button)hudControl.Controls["Menu"]).Click += delegate(Button sender)
             {
                 Controls.Add(new MenuWindow());
@@ -102,7 +140,6 @@ namespace Game
             minimapControl.BackTexture = minimapTexture;
             minimapControl.RenderUI += new RenderUIDelegate(Minimap_RenderUI);
 
-            //ToDO: Initialisierung der Camera
             //set camera position
             foreach (Entity entity in Map.Instance.Children)
             {
@@ -184,6 +221,16 @@ namespace Game
                 
                 GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
 
+                return true;
+            }
+
+            //increment computer station status
+            if (e.Key == EKeys.F3)
+            {
+                Computer.IncrementSolvedRepairables();
+                Alien alien = ((Alien)Entities.Instance.GetByName("Alien_0"));
+                if ( alien != null)
+                    alien.testDeath();
                 return true;
             }
 
@@ -278,9 +325,6 @@ namespace Game
                 if (pickingSuccess)
                 {
                     //do tasks
-                    //if (button == EMouseButtons.Right)
-                    //    DoRightClickTasks(mouseMapPos, mouseOnObject);
-                    // TODO hier ganz anders: das bräuchte ich:
                     if (TaskTargetChooseIndex != -1)
                     {
                         if (button == EMouseButtons.Left)
@@ -542,6 +586,11 @@ namespace Game
         {
             base.OnTick(delta);
 
+            // Status Notification Top aktualisieren
+            UpdateStatusNotificationTop(delta);
+            // Status Nachrichten löschen
+            UpdateStatusMessage(delta);
+
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return;
@@ -672,7 +721,7 @@ namespace Game
                         {
                             existsEnemy = true;
                         }
-                        else if (unit is GameCharacter)// TODO Astronaut
+                        else if (unit is GameCharacter)
                         {
                             existsAlly = true;
                         }
@@ -711,6 +760,34 @@ namespace Game
             Camera camera = RendererWorld.Instance.DefaultCamera;
 
             hudControl.Visible = EngineDebugSettings.DrawGui;
+
+            //Computer station status notification (bottom)
+            {
+                float stationStatus = Computer.GetStationStatus();
+
+                Control healthBar = hudControl.Controls["StationStatusBar"];
+                Vec2 originalSize = new Vec2(256, 32);
+                Vec2 interval = new Vec2(117, 304);
+                float sizeX = (117 - 82) + stationStatus * (interval[1] - interval[0]);
+                healthBar.Size = new ScaleValue(ScaleType.ScaleByResolution, new Vec2(sizeX, originalSize.Y));
+                healthBar.BackTextureCoord = new Rect(0, 0, sizeX / originalSize.X, 1);
+            }
+
+            // AlienIcon
+            {
+                Control alienIcon = hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienIcon"];
+                string fileName = "Gui\\HUD\\Icons\\Alien.png";
+                alienIcon.BackTexture = TextureManager.Instance.Load(fileName, Texture.Type.Type2D, 0);
+            }
+
+            // Computer status notifications (top)
+            {
+                hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountActive"].Text = ""+Computer.UsedAliens;
+                hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountPossible"].Text = "" + Computer.AvailableAliens;
+                hudControl.Controls["StatusNotificationTop"].Controls["RotationIcon"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
+                hudControl.Controls["StatusNotificationTop"].Controls["EnergyIcon"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
+                hudControl.Controls["StatusNotificationTop"].Controls["ExperienceIcon"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+            }
 
             Vec3 mouseMapPos = Vec3.Zero;
             Unit mouseOnObject = null;
@@ -798,7 +875,8 @@ namespace Game
 
                     text += unit.ToString() + "\n";
                     text += "\n";
-                    text += string.Format("Life: {0}/{1}\n", unit.Health, unit.Type.HealthMax);
+                    if (unit is Alien)
+                        text += string.Format("Life: {0}/{1}\n", unit.Health, unit.Type.HealthMax);
 
                     text += "Intellect:\n";
                     if (unit.Intellect != null)
@@ -824,6 +902,27 @@ namespace Game
             }
 
             UpdateHUDControlIcon();
+        }
+
+        void UpdateStatusNotificationTop(float delta)
+        {
+            timeForUpdateNotificationStatus -= delta;
+            if (timeForUpdateNotificationStatus < 0) //time to do it
+            {
+                timeForUpdateNotificationStatus = 60;
+                Computer.IncrementAvailableAliens();
+                Computer.IncrementPowerCoupons();
+                Computer.IncrementRotationCoupons();
+            }
+        }
+
+        void UpdateStatusMessage(float delta)
+        {
+            timeForDeleteNotificationMessage -= delta;
+            if (timeForDeleteNotificationMessage < 0)
+            {
+                hudControl.Controls["ActiveArea"].Controls["StatusMessage"].Text = "";
+            }
         }
 
         /// <summary>
@@ -947,13 +1046,6 @@ namespace Game
         {
             int index = int.Parse(sender.Name.Substring("ComputerButton".Length));
             Computer.Actions action = (Computer.Actions)index;
-
-            /*RotateRing1Left,
-            RotateRing1Right,
-            RotateRing2Left,
-            RotateRing2Right,
-            LightSector1,
-            LightSector2*/
 
             switch( action )
             {

@@ -306,7 +306,7 @@
             Represents work with the MotionBlur post effect.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:TUIO.TuioClient" -->
+        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioClient" ignoriert -->
         <member name="M:TUIO.TuioClient.#ctor">
             The default constructor creates a client that listens to the default TUIO port 3333
         </member>
@@ -693,7 +693,7 @@
             Returns the Cursor ID of this TuioCursor.
             @return	the Cursor ID of this TuioCursor
         </member>
-        <!-- Badly formed XML comment ignored for member "T:TUIO.TuioListener" -->
+        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioListener" ignoriert -->
         <member name="M:TUIO.TuioListener.addTuioObject(TUIO.TuioObject)">
              This callback method is invoked by the TuioClient when a new TuioObject is added to the session.
             

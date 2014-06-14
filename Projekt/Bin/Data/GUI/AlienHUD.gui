@@ -11,9 +11,21 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 0
-		size = Screen 0.8632813 0.7812501
+		position = ScaleByResolution 0 110
+		size = Screen 0.8632813 0.65
 		name = ActiveArea
+		control TextBox
+		{
+			font = Default 0.05
+			textColor = 1 0.04705883 0.1921569
+			wordWrap = True
+			topMost = True
+			position = ScaleByResolution 0 0
+			horizontalAlign = Center
+			verticalAlign = Bottom
+			size = Parent 0.5 0.2
+			name = StatusMessage
+		}
 	}
 	control Control
 	{
@@ -267,6 +279,145 @@ control Control
 			verticalAlign = Bottom
 			name = Close
 			text = Close
+		}
+	}
+	control Control
+	{
+		position = ScaleByResolution 310 730
+		size = ScaleByResolution 370 30
+		name = StationStatusBar
+		backTexture = "GUI\\HUD\\EnergyBar.png"
+	}
+	control TextBox
+	{
+		textHorizontalAlign = Left
+		position = ScaleByResolution 240 730
+		size = Parent 0.08203122 0.03645831
+		name = StationStatusText
+		text = "Status:"
+	}
+	control Control
+	{
+		position = ScaleByResolution 0 0
+		size = Screen 0.85 0.17
+		name = StatusNotificationTop
+		backColor = 0 0 0 0.5
+		control Control
+		{
+			position = Parent 0.05744485 0
+			verticalAlign = Center
+			size = ScaleByResolution 128 128
+			name = AlienIcon
+		}
+		control Control
+		{
+			position = Parent 0.3102022 0
+			verticalAlign = Center
+			size = ScaleByResolution 90 90
+			name = RotationIcon
+			backTexture = "GUI\\HUD\\rotate_ring.png"
+			control TextBox
+			{
+				horizontalAlign = Center
+				verticalAlign = Center
+				size = Parent 0.4 0.3
+				name = RotationCouponCount
+				text = 5
+			}
+		}
+		control Control
+		{
+			position = Parent 0.4595588 0
+			verticalAlign = Center
+			size = ScaleByResolution 90 90
+			name = EnergyIcon
+			backTexture = "GUI\\HUD\\strom.png"
+			control TextBox
+			{
+				textColor = 0 0 0
+				topMost = True
+				position = Parent 0 -0.1
+				horizontalAlign = Center
+				verticalAlign = Center
+				size = Parent 0.4 0.3
+				name = EnergyCouponCount
+				text = 6
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5974265 0
+			verticalAlign = Center
+			size = ScaleByResolution 120 90
+			name = ExperienceIcon
+			backTexture = "GUI\\HUD\\erfahrungspunkte.png"
+			control TextBox
+			{
+				textColor = 0 0 0
+				position = Parent -0.04 -0.15
+				horizontalAlign = Right
+				verticalAlign = Bottom
+				size = Parent 0.5 0.3
+				name = ExperienceCount
+				text = 500
+			}
+		}
+		control Control
+		{
+			position = Parent 0.07 0
+			verticalAlign = Center
+			size = ScaleByResolution 200 130
+			name = AlienIconBox
+			control Control
+			{
+				verticalAlign = Center
+				size = Parent 0.64 0.9846154
+				backTexture = "Gui/HUD/PlayerUnitCircle.png"
+			}
+			control Control
+			{
+				verticalAlign = Center
+				size = Parent 0.64 0.9846154
+				name = AlienIcon
+			}
+			control Control
+			{
+				position = Parent 0.49536 0
+				verticalAlign = Center
+				size = Parent 0.45 0.5384616
+				name = AlienCount
+				backTexture = "GUI\\HUD\\alien_anzahl.png"
+				control TextBox
+				{
+					position = Parent 0.2444444 0.1285714
+					size = Parent 0.5 0.35
+					name = AlienCountActive
+					text = 20
+				}
+				control TextBox
+				{
+					position = Parent 0.2444444 0.5857142
+					size = Parent 0.5 0.35
+					name = AlienCountPossible
+					text = 30
+				}
+			}
+			control TextBox
+			{
+				textHorizontalAlign = Left
+				textVerticalAlign = Bottom
+				position = Parent 0.52 0.08
+				size = Parent 0.3 0.18
+				text = Aktiv
+			}
+			control TextBox
+			{
+				textHorizontalAlign = Left
+				textVerticalAlign = Top
+				position = Parent 0.52 0.75
+				size = Parent 0.5 0.18
+				text = Verfuegbar
+			}
 		}
 	}
 }

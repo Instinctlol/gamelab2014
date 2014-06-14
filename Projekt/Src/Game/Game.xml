@@ -66,6 +66,18 @@
             <param name="cameraFov">The camera FOV.</param>
             <returns><b>true</b>if the player is in any area; otherwise <b>false</b>.</returns>
         </member>
+        <member name="M:Game.AlienGameWindow.AddNotificationMessage(System.String)">
+            <summary>
+            Funktion für notSpawnableEvent aus der AlienSpawner-Klasse. Dieses Event wird getriggert, wenn in der AlienSpawner-Klasse 
+            festgestellt wird, dass keine Aliens gespawnt werden dürfen/können. Dann muss nämlich eine entsprechende Nachricht angezeigt werden.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Game.AlienGameWindow.InitializeEventListener">
+            <summary>
+            Event Listener initialisieren
+            </summary>
+        </member>
         <member name="M:Game.AlienGameWindow.GetColor(ProjectEntities.Unit)">
             <summary>
             Farbe für kleine Aliens und Spawnpoint verschieden

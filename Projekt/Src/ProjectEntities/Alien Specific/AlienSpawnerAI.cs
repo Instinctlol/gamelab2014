@@ -20,8 +20,30 @@ namespace ProjectEntities
     /// </summary>
     public class AlienSpawnerAI : AlienUnitAI
     {
+        /*************/
+        /* Attribute */
+        /*************/
         AlienSpawnerAIType _type = null; public new AlienSpawnerAIType Type { get { return _type; } }
 
+
+
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
+        /// <summary>
+        /// Getter for AlienSpawner Object
+        /// </summary>
+        [Browsable(false)]
+        public new AlienSpawner ControlledObject
+        {
+            get { return (AlienSpawner)base.ControlledObject; }
+        }
+
+
+
+        /**************/
+        /* Funktionen */
+        /**************/
         /// <summary>
         /// Get all tasks for AlienSpawner
         /// </summary>
@@ -33,6 +55,7 @@ namespace ProjectEntities
             {
                 // Create task for producing small aliens
                 AlienType unitType = (AlienType)EntityTypes.Instance.GetByName("Alien");
+                
                 list.Add(new UserControlPanelTask(new Task(Task.Types.ProductUnit, unitType),
                     CurrentTask.Type == Task.Types.ProductUnit));
             }
@@ -47,24 +70,19 @@ namespace ProjectEntities
         }
 
         /// <summary>
-        /// Getter for AlienSpawner Object
+        /// Wird bei jedem Tick-Event ausgeführt (OnTick() in AlienUnitAI). Überprüft, ob es einen neuen Task gibt und führt diesen aus.
         /// </summary>
-        [Browsable(false)]
-        public new AlienSpawner ControlledObject
-        {
-            get { return (AlienSpawner)base.ControlledObject; }
-        }
-
         protected override void TickTasks()
         {
             base.TickTasks();
-
+            // AlienSpawner auslesen
             AlienSpawner controlledObj = ControlledObject;
             if (controlledObj == null)
                 return;
 
             switch (CurrentTask.Type)
             {
+                // Wenn Task ProductUnit ist, Task in Queue speichern (DoTask() inAlienUnitAI)
                 case Task.Types.ProductUnit:
                     if (ControlledObject.SpawnedUnit == null)
                         DoTask(new Task(Task.Types.Stop), false);
@@ -82,10 +100,12 @@ namespace ProjectEntities
             if (task.Type != Task.Types.ProductUnit)
                 ControlledObject.StopProductUnit();
 
+            // hier wird Stop-Task u.a. geprüft
             base.DoTaskInternal(task);
 
             if (task.Type == Task.Types.ProductUnit)
             {
+                // Produktion kleiner Aliens starten
                 ControlledObject.StartProductUnit((AlienType)task.EntityType, task.SpawnNumber);
             }
         }

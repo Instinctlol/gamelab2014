@@ -20,8 +20,10 @@ namespace ProjectEntities
     /// </summary>
     public abstract class AlienUnitAI : AI
     {
+        /*************/
+        /* Attribute */
+        /*************/
         AlienUnitAIType _type = null; public new AlienUnitAIType Type { get { return _type; } }
-
 
 		[FieldSerialize]
 		Task currentTask = new Task( Task.Types.Stop );
@@ -29,7 +31,11 @@ namespace ProjectEntities
 		[FieldSerialize]
 		List<Task> tasks = new List<Task>();
 
-        //// Getter ////////////////////////////////
+
+
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
         [Browsable(false)]
         public List<Task> Tasks
         {
@@ -47,185 +53,11 @@ namespace ProjectEntities
             get { return (AlienUnit)base.ControlledObject; }
         }
 
-		///////////////////////////////////////////
 
-		public struct Task
-		{
-			[FieldSerialize]
-			[DefaultValue( Types.None )]
-			Types type;
 
-			[FieldSerialize]
-			[DefaultValue( typeof( Vec3 ), "0 0 0" )]
-			Vec3 position;
-
-			[FieldSerialize]
-			DynamicType entityType;
-
-			[FieldSerialize]
-			Dynamic entity;
-
-            [FieldSerialize]
-            [DefaultValue( 1 )]
-            int spawnNumber;
-
-			public enum Types
-			{
-				None,
-				Stop,
-				BreakableAttack,//for automatic attacks
-				Hold,
-				Move,
-				BreakableMove,//for automatic moves
-				Attack,
-                Repair,
-				BreakableRepair,//for automatic repair
-				ProductUnit,
-				SelfDestroy,//for cancel build building 
-                Active, //for active state of small Alien (walks independently through the world to find enemies and attacks them)
-                Passive //for passive state of small Alien (doesn't move as long as there's no enemy in range, but attacks enemies in a certain radius automatically)
-			}
-
-			public Task( Types type )
-			{
-				this.type = type;
-				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
-				this.entityType = null;
-				this.entity = null;
-                this.spawnNumber = 1;
-			}
-
-			public Task( Types type, Vec3 position )
-			{
-				this.type = type;
-				this.position = position;
-				this.entityType = null;
-				this.entity = null;
-                this.spawnNumber = 1;
-			}
-
-			public Task( Types type, DynamicType entityType )
-			{
-				this.type = type;
-				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
-				this.entityType = entityType;
-                this.entity = null;
-                this.spawnNumber = 1;
-			}
-
-			public Task( Types type, Vec3 position, DynamicType entityType )
-			{
-				this.type = type;
-				this.position = position;
-				this.entityType = entityType;
-				this.entity = null;
-                this.spawnNumber = 1;
-			}
-
-			public Task( Types type, Dynamic entity )
-			{
-				this.type = type;
-				this.position = new Vec3( float.NaN, float.NaN, float.NaN );
-				this.entityType = null;
-				this.entity = entity;
-                this.spawnNumber = 1;
-			}
-
-            public Task(Types type, DynamicType entityType, int spawnNumber)
-            {
-                this.type = type;
-                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
-                this.entityType = entityType;
-                this.entity = null;
-                this.spawnNumber = spawnNumber;
-            }
-
-			public Types Type
-			{
-				get { return type; }
-			}
-
-			public Vec3 Position
-			{
-				get { return position; }
-			}
-
-			public DynamicType EntityType
-			{
-				get { return entityType; }
-			}
-
-			public Dynamic Entity
-			{
-				get { return entity; }
-			}
-
-            public int SpawnNumber
-            {
-                get { return spawnNumber;  }
-            }
-
-			public override string ToString()
-			{
-				string s = type.ToString();
-				if( !float.IsNaN( position.X ) )
-					s += ", Position: " + position.ToString();
-				if( entityType != null )
-					s += ", EntityType: " + entityType.Name;
-				if( entity != null )
-					s += ", Entity: " + entity.ToString();
-				return s;
-			}
-		}
-
-		///////////////////////////////////////////
-
-		public struct UserControlPanelTask
-		{
-			Task task;
-			bool active;
-			bool enable;
-
-			public UserControlPanelTask( Task task )
-			{
-				this.task = task;
-				this.active = true;
-				this.enable = true;
-			}
-
-			public UserControlPanelTask( Task task, bool active )
-			{
-				this.task = task;
-				this.active = active;
-				this.enable = true;
-			}
-
-			public UserControlPanelTask( Task task, bool active, bool enable )
-			{
-				this.task = task;
-				this.active = active;
-				this.enable = enable;
-			}
-
-			public Task Task
-			{
-				get { return task; }
-			}
-
-			public bool Active
-			{
-				get { return active; }
-			}
-
-			public bool Enable
-			{
-				get { return enable; }
-			}
-
-		}
-
-		///////////////////////////////////////////
-
+        /**************/
+        /* Funktionen */
+        /**************/
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
 		protected override void OnPostCreate( bool loaded )
 		{
@@ -270,6 +102,9 @@ namespace ProjectEntities
             TickTasks();
 		}
 
+        /// <summary>
+        /// Wird bei jedem Tick-Event ausgeführt. Wird in Alien und AlienSpawner Klassen erweitert. Deshalb nur Stop hier, weil gemeinsamer Task
+        /// </summary>
         protected virtual void TickTasks()      
         {
             AlienUnit controlledObj = ControlledObject;
@@ -296,6 +131,10 @@ namespace ProjectEntities
 			tasks.Clear();
 		}
 
+        /// <summary>
+        /// Task ausführen
+        /// </summary>
+        /// <param name="task"></param>
 		protected virtual void DoTaskInternal( Task task )
 		{
 			if( currentTask.Entity != null )
@@ -322,6 +161,11 @@ namespace ProjectEntities
 			}
 		}
 
+        /// <summary>
+        /// Tasks in Queue verwalten
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="toQueue"></param>
 		public void DoTask( Task task, bool toQueue )
 		{
 			if( toQueue && currentTask.Type == Task.Types.Stop && tasks.Count == 0 )
@@ -340,6 +184,9 @@ namespace ProjectEntities
 			}
 		}
 
+        /// <summary>
+        /// Nächste Task ausführen oder Stop
+        /// </summary>
 		protected void DoNextTask()
 		{
 			if( currentTask.Entity != null )
@@ -361,5 +208,193 @@ namespace ProjectEntities
 		}
 
         public abstract List<UserControlPanelTask> GetControlPanelTasks();
+
+        
+        
+        /***************/
+        /* Struct Task */
+        /***************/
+        /// <summary>
+        /// Taskverwaltung für die Aufgabenzuteilung an Alien und AlienSpawner
+        /// </summary>
+        public struct Task
+        {
+            [FieldSerialize]
+            [DefaultValue(Types.None)]
+            Types type;
+
+            [FieldSerialize]
+            [DefaultValue(typeof(Vec3), "0 0 0")]
+            Vec3 position;
+
+            [FieldSerialize]
+            DynamicType entityType;
+
+            [FieldSerialize]
+            Dynamic entity;
+
+            [FieldSerialize]
+            [DefaultValue(1)]
+            int spawnNumber;
+
+            public enum Types
+            {
+                None,
+                Stop,
+                BreakableAttack,//for automatic attacks
+                Hold,
+                Move,
+                BreakableMove,//for automatic moves
+                Attack,
+                Repair,
+                BreakableRepair,//for automatic repair
+                ProductUnit,
+                SelfDestroy,//for cancel build building 
+                Active, //for active state of small Alien (walks independently through the world to find enemies and attacks them)
+                Passive //for passive state of small Alien (doesn't move as long as there's no enemy in range, but attacks enemies in a certain radius automatically)
+            }
+
+            public Task(Types type)
+            {
+                this.type = type;
+                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
+                this.entityType = null;
+                this.entity = null;
+                this.spawnNumber = 1;
+            }
+
+            public Task(Types type, Vec3 position)
+            {
+                this.type = type;
+                this.position = position;
+                this.entityType = null;
+                this.entity = null;
+                this.spawnNumber = 1;
+            }
+
+            public Task(Types type, DynamicType entityType)
+            {
+                this.type = type;
+                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
+                this.entityType = entityType;
+                this.entity = null;
+                this.spawnNumber = 1;
+            }
+
+            public Task(Types type, Vec3 position, DynamicType entityType)
+            {
+                this.type = type;
+                this.position = position;
+                this.entityType = entityType;
+                this.entity = null;
+                this.spawnNumber = 1;
+            }
+
+            public Task(Types type, Dynamic entity)
+            {
+                this.type = type;
+                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
+                this.entityType = null;
+                this.entity = entity;
+                this.spawnNumber = 1;
+            }
+
+            public Task(Types type, DynamicType entityType, int spawnNumber)
+            {
+                this.type = type;
+                this.position = new Vec3(float.NaN, float.NaN, float.NaN);
+                this.entityType = entityType;
+                this.entity = null;
+                this.spawnNumber = spawnNumber;
+            }
+
+            public Types Type
+            {
+                get { return type; }
+            }
+
+            public Vec3 Position
+            {
+                get { return position; }
+            }
+
+            public DynamicType EntityType
+            {
+                get { return entityType; }
+            }
+
+            public Dynamic Entity
+            {
+                get { return entity; }
+            }
+
+            public int SpawnNumber
+            {
+                get { return spawnNumber; }
+            }
+
+            public override string ToString()
+            {
+                string s = type.ToString();
+                if (!float.IsNaN(position.X))
+                    s += ", Position: " + position.ToString();
+                if (entityType != null)
+                    s += ", EntityType: " + entityType.Name;
+                if (entity != null)
+                    s += ", Entity: " + entity.ToString();
+                return s;
+            }
+        }
+
+
+
+        /***************/
+        /* Struct UserControlPanelTask */
+        /***************/
+        /// <summary>
+        /// Taskverwaltung für die Buttons für Alien und AlienSpawner
+        /// </summary>
+        public struct UserControlPanelTask
+        {
+            Task task;
+            bool active;
+            bool enable;
+
+            public UserControlPanelTask(Task task)
+            {
+                this.task = task;
+                this.active = true;
+                this.enable = true;
+            }
+
+            public UserControlPanelTask(Task task, bool active)
+            {
+                this.task = task;
+                this.active = active;
+                this.enable = true;
+            }
+
+            public UserControlPanelTask(Task task, bool active, bool enable)
+            {
+                this.task = task;
+                this.active = active;
+                this.enable = enable;
+            }
+
+            public Task Task
+            {
+                get { return task; }
+            }
+
+            public bool Active
+            {
+                get { return active; }
+            }
+
+            public bool Enable
+            {
+                get { return enable; }
+            }
+        }
     }
 }
