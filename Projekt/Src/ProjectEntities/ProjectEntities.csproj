@@ -159,6 +159,7 @@
     <Compile Include="ProgressRepairable.cs" />
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
+    <Compile Include="Room.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="SectorGroup.cs" />
     <Compile Include="SmartButton.cs" />

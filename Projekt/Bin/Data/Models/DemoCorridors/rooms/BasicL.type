@@ -1,6 +1,7 @@
 type BasicL2
 {
-	class = MapObject
+	class = Room
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

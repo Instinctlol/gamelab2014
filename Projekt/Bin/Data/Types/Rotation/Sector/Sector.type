@@ -1,4 +1,5 @@
 type Sector
 {
 	class = Sector
+	networkType = Synchronized
 }

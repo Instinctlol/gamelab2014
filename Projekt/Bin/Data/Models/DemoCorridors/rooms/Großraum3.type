@@ -1,6 +1,7 @@
 type "Gro\x00dfraum32"
 {
-	class = MapObject
+	class = Room
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

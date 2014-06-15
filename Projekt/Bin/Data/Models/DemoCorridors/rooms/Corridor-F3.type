@@ -1,6 +1,7 @@
 type "Corridor-F3"
 {
-	class = MapObject
+	class = Room
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

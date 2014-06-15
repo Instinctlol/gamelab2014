@@ -1,6 +1,8 @@
 ﻿using Engine;
+using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.MathEx;
+using Engine.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,10 +33,10 @@ namespace ProjectEntities
 
         //Anzahl der Ecken des Ringes, standard 8. Nur gebraucht für drehen, ist egal bei festen Ringen
         [FieldSerialize]
-        private int corners = 8;
+        private byte corners = 8;
 
         //Aktuelle Position des Ringes
-        private int position;
+        private byte position;
 
 
         //***************************
@@ -52,7 +54,7 @@ namespace ProjectEntities
             set { id = value; }
         }
 
-        public int Corners
+        public byte Corners
         {
             get { return corners; }
             set { corners = value; }
@@ -93,7 +95,7 @@ namespace ProjectEntities
             if (!Rotatable)
                 return;
 
-            position = (position + corners - 1);
+            position =(byte)( position + corners - 1);
 
             double angle = position * (Math.PI / corners);
 
@@ -107,8 +109,7 @@ namespace ProjectEntities
             if (RotateRing != null)
             {
                 RotateRing(this.Position, newRot);
-            }
-        
+            }        
         }
 
         //Rotiert "rechts" herum
@@ -120,7 +121,7 @@ namespace ProjectEntities
             if (!Rotatable)
                 return;
 
-            position = (position + 1) % corners;
+            position = (byte)( (position + 1) % corners );
 
             double angle = position * (Math.PI/corners);
 
@@ -137,6 +138,8 @@ namespace ProjectEntities
             }
 
         }
+
+
 
     }
 }

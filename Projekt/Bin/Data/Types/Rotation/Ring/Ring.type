@@ -1,6 +1,7 @@
 type Ring
 {
 	class = Ring
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

@@ -3,6 +3,7 @@ type TestProgressRepairable
 	class = ProgressRepairable
 	soundRepaired = "Sounds\\steam-hiss.ogg"
 	soundUsing = "Sounds\\hammer.ogg"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

@@ -1,6 +1,7 @@
 type F3C90
 {
-	class = MapObject
+	class = Room
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

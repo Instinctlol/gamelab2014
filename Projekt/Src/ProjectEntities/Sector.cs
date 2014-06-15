@@ -1,6 +1,7 @@
 ﻿using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.MathEx;
+using Engine.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,8 @@ namespace ProjectEntities
         //Sektor Gruppe dem dieser Sektor angehört
         [FieldSerialize]
         private SectorGroup group;
+
+
         //***************************
         //*******Getter-Setter*******
         //*************************** 
@@ -136,6 +139,8 @@ namespace ProjectEntities
                 OnDynamicIn((Dynamic)obj);
             else
                 OnStaticIn(obj);
+
+
         }
 
         //Registriert wenn ein Object den Sektor verlässt
@@ -165,6 +170,7 @@ namespace ProjectEntities
             if (!loaded)
                 return;
 
+
             //Wenn Ring vorhanden bei seinem Event unterschreiben
             if (ring != null)
                 ring.RotateRing += OnRotateRing;
@@ -180,7 +186,7 @@ namespace ProjectEntities
             if (loaded)
                 return;
 
-            if (aliensInSector <= 0 && GameMap.Instance.IsAlien)
+            if (aliensInSector <= 0 && (GameMap.Instance != null && GameMap.Instance.IsAlien))
             {
                 aliensInSector = 0;
                 IsHidden = true;
@@ -257,7 +263,9 @@ namespace ProjectEntities
                 offset = m.Position - OldPosition;
                 m.Position = newRot * offset + Position;
             }
+
         }
+
 
         private void OnStaticIn(MapObject obj)
         {
