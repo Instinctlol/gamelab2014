@@ -340,14 +340,7 @@ namespace ProjectEntities
 
         protected override void OnRenderFrame()
         {
-            //update animation tree
-            if (EntitySystemWorld.Instance.Simulation && !EntitySystemWorld.Instance.SystemPauseOfSimulation)
-            {
-                AnimationTree tree = GetFirstAnimationTree();
-
-                if (tree != null)
-                    UpdateAnimationTree(tree);
-            }
+            UpdateAnimationTree();
 
             base.OnRenderFrame();
         }
@@ -360,11 +353,12 @@ namespace ProjectEntities
             EngineConsole.Instance.Print("ich sterbe");
         }
 
-        void UpdateAnimationTree(AnimationTree tree)
+        void UpdateAnimationTree()
         {
             bool move = false;
             //Degree moveAngle = 0;
             float moveSpeed = 0;
+            AnimationTree tree = GetFirstAnimationTree();
 
             if (mainBodyVelocity.ToVec2().Length() > .1f)
             {
