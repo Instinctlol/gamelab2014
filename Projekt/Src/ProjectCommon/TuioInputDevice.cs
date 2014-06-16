@@ -9,22 +9,49 @@ using TUIO;
 namespace ProjectCommon
 {
 
-
+    public enum opType
+    {
+        selection,
+        translation,
+        rotation
+    };
 	//For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
 	//in the GameEngineApp.cs. After it you will see this device in the Game Options window.
 
 	public class TuioInputDeviceSpecialEvent : InputEvent
 	{
-		public TuioInputDeviceSpecialEvent( InputDevice device )
-			: base( device )
+
+        opType type;
+        float dx,dy;
+
+		public TuioInputDeviceSpecialEvent( InputDevice device, opType type, float dx, float dy)
+			: base( device)
 		{
-		}
+            this.type = type;
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        public opType getOPType() {
+            return this.type;
+        }
+        public float getx()
+        {
+            return this.dx;
+        }
+        public float gety()
+        {
+            return this.dy;
+        }
 	}
 
 	public class TuioInputDevice : JoystickInputDevice
 	{
         public static List<float[]> tuioInputData = new List<float[]>();
         public static bool[] detected = new bool[200];
+        public static float[] oldcoords;
+        public static bool wastranslating = false;
+        
 		public TuioInputDevice( string name )
 			: base( name )
 		{
@@ -108,31 +135,102 @@ namespace ProjectCommon
             }
 
             //primitive Erkennung
-
+            //block 1
             List<float[]> used = new List<float[]>();
-            foreach (float[] dataelement in tuioInputData) {
-                if (!detected[0] && dataelement[0] == 0 && dataelement[3] == 1) {
-                    detected[0] = true; 
-                    used.Add(dataelement);
+            bool start1 = false, start2 = false, end1 = false, end2  = false, del = false;
+            float[] workelement1 = new float[8];
+            float[] line1changed = new float[8];
+            float[] workelement2 = new float[8];
+            float[] workelement3 = new float[8];
+            float[] workelement4 = new float[8];
+            //Analyse
+            foreach (float[] elemt in tuioInputData) {
+                if (elemt[0] == 0 && elemt[3] == 1) {
+                    start1 = true;
+                    workelement1 = elemt;
+                    used.Add(elemt);
+                    line1changed = elemt;
+                    //Console.WriteLine("Start detected");
+                    if (oldcoords == null) {
+                        oldcoords = elemt;
+                    }
                 }
-                if (detected[0] && dataelement[0] == 0 && dataelement[3] == 3) {
-                    detected[0] = false;
+                if (elemt[0] == 0 && elemt[3] == 2)
+                {
+                    line1changed = elemt;
+                    used.Add(elemt);
+                }
+                if (elemt[0] == 0 && elemt[3] == 3) {
+                    end1 = true;
+                    workelement2 = elemt;
+                    used.Add(elemt);
+                    del = true;
+                    oldcoords = null;
+                    //Console.WriteLine("End detected");
+                }
+                if (elemt[0] == 1 && elemt[3] == 1)
+                {
+                    start2 = true;
+                    workelement3 = elemt;
+                    used.Add(elemt);
+                }
+                if (elemt[0] == 1 && elemt[3] == 3)
+                {
+                    end2 = true;
+                    workelement4 = elemt;
+                    used.Add(elemt);
+                }
+            }
 
+            if (start1 && end1 && !start2 && !wastranslating) {
+                //Console.WriteLine("Cordset 1 " + workelement1[4] + " - " + line1changed[4] + " /// " + Math.Abs(workelement1[4] - line1changed[4]));
+                //Console.WriteLine("Cordset 2 " + workelement1[5] + " - " + line1changed[5] + " /// " + Math.Abs(workelement1[5] - line1changed[5]));
+                if (Math.Abs(workelement1[4] - line1changed[4]) < 0.01 && Math.Abs(workelement1[5] - line1changed[5]) < 0.01)
+                {
+                    oldcoords = null;
+                    Console.WriteLine("Select");
                     TuioInputDeviceSpecialEvent customEvent =
-                        new TuioInputDeviceSpecialEvent(this);
+                        new TuioInputDeviceSpecialEvent(this, opType.selection, workelement1[4], workelement1[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
-                    Console.WriteLine("send");
-                    used.Add(dataelement);
-                }
-                if (dataelement[0] == 0 && dataelement[3] == 2 && detected[0]) {
-                    TuioInputDeviceSpecialEvent customEvent =
-                        new TuioInputDeviceSpecialEvent(this);
-                    InputDeviceManager.Instance.SendEvent(customEvent);
+                    foreach (float[] usedelemt in used)
+                    {
+                        tuioInputData.Remove(usedelemt);
+                    }
                 }
             }
-            foreach(float[] usedelemt in used){
-                tuioInputData.Remove(usedelemt);
+            else if ((del && wastranslating) || (!start2 && oldcoords != null && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)))
+            {
+                if (oldcoords != null)
+                {
+                    Console.WriteLine("Cordset 1 " + oldcoords[4] + " | " + line1changed[4] + " /// " + (line1changed[4] - oldcoords[4]));
+                    Console.WriteLine("Cordset 2 " + oldcoords[5] + " | " + line1changed[5] + " /// " + (line1changed[5] - oldcoords[5]));
+                    TuioInputDeviceSpecialEvent customEvent =
+                    new TuioInputDeviceSpecialEvent(this, opType.translation, (line1changed[4] - oldcoords[4]), (line1changed[5] - oldcoords[5]));
+                    InputDeviceManager.Instance.SendEvent(customEvent);
+
+                    wastranslating = true;
+                    Console.WriteLine("Translate");
+                    oldcoords = line1changed;
+                    used.Remove(workelement1);
+                }
+                if (del)
+                {
+                    wastranslating = false;
+                    Console.WriteLine("Translate Clear");
+                }
+      
+                foreach (float[] usedelemt in used)
+                {
+                    tuioInputData.Remove(usedelemt);
+                }
+
+
             }
+
+                    //TuioInputDeviceSpecialEvent customEvent =
+                    //    new TuioInputDeviceSpecialEvent(this, opType.rotation);
+                    //InputDeviceManager.Instance.SendEvent(customEvent);
+
 
 
 

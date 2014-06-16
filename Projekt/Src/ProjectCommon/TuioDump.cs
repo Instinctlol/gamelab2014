@@ -79,20 +79,20 @@ using System.Collections.Generic;
 		public void addTuioCursor(TuioCursor tcur) {
             //OnAddCursor
             writeData(tcur.getCursorID(), tcur.getSessionID(), 1, tcur.getX(), tcur.getY(), 0, 0);
-			Console.WriteLine("add cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY());
+			//Console.WriteLine("add cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY());
 		}
 
 		public void updateTuioCursor(TuioCursor tcur) {
             //OnUpdateCursor
             writeData(tcur.getCursorID(), tcur.getSessionID(), 2, tcur.getX(), tcur.getY(), tcur.getMotionSpeed(), tcur.getMotionAccel());
-			Console.WriteLine("set cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY()+" "+tcur.getMotionSpeed()+" "+tcur.getMotionAccel());
+			//Console.WriteLine("set cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+") "+tcur.getX()+" "+tcur.getY()+" "+tcur.getMotionSpeed()+" "+tcur.getMotionAccel());
 
 		}
 
 		public void removeTuioCursor(TuioCursor tcur) {
             //OnRemoveCursor
             writeData(tcur.getCursorID(), tcur.getSessionID(), 3,0, 0, 0, 0);
-			Console.WriteLine("del cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+")");
+			//Console.WriteLine("del cur "+tcur.getCursorID() + " ("+tcur.getSessionID()+")");
 		}
 
 		public void refresh(TuioTime frameTime) {

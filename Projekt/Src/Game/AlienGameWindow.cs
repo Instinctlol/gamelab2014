@@ -30,9 +30,12 @@ namespace Game
             Count
         }
 		static float mydelta  = 0;
+        static Vec2 todoTranslate = Vec2.Zero;
         static CameraType cameraType = CameraType.Game;
         float cameraDistance = 20;
-        SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
+        //SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
+        //Patricks fehler
+        SphereDir cameraDirection = new SphereDir(1.5f, 0.85f);
         Vec2 cameraPosition;
 
         // Pathfinding Attribute
@@ -192,14 +195,32 @@ namespace Game
             TuioInputDeviceSpecialEvent test = (TuioInputDeviceSpecialEvent)e;
             if (test != null)
             {
+                Console.WriteLine(test.getOPType());
+                // HIER Desoxyribonukleinsaeure
+                if (test.getOPType() == opType.translation) {
+                    Console.WriteLine("Trying to Translate");
+                    todoTranslate.X += test.getx();
+                    todoTranslate.Y += test.gety();
+                    //Vec2 vector = Vec2.Zero;
+                    //vector.X += test.getx()*50;
+                    //vector.Y += test.gety()*50;
 
-                cameraDirection.Horizontal += mydelta * 2;
+                    //Console.WriteLine("" + vector.X + " / " + vector.Y);
+                    //float angle = MathFunctions.ATan(-vector.Y, vector.X) +
+                    //cameraDirection.Horizontal;
 
-                if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
-                    Console.WriteLine("im If");
-                    cameraDirection.Horizontal -= MathFunctions.PI * 2;
-                
-                Console.WriteLine("Cam");
+                    //vector = new Vec2(MathFunctions.Sin(angle), MathFunctions.Cos(angle));
+
+                    //Console.WriteLine("" + mydelta);
+                    ////cameraPosition += vector * mydelta * 50;
+                } 
+
+
+
+
+
+
+
             }
             return false;
         }
@@ -584,6 +605,7 @@ namespace Game
 
         protected override void OnTick(float delta)
         {
+            mydelta = delta;
             base.OnTick(delta);
 
             // Status Notification Top aktualisieren
@@ -664,8 +686,13 @@ namespace Game
                 //change cameraPosition
                 if (!selectMode && Time > 2)
                 {
-                    Vec2 vector = Vec2.Zero;
 
+                    Vec2 vector = Vec2.Zero;
+                    if (todoTranslate != Vec2.Zero) {
+                        vector.X += todoTranslate.X*10;
+                        vector.Y += todoTranslate.Y*10;
+                        todoTranslate = Vec2.Zero;
+                    }
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Left) ||
                         EngineApp.Instance.IsKeyPressed(EKeys.A) || MousePosition.X < .005f)
                     {
