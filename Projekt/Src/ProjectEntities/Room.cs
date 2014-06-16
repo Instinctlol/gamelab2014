@@ -16,10 +16,12 @@ namespace ProjectEntities
     {
         RoomType _type = null; public new RoomType Type { get { return _type; } }
 
+        Client_Snapshot lastSnapshot = null;
+
 
         enum NetworkMessages
         {
-            PositionToClient,//used for object which have not a physics model
+            TranformationToClient,//used for object which have not a physics model
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -29,6 +31,15 @@ namespace ProjectEntities
             if (EntitySystemWorld.Instance.IsServer())
                 Server_SendPositionToAllClients(Position, Rotation, Scale);
 
+        }
+
+
+
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+            if (EntitySystemWorld.Instance.IsServer())
+                Server_SendPositionToAllClients(Position, Rotation, Scale);
         }
 
 
@@ -44,14 +55,14 @@ namespace ProjectEntities
         void Server_SendPositionToAllClients(Vec3 pos, Quat rot, Vec3 scl)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(Room),
-                (ushort)NetworkMessages.PositionToClient);
+                (ushort)NetworkMessages.TranformationToClient);
             writer.Write(pos);
             writer.Write(rot);
             writer.Write(scl);
             EndNetworkMessage();
         }
 
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.PositionToClient)]
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TranformationToClient)]
         void Client_ReceivePosition(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             Vec3 pos = reader.ReadVec3();
@@ -61,9 +72,22 @@ namespace ProjectEntities
                 return;
 
             Client_Snapshot snapshot = new Client_Snapshot();
+            snapshot.position = pos;
+            snapshot.rotation = rot;
+            snapshot.scale = scl;
 
-            SetTransform(pos, rot, scl);
-            SetOldTransform(pos, rot, scl);
+
+            if(IsPostCreated)
+                Client_UpdateTransformationWithSnapshot(snapshot);
+        }
+
+        private void Client_UpdateTransformationWithSnapshot(Client_Snapshot snapshot)
+        {
+            if (snapshot != null)
+            {
+                SetTransform(snapshot.position, snapshot.rotation, snapshot.scale);
+                lastSnapshot = snapshot;
+            }
         }
 
 
