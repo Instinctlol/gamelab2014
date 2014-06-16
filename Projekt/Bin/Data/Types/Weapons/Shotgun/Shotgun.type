@@ -9,22 +9,19 @@ type Shotgun
 	normalMode
 	{
 		bulletType = ShotgunBullet
-		bulletCapacity = 2000
-		fireCount = 5
-		dispersionAngle = 5
-		betweenFireTime = 0.4
+		bulletExpense = 0
+		betweenFireTime = 2.1
 		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
-		startOffsetPosition = 0.5 0 0
-		fireTimes = 
-		fireAnimationTrigger = fire_alternative
+		useDistanceRange = 0 40
+		fireTimes = 0.1 0.2 0.3 0.4 0.5
+		fireAnimationTrigger = fire
 		fireObjects
 		{
 			billboard
 			{
 				materialName = DefaultFlare
-				size = 0.7 0.7
+				size = 3 3
 				position = 1 0 0
-				attachToOwner = True
 				lifeTime = 0.1
 			}
 			light
