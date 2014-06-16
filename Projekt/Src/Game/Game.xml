@@ -4,44 +4,9 @@
         <name>Game</name>
     </assembly>
     <members>
-        <member name="T:Game.EngineLogoWindow">
+        <member name="T:Game.AboutWindow">
             <summary>
-            Defines a NeoAxis Engine Logo window.
-            </summary>
-        </member>
-        <member name="T:Game.MessageBoxWindow">
-            <summary>
-            Defines a "MessageBox" window.
-            </summary>
-        </member>
-        <member name="T:Game.MenuWindow">
-            <summary>
-            Defines a system game menu.
-            </summary>
-        </member>
-        <member name="T:Game.MainMenuWindow">
-            <summary>
-            Defines a main menu.
-            </summary>
-        </member>
-        <member name="M:Game.MainMenuWindow.OnAttach">
-            <summary>
-            Creates a window of the main menu and creates the background world.
-            </summary>
-        </member>
-        <member name="M:Game.MainMenuWindow.OnDetach">
-            <summary>
-            Destroys the background world at closing the main menu.
-            </summary>
-        </member>
-        <member name="M:Game.MainMenuWindow.CreateMap">
-            <summary>
-            Creates the background world.
-            </summary>
-        </member>
-        <member name="M:Game.MainMenuWindow.DestroyMap">
-            <summary>
-            Destroys the background world.
+            Defines a about us window.
             </summary>
         </member>
         <member name="T:Game.ActionGameWindow">
@@ -101,42 +66,6 @@
             <param name="cameraFov">The camera FOV.</param>
             <returns><b>true</b>if the player is in any area; otherwise <b>false</b>.</returns>
         </member>
-        <member name="T:Game.Properties.Resources">
-            <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
-            </summary>
-        </member>
-        <member name="P:Game.Properties.Resources.ResourceManager">
-            <summary>
-              Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:Game.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:Game.Properties.Resources.Logo">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-            </summary>
-        </member>
-        <member name="T:Game.Program">
-            <summary>
-            Defines an input point in the application.
-            </summary>
-        </member>
-        <member name="M:Game.Program.Main">
-            <summary>
-            The main entry point for the application.
-            </summary>
-        </member>
-        <member name="T:Game.GameEngineApp">
-            <summary>
-            Defines a game application.
-            </summary>
-        </member>
         <member name="M:Game.AlienGameWindow.AddNotificationMessage(System.String)">
             <summary>
             Funktion für notSpawnableEvent aus der AlienSpawner-Klasse. Dieses Event wird getriggert, wenn in der AlienSpawner-Klasse 
@@ -174,9 +103,24 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Game.AboutWindow">
+        <member name="T:Game.ProductLogoWindow">
             <summary>
-            Defines a about us window.
+            Defines a your project logo window.
+            </summary>
+        </member>
+        <member name="T:Game.GameEngineApp">
+            <summary>
+            Defines a game application.
+            </summary>
+        </member>
+        <member name="T:Game.MenuWindow">
+            <summary>
+            Defines a system game menu.
+            </summary>
+        </member>
+        <member name="T:Game.MessageBoxWindow">
+            <summary>
+            Defines a "MessageBox" window.
             </summary>
         </member>
         <member name="T:Game.OptionsWindow">
@@ -184,9 +128,65 @@
             Defines a window of options.
             </summary>
         </member>
-        <member name="T:Game.ProductLogoWindow">
+        <member name="T:Game.MainMenuWindow">
             <summary>
-            Defines a your project logo window.
+            Defines a main menu.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.OnAttach">
+            <summary>
+            Creates a window of the main menu and creates the background world.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.OnDetach">
+            <summary>
+            Destroys the background world at closing the main menu.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.CreateMap">
+            <summary>
+            Creates the background world.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.DestroyMap">
+            <summary>
+            Destroys the background world.
+            </summary>
+        </member>
+        <member name="T:Game.Program">
+            <summary>
+            Defines an input point in the application.
+            </summary>
+        </member>
+        <member name="M:Game.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Game.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.Logo">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="T:Game.EngineLogoWindow">
+            <summary>
+            Defines a NeoAxis Engine Logo window.
             </summary>
         </member>
     </members>

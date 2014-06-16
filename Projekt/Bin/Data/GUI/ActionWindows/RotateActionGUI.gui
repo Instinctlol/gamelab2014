@@ -16,4 +16,15 @@ control Window
 		name = RightButton
 		text = Rotate Right
 	}
+	control RotButton
+	{
+		position = ScaleByResolution 440 500
+		size = Parent 0.2285156 0.1276042
+		backColor = 0 0 0 0.003921569
+		defaultControl TextBox
+		{
+			position = ScaleByResolution 0 0
+			backTexture = "GUI\\Textures\\Engine.png"
+		}
+	}
 }

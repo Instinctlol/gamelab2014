@@ -160,6 +160,7 @@
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="SectorStatus.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="SectorGroup.cs" />
     <Compile Include="SmartButton.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="TurnFloatSwitch.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Weapon.cs" />
+    <Compile Include="RotButton.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
