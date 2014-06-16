@@ -35,9 +35,6 @@ namespace Game
 			if( GameWindow.Instance == null )
 				window.Controls[ "ExitToMainMenu" ].Enable = false;
 
-			if( GameNetworkClient.Instance != null )
-				window.Controls[ "Maps" ].Enable = false;
-
 			if( GameNetworkServer.Instance != null || GameNetworkClient.Instance != null )
 				window.Controls[ "LoadSave" ].Enable = false;
 

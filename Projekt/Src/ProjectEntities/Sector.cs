@@ -99,7 +99,6 @@ namespace ProjectEntities
                     }
                     
                 }
-                SetFoWEnabled(false);
             }
         }
         //***************************
@@ -191,7 +190,7 @@ namespace ProjectEntities
             if (aliensInSector <= 0 && (GameMap.Instance != null && GameMap.Instance.IsAlien))
             {
                 aliensInSector = 0;
-                //IsHidden = true;
+                IsHidden = true;
             }
             
             loaded = true;
@@ -201,7 +200,6 @@ namespace ProjectEntities
 
         private void SetFoWEnabled(bool status)
         {
-            return;
             if( GameMap.Instance.IsAlien )
             {
 
