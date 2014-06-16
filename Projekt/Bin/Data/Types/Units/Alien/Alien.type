@@ -9,6 +9,7 @@ type Alien
 	targetPriority = 1
 	soundCollision = "Sounds\\Beep.ogg"
 	substance = Flesh
+	physicsModel = ".\\AlienPhysic.physics"
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -16,6 +17,7 @@ type Alien
 		{
 			meshName = ".\\Alien.mesh"
 			collision = True
+			collisionSpecialMeshName = ".\\Alien.mesh"
 			animationTree = ".\\Alien.animationTree"
 			rotation = 0 0 -0.7071068 -0.7071068
 		}

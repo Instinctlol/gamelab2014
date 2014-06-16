@@ -356,8 +356,11 @@ namespace ProjectEntities
         {
             AnimationTree tree = GetFirstAnimationTree();
             if (tree != null)
+            {
                 tree.ActivateTrigger("death");
-            EngineConsole.Instance.Print("ich sterbe");
+
+                EngineConsole.Instance.Print("ich sterbe");
+            }
         }
 
         void UpdateAnimationTree(AnimationTree tree)

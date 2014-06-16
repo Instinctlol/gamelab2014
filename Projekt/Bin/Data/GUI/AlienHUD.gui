@@ -16,7 +16,7 @@ control Control
 		name = ActiveArea
 		control TextBox
 		{
-			font = Default 0.05
+			font = German 0.05
 			textColor = 1 0.04705883 0.1921569
 			wordWrap = True
 			topMost = True

@@ -82,14 +82,14 @@ blocks
 	block Animation
 	{
 		uin = 312
-		animationName = "Walking"
+		animationName = "walking"
 		speed = 0.6
 	}
 
 	block Animation
 	{
 		uin = 315
-		animationName = "Walking"
+		animationName = "walking"
 		speed = -0.6
 	}
 
@@ -99,7 +99,7 @@ blocks
 	block Animation
 	{
 		uin = 400
-		animationName = "Standing"
+		animationName = "standing"
 		speed = 1
 	}
 
@@ -112,15 +112,15 @@ blocks
 	{
 		uin = 500
 		triggerName = "death"
-		off = 200
+		off = 501
 		on = 501
 	}
 
 	block Animation
 	{
 		uin = 501
-		animationName = "Death"
-		speed = 0.1
+		animationName = "dieing"
+		speed = 1
 	}
 
 }

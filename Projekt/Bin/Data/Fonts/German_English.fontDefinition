@@ -1,0 +1,31 @@
+fontDefinition
+{
+	type = TrueType
+	trueTypeFontName = "Fonts\\verdana.ttf"
+	inGame3DGuiHeightInPixels = 24
+	textureSize = 512
+	textureIndentBetweenCharacters = 8
+	charactersRanges
+	{
+		item
+		{
+			begin = 0
+			end = 0
+		}
+		item
+		{
+			begin = 32
+			end = 127
+		}
+		item
+		{
+			begin = 192
+			end = 255
+		}
+		item
+		{
+			begin = 160
+			end = 191
+		}
+	}
+}

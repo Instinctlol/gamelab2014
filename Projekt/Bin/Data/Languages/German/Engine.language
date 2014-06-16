@@ -1,0 +1,13 @@
+language
+{
+	toolsUICulture = de-DE
+	textTranslations
+	{
+		UISystem
+		{
+		}
+	}
+	fileRedirections
+	{
+	}
+}
