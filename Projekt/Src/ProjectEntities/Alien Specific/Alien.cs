@@ -159,20 +159,20 @@ namespace ProjectEntities
                 EntitySystemWorld.Instance.GameFPS;
 
             if (EntitySystemWorld.Instance.IsServer())
-                Server_SendMainBodyVelocityToAllClients(mainBodyVelocity);
+                Server_SendMainBodyVelocityToAllClients();
         }
 
-        private void Server_SendMainBodyVelocityToAllClients(Vec3 value)
+        private void Server_SendMainBodyVelocityToAllClients()
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(Alien),
                 (ushort)NetworkMessages.MainBodyVelocityToClient);
 
-            writer.Write(value);
+            writer.Write(mainBodyVelocity);
             EndNetworkMessage();
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MainBodyVelocityToClient)]
-        void Client_ReceiveMainBodyVelocity(RemoteEntityWorld sender, ReceiveDataReader reader)
+        void Client_ReceivePosition(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             Vec3 velocity = reader.ReadVec3();
             if (!reader.Complete())
@@ -340,7 +340,14 @@ namespace ProjectEntities
 
         protected override void OnRenderFrame()
         {
-            UpdateAnimationTree();
+            //update animation tree
+            if (EntitySystemWorld.Instance.Simulation && !EntitySystemWorld.Instance.SystemPauseOfSimulation)
+            {
+                AnimationTree tree = GetFirstAnimationTree();
+
+                if (tree != null)
+                    UpdateAnimationTree(tree);
+            }
 
             base.OnRenderFrame();
         }
@@ -353,12 +360,11 @@ namespace ProjectEntities
             EngineConsole.Instance.Print("ich sterbe");
         }
 
-        void UpdateAnimationTree()
+        void UpdateAnimationTree(AnimationTree tree)
         {
             bool move = false;
             //Degree moveAngle = 0;
             float moveSpeed = 0;
-            AnimationTree tree = GetFirstAnimationTree();
 
             if (mainBodyVelocity.ToVec2().Length() > .1f)
             {

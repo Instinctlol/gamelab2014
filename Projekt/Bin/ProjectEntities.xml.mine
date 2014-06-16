@@ -374,42 +374,9 @@
         <member name="M:ProjectEntities.AlienUnitAI.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.AlienUnitAI.TickTasks">
-            <summary>
-            Wird bei jedem Tick-Event ausgeführt. Wird in Alien und AlienSpawner Klassen erweitert. Deshalb nur Stop hier, weil gemeinsamer Task
-            </summary>
-        </member>
         <member name="M:ProjectEntities.AlienUnitAI.ClearTaskList">
             <summary>
             Alle Tasks löschen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienUnitAI.DoTaskInternal(ProjectEntities.AlienUnitAI.Task)">
-            <summary>
-            Task ausführen
-            </summary>
-            <param name="task"></param>
-        </member>
-        <member name="M:ProjectEntities.AlienUnitAI.DoTask(ProjectEntities.AlienUnitAI.Task,System.Boolean)">
-            <summary>
-            Tasks in Queue verwalten
-            </summary>
-            <param name="task"></param>
-            <param name="toQueue"></param>
-        </member>
-        <member name="M:ProjectEntities.AlienUnitAI.DoNextTask">
-            <summary>
-            Nächste Task ausführen oder Stop
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.AlienUnitAI.Task">
-            <summary>
-            Taskverwaltung für die Aufgabenzuteilung an Alien und AlienSpawner
-            </summary>
-        </member>
-        <member name="T:ProjectEntities.AlienUnitAI.UserControlPanelTask">
-            <summary>
-            Taskverwaltung für die Buttons für Alien und AlienSpawner
             </summary>
         </member>
         <member name="M:ProjectEntities.AlienAI.#ctor">
@@ -840,13 +807,6 @@
         <member name="M:ProjectEntities.GameGuiObject.OnDestroy">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnDestroy"/>.</summary>
         </member>
-        <member name="M:ProjectEntities.StringFormatter.cleanUmlaute(System.String)">
-            <summary>
-            Ersetzt Umlaute korrekt
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
-        </member>
         <member name="T:ProjectEntities.BooleanSwitchType">
             <summary>
             Defines the <see cref="T:ProjectEntities.BooleanSwitch"/> entity type.
@@ -1021,11 +981,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ProjectEntities.AlienSpawnerAI.TickTasks">
-            <summary>
-            Wird bei jedem Tick-Event ausgeführt (OnTick() in AlienUnitAI). Überprüft, ob es einen neuen Task gibt und führt diesen aus.
-            </summary>
-        </member>
         <member name="M:ProjectEntities.AlienSpawnerAI.DoTaskInternal(ProjectEntities.AlienUnitAI.Task)">
             <summary>
             Task intern ausführen
@@ -1052,51 +1007,14 @@
             Overridden from <see cref="M:Engine.EntitySystem.Entity.OnPostCreate(System.Boolean)"/>.
             </summary>
         </member>
+        <member name="M:ProjectEntities.AlienSpawner.SpawnSmallAlien">
+            <summary>
+            Function for spawning one small alien
+            LogicSystemBrowsable(true) Make function visible in LogicEditor
+            </summary>
+        </member>
         <member name="M:ProjectEntities.AlienSpawner.OnTick">
             <summary>Overridden from <see cref="M:Engine.EntitySystem.Entity.OnTick"/>.</summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.TickProductUnit">
-            <summary>
-            Wird bei jedem Tick-Event ausgeführt. Überprüfung, ob die Zeit schon rum ist, um die zu spawnenden Aliens freizugeben.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.StartProductUnit(ProjectEntities.AlienType,System.Int32)">
-            <summary>
-            Produktion von Aliens starten (Wird in der AlienSpawnerAI aufgerufen, wenn ein entsprechender Task ausgeführt werden soll).
-            </summary>
-            <param name="unitType"></param>
-            <param name="spawnNumber"></param>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.StopProductUnit">
-            <summary>
-            Produktion stoppen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.CreateProductUnitAttachedMesh">
-            <summary>
-            Mesh für das neue Alien erzeugen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.DestroyProductUnitAttachedMesh">
-            <summary>
-            Mesh für Alien zerstören, wenn Produktion abgebrochen wurde
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.CreateProductedUnit">
-            <summary>
-            So viele Aliens wie geordert (und möglich) produzieren und an die berechnete Position setzen.
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.IsAstronoutInSector">
-            <summary>
-            If the astronout is in the same sector as the activated spawnpoint, no small aliens are allowed to be spawned.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ProjectEntities.AlienSpawner.UpdateAttachedObjectsVisibility">
-            <summary>
-            Alien sichtbar machen
-            </summary>
         </member>
         <member name="T:ProjectEntities.SpawnPointType">
             <summary>
@@ -1220,80 +1138,25 @@
             the astronauts
             </summary>
         </member>
-        <member name="M:ProjectEntities.Computer.IncrementRotationCoupons">
-            <summary>
-            Rotation Coupons um Eins erhöhen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.DecrementRotationCoupons">
-            <summary>
-            Rotation Coupons um Eins erniedrigen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.IncrementPowerCoupons">
-            <summary>
-            Power Coupons um Eins erhöhen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.DecrementPowerCoupons">
-            <summary>
-            Power Coupons um Eins erniedrigen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.AddUsedAlien">
-            <summary>
-            Ein Alien wurde gespawnt, d.h. Ein verfügbares Alien weniger und ein aktives Alien mehr
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.IncrementAvailableAliens">
-            <summary>
-            Verfügbare Aliens um Eins erhöhen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.DecrementAvailableAliens">
-            <summary>
-            Verfügbare Aliens um Eins erniedrigen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.IncrementUsedAliens">
-            <summary>
-            Aktive Aliens um Eins erhöhen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.DecrementUsedAliens">
-            <summary>
-            Aktive Aliens um Eins erniedrigen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.IncrementSolvedRepairables">
-            <summary>
-            Die gelösten Repairables um Eins erhöhen
-            </summary>
-        </member>
-        <member name="M:ProjectEntities.Computer.GetStationStatus">
-            <summary>
-            Liefert den Status der Raumstation in Form des Anteils gelöster Repairables
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:ProjectEntities.Computer.ShowState">
             <summary>
             Show the state of the station, e.g. how many life the astronauts 
             still have, how the rings are positioned...
             </summary>
         </member>
-        <member name="M:ProjectEntities.Computer.RotateRing(System.String,System.Boolean)">
+        <member name="M:ProjectEntities.Computer.RotateRing(ProjectEntities.Ring,System.Boolean)">
             <summary>
             Do one rotation of one ring to the left or to the right side.
             </summary>
-            <param name="ringName"></param>
+            <param name="ring"></param>
             <param name="left"></param>
         </member>
-        <member name="M:ProjectEntities.Computer.SetSectorPower(System.String)">
+        <member name="M:ProjectEntities.Computer.SetSectorPower(ProjectEntities.Sector,System.Boolean)">
             <summary>
             Switches off or on the power of one sector (room)
             </summary>
-            <param name="sectorName"></param>
+            <param name="sector"></param>
+            <param name="on"></param>
         </member>
         <member name="T:ProjectEntities.AircraftType">
             <summary>

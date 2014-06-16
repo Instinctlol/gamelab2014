@@ -1,14 +1,186 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>ProjectCommon</name>
+        <name>Game</name>
     </assembly>
     <members>
-        <member name="T:TUIO.TuioObject">
-             The TuioObject class encapsulates /tuio/2Dobj TUIO objects.
+        <member name="T:Game.AboutWindow">
+            <summary>
+            Defines a about us window.
+            </summary>
+        </member>
+        <member name="T:Game.ActionGameWindow">
+            <summary>
+            Defines a game window for FPS and TPS games.
+            </summary>
+        </member>
+        <member name="T:Game.GameWindow">
+            <summary>
+            Defines a base window of game.
+            </summary>
+        </member>
+        <member name="M:Game.ActionGameWindow.UpdateCurrentPlayerUseObjects">
+            <summary>
+            Updates objects on which the player can to operate.
+            Such as which the player can supervise switches, ingameGUI or control units.
+            </summary>
+        </member>
+        <member name="M:Game.ActionGameWindow.UpdateHUD">
+            <summary>
+            Updates HUD screen
+            </summary>
+        </member>
+        <member name="M:Game.ActionGameWindow.DrawTarget(Engine.Renderer.GuiRenderer)">
+            <summary>
+            Draw a target at center of screen
+            </summary>
+            <param name="renderer"></param>
+        </member>
+        <member name="M:Game.ActionGameWindow.DrawPlayerInformation(Engine.Renderer.GuiRenderer)">
+            <summary>
+            To draw some information of a player
+            </summary>
+            <param name="renderer"></param>
+        </member>
+        <member name="M:Game.ActionGameWindow.GetActiveObserveCameraArea">
+            <summary>
+            Finds observe area in which there is a player.
+            </summary>
+            <returns><b>ObserveCameraArea</b>if the player is in area; otherwise <b>null</b>.</returns>
+        </member>
+        <member name="M:Game.ActionGameWindow.GetNearestPointToMapCurve(Engine.MathEx.Vec3,Engine.MapSystem.MapCurve)">
+            <summary>
+            Finds the nearest point to a map curve.
+            </summary>
+            <param name="destPos">The point to which is searched the nearest.</param>
+            <param name="mapCurve">The map curve.</param>
+            <returns>The nearest point to a map curve.</returns>
+        </member>
+        <member name="M:Game.ActionGameWindow.GetActiveObserveCameraAreaCameraOrientation(Engine.MathEx.Vec3@,Engine.MathEx.Vec3@,Engine.MathEx.Vec3@,Engine.MathEx.Degree@)">
+            <summary>
+            Receives orientation of the camera in the observe area of in which there is a player.
+            </summary>
+            <param name="position">The camera position.</param>
+            <param name="forward">The forward vector.</param>
+            <param name="up">The up vector.</param>
+            <param name="cameraFov">The camera FOV.</param>
+            <returns><b>true</b>if the player is in any area; otherwise <b>false</b>.</returns>
+        </member>
+        <member name="M:Game.AlienGameWindow.GetColor(ProjectEntities.Unit)">
+            <summary>
+            Farbe für kleine Aliens und Spawnpoint verschieden
+            </summary>
+            <param name="unit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Game.AlienGameWindow.ClearEntitySelection">
+            <summary>
+            removes all small aliens from selectedUnits
+            </summary>
+        </member>
+        <member name="M:Game.AlienGameWindow.SetEntitySelected(ProjectEntities.Unit,System.Boolean)">
+            <summary>
+            Adds or removes a small alien from selectedUnits
+            </summary>
+            <param name="entity"></param>
+            <param name="selected"></param>
+        </member>
+        <member name="M:Game.AlienGameWindow.GetMapPositionByMouseOnMinimap">
+            <summary>
+            Changes Map position by calculating the position from the position of the mouse on the minimap
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OSC.NET.OSCBundle">
+            <summary>
+            OSCBundle
+            </summary>
+        </member>
+        <member name="T:OSC.NET.OSCPacket">
+            <summary>
+            OSCPacket
+            </summary>
+        </member>
+        <member name="T:OSC.NET.OSCMessage">
+            <summary>
+            OSCMessage
+            </summary>
+        </member>
+        <member name="T:OSC.NET.OSCReceiver">
+            <summary>
+            OSCReceiver
+            </summary>
+        </member>
+        <member name="T:OSC.NET.OSCTransmitter">
+            <summary>
+            OSCTransmitter
+            </summary>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioClient" ignoriert -->
+        <member name="M:TUIO.TuioClient.#ctor">
+            The default constructor creates a client that listens to the default TUIO port 3333
+        </member>
+        <member name="M:TUIO.TuioClient.#ctor(System.Int32)">
+             This constructor creates a client that listens to the provided port
             
-             @author Martin Kaltenbrunner
-             @version 1.4
+             @param port the listening port number
+        </member>
+        <member name="M:TUIO.TuioClient.getPort">
+             Returns the port number listening to.
+            
+             @return the listening port number
+        </member>
+        <member name="M:TUIO.TuioClient.connect">
+            The TuioClient starts listening to TUIO messages on the configured UDP port
+            All reveived TUIO messages are decoded and the resulting TUIO events are broadcasted to all registered TuioListeners
+        </member>
+        <member name="M:TUIO.TuioClient.disconnect">
+            The TuioClient stops listening to TUIO messages on the configured UDP port
+        </member>
+        <member name="M:TUIO.TuioClient.isConnected">
+            Returns true if this TuioClient is currently connected.
+            @return	true if this TuioClient is currently connected
+        </member>
+        <member name="M:TUIO.TuioClient.processMessage(OSC.NET.OSCMessage)">
+             The OSC callback method where all TUIO messages are received and decoded
+             and where the TUIO event callbacks are dispatched
+            
+             @param message	the received OSC message
+        </member>
+        <member name="M:TUIO.TuioClient.addTuioListener(TUIO.TuioListener)">
+             Adds the provided TuioListener to the list of registered TUIO event listeners
+            
+             @param listener the TuioListener to add
+        </member>
+        <member name="M:TUIO.TuioClient.removeTuioListener(TUIO.TuioListener)">
+             Removes the provided TuioListener from the list of registered TUIO event listeners
+            
+             @param listener the TuioListener to remove
+        </member>
+        <member name="M:TUIO.TuioClient.removeAllTuioListeners">
+            Removes all TuioListener from the list of registered TUIO event listeners
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioObjects">
+             Returns a Vector of all currently active TuioObjects
+            
+             @return a Vector of all currently active TuioObjects
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursors">
+             Returns a Vector of all currently active TuioCursors
+            
+             @return a Vector of all currently active TuioCursors
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioObject(System.Int64)">
+             Returns the TuioObject corresponding to the provided Session ID
+             or NULL if the Session ID does not refer to an active TuioObject
+            
+             @return an active TuioObject corresponding to the provided Session ID or NULL
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursor(System.Int64)">
+             Returns the TuioCursor corresponding to the provided Session ID
+             or NULL if the Session ID does not refer to an active TuioCursor
+            
+             @return an active TuioCursor corresponding to the provided Session ID or NULL
         </member>
         <member name="T:TUIO.TuioContainer">
              The abstract TuioContainer class defines common attributes that apply to both subclasses {@link TuioObject} and {@link TuioCursor}.
@@ -293,6 +465,86 @@
             Returns true of this TuioContainer is moving.
             @return	true of this TuioContainer is moving
         </member>
+        <member name="T:TUIO.TuioCursor">
+             The TuioCursor class encapsulates /tuio/2Dcur TUIO cursors.
+            
+             @author Martin Kaltenbrunner
+             @version 1.4
+        </member>
+        <member name="F:TUIO.TuioCursor.cursor_id">
+            The individual cursor ID number that is assigned to each TuioCursor.
+        </member>
+        <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single)">
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Cursor ID, X and Y coordinate to the newly created TuioCursor.
+            
+             @param	ttime	the TuioTime to assign
+             @param	si	the Session ID to assign
+             @param	ci	the Cursor ID to assign
+             @param	xp	the X coordinate to assign
+             @param	yp	the Y coordinate to assign
+        </member>
+        <member name="M:TUIO.TuioCursor.#ctor(System.Int64,System.Int32,System.Single,System.Single)">
+             This constructor takes the provided Session ID, Cursor ID, X and Y coordinate
+             and assigs these values to the newly created TuioCursor.
+            
+             @param	si	the Session ID to assign
+             @param	ci	the Cursor ID to assign
+             @param	xp	the X coordinate to assign
+             @param	yp	the Y coordinate to assign
+        </member>
+        <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioCursor)">
+             This constructor takes the atttibutes of the provided TuioCursor
+             and assigs these values to the newly created TuioCursor.
+            
+             @param	tcur	the TuioCursor to assign
+        </member>
+        <member name="M:TUIO.TuioCursor.getCursorID">
+            Returns the Cursor ID of this TuioCursor.
+            @return	the Cursor ID of this TuioCursor
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioListener" ignoriert -->
+        <member name="M:TUIO.TuioListener.addTuioObject(TUIO.TuioObject)">
+             This callback method is invoked by the TuioClient when a new TuioObject is added to the session.
+            
+             @param  tobj  the TuioObject reference associated to the addTuioObject event
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioObject(TUIO.TuioObject)">
+             This callback method is invoked by the TuioClient when an existing TuioObject is updated during the session.
+            
+             @param  tobj  the TuioObject reference associated to the updateTuioObject event
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioObject(TUIO.TuioObject)">
+             This callback method is invoked by the TuioClient when an existing TuioObject is removed from the session.
+            
+             @param  tobj  the TuioObject reference associated to the removeTuioObject event
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioCursor(TUIO.TuioCursor)">
+             This callback method is invoked by the TuioClient when a new TuioCursor is added to the session.
+            
+             @param  tcur  the TuioCursor reference associated to the addTuioCursor event
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioCursor(TUIO.TuioCursor)">
+             This callback method is invoked by the TuioClient when an existing TuioCursor is updated during the session.
+            
+             @param  tcur  the TuioCursor reference associated to the updateTuioCursor event
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioCursor(TUIO.TuioCursor)">
+             This callback method is invoked by the TuioClient when an existing TuioCursor is removed from the session.
+            
+             @param  tcur  the TuioCursor reference associated to the removeTuioCursor event
+        </member>
+        <member name="M:TUIO.TuioListener.refresh(TUIO.TuioTime)">
+             This callback method is invoked by the TuioClient to mark the end of a received TUIO message bundle.
+            
+             @param  ftime  the TuioTime associated to the current TUIO message bundle
+        </member>
+        <member name="T:TUIO.TuioObject">
+             The TuioObject class encapsulates /tuio/2Dobj TUIO objects.
+            
+             @author Martin Kaltenbrunner
+             @version 1.4
+        </member>
         <member name="F:TUIO.TuioObject.symbol_id">
             The individual symbol ID number that is assigned to each TuioObject.
         </member>
@@ -409,458 +661,6 @@
             Returns true of this TuioObject is moving.
             @return	true of this TuioObject is moving
         </member>
-        <member name="T:ProjectCommon.ShowDepthCompositorInstance">
-            <summary>
-            Represents work with the ShowDepth post effect.
-            </summary>
-        </member>
-        <member name="T:OSC.NET.OSCPacket">
-            <summary>
-            OSCPacket
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.TuioInputDevice.Init">
-            <summary>
-            Initialize the device
-            </summary>
-            <returns>Returns true if initializng was successfully</returns>
-        </member>
-        <member name="M:ProjectCommon.TuioInputDevice.OnShutdown">
-            <summary>
-            Shutdown the device
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.TuioInputDevice.OnUpdateState">
-            <summary>
-            Update the device state. Calling at each tick.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.TuioInputDevice.InitDevice">
-            <summary>
-            Initialize the device and register them in the InputDeviceManager
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.RenderingLowLevelMethodsImpl">
-            <summary>
-            This class is intended only for advanced users. By means this class the developer can change behavior 
-            of getting the list of visible objects in the camera, getting the list of objects for shadow generation.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.GrayscaleCompositorInstance">
-            <summary>
-            Represents work with the Grayscale post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.LDRBloomCompositorInstance">
-            <summary>
-            Bloom for low dynamic range scene post processing compositor instance.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.LightScatteringCompositorInstance">
-            <summary>
-            LightScattering scene post processing compositor instance.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.ColorCorrectionCompositorInstance">
-            <summary>
-            Represents work with the ColorCorrection post effect.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.DynamicMeshManagerImpl.#ctor(System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="maxLifeTimeNotUsedDataInCache">Specify Zero to disable caching.</param>
-        </member>
-        <member name="M:ProjectCommon.DynamicMeshManagerImpl.BlockImpl.SceneObjectCachingData.GetFromCacheExact(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@,ProjectCommon.DynamicMeshManagerImpl.MaterialDataImpl)">
-            <summary>
-            Get scene objects from the cache only if available scene objects with exact settings.
-            </summary>
-            <param name="pos"></param>
-            <param name="rot"></param>
-            <param name="scl"></param>
-            <param name="material"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ProjectCommon.DynamicMeshManagerImpl.BlockImpl.SceneObjectCachingData.GetFromCacheNotExact(Engine.MathEx.Vec3@,Engine.MathEx.Quat@,Engine.MathEx.Vec3@,ProjectCommon.DynamicMeshManagerImpl.MaterialDataImpl,System.Boolean@,System.Boolean@)">
-            <summary>
-            Get scene objects from the cache.
-            </summary>
-            <param name="pos"></param>
-            <param name="rot"></param>
-            <param name="scl"></param>
-            <param name="material"></param>
-            <param name="exactTransform"></param>
-            <param name="exactMaterial"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ProjectCommon.DynamicMeshManagerImpl.BlockImpl.SceneObjectCachingData.Add(ProjectCommon.DynamicMeshManagerImpl.SceneObject,System.Single)">
-            <summary>
-            Add scene object to the cache.
-            </summary>
-            <param name="sceneObject"></param>
-            <param name="time"></param>
-        </member>
-        <member name="T:OSC.NET.OSCBundle">
-            <summary>
-            OSCBundle
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.MotionBlurCompositorInstance">
-            <summary>
-            Represents work with the MotionBlur post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.HDRCompositorInstance">
-            <summary>
-            HDR scene post processing compositor instance.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.SimpleExampleMaterial">
-            <summary>
-            Simple example of high level material.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.SSAOCompositorInstance">
-            <summary>
-            Represents work with the SSAO post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.RadialBlurCompositorInstance">
-            <summary>
-            Represents work with the RadialBlur post effect.
-            </summary>
-        </member>
-        <member name="T:OSC.NET.OSCReceiver">
-            <summary>
-            OSCReceiver
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.ExampleCustomInputDevice.Init">
-            <summary>
-            Initialize the device
-            </summary>
-            <returns>Returns true if initializng was successfully</returns>
-        </member>
-        <member name="M:ProjectCommon.ExampleCustomInputDevice.OnShutdown">
-            <summary>
-            Shutdown the device
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.ExampleCustomInputDevice.OnUpdateState">
-            <summary>
-            Update the device state. Calling at each tick.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.ExampleCustomInputDevice.InitDevice">
-            <summary>
-            Initialize the device and register them in the InputDeviceManager
-            </summary>
-        </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioListener" ignoriert -->
-        <member name="M:TUIO.TuioListener.addTuioObject(TUIO.TuioObject)">
-             This callback method is invoked by the TuioClient when a new TuioObject is added to the session.
-            
-             @param  tobj  the TuioObject reference associated to the addTuioObject event
-        </member>
-        <member name="M:TUIO.TuioListener.updateTuioObject(TUIO.TuioObject)">
-             This callback method is invoked by the TuioClient when an existing TuioObject is updated during the session.
-            
-             @param  tobj  the TuioObject reference associated to the updateTuioObject event
-        </member>
-        <member name="M:TUIO.TuioListener.removeTuioObject(TUIO.TuioObject)">
-             This callback method is invoked by the TuioClient when an existing TuioObject is removed from the session.
-            
-             @param  tobj  the TuioObject reference associated to the removeTuioObject event
-        </member>
-        <member name="M:TUIO.TuioListener.addTuioCursor(TUIO.TuioCursor)">
-             This callback method is invoked by the TuioClient when a new TuioCursor is added to the session.
-            
-             @param  tcur  the TuioCursor reference associated to the addTuioCursor event
-        </member>
-        <member name="M:TUIO.TuioListener.updateTuioCursor(TUIO.TuioCursor)">
-             This callback method is invoked by the TuioClient when an existing TuioCursor is updated during the session.
-            
-             @param  tcur  the TuioCursor reference associated to the updateTuioCursor event
-        </member>
-        <member name="M:TUIO.TuioListener.removeTuioCursor(TUIO.TuioCursor)">
-             This callback method is invoked by the TuioClient when an existing TuioCursor is removed from the session.
-            
-             @param  tcur  the TuioCursor reference associated to the removeTuioCursor event
-        </member>
-        <member name="M:TUIO.TuioListener.refresh(TUIO.TuioTime)">
-             This callback method is invoked by the TuioClient to mark the end of a received TUIO message bundle.
-            
-             @param  ftime  the TuioTime associated to the current TUIO message bundle
-        </member>
-        <member name="T:TUIO.TuioCursor">
-             The TuioCursor class encapsulates /tuio/2Dcur TUIO cursors.
-            
-             @author Martin Kaltenbrunner
-             @version 1.4
-        </member>
-        <member name="F:TUIO.TuioCursor.cursor_id">
-            The individual cursor ID number that is assigned to each TuioCursor.
-        </member>
-        <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single)">
-             This constructor takes a TuioTime argument and assigns it along with the provided
-             Session ID, Cursor ID, X and Y coordinate to the newly created TuioCursor.
-            
-             @param	ttime	the TuioTime to assign
-             @param	si	the Session ID to assign
-             @param	ci	the Cursor ID to assign
-             @param	xp	the X coordinate to assign
-             @param	yp	the Y coordinate to assign
-        </member>
-        <member name="M:TUIO.TuioCursor.#ctor(System.Int64,System.Int32,System.Single,System.Single)">
-             This constructor takes the provided Session ID, Cursor ID, X and Y coordinate
-             and assigs these values to the newly created TuioCursor.
-            
-             @param	si	the Session ID to assign
-             @param	ci	the Cursor ID to assign
-             @param	xp	the X coordinate to assign
-             @param	yp	the Y coordinate to assign
-        </member>
-        <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioCursor)">
-             This constructor takes the atttibutes of the provided TuioCursor
-             and assigs these values to the newly created TuioCursor.
-            
-             @param	tcur	the TuioCursor to assign
-        </member>
-        <member name="M:TUIO.TuioCursor.getCursorID">
-            Returns the Cursor ID of this TuioCursor.
-            @return	the Cursor ID of this TuioCursor
-        </member>
-        <member name="T:ProjectCommon.FPSWeaponMaterial">
-            <summary>
-            Material for correct rendering of weapons in a FPS mode.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.ShaderBaseMaterial">
-            <summary>
-            Base template for shader materials.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.GameMusic">
-            <summary>
-            Class for management of music in game.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.GameMusic.MusicPlay(System.String,System.Boolean)">
-            <summary>
-            Play music.
-            </summary>
-            <param name="fileName">The file name.</param>
-            <param name="loop">Looping flag.</param>
-        </member>
-        <member name="M:ProjectCommon.GameMusic.MusicStop">
-            <summary>
-            Stop music.
-            </summary>
-        </member>
-        <member name="P:ProjectCommon.GameMusic.MusicChannelGroup">
-            <summary>
-            Gets the music channel group.
-            </summary>
-        </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "T:TUIO.TuioClient" ignoriert -->
-        <member name="M:TUIO.TuioClient.#ctor">
-            The default constructor creates a client that listens to the default TUIO port 3333
-        </member>
-        <member name="M:TUIO.TuioClient.#ctor(System.Int32)">
-             This constructor creates a client that listens to the provided port
-            
-             @param port the listening port number
-        </member>
-        <member name="M:TUIO.TuioClient.getPort">
-             Returns the port number listening to.
-            
-             @return the listening port number
-        </member>
-        <member name="M:TUIO.TuioClient.connect">
-            The TuioClient starts listening to TUIO messages on the configured UDP port
-            All reveived TUIO messages are decoded and the resulting TUIO events are broadcasted to all registered TuioListeners
-        </member>
-        <member name="M:TUIO.TuioClient.disconnect">
-            The TuioClient stops listening to TUIO messages on the configured UDP port
-        </member>
-        <member name="M:TUIO.TuioClient.isConnected">
-            Returns true if this TuioClient is currently connected.
-            @return	true if this TuioClient is currently connected
-        </member>
-        <member name="M:TUIO.TuioClient.processMessage(OSC.NET.OSCMessage)">
-             The OSC callback method where all TUIO messages are received and decoded
-             and where the TUIO event callbacks are dispatched
-            
-             @param message	the received OSC message
-        </member>
-        <member name="M:TUIO.TuioClient.addTuioListener(TUIO.TuioListener)">
-             Adds the provided TuioListener to the list of registered TUIO event listeners
-            
-             @param listener the TuioListener to add
-        </member>
-        <member name="M:TUIO.TuioClient.removeTuioListener(TUIO.TuioListener)">
-             Removes the provided TuioListener from the list of registered TUIO event listeners
-            
-             @param listener the TuioListener to remove
-        </member>
-        <member name="M:TUIO.TuioClient.removeAllTuioListeners">
-            Removes all TuioListener from the list of registered TUIO event listeners
-        </member>
-        <member name="M:TUIO.TuioClient.getTuioObjects">
-             Returns a Vector of all currently active TuioObjects
-            
-             @return a Vector of all currently active TuioObjects
-        </member>
-        <member name="M:TUIO.TuioClient.getTuioCursors">
-             Returns a Vector of all currently active TuioCursors
-            
-             @return a Vector of all currently active TuioCursors
-        </member>
-        <member name="M:TUIO.TuioClient.getTuioObject(System.Int64)">
-             Returns the TuioObject corresponding to the provided Session ID
-             or NULL if the Session ID does not refer to an active TuioObject
-            
-             @return an active TuioObject corresponding to the provided Session ID or NULL
-        </member>
-        <member name="M:TUIO.TuioClient.getTuioCursor(System.Int64)">
-             Returns the TuioCursor corresponding to the provided Session ID
-             or NULL if the Session ID does not refer to an active TuioCursor
-            
-             @return an active TuioCursor corresponding to the provided Session ID or NULL
-        </member>
-        <member name="T:ProjectCommon.VegetationMaterial">
-            <summary>
-            Material for grass and trees. Adds wave in the vertex shader.
-            </summary>
-        </member>
-        <member name="P:ProjectCommon.VegetationMaterial.ReceiveObjectsPositionsFromVertices">
-            <summary>
-            Gets or sets a value which indicates it is necessary to reveice objects 
-            positions from the vertices.
-            </summary>
-            <remarks>
-            <para>
-            Usually it is necessary for batched geometry (for waving).
-            </para>
-            <para>
-            Positions will be taken from Type: TextureCoordinates, Index: 4.
-            </para>
-            </remarks>
-        </member>
-        <member name="T:OSC.NET.OSCTransmitter">
-            <summary>
-            OSCTransmitter
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.GameControlsManager">
-            <summary>
-            Represents the player control management.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.Init">
-            <summary>
-            Initialization the class.
-            </summary>
-            <returns><b>true</b> if the object successfully initialized; otherwise, <b>false</b>.</returns>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.Shutdown">
-            <summary>
-            Shutdown the class.
-            </summary>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.DoKeyDown(Engine.KeyEvent)">
-            <summary>
-            Sends the notice on pressing a system key.
-            </summary>
-            <param name="e">Key event arguments.</param>
-            <returns><b>true</b> if such system key is used; otherwise, <b>false</b>.</returns>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.DoKeyUp(Engine.KeyEvent)">
-            <summary>
-            Sends the notice on releasing a system key.
-            </summary>
-            <param name="e">Key event arguments.</param>
-            <returns><b>true</b> if such system key is used; otherwise, <b>false</b>.</returns>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.DoMouseDown(Engine.EMouseButtons)">
-            <summary>
-            Sends the notice on pressing a mouse button.
-            </summary>
-            <param name="button">A value indicating which button was clicked.</param>
-            <returns><b>true</b> if such system key is used; otherwise, <b>false</b>.</returns>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.DoMouseUp(Engine.EMouseButtons)">
-            <summary>
-            Sends the notice on releasing a mouse button.
-            </summary>
-            <param name="button">A value indicating which button was clicked.</param>
-            <returns><b>true</b> if such system key is used; otherwise, <b>false</b>.</returns>
-        </member>
-        <member name="M:ProjectCommon.GameControlsManager.DoMouseMoveRelative(Engine.MathEx.Vec2)">
-            <summary>
-            Sends the notice on cursor moved.
-            </summary>
-            <param name="mouseOffset">Current mouse position.</param>
-        </member>
-        <member name="P:ProjectCommon.GameControlsManager.Instance">
-            <summary>
-            Gets an instance of the <see cref="T:ProjectCommon.GameControlsManager"/>.
-            </summary>
-        </member>
-        <member name="P:ProjectCommon.GameControlsManager.Items">
-            <summary>
-            Gets the key information collection. <b>Don't modify</b>.
-            </summary>
-        </member>
-        <member name="P:ProjectCommon.GameControlsManager.GameControlItem.DefaultKeyboardMouseValues">
-            <summary>
-            <b>Don't modify</b>.
-            </summary>
-        </member>
-        <member name="P:ProjectCommon.GameControlsManager.GameControlItem.DefaultJoystickValues">
-            <summary>
-            <b>Don't modify</b>.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.OVRCompositorInstance">
-            <summary>
-            Represents work with the OVR post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.HeatVisionCompositorInstance">
-            <summary>
-            Represents work with the HeatVision post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.GameEngineInitialization">
-            <summary>
-            Class for execute actions after initialization of the engine.
-            </summary>
-            <remarks>
-            It is class works in simulation application and editors (Resource Editor, Map Editor).
-            </remarks>
-        </member>
-        <member name="T:ProjectCommon.VignettingCompositorInstance">
-            <summary>
-            Represents work with the Vignetting post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.ProfilingToolWindow">
-            <summary>
-            Defines a window class for Profiling Tool.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.FXAACompositorInstance">
-            <summary>
-            Represents work with the ShowDepth post effect.
-            </summary>
-        </member>
-        <member name="T:ProjectCommon.BlurCompositorInstance">
-            <summary>
-            GaussianBlur scene post processing compositor instance.
-            </summary>
-        </member>
         <member name="T:TUIO.TuioTime">
              The TuioTime class is a simple structure that is used to reprent the time that has elapsed since the session start.
              The time is internally represented as seconds and fractions of microseconds which should be more than sufficient for gesture related timing requirements.
@@ -970,15 +770,95 @@
             Returns the absolut TuioTime representing the current system time.
             @return the absolut TuioTime representing the current system time
         </member>
-        <member name="T:OSC.NET.OSCMessage">
+        <member name="T:Game.ProductLogoWindow">
             <summary>
-            OSCMessage
+            Defines a your project logo window.
             </summary>
         </member>
-        <member name="T:ProjectCommon.MyNativeDLL">
+        <member name="T:Game.GameEngineApp">
             <summary>
-            This class is a example of custom native DLL connection.
-            See \Game\Src\MyNativeDLL for native DLL example source code.
+            Defines a game application.
+            </summary>
+        </member>
+        <member name="T:Game.MapsWindow">
+            <summary>
+            Defines a window of map choice.
+            </summary>
+        </member>
+        <member name="T:Game.MenuWindow">
+            <summary>
+            Defines a system game menu.
+            </summary>
+        </member>
+        <member name="T:Game.MessageBoxWindow">
+            <summary>
+            Defines a "MessageBox" window.
+            </summary>
+        </member>
+        <member name="T:Game.OptionsWindow">
+            <summary>
+            Defines a window of options.
+            </summary>
+        </member>
+        <member name="T:Game.MainMenuWindow">
+            <summary>
+            Defines a main menu.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.OnAttach">
+            <summary>
+            Creates a window of the main menu and creates the background world.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.OnDetach">
+            <summary>
+            Destroys the background world at closing the main menu.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.CreateMap">
+            <summary>
+            Creates the background world.
+            </summary>
+        </member>
+        <member name="M:Game.MainMenuWindow.DestroyMap">
+            <summary>
+            Destroys the background world.
+            </summary>
+        </member>
+        <member name="T:Game.Program">
+            <summary>
+            Defines an input point in the application.
+            </summary>
+        </member>
+        <member name="M:Game.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Game.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Game.Properties.Resources.Logo">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="T:Game.EngineLogoWindow">
+            <summary>
+            Defines a NeoAxis Engine Logo window.
             </summary>
         </member>
     </members>
