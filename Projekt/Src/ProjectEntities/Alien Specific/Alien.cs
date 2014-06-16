@@ -159,20 +159,20 @@ namespace ProjectEntities
                 EntitySystemWorld.Instance.GameFPS;
 
             if (EntitySystemWorld.Instance.IsServer())
-                Server_SendMainBodyVelocityToAllClients();
+                Server_SendMainBodyVelocityToAllClients(mainBodyVelocity);
         }
 
-        private void Server_SendMainBodyVelocityToAllClients()
+        private void Server_SendMainBodyVelocityToAllClients(Vec3 value)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(Alien),
                 (ushort)NetworkMessages.MainBodyVelocityToClient);
 
-            writer.Write(mainBodyVelocity);
+            writer.Write(value);
             EndNetworkMessage();
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MainBodyVelocityToClient)]
-        void Client_ReceivePosition(RemoteEntityWorld sender, ReceiveDataReader reader)
+        void Client_ReceiveMainBodyVelocity(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             Vec3 velocity = reader.ReadVec3();
             if (!reader.Complete())
