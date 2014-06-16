@@ -82,6 +82,11 @@ namespace ProjectEntities
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
+        enum NetworkMessages
+        {
+            MainBodyVelocityToClient
+        }
+
         protected override void OnDie(MapObject prejudicial)
         {
             //TODO: play death animation funktioniert noch nicht
@@ -142,9 +147,38 @@ namespace ProjectEntities
             else
                 path.Clear();
 
+
+            CalculateMainBodyVelocity();
+
+            oldMainBodyPosition = mainBody.Position;
+        }
+
+        private void CalculateMainBodyVelocity()
+        {
             mainBodyVelocity = (mainBody.Position - oldMainBodyPosition) *
                 EntitySystemWorld.Instance.GameFPS;
-            oldMainBodyPosition = mainBody.Position;
+
+            if (EntitySystemWorld.Instance.IsServer())
+                Server_SendMainBodyVelocityToAllClients();
+        }
+
+        private void Server_SendMainBodyVelocityToAllClients()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Alien),
+                (ushort)NetworkMessages.MainBodyVelocityToClient);
+
+            writer.Write(mainBodyVelocity);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MainBodyVelocityToClient)]
+        void Client_ReceivePosition(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            Vec3 velocity = reader.ReadVec3();
+            if (!reader.Complete())
+                return;
+
+            mainBodyVelocity = velocity;
         }
 
         public void SetLookDirection(Vec3 pos)

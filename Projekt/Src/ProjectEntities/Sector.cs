@@ -191,7 +191,7 @@ namespace ProjectEntities
             if (aliensInSector <= 0 && (GameMap.Instance != null && GameMap.Instance.IsAlien))
             {
                 aliensInSector = 0;
-                IsHidden = true;
+                //IsHidden = true;
             }
             
             loaded = true;
