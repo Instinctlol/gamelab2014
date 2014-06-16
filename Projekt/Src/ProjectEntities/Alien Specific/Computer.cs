@@ -18,6 +18,9 @@ namespace ProjectEntities
     /// </summary>
     public class Computer : Dynamic
     {
+        /*************/
+        /* Attribute */
+        /*************/
         ComputerType _type = null; public new ComputerType Type { get { return _type; } }
         const float maxSolvableRepairablesNeeded = 20;
         const int maxAliens = 20;
@@ -32,11 +35,11 @@ namespace ProjectEntities
         static int availableAliens = 1;
         static int usedAliens = 0;
 
-        // Event und Delegate für Spawner-Nachrichten
-        public static event ComputerEventDelegate showMessage;
-        public delegate void ComputerEventDelegate(String message);
 
-        // Getter und Setter /////////////////////////////////////
+
+        /*******************/
+        /* Getter / Setter */
+        /*******************/
         public static int ExperiencePoints
         {
             get { return experiencePoints; }
@@ -63,7 +66,11 @@ namespace ProjectEntities
             get { return usedAliens; }
         }
 
-        // Sonstige Methoden /////////////////////////////////////
+
+
+        /**************/
+        /* Funktionen */
+        /**************/
         /// <summary>
         /// Rotation Coupons um Eins erhöhen
         /// </summary>
@@ -221,10 +228,7 @@ namespace ProjectEntities
             else
             {
                 // Nachricht ausgeben
-                if (showMessage != null)
-                {
-                    showMessage(StringFormatter.cleanUmlaute("Keine Rotationen möglich"));
-                }
+                StatusMessageHandler.sendMessage("Keine Rotationen möglich");
             }
         }
 
@@ -243,10 +247,7 @@ namespace ProjectEntities
             else
             {
                 // Nachricht ausgeben
-                if (showMessage != null)
-                {
-                    showMessage(StringFormatter.cleanUmlaute("Kein Stromabschalten möglich"));
-                }
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
             }
         }
     }

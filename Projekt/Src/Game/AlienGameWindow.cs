@@ -90,15 +90,8 @@ namespace Game
         /// </summary>
         private void InitializeEventListener()
         {
-            // Event für Computer initialisieren
-            Computer.showMessage += new Computer.ComputerEventDelegate(AddNotificationMessage);
-
-            // Event für Spawner initialisieren
-            IEnumerable<AlienSpawner> spawnerList = Entities.Instance.EntitiesCollection.OfType<AlienSpawner>();
-            foreach (AlienSpawner spawner in spawnerList)
-            {
-                spawner.showMessage += new AlienSpawner.AlienSpawnerEventDelegate(AddNotificationMessage);
-            }
+            // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
+            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddNotificationMessage);
         }
 
         // Beim Starten des Spiels GUI initialisieren und co
@@ -138,9 +131,9 @@ namespace Game
 
             //minimap
             minimapControl = hudControl.Controls["Minimap"];
-            string textureName = Map.Instance.GetSourceMapVirtualFileDirectory() + "\\Minimap\\Minimap";
-            Texture minimapTexture = TextureManager.Instance.Load(textureName, Texture.Type.Type2D, 0);
-            minimapControl.BackTexture = minimapTexture;
+            //string textureName = Map.Instance.GetSourceMapVirtualFileDirectory() + "\\Minimap\\Minimap";
+            //Texture minimapTexture = TextureManager.Instance.Load(textureName, Texture.Type.Type2D, 0);
+            //minimapControl.BackTexture = minimapTexture;
             minimapControl.RenderUI += new RenderUIDelegate(Minimap_RenderUI);
 
             //set camera position

@@ -5,40 +5,41 @@ physicsModel
 	body main
 	{
 		static = True
+		position = 0 0.5502353 0
 		shape
 		{
 			type = box
-			position = -1.739498 4.082805 0
+			position = -0.9665673 1.477205 0.1223879
 			rotation = 0 0 0.2156987 0.97646
 			density = 3000
-			dimensions = 4.425035 3.959653 6
+			dimensions = 1.905055 1.318221 4.392634
 		}
 		shape
 		{
 			type = box
-			position = 1.442072 -4.285255 0
+			position = -2.071359 -1.170792 0.416517
 			density = 3000
-			dimensions = 1.039712 2.836261 6
+			dimensions = 0.4889553 0.5285658 5.147969
 		}
 		shape
 		{
 			type = box
-			position = -0.2981794 -0.5478352 0
-			dimensions = 9.215041 5.869178 6
+			position = -0.2981794 -0.4637653 0
+			dimensions = 3.754209 4.750045 3.296703
 		}
 		shape
 		{
 			type = box
-			position = 1.13556 4.229496 0
+			position = 0.8990504 1.182756 -0.4822865
 			density = 3000
-			dimensions = 5.027248 4.273465 6
+			dimensions = 1.661945 1.412753 2.792092
 		}
 		shape
 		{
 			type = box
-			position = -2.412108 -4.24392 0
+			position = -1.666345 -2.096334 0.3147366
 			density = 3000
-			dimensions = 0.7452379 2.836261 6
+			dimensions = 0.5277499 0.5275592 5.025111
 		}
 	}
 }

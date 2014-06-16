@@ -668,13 +668,6 @@
             Gets or sets a value indicating whether the door is currently open.
             </summary>
         </member>
-        <member name="M:ProjectEntities.StringFormatter.cleanUmlaute(System.String)">
-            <summary>
-            Ersetzt Umlaute korrekt
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
-        </member>
         <member name="T:ProjectEntities.DynamicSinusoidSurfaceType">
             <summary>
             Defines the <see cref="T:ProjectEntities.DynamicSinusoidSurface"/> entity type.

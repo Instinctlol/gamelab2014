@@ -55,10 +55,6 @@ namespace ProjectEntities
         //the amount of entities left to spawn
         int aliensToSpawn;
 
-        // Event und Delegate für Spawner-Nachrichten
-        public event AlienSpawnerEventDelegate showMessage;
-        public delegate void AlienSpawnerEventDelegate(String message);
-
         AlienSpawnerType _type = null; public new AlienSpawnerType Type { get { return _type; } }
 
 
@@ -187,10 +183,7 @@ namespace ProjectEntities
             {
                 spawningAllowed = false;
                 // Nachricht anzeigen und nicht spawnen
-                if (showMessage != null)
-                {
-                    showMessage(StringFormatter.cleanUmlaute("Es befinden sich Astronauten in unmittelbarer Nähe"));
-                }
+                StatusMessageHandler.sendMessage("Es befinden sich Astronauten in unmittelbarer Nähe");
             }
 
             // Prüfung ob genügend Aliens verfügbar sind
@@ -199,19 +192,13 @@ namespace ProjectEntities
                 // Kein Alien verfügbar
                 spawningAllowed = false;
                 // Nachricht anzeigen
-                if (showMessage != null)
-                {
-                    showMessage(StringFormatter.cleanUmlaute("Es sind keine Aliens verfügbar"));
-                }
+                StatusMessageHandler.sendMessage("Es sind keine Aliens verfügbar");
             }
             else if (Computer.AvailableAliens < spawnNumber)
             {
                 // Nicht Genügend Aliens verfügbar, aber min. ein Alien kann gespawnt werden
                 // Nachricht anzeigen
-                if (showMessage != null)
-                {
-                    showMessage(StringFormatter.cleanUmlaute(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens)));
-                }
+                StatusMessageHandler.sendMessage(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens));
             }
 
             // Darf noch gespawnt werden?

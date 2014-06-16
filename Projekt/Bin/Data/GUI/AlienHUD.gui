@@ -65,6 +65,7 @@ control Control
 		position = ScaleByResolution 10 610
 		size = ScaleByResolution 150 150
 		name = Minimap
+		backTexture = "GUI\\HUD\\Icons\\MiniMiniMap.png"
 	}
 	control Control
 	{
