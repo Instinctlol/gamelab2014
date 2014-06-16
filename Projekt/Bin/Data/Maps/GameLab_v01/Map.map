@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = 67.99133 -21.25813 61.54887
-editorCameraDirection = 3.891348 -1.560796
+editorCameraPosition = 9.646227 -60.93987 77.71959
+editorCameraDirection = 1.477388 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1291,22 +1291,8 @@ entity
 }
 entity
 {
-	type = OutDoor
-	uin = 94
-	classPrompt = OutDoor
-	opened = False
-	needOpen = False
-	openDoorOffsetCoefficient = 0
-	healthFactorAtBeginning = 1
-	position = 69.98986 -71.25241 1.974061
-	rotation = 0 0 -0.3826835 0.9238795
-	name = OutDoor_1
-	editorLayer = "Root Layer\\F2"
-}
-entity
-{
 	type = Terminal
-	uin = 95
+	uin = 94
 	classPrompt = Terminal
 	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -1321,7 +1307,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 96
+	uin = 95
 	classPrompt = BooleanSwitch
 	value = False
 	healthFactorAtBeginning = 1
@@ -1331,7 +1317,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 97
+	uin = 96
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1342,7 +1328,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 98
+	uin = 97
 	classPrompt = Room
 	position = -30.93774 32.32301 0
 	rotation = 0 0 0.9264106 0.3765153
@@ -1353,7 +1339,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 99
+	uin = 98
 	classPrompt = Sector
 	ring = 18
 	group = 67
@@ -1371,7 +1357,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 100
+	uin = 99
 	classPrompt = Room
 	position = 32.60133 -31.67697 0
 	rotation = 0 0 0.4027202 -0.9153234
@@ -1382,7 +1368,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 101
+	uin = 100
 	classPrompt = Sector
 	ring = 18
 	group = 67
@@ -1400,7 +1386,7 @@ entity
 entity
 {
 	type = Bug
-	uin = 102
+	uin = 101
 	classPrompt = GameCharacter
 	intellectShouldDeleteAfterDetach = False
 	initialAI = DefaultGameCharacterAI
@@ -1412,7 +1398,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 103
+	uin = 102
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1425,7 +1411,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 104
+	uin = 103
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1438,7 +1424,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 105
+	uin = 104
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1451,7 +1437,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 106
+	uin = 105
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1464,7 +1450,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 107
+	uin = 106
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1477,7 +1463,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 108
+	uin = 107
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
@@ -1490,7 +1476,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 109
+	uin = 108
 	classPrompt = AlienSpawner
 	sector = 58
 	intellectShouldDeleteAfterDetach = False
