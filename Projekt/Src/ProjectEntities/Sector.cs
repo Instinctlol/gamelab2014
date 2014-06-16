@@ -97,8 +97,9 @@ namespace ProjectEntities
                     {
                         SetFoWEnabled(false);
                     }
-                    SetFoWEnabled(false);
+                    
                 }
+                SetFoWEnabled(false);
             }
         }
         //***************************
@@ -200,6 +201,7 @@ namespace ProjectEntities
 
         private void SetFoWEnabled(bool status)
         {
+            return;
             if( GameMap.Instance.IsAlien )
             {
 
