@@ -310,6 +310,7 @@ namespace ProjectEntities
             if (EntitySystemWorld.Instance.Simulation && !EntitySystemWorld.Instance.SystemPauseOfSimulation)
             {
                 AnimationTree tree = GetFirstAnimationTree();
+
                 if (tree != null)
                     UpdateAnimationTree(tree);
             }

@@ -60,9 +60,18 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
+            Client_Snapshot snapshot = new Client_Snapshot();
+
             SetTransform(pos, rot, scl);
             SetOldTransform(pos, rot, scl);
         }
 
+
+        class Client_Snapshot
+        {
+            public Vec3 position;
+            public Quat rotation;
+            public Vec3 scale;
+        }
     }
 }

@@ -97,6 +97,7 @@ namespace ProjectEntities
                     {
                         SetFoWEnabled(false);
                     }
+                    SetFoWEnabled(false);
                 }
             }
         }

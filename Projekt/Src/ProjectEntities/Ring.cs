@@ -60,7 +60,7 @@ namespace ProjectEntities
             set { corners = value; }
         }
 
-        public int RingPosition
+        public byte RingPosition
         {
             get { return position; }
             set { position = value; }
