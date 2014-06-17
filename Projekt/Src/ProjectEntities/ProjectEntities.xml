@@ -1299,5 +1299,12 @@
             Defines the parametrical switch which turns the <see cref="P:ProjectEntities.Switch.UseAttachedMesh"/>.
             </summary>
         </member>
+        <member name="T:ProjectEntities.RotControl">
+            Beispiel Klasse wie rotieren von gui Elementen funktioniert
+            Probleme:
+            - Entweder ist die Textur größer als man sie eigentlich setzt oder die Textur ist begrenzt auf die gewünschte Fläche aber bei rotation können Ecken abgeschnitten werden
+            - Das Control element rotiert nicht wirklich! Nur die Textur rotiert. Überprüfungen ob Maus auf der Textur ist müssen selbst angepasst werden!
+            - BackTextureCoord muss (0, 0, 0 ,0) sein. Sonst wird die tatsächliche Textur hinter/vor der rotierten gerendert
+        </member>
     </members>
 </doc>

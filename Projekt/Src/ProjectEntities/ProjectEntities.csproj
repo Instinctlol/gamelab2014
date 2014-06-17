@@ -220,7 +220,7 @@
     <Compile Include="TurnFloatSwitch.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Weapon.cs" />
-    <Compile Include="RotButton.cs" />
+    <Compile Include="RotControl.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
