@@ -1,0 +1,8 @@
+highLevelMaterial "03 - Default"
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\eye_d.jpg"
+	}
+}
