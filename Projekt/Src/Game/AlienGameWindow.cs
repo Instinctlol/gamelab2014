@@ -802,11 +802,16 @@ namespace Game
 
             // Computer status notifications (top)
             {
-                hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountActive"].Text = ""+Computer.UsedAliens;
+                hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountActive"].Text = "" + Computer.UsedAliens;
                 hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountPossible"].Text = "" + Computer.AvailableAliens;
                 hudControl.Controls["StatusNotificationTop"].Controls["RotationIcon"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
                 hudControl.Controls["StatusNotificationTop"].Controls["EnergyIcon"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
                 hudControl.Controls["StatusNotificationTop"].Controls["ExperienceIcon"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+            }
+
+            // Astronauten
+            {
+                hudControl.Controls["StatusNotificationTop"].Controls["AstronautIcon"].Controls["AstronautCount"].Text = "" + Computer.GetNumberOfActiveAstronauts();
             }
 
             Vec3 mouseMapPos = Vec3.Zero;

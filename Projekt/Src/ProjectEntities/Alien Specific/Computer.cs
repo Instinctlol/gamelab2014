@@ -250,5 +250,26 @@ namespace ProjectEntities
                 StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
             }
         }
+
+        /// <summary>
+        /// Liefert die Anzahl Astronauten, die leben
+        /// </summary>
+        /// <returns></returns>
+        public static int GetNumberOfActiveAstronauts()
+        {
+            IEnumerable<GameCharacter> player = Entities.Instance.EntitiesCollection.OfType<GameCharacter>();
+            int counter = player.Count();
+            // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
+            foreach (GameCharacter p in player)
+            {
+                if (p.IsDestroyed || p.Died || p.Health <= 0)
+                {
+                    // Dann um Eins dekrementieren
+                    counter--;
+                }
+            }
+            // Anzahl zurückgeben
+            return counter;
+        }
     }
 }

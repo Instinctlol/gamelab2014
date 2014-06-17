@@ -592,6 +592,12 @@
             </summary>
             <param name="sectorName"></param>
         </member>
+        <member name="M:ProjectEntities.Computer.GetNumberOfActiveAstronauts">
+            <summary>
+            Liefert die Anzahl Astronauten, die leben
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ProjectEntities.BooleanSwitchType">
             <summary>
             Defines the <see cref="T:ProjectEntities.BooleanSwitch"/> entity type.

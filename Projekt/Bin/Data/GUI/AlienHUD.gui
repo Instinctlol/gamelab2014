@@ -420,5 +420,27 @@ control Control
 				text = Verfuegbar
 			}
 		}
+		control Control
+		{
+			position = Parent 0.8 0
+			verticalAlign = Center
+			size = ScaleByResolution 70 90
+			name = AstronautIcon
+			control Control
+			{
+				position = ScaleByResolution 0 0
+				horizontalAlign = Center
+				size = Parent 0.7 0.7
+				backTexture = "GUI\\HUD\\Icons\\Astronaut_MiniIcon.png"
+			}
+			control TextBox
+			{
+				horizontalAlign = Center
+				verticalAlign = Bottom
+				size = Parent 0.7 0.2
+				name = AstronautCount
+				text = 2
+			}
+		}
 	}
 }
