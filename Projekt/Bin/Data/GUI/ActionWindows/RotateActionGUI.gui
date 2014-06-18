@@ -16,11 +16,4 @@ control Window
 		name = RightButton
 		text = Rotate Right
 	}
-	control RotControl
-	{
-		position = ScaleByResolution 360 470
-		size = Parent 0.3652343 0.3098959
-		backTexture = "GUI\\Textures\\NeoAxisLogo.png"
-		backTextureCoord = 0 0 0 0
-	}
 }

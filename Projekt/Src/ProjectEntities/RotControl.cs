@@ -20,7 +20,8 @@ namespace ProjectEntities
     {
 
         //Winkel ZU dem rotiert werden soll.
-        private float rotateDegree = 90;
+        [Engine.EntitySystem.EntityType.FieldSerialize]
+        private float rotateDegree = 0;
 
         public float RotateDegree
         {
