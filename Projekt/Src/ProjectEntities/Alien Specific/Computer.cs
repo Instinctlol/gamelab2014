@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
 using ProjectCommon;
@@ -224,6 +225,9 @@ namespace ProjectEntities
                 {
                     ring.RotateRight();
                 }
+                ///ToDo: Gridaktualisierung für die Rotation in der Map
+                GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
+                
             }
             else
             {
