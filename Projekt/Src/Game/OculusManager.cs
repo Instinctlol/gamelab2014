@@ -77,6 +77,10 @@ namespace Game
 
 			///////////////
 
+            GuiRenderer guiRenderer; // <<<<
+
+
+
 			class ViewRenderTargetListener : RenderTargetListener
 			{
 				View owner;
@@ -122,6 +126,13 @@ namespace Game
 				protected override void OnPostRenderTargetUpdate( RenderTargetEvent evt )
 				{
 					//SceneManager.Instance.ResetOverrideVisibleObjects();
+                   
+                    base.OnPostRenderTargetUpdate(evt);
+
+                    if (owner.Render != null)
+                    {
+                        GameEngineApp.Instance.ControlManager.DoRenderUI(owner.guiRenderer);
+                    }
 				}
 			}
 
@@ -199,7 +210,8 @@ namespace Game
                 // Add OVR Compositor
                 viewport.AddCompositor("OVR");
                 viewport.SetCompositorEnabled("OVR", true);
-
+                guiRenderer = new GuiRenderer(viewport);
+                guiRenderer.ApplyPostEffectsToScreenRenderer = true;
 
 				//Create compositor for HDR render technique
                 //bool hdrCompositor =

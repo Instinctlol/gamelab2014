@@ -850,6 +850,15 @@ namespace Game
 
 			controlManager.DoRenderUI( renderer );
 
+            if (OculusManager.Instance != null)
+            {
+                OculusManager.Instance.RenderScreenUI(renderer);
+            }
+            else
+            {
+                // Abfragen ob Oculus aktiv ist, dann dies hier _nicht_ aufrufen
+                controlManager.DoRenderUI(renderer);
+            }
 			//screenMessages
 			{
 				Viewport viewport = RendererWorld.Instance.DefaultViewport;
