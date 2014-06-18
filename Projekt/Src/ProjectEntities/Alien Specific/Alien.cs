@@ -172,7 +172,7 @@ namespace ProjectEntities
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MainBodyVelocityToClient)]
-        void Client_ReceivePosition(RemoteEntityWorld sender, ReceiveDataReader reader)
+        void Client_ReceiveMainBodyVelocity(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             Vec3 velocity = reader.ReadVec3();
             if (!reader.Complete())

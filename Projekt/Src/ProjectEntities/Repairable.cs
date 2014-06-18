@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.EntitySystem;
 using Engine.Utils;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,10 @@ namespace ProjectEntities
         [FieldSerialize]
         private string soundRepaired;
 
-
-
         [FieldSerialize]
         private string soundUsing;
 
-
-
-
+       
         [Description( "The sound when the object got repaired." )]
 		[Editor( typeof( EditorSoundUITypeEditor ), typeof( UITypeEditor ) )]
 		[SupportRelativePath]
@@ -51,6 +48,13 @@ namespace ProjectEntities
 
 
 
+        enum NetworkMessages
+        {
+            PressToServer,
+            RepairedToClient,
+        }
+
+
         public delegate void RepairDelegate(Repairable entity);
 
         [LogicSystemBrowsable(true)]
@@ -73,16 +77,60 @@ namespace ProjectEntities
                     return;
 
                 this.repaired = value;
-                SoundPlay3D(Type.SoundRepaired, .5f, false);
-                OnRepair();
+
+                if (EntitySystemWorld.Instance.IsClientOnly())
+                    SoundPlay3D(Type.SoundRepaired, .5f, false);
+                else
+                {
+                    OnRepair();
+                    Server_SendRepairedToAllClients();
+                }
 
             }
         }
 
         public virtual void Press()
         {
-            SoundPlay3D(Type.SoundUsing, .5f, false);
+
+            //Wenn nur client ist
+            if(EntitySystemWorld.Instance.IsClientOnly())
+            {
+                SoundPlay3D(Type.SoundUsing, .5f, false);
+                Client_SendPressToServer();
+            }
+        }
+
+
+        void Client_SendPressToServer()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable), 
+                (ushort)NetworkMessages.PressToServer);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.PressToServer)]
+        void Server_ReceivePress(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            if (!reader.Complete())
+                return;
             Repaired = true;
+        }
+
+        void Server_SendRepairedToAllClients()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable),
+                (ushort)NetworkMessages.RepairedToClient);
+            writer.Write(Repaired);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.RepairedToClient)]
+        void Client_ReceiveRepaired(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool rep = reader.ReadBoolean();
+            if (!reader.Complete())
+                return;
+            Repaired = rep;
         }
 
     }

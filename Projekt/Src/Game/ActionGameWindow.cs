@@ -1125,7 +1125,7 @@ namespace Game
             if (repairableUsing)
                 return false;
 
-            if (currentRepairable == null)
+            if (currentRepairable == null || currentRepairable.Repaired)
                 return false;
 
             //Einfach reparieren
