@@ -1286,7 +1286,7 @@ entity
 	rotation = 0 0 0.9264106 0.3765153
 	scale = 0.5548231 0.9028758 1
 	name = F3C23
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F3"
 }
 entity
 {
@@ -1314,7 +1314,7 @@ entity
 	rotation = 0 0 0.4027202 -0.9153234
 	scale = 0.5548231 0.9028758 1
 	name = F3C14
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F3"
 }
 entity
 {
