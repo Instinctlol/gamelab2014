@@ -16,6 +16,7 @@ using Engine.FileSystem;
 using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
+using System.Timers;
 
 namespace Game
 {
@@ -72,11 +73,61 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-        //
+        
+
+        //Massage System here===================================
+
+        System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
+        const int maxIndex = 4;  // maximale Nachrichten in der Massagebox
+        List<string> MassageList = new List<string>(); // hier stecken die Nachichten drin 
+
+        public void sendMassageToHUD(String massage)
+        {
+            string output = "";
+
+            if (MassageList.Count <= maxIndex)
+            {
+                MassageList.Add(massage);
+            }
+            else
+            {
+                MassageList.RemoveAt(0);
+                MassageList.Add(massage);
+            }
+
+
+            hudControl.Controls["MassageBox"].Visible = true;
+
+            foreach (string element in MassageList)
+            {
+                output += (element + "\r\n");
+            }
+
+            hudControl.Controls["MassageBox"].Text = output;
+            //hudControl.Controls["MassageBox"].Text = hudControl.Controls["MassageBox"].Text + massage + "\r\n";
+            BoxTimer.Interval = 5000;
+            BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            BoxTimer.Enabled = true;
+        }
+
+        void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            hudControl.Controls["MassageBox"].Visible = false;
+        }
+
+        // Event Handler for massaging
+        private void InitializeEventListener()
+        {
+            // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
+            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMassageToHUD);
+        }
+
 
         protected override void OnAttach()
         {
             base.OnAttach();
+
+            InitializeEventListener();
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
@@ -126,8 +177,16 @@ namespace Game
             base.OnDetach();
         }
 
+        //testzwecke
+        int i = 0;
         protected override bool OnKeyDown(KeyEvent e)
         {
+            
+            StatusMessageHandler.sendMessage("gut gedrueckt "+i);
+            //sendMassageToHUD("gut gedrueckt " + i);
+            i++;
+
+
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnKeyDown(e);
@@ -199,6 +258,8 @@ namespace Game
 
         protected override bool OnMouseDown(EMouseButtons button)
         {
+
+            
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);

@@ -31,7 +31,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowColor = 0 0 0 0.5019608
 		autoSize = True
 		position = ScaleByResolution 44.875 182.0773
-		size = Screen 0.09375001 0.025
+		size = Screen 0.09913043 0.025
 		text = Connect to
 	}
 	control "Gui\\Controls\\DefaultEditBox.gui"

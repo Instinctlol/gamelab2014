@@ -153,7 +153,7 @@ namespace Game
 			GameNetworkClient client = new GameNetworkClient( true );
             if (sender.Name == "Connect")
                 client.isOculus = true;
-            else if(sender.Name == "Connect2")
+            else if (sender.Name == "Connect2")
                 client.isOculus = false;
 
 			client.ConnectionStatusChanged += Client_ConnectionStatusChanged;
