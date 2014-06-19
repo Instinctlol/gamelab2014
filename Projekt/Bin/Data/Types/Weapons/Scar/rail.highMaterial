@@ -1,0 +1,20 @@
+highLevelMaterial rail
+{
+	dataSource = "Types\\Weapons\\Scar\\scar.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5882353 0.5882353 0.5882353
+	specularColor = 0.9 0.9 0.9
+	specularShininess = 20
+	diffuse1Map
+	{
+		texture = ".\\ris_d.tga"
+	}
+	specularMap
+	{
+		texture = ".\\ris_s.tga"
+	}
+	normalMap
+	{
+		texture = ".\\ris_normals.tga"
+	}
+}

@@ -1,0 +1,24 @@
+sourceFile = "Types\\Weapons\\Brechstange\\brechstange.FBX"
+materialsNamePrefix = brechstange
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = brechstange
+		pivotPosition = -0.2386905 -0.6298294 0.6402489
+		sources
+		{
+			item
+			{
+				name = polymsh2
+				rotation = -0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = Group
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+highLevelMaterial brechstangematerial2
+{
+	dataSource = "Types\\Weapons\\Brechstange\\brechstange.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.7 0.7 0.7
+	specularColor = 0.478 0.478 0.478
+	specularShininess = 320
+	diffuse1Map
+	{
+		texture = ".\\metal01.jpg"
+	}
+}

@@ -1,0 +1,18 @@
+sourceFile = "Types\\Weapons\\Glock\\glock.fbx"
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = Glock
+		pivotPosition = -0.03015041 53.10044 -23.8362
+		sources
+		{
+			item
+			{
+				name = Glock
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

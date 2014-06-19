@@ -1,0 +1,20 @@
+highLevelMaterial sight
+{
+	dataSource = "Types\\Weapons\\Scar\\scar.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5882353 0.5882353 0.5882353
+	specularColor = 0.9 0.9 0.9
+	specularShininess = 20
+	diffuse1Map
+	{
+		texture = ".\\sight_d.tga"
+	}
+	specularMap
+	{
+		texture = ".\\sight_s.tga"
+	}
+	normalMap
+	{
+		texture = ".\\sight_n.TGA"
+	}
+}

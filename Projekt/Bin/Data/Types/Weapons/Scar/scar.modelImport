@@ -1,0 +1,41 @@
+sourceFile = "Types\\Weapons\\Scar\\scar.FBX"
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = scar
+		pivotPosition = 1.652534 7.522496 -11.37356
+		sources
+		{
+			item
+			{
+				name = lowpoly
+				position = 0.3354692 10.34222 -4.134589
+				rotation = -0.7071068 0 0 0.7071068
+				scale = 0.3147748 0.3147748 0.3147748
+			}
+			item
+			{
+				name = top_ris02
+				position = 0.3354692 10.34222 -4.134589
+				rotation = -0.7071068 0 0 0.7071068
+				scale = 0.3147748 0.3147748 0.3147748
+			}
+			item
+			{
+				name = sight_low
+				position = 0.3354692 10.34222 -4.134589
+				rotation = -0.7071068 0 0 0.7071068
+				scale = 0.3147748 0.3147748 0.3147748
+			}
+			item
+			{
+				name = windows_low
+				position = 0.3354692 10.34222 -4.134589
+				rotation = -0.7071068 0 0 0.7071068
+				scale = 0.3147748 0.3147748 0.3147748
+			}
+		}
+	}
+}
