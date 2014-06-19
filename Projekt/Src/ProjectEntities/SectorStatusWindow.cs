@@ -31,7 +31,10 @@ namespace ProjectEntities
             ringInnerCntrl = (RotControl)ringFullCntrl.Controls["InnerRing"];
             ringMiddleCntrl = (RotControl)ringFullCntrl.Controls["MiddleRing"];
             ringOuterCntrl = (RotControl)ringFullCntrl.Controls["OuterRing"];
-            if (ringFullCntrl.Size.Value.X == ringFullCntrl.Size.Value.Y)
+            if (ringFullCntrl.Size.Value.X == ringFullCntrl.Size.Value.Y && ringInnerCntrl.Size.Value.X == ringInnerCntrl.Size.Value.Y
+                && ringOuterCntrl.Size.Value.X == ringOuterCntrl.Size.Value.Y && ringMiddleCntrl.Size.Value.X == ringMiddleCntrl.Size.Value.Y
+                && ringFullCntrl.Size.Value.X == ringOuterCntrl.Size.Value.X && ringOuterCntrl.Size.Value.X == ringMiddleCntrl.Size.Value.X
+                && ringMiddleCntrl.Size.Value.X == ringInnerCntrl.Size.Value.X)
             {
                 scale = ringFullCntrl.Size.Value.X;
             }
@@ -53,7 +56,6 @@ namespace ProjectEntities
             ringOuter = ((Ring)Entities.Instance.GetByName("F1_Ring"));
             ringInner = ((Ring)Entities.Instance.GetByName("F3_Ring"));
             ringMiddle = ((Ring)Entities.Instance.GetByName("F2_Ring"));
-
             
             ringOuter.RotateRing += OnOuterRotation;
             ringInner.RotateRing += OnInnerRotation;
