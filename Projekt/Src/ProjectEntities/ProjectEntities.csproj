@@ -160,9 +160,9 @@
     <Compile Include="Repairable.cs" />
     <Compile Include="Ring.cs" />
     <Compile Include="Room.cs" />
-    <Compile Include="SectorStatus.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="SectorGroup.cs" />
+    <Compile Include="SectorStatusWindow.cs" />
     <Compile Include="SmartButton.cs" />
     <Compile Include="SmartButtonWindow.cs" />
     <Compile Include="StationSystem.cs" />

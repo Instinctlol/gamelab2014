@@ -169,7 +169,8 @@ namespace Game
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
 
-
+            //initializing BigMinimap, only works on runtime
+            ((SectorStatusWindow)hudControl.Controls["BigMinimap"]).initialize();
         }
 
         // Beim Beenden des Spiels minimap freigeben

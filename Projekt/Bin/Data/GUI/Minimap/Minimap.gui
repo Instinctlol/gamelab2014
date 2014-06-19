@@ -2,16 +2,25 @@
 
 control Window
 {
+	size = ScaleByResolution 150 150
 	control Control
 	{
-		position = ScaleByResolution 140 0
-		size = ScaleByResolution 760 760
+		position = ScaleByResolution 0 0
+		size = ScaleByResolution 150 150
 		name = FullRing
 		backColor = 1 0.8862746 0.2588235 0
 		control RotControl
 		{
-			position = ScaleByResolution 20 10
-			size = ScaleByResolution 720 720
+			position = ScaleByResolution 0 0
+			size = ScaleByResolution 150 150
+			name = OuterRing
+			backTexture = "GUI\\Textures\\outerRing.png"
+			backTextureCoord = 0 0 0 0
+		}
+		control RotControl
+		{
+			position = ScaleByResolution 0 0
+			size = ScaleByResolution 150 150
 			name = MiddleRing
 			backColor = 0.2431373 0.8470589 0.2627451
 			backTexture = "GUI\\Textures\\middleRing.png"
@@ -19,20 +28,11 @@ control Window
 		}
 		control RotControl
 		{
-			topMost = True
-			position = ScaleByResolution 20 10
-			size = ScaleByResolution 720 720
+			position = ScaleByResolution 0 0
+			size = ScaleByResolution 150 150
 			name = InnerRing
 			backColor = 1 0.1411765 0.1294118
 			backTexture = "GUI\\Textures\\innerRing.png"
-			backTextureCoord = 0 0 0 0
-		}
-		control RotControl
-		{
-			position = ScaleByResolution 20 10
-			size = ScaleByResolution 720 720
-			name = OuterRing
-			backTexture = "GUI\\Textures\\outerRing.png"
 			backTextureCoord = 0 0 0 0
 		}
 	}

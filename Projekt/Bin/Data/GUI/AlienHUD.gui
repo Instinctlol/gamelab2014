@@ -443,4 +443,10 @@ control Control
 			}
 		}
 	}
+	control SectorStatusWindow
+	{
+		position = ScaleByResolution 190 590
+		size = ScaleByResolution 150 150
+		name = BigMinimap
+	}
 }
