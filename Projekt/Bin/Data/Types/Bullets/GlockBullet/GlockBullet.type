@@ -1,0 +1,24 @@
+type GlockBullet
+{
+	class = Bullet
+	maxDistance = 100
+	damage = 4
+	impulse = 7000
+	creatableInMapEditor = False
+	networkType = Synchronized
+	hitObjects
+	{
+		particle
+		{
+			particleName = SubmachineGunBulletHit
+		}
+		particle
+		{
+			particleName = SubmachineGunBulletHit2
+		}
+		mapObject
+		{
+			type = DefaultBulletDecalCreator
+		}
+	}
+}
