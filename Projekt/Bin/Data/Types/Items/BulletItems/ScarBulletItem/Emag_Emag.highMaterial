@@ -1,0 +1,20 @@
+highLevelMaterial Emag_Emag
+{
+	dataSource = "Types\\Items\\BulletItems\\ScarBulletItem\\magazin_scar.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	specularColor = 0.5 0.5 0.5
+	specularShininess = 7803.621
+	diffuse1Map
+	{
+		texture = ".\\emag_col.tga"
+	}
+	specularMap
+	{
+		texture = ".\\emag_spec.tga"
+	}
+	normalMap
+	{
+		texture = ".\\emag_norm.tga"
+	}
+}

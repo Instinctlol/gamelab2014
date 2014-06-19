@@ -1,0 +1,25 @@
+type ScarBulletItem
+{
+	class = BulletItem
+	bulletType = ScarBullet
+	bulletCount = 60
+	defaultRespawnTime = 10
+	soundTake = "Types/Items/DefaultItemTake.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Emag_Mesh.mesh"
+			castDynamicShadows = True
+			position = 0 0 0.08222631
+			rotation = 0.0006204918 0.701611 0.7125598 0.0006301748
+			scale = 0.07577354 0.07577354 0.07577354
+		}
+		particle
+		{
+			particleName = ItemParticle
+			updateWhenItNotInView = False
+		}
+	}
+}

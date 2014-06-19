@@ -1,0 +1,19 @@
+sourceFile = "Types\\Items\\BulletItems\\ScarBulletItem\\magazin_scar.FBX"
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = Emag_Mesh
+		pivotPosition = 0.580711 1.27708 0.004821405
+		sources
+		{
+			item
+			{
+				name = Emag_Mesh
+				position = 0 1.790306 0
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+sourceFile = "Types\\Items\\BulletItems\\GlockBulletItem\\magazin.FBX"
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = Glock02
+		pivotPosition = 0.0123291 39.04752 -16.27499
+		sources
+		{
+			item
+			{
+				name = Glock02
+				position = 24.32428 3.690063 75.17946
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}
