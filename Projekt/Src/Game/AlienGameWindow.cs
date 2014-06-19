@@ -31,6 +31,7 @@ namespace Game
         }
 		static float mydelta  = 0;
         static Vec2 todoTranslate = Vec2.Zero;
+        static float todoRotate = 0;
         static CameraType cameraType = CameraType.Game;
         float cameraDistance = 20;
         //SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
@@ -194,19 +195,25 @@ namespace Game
                     Console.WriteLine("Trying to Translate");
                     todoTranslate.X += test.getx();
                     todoTranslate.Y += test.gety();
-                    //Vec2 vector = Vec2.Zero;
-                    //vector.X += test.getx()*50;
-                    //vector.Y += test.gety()*50;
-
-                    //Console.WriteLine("" + vector.X + " / " + vector.Y);
-                    //float angle = MathFunctions.ATan(-vector.Y, vector.X) +
-                    //cameraDirection.Horizontal;
-
-                    //vector = new Vec2(MathFunctions.Sin(angle), MathFunctions.Cos(angle));
-
-                    //Console.WriteLine("" + mydelta);
-                    ////cameraPosition += vector * mydelta * 50;
-                } 
+                }
+                else if (test.getOPType() == opType.rotation) {
+                    todoRotate = 0;
+                    float angle = test.getx() - test.gety();
+                    if (angle > 0) todoRotate += 1;
+                    if (angle < 0) todoRotate -= 1;
+                    Console.WriteLine("Trying to Rotate " + angle);
+                    
+                
+                }
+                else if (true && test.getOPType() == opType.selection) {
+                    Vec2 MousePos = Vec2.Zero;
+                    MousePos.X = test.getx();
+                    MousePos.Y = test.gety();
+                    EngineApp.Instance.MousePosition = MousePos;
+                    EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
+                    EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
+                    
+                }
 
 
 
@@ -661,6 +668,22 @@ namespace Game
                     UpdateCameraScrollBars();
                 }
             */
+                if (todoRotate != 0)
+                {
+                    if (todoRotate > 0) {
+                        cameraDirection.Horizontal += (delta * 2) * 2;
+                    }
+                    else if (todoRotate < 0) {
+                        cameraDirection.Horizontal -= (delta * 2) * 2;
+                    }
+                    
+                    if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
+                        cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                    if (cameraDirection.Horizontal < 0)
+                        cameraDirection.Horizontal += MathFunctions.PI * 2;
+                    todoRotate = 0;
+
+                }
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Q))
                 {
                     cameraDirection.Horizontal += delta * 2;
@@ -682,8 +705,8 @@ namespace Game
 
                     Vec2 vector = Vec2.Zero;
                     if (todoTranslate != Vec2.Zero) {
-                        vector.X += todoTranslate.X*10;
-                        vector.Y += todoTranslate.Y*10;
+                        vector.X -= todoTranslate.X*15;
+                        vector.Y += todoTranslate.Y*15;
                         todoTranslate = Vec2.Zero;
                     }
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Left) ||
