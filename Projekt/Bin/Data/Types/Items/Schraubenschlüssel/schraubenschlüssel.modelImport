@@ -1,0 +1,20 @@
+sourceFile = "Types\\Items\\Schraubenschl\x00fcssel\\schraubenschl\x00fcssel.FBX"
+materialsNamePrefix = wrench
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = Wrench
+		pivotPosition = 0.3382978 -29.13953 -118.7486
+		sources
+		{
+			item
+			{
+				name = Wrench
+				position = 4.917339E-06 -81.9066 -112.4956
+				rotation = -1.053671E-08 -0.7071068 1.053671E-08 0.7071068
+			}
+		}
+	}
+}

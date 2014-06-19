@@ -1,0 +1,18 @@
+sourceFile = "Types\\Items\\HealthItems\\Medipack\\medipack.FBX"
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = _null_2
+		pivotPosition = 0.1415396 4.055504 -0.03622472
+		sources
+		{
+			item
+			{
+				name = _null_2
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

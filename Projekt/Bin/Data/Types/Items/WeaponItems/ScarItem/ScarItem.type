@@ -1,0 +1,26 @@
+type ScarItem
+{
+	class = WeaponItem
+	weaponType = ScarType
+	bulletType = ScarBullet
+	bulletCount = 300
+	defaultRespawnTime = 10
+	soundTake = "Types/Items/DefaultItemTake.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Weapons\\Scar\\scar.mesh"
+			castDynamicShadows = True
+			position = 0.06730662 0 -0.0001935586
+			rotation = 0 0 -0.1318847 -0.9912651
+			scale = 0.4255319 0.4255319 0.4255319
+		}
+		particle
+		{
+			particleName = ItemParticle
+			position = 0 0 -0.146689
+		}
+	}
+}

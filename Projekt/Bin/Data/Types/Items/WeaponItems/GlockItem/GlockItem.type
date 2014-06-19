@@ -1,0 +1,24 @@
+type GlockItem
+{
+	class = WeaponItem
+	weaponType = Glock
+	bulletType = GlockBullet
+	bulletCount = 120
+	defaultRespawnTime = 10
+	soundTake = "Types/Items/DefaultItemTake.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Weapons\\Glock\\Glock.mesh"
+			castDynamicShadows = True
+			scale = 0.1272333 0.1272333 0.1272333
+		}
+		particle
+		{
+			particleName = ItemParticle
+			position = 0 0 -0.146689
+		}
+	}
+}

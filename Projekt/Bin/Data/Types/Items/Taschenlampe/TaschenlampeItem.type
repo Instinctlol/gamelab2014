@@ -1,0 +1,17 @@
+type TaschenlampeItem
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\taschenlampe.mesh"
+			position = 0 0 0.0769673
+			scale = 0.6578947 0.6578947 0.6578947
+		}
+		particle
+		{
+			particleName = ItemParticle
+		}
+	}
+}

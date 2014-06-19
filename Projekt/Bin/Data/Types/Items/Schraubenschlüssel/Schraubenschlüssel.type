@@ -1,0 +1,18 @@
+type "Schraubenschl\x00fcssel"
+{
+	class = Item
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Wrench.mesh"
+			position = 0 0 0.1041805
+			scale = 0.0008174274 0.0008174274 0.0008174274
+		}
+		particle
+		{
+			particleName = ItemParticle
+		}
+	}
+}

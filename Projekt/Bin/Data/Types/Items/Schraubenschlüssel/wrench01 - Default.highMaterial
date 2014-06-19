@@ -1,0 +1,16 @@
+highLevelMaterial "wrench01 - Default"
+{
+	dataSource = "Types\\Items\\Schraubenschl\x00fcssel\\schraubenschl\x00fcssel.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5882353 0.5882353 0.5882353
+	specularColor = 0.9 0.9 0.9
+	specularShininess = 20
+	diffuse1Map
+	{
+		texture = ".\\Wrenchjpg.jpg"
+	}
+	normalMap
+	{
+		texture = ".\\mwrench.jpg"
+	}
+}

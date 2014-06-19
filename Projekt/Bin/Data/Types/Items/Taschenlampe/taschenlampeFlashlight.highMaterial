@@ -1,0 +1,12 @@
+highLevelMaterial taschenlampeFlashlight
+{
+	dataSource = "Types\\Items\\Taschenlampe\\lampe.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	specularColor = 0.5 0.5 0.5
+	specularShininess = 7802.769
+	diffuse1Map
+	{
+		texture = ".\\flashlight_d.dds"
+	}
+}

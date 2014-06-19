@@ -1,0 +1,12 @@
+highLevelMaterial "Defkit04 - Default"
+{
+	dataSource = "Types\\Items\\Defkit\\defkit.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5882353 0.5882353 0.5882353
+	specularColor = 0.9 0.9 0.9
+	specularShininess = 20
+	diffuse1Map
+	{
+		texture = ".\\ctrcuit display.jpg"
+	}
+}

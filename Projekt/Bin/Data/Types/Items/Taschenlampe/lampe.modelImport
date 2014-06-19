@@ -1,0 +1,19 @@
+sourceFile = "Types\\Items\\Taschenlampe\\lampe.FBX"
+materialsNamePrefix = taschenlampe
+generateTextures = True
+objects
+{
+	mesh
+	{
+		name = default
+		pivotPosition = -9.999983E-05 -2.793968E-08 0.254
+		sources
+		{
+			item
+			{
+				name = default
+				rotation = -0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}
