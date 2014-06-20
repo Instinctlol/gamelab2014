@@ -178,14 +178,7 @@ namespace ProjectEntities
             //}
 
             bool spawningAllowed = true;
-            // Befinden sich Astronauten im Raum?
-            if (IsAstronoutInSector())
-            {
-                spawningAllowed = false;
-                // Nachricht anzeigen und nicht spawnen
-                StatusMessageHandler.sendMessage("Es befinden sich Astronauten in unmittelbarer Nähe");
-            }
-
+            
             // Prüfung ob genügend Aliens verfügbar sind
             if (Computer.AvailableAliens == 0)
             {
@@ -199,6 +192,13 @@ namespace ProjectEntities
                 // Nicht Genügend Aliens verfügbar, aber min. ein Alien kann gespawnt werden
                 // Nachricht anzeigen
                 StatusMessageHandler.sendMessage(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens));
+            }
+            // Befinden sich Astronauten im Raum?
+            if (IsAstronoutInSector())
+            {
+                spawningAllowed = false;
+                // Nachricht anzeigen und nicht spawnen
+                StatusMessageHandler.sendMessage("Es befinden sich Astronauten in unmittelbarer Nähe");
             }
 
             // Darf noch gespawnt werden?
@@ -324,7 +324,7 @@ namespace ProjectEntities
             foreach (MapObject obj in sector.ObjectsInRegion)
             {
                 // wurde ein Astronaut gefunden?
-                if (obj.Type is AlienType)// TODO: GameCharacterType
+                if (obj.Type is GameCharacterType)
                 {
                     return true;
                 }

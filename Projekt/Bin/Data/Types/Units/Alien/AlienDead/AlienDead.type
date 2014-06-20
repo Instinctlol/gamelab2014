@@ -1,12 +1,15 @@
 type AlienDead
 {
-	class = Dynamic
+	class = Corpse
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
 		{
-			meshName = ".\\Alien_dead_body.mesh"
-			position = 0 0 0.4823026
+			meshName = "Types\\Units\\Alien\\Alien.mesh"
+			collisionSpecialMeshName = "Types\\Units\\Alien\\Alien.mesh"
+			animationTree = ".\\AlienDead.animationTree"
+			rotation = 0 0 -0.7071068 -0.7071068
 		}
 	}
 }

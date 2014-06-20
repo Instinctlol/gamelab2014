@@ -250,9 +250,6 @@ namespace Game
             if (e.Key == EKeys.F3)
             {
                 Computer.IncrementSolvedRepairables();
-                Alien alien = ((Alien)Entities.Instance.GetByName("Alien_0"));
-                if ( alien != null)
-                    alien.testDeath();
                 return true;
             }
 
@@ -1305,16 +1302,7 @@ namespace Game
 
                 //increase 1 pixel
                 rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
-
                 ColorValue color = GetColor(unit);
-
-                //if (playerFaction == null || unit.Intellect == null || unit.Intellect.Faction == null)
-                //    color = new ColorValue(1, 1, 0);
-                //else if (playerFaction == unit.Intellect.Faction)
-                //    color = new ColorValue(0, 1, 0);
-                //else
-                //    color = new ColorValue(1, 0, 0);
-
                 renderer.AddQuad(rect, color);
             }
 

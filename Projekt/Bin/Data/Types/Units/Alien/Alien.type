@@ -4,7 +4,8 @@ type Alien
 	optimalAttackDistanceRange = 0 40
 	allowPlayerControl = True
 	initialAI = AlienAI
-	viewRadius = 30
+	viewRadius = 20
+	takeItemsRadius = 0
 	healthMax = 150
 	targetPriority = 1
 	soundCollision = "Sounds\\Beep.ogg"
@@ -13,18 +14,17 @@ type Alien
 	networkType = Synchronized
 	attachedObjects
 	{
-		mesh
-		{
-			meshName = ".\\Alien.mesh"
-			collision = True
-			collisionSpecialMeshName = ".\\Alien.mesh"
-			animationTree = ".\\Alien.animationTree"
-			rotation = 0 0 -0.7071068 -0.7071068
-		}
 		mapObject
 		{
 			type = Shotgun
 			position = 0.5680642 0 1.009582
+		}
+		mesh
+		{
+			meshName = ".\\Alien.mesh"
+			collisionSpecialMeshName = ".\\Alien.mesh"
+			animationTree = ".\\Alien.animationTree"
+			rotation = 0 0 -0.7071068 -0.7071068
 		}
 	}
 	dieObjects

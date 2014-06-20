@@ -87,14 +87,12 @@ namespace ProjectEntities
             MainBodyVelocityToClient
         }
 
+        /// <summary>
+        /// Wenn ein Alien stirbt, dann muss das dem Computer mitgeteilt werden
+        /// </summary>
+        /// <param name="prejudicial"></param>
         protected override void OnDie(MapObject prejudicial)
         {
-            //TODO: play death animation funktioniert noch nicht
-            // vielleicht so wie bei zombi und zombidead
-            AnimationTree tree = GetFirstAnimationTree();
-            if (tree != null)
-                tree.ActivateTrigger("death");
-            EngineConsole.Instance.Print("ich sterbe");
             Computer.DecrementUsedAliens();
             base.OnDie(prejudicial);
         }
@@ -116,7 +114,10 @@ namespace ProjectEntities
             body.Rotation = Rotation;
 
             // Sound erstellen
-            alienSound = SoundWorld.Instance.SoundCreate(this._type.SoundCollision, SoundMode.Record);
+            if (this._type.SoundCollision != null)
+            {
+                alienSound = SoundWorld.Instance.SoundCreate(this._type.SoundCollision, SoundMode.Record);
+            }
 
             float length = Type.Height - Type.Radius * 2;
             if (length < 0)
@@ -352,13 +353,13 @@ namespace ProjectEntities
             base.OnRenderFrame();
         }
 
+        // TODO kann gelöscht werden
         public void testDeath()
         {
             AnimationTree tree = GetFirstAnimationTree();
             if (tree != null)
             {
                 tree.ActivateTrigger("death");
-
                 EngineConsole.Instance.Print("ich sterbe");
             }
         }
@@ -378,7 +379,10 @@ namespace ProjectEntities
                     alienChannel.Stop();
                 }
                 // Play sound
-                this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
+                if (alienSound != null)
+                {
+                    this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
+                }
             }
 
             tree.SetParameterValue("move", move ? 1 : 0);

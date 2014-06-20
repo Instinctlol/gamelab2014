@@ -33,7 +33,7 @@ namespace ProjectEntities
         static int experiencePoints = 100;
         static int rotationCoupons = 3;
         static int powerCoupons = 2;
-        static int availableAliens = 1;
+        static int availableAliens = 5;
         static int usedAliens = 0;
 
 
