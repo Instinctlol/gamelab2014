@@ -1,7 +1,6 @@
 type Terminal
 {
 	class = Terminal
-	allowEditorCreate = True
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -35,6 +34,14 @@ type Terminal
 			rotation = 0 0 -1 -4.371139E-08
 			scale = 0.844 0.844 0.844
 			visible = False
+		}
+		mapObject
+		{
+			type = SmartButton
+		}
+		mapObject
+		{
+			type = Task
 		}
 	}
 }

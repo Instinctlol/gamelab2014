@@ -1,0 +1,7 @@
+type Task
+{
+	class = Task
+	creatableInMapEditor = False
+	allowEmptyName = True
+	networkType = Synchronized
+}

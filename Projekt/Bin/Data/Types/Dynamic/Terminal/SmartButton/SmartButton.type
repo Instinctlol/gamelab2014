@@ -1,0 +1,7 @@
+type SmartButton
+{
+	class = SmartButton
+	creatableInMapEditor = False
+	allowEmptyName = True
+	networkType = Synchronized
+}

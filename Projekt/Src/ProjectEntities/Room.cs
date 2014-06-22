@@ -18,10 +18,31 @@ namespace ProjectEntities
 
         Client_Snapshot lastSnapshot = null;
 
+        bool lightStatus = true;
+
+
 
         enum NetworkMessages
         {
-            TranformationToClient,//used for object which have not a physics model
+            TranformationToClient,
+            LightStatusToClient,
+        }
+
+        public bool LightStatus
+        {
+            get { return lightStatus; }
+            set { 
+                lightStatus = value; 
+                foreach(var v in AttachedObjects)
+                {
+                    MapObjectAttachedLight light = v as MapObjectAttachedLight;
+                    if (light != null)
+                        light.Visible = lightStatus;
+                }
+
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendLightStatusToAllClients(lightStatus);
+            }
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -29,7 +50,10 @@ namespace ProjectEntities
             base.OnPostCreate(loaded);
 
             if (EntitySystemWorld.Instance.IsServer())
+            {
                 Server_SendPositionToAllClients(Position, Rotation, Scale);
+                Server_SendLightStatusToAllClients(lightStatus);
+            }
 
         }
 
@@ -39,7 +63,10 @@ namespace ProjectEntities
         {
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
             if (EntitySystemWorld.Instance.IsServer())
+            {
                 Server_SendPositionToAllClients(Position, Rotation, Scale);
+                Server_SendLightStatusToAllClients(lightStatus);
+            }
         }
 
 
@@ -51,6 +78,24 @@ namespace ProjectEntities
                 Server_SendPositionToAllClients(pos, rot, scl);
         }
 
+
+        void Server_SendLightStatusToAllClients(bool status)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Room),
+                (ushort)NetworkMessages.LightStatusToClient);
+            writer.Write(status);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.LightStatusToClient)]
+        void Client_ReceiveLightStatus(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+            if (!reader.Complete())
+                return;
+
+            LightStatus = status;
+        }
 
         void Server_SendPositionToAllClients(Vec3 pos, Quat rot, Vec3 scl)
         {

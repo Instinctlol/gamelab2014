@@ -1,13 +1,34 @@
 ﻿using Engine;
+using Engine.EntitySystem;
+using Engine.MapSystem;
 using Engine.UISystem;
+using Engine.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ProjectEntities
 {
-    public class Task
+    public class TaskType : MapObjectType
+    { }
+
+
+    public class Task : MapObject
     {
+
+        TaskType _type = null; public new TaskType Type { get { return _type; } }
+
+        enum NetworkMessages
+        {
+            WindowToClient,
+            TerminalToClient,
+            WindowDataToServer,
+            WindowDataToClient,
+        }
+
+        bool isServer = false;
+
+
 
         private Terminal terminal;
         private TaskWindow window;
@@ -19,7 +40,18 @@ namespace ProjectEntities
         public Terminal Terminal
         {
             get { return terminal; }
-            set { terminal = value; }
+            set { 
+                terminal = value;
+                if (terminal != null)
+                {
+                    RefreshTask();
+                    if (EntitySystemWorld.Instance.IsServer())
+                    {
+                        terminal.Button.Pressed += OnButtonPressed;
+                        Server_SendTerminalToAllClients(terminal);
+                    }
+                }
+            }
         }
 
         public TaskWindow Window
@@ -28,8 +60,6 @@ namespace ProjectEntities
             set
             {
                 window = value;
-                if (terminal != null)
-                    terminal.Window = window;
             }
         }
 
@@ -40,30 +70,45 @@ namespace ProjectEntities
             {
                 success = value;
                 if( TaskFinished != null)
-                     TaskFinished(this);
+                     TaskFinished(value);
             }
+        }
+
+        public bool IsServer
+        {
+          get { return isServer; }
+          set { isServer = value; }
         }
         //***************************
 
         //******************************
         //*******Delegates/Events*******
         //****************************** 
-        public delegate void TaskFinishedDelegate(Task entity);
+        public delegate void WindowDataReceivedDelegate(UInt16 msg);
+        public delegate void TaskFinishedDelegate(bool success);
 
         [LogicSystemBrowsable(true)]
         public event TaskFinishedDelegate TaskFinished;
+
+        public event WindowDataReceivedDelegate WindowDataReceived;
         //******************************
 
-        public Task(Terminal terminal)
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
         {
-            Terminal = terminal;
-            if(terminal != null)
-                //beim smartbutton des Terminals unterschreiben
-                terminal.Button.Pressed += new SmartButton.PressedDelegate(OnButtonPressed);
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+            Server_SendTerminalToAllClients(terminal);
         }
 
-        //Wenn der Button gedrückt wird Task erzeugen
-        private void OnButtonPressed(SmartButton entity)
+        protected override void OnPostCreate(bool loaded)
+        {
+            base.OnPostCreate(loaded);
+
+            if (EntitySystemWorld.Instance.IsServer())
+                isServer = true;
+        }
+
+
+        private void RefreshTask()
         {
             switch (terminal.TaskType)
             {
@@ -80,6 +125,111 @@ namespace ProjectEntities
                     Window = null;
                     break;
             }
+        }
+
+        //Wenn der Button gedrückt wird Task erzeugen
+        private void OnButtonPressed()
+        {
+            SetTerminalWindow(window);
+        }
+
+        void SetTerminalWindow(Window w)
+        {
+            if (terminal == null)
+                return;
+
+            terminal.Window = w;
+
+
+            if (EntitySystemWorld.Instance.IsServer())
+                if (w != null)
+                    Server_SendWindowToClient(true);
+                else
+                {
+                    Server_SendWindowToClient(false);
+                    if (TaskFinished != null)
+                        TaskFinished(true);
+                }
+        }
+
+        private void Server_SendWindowToClient(bool visible)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                (ushort)NetworkMessages.WindowToClient);
+            writer.Write(visible);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowToClient)]
+        private void Client_ReceiveWindow(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool visible = reader.ReadBoolean();
+            if (!reader.Complete())
+                return;
+
+            if (visible)
+                SetTerminalWindow(window);
+            else
+                SetTerminalWindow(null);
+        }
+
+        private void Server_SendTerminalToAllClients(Terminal terminal)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                (ushort)NetworkMessages.TerminalToClient);
+            writer.Write(terminal.Name);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TerminalToClient)]
+        private void Client_ReceiveTerminal(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string terminalName = reader.ReadString();
+            if (!reader.Complete())
+                return;
+
+            Terminal = (Terminal)Entities.Instance.GetByName(terminalName);
+        }
+
+        public void Client_SendWindowData(UInt16 message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                   (ushort)NetworkMessages.WindowDataToServer);
+            writer.Write(message);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.WindowDataToServer)]
+        private void Server_ReceiveWindowData(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            UInt16 msg = reader.ReadUInt16();
+
+            if (!reader.Complete())
+                return;
+
+            Server_SendWindowData(msg);
+
+        }
+
+        public void Server_SendWindowData(UInt16 message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                       (ushort)NetworkMessages.WindowDataToClient);
+            writer.Write(message);
+            EndNetworkMessage();
+
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowDataToClient)]
+        private void Client_ReceiveWindowData(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            UInt16 msg = reader.ReadUInt16();
+
+            if (!reader.Complete())
+                return;
+
+            if (WindowDataReceived != null)
+                WindowDataReceived(msg);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.UISystem;
 using Engine.Utils;
@@ -22,6 +23,14 @@ namespace ProjectEntities
 
         TerminalType _type = null; public new TerminalType Type { get { return _type; } }
 
+        enum NetworkMessages
+        {
+            ButtonTypeToClient,
+            ActionTypeToClient,
+            TaskTypeToClient,
+            FindControlManagerToClient,
+        };
+
 
         //Task typen, spezifizieren welche art von Task ausgeführt wird.
         //None = Task succesfull nach button betätigen
@@ -40,6 +49,8 @@ namespace ProjectEntities
             Default
         };
 
+   
+
         public enum TerminalActionType
         {
             Rotation,
@@ -57,6 +68,8 @@ namespace ProjectEntities
         [FieldSerialize]
         private string taskData;
 
+
+        //Das gehört in TYPE
         //Sound der abgespielt wird, falls ein Task nicht erfolgreich beendet wurde
         [FieldSerialize]
         private string taskFailSound = "Sounds\\taskFail.ogg";
@@ -131,7 +144,8 @@ namespace ProjectEntities
             set
             {
                 buttonType = value;
-                button.RefreshButton();
+                
+                /*button.RefreshButton();
 
                 //Unschön
                 if (repairable != null)
@@ -139,7 +153,7 @@ namespace ProjectEntities
                     button.DetachRepairable(repairable);
                     button.AttachRepairable(repairable);
                 }
-
+                */
             }
         }
 
@@ -258,6 +272,16 @@ namespace ProjectEntities
                 TerminalRotateRightAction(this);
         }
 
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+
+            Server_SendButtonType(buttonType);
+            Server_SendTaskType(taskType);
+            Server_SendActionType(actionType);
+            Server_SendFindControlManager();
+        }
+
 
         //Ausführen beim laden des Objektes
         protected override void OnPostCreate(bool loaded)
@@ -267,20 +291,41 @@ namespace ProjectEntities
             if (!loaded)
                 return;
 
-            //SmartButton setzen
-            button = new SmartButton(this);
+            button = null;
+            task = null;
 
 
-            //Task setzen
-            task = new Task(this);
+
+            foreach(MapObject o in Map.Instance.GetObjects(this.MapBounds))
+            {
+                SmartButton b = o as SmartButton;
+                if (b != null)
+                {
+                    button = b;
+                    continue;
+                }
+
+                Task t = o as Task;
+                if (t != null)
+                {
+                    task = t;
+                    continue;
+                }
+
+                if (button != null && task != null)
+                    break;
+            }
+
+            button.Terminal = this;
+            task.Terminal = this;
+
             task.TaskFinished += OnTaskFinished;
-
-            //Button refreshen
-            button.RefreshButton();
 
             //Ggfs repairable an Button weiter reichen
             if (repairable != null)
                 button.AttachRepairable(repairable);
+            else
+                button.ShowWindow();
             
             //AttachedGUIObjekt finden
             foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
@@ -312,10 +357,10 @@ namespace ProjectEntities
             base.OnTick();
         }
         
-        private void OnTaskFinished(Task task)
+        private void OnTaskFinished(bool success)
         {
             Window = button.Window;
-            if (task.Success)
+            if (success)
                 TaskSuccessful();
             else
                 TaskFailed();
@@ -338,14 +383,14 @@ namespace ProjectEntities
             }
 
             //update MapBounds
-            SetTransform(Position, Rotation, Scale);
+            //SetTransform(Position, Rotation, Scale);
         }
 
 
 
         private void TaskFailed()
         {
-            button.RefreshButton();
+            button.ShowWindow();
             SoundPlay3D(TaskFailSound, .5f, false);
         }
 
@@ -353,6 +398,84 @@ namespace ProjectEntities
         {
             Window = new FinishedWindow(this);
             SoundPlay3D(TaskSuccessSound, .5f, false);
+        }
+
+        private void Server_SendActionType(TerminalActionType actionType)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.ActionTypeToClient);
+            writer.Write((Int16)actionType);
+            EndNetworkMessage();
+        }
+
+        private void Server_SendTaskType(TerminalTaskType taskType)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.TaskTypeToClient);
+            writer.Write((Int16)taskType);
+            EndNetworkMessage();
+        }
+
+        private void Server_SendButtonType(TerminalSmartButtonType buttonType)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.ButtonTypeToClient);
+            writer.Write((Int16)buttonType);
+            EndNetworkMessage();
+        }
+
+        private void Server_SendFindControlManager()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.FindControlManagerToClient);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FindControlManagerToClient)]
+        private void Client_FindControlManager(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            if (!reader.Complete())
+                return;
+
+            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+            {
+                attachedGuiObject = attachedObject as MapObjectAttachedGui;
+                if (attachedGuiObject != null)
+                {
+                    controlManager = attachedGuiObject.ControlManager;
+                    break;
+                }
+            }
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ActionTypeToClient)]
+        private void Client_ReceiveActionType(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            TerminalActionType type = (TerminalActionType) reader.ReadInt16();
+            if (!reader.Complete())
+                return;
+
+            ActionType = type;
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TaskTypeToClient)]
+        private void Client_ReceiveTaskType(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            TerminalTaskType type = (TerminalTaskType)reader.ReadInt16();
+            if (!reader.Complete())
+                return;
+
+            TaskType = type;
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ButtonTypeToClient)]
+        private void Client_ReceiveButtonType(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            TerminalSmartButtonType type = (TerminalSmartButtonType)reader.ReadInt16();
+            if (!reader.Complete())
+                return;
+
+            ButtonType = type;
         }
     }
 }

@@ -17,7 +17,8 @@ namespace ProjectEntities
         //Dieese Methode an den Control Button übergeben
         protected void SmartClick(Button sender)
         {
-            button.SmartButtonPressed();
+            if (!button.IsServer)
+                button.Client_SendSmartButtonPressedToServer();
         }
 
     }

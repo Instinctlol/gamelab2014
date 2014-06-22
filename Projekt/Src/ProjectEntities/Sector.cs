@@ -21,8 +21,6 @@ namespace ProjectEntities
 
         private bool loaded = false;
 
-        private List<MapObjectAttachedLight> attachedLights = new List<MapObjectAttachedLight>();
-
         //Liste der Lichter wird automatisch generiert
         private List<Light> lights = new List<Light>();
 
@@ -38,7 +36,7 @@ namespace ProjectEntities
         private List<Dynamic> dynamics = new List<Dynamic>();
 
         //Liste aller statischen Objekte wird automatisch generiert
-        private List<MapObject> statics = new List<MapObject>();
+        private List<MapObject> rooms = new List<MapObject>();
 
         //Ring zu dem dieser Sektore gehört
         [FieldSerialize]
@@ -138,8 +136,8 @@ namespace ProjectEntities
                 OnLightIn((Light)obj);
             else if (obj is Dynamic)
                 OnDynamicIn((Dynamic)obj);
-            else
-                OnStaticIn(obj);
+            else if (obj is Room)
+                OnRoomIn((Room)obj);
 
 
         }
@@ -226,9 +224,9 @@ namespace ProjectEntities
                 {
                     l.Visible = status;
                 }
-                foreach (MapObjectAttachedLight l in attachedLights)
+                foreach (Room r in rooms)
                 {
-                    l.Visible = status;
+                    r.LightStatus = status;
                 }
         }
 
@@ -258,7 +256,7 @@ namespace ProjectEntities
                 m.Position = newRot * offset + Position;
             }
 
-            foreach (MapObject m in statics)
+            foreach (MapObject m in rooms)
             {
                 m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
@@ -268,15 +266,9 @@ namespace ProjectEntities
         }
 
 
-        private void OnStaticIn(MapObject obj)
+        private void OnRoomIn(Room obj)
         {
-            statics.Add(obj);
-
-            foreach (MapObjectAttachedObject o in obj.AttachedObjects)
-            {
-                if (o is MapObjectAttachedLight)
-                    AddAttachedLight((MapObjectAttachedLight)o);
-            }
+            rooms.Add(obj);
         }
 
         private void OnDynamicIn(Dynamic obj)
@@ -331,16 +323,6 @@ namespace ProjectEntities
                     IsHidden = true;
                 }
             }
-        }
-
-
-        private void AddAttachedLight(MapObjectAttachedLight l)
-        {
-            attachedLights.Add(l);
-            if (isHidden)
-                l.Visible = false;
-            else
-                l.Visible = lightStatus;
         }
     }
 }

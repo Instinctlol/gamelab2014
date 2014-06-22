@@ -1107,7 +1107,7 @@ namespace Game
                     Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateR3Left));
                     break;
                 case Computer.Actions.LightS1:
-                    Computer.SetSectorPower("F2R4-S");
+                    Computer.SetSectorPower("F1R6-S");
                     break;
                 case Computer.Actions.LightS2:
                     Computer.SetSectorPower("F3R4-S");
