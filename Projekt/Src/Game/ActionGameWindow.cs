@@ -131,7 +131,7 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUDTest.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
 
@@ -177,15 +177,10 @@ namespace Game
             base.OnDetach();
         }
 
-        //testzwecke
-        int i = 0;
+       
         protected override bool OnKeyDown(KeyEvent e)
         {
             
-            StatusMessageHandler.sendMessage("gut gedrueckt "+i);
-            //sendMassageToHUD("gut gedrueckt " + i);
-            i++;
-
 
             //If atop openly any window to not process
             if (Controls.Count != 1)
@@ -256,9 +251,13 @@ namespace Game
             return base.OnKeyUp(e);
         }
 
+        //testzwecke
+        int i = 0;
         protected override bool OnMouseDown(EMouseButtons button)
         {
-
+            StatusMessageHandler.sendMessage("gut gedrueckt " + i);
+            //sendMassageToHUD("gut gedrueckt " + i);
+            i++;
             
             //If atop openly any window to not process
             if (Controls.Count != 1)
@@ -912,7 +911,7 @@ namespace Game
                 if (playerUnit != null)
                     coef = playerUnit.Health / playerUnit.Type.HealthMax;
 
-                Control healthBar = hudControl.Controls["Game/HealthBar"];
+                Control healthBar = hudControl.Controls["Game/HUD1/HealthBar"];
                 Vec2 originalSize = new Vec2(256, 32);
                 Vec2 interval = new Vec2(117, 304);
                 float sizeX = (117 - 82) + coef * (interval[1] - interval[0]);

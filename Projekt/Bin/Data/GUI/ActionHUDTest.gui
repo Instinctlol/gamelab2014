@@ -2,30 +2,73 @@
 
 control Control
 {
+	position = ScaleByResolution 0 0
 	horizontalAlign = Center
 	verticalAlign = Center
+	size = ScaleByResolution 1024 768
 	control Control
 	{
+		name = CutScene
+		control Control
+		{
+			position = ScaleByResolution 0 -50
+			horizontalAlign = Center
+			size = Screen 1 0.065
+			backColor = 0 0 0 0.5019608
+		}
+		control Control
+		{
+			position = ScaleByResolution 10 770
+			horizontalAlign = Center
+			size = Screen 1 1
+			backColor = 0 0 0 0.5019608
+		}
+		control TextBox
+		{
+			shadow = True
+			shadowOffset = Pixel 1 1
+			shadowColor = 0 0 0 0.5019608
+			position = ScaleByResolution 40 40
+			size = Parent 0.5703125 0.04947919
+			name = Message
+		}
+	}
+	control Control
+	{
+		horizontalAlign = Center
+		verticalAlign = Center
+		size = Screen 1.1 1.1
+		name = CutSceneFade
+	}
+	control TextBox
+	{
+		textVerticalAlign = Top
+		textColor = 0.007843138 1 0.8509805
+		position = ScaleByResolution 230 120
+		size = Parent 0.5507813 0.1145833
+		name = MassageBox
+	}
+	control Control
+	{
+		position = ScaleByResolution 0 0
+		horizontalAlign = Center
+		verticalAlign = Center
 		name = Game
 		control Control
 		{
-			position = ScaleByResolution 5 633
+			position = ScaleByResolution -0.0001220703 -14.99997
+			horizontalAlign = Center
+			verticalAlign = Center
+			size = Parent 0.2773435 0.3619792
+			name = HUD3
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Center\\center.png"
+			visible = False
+		}
+		control Control
+		{
+			position = ScaleByResolution 10 640
 			size = ScaleByResolution 128 128
 			backTexture = "Gui/HUD/PlayerUnitCirclePortrait.png"
-			visible = False
-		}
-		control Control
-		{
-			position = ScaleByResolution 8 623
-			size = ScaleByResolution 128 128
-			name = PlayerIcon
-			visible = False
-		}
-		control Control
-		{
-			position = ScaleByResolution 5 633
-			size = ScaleByResolution 128 128
-			backTexture = "Gui/HUD/PlayerUnitCircle.png"
 			visible = False
 		}
 		control Control
@@ -33,17 +76,20 @@ control Control
 			position = ScaleByResolution 88 665
 			size = ScaleByResolution 256 64
 			backTexture = "Gui/HUD/HealthEnergyPanel.png"
+			visible = False
 		}
 		control Control
 		{
-			position = ScaleByResolution 82 666
-			size = ScaleByResolution 256 32
-			name = HealthBar
-			backTexture = "Gui/HUD/HealthBar.png"
+			position = ScaleByResolution 1.500183 280
+			horizontalAlign = Center
+			size = Screen 1.00293 0.2593751
+			name = HealthBarOld
+			backTexture = "GUI\\HUD\\HealthBar3.png"
+			visible = False
 		}
 		control Control
 		{
-			position = ScaleByResolution 310 700
+			position = ScaleByResolution 82 696
 			size = ScaleByResolution 256 32
 			name = EnergyBar
 			backTexture = "Gui/HUD/EnergyBar.png"
@@ -59,7 +105,6 @@ control Control
 			size = ScaleByResolution 142.2238 15.36
 			name = Player
 			text = Player
-			visible = False
 		}
 		control TextBox
 		{
@@ -82,21 +127,6 @@ control Control
 			position = ScaleByResolution 120 726
 			size = ScaleByResolution 180.4274 18
 			text = Energy
-			visible = False
-		}
-		control Control
-		{
-			position = ScaleByResolution -896 630
-			horizontalAlign = Right
-			size = ScaleByResolution 128 128
-			backTexture = "Gui/HUD/WeaponsCircle.png"
-		}
-		control Control
-		{
-			position = ScaleByResolution -896 630
-			horizontalAlign = Right
-			size = ScaleByResolution 128 128
-			name = WeaponIcon
 		}
 		control Control
 		{
@@ -121,16 +151,14 @@ control Control
 		}
 		control TextBox
 		{
-			font = Default 0.02
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -18.44444 743.282
+			position = ScaleByResolution -32.8889 150
 			horizontalAlign = Right
 			size = ScaleByResolution 111.1111 17.99999
 			name = Weapon
 			text = Weapon
-			visible = False
 		}
 		control TextBox
 		{
@@ -138,19 +166,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -724.9402 700
-			horizontalAlign = Right
-			size = ScaleByResolution 79.05984 18.00002
-			name = WeaponMagazineCountNormal
-			text = "10/30"
-		}
-		control TextBox
-		{
-			font = Default 0.017
-			shadow = True
-			shadowOffset = Pixel 1 1
-			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -834.9402 700
+			position = ScaleByResolution -124.9402 120
 			horizontalAlign = Right
 			size = ScaleByResolution 79.05984 17.99998
 			name = WeaponBulletCountNormal
@@ -162,51 +178,74 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -833.5726 730
+			position = ScaleByResolution -24.75211 723.282
 			horizontalAlign = Right
 			size = ScaleByResolution 100.4274 18.00002
 			name = WeaponBulletCountAlternative
 			text = "50/100"
 		}
-	}
-	control Control
-	{
-		name = CutScene
 		control Control
 		{
-			position = ScaleByResolution 0 -10
+			position = ScaleByResolution 0 0
 			horizontalAlign = Center
-			size = Screen 1 0.065
-			backColor = 0 0 0 0.5019608
+			verticalAlign = Bottom
+			size = Screen 1 0.3489583
+			name = HUD2
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Bottom\\bottom.png"
 		}
 		control Control
 		{
-			position = ScaleByResolution 0 770
+			position = Screen 0 0
+			horizontalAlign = Right
+			size = Parent 0.1780181 0.2331954
+			backTexture = "GUI\\HUD\\Ironman 3.png"
+		}
+		control Control
+		{
+			position = ScaleByResolution 150 630
+			size = ScaleByResolution 138 138
+			backTexture = "GUI\\HUD\\Ironman 4.png"
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 10
 			horizontalAlign = Center
-			size = Screen 1 1
-			backColor = 0 0 0 0.5019608
+			size = Screen 1 0.2578125
+			name = HUD1
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
+			control Control
+			{
+				position = Parent 0.2636719 0
+				size = Screen 0.4824216 0.03645836
+				name = HealthBar
+				backTexture = "GUI\\HUD\\HealthBar2.png"
+				colorMultiplier = 1 0.7333333 0.6392157
+			}
 		}
 		control TextBox
 		{
+			font = Default 0.017
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution 220 660
-			size = Parent 0.5703125 0.04947919
-			name = Message
+			position = Screen -0.1220119 0.1171875
+			horizontalAlign = Right
+			size = ScaleByResolution 79.05984 18.00002
+			name = WeaponMagazineCountNormal
+			text = "10/30"
 		}
-	}
-	control Control
-	{
-		horizontalAlign = Center
-		verticalAlign = Center
-		size = Screen 1.1 1.1
-		name = CutSceneFade
-	}
-	control TextBox
-	{
-		position = ScaleByResolution 30 40
-		size = Parent 0.9707031 0.2578125
-		name = MassageBox
+		control Control
+		{
+			position = Parent -0.02539065 0.02604167
+			horizontalAlign = Right
+			size = ScaleByResolution 128 128
+			name = WeaponIcon
+		}
+		control Control
+		{
+			position = ScaleByResolution 160 630
+			size = ScaleByResolution 128 128
+			name = PlayerIcon
+		}
 	}
 }

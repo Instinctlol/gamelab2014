@@ -9,6 +9,13 @@ control Control
 		name = Game
 		control Control
 		{
+			position = Screen 0.4101563 0.05208333
+			size = ScaleByResolution 190 28
+			name = HealthBar
+			backTexture = "Gui/HUD/HealthBar4.png"
+		}
+		control Control
+		{
 			position = ScaleByResolution 5 633
 			size = ScaleByResolution 128 128
 			backTexture = "Gui/HUD/PlayerUnitCirclePortrait.png"
@@ -30,13 +37,6 @@ control Control
 			position = ScaleByResolution 88 665
 			size = ScaleByResolution 256 64
 			backTexture = "Gui/HUD/HealthEnergyPanel.png"
-		}
-		control Control
-		{
-			position = ScaleByResolution 82 666
-			size = ScaleByResolution 256 32
-			name = HealthBar
-			backTexture = "Gui/HUD/HealthBar.png"
 		}
 		control Control
 		{
@@ -159,6 +159,64 @@ control Control
 			name = WeaponBulletCountAlternative
 			text = "50/100"
 		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			horizontalAlign = Center
+			verticalAlign = Bottom
+			size = Screen 1 0.2838542
+			name = HUDbtm
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Bottom\\bottom.png"
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 -9.999998
+			horizontalAlign = Center
+			verticalAlign = Center
+			size = Screen 1 1
+			name = HUDctr
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Lines\\lines.png"
+		}
+		control Control
+		{
+			position = Screen -0.009765625 -0.03906251
+			horizontalAlign = Center
+			verticalAlign = Center
+			size = ScaleByResolution 244 248
+			name = HUDctr2
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Center\\center.png"
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			horizontalAlign = Center
+			size = Screen 1 0.2838542
+			name = HUDtop
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
+			control Control
+			{
+				position = ScaleByResolution 425 3.814697E-06
+				horizontalAlign = Center
+				verticalAlign = Center
+				size = Parent 0.1699219 0.8165138
+				backTexture = "GUI\\HUD\\Ironman 3.png"
+			}
+			control Control
+			{
+				position = ScaleByResolution 870 40
+				size = Parent 0.1308594 0.6330276
+				name = PlayerIcon
+			}
+			control Control
+			{
+				position = ScaleByResolution 0 0
+			}
+			control Control
+			{
+				position = ScaleByResolution 180 220
+				size = Parent 0.140625 0.6330275
+			}
+		}
 	}
 	control Control
 	{
@@ -169,6 +227,7 @@ control Control
 			horizontalAlign = Center
 			size = Screen 1 0.065
 			backColor = 0 0 0 0.5019608
+			visible = False
 		}
 		control Control
 		{
@@ -176,6 +235,7 @@ control Control
 			horizontalAlign = Center
 			size = Screen 1 1
 			backColor = 0 0 0 0.5019608
+			visible = False
 		}
 		control TextBox
 		{
@@ -198,9 +258,9 @@ control Control
 	{
 		textHorizontalAlign = Left
 		textVerticalAlign = Top
-		textColor = 0.03137255 0.8274511 0.04313726
-		position = ScaleByResolution 20 40
-		size = Parent 0.9804688 0.21875
+		textColor = 0.01960784 0.4509804 0.7568628
+		position = ScaleByResolution 0 0
+		size = Parent 0.2382813 0.2578125
 		name = MassageBox
 	}
 }
