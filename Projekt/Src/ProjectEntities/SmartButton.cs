@@ -19,7 +19,7 @@ namespace ProjectEntities
 
         bool isServer = false;
 
-        
+        bool isVisible = false;
 
         enum NetworkMessages
         {
@@ -101,14 +101,18 @@ namespace ProjectEntities
         public void ShowWindow()
         {
             SetTerminalWindow(window);
+            if (window == null)
+                SmartButtonPressed();
+            else
+                isVisible = true;
         }
 
         public void SmartButtonPressed()
         {
             if (Pressed != null)
-            {
                 Pressed();
-            }
+
+            isVisible = false;
         }
 
         public void AttachRepairable(Repairable r)
@@ -133,12 +137,7 @@ namespace ProjectEntities
         {
             if (r.Repaired)
             {
-                if (window != null)
-                {
-                    SetTerminalWindow(window);
-                }
-                else
-                    SmartButtonPressed();
+                ShowWindow();
             }
             else
             {
@@ -150,6 +149,8 @@ namespace ProjectEntities
         {
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
             Server_SendTerminalToAllClients(terminal);
+            if (isVisible)
+                Server_SendWindowToClient(window != null);
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -205,16 +206,10 @@ namespace ProjectEntities
                 return;
 
             terminal.Window = w;
- 
+
 
             if (EntitySystemWorld.Instance.IsServer())
-                if (w != null)
-                    Server_SendWindowToClient(true);
-                else
-                {
-                    Server_SendWindowToClient(false);
-                    SmartButtonPressed();
-                }
+                Server_SendWindowToClient(w != null);
         }
 
 

@@ -28,6 +28,8 @@ namespace ProjectEntities
 
         bool isServer = false;
 
+        bool isVisible = false;
+
         private Terminal terminal;
         private TaskWindow window;
         private bool success = false;
@@ -91,10 +93,19 @@ namespace ProjectEntities
         public event WindowDataReceivedDelegate WindowDataReceived;
         //******************************
 
+        public void SendTaskFinished(bool success)
+        {
+            isVisible = false;
+            if (TaskFinished != null)
+                TaskFinished(success);
+        }
+
         protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
         {
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
             Server_SendTerminalToAllClients(terminal);
+            if (isVisible)
+                Server_SendWindowToClient(window != null);
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -129,6 +140,10 @@ namespace ProjectEntities
         private void OnButtonPressed()
         {
             SetTerminalWindow(window);
+            if (window == null)
+                SendTaskFinished(true);
+            else
+                isVisible = true;
         }
 
         void SetTerminalWindow(Window w)
@@ -140,14 +155,7 @@ namespace ProjectEntities
 
 
             if (EntitySystemWorld.Instance.IsServer())
-                if (w != null)
-                    Server_SendWindowToClient(true);
-                else
-                {
-                    Server_SendWindowToClient(false);
-                    if (TaskFinished != null)
-                        TaskFinished(true);
-                }
+                Server_SendWindowToClient(w != null);
         }
 
         private void Server_SendWindowToClient(bool visible)
