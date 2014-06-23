@@ -87,15 +87,7 @@ namespace ProjectEntities
                 {
                     isHidden = value;
 
-                    if(isHidden)
-                    {
-                        SetFoWEnabled(true);
-                    }
-                    else
-                    {
-                        SetFoWEnabled(false);
-                    }
-                    
+                    SetFoWEnabled(isHidden);
                 }
             }
         }
@@ -203,11 +195,11 @@ namespace ProjectEntities
 
                 if (status)
                 {
-                    SetLights(false);
+                    SetLights(false, false);
                 }
                 else
                 {
-                    SetLights(lightStatus);
+                    SetLights(lightStatus, false);
                 }
 
                 status = !status;
@@ -217,7 +209,7 @@ namespace ProjectEntities
             }
         }
 
-        private void SetLights(bool status)
+        private void SetLights(bool status, bool sync = true)
         {
 
                 foreach (Light l in lights)
@@ -226,7 +218,10 @@ namespace ProjectEntities
                 }
                 foreach (Room r in rooms)
                 {
-                    r.LightStatus = status;
+                    if (sync)
+                        r.LightStatus = status;
+                    else
+                        r.SetLights(status);
                 }
         }
 
@@ -269,6 +264,10 @@ namespace ProjectEntities
         private void OnRoomIn(Room obj)
         {
             rooms.Add(obj);
+            if (isHidden)
+                obj.SetLights(false);
+            else
+                obj.LightStatus = lightStatus;
         }
 
         private void OnDynamicIn(Dynamic obj)

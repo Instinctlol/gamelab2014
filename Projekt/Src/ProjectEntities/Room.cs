@@ -2,6 +2,7 @@
 using Engine.MapSystem;
 using Engine.MathEx;
 using Engine.Utils;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,17 +33,42 @@ namespace ProjectEntities
         {
             get { return lightStatus; }
             set { 
-                lightStatus = value; 
-                foreach(var v in AttachedObjects)
-                {
-                    MapObjectAttachedLight light = v as MapObjectAttachedLight;
-                    if (light != null)
-                        light.Visible = lightStatus;
-                }
+                lightStatus = value;
+                SetLights(lightStatus);
 
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendLightStatusToAllClients(lightStatus);
             }
+        }
+
+        public void SetLights(bool status)
+        {
+            foreach (var v in AttachedObjects)
+            {
+                MapObjectAttachedLight light = v as MapObjectAttachedLight;
+                if (light != null)
+                    light.Visible = status;
+
+
+                MapObjectAttachedMesh attachedMesh = v as MapObjectAttachedMesh;
+                if (attachedMesh != null)
+                {
+                    foreach ( Engine.Renderer.MeshObject.SubObject s in attachedMesh.MeshObject.SubObjects)
+                    {
+
+                        if (status == false)
+                        {
+                            s.SetCustomGpuParameter(
+                                (int)ShaderBaseMaterial.GpuParameters.emissionMapTransformAdd, new Vec4(0, 0, 0, 0));
+                        }
+                        if (status == true)
+                        {
+                            s.SetCustomGpuParameter(
+                                (int)ShaderBaseMaterial.GpuParameters.emissionMapTransformAdd, new Vec4(1, 1, 1, .5f));
+                        }
+                    }
+                }
+            }   
         }
 
         protected override void OnPostCreate(bool loaded)
