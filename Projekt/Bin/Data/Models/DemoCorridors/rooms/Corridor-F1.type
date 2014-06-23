@@ -1,4 +1,4 @@
-type "Corridor-F3"
+type "Corridor-F1"
 {
 	class = Room
 	networkType = Synchronized
@@ -9,6 +9,7 @@ type "Corridor-F3"
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = 5.2 -0.6 0
+			scale = 1 1.000116 1
 		}
 		mesh
 		{
@@ -16,44 +17,47 @@ type "Corridor-F3"
 			collision = True
 			position = -6.8 -0.6 0
 			rotation = 0 0 1 7.54979E-08
+			scale = 1 1.000116 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
-			position = -6.826104 -10.32682 0
+			position = -6.842704 -11.76671 0
 			rotation = 0 0 1 7.54979E-08
-			scale = 1 0.6286648 1
+			scale = 1 0.8650519 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = 5.2 11.3 0
+			scale = 1 1.000116 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
-			position = -6.76748 9.184736 0
+			position = -6.805001 10.58171 0
 			rotation = 0 0 1 7.54979E-08
-			scale = 1 0.6456662 1
+			scale = 1 0.8647048 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = 5.151735 -12.52552 0
+			scale = 1 1.000116 1
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -1.262723 6.036989 3.5
+			position = -0.6151423 6.134817 3.5
 		}
 		light
 		{
 			attenuationFar = 10
-			position = -0.9312769 -8.852133 3.5
+			position = -0.5733925 -8.693904 3.5
 		}
 		mesh
 		{
@@ -88,6 +92,51 @@ type "Corridor-F3"
 			position = -6.764807 5.794901 0
 			rotation = 0 0 -1 -4.371139E-08
 			scale = 1 1.21 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = 5.2 11.3 0
+			scale = 1 1.000116 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = -6.805001 10.58171 0
+			rotation = 0 0 1 7.54979E-08
+			scale = 1 0.8647048 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = -6.8 -0.6 0
+			rotation = 0 0 1 7.54979E-08
+			scale = 1 1.000116 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = 5.2 -0.6 0
+			scale = 1 1.000116 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = 5.151735 -12.52552 0
+			scale = 1 1.000116 1
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\WallDown.mesh"
+			collision = True
+			position = -6.842704 -11.76671 0
+			rotation = 0 0 1 7.54979E-08
+			scale = 1 0.8650519 1
 		}
 	}
 }
