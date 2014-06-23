@@ -275,5 +275,15 @@ namespace ProjectEntities
             // Anzahl zurückgeben
             return counter;
         }
+
+        /// <summary>
+        /// Alles wird auf das Maximum gesetzt
+        /// </summary>
+        public static void SetToMaximum()
+        {
+            availableAliens = maxAliens;
+            rotationCoupons = maxRotationCoupons;
+            powerCoupons = maxPowerCoupons;
+        }
     }
 }

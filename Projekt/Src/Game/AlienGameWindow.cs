@@ -253,6 +253,13 @@ namespace Game
                 return true;
             }
 
+            // Unser kleiner hack :)
+            if (e.Key == EKeys.F4)
+            {
+                Computer.SetToMaximum();
+            }
+
+
             return base.OnKeyDown(e);
         }
 
@@ -1330,14 +1337,15 @@ namespace Game
                         }
 
                         Ray ray = camera.GetCameraToViewportRay(p);
-
                         float scale;
                         groundPlane.RayIntersection(ray, out scale);
 
                         Vec3 pos = ray.GetPointOnRay(scale);
-                        if (ray.Direction.Z > 0)
-                            pos = ray.Origin + ray.Direction.GetNormalize() * 10000;
 
+                        if (ray.Direction.Z > 0)
+                        {
+                            pos = ray.Origin + ray.Direction.GetNormalize() * 10000;
+                        }
                         Vec2 point = pos.ToVec2();
 
                         point -= mapRect.Minimum;
@@ -1345,7 +1353,7 @@ namespace Game
                         point = new Vec2(point.X, 1.0f - point.Y);
                         point *= screenMapRect.Size;
                         point += screenMapRect.Minimum;
-
+                        EngineConsole.Instance.Print("point: " + point.X + "/" + point.Y);
                         points[n] = point;
                     }
 
