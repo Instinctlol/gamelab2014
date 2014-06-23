@@ -155,6 +155,7 @@
     <Compile Include="DefaultSmartButtonWindow.cs" />
     <Compile Include="ExampleEntityExtendedProperties.cs" />
     <Compile Include="FinishedWindow.cs" />
+    <Compile Include="ItemManager.cs" />
     <Compile Include="OutDoor.cs" />
     <Compile Include="PINTaskWindow.cs" />
     <Compile Include="ProgressRepairable.cs" />

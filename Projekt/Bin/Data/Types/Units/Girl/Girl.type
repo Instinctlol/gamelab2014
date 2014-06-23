@@ -29,6 +29,18 @@ type Girl
 		{
 			weaponType = Hammer
 		}
+		item
+		{
+			weaponType = Glock
+		}
+		item
+		{
+			weaponType = Brechstange
+		}
+		item
+		{
+			weaponType = ScarType
+		}
 	}
 	attachedObjects
 	{

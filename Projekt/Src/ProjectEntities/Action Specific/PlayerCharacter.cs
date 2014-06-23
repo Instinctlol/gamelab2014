@@ -79,6 +79,8 @@ namespace ProjectEntities
 
 		///////////////////////////////////////////
 
+        String s = "";
+
 		public class WeaponItem
 		{
 			[FieldSerialize]
@@ -169,6 +171,8 @@ namespace ProjectEntities
 
 			if( weapons[ index ].exists )
 				return true;
+            //Hinweis: Waffe wird aufgenommen
+            s = Type.Weapons[index].WeaponType.Name;
 
 			weapons[ index ].exists = true;
 
@@ -189,13 +193,25 @@ namespace ProjectEntities
 
 				if( gunType.NormalMode.BulletType == bulletType )
 				{
-					if( weapons[ n ].normalBulletCount < gunType.NormalMode.BulletCapacity )
-					{
-						taked = true;
-						weapons[ n ].normalBulletCount += count;
-						if( weapons[ n ].normalBulletCount > gunType.NormalMode.BulletCapacity )
-							weapons[ n ].normalBulletCount = gunType.NormalMode.BulletCapacity;
-					}
+                    if (weapons[n].normalBulletCount < gunType.NormalMode.BulletCapacity)
+                    {
+                        taked = true;
+                        weapons[n].normalBulletCount += count;
+                        if (weapons[n].normalBulletCount > gunType.NormalMode.BulletCapacity)
+                            weapons[n].normalBulletCount = gunType.NormalMode.BulletCapacity;
+
+                        //Munition wird aufgenommen
+                        s = gunType.NormalMode.BulletType.Name;
+                    }
+                    //wenn Munition voll ist, notification ausgeben und Munition nicht aufnehmen
+                    else if (weapons[n].normalBulletCount >= gunType.NormalMode.BulletCapacity)
+                    {
+                        taked = false;
+                        s = gunType.NormalMode.BulletType.Name;
+                    }
+                        
+                        
+                            
 				}
 				if( gunType.AlternativeMode.BulletType == bulletType )
 				{
@@ -205,7 +221,14 @@ namespace ProjectEntities
 						weapons[ n ].alternativeBulletCount += count;
 						if( weapons[ n ].alternativeBulletCount > gunType.AlternativeMode.BulletCapacity )
 							weapons[ n ].alternativeBulletCount = gunType.AlternativeMode.BulletCapacity;
+
+                        //Hinweis Waffe wird aufgenommen
+                        s = gunType.NormalMode.BulletType.Name;
 					}
+                    //wenn Munition voll ist, notification ausgeben und Munition nicht aufnehmen
+                    else if (weapons[n].alternativeBulletCount >= gunType.AlternativeMode.BulletCapacity)
+                        taked = false;
+                        s = gunType.NormalMode.BulletType.Name;
 				}
 			}
 
@@ -893,5 +916,12 @@ namespace ProjectEntities
 			//armsAttachedMesh.SceneNode.Position = new Vec3( 0, 0, 2 ) + Quat.Identity * armsAttachedMesh.TypeObject.Position;
 			//armsAttachedMesh.SceneNode.Rotation = Quat.Identity * armsAttachedMesh.TypeObject.Rotation;
 		}
-	}
+
+
+        public string notification()
+        {
+            return s;
+        }
+    }
+
 }

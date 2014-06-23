@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = -34.67998 -60.74225 125.8224
-editorCameraDirection = 1.384283 -1.264093
+editorCameraPosition = -18.37809 -103.0188 7.625986
+editorCameraDirection = 0.3336137 -0.7592339
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1436,4 +1436,13 @@ entity
 	healthFactorAtBeginning = 1
 	position = 14.77913 91.57556 -8.28491
 	name = AlienSpawner_7
+}
+entity
+{
+	type = GlockItem
+	uin = 115
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -11.76837 -97.1139 0.338738
 }

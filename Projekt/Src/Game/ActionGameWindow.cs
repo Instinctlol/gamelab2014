@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using Engine;
@@ -50,6 +51,10 @@ namespace Game
         ProjectEntities.Switch currentSwitch;
 
         ProjectEntities.Repairable currentRepairable;
+
+        ProjectEntities.Item currentItem;
+
+        ItemManager iManager = ItemManager.Instance;
 
         //For an opportunity to change an active unit and for work with float switches
         bool switchUsing;
@@ -717,6 +722,37 @@ namespace Game
                 }
             }
 
+
+            //currentItem
+            ProjectEntities.Item overItem = null;
+
+            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.Item i = obj as ProjectEntities.Item;
+
+                    if(i != null)
+                    {
+                        overItem = i;
+                        return false;
+                    }
+                    return true;
+                });
+
+            //draw selection border
+            if (overItem != null)
+            {
+                Bounds bounds = overItem.MapBounds;
+                DrawObjectSelectionBorder(bounds);
+            }
+
+            if (currentItem != overItem)
+            {
+                currentItem = overItem;
+
+                
+            }
+
+
             //Use player control unit
             if (playerUnit != null)
             {
@@ -773,7 +809,8 @@ namespace Game
             }
 
             //draw "Press Use" text
-            if (currentSwitch != null || currentSeeUnitAllowPlayerControl != null)
+            if (currentSwitch != null || currentItem != null ||
+                currentSeeUnitAllowPlayerControl != null)
             {
                 ColorValue color;
                 if ((Time % 2) < 1)
@@ -798,6 +835,10 @@ namespace Game
 
                 AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
                     VerticalAlign.Center, color);
+
+                if (currentItem != null)
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, currentItem.Type.Name, new Vec2(.5f, .7f), HorizontalAlign.Center,
+                        VerticalAlign.Center, ColorValue.Construct(0, 1, 0));
             }
 
         }
@@ -1154,6 +1195,7 @@ namespace Game
 
                     AddTextWithShadow(renderer, "\"Tab\" for players statistics", new Vec2(.01f, .1f),
                         HorizontalAlign.Left, VerticalAlign.Top, new ColorValue(1, 1, 1, .5f));
+
                 }
             }
 
@@ -1235,6 +1277,36 @@ namespace Game
             if (floatSwitch != null)
                 floatSwitch.UseEnd();
         }
+
+
+        bool ItemTake()
+        {
+
+            Unit playerunit = GetPlayerUnit();
+
+            PlayerCharacter character = playerunit as PlayerCharacter;
+
+            GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
+
+            if (currentItem == null)
+                return false;
+            //Übergebe an ItemManager
+            iManager.takeItem(playerunit, currentItem);
+            //Gebe Hinweis aus
+            String s = iManager.notificationstring();
+            String s_w = character.notification();
+
+            if(s != "" && s_w == "")
+            AddTextWithShadow(renderer, s+" aufgenommen", new Vec2(.5f, .2f),
+                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            else if(s_w != "" && s == "")
+            AddTextWithShadow(renderer, s_w+" aufgenommen", new Vec2(.5f, .2f),
+                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+
+            return true;
+
+        }
+
 
         bool CurrentUnitAllowPlayerControlUse()
         {
@@ -1655,6 +1727,10 @@ namespace Game
 
                         //key down for repairable use
                         if (RepairableUseStart())
+                            return;
+
+                        //key down for item take
+                        if (ItemTake())
                             return;
 
                         if (CurrentUnitAllowPlayerControlUse())

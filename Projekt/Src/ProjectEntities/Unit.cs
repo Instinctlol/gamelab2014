@@ -180,8 +180,8 @@ namespace ProjectEntities
 			base.OnTick();
 
 			//take items
-			if( Intellect != null && Intellect.AllowTakeItems )
-				TickTakeItems();
+            //if( Intellect != null && Intellect.AllowTakeItems )
+            //    TickTakeItems();
 		}
 
 		void TickTakeItems()
