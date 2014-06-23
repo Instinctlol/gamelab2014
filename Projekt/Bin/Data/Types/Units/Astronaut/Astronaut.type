@@ -1,0 +1,40 @@
+type Astronaut
+{
+	class = GameCharacter
+	walkForwardMaxSpeed = 7
+	walkForce = 420000
+	soundJump = "Types\\Units\\Rabbit\\Jump.ogg"
+	fpsCameraOffset = 0 0 0.9
+	healthMax = 200
+	targetPriority = 1
+	substance = Flesh
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Astronaut.mesh"
+			castDynamicShadows = True
+			animationTree = ".\\Astronaut.animationTree"
+			position = 0 0 -1.15
+			rotation = 0 0 -0.7071068 -0.7071068
+			scale = 0.02 0.02 0.02
+			boneSlot hand
+			{
+				bone = Bip001 R Hand
+			}
+		}
+	}
+	dieObjects
+	{
+		mapObject
+		{
+			type = RabbitDead
+			copyVelocitiesFromParent = True
+		}
+		sound
+		{
+			soundName = "Types\\Units\\Rabbit\\Die.ogg"
+		}
+	}
+}

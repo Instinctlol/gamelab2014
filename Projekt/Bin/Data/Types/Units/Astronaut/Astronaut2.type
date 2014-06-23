@@ -1,0 +1,59 @@
+type Astronaut2
+{
+	class = PlayerCharacter
+	notAnimatedWeaponAttachPosition = 0.4 -0.1 -0.1
+	walkForce = 420000
+	flyControlForce = 49000
+	soundJump = "Types\\Units\\Rabbit\\Jump.ogg"
+	allowPlayerControl = True
+	initialAI = DefaultGameCharacterAI
+	viewRadius = 70
+	fpsCameraOffset = 0 0 0.5
+	healthMax = 200
+	targetPriority = 1
+	substance = Flesh
+	networkType = Synchronized
+	weapons
+	{
+		item
+		{
+			weaponType = SubmachineGun
+		}
+		item
+		{
+			weaponType = Shotgun
+		}
+		item
+		{
+			weaponType = Hammer
+		}
+	}
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Astronaut.mesh"
+			castDynamicShadows = True
+			animationTree = ".\\Astronaut.animationTree"
+			position = 0 0 -1.15
+			rotation = 0 0 -0.7071068 -0.7071068
+			scale = 0.02 0.02 0.02
+			boneSlot Hand
+			{
+				bone = Bip001 L Hand
+			}
+		}
+	}
+	dieObjects
+	{
+		mapObject
+		{
+			type = RabbitDead
+			copyVelocitiesFromParent = True
+		}
+		sound
+		{
+			soundName = "Types\\Units\\Rabbit\\Die.ogg"
+		}
+	}
+}
