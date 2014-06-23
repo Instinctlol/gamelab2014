@@ -7,9 +7,9 @@ windDirection = 0
 windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
-ambientLight = 0.3921569 0.3921569 0.3921569
-editorCameraPosition = -18.37809 -103.0188 7.625986
-editorCameraDirection = 0.3336137 -0.7592339
+ambientLight = 0.7843138 0.7843138 0.7843138
+editorCameraPosition = 1.341042 -55.45097 86.06617
+editorCameraDirection = 0.9083251 -0.9452167
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -43,14 +43,20 @@ rootEditorLayer
 		layer
 		{
 			name = F1
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
 			name = F3
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
 			name = F2
+			visible = False
+			allowSelect = False
 		}
 	}
 	layer
@@ -168,7 +174,7 @@ entity
 }
 entity
 {
-	type = F3R3
+	type = F3R1
 	uin = 14
 	classPrompt = Room
 	position = -34 0 0
@@ -217,6 +223,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -234,6 +241,7 @@ entity
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
+	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -250,6 +258,7 @@ entity
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
+	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -267,6 +276,7 @@ entity
 	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
+	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -284,6 +294,7 @@ entity
 	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -335,9 +346,9 @@ entity
 	type = Corridor-F3
 	uin = 27
 	classPrompt = Room
-	position = 71.87193 31.46396 0
-	rotation = 0 0 -0.2140929 -0.9768133
-	scale = 0.5533897 0.625 0.8695973
+	position = 72.47604 30.44332 0
+	rotation = 0 0 -0.2739582 -0.9617418
+	scale = 0.6 0.6369697 0.8695973
 	name = F2C81
 	editorLayer = "Root Layer\\F2"
 }
@@ -356,9 +367,9 @@ entity
 	type = Corridor-F3
 	uin = 29
 	classPrompt = Room
-	position = 31.11989 73.79716 0
-	rotation = 0 0 -0.5877852 -0.8090171
-	scale = 0.6190478 0.6019946 1
+	position = 29.4335 73.317 0
+	rotation = 0 0 -0.5425553 -0.8400202
+	scale = 0.6 0.5736617 1
 	name = F2C12
 	editorLayer = "Root Layer\\F2"
 }
@@ -367,7 +378,7 @@ entity
 	type = BasicL2
 	uin = 30
 	classPrompt = Room
-	position = 0 0 -100
+	position = 500 0 0
 	name = Endkampf-Room
 }
 entity
@@ -385,9 +396,9 @@ entity
 	type = Corridor-F3
 	uin = 32
 	classPrompt = Room
-	position = -74.06651 -31.11581 0
-	rotation = 0 0 -0.9743701 0.224951
-	scale = 0.625 0.625 1
+	position = -72.43242 -30.14137 0
+	rotation = 0 0 -0.9563128 0.2923453
+	scale = 0.6 0.6468202 1
 	name = F2C45
 	editorLayer = "Root Layer\\F2"
 }
@@ -406,9 +417,9 @@ entity
 	type = Corridor-F3
 	uin = 34
 	classPrompt = Room
-	position = -32.24294 75.45021 0
-	rotation = 0 0 -0.7660444 -0.6427876
-	scale = 0.5548231 0.6965175 1
+	position = -29.91174 73.29352 0
+	rotation = 0 0 -0.8695799 -0.4937924
+	scale = 0.6 0.5679622 1
 	name = F2C23
 	editorLayer = "Root Layer\\F2"
 }
@@ -429,7 +440,7 @@ entity
 	classPrompt = Room
 	position = -30.04488 -73.74302 0
 	rotation = 0 0 -0.809017 0.5877853
-	scale = 0.625 0.625 1
+	scale = 0.625 0.5702489 1
 	name = F2C56
 	editorLayer = "Root Layer\\F2"
 }
@@ -485,12 +496,12 @@ entity
 }
 entity
 {
-	type = Corridor-F3
+	type = Corridor-F1
 	uin = 42
 	classPrompt = Room
-	position = -104.2226 -44.17335 0
+	position = -104.3169 -44.32853 0
 	rotation = 0 0 -0.975753 0.2188754
-	scale = 0.625 1.137498 1
+	scale = 0.625 1.033194 1
 	name = F1C45
 	editorLayer = "Root Layer\\F1"
 }
@@ -506,12 +517,12 @@ entity
 }
 entity
 {
-	type = Corridor-F3
+	type = Corridor-F1
 	uin = 44
 	classPrompt = Room
-	position = 43.66648 106.105 0
-	rotation = 0 0 0.5827719 0.8126359
-	scale = 0.6190478 1.149387 1
+	position = 43.24879 105.6269 0
+	rotation = 0 0 0.5746349 0.81841
+	scale = 0.6 1.049011 1
 	name = F1C12
 	editorLayer = "Root Layer\\F1"
 }
@@ -527,23 +538,23 @@ entity
 }
 entity
 {
-	type = Corridor-F3
+	type = Corridor-F1
 	uin = 46
 	classPrompt = Room
-	position = -42.15703 -104.9251 0
-	rotation = 0 0 -0.8121647 0.5834287
-	scale = 0.625 1.11727 1
-	name = Corridor-F3_0
+	position = -42.7545 -105.1536 0
+	rotation = 0 0 -0.8291816 0.5589799
+	scale = 0.625 0.9847743 1
+	name = F1C56
 	editorLayer = "Root Layer\\F1"
 }
 entity
 {
-	type = Corridor-F3
+	type = Corridor-F1
 	uin = 47
 	classPrompt = Room
-	position = 44.16408 -105.611 0
-	rotation = 0 0 -0.5979915 0.8015029
-	scale = 1 1.241295 1
+	position = 44.38988 -104.5305 0
+	rotation = 0 0 -0.5574882 0.8301853
+	scale = 0.6 1.04482 1
 	name = F1C67
 	editorLayer = "Root Layer\\F1"
 }
@@ -559,12 +570,12 @@ entity
 }
 entity
 {
-	type = Corridor-F3
+	type = Corridor-F1
 	uin = 49
 	classPrompt = Room
-	position = -46.08652 106.8015 0
-	rotation = 0 0 0.7983319 0.602218
-	scale = 0.5548231 1.135635 1
+	position = -44.02886 106.1423 0
+	rotation = 0 0 0.8332261 0.5529327
+	scale = 0.6 0.9890289 1
 	name = F1C23
 	editorLayer = "Root Layer\\F1"
 }
@@ -589,6 +600,7 @@ entity
 	filter = All
 	position = 76.38126 -0.6724877 3
 	scale = 33.84572 49.58686 10.9482
+	visible = False
 	name = F2R8-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -605,6 +617,7 @@ entity
 	filter = All
 	position = -75.9137 0 3
 	scale = 33.84572 44.35646 10.9482
+	visible = False
 	name = F2R4-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -622,6 +635,7 @@ entity
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.13409 49.58686 10.9482
+	visible = False
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -639,6 +653,7 @@ entity
 	position = 0.6402804 76.1175 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F2R2-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -656,6 +671,7 @@ entity
 	position = -53.6123 53.84821 3
 	rotation = 0 0 -0.3826834 0.9238795
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -681,9 +697,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -50.70251 -52.5386 3
-	rotation = 0 0 -0.9238795 0.3826834
-	scale = 34.16246 44.49959 10.9482
+	position = -52.09005 -53.303 3
+	rotation = 0 0 -0.923759 0.3829742
+	scale = 33.19179 46.61387 10.9482
+	visible = False
 	name = F2R5-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -701,6 +718,7 @@ entity
 	position = 51.67473 -53.51751 3
 	rotation = 0 0 -0.3826835 0.9238795
 	scale = 33.84572 44.9986 10.9482
+	visible = False
 	name = F2R7-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -718,6 +736,7 @@ entity
 	position = -32.95972 75.2175 3
 	rotation = 0 0 -0.7660444 -0.6427876
 	scale = 9.572958 20.68153 10.9482
+	visible = False
 	name = F2S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -735,6 +754,7 @@ entity
 	position = 31.94028 72.71751 3
 	rotation = 0 0 -0.5877852 -0.8090171
 	scale = 9.572958 22.87252 10.9482
+	visible = False
 	name = F2S12
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -752,6 +772,7 @@ entity
 	position = 51.77006 52.6838 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 43.82289 10.9482
+	visible = False
 	name = F2R1-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -766,9 +787,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 73.74029 30.61751 3
-	rotation = 0 0 -0.1736483 -0.9848077
+	position = 71.58986 31.04519 3
+	rotation = 0 0 -0.2204835 -0.9753907
 	scale = 9.572958 22.87252 10.9482
+	visible = False
 	name = F2S18
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -786,6 +808,7 @@ entity
 	position = -29.85971 -73.1825 3
 	rotation = 0 0 -0.809017 0.5877853
 	scale = 9.572958 22.87252 10.9482
+	visible = False
 	name = F2S56
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -800,9 +823,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -76.15971 -31.38249 3
-	rotation = 0 0 -0.9743701 0.224951
-	scale = 9.572958 24.9317 10.9482
+	position = -72.36753 -30.13406 3
+	rotation = 0 0 -0.956245 0.2925674
+	scale = 9.572958 25.37091 10.9482
+	visible = False
 	name = F2S45
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -819,6 +843,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F2_Ring
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -832,6 +857,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
+	visible = False
 	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -845,6 +871,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
+	visible = False
 	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -861,6 +888,7 @@ entity
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R4-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -878,6 +906,7 @@ entity
 	position = -0.8943577 -110.7355 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 34.97242 58.90884 10.9482
+	visible = False
 	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -894,6 +923,7 @@ entity
 	filter = All
 	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R8-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -911,6 +941,7 @@ entity
 	position = -0.9446892 111.8426 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R2-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -928,6 +959,7 @@ entity
 	position = -81.79011 82.54621 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -945,6 +977,7 @@ entity
 	position = 78.37129 79.25614 3
 	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R1-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -962,6 +995,7 @@ entity
 	position = 83.65987 -81.88248 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -979,6 +1013,7 @@ entity
 	position = -75.8792 -79.86818 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -996,6 +1031,7 @@ entity
 	position = -104.0742 -43.92505 3
 	rotation = 0 0 -0.9743701 0.224951
 	scale = 9.572958 36.35155 10.9482
+	visible = False
 	name = F1S45
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1010,9 +1046,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -41.48233 -103.6254 3
-	rotation = 0 0 -0.8120835 0.5835412
+	position = -41.43666 -104.3344 3
+	rotation = 0 0 -0.8287271 0.5596528
 	scale = 9.572958 36.35155 10.9482
+	visible = False
 	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1028,8 +1065,9 @@ entity
 	shapeType = Box
 	filter = All
 	position = 44.97606 -104.6201 3
-	rotation = 0 0 -0.6097446 0.7925978
+	rotation = 0 0 -0.5586905 0.829376
 	scale = 9.572958 38.91988 10.9482
+	visible = False
 	name = F1S67
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1047,6 +1085,7 @@ entity
 	position = 43.45355 104.5948 3
 	rotation = 0 0 -0.5828322 -0.8125925
 	scale = 9.572958 38.91988 10.9482
+	visible = False
 	name = F1S12
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1061,9 +1100,10 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -44.05093 105.4387 3
-	rotation = 0 0 -0.7986355 -0.601815
+	position = -43.49978 104.6491 3
+	rotation = 0 0 -0.8302855 -0.5573382
 	scale = 9.572958 38.91988 10.9482
+	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1107,6 +1147,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1120,6 +1161,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 42.09188 37.10183 -0.09931804
+	visible = False
 	name = F2SG-D
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1133,6 +1175,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -31.63795 -35.92422 -0.09931804
+	visible = False
 	name = F2SG-E
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1146,6 +1189,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 43.60439 -93.08067 -0.09931804
+	visible = False
 	name = F2SG-C
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1159,6 +1203,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 75.04897 -32.51239 -0.09931804
+	visible = False
 	name = F1SG-A
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1172,6 +1217,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
+	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1197,11 +1243,10 @@ entity
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
 	repairable = 91
-	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = Default
-	taskType = PIN
+	taskType = ColorSequence
 	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
@@ -1283,9 +1328,9 @@ entity
 	type = Corridor-F3
 	uin = 97
 	classPrompt = Room
-	position = -30.93774 32.32301 0
-	rotation = 0 0 0.9264106 0.3765153
-	scale = 0.5548231 0.9028758 1
+	position = -32.34299 32.30675 0
+	rotation = 0 0 0.9314869 0.3637753
+	scale = 0.6 0.9479336 1
 	name = F3C23
 	editorLayer = "Root Layer\\F3"
 }
@@ -1302,8 +1347,9 @@ entity
 	position = -32.0114 32.72062 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 33.90364 10.9482
+	visible = False
 	name = F3C23-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
 }
 entity
@@ -1311,9 +1357,9 @@ entity
 	type = Corridor-F3
 	uin = 99
 	classPrompt = Room
-	position = 32.60133 -31.67697 0
-	rotation = 0 0 0.4027202 -0.9153234
-	scale = 0.5548231 0.9028758 1
+	position = 31.67794 -32.71721 0
+	rotation = 0 0 -0.3621411 0.9321233
+	scale = 0.6 0.9694331 1
 	name = F3C14
 	editorLayer = "Root Layer\\F3"
 }
@@ -1330,8 +1376,9 @@ entity
 	position = 32.56227 -32.53202 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 34.3275 10.9482
+	visible = False
 	name = F3C14-S
-	editorLayer = "Root Layer\\Rotation\\F2"
+	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
 }
 entity
@@ -1436,13 +1483,4 @@ entity
 	healthFactorAtBeginning = 1
 	position = 14.77913 91.57556 -8.28491
 	name = AlienSpawner_7
-}
-entity
-{
-	type = GlockItem
-	uin = 115
-	classPrompt = WeaponItem
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -11.76837 -97.1139 0.338738
 }
