@@ -156,6 +156,8 @@ namespace ProjectEntities
 
             if (EntitySystemWorld.Instance.IsServer())
                 Server_SendWindowToClient(w != null);
+            else
+                TaskIOManager.Instance.addTaskToDo(this, "New Task started");
         }
 
         private void Server_SendWindowToClient(bool visible)
