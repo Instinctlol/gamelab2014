@@ -1,0 +1,9 @@
+highLevelMaterial "Material #324"
+{
+	dataSource = "Types\\Items\\Stuhl\\Kitchen modern N180514.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.2117647 0.2117647 0.2117647
+	specularColor = 0.9215686 0.9215686 0.9215686 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

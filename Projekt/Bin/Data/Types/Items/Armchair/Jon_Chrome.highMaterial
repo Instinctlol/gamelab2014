@@ -1,0 +1,9 @@
+highLevelMaterial Jon_Chrome
+{
+	dataSource = "Types\\Items\\Armchair\\Armchair Samba N280414.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0 0
+	specularColor = 0.682353 0.682353 0.682353 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

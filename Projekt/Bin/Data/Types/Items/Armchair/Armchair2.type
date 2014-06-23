@@ -1,0 +1,13 @@
+type Armchair2
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Armchair Samba N280414.mesh"
+			position = 0 0 0.8
+			scale = 0.5 0.5 0.5
+		}
+	}
+}

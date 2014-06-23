@@ -1,0 +1,9 @@
+highLevelMaterial "Ceramiks y "
+{
+	dataSource = "Types\\Items\\Stuhl\\Kitchen modern N180514.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.9176471 0.9137255 0.9686275
+	specularColor = 0.08627451 0.08627451 0.08627451 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

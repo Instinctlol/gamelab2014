@@ -1,0 +1,5 @@
+highLevelMaterial "Material #28"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8470589 0.8470589 0.8470589
+}

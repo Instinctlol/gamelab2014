@@ -1,0 +1,9 @@
+highLevelMaterial "Material #0"
+{
+	dataSource = "Types\\Items\\Armchair\\Armchair Samba N280414.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.1254902 0.1254902 0.1254902
+	specularColor = 0.8352941 0.8352941 0.8352941 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

@@ -1,0 +1,9 @@
+highLevelMaterial "w  3 "
+{
+	dataSource = "Types\\Items\\Stuhl\\Kitchen modern N180514.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.7372549 0.6784314 0.5019608
+	specularColor = 0.1568628 0.1568628 0.1568628 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

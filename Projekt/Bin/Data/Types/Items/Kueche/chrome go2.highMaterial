@@ -1,0 +1,9 @@
+highLevelMaterial "chrome go2"
+{
+	dataSource = "Types\\Items\\Stuhl\\Kitchen modern N180514.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.345098 0.254902 0.0627451
+	specularColor = 0.07843138 0.07843138 0.07843138 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}

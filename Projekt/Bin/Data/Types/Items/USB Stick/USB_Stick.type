@@ -1,0 +1,22 @@
+type USB_Stick
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Logo.mesh"
+			scale = 0.01 0.01 0.01
+		}
+		mesh
+		{
+			meshName = ".\\Part_01.mesh"
+			scale = 0.01 0.01 0.01
+		}
+		mesh
+		{
+			meshName = ".\\Part_02.mesh"
+			scale = 0.01 0.01 0.01
+		}
+	}
+}

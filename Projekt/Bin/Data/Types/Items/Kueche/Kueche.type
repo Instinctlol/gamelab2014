@@ -1,0 +1,13 @@
+type Kueche
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Kitchen modern N180514.mesh"
+			position = 0 0 1.8
+			scale = 0.05 0.05 0.05
+		}
+	}
+}

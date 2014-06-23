@@ -1,0 +1,27 @@
+sourceFile = "Types\\Items\\USB Stick\\USB_Flash(pqi).obj"
+objects
+{
+	mesh
+	{
+		name = USB_Flash(pqi)
+		pivotPosition = -1.907349E-06 9.536743E-07 3.590545
+		sources
+		{
+			item
+			{
+				name = USB_Flash(pqi)2
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = USB_Flash(pqi)3
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = USB_Flash(pqi)
+				rotation = 0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}
