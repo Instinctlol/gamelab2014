@@ -24,7 +24,7 @@ namespace ProjectEntities
             get { return _instance; }
         }
 
-        public void takeItem(Unit unit, Item item)
+        public void TakeItem(Unit unit, Item item)
         {
             if(isAstronaut() == true)
             { 
@@ -34,23 +34,23 @@ namespace ProjectEntities
             switch (currentItem.Type.Name)
             {
                 case "ShotgunBulletsItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "SubmachineGunBulletsItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "GlockBulletItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "ScarBulletItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "Defkit":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     s = "Werkzeuggürtel aufgenommen";
                     break;
 
@@ -58,7 +58,7 @@ namespace ProjectEntities
                     if (unit.Health == unit.Type.HealthMax)
                         s = "Gesundheit Voll";
                     else
-                        currentItem.Take(unit);
+                        currentItem.TakeItem(unit);
                     s = "Gesundheit aufgenommen";
                     break;
 
@@ -66,42 +66,42 @@ namespace ProjectEntities
                     if (unit.Health == unit.Type.HealthMax)
                         s = "Gesundheit Voll";
                     else
-                        currentItem.Take(unit);
+                        currentItem.TakeItem(unit);
                     s = "Gesundheit aufgenommen";
                     break;
 
                 case "Schraubenschlüssel":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     s = "Schraubenschlüssel aufgenommen";
                     break;
 
                 case "TaschenlampeItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     s = "Taschenlampe aufgenommen";
                     break;
 
                 case "ScarItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "BrechstangeItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "GlockItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "ShotgunItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "SubmachineGunItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
 
                 case "HammerItem":
-                    currentItem.Take(unit);
+                    currentItem.TakeItem(unit);
                     break;
                 default:
                     break;

@@ -28,8 +28,6 @@ namespace ProjectEntities
 
         bool isServer = false;
 
-
-
         private Terminal terminal;
         private TaskWindow window;
         private bool success = false;

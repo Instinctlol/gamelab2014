@@ -13,18 +13,17 @@ namespace ProjectEntities
 
         public static TaskIOManager Instance
         {
-            get { return instance; }
+            get { 
+                if(instance == null)
+                    instance = new TaskIOManager();
+                
+                return instance; }
         }
 
-        public static void initIOM()
-        {
+        private TaskIOManager()
+        {}
+        
 
-            if (instance != null)
-            {
-                instance = new TaskIOManager();
-            }
-
-        }
 
         // aktuelle Task-ToDoListe für Astronauten
         List<Task> TaskListe = new List<Task>();

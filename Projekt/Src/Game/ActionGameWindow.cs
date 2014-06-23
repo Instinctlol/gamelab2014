@@ -1291,7 +1291,7 @@ namespace Game
             if (currentItem == null)
                 return false;
             //Übergebe an ItemManager
-            iManager.takeItem(playerunit, currentItem);
+            iManager.TakeItem(playerunit, currentItem);
             //Gebe Hinweis aus
             String s = iManager.notificationstring();
             String s_w = character.notification();

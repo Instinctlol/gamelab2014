@@ -76,7 +76,8 @@ namespace ProjectEntities
 			//because we need only position to be synchronized (without rotation and scale)
 			PositionToClient,
 
-			SoundPlayTakeToClient
+			SoundPlayTakeToClient,
+            TakeItemToServer,
 		}
 
 		///////////////////////////////////////////
@@ -185,6 +186,36 @@ namespace ProjectEntities
 		{
 			return false;
 		}
+
+        public void TakeItem( Unit unit )
+        {
+            if (!EntitySystemWorld.Instance.IsServer())
+                Client_SendTakeItemToServer(unit);
+            else
+                Take(unit);
+        }
+
+        void Client_SendTakeItemToServer(Unit unit)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Item),
+                (ushort)NetworkMessages.TakeItemToServer);
+            writer.Write(unit.NetworkUIN);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.TakeItemToServer)]
+        void Server_ReceiveTakeItem(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            uint uin = reader.ReadUInt32();
+            
+            if (!reader.Complete())
+                return;
+
+            Unit unit = Entities.Instance.GetByNetworkUIN(uin) as Unit;
+            if (unit != null)
+                Take(unit);
+
+        }
 
 		public bool Take( Unit unit )
 		{
