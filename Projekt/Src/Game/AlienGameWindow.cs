@@ -34,9 +34,7 @@ namespace Game
         static float todoRotate = 0;
         static CameraType cameraType = CameraType.Game;
         float cameraDistance = 20;
-        //SphereDir cameraDirection = new SphereDir(1.5f, 2.0f);
-        //Patricks fehler
-        SphereDir cameraDirection = new SphereDir(1.5f, 0.85f);
+        SphereDir cameraDirection = new SphereDir((float)Math.PI/2 - 0.1f, (float)Math.PI/2 - 0.1f);
         Vec2 cameraPosition;
 
         // Pathfinding Attribute
@@ -232,20 +230,6 @@ namespace Game
             if (Controls.Count != 1)
                 return base.OnKeyDown(e);
 
-            //change camera type
-            if (e.Key == EKeys.F7)
-            {
-                cameraType = (CameraType)((int)GetRealCameraType() + 1);
-                if (cameraType == CameraType.Count)
-                    cameraType = (CameraType)0;
-
-                FreeCameraEnabled = false; // cameraType == CameraType.Free;
-                
-                GameEngineApp.Instance.AddScreenMessage("Camera type: " + cameraType.ToString());
-
-                return true;
-            }
-
             //increment computer station status
             if (e.Key == EKeys.F3)
             {
@@ -253,12 +237,23 @@ namespace Game
                 return true;
             }
 
-            // Unser kleiner hack :)
+            // Alles auf Maximum (Rotation, Strom, Aliens)
             if (e.Key == EKeys.F4)
             {
                 Computer.SetToMaximum();
             }
 
+            // Spawntime an-/ausschalten
+            if (e.Key == EKeys.F5)
+            {
+                Computer.noSpawnTime = !Computer.noSpawnTime;
+            }
+
+            // Alle Aliens selektieren
+            if (e.Key == EKeys.F6)
+            {
+                SelectAllAliens();
+            }
 
             return base.OnKeyDown(e);
         }
@@ -573,6 +568,18 @@ namespace Game
             foreach (AlienUnit obj in areaObjs)
             {
                 SetEntitySelected(obj, true);
+            }
+        }
+
+        /// <summary>
+        /// Alle Aliens auswählen
+        /// </summary>
+        private void SelectAllAliens()
+        {
+            IEnumerable<Alien> aliens = Entities.Instance.EntitiesCollection.OfType<Alien>();
+            foreach (Alien alien in aliens)
+            {
+                SetEntitySelected(alien, true);
             }
         }
 

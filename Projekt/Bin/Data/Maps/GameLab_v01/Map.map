@@ -1119,7 +1119,7 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = -37.48523 -60.38409 -8.28491
+	position = -37.48523 -60.38409 2.364102
 	name = AlienSpawner_0
 }
 entity
@@ -1481,6 +1481,6 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = 14.77913 91.57556 -8.28491
+	position = 14.77913 87.7559 2.386972
 	name = AlienSpawner_7
 }

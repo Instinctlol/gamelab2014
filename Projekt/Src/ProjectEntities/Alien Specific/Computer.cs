@@ -35,6 +35,7 @@ namespace ProjectEntities
         static int powerCoupons = 2;
         static int availableAliens = 5;
         static int usedAliens = 0;
+        public static bool noSpawnTime = false;
 
 
 
@@ -131,7 +132,7 @@ namespace ProjectEntities
         /// </summary>
         public static void IncrementAvailableAliens()
         {
-            if (availableAliens < maxAliens)
+            if ((availableAliens + usedAliens) < maxAliens)
             {
                 availableAliens++;
             }
@@ -281,7 +282,7 @@ namespace ProjectEntities
         /// </summary>
         public static void SetToMaximum()
         {
-            availableAliens = maxAliens;
+            availableAliens = (maxAliens - usedAliens);
             rotationCoupons = maxRotationCoupons;
             powerCoupons = maxPowerCoupons;
         }

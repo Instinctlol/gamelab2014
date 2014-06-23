@@ -144,7 +144,7 @@ namespace ProjectEntities
             if (productUnitAttachedMesh != null)
                 productUnitAttachedMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
 
-            if (BuildUnitProgress >= 1)
+            if (BuildUnitProgress >= 1 || Computer.noSpawnTime)
             {
                 CreateProductedUnit();
                 StopProductUnit();
