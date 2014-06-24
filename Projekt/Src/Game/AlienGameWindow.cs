@@ -1121,10 +1121,10 @@ namespace Game
                     Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateR3Left));
                     break;
                 case Computer.Actions.LightS1:
-                    Computer.SetSectorPower("F1R6-S");
+                    Computer.SetSectorGroupPower("F1SG-C");
                     break;
                 case Computer.Actions.LightS2:
-                    Computer.SetSectorPower("F3R4-S");
+                    Computer.SetSectorPower("F1SG-A");
                     break;
             }
         }

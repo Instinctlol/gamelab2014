@@ -35,5 +35,76 @@ control Window
 			backTexture = "GUI\\Textures\\innerRing.png"
 			backTextureCoord = 0 0 0 0
 		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			size = ScaleByResolution 650 650
+			name = Lights_Overlay
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_A_R7
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_a_r7.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_A_R8
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_a_r8.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_B
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_b.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_C
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_c.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_D
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_d.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_E
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_e.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_F
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_f.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_G
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_g.png"
+				backTextureCoord = 0 0 0 0
+			}
+		}
 	}
 }

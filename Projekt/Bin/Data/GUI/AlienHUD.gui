@@ -447,8 +447,8 @@ control Control
 	}
 	control SectorStatusWindow
 	{
-		position = ScaleByResolution 190 590
-		size = ScaleByResolution 150 150
+		position = ScaleByResolution 130 80
+		size = ScaleByResolution 650 650
 		name = BigMinimap
 	}
 }

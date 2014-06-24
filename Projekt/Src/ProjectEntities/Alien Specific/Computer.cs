@@ -257,6 +257,25 @@ namespace ProjectEntities
         }
 
         /// <summary>
+        /// Switches off or on the power of one sector (room)
+        /// </summary>
+        /// <param name="sectorName"></param>
+        public static void SetSectorGroupPower(String sectorGroupName)
+        {
+            if (powerCoupons > 0)
+            {
+                Computer.DecrementPowerCoupons();
+                SectorGroup sectorgrp = ((SectorGroup)Entities.Instance.GetByName(sectorGroupName));
+                sectorgrp.DoSwitchLight(!sectorgrp.LightStatus);
+            }
+            else
+            {
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+            }
+        }
+
+        /// <summary>
         /// Liefert die Anzahl Astronauten, die leben
         /// </summary>
         /// <returns></returns>
