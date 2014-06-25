@@ -1124,7 +1124,7 @@ namespace Game
                     Computer.SetSectorGroupPower("F1SG-C");
                     break;
                 case Computer.Actions.LightS2:
-                    Computer.SetSectorPower("F1SG-A");
+                    Computer.SetSectorGroupPower("F1SG-A");
                     break;
             }
         }
