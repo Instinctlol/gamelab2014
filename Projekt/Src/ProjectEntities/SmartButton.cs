@@ -10,79 +10,30 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    public class SmartButtonType : MapObjectType
+    public class SmartButtonType : WindowHolderType
     { }
 
-    public class SmartButton : MapObject
+    public class SmartButton : WindowHolder
     {
         SmartButtonType _type = null; public new SmartButtonType Type { get { return _type; } }
 
-        bool isServer = false;
-
-        bool isVisible = false;
 
         enum NetworkMessages
         {
-            WindowToClient,
-            TerminalToClient,
-            WindowDataToServer,
-            WindowDataToClient,
             SmartButtonPressedToServer,
         }
 
-        private Terminal terminal;
-        
-        private SmartButtonWindow window;
 
-        //***************************
-        //*******Getter-Setter*******
-        //*************************** 
-        public Terminal Terminal
-        {
-            get { return terminal; }
-            set { 
-                terminal = value;
-                if (terminal != null)
-                {
-                    RefreshButton();
-                    if(EntitySystemWorld.Instance.IsServer())
-                       Server_SendTerminalToAllClients(terminal);                    
-                }
-            }
-        }
-
-        public bool IsServer
-        {
-            get { return isServer; }
-            set { isServer = value; }
-        }
-
-        public SmartButtonWindow Window
-        {
-            get { return window; }
-            set
-            {
-                window = value;
-            }
-        }
-        //*************************** 
-
-        //******************************
-        //*******Delegates/Events*******
-        //****************************** 
         public delegate void PressedDelegate();
-        public delegate void WindowDataReceivedDelegate(UInt16 message);
 
         [LogicSystemBrowsable(true)]
         public event PressedDelegate Pressed;
-
-        public event WindowDataReceivedDelegate WindowDataReceived;
         //****************************** 
 
         //Aktualisiert den Button
-        private void RefreshButton()
+        protected override void CreateWindow()
         {
-            switch (terminal.ButtonType)
+            switch (Terminal.ButtonType)
             {
                 case Terminal.TerminalSmartButtonType.None:
                     Window = null;
@@ -98,21 +49,12 @@ namespace ProjectEntities
             }
         }
 
-        public void ShowWindow()
-        {
-            SetTerminalWindow(window);
-            if (window == null)
-                SmartButtonPressed();
-            else
-                isVisible = true;
-        }
-
         public void SmartButtonPressed()
         {
             if (Pressed != null)
                 Pressed();
 
-            isVisible = false;
+            IsVisible = false;
         }
 
         public void AttachRepairable(Repairable r)
@@ -137,81 +79,15 @@ namespace ProjectEntities
         {
             if (r.Repaired)
             {
-                ShowWindow();
+                SetWindowEnabled();
+                if (!IsVisible)
+                    SmartButtonPressed();
             }
             else
             {
                 SetTerminalWindow(null);
             }
         }
-
-        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
-        {
-            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
-            Server_SendTerminalToAllClients(terminal);
-            if (isVisible)
-                Server_SendWindowToClient(window != null);
-        }
-
-        protected override void OnPostCreate(bool loaded)
-        {
-            base.OnPostCreate(loaded);
-
-            if (EntitySystemWorld.Instance.IsServer())
-                isServer = true;
-        }
-
-        private void Server_SendWindowToClient(bool visible)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(SmartButton),
-                (ushort)NetworkMessages.WindowToClient);
-            writer.Write(visible);
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowToClient)]
-        private void Client_ReceiveWindow(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            bool visible = reader.ReadBoolean();
-            if (!reader.Complete())
-                return;
-
-            if (visible)
-                SetTerminalWindow(window);
-            else
-                SetTerminalWindow(null);
-        }
-
-        private void Server_SendTerminalToAllClients(Terminal terminal)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(SmartButton),
-                (ushort)NetworkMessages.TerminalToClient);
-            writer.Write(terminal.Name);
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TerminalToClient)]
-        private void Client_ReceiveTerminal(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            string terminalName = reader.ReadString();
-            if (!reader.Complete())
-                return;
-
-            Terminal = (Terminal) Entities.Instance.GetByName(terminalName);
-        }
-
-        void SetTerminalWindow(Window w)
-        {
-            if (terminal == null)
-                return;
-
-            terminal.Window = w;
-
-
-            if (EntitySystemWorld.Instance.IsServer())
-                Server_SendWindowToClient(w != null);
-        }
-
 
         public void Client_SendSmartButtonPressedToServer()
         {
@@ -227,49 +103,6 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
             SmartButtonPressed();
-        }
-
-
-        public void Client_SendWindowData(UInt16 message)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(SmartButton),
-                   (ushort)NetworkMessages.WindowDataToServer);
-            writer.Write(message);
-            EndNetworkMessage(); 
-        }
-
-        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.WindowDataToServer)]
-        private void Server_ReceiveWindowData(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            UInt16 msg = reader.ReadUInt16();
-
-            if (!reader.Complete())
-                return;
-
-            if (WindowDataReceived != null)
-                WindowDataReceived(msg);
-        
-        }
-
-        public void Server_SendWindowData(UInt16 message)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(SmartButton),
-                       (ushort)NetworkMessages.WindowDataToClient);
-            writer.Write(message);
-            EndNetworkMessage(); 
-        
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowDataToClient)]
-        private void Client_ReceiveWindowData(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            UInt16 msg = reader.ReadUInt16();
-
-            if (!reader.Complete())
-                return;
-
-            if (WindowDataReceived != null)
-                WindowDataReceived(msg);
         }
 
     }

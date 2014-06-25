@@ -325,7 +325,7 @@ namespace ProjectEntities
             if (repairable != null)
                 button.AttachRepairable(repairable);
             else
-                button.ShowWindow();
+                button.SetWindowEnabled();
             
             //AttachedGUIObjekt finden
             foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
@@ -390,7 +390,7 @@ namespace ProjectEntities
 
         private void TaskFailed()
         {
-            button.ShowWindow();
+            button.SetWindowEnabled();
             SoundPlay3D(TaskFailSound, .5f, false);
         }
 

@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 1.620452 -68.27793 135.9855
-editorCameraDirection = 1.581114 -1.175987
+editorCameraPosition = 1.744918 -97.98212 0.7837592
+editorCameraDirection = 0.1334966 0.02697805
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -828,6 +828,7 @@ entity
 	type = SectorGroup
 	uin = 66
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -841,6 +842,7 @@ entity
 	type = SectorGroup
 	uin = 67
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1116,6 +1118,7 @@ entity
 	type = SectorGroup
 	uin = 84
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1129,6 +1132,7 @@ entity
 	type = SectorGroup
 	uin = 85
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1142,6 +1146,7 @@ entity
 	type = SectorGroup
 	uin = 86
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1155,6 +1160,7 @@ entity
 	type = SectorGroup
 	uin = 87
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1168,6 +1174,7 @@ entity
 	type = SectorGroup
 	uin = 88
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1197,10 +1204,11 @@ entity
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
 	repairable = 91
+	taskData = 1234567890
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = Default
-	taskType = ColorSequence
+	taskType = PIN
 	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622

@@ -51,7 +51,8 @@ namespace ProjectEntities
             ((Button)CurWindow.Controls["Clear"]).Click += Clear_click;
             ((Button)CurWindow.Controls["Enter"]).Click += Enter_click;
 
-            task.WindowDataReceived += DataReceived;
+            task.Client_WindowDataReceived += Client_DataReceived;
+            task.Server_WindowDataReceived += Server_DataReceived;
         }
 
 
@@ -108,7 +109,7 @@ namespace ProjectEntities
             task.Client_SendWindowData((UInt16)NetworkMessages.EnterClicked);
         }
 
-        void DataReceived(UInt16 message)
+        void Client_DataReceived(UInt16 message)
         {
             NetworkMessages msg = (NetworkMessages)message;
 
@@ -150,6 +151,11 @@ namespace ProjectEntities
 
             }
             UpdateOutput();
+        }
+
+        void Server_DataReceived(UInt16 message)
+        {
+            task.Server_SendWindowData(message);
         }
     }
 }
