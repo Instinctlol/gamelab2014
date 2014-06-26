@@ -46,7 +46,7 @@ namespace ProjectEntities
                     Window = new SmartButtonRotateWindow(this);
                     break;
                 case Terminal.TerminalSmartButtonType.RotateAndSingleSwitch:
-                    Window = new SmartButtonRotateAndSingleWindow(this);
+                    Window = new SmartButtonRotateAndSingleSwitchWindow(this);
                     break;
                 case Terminal.TerminalSmartButtonType.RotateAndDoubleSwitch:
                     Window = new SmartButtonRotateAndDoubleSwitchWindow(this);

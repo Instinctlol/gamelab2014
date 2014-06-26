@@ -328,6 +328,7 @@ namespace ProjectEntities
                     {
                         yellowButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
+                        Server_SendLightButtonToAllClients("red");
                     }
                     else
                         yellowButton.Active = false;
@@ -337,6 +338,7 @@ namespace ProjectEntities
                     {
                         redButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
+                        Server_SendLightButtonToAllClients("red");
                     }
                     else
                         redButton.Active = false;
@@ -488,9 +490,23 @@ namespace ProjectEntities
         }
 
 
-        private void Server_SendLightButtonToAllClients(string colour, bool light)
+        private void Server_SendLightButtonToAllClients(string colour)
         {
-
+            switch (colour)
+            {
+                case "green":
+                    task.Server_SendWindowData((UInt16)NetworkMessages.LightGreen);
+                    break;
+                case "red":
+                    task.Server_SendWindowData((UInt16)NetworkMessages.LightRed);
+                    break;
+                case "yellow":
+                    task.Server_SendWindowData((UInt16)NetworkMessages.LightYellow);
+                    break;
+                case "blue":
+                    task.Server_SendWindowData((UInt16)NetworkMessages.LightBlue);
+                    break;
+            }
         }
     }
 }
