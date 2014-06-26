@@ -1207,9 +1207,8 @@ entity
 	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = Default
+	buttonType = RotateAndSingleSwitch
 	taskType = PIN
-	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
@@ -1257,9 +1256,8 @@ entity
 	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = None
+	buttonType = RotateAndSingleSwitch
 	taskType = PIN
-	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 63.44387 -69.60484 1.990149
 	name = Terminal_1
@@ -1447,7 +1445,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 115
+	uin = 109
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1457,7 +1455,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 116
+	uin = 110
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1467,7 +1465,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 117
+	uin = 111
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1477,7 +1475,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 118
+	uin = 112
 	classPrompt = AlienSpawner
 	intellectShouldDeleteAfterDetach = False
 	healthFactorAtBeginning = 1
