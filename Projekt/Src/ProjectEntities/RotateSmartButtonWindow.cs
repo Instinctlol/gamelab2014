@@ -22,6 +22,25 @@ namespace ProjectEntities
             ((Button)CurWindow.Controls["RightButton"]).Click += RotateRightButton_Click;
             ((Button)CurWindow.Controls["LeftButton"]).Click += SmartClick;
             ((Button)CurWindow.Controls["RightButton"]).Click += SmartClick;
+
+            button.Server_WindowDataReceived += Server_WindowDataReceived;
+        }
+
+        private void Server_WindowDataReceived(ushort message)
+        {
+            if (button.IsActive)
+            {
+                NetworkMessages msg = (NetworkMessages) message;
+                switch (msg)
+                {
+                    case NetworkMessages.RotateLeftButtonClick:
+                        button.Terminal.DoRotateLeftEvent();
+                        break;
+                    case NetworkMessages.RotateRightButtonClick:
+                        button.Terminal.DoRotateRightEvent();
+                        break;
+                }
+                ;
         }
 
 
@@ -35,6 +54,7 @@ namespace ProjectEntities
             button.Client_SendWindowData((UInt16)NetworkMessages.RotateRightButtonClick);
         }
 
+        
 
 
     }

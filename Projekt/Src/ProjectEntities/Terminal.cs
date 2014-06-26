@@ -426,5 +426,17 @@ namespace ProjectEntities
 
             ButtonType = type;
         }
+
+        public void DoRotateLeftEvent()
+        {
+            if (TerminalRotateLeftAction != null)
+                TerminalRotateLeftAction(this);
+        }
+
+        public void DoRotateRightEvent()
+        {
+            if (TerminalRotateRightAction != null)
+                TerminalRotateRightAction(this);
+        }
     }
 }
