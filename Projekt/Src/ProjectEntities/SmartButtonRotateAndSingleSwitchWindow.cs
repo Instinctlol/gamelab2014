@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    class RotateAndSingleSwitchSmartButtonWindow : SmartButtonWindow
+    class SmartButtonRotateAndSingleSwitchWindow : SmartButtonWindow
     {
         enum NetworkMessages
         {
@@ -15,7 +15,7 @@ namespace ProjectEntities
             SwitchButtonClick
         }
 
-        public RotateAndSingleSwitchSmartButtonWindow(SmartButton button)
+        public SmartButtonRotateAndSingleSwitchWindow(SmartButton button)
             : base(button)
         {
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\ActionWindows\\RotateAndSingleSwitchActionGUI.gui");

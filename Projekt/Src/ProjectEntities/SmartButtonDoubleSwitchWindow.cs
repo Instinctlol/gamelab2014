@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    class DoubleSwitchSmartButtonWindow : SmartButtonWindow
+    class SmartButtonDoubleSwitchWindow : SmartButtonWindow
     {
         enum NetworkMessages
         {
@@ -14,7 +14,7 @@ namespace ProjectEntities
             DoorSwitchButtonClick
         }
 
-        public DoubleSwitchSmartButtonWindow(SmartButton button)
+        public SmartButtonDoubleSwitchWindow(SmartButton button)
             : base(button)
         {
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\ActionWindows\\DoubleSwitchActionGUI.gui");
