@@ -320,7 +320,11 @@ namespace ProjectEntities
         /// <returns></returns>
         bool IsAstronoutInSector()
         {
-            if (sector != null && sector.ObjectsInRegion != null && sector.ObjectsInRegion.Count > 0)
+            if (sector == null)
+            {
+                throw new ArgumentNullException("Der AlienSpawner hat keinen Sector zugewiesen. Bitte im MapEditor ändern!");
+            }
+            if (sector.ObjectsInRegion != null && sector.ObjectsInRegion.Count > 0)
             {
                 // Iteriere durch alle MapObjects in dem Sector
                 foreach (MapObject obj in sector.ObjectsInRegion)
