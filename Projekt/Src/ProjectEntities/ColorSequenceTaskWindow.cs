@@ -11,6 +11,14 @@ namespace ProjectEntities
     {
         private EngineConsole console = EngineConsole.Instance;
 
+        enum NetworkMessages
+        {
+            LightYellow,
+            LightBlue,
+            LightGreen,
+            LightRed
+        }
+
         //NICHTS AENDERN!!!
         private string blue = "blue";
         private string red = "red";
@@ -77,8 +85,8 @@ namespace ProjectEntities
             //else
                 //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
              * */
-
-            createSolution(solutionStartColors);
+            if(task.IsServer)
+                createSolution(solutionStartColors);
         }
 
         //"Spielt" alle Farben in Solution ab, abgerufen von Play_click(Button sender)
@@ -293,6 +301,7 @@ namespace ProjectEntities
         //Beleuchtet einen Button, falls lighted=true, sonst wird er nicht mehr beleuchtet
         private void lightButton(String color, bool lighted)
         {
+            
             switch(color)
             {
                 case "green":
@@ -476,6 +485,12 @@ namespace ProjectEntities
             }
 
             return foundIndexes.ToArray();
+        }
+
+
+        private void Server_SendLightButtonToAllClients(string colour, bool light)
+        {
+
         }
     }
 }
