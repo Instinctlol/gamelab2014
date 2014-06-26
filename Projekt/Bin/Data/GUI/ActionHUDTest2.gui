@@ -261,6 +261,6 @@ control Control
 		textColor = 0.01960784 0.4509804 0.7568628
 		position = ScaleByResolution 0 0
 		size = Parent 0.2382813 0.2578125
-		name = MassageBox
+		name = MessageBox
 	}
 }

@@ -80,36 +80,36 @@ namespace Game
 
         
 
-        //Massage System here===================================
+        //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
-        const int maxIndex = 4;  // maximale Nachrichten in der Massagebox
-        List<string> MassageList = new List<string>(); // hier stecken die Nachichten drin 
+        const int maxIndex = 4;  // maximale Nachrichten in der Messagebox
+        List<string> MessageList = new List<string>(); // hier stecken die Nachichten drin 
 
-        public void sendMassageToHUD(String massage)
+        public void sendMessageToHUD(String message)
         {
             string output = "";
 
-            if (MassageList.Count <= maxIndex)
+            if (MessageList.Count <= maxIndex)
             {
-                MassageList.Add(massage);
+                MessageList.Add(message);
             }
             else
             {
-                MassageList.RemoveAt(0);
-                MassageList.Add(massage);
+                MessageList.RemoveAt(0);
+                MessageList.Add(message);
             }
 
 
-            hudControl.Controls["MassageBox"].Visible = true;
+            hudControl.Controls["MessageBox"].Visible = true;
 
-            foreach (string element in MassageList)
+            foreach (string element in MessageList)
             {
                 output += (element + "\r\n");
             }
 
-            hudControl.Controls["MassageBox"].Text = output;
-            //hudControl.Controls["MassageBox"].Text = hudControl.Controls["MassageBox"].Text + massage + "\r\n";
+            hudControl.Controls["MessageBox"].Text = output;
+            //hudControl.Controls["MessageBox"].Text = hudControl.Controls["MessageBox"].Text + message + "\r\n";
             BoxTimer.Interval = 5000;
             BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             BoxTimer.Enabled = true;
@@ -117,14 +117,14 @@ namespace Game
 
         void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            hudControl.Controls["MassageBox"].Visible = false;
+            hudControl.Controls["MessageBox"].Visible = false;
         }
 
-        // Event Handler for massaging
+        // Event Handler for messaging
         private void InitializeEventListener()
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
-            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMassageToHUD);
+            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
         }
 
 
@@ -261,7 +261,7 @@ namespace Game
         protected override bool OnMouseDown(EMouseButtons button)
         {
             StatusMessageHandler.sendMessage("gut gedrueckt " + i);
-            //sendMassageToHUD("gut gedrueckt " + i);
+            //sendMessageToHUD("gut gedrueckt " + i);
             i++;
             
             //If atop openly any window to not process
