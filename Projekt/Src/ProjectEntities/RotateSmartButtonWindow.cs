@@ -30,7 +30,7 @@ namespace ProjectEntities
         {
             if (button.IsActive)
             {
-                NetworkMessages msg = (NetworkMessages) message;
+                NetworkMessages msg = (NetworkMessages)message;
                 switch (msg)
                 {
                     case NetworkMessages.RotateLeftButtonClick:
@@ -41,6 +41,7 @@ namespace ProjectEntities
                         break;
                 }
                 ;
+            }
         }
 
 
