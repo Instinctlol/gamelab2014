@@ -1,0 +1,24 @@
+# MTL written from D:\PROJECT 3D Asset Store\Furniture\Drawer\Drawer.obj
+newmtl Furniture
+Kd 0.8 0.8 0.8
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.2 0.2 0.2
+map_Kd D:\PROJECT 3D Asset Store\Furniture\Drawer\Furniture copy.jpg
+newmtl IronHolder
+Kd 0.0366798 0.0616787 0.0630915
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.2 0.2 0.2
+newmtl WoodHolder
+Kd 0.8 0.8 0.8
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.2 0.2 0.2
+map_Kd D:\PROJECT 3D Asset Store\Furniture\Drawer\Furniture copy.jpg
