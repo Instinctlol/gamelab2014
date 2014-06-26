@@ -27,7 +27,7 @@ namespace ProjectEntities
         private TextBox output;
 
         //Momentan eingegebene Sequenz
-        private string curOutput;
+        private string curOutput = "";
 
         public PINTaskWindow(Task task) : base(task)
         {
@@ -155,7 +155,16 @@ namespace ProjectEntities
 
         void Server_DataReceived(UInt16 message)
         {
-            task.Server_SendWindowData(message);
+            Client_DataReceived(message);
+            if(message != (UInt16)NetworkMessages.EnterClicked)
+                task.Server_SendWindowData(message);
+            else
+            {
+                if(curOutput.Equals(task.Terminal.TaskData))
+                    task.Success = true;
+                else
+                    task.Success = false;
+            }
         }
     }
 }

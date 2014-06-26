@@ -26,7 +26,6 @@ namespace ProjectEntities
         enum NetworkMessages
         {
             ButtonTypeToClient,
-            ActionTypeToClient,
             TaskTypeToClient,
             FindControlManagerToClient,
         };
@@ -49,16 +48,6 @@ namespace ProjectEntities
             Default
         };
 
-   
-
-        public enum TerminalActionType
-        {
-            Rotation,
-            Switch,
-            DoubleSwitch,
-            RotateAndDoubleSwitch,
-            RotateAndSingleSwitch
-        }
 
         //Repairable das zunächst reperiert werden muss
         [FieldSerialize]
@@ -85,14 +74,10 @@ namespace ProjectEntities
         //TaskType
         [FieldSerialize]
         private TerminalTaskType taskType;
-
-        [FieldSerialize]
-        private TerminalActionType actionType;
-
         
 
         //GUI Fenster das auf dem Terminal angezeigt wird
-        private Window initialWindow;
+        private Window window;
 
         //Angefügtes GUI objekt
         private MapObjectAttachedGui attachedGuiObject;
@@ -119,14 +104,6 @@ namespace ProjectEntities
             set { taskData = value; }
         }
 
-        [LocalizedDescription("This will show a different GUI for every ActionType, Logic for the GUI is defined in the LogicClass of this Object", "ActionType")]
-        [DefaultValue(TerminalActionType.Switch)]
-        public TerminalActionType ActionType
-        {
-            get { return actionType; }
-            set { actionType = value; }
-        }
-
         [LocalizedDescription("Choose what kind of task is to be assigned to this Terminal", "TaskType")]
         public TerminalTaskType TaskType
         {
@@ -144,16 +121,6 @@ namespace ProjectEntities
             set
             {
                 buttonType = value;
-                
-                /*button.RefreshButton();
-
-                //Unschön
-                if (repairable != null)
-                {
-                    button.DetachRepairable(repairable);
-                    button.AttachRepairable(repairable);
-                }
-                */
             }
         }
 
@@ -201,10 +168,10 @@ namespace ProjectEntities
         [Browsable(false)]
         public Window Window
         {
-            get { return initialWindow; }
+            get { return window; }
             set
             {
-                initialWindow = value;
+                window = value;
                 CreateMainControl();
             }
         }
@@ -278,7 +245,6 @@ namespace ProjectEntities
 
             Server_SendButtonType(buttonType);
             Server_SendTaskType(taskType);
-            Server_SendActionType(actionType);
             Server_SendFindControlManager();
         }
 
@@ -319,7 +285,7 @@ namespace ProjectEntities
             button.Terminal = this;
             task.Terminal = this;
 
-            task.TaskFinished += OnTaskFinished;
+            //task.TaskFinished += OnTaskFinished;
 
             //Ggfs repairable an Button weiter reichen
             if (repairable != null)
@@ -371,13 +337,13 @@ namespace ProjectEntities
         {
             if (mainControl != null)
             {
-                mainControl.Parent.Controls.Remove(mainControl);
+                controlManager.Controls.Remove(mainControl);
                 mainControl = null;
             }
 
-            if (controlManager != null && initialWindow != null)
+            if (controlManager != null && window != null)
             {
-                mainControl = initialWindow.CurWindow;
+                mainControl = window.CurWindow;
                 if (mainControl != null)
                     controlManager.Controls.Add(mainControl);
             }
@@ -390,22 +356,14 @@ namespace ProjectEntities
 
         private void TaskFailed()
         {
-            button.SetWindowEnabled();
-            SoundPlay3D(TaskFailSound, .5f, false);
+            //button.SetWindowEnabled();
+            //SoundPlay3D(TaskFailSound, .5f, false);
         }
 
         private void TaskSuccessful()
         {
-            Window = new FinishedWindow(this);
-            SoundPlay3D(TaskSuccessSound, .5f, false);
-        }
-
-        private void Server_SendActionType(TerminalActionType actionType)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
-                (ushort)NetworkMessages.ActionTypeToClient);
-            writer.Write((Int16)actionType);
-            EndNetworkMessage();
+            //Window = new FinishedWindow(this);
+            //SoundPlay3D(TaskSuccessSound, .5f, false);
         }
 
         private void Server_SendTaskType(TerminalTaskType taskType)
@@ -448,15 +406,6 @@ namespace ProjectEntities
             }
         }
 
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ActionTypeToClient)]
-        private void Client_ReceiveActionType(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            TerminalActionType type = (TerminalActionType) reader.ReadInt16();
-            if (!reader.Complete())
-                return;
-
-            ActionType = type;
-        }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TaskTypeToClient)]
         private void Client_ReceiveTaskType(RemoteEntityWorld sender, ReceiveDataReader reader)

@@ -23,6 +23,13 @@ namespace ProjectEntities
             SmartButtonPressedToServer,
         }
 
+        private bool isActive = false;
+
+        public bool IsActive
+        {
+            get { return isActive; }
+            set { isActive = value; }
+        }
 
         public delegate void PressedDelegate();
 
@@ -40,21 +47,34 @@ namespace ProjectEntities
                     SmartButtonPressed();
                     break;
                 case Terminal.TerminalSmartButtonType.Default:
-                    Window = new DefaultSmartButtonWindow(this);
+                    Window = new RotateSmartButtonWindow(this);
                     break;
                 default:
                     Window = null;
                     SmartButtonPressed();
                     break;
             }
+
+            if (IsServer)
+                Terminal.Task.TaskFinished += OnTaskFinished;
+        }
+
+        private void OnTaskFinished(bool success)
+        {
+            SetWindowEnabled();
+            if (success)
+                IsActive = true;
         }
 
         public void SmartButtonPressed()
         {
-            if (Pressed != null)
-                Pressed();
+            if (!IsActive)
+            {
+                if (Pressed != null)
+                    Pressed();
 
-            IsVisible = false;
+                IsVisible = false;
+            }
         }
 
         public void AttachRepairable(Repairable r)

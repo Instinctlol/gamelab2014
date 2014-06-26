@@ -6,14 +6,15 @@ using System.Timers;
 
 namespace ProjectEntities
 {
-    public class FinishedWindow : Window
+    /*
+    public class FinishedWindow : SmartButtonWindow
     {
         //Textfeld in dem ausgegeben werden soll
         private Button lightSwitchButton, doorSwitchButton, rightButton, leftButton, switchButton;
 
         private Terminal terminal;
 
-        public FinishedWindow(Terminal terminal)
+        public FinishedWindow(SmartButton button)
         {
             //GUI erzeugen
             switch(terminal.ActionType)
@@ -100,5 +101,5 @@ namespace ProjectEntities
         {
             terminal.OnTerminalFinishedDoSwitch();
         }
-    }
+    }*/
 }

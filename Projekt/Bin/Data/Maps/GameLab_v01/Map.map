@@ -1204,7 +1204,7 @@ entity
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
 	repairable = 91
-	taskData = 1234567890
+	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = Default

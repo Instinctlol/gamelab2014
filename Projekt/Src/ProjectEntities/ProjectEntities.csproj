@@ -150,6 +150,11 @@
     <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="Alien Specific\Computer.cs" />
     <Compile Include="BooleanSwitch.cs" />
+    <Compile Include="DoubleSwitchSmartButtonWindow.cs" />
+    <Compile Include="RotateAndDoubleSwitchSmartButtonWindow.cs" />
+    <Compile Include="RotateAndSingleSwitch.cs" />
+    <Compile Include="RotateSmartButtonWindow.cs" />
+    <Compile Include="SingleSwitchSmartButtonWindow.cs" />
     <Compile Include="TaskIOManager.cs" />
     <Compile Include="ColorSequenceTaskWindow.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />

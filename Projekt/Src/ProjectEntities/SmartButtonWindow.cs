@@ -7,7 +7,7 @@ namespace ProjectEntities
 {
     public class SmartButtonWindow : Window
     {
-        private SmartButton button;
+        protected SmartButton button;
 
         public SmartButtonWindow(SmartButton button)
         {

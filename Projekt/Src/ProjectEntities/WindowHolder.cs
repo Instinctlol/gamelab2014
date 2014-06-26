@@ -81,12 +81,14 @@ namespace ProjectEntities
 
         public virtual void SetWindowEnabled(bool enable = true)
         {
-            SetTerminalWindow(window);
-            if (window != null)
-                isVisible = true;
+            isVisible = enable && window != null;
+            if (isVisible)
+                SetTerminalWindow(window);
         }
 
-        protected virtual void CreateWindow() { }
+        protected virtual void CreateWindow() {
+            throw new NotImplementedException();
+        }
 
         protected void SetTerminalWindow(Window w)
         {
@@ -95,9 +97,8 @@ namespace ProjectEntities
 
             terminal.Window = w;
 
-
             if (isServer)
-                Server_SendWindowToClient(w != null);
+                Server_SendWindowToClient(w!=null);
         }
 
         protected override void OnPostCreate(bool loaded)
@@ -113,15 +114,13 @@ namespace ProjectEntities
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
             Server_SendTerminalToAllClients(terminal);
             if (isVisible)
-                Server_SendWindowToClient(window != null);
+                Server_SendWindowToClient();
         }
 
 
 
-
-
         //Netzerwerk zeugs
-        private void Server_SendWindowToClient(bool visible)
+        private void Server_SendWindowToClient(bool visible = true)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                 (ushort)NetworkMessages.WindowToClient);
@@ -135,7 +134,7 @@ namespace ProjectEntities
             bool visible = reader.ReadBoolean();
             if (!reader.Complete())
                 return;
-
+            CreateWindow();
             if (visible)
                 SetTerminalWindow(window);
             else

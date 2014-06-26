@@ -33,8 +33,7 @@ namespace ProjectEntities
             set
             {
                 success = value;
-                if( TaskFinished != null)
-                     TaskFinished(value);
+                SendTaskFinished(success);
             }
         }
 
@@ -49,7 +48,7 @@ namespace ProjectEntities
         public event TaskFinishedDelegate TaskFinished;
         //******************************
 
-        public void SendTaskFinished(bool success)
+        private void SendTaskFinished(bool success)
         {
             IsVisible = false;
             if (TaskFinished != null)
