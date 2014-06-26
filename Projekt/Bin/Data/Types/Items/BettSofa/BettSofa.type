@@ -1,0 +1,12 @@
+type BettSofa
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Bed Novamobily Square Italy N200514.mesh"
+			scale = 0.06 0.06 0.06
+		}
+	}
+}

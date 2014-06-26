@@ -1,0 +1,62 @@
+sourceFile = "Types\\Items\\Armchair2\\fal007.obj"
+objects
+{
+	mesh
+	{
+		name = fal007
+		pivotPosition = -30.7315 -14.6912 13.31705
+		sources
+		{
+			item
+			{
+				name = fal0078
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal00710
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0079
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0077
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0076
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0075
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0074
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0073
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal0072
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = fal007
+				rotation = 0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

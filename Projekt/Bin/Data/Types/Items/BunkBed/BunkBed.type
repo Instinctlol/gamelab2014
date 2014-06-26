@@ -1,0 +1,12 @@
+type BunkBed
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\bunk_bed.mesh"
+			position = 0 0 1.6
+		}
+	}
+}

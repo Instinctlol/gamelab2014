@@ -1,0 +1,9 @@
+highLevelMaterial wire_000000000
+{
+	dataSource = "Types\\Items\\BettSofa\\Bed Novamobily Square Italy N200514.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0 0
+	specularColor = 0.3490196 0.3490196 0.3490196 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+}
