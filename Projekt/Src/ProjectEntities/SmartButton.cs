@@ -42,12 +42,20 @@ namespace ProjectEntities
         {
             switch (Terminal.ButtonType)
             {
-                case Terminal.TerminalSmartButtonType.None:
-                    Window = null;
-                    SmartButtonPressed();
-                    break;
-                case Terminal.TerminalSmartButtonType.Default:
+                case Terminal.TerminalSmartButtonType.Rotate:
                     Window = new SmartButtonRotateWindow(this);
+                    break;
+                case Terminal.TerminalSmartButtonType.RotateAndSingleSwitch:
+                    Window = new SmartButtonRotateAndSingleWindow(this);
+                    break;
+                case Terminal.TerminalSmartButtonType.RotateAndDoubleSwitch:
+                    Window = new SmartButtonRotateAndDoubleSwitchWindow(this);
+                    break;
+                case Terminal.TerminalSmartButtonType.SingleSwitch:
+                    Window = new SmartButtonSingleSwitchWindow(this);
+                    break;
+                case Terminal.TerminalSmartButtonType.DoubleSwitch:
+                    Window = new SmartButtonDoubleSwitchWindow(this);
                     break;
                 default:
                     Window = null;

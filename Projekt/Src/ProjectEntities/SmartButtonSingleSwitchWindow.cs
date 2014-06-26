@@ -6,14 +6,14 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    class SmartButtonSwitchWindow : SmartButtonWindow
+    class SmartButtonSingleSwitchWindow : SmartButtonWindow
     {
         enum NetworkMessages
         {
             SwitchButtonClick,
         }
 
-        public SmartButtonSwitchWindow(SmartButton button)
+        public SmartButtonSingleSwitchWindow(SmartButton button)
             : base(button)
         {
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\ActionWindows\\SwitchActionGUI.gui");

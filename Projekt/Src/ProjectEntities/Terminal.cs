@@ -44,8 +44,11 @@ namespace ProjectEntities
         //None = Task wird direkt angezeigt
         public enum TerminalSmartButtonType
         {
-            None,
-            Default
+            Rotate,
+            RotateAndSingleSwitch,
+            RotateAndDoubleSwitch,
+            SingleSwitch,
+            DoubleSwitch,
         };
 
 
