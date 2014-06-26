@@ -1445,7 +1445,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 115
+	uin = 109
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1455,7 +1455,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 116
+	uin = 110
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1465,7 +1465,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 117
+	uin = 111
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1475,9 +1475,11 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 118
+	uin = 112
 	classPrompt = AlienSpawner
+	sector = 70
 	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienSpawnerAI
 	healthFactorAtBeginning = 1
 	position = -11.96028 -118.6747 0.266995
 	name = AlienSpawner_8
