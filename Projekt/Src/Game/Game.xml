@@ -78,6 +78,11 @@
             Event Listener initialisieren
             </summary>
         </member>
+        <member name="M:Game.AlienGameWindow.SelectAllAliens">
+            <summary>
+            Alle Aliens auswählen
+            </summary>
+        </member>
         <member name="M:Game.AlienGameWindow.GetColor(ProjectEntities.Unit)">
             <summary>
             Farbe für kleine Aliens und Spawnpoint verschieden
