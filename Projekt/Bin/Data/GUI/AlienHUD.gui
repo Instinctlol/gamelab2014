@@ -4,13 +4,6 @@ control Control
 {
 	control Control
 	{
-		position = ScaleByResolution 0 0
-		horizontalAlign = Right
-		size = Screen 0.15 0.756
-		backColor = 0 0 0 0.5
-	}
-	control Control
-	{
 		position = ScaleByResolution 0 110
 		size = Screen 0.8632813 0.65
 		name = ActiveArea
@@ -32,33 +25,6 @@ control Control
 		position = ScaleByResolution 0 580
 		size = Screen 1 0.25
 		backColor = 0 0 0 0.5
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -9 150
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = Help
-		text = Help
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -9 110
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = DebugPath
-		text = Path
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -9 70
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = Menu
-		text = Menu
 	}
 	control Control
 	{
@@ -194,70 +160,6 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution -9 250
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton
-		text = Computer
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 290
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton0
-		text = 0
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 330
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton1
-		text = 1
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 410
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton3
-		text = 3
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 370
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton2
-		text = 2
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 450
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton4
-		text = 4
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 490
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton5
-		text = 5
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 530
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerButton6
-		text = 6
-	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
 		position = ScaleByResolution -9 190
 		horizontalAlign = Right
 		size = ScaleByResolution 135 30
@@ -300,19 +202,19 @@ control Control
 	control Control
 	{
 		position = ScaleByResolution 0 0
-		size = Screen 0.85 0.17
+		size = Screen 1 0.17
 		name = StatusNotificationTop
 		backColor = 0 0 0 0.5
 		control Control
 		{
-			position = Parent 0.05744485 0
+			position = Parent 0.05 0
 			verticalAlign = Center
 			size = ScaleByResolution 128 128
 			name = AlienIcon
 		}
 		control Control
 		{
-			position = Parent 0.3102022 0
+			position = Parent 0.29 0
 			verticalAlign = Center
 			size = ScaleByResolution 90 90
 			name = RotationIcon
@@ -328,7 +230,7 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.4595588 0
+			position = Parent 0.43 0
 			verticalAlign = Center
 			size = ScaleByResolution 90 90
 			name = EnergyIcon
@@ -336,7 +238,6 @@ control Control
 			control TextBox
 			{
 				textColor = 0 0 0
-				topMost = True
 				position = Parent 0 -0.1
 				horizontalAlign = Center
 				verticalAlign = Center
@@ -347,7 +248,7 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.5974265 0
+			position = Parent 0.57 0
 			verticalAlign = Center
 			size = ScaleByResolution 120 90
 			name = ExperienceIcon
@@ -365,7 +266,7 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.07 0
+			position = Parent 0.05 0
 			verticalAlign = Center
 			size = ScaleByResolution 200 130
 			name = AlienIconBox
@@ -424,7 +325,7 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.8 0
+			position = Parent 0.73 0
 			verticalAlign = Center
 			size = ScaleByResolution 70 90
 			name = AstronautIcon
@@ -444,11 +345,29 @@ control Control
 				text = 2
 			}
 		}
-	}
-	control SectorStatusWindow
-	{
-		position = ScaleByResolution 130 80
-		size = ScaleByResolution 650 650
-		name = BigMinimap
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = Parent 0.85 0.2
+			size = ScaleByResolution 135 25
+			name = Menu
+			text = Menu
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = Parent 0.85 0.45
+			size = ScaleByResolution 135 25
+			name = DebugPath
+			text = Path
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = Parent 0.85 0.7
+			size = ScaleByResolution 135 25
+			name = Help
+			text = Help
+		}
 	}
 }

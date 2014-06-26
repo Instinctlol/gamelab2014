@@ -138,5 +138,15 @@ namespace ProjectEntities
             }
 
         }
+
+        /// <summary>
+        /// Liefert die Ring-Nummer anhand des Ring-Namens: 1 für F1_Ring, 2 für F2_Ring...
+        /// </summary>
+        /// <returns></returns>
+        public int GetRingNumber()
+        {
+            int n = Name.ToCharArray()[1];
+            return (n-48);
+        }
     }
 }

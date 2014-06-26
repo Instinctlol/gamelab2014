@@ -37,6 +37,11 @@ namespace ProjectEntities
         static int usedAliens = 0;
         public static bool noSpawnTime = false;
 
+        // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
+        // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
+        // Rechtsrotationen werden mit +1 gespeichert, Linksrotationen mit -1
+        static int[] ringRotations = new int[3];
+
 
 
         /*******************/
@@ -66,6 +71,11 @@ namespace ProjectEntities
         public static int UsedAliens
         {
             get { return usedAliens; }
+        }
+
+        public static int[] RingRotations
+        {
+            get { return ringRotations; }
         }
 
 
@@ -183,95 +193,87 @@ namespace ProjectEntities
             return solvedRepairables / maxSolvableRepairablesNeeded;
         }
 
-        // der Zentralcomputer soll alle Images für die Minimap verwalten und immer das korrekte anzeigen
-        // Zentralcomputer speichert also indirekt, wie die Ringe stehen
-
-        // Alle Aktionen, die man über den Zentralcomputer steuern kann
-        public enum Actions
-        {
-            State,
-            RotateR1Left,
-            RotateR1Right,
-            RotateR3Left,
-            RotateR3Right,
-            LightS1,
-            LightS2
-        }
-
-        /// <summary>
-        /// Show the state of the station, e.g. how many life the astronauts 
-        /// still have, how the rings are positioned...
-        /// </summary>
-        public static void ShowState()
-        {
-
-        }
-
         /// <summary>
         /// Do one rotation of one ring to the left or to the right side.
         /// </summary>
-        /// <param name="ringName"></param>
+        /// <param name="ring"></param>
         /// <param name="left"></param>
-        public static void RotateRing(String ringName, bool left)
+        public static void RotateRing(Ring ring, bool left)
         {
-            if (rotationCoupons > 0)
+            if (ring == null)
             {
-                Computer.DecrementRotationCoupons();
-                Ring ring = ((Ring)Entities.Instance.GetByName(ringName));
-                if (left)
-                {
-                    ring.RotateLeft();
-                }
-                else
-                {
-                    ring.RotateRight();
-                }
-                ///ToDo: Gridaktualisierung für die Rotation in der Map
-                GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
-                
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
             }
-            else
+            else if (rotationCoupons <= 0)
             {
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Keine Rotationen möglich");
             }
+            else
+            {
+                Computer.DecrementRotationCoupons();
+                int ringNumber = ring.GetRingNumber();
+                if (left)
+                {
+                    EngineConsole.Instance.Print("links drehen");
+                    ringRotations[ringNumber - 1]--;
+                    ring.RotateLeft();
+                }
+                else
+                {
+                    EngineConsole.Instance.Print("rechts drehen");
+                    ringRotations[ringNumber - 1]++;
+                    ring.RotateRight();
+                }
+                ///ToDo: Gridaktualisierung für die Rotation in der Map
+                GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
+            }
+        }
+
+        /// <summary>
+        /// Switches off or on the power of one sector (room)
+        /// </summary>
+        /// <param name="sector"></param>
+        public static void SetSectorPower(Sector sector)
+        {
+            if (sector == null)
+            {
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+            }
+            else if (powerCoupons <= 0)
+            {
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+            }
+            else
+            {
+                Computer.DecrementPowerCoupons();
+                sector.SwitchLights(false);
+            }
         }
 
         /// <summary>
         /// Switches off or on the power of one sector (room)
         /// </summary>
         /// <param name="sectorName"></param>
-        public static void SetSectorPower(String sectorName)
+        public static void SetSectorGroupPower(SectorGroup sectorGroup)
         {
-            if (powerCoupons > 0)
+            if (sectorGroup == null)
             {
-                Computer.DecrementPowerCoupons();
-                Sector sector = ((Sector)Entities.Instance.GetByName(sectorName));
-                sector.SwitchLights(!sector.LightStatus);
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
             }
-            else
+            else if (powerCoupons <= 0)
             {
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
             }
-        }
-
-        /// <summary>
-        /// Switches off or on the power of one sector (room)
-        /// </summary>
-        /// <param name="sectorName"></param>
-        public static void SetSectorGroupPower(String sectorGroupName)
-        {
-            if (powerCoupons > 0)
-            {
-                Computer.DecrementPowerCoupons();
-                SectorGroup sectorgrp = ((SectorGroup)Entities.Instance.GetByName(sectorGroupName));
-                sectorgrp.DoSwitchLight(!sectorgrp.LightStatus);
-            }
             else
             {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                Computer.DecrementPowerCoupons();
+                sectorGroup.DoSwitchLight(false);
             }
         }
 

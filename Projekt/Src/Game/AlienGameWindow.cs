@@ -33,8 +33,10 @@ namespace Game
         static Vec2 todoTranslate = Vec2.Zero;
         static float todoRotate = 0;
         static CameraType cameraType = CameraType.Game;
-        float cameraDistance = 20;
-        SphereDir cameraDirection = new SphereDir((float)Math.PI/2 - 0.1f, (float)Math.PI/2 - 0.1f);
+        float cameraDistance = 200;
+        // Kamera sehr steil einstellen
+        SphereDir cameraDirection = new SphereDir((float)Math.PI / 2 - 0.1f, (float)Math.PI / 2 - 0.1f);
+        //SphereDir cameraDirection = new SphereDir(1.5f, 0.85f);
         Vec2 cameraPosition;
 
         // Pathfinding Attribute
@@ -54,12 +56,12 @@ namespace Game
         bool selectMode;
         Vec2 selectStartPos;
         bool selectDraggedMouse;
-
+        
         // Task Attribute
         int taskTargetChooseIndex = -1;
 
         // Minimap
-        bool minimapChangeCameraPosition;
+        bool minimapClick;
         Control minimapControl;
 
         // Time Counter
@@ -104,13 +106,13 @@ namespace Game
             //hudControl
             hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
             Controls.Add(hudControl);
-            
-            ((Button)hudControl.Controls["Menu"]).Click += delegate(Button sender)
+
+            ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)
             {
                 Controls.Add(new MenuWindow());
             };
 
-            ((Button)hudControl.Controls["Help"]).Click += delegate(Button sender)
+            ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Help"]).Click += delegate(Button sender)
             {
                 hudControl.Controls["HelpWindow"].Visible = !hudControl.Controls["HelpWindow"].Visible;
             };
@@ -120,7 +122,7 @@ namespace Game
                 hudControl.Controls["HelpWindow"].Visible = false;
             };
 
-            ((Button)hudControl.Controls["DebugPath"]).Click += delegate(Button sender)
+            ((Button)hudControl.Controls["StatusNotificationTop"].Controls["DebugPath"]).Click += delegate(Button sender)
             {
                 mapDrawPathMotionMap = !mapDrawPathMotionMap;
             };
@@ -128,13 +130,13 @@ namespace Game
             InitControlPanelButtons();
             UpdateControlPanel();
 
-            //minimap
+            //miniminimap
             minimapControl = hudControl.Controls["Minimap"];
             //string textureName = Map.Instance.GetSourceMapVirtualFileDirectory() + "\\Minimap\\Minimap";
             //Texture minimapTexture = TextureManager.Instance.Load(textureName, Texture.Type.Type2D, 0);
             //minimapControl.BackTexture = minimapTexture;
             minimapControl.RenderUI += new RenderUIDelegate(Minimap_RenderUI);
-
+            
             //set camera position
             foreach (Entity entity in Map.Instance.Children)
             {
@@ -166,10 +168,10 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
-
-            //initializing BigMinimap, only works on runtime
-            ((SectorStatusWindow)hudControl.Controls["BigMinimap"]).initialize();
         }
+
+        /// <summary>
+        
 
         // Beim Beenden des Spiels minimap freigeben
         protected override void OnDetach()
@@ -294,8 +296,7 @@ namespace Game
             {
                 if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
                 {
-                    minimapChangeCameraPosition = true;
-                    cameraPosition = GetMapPositionByMouseOnMinimap();
+                    minimapClick = true;
                     return true;
                 }
             }
@@ -335,13 +336,13 @@ namespace Game
                     }
                 }
 
-                //pick on minimap
-                if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
-                {
-                    pickingSuccess = true;
-                    Vec2 pos = GetMapPositionByMouseOnMinimap();
-                    mouseMapPos = new Vec3(pos.X, pos.Y, GridBasedNavigationSystem.Instances[0].GetMotionMapHeight(pos));
-                }
+                //pick on minimap TODO
+                //if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
+                //{
+                //    pickingSuccess = true;
+                //    Vec2 pos = GetMapPositionByMouseOnMinimap();
+                //    mouseMapPos = new Vec3(pos.X, pos.Y, GridBasedNavigationSystem.Instances[0].GetMotionMapHeight(pos));
+                //}
 
                 if (pickingSuccess)
                 {
@@ -366,10 +367,19 @@ namespace Game
                 DoEndSelectMode();
 
             //minimap mouse change camera position
-            if (minimapChangeCameraPosition)
-                minimapChangeCameraPosition = false;
+            if (minimapClick)
+            {
+                minimapClick = false;
+                DoOpenMinimap();
+            }
 
             return base.OnMouseUp(button);
+        }
+
+        void DoOpenMinimap()
+        {
+            //hudControl.Controls["BigMinimap"].Visible = !hudControl.Controls["BigMinimap"].Visible;
+            Controls.Add(new BigMinimapWindow());
         }
 
         bool IsEnableTaskTypeInTasks(List<AlienUnitAI.UserControlPanelTask> tasks, AlienUnitAI.Task.Types taskType)
@@ -610,9 +620,9 @@ namespace Game
                 }
             }
 
-            //minimap mouse change camera position
-            if (minimapChangeCameraPosition)
-                cameraPosition = GetMapPositionByMouseOnMinimap();
+            //minimap mouse change camera position TODO
+            //if (minimapClick)
+            //    cameraPosition = GetMapPositionByMouseOnMinimap();
         }
 
         protected override void OnTick(float delta)
@@ -1073,60 +1083,6 @@ namespace Game
                 numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
                 numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
             }
-
-            // ComputerButtons vorbereiten
-            button = (Button)hudControl.Controls["ComputerButton"];
-            button.Click += new Button.ClickDelegate(MainComputerButton_Click);
-            for (int n = 0; ; n++)
-            {
-                button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
-                if (button == null)
-                    return;
-                button.Click += new Button.ClickDelegate(ComputerButton_Click);
-                button.Visible = false;
-            }
-        }
-
-        // Haupt Computer Button, der alle anderen Computer sichtbar/unsichtbar machen kann
-        void MainComputerButton_Click(Button sender)
-        {
-            Button button;
-            for (int n = 0; ; n++)
-            {
-                button = (Button)hudControl.Controls["ComputerButton" + n.ToString()];
-                if (button == null)
-                    return;
-                button.Visible = !button.Visible;
-                button.Text = ((Computer.Actions)n).ToString();
-            }
-        }
-
-        // Wenn ein Button zum Bedienen des Zentralcomputers geklickt wurde
-        void ComputerButton_Click(Button sender)
-        {
-            int index = int.Parse(sender.Name.Substring("ComputerButton".Length));
-            Computer.Actions action = (Computer.Actions)index;
-
-            switch( action )
-            {
-                case Computer.Actions.State:
-                    Computer.ShowState();
-                    break;
-                case Computer.Actions.RotateR1Left:
-                case Computer.Actions.RotateR1Right:
-                    Computer.RotateRing("F1_Ring", (action == Computer.Actions.RotateR1Left));
-                    break;
-                case Computer.Actions.RotateR3Left:
-                case Computer.Actions.RotateR3Right:
-                    Computer.RotateRing("F3_Ring", (action == Computer.Actions.RotateR3Left));
-                    break;
-                case Computer.Actions.LightS1:
-                    Computer.SetSectorGroupPower("F1SG-C");
-                    break;
-                case Computer.Actions.LightS2:
-                    Computer.SetSectorGroupPower("F1SG-A");
-                    break;
-            }
         }
 
         // Wenn ein Button zum Navigieren der Aliens/Spawnpoints geklickt wurde
@@ -1283,14 +1239,16 @@ namespace Game
             }
         }
 
-        // ToDo: Minimap anpassen
         //Draw minimap
         void Minimap_RenderUI(Control sender, GuiRenderer renderer)
         {
             Rect screenMapRect = sender.GetScreenRectangle();
 
             Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2(), initialBounds.Maximum.ToVec2());
+            // Der zweite Wert (obere rechte Ecke) des Rechtecks darf nicht von der gesamten Map der obere rechte Punkt sein (da wir noch ganz weit
+            // weg einen einzelnen Raum habne) Deshalb wird einfach der Wert um den Ursprung gespiegelt (Absolut-Werte genommen)
+            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2(), vec2);
 
             Vec2 mapSizeInv = new Vec2(1, 1) / mapRect.Size;
 
@@ -1360,7 +1318,6 @@ namespace Game
                         point = new Vec2(point.X, 1.0f - point.Y);
                         point *= screenMapRect.Size;
                         point += screenMapRect.Minimum;
-                        EngineConsole.Instance.Print("point: " + point.X + "/" + point.Y);
                         points[n] = point;
                     }
 
@@ -1423,29 +1380,6 @@ namespace Game
             {
                 taskTargetChooseIndex = value;
             }
-        }
-
-        // ToDo: Minimap anpassen
-        /// <summary>
-        /// Changes Map position by calculating the position from the position of the mouse on the minimap
-        /// </summary>
-        /// <returns></returns>
-        Vec2 GetMapPositionByMouseOnMinimap()
-        {
-            Rect screenMapRect = minimapControl.GetScreenRectangle();
-
-            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2(), initialBounds.Maximum.ToVec2());
-
-            Vec2 point = MousePosition;
-
-            point -= screenMapRect.Minimum;
-            point /= screenMapRect.Size;
-            point = new Vec2(point.X, 1.0f - point.Y);
-            point *= mapRect.Size;
-            point += mapRect.Minimum;
-
-            return point;
         }
 
         void UpdateHUDControlIcon()

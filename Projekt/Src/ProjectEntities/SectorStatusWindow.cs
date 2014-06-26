@@ -85,6 +85,33 @@ namespace ProjectEntities
             ringInner.RotateRing += OnInnerRotation;
             ringMiddle.RotateRing += OnMiddleRotation;
 
+            // Ringe drehen entsprechend der Computer-Konfig
+            //for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
+            //{
+            //    if (Computer.RingRotations[0] != 0)
+            //    {
+            //        // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
+            //        int direction = (Computer.RingRotations[ring] < 0) ? -1 : 1;
+            //        for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
+            //        {
+            //            Vec3 pos = new Vec3();
+            //            Quat rotation = new Quat(pos, direction);
+            //            switch (ring)
+            //            {
+            //                case 0:
+            //                    OnOuterRotation(pos, rotation);
+            //                    break;
+            //                case 1:
+            //                    OnMiddleRotation(pos, rotation);
+            //                    break;
+            //                case 2:
+            //                    OnInnerRotation(pos, rotation);
+            //                    break;
+            //            }
+            //        }
+            //    }
+            //}
+
             secgrpA = ((SectorGroup)Entities.Instance.GetByName("F1SG-A"));
             secgrpB = ((SectorGroup)Entities.Instance.GetByName("F1SG-B"));
             secgrpC = ((SectorGroup)Entities.Instance.GetByName("F1SG-C"));

@@ -148,6 +148,7 @@
     <Compile Include="AboutWindow.cs" />
     <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AlienGameWindow.cs" />
+    <Compile Include="BigMinimapWindow.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs">
       <SubType>Code</SubType>
     </Compile>

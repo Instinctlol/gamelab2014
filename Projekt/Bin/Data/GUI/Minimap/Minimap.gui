@@ -55,7 +55,6 @@ control Window
 				name = Secgrp_A_R8
 				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_a_r8.png"
 				backTextureCoord = 0 0 0 0
-				visible = False
 			}
 			control RotControl
 			{
