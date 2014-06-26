@@ -320,13 +320,16 @@ namespace ProjectEntities
         /// <returns></returns>
         bool IsAstronoutInSector()
         {
-            // Iteriere durch alle MapObjects in dem Sector
-            foreach (MapObject obj in sector.ObjectsInRegion)
+            if (sector != null && sector.ObjectsInRegion != null && sector.ObjectsInRegion.Count > 0)
             {
-                // wurde ein Astronaut gefunden?
-                if (obj.Type is GameCharacterType)
+                // Iteriere durch alle MapObjects in dem Sector
+                foreach (MapObject obj in sector.ObjectsInRegion)
                 {
-                    return true;
+                    // wurde ein Astronaut gefunden?
+                    if (obj.Type is GameCharacterType)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
