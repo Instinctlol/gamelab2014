@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -1.906035 -101.9867 3.017124
-editorCameraDirection = 4.507505 -0.5059376
+editorCameraPosition = 1.744918 -97.98212 0.7837592
+editorCameraDirection = 0.1334966 0.02697805
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1207,8 +1207,9 @@ entity
 	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = RotateAndSingleSwitch
+	buttonType = Default
 	taskType = PIN
+	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
@@ -1256,8 +1257,9 @@ entity
 	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = RotateAndSingleSwitch
+	buttonType = None
 	taskType = PIN
+	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 63.44387 -69.60484 1.990149
 	name = Terminal_1
@@ -1445,7 +1447,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 109
+	uin = 115
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1455,7 +1457,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 110
+	uin = 116
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1465,7 +1467,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 111
+	uin = 117
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1475,11 +1477,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 112
+	uin = 118
 	classPrompt = AlienSpawner
-	sector = 70
 	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienSpawnerAI
 	healthFactorAtBeginning = 1
 	position = -11.96028 -118.6747 0.266995
 	name = AlienSpawner_8
