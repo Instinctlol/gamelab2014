@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    class RotateSmartButtonWindow : SmartButtonWindow
+    class SmartButtonRotateWindow : SmartButtonWindow
     {
         enum NetworkMessages
         {
@@ -14,7 +14,7 @@ namespace ProjectEntities
             RotateRightButtonClick,
         }
 
-        public RotateSmartButtonWindow(SmartButton button)
+        public SmartButtonRotateWindow(SmartButton button)
             : base(button)
         {
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\ActionWindows\\RotateActionGUI.gui");
@@ -40,7 +40,6 @@ namespace ProjectEntities
                         button.Terminal.DoRotateRightEvent();
                         break;
                 }
-                ;
             }
         }
 

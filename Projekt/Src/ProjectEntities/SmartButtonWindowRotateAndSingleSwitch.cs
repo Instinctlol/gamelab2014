@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjectEntities
 {
-    class RotateAndSingleSwitch
+    class SmartButtonWindowRotateAndSingleSwitch
     {
     }
 }

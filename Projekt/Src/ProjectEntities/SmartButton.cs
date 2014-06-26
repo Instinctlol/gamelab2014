@@ -47,7 +47,7 @@ namespace ProjectEntities
                     SmartButtonPressed();
                     break;
                 case Terminal.TerminalSmartButtonType.Default:
-                    Window = new RotateSmartButtonWindow(this);
+                    Window = new SmartButtonRotateWindow(this);
                     break;
                 default:
                     Window = null;
