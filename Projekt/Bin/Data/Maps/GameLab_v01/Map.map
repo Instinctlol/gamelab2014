@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 1.744918 -97.98212 0.7837592
-editorCameraDirection = 0.1334966 0.02697805
+editorCameraPosition = -1.906035 -101.9867 3.017124
+editorCameraDirection = 4.507505 -0.5059376
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1207,9 +1207,8 @@ entity
 	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = Default
+	buttonType = RotateAndSingleSwitch
 	taskType = PIN
-	actionType = RotateAndSingleSwitch
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
@@ -1257,9 +1256,8 @@ entity
 	taskData = 1234
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = None
+	buttonType = RotateAndSingleSwitch
 	taskType = PIN
-	actionType = Rotation
 	healthFactorAtBeginning = 1
 	position = 63.44387 -69.60484 1.990149
 	name = Terminal_1
@@ -1443,4 +1441,44 @@ entity
 	healthFactorAtBeginning = 1
 	position = 14.77913 87.7559 2.386972
 	name = AlienSpawner_7
+}
+entity
+{
+	type = TestProgressRepairable
+	uin = 115
+	classPrompt = ProgressRepairable
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = 4.282963 -100.2701 1.496258
+	name = TestProgressRepairable_1
+}
+entity
+{
+	type = TestProgressRepairable
+	uin = 116
+	classPrompt = ProgressRepairable
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = 4.326248 -101.8603 2.086319
+	name = TestProgressRepairable_2
+}
+entity
+{
+	type = TestProgressRepairable
+	uin = 117
+	classPrompt = ProgressRepairable
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = 4.317833 -103.1709 2.72963
+	name = TestProgressRepairable_3
+}
+entity
+{
+	type = AlienSpawner
+	uin = 118
+	classPrompt = AlienSpawner
+	intellectShouldDeleteAfterDetach = False
+	healthFactorAtBeginning = 1
+	position = -11.96028 -118.6747 0.266995
+	name = AlienSpawner_8
 }
