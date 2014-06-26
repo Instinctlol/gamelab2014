@@ -98,7 +98,7 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntDown.mesh"
 			collision = True
-			position = -23.73331 23.76976 0
+			position = -23.82393 23.76203 0.01824474
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
@@ -203,11 +203,10 @@ type BasicR
 			attenuationFar = 10
 			position = 1.027165 14.80246 2.5
 		}
-		mesh
+		mapObject
 		{
-			meshName = "Models\\DemoCorridors\\PassDown.mesh"
-			collision = True
-			position = -5.5 23.8 0
+			type = durchgang
+			position = -5.404219 23.74036 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
@@ -281,21 +280,21 @@ type BasicR
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = -24.05676 23.94214 0.01728749
+			position = -23.9331 23.94214 -0.03064346
 			rotation = 0 0 -1 -4.371139E-08
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = -23.98704 -24.03959 -0.05201578
+			position = -23.92339 -23.60168 -0.02758169
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = 11.97842 23.69495 0.04348636
+			position = 11.77412 23.69443 -0.04575944
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh

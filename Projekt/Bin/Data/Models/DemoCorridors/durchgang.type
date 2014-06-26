@@ -1,0 +1,19 @@
+type durchgang
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\durchgangBoden.mesh"
+			collision = True
+			position = -2.913243 0.3115917 1.900818
+		}
+		mesh
+		{
+			meshName = ".\\durchgangWall.mesh"
+			collision = True
+			position = -1.169446 0.2958069 1.835137
+		}
+	}
+}

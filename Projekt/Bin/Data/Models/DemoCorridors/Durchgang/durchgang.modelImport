@@ -1,0 +1,28 @@
+sourceFile = "Models\\DemoCorridors\\Durchgang\\durchgang.dae"
+objects
+{
+	mesh
+	{
+		name = durchgang
+		pivotPosition = -1.251125 -2.145767E-06 1.836866
+		sources
+		{
+			item
+			{
+				name = durchgang
+			}
+		}
+	}
+	mesh
+	{
+		name = durchgang2
+		pivotPosition = -3 -1.66893E-06 1.888638
+		sources
+		{
+			item
+			{
+				name = durchgang2
+			}
+		}
+	}
+}

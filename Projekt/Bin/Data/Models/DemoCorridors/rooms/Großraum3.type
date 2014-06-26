@@ -174,10 +174,9 @@ type "Gro\x00dfraum32"
 			attenuationFar = 10
 			position = 1.027165 14.80246 2.5
 		}
-		mesh
+		mapObject
 		{
-			meshName = "Models\\DemoCorridors\\PassDown.mesh"
-			collision = True
+			type = durchgang
 			position = -5.6 35.6 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
@@ -249,14 +248,14 @@ type "Gro\x00dfraum32"
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = -23.98704 -23.68938 -0.05201578
+			position = -23.90536 -23.61468 -0.05201578
 			rotation = 0 0 -0.7071068 0.7071068
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\CornerIntUp.mesh"
 			collision = True
-			position = 11.87842 35.48727 0.04348636
+			position = 11.87842 35.48727 -0.01172066
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh
@@ -265,10 +264,9 @@ type "Gro\x00dfraum32"
 			collision = True
 			position = 11.90731 -23.75179 -0.06757832
 		}
-		mesh
+		mapObject
 		{
-			meshName = "Models\\DemoCorridors\\PassDown.mesh"
-			collision = True
+			type = durchgang
 			position = -6.436134 -23.69508 0
 			rotation = 0 0 0.7071069 -0.707107
 		}
@@ -331,10 +329,9 @@ type "Gro\x00dfraum32"
 			rotation = 0 0 -0.9999973 -0.002396218
 			scale = 1 0.5547808 1
 		}
-		mesh
+		mapObject
 		{
-			meshName = "Models\\DemoCorridors\\PassDown.mesh"
-			collision = True
+			type = durchgang
 			position = -23.8656 6.370527 0
 			rotation = 0 0 -1 -1.049952E-08
 		}

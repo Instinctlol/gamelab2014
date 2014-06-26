@@ -1,0 +1,20 @@
+sourceFile = "Models\\DemoCorridors\\Durchgang\\PassDown.dae"
+objects
+{
+	mesh
+	{
+		name = PassDown
+		pivotPosition = -3 -1.66893E-06 1.888638
+		sources
+		{
+			item
+			{
+				name = PassDown2
+			}
+			item
+			{
+				name = PassDown
+			}
+		}
+	}
+}
