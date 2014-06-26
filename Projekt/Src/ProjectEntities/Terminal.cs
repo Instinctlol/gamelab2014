@@ -438,5 +438,24 @@ namespace ProjectEntities
             if (TerminalRotateRightAction != null)
                 TerminalRotateRightAction(this);
         }
+
+        public void DoDoorEvent()
+        {
+            if (TerminalDoorAction != null)
+                TerminalDoorAction(this);
+        }
+
+        public void DoLightEvent()
+        {
+            if (TerminalLightAction != null)
+                TerminalLightAction(this);
+        }
+
+        public void DoSwitchEvent()
+        {
+            if (TerminalSwitchAction != null)
+                TerminalSwitchAction(this);
+        }
+
     }
 }
