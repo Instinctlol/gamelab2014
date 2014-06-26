@@ -205,7 +205,7 @@ type "F3R-24"
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
-			position = 11.79929 -0.09446065 -0.04653931
+			position = 11.96563 -0.09446065 -0.04643911
 		}
 		mesh
 		{
@@ -284,7 +284,7 @@ type "F3R-24"
 		mapObject
 		{
 			type = durchgang
-			position = 11.88758 -0.4074221 -0.05516791
+			position = 11.73244 -0.4642525 -0.03401923
 		}
 		mapObject
 		{

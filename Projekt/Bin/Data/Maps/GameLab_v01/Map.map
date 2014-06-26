@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 11.19224 -16.72041 11.48355
-editorCameraDirection = 0.5328537 -0.3807923
+editorCameraPosition = 40.08904 -14.58624 6.762413
+editorCameraDirection = 4.570111 0.03920493
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -36,6 +36,10 @@ rootEditorLayer
 	layer
 	{
 		name = F3
+		layer
+		{
+			name = Dynamics
+		}
 	}
 	layer
 	{
@@ -64,6 +68,10 @@ rootEditorLayer
 	layer
 	{
 		name = F2
+		layer
+		{
+			name = Dynamics
+		}
 	}
 	layer
 	{
@@ -855,6 +863,7 @@ entity
 	type = SectorGroup
 	uin = 66
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -869,6 +878,7 @@ entity
 	type = SectorGroup
 	uin = 67
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -940,7 +950,7 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -0.9446892 111.8426 3
+	position = -1.542244 110.3673 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
 	visible = False
@@ -958,7 +968,7 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -81.79011 82.54621 3
+	position = -78.5583 78.36488 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
 	visible = False
@@ -1159,6 +1169,7 @@ entity
 	type = SectorGroup
 	uin = 84
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1173,6 +1184,7 @@ entity
 	type = SectorGroup
 	uin = 85
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1187,6 +1199,7 @@ entity
 	type = SectorGroup
 	uin = 86
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1201,6 +1214,7 @@ entity
 	type = SectorGroup
 	uin = 87
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1215,6 +1229,7 @@ entity
 	type = SectorGroup
 	uin = 88
 	classPrompt = SectorGroup
+	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
@@ -1233,7 +1248,7 @@ entity
 	needOpen = False
 	openDoorOffsetCoefficient = 0
 	healthFactorAtBeginning = 1
-	position = -0.04645407 -93.62017 1.897754
+	position = -0.04040873 -94.01196 1.897754
 	rotation = 0 0 -0.7071068 0.7071068
 	name = OutDoor_0
 	editorLayer = "Root Layer\\F1\\Dynamics"
@@ -1291,22 +1306,8 @@ entity
 }
 entity
 {
-	type = Terminal
-	uin = 94
-	classPrompt = Terminal
-	taskData = 1234
-	taskFailSound = "Sounds\\taskFail.ogg"
-	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = RotateAndSingleSwitch
-	taskType = PIN
-	healthFactorAtBeginning = 1
-	position = 63.44387 -69.60484 1.990149
-	name = Terminal_1
-}
-entity
-{
 	type = BooleanSwitch
-	uin = 95
+	uin = 94
 	classPrompt = BooleanSwitch
 	value = False
 	healthFactorAtBeginning = 1
@@ -1316,7 +1317,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 96
+	uin = 95
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1327,9 +1328,9 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 97
+	uin = 96
 	classPrompt = Room
-	position = -31.75511 32.38909 0
+	position = -31.92672 32.38909 0
 	rotation = -0.0006641686 -0.001620354 0.9330865 0.3596482
 	scale = 0.6 0.9394693 1
 	name = F3C23
@@ -1338,7 +1339,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 98
+	uin = 97
 	classPrompt = Sector
 	ring = 18
 	group = 67
@@ -1356,7 +1357,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 99
+	uin = 98
 	classPrompt = Room
 	position = 31.89095 -32.23737 0
 	rotation = 0 0 -0.3688734 0.9294797
@@ -1367,7 +1368,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 100
+	uin = 99
 	classPrompt = Sector
 	ring = 18
 	group = 67
@@ -1385,7 +1386,7 @@ entity
 entity
 {
 	type = Bug
-	uin = 101
+	uin = 100
 	classPrompt = GameCharacter
 	intellectShouldDeleteAfterDetach = False
 	initialAI = DefaultGameCharacterAI
@@ -1397,7 +1398,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 102
+	uin = 101
 	classPrompt = AlienSpawner
 	sector = 19
 	intellectShouldDeleteAfterDetach = False
@@ -1410,7 +1411,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 103
+	uin = 102
 	classPrompt = AlienSpawner
 	sector = 20
 	intellectShouldDeleteAfterDetach = False
@@ -1423,7 +1424,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 104
+	uin = 103
 	classPrompt = AlienSpawner
 	sector = 51
 	intellectShouldDeleteAfterDetach = False
@@ -1436,7 +1437,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 105
+	uin = 104
 	classPrompt = AlienSpawner
 	sector = 74
 	intellectShouldDeleteAfterDetach = False
@@ -1449,7 +1450,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 106
+	uin = 105
 	classPrompt = AlienSpawner
 	sector = 71
 	intellectShouldDeleteAfterDetach = False
@@ -1462,7 +1463,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 107
+	uin = 106
 	classPrompt = AlienSpawner
 	sector = 68
 	intellectShouldDeleteAfterDetach = False
@@ -1475,7 +1476,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 108
+	uin = 107
 	classPrompt = AlienSpawner
 	sector = 54
 	intellectShouldDeleteAfterDetach = False
@@ -1488,7 +1489,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 109
+	uin = 108
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1498,7 +1499,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 110
+	uin = 109
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1508,7 +1509,7 @@ entity
 entity
 {
 	type = TestProgressRepairable
-	uin = 111
+	uin = 110
 	classPrompt = ProgressRepairable
 	repaired = False
 	healthFactorAtBeginning = 1
@@ -1518,10 +1519,147 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 112
+	uin = 111
 	classPrompt = AlienSpawner
 	intellectShouldDeleteAfterDetach = False
 	healthFactorAtBeginning = 1
 	position = -11.96028 -118.6747 0.266995
 	name = AlienSpawner_8
+}
+entity
+{
+	type = OutDoor
+	uin = 152
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -65.87433 67.51195 1.878174
+	rotation = -0.0009798936 0.0004066327 -0.3832845 0.9236298
+	name = OutDoor_1
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 153
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -63.56855 64.72929 1.807043
+	rotation = 0 0 -0.3849048 0.9229563
+	name = OutDoor_2
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 148
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -0.1199341 -92.34186 1.946912
+	rotation = 0 0 -0.704954 0.709253
+	name = OutDoor_3
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 149
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 40.16523 -40.9061 1.768119
+	rotation = 0 0 -0.3831688 0.9236783
+	name = OutDoor_4
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 154
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 92.78835 -0.0115585 1.716934
+	name = OutDoor_5
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 155
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 94.57516 0.06826806 1.851048
+	name = OutDoor_6
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 156
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -0.07659376 -58.36517 1.717478
+	rotation = 0 0 -0.708742 0.7054679
+	name = OutDoor_7
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 157
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -0.005737305 58.30191 1.775443
+	rotation = 0 0 0.7122842 0.7018912
+	name = OutDoor_8
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 158
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 64.57487 -65.1366 1.842838
+	rotation = 0 0 -0.3707921 0.9287159
+	name = OutDoor_9
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = OutDoor
+	uin = 159
+	classPrompt = OutDoor
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = -92.37087 -0.006235659 1.788434
+	name = OutDoor_10
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
