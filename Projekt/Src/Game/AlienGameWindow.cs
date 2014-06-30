@@ -33,9 +33,9 @@ namespace Game
         static Vec2 todoTranslate = Vec2.Zero;
         static float todoRotate = 0;
         static CameraType cameraType = CameraType.Game;
-        float cameraDistance = 200;
+        float cameraDistance = 20;
         // Kamera sehr steil einstellen
-        SphereDir cameraDirection = new SphereDir((float)Math.PI / 2 - 0.1f, (float)Math.PI / 2 - 0.1f);
+        SphereDir cameraDirection = new SphereDir((float)Math.PI / 2 - 0.01f, (float)Math.PI / 2 - 0.01f);
         //SphereDir cameraDirection = new SphereDir(1.5f, 0.85f);
         Vec2 cameraPosition;
 
