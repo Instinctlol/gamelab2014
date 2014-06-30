@@ -293,6 +293,7 @@ namespace Game
 
 		void UpdateControls()
 		{
+            //Anzahl an Clients auf > 1 setzen
             if (GameNetworkServer.Instance != null && GameNetworkServer.Instance.ConnectedNodes.Count >= 0)
             {
                 buttonStart.Enable = true;
