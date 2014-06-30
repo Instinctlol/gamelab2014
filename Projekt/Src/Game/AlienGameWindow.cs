@@ -202,18 +202,22 @@ namespace Game
                     float angle = test.getx() - test.gety();
                     if (angle > 0) todoRotate += 1;
                     if (angle < 0) todoRotate -= 1;
-                    Console.WriteLine("Trying to Rotate " + angle);
-                    
-                
+                    Console.WriteLine("Trying to Rotate " + angle);           
                 }
                 else if (true && test.getOPType() == opType.selection) {
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
+                    if (IsMouseInMenuArea(MousePos) && Controls.OfType<MenuWindow>().Count() == 0)
+                    {
+                        //Do Something
+                        Controls.Add(new MenuWindow());
+                    }
                     EngineApp.Instance.MousePosition = MousePos;
-                    EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
-                    EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
-                    
+
+                    //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
+                    //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
+
                 }
 
 
@@ -272,6 +276,16 @@ namespace Game
         bool IsMouseInActiveArea()
         {
             if (!hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePosition))
+                
+                return false;
+            return true;
+        }
+
+        //Pommes
+        bool IsMouseInMenuArea(Vec2 Pos)
+        {
+            if (!hudControl.Controls["StatusNotificationTop"].Controls["Menu"].GetScreenRectangle().IsContainsPoint(Pos))
+
                 return false;
             return true;
         }
