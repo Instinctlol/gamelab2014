@@ -1,0 +1,30 @@
+void computeStereoCameraProperties(ref Camera camera, float distance, float horizontalCameraOffset, float verticalCameraOffset, float displayWidth, float displayHeight)
+        {
+            #region Aspect Ratio and Vertical Field of View
+            float aspect = displayWidth / displayHeight;
+            float c = (float)Math.Sqrt(distance * distance + (displayHeight / 2.0f) * (displayHeight / 2.0f));
+            float alpha = (float)Math.Acos(distance / c);
+            float fovy = new Degree(new Radian(2.0f * alpha));
+            #endregion
+
+            #region Asymetric Frustum
+            Vec2 frustumOffset = new Vec2();
+
+            float nearPlane = camera.NearClipDistance;
+            float nearDistanceRatio = nearPlane / distance;
+            
+            frustumOffset.X = horizontalCameraOffset / distance;
+            frustumOffset.Y = verticalCameraOffset / distance;
+            
+            #endregion
+
+
+            #region Application to Camera
+            camera.Fov = fovy;
+            camera.AspectRatio = aspect;
+            camera.FrustumOffset = frustumOffset;
+
+// camera.Direction = ... (schaut immer orthogonal runter)
+
+            #endregion
+        }

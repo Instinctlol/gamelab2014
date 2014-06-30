@@ -1,0 +1,22 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<viargo-settings matrix-order="rol-col" handedness="right">
+    <hardware>
+        <device port="3333" class="TuioDevice" flosc="false" connection="UDP" host="127.0.0.1" name="CCV-MultiTouch"/>
+        <device class="VrpnDevice" type="position-and-orientation" name="PPT-Tracker" device-id="ppt@localhost"/>
+     </hardware>
+
+    <cameras>
+        <camera master="null" stereo-type="off-axis" iod="6.5" name="main">
+            <projection>
+                <!--<perspective far="10000.0" ratio="1.771" near="0.001" fovy="45.0"/>-->
+                <!-- Maße der Workbench: 136.0 x 102.0 cm -->
+                <!-- Strahlensatz: -left = (length * near/eye) / 2 -->
+              <frustum left="-1.36" right="1.36" top="1.02" bottom="-1.02" near="1.0" far="1000"/>
+            </projection>
+            <view>
+                <look-at target="0.0 0.0 0.0" up="0.0 1.0 0.0" eye="0.0 0.0 50.0"/>
+            </view>
+        </camera>
+    </cameras>
+</viargo-settings>

@@ -1,0 +1,5 @@
+INFO: Listening on UDP ip: 127.0.0.1 port: 3333
+WARNING: Unsupported device class <VrpnDevice> .. ignoring!
+ERROR: Initialization of display settings is currently not implemented
+ERROR: Initialization of metaphor settings is currently not implemented
+INFO: Listening on UDP ip:  port: 2424
