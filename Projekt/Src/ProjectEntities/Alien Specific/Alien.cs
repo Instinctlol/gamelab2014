@@ -82,6 +82,25 @@ namespace ProjectEntities
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
+        [FieldSerialize]
+        private MapObject movRoute; //will hold a MapCurve that we place on the map as patrol route
+
+
+        public MapObject MovementRoute //accessor for the MapCurve. Lets create some logic for the 'set'
+        {
+            get { return movRoute; }
+            set
+            {
+                if (value is MapCurve) //accept only certain MapObjects
+                {
+                    movRoute = value;
+                }
+                else movRoute = null;
+            }
+        }
+
+
+      
         enum NetworkMessages
         {
             MainBodyVelocityToClient

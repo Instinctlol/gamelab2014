@@ -8,6 +8,10 @@ using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.PhysicsSystem;
 
+//begin patrol
+using System.Collections; //Add arraylist
+//end patrol
+
 namespace ProjectEntities
 {
     /// <summary>
@@ -15,12 +19,11 @@ namespace ProjectEntities
     /// </summary>
     public class AlienAIType : AlienUnitAIType
     {
+   
     }
 
     /// <summary>
     /// AI for small aliens
-    /// 
-    /// bleibt erstmal leer, muss nachher code von AlienUnitAI rüberkopiert werden, der nicht von der AlienSpawnerAI verwendet wird
     /// </summary>
     public class AlienAI : AlienUnitAI
     {
@@ -30,6 +33,11 @@ namespace ProjectEntities
 
         //optimization
         List<Weapon> initialWeapons;
+
+        //begin patrol
+        ArrayList route; //new variable for the route
+        int routeIndex = 0; //index for route points
+        //end patrol
 
         /// <summary>
         /// Konstruktor
@@ -60,11 +68,8 @@ namespace ProjectEntities
             list.Add(new UserControlPanelTask(new Task(Task.Types.Attack),
                 CurrentTask.Type == Task.Types.Attack || CurrentTask.Type == Task.Types.BreakableAttack));
 
-            list.Add(new UserControlPanelTask(new Task(Task.Types.Active),
-                CurrentTask.Type == Task.Types.Active));
-            
-            list.Add(new UserControlPanelTask(new Task(Task.Types.Passive),
-                CurrentTask.Type == Task.Types.Passive));
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Patrol),
+                CurrentTask.Type == Task.Types.Patrol));
 
             return list;
         }
@@ -93,51 +98,126 @@ namespace ProjectEntities
             return 0;
         }
 
+
+
+
+
+        //Alien überprüft selbstständig, ob Gegner in der Nähe sind und greift dann an
         bool InactiveFindTask()
         {
-            if (initialWeapons.Count == 0)
-                return false;
+                //wenn das Alien keine Waffe hat -> tue nichts
+                if (initialWeapons.Count == 0)
+                    return false;
 
-            Alien controlledObj = ControlledObject;
-            if (controlledObj == null)
-                return false;
+                Alien controlledObj = ControlledObject;
+                if (controlledObj == null)
+                    return false;
 
-            Dynamic newTaskAttack = null;
-            float attackObjectPriority = 0;
+                Dynamic newTaskAttack = null;
+                float attackObjectPriority = 0;
 
-            Vec3 controlledObjPos = controlledObj.Position;
-            float radius = controlledObj./*Type.*/ViewRadius;
+                Vec3 controlledObjPos = controlledObj.Position;
+                float radius = controlledObj./*Type.*/ViewRadius;
 
-            Map.Instance.GetObjects(new Sphere(controlledObjPos, radius),
-                MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject mapObject)
-                {
-                    Unit obj = (Unit)mapObject;
-
-                    Vec3 objPos = obj.Position;
-
-                    //check distance
-                    Vec3 diff = objPos - controlledObjPos;
-                    float objDistance = diff.Length();
-                    if (objDistance > radius)
-                        return;
-
-                    float priority = GetAttackObjectPriority(obj);
-                    if (priority != 0 && priority > attackObjectPriority)
+                //suche Objekte in einem bestimmten Radius
+                Map.Instance.GetObjects(new Sphere(controlledObjPos, radius),
+                    MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject mapObject)
                     {
-                        attackObjectPriority = priority;
-                        newTaskAttack = obj;
-                    }
-                });
+                        Unit obj = (Unit)mapObject;
 
-            if (newTaskAttack != null)
-            {
-                DoTask(new Task(Task.Types.BreakableAttack, newTaskAttack), false);
-                return true;
-            }
+                        Vec3 objPos = obj.Position;
 
+                        //überprüfe Abstand des Objektes
+                        Vec3 diff = objPos - controlledObjPos;
+                        float objDistance = diff.Length();
+                        if (objDistance > radius)
+                            return;
+
+                        //falls "attack-Priorität" größer -> neues Objekt für attack gefunden
+                        float priority = GetAttackObjectPriority(obj);
+                        if (priority != 0 && priority > attackObjectPriority)
+                        {
+                            attackObjectPriority = priority;
+                            newTaskAttack = obj;
+                        }
+                    });
+
+                //falls Objekt für attack vorhanden, greife automatisch an!
+                if (newTaskAttack != null)
+                {
+                    DoTask(new Task(Task.Types.BreakableAttack, newTaskAttack), false);
+                    return true;
+                }
+                //else
+                //{
+
+                    //begin patrol
+
+
+                    //if (CurrentTask.Type == Task.Types.Patrol)
+                    //{
+
+                        //MapCurve mapCurve = controlledObj.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (Alien on the map)
+
+                        //if (mapCurve != null) //was there one set for this Alien?
+                        //{
+                        //    if (route == null) //initialize patrol route, if not already done
+                        //    {
+                        //        route = new ArrayList();
+
+                        //        foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
+                        //        {
+                        //            route.Add(point);
+                        //        }
+                        //    }
+
+                        //    if (CurrentTask.Type == Task.Types.Patrol) //
+                        //    {
+                        //        //create a movement task for the next point
+                        //        MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+
+                        //        //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
+                        //        DoTask(new Task(Task.Types.Move), true);
+                        //        this.DoTask(new AlienAI.PatrolMove(this, pt.Position, .5f), true); //create a new move task and use current CurvePoint as destination
+                        //        routeIndex++; //next route waypoint
+
+                        //        //reverse the route if we are at the end
+
+                        //        if (routeIndex >= route.Count)
+                        //        {
+                        //            routeIndex = 0;
+                        //            route.Reverse();
+                        //        }
+                        //        return true; //we found something to do!
+                        //    }
+                        //    else // we are not patrolling. Select a random destination from the curve
+                        //    {
+                        //        Random rnd = new Random();
+                        //        MapCurvePoint pt = route[rnd.Next(route.Count)] as MapCurvePoint;
+                        //        //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks;
+                        //        DoTask(new Task(Task.Types.Move), false);
+                        //        //this.DoTask(new AlienAI.MoveTask(this, pt.Position, .5f), false);
+                        //        return true;
+                        //    }
+                        //}
+
+                    //}
+
+                    //end patrol
+
+
+
+                
+            
             return false;
         }
+    
 
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        //überprüfe, ob Alien eine Waffe besitzt
         void UpdateInitialWeapons()
         {
             initialWeapons = new List<Weapon>();
@@ -191,13 +271,12 @@ namespace ProjectEntities
                     }
                     break;
 
-                //Attack, Repair, Active, Passive
+                //Attack, Repair, Patrol
                 case Task.Types.Attack:
                 case Task.Types.BreakableAttack:
                 case Task.Types.Repair:
                 case Task.Types.BreakableRepair:
-                case Task.Types.Active:
-                case Task.Types.Passive:
+                case Task.Types.Patrol:
                 {
                     /*//healed
                     if ((CurrentTask.Type == Task.Types.Repair ||
@@ -254,7 +333,7 @@ namespace ProjectEntities
                             }
                         }
 
-                        //movement control 
+                        //movement control: falls Gegner sichtbar, stopt das Alien und richtet sich in Richtung seines Gegners aus
                         if (lineVisibility)
                         {
                             //stop
@@ -302,8 +381,8 @@ namespace ProjectEntities
             }
             if ((CurrentTask.Type == Task.Types.Stop ||
                 CurrentTask.Type == Task.Types.BreakableMove ||
-                CurrentTask.Type == Task.Types.BreakableAttack ||
-                CurrentTask.Type == Task.Types.BreakableRepair
+                CurrentTask.Type == Task.Types.BreakableAttack //||
+                //CurrentTask.Type == Task.Types.BreakableRepair
                 ) && Tasks.Count == 0)
             {
                 inactiveFindTaskTimer -= TickDelta;
@@ -315,6 +394,12 @@ namespace ProjectEntities
                 }
             }
         }
+
+               
+         
+
+
+
 
     }
 }
