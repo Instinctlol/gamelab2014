@@ -59,5 +59,6 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		position = ScaleByResolution 33 56
 		name = AllowToConnectDuringGame
 		text = Allow to connect during the simulation
+		enable = False
 	}
 }

@@ -156,8 +156,7 @@ namespace ProjectEntities
 
         private void CalculateMainBodyVelocity()
         {
-            mainBodyVelocity = (mainBody.Position - oldMainBodyPosition) *
-                EntitySystemWorld.Instance.GameFPS;
+            mainBodyVelocity = (mainBody.Position - oldMainBodyPosition) * EntitySystemWorld.Instance.GameFPS;
 
             if (EntitySystemWorld.Instance.IsServer())
                 Server_SendMainBodyVelocityToAllClients();

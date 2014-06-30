@@ -16,7 +16,7 @@ namespace Game
 	public class MultiplayerLobbyWindow : Control
 	{
 		Control window;
-		CheckBox checkBoxAllowToConnectDuringGame;
+		//CheckBox checkBoxAllowToConnectDuringGame;
 		Button buttonStart;
 		ListBox listBoxUsers;
 		EditBox editBoxChatMessage;
@@ -40,30 +40,34 @@ namespace Game
 			( (Button)window.Controls[ "Exit" ] ).Click += Exit_Click;
 
 			buttonStart = (Button)window.Controls[ "Start" ];
-			if( GameNetworkServer.Instance != null )
-				buttonStart.Click += Start_Click;
+            if (GameNetworkServer.Instance != null)
+            {
+                buttonStart.Click += Start_Click;
+            }
+				
 			if( GameNetworkClient.Instance != null )
 				buttonStart.Enable = false;
 
 			listBoxUsers = (ListBox)window.Controls[ "Users" ];
 
 			editBoxChatMessage = (EditBox)window.Controls[ "ChatMessage" ];
-			editBoxChatMessage.PreKeyDown += editBoxChatMessage_PreKeyDown;	
+			editBoxChatMessage.PreKeyDown += editBoxChatMessage_PreKeyDown;
 
-			//checkBoxAllowToConnectDuringGame
+            /*
+            //checkBoxAllowToConnectDuringGame
 			{
 				checkBoxAllowToConnectDuringGame = (CheckBox)window.Controls[ "AllowToConnectDuringGame" ];
-
+            
 				if( GameNetworkServer.Instance != null )
 				{
-					checkBoxAllowToConnectDuringGame.CheckedChange +=
-						checkBoxAllowToConnectDuringGame_CheckedChange;
+					checkBoxAllowToConnectDuringGame.CheckedChange += checkBoxAllowToConnectDuringGame_CheckedChange;
 				}
 				else
 				{
 					checkBoxAllowToConnectDuringGame.Enable = false;
 				}
-			}
+            }
+            */
 
 			//server specific
 			GameNetworkServer server = GameNetworkServer.Instance;
@@ -218,7 +222,7 @@ namespace Game
 			//send map name to new client
 			server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_MapName", "Maps\\GameLab_v01\\Map.map" );
 			//send AllowToConnectDuringGame flag to new client
-			server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_AllowToConnectDuringGame", checkBoxAllowToConnectDuringGame.Checked.ToString() );
+			//server.CustomMessagesService.SendToClient( user.ConnectedNode, "Lobby_AllowToConnectDuringGame", checkBoxAllowToConnectDuringGame.Checked.ToString() );
 		}
 
 		void Server_ChatService_ReceiveText( ChatServerNetworkService sender,
@@ -238,12 +242,12 @@ namespace Game
 
 		void Client_CustomMessagesService_ReceiveMessage( CustomMessagesClientNetworkService sender, string message, string data )
 		{
-			if( message == "Lobby_AllowToConnectDuringGame" )
-			{
-				//update AllowToConnectDuringGame check box on client
-				checkBoxAllowToConnectDuringGame.Checked = bool.Parse( data );
-			}
-		}
+		//	if( message == "Lobby_AllowToConnectDuringGame" )
+		//	{
+		//		//update AllowToConnectDuringGame check box on client
+		//		checkBoxAllowToConnectDuringGame.Checked = bool.Parse( data );
+		//	}
+        }
 
 		void Exit_Click( Button sender )
 		{
@@ -275,21 +279,29 @@ namespace Game
 			editBoxChatMessage.Text = "";
 		}
 
+        /*
 		void checkBoxAllowToConnectDuringGame_CheckedChange( CheckBox sender )
 		{
 			//send AllowToConnectDuringGame to clients
 			GameNetworkServer server = GameNetworkServer.Instance;
 			if( server != null )
 			{
-				server.CustomMessagesService.SendToAllClients( "Lobby_AllowToConnectDuringGame",
-					checkBoxAllowToConnectDuringGame.Checked.ToString() );
+				server.CustomMessagesService.SendToAllClients( "Lobby_AllowToConnectDuringGame", checkBoxAllowToConnectDuringGame.Checked.ToString() );
 			}
-		}
+        }
+        */
 
 		void UpdateControls()
 		{
-			if( GameNetworkServer.Instance != null )
-                buttonStart.Enable = !string.IsNullOrEmpty("Maps\\GameLab_v01\\Map.map");
+            if (GameNetworkServer.Instance != null && GameNetworkServer.Instance.ConnectedNodes.Count >= 0)
+            {
+                buttonStart.Enable = true;
+            }
+            else
+            {
+                buttonStart.Enable = false;
+            }
+            
 		}
 
 		void Start_Click( Button sender )
@@ -297,7 +309,8 @@ namespace Game
 			GameNetworkServer server = GameNetworkServer.Instance;
 
 			//AllowToConnectDuringGame
-			server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
+			//server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
+            //server.AllowToConnectNewClients = false;
 
             GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
 		}

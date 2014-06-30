@@ -115,7 +115,7 @@ namespace Game
 
 			SetInfo( "Creating server...", false );
 
-			GameNetworkServer server = new GameNetworkServer( "AVA Server",	EngineVersionInformation.Version, 3, true );
+			GameNetworkServer server = new GameNetworkServer( "AVA Server",	EngineVersionInformation.Version, 2, true );
 
 			int port = 17000;
 
