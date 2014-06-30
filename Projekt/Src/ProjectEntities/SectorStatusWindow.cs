@@ -86,31 +86,31 @@ namespace ProjectEntities
             ringMiddle.RotateRing += OnMiddleRotation;
 
             // Ringe drehen entsprechend der Computer-Konfig
-            //for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
-            //{
-            //    if (Computer.RingRotations[0] != 0)
-            //    {
-            //        // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
-            //        int direction = (Computer.RingRotations[ring] < 0) ? -1 : 1;
-            //        for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
-            //        {
-            //            Vec3 pos = new Vec3();
-            //            Quat rotation = new Quat(pos, direction);
-            //            switch (ring)
-            //            {
-            //                case 0:
-            //                    OnOuterRotation(pos, rotation);
-            //                    break;
-            //                case 1:
-            //                    OnMiddleRotation(pos, rotation);
-            //                    break;
-            //                case 2:
-            //                    OnInnerRotation(pos, rotation);
-            //                    break;
-            //            }
-            //        }
-            //    }
-            //}
+            for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
+            {
+                if (Computer.RingRotations[0] != 0)
+                {
+                    // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
+                    bool left = (Computer.RingRotations[ring] < 0);
+                    for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
+                    {
+                        Vec3 pos = new Vec3();
+                        Quat rotation = new Quat();
+                        switch (ring)
+                        {
+                            case 0:
+                                OnOuterRotation(pos, rotation, left);
+                                break;
+                            case 1:
+                                OnMiddleRotation(pos, rotation, left);
+                                break;
+                            case 2:
+                                OnInnerRotation(pos, rotation, left);
+                                break;
+                        }
+                    }
+                }
+            }
 
             secgrpA = ((SectorGroup)Entities.Instance.GetByName("F1SG-A"));
             secgrpB = ((SectorGroup)Entities.Instance.GetByName("F1SG-B"));
@@ -175,15 +175,15 @@ namespace ProjectEntities
         }
 
 
-        private void OnInnerRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot)
+        private void OnInnerRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (rot.W > 0)
+            if (!left)
             {
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
             }
-            else if (rot.W < 0)
+            else
             {
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
@@ -191,9 +191,9 @@ namespace ProjectEntities
             }
         }
 
-        private void OnMiddleRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot)
+        private void OnMiddleRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (rot.W > 0)
+            if (!left)
             {
                 ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
@@ -201,7 +201,7 @@ namespace ProjectEntities
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
             }
                 
-            else if (rot.W < 0)
+            else
             {
                 ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
@@ -210,9 +210,9 @@ namespace ProjectEntities
             }
         }
 
-        private void OnOuterRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot)
+        private void OnOuterRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (rot.W > 0)
+            if (!left)
             {
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
 
@@ -220,7 +220,7 @@ namespace ProjectEntities
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
             }
-            else if (rot.W < 0)
+            else
             {
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
 

@@ -231,7 +231,7 @@ namespace ProjectEntities
 
 
         //Wenn Ring rotiert alles im Sektor rotieren
-        private void OnRotateRing(Vec3 pos, Quat rot)
+        private void OnRotateRing(Vec3 pos, Quat rot, bool left)
         {
 
             Rotation = rot * Rotation;

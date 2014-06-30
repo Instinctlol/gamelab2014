@@ -31,7 +31,7 @@ namespace ProjectEntities
         //***************************
 
 
-        public void OnRotate(Vec3 pos, Quat rot)
+        public void OnRotate(Vec3 pos, Quat rot, bool left)
         {
             if (partnerDoor != null)
                 partnerDoor.Opened = false;

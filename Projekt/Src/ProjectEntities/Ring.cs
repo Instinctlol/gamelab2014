@@ -70,7 +70,7 @@ namespace ProjectEntities
         //******************************
         //*******Delegates/Events*******
         //****************************** 
-        public delegate void RotateRingDelegate(Vec3 pos, Quat rot);
+        public delegate void RotateRingDelegate(Vec3 pos, Quat rot, bool left);
 
 
         [LogicSystemBrowsable(true)]
@@ -108,7 +108,7 @@ namespace ProjectEntities
 
             if (RotateRing != null)
             {
-                RotateRing(this.Position, newRot);
+                RotateRing(this.Position, newRot, true);
             }        
         }
 
@@ -134,7 +134,7 @@ namespace ProjectEntities
 
             if (RotateRing != null)
             {
-                RotateRing(this.Position, newRot);
+                RotateRing(this.Position, newRot, false);
             }
 
         }
