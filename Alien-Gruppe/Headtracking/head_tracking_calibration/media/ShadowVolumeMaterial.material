@@ -1,0 +1,67 @@
+material ShadowInteractionTest/ShadowVolumeMaterialLines
+{
+	technique
+	{
+		pass
+		{
+			//depth_write on
+			//lighting off
+			polygon_mode wireframe
+			
+			cull_hardware none // anticlockwise
+			cull_software none
+			
+			scene_blend alpha_blend
+			depth_write off
+			
+			//diffuse 0.5 0.5 0.5 0.4
+			diffuse 0.1 0.1 0.1 1.0
+			ambient 0.1 0.1 0.1 1.0
+		}
+	}
+}
+
+material ShadowInteractionTest/ShadowVolumeMaterialBody
+{
+	technique
+	{
+		pass
+		{
+			//depth_write on
+			//lighting off
+			
+			cull_hardware none // anticlockwise
+			cull_software none
+			
+			scene_blend alpha_blend
+			depth_write off
+			
+			//diffuse 0.5 0.5 0.5 0.4
+			diffuse 0.1 0.1 0.1 0.4
+			ambient 0.1 0.1 0.1 0.4
+		}
+	}
+}
+
+material ShadowInteractionTest/ShadowVolumeMaterial
+{
+	technique
+	{
+		pass
+		{
+			//depth_write on
+			//lighting off
+			
+			cull_hardware none // anticlockwise
+			cull_software none
+			
+			scene_blend alpha_blend
+			depth_write off
+			depth_check off
+			
+			//diffuse 0.5 0.5 0.5 0.4
+			diffuse 0.1 0.1 0.1 0.6
+			ambient 0.1 0.1 0.1 0.6
+		}
+	}
+}

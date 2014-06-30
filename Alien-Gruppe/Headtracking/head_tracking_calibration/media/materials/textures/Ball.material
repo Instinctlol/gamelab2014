@@ -1,0 +1,371 @@
+// ball genrated by blender2ogre 0.6.0
+
+material kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass kugel
+        {
+			ambient 0.8 0.8 0.8 1.0
+			diffuse 0.6 0.6 0.6 1.0
+			specular 0.8 0.8 0.8 1.0 12.5
+			emissive 0.0 0.0 0.0 1.0
+		}
+	}
+}
+
+
+material white : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+        //    ambient 0.4 0.4 0.4 1.0
+        //    diffuse 0.8 0.8 0.8 1.0
+        //    specular 1.0 1.0 1.0 1.0 12.5
+		
+//			ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+//            diffuse 0.6400000190734865 0.64000001 0.6400000190734865 1.0
+//            specular 0.5 0.5 0.5 1.0 5.5
+//            emissive 0.0 0.0 0.0 1.0
+		
+        }
+    }
+}
+
+material ball_1 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+//            ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+//            diffuse 0.6400000190734865 0.64000001 0.6400000190734865 1.0
+//            specular 0.5 0.5 0.5 1.0 12.5
+//            emissive 0.0 0.0 0.0 1.0
+			
+        //    alpha_to_coverage off
+        //    colour_write on
+        //    cull_hardware clockwise
+        //    depth_check on
+        //    depth_func less_equal
+        //    depth_write on
+        //    illumination_stage 
+        //    light_clip_planes off
+        //    light_scissor off
+        //    lighting on
+        //    normalise_normals off
+        //    polygon_mode solid
+        //    scene_blend one zero
+        //    scene_blend_op add
+        //    shading gouraud
+        //    transparent_sorting on
+
+            texture_unit 1
+            {
+                texture K1.png
+                tex_address_mode wrap
+				scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_2 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 2 
+            {
+                texture K2.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_3 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 3
+            {
+                texture K3.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_4 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 4
+            {
+                texture K4.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_5 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 5
+            {
+                texture K5.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_6 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 6
+            {
+                texture K6.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_7 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 7
+            {
+                texture K7.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_8 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 8
+            {
+                texture K8.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_9 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 9
+            {
+                texture K9.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_10 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 10
+            {
+                texture K10.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_11 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 11
+            {
+                texture K11.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_12 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 12
+            {
+                texture K12.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_13 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 13
+            {
+                texture K13.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_14 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 14
+            {
+                texture K14.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_15 : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+            texture_unit 15
+            {
+                texture K15.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
+
+material ball_new : kugel
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass ball
+        {
+			// scene_blend alpha_blend
+			// depth_write off
+
+            texture_unit uv
+            {
+                texture K12.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+				// colour_op_ex source1 src_manual src_current 1 0 0
+				// alpha_op_ex source1 src_manual src_current 1.0            
+			}
+        }
+    }
+}
+

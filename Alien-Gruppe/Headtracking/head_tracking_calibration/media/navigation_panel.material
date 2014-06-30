@@ -1,0 +1,39 @@
+material navigation_panel
+{
+	technique
+	{
+		scheme Default
+		pass
+		{			
+			scene_blend alpha_blend
+			receive_shadows off
+			depth_write on
+			lighting off
+			
+			texture_unit
+			{
+				texture navigation_panel_new.png
+			}
+		}
+	}
+}
+
+material navigation_marker
+{
+	technique
+	{
+		scheme Default
+		pass
+		{			
+			scene_blend alpha_blend
+			receive_shadows off
+			depth_write on
+			lighting off
+			
+			texture_unit
+			{
+				texture navigation_marker.png
+			}
+		}
+	}
+}

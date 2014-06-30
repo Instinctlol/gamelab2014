@@ -1,0 +1,48 @@
+material book_01
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			ambient 0.500000 0.500000 0.500000 0.000000
+			diffuse 0.737280 0.624320 0.000000 0.000000
+			specular 0.000000 0.000000 0.000000 0.000000 1.250000
+			emissive 0.000000 0.000000 0.000000 0.000000
+			scene_blend alpha_blend
+			depth_write off
+		}
+	}
+}
+material book_02
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			ambient 0.500000 0.500000 0.500000 0.000000
+			diffuse 0.442320 0.229040 0.000000 0.000000
+			specular 0.000000 0.000000 0.000000 0.000000 1.250000
+			emissive 0.000000 0.000000 0.000000 0.000000
+			scene_blend alpha_blend
+			depth_write off
+		}
+	}
+}
+material book_03
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			ambient 0.500000 0.500000 0.500000 0.000000
+			diffuse 0.800000 0.800000 0.800000 0.000000
+			specular 0.000000 0.000000 0.000000 0.000000 1.250000
+			emissive 0.000000 0.000000 0.000000 0.000000
+			scene_blend alpha_blend
+			depth_write off
+		}
+	}
+}

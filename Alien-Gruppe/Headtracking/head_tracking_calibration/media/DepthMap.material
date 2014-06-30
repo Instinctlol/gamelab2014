@@ -1,0 +1,77 @@
+vertex_program DepthMapVS glsl
+{
+	source DepthMap.vert 
+}
+
+fragment_program DepthMapFS glsl
+{
+	source DepthMap.frag
+}
+
+vertex_program EdgesVS glsl
+{
+	source Edges.vert 
+}
+
+fragment_program EdgesFS glsl
+{
+	source Edges.frag
+}
+
+material DepthMap
+{
+  technique depthRendering
+  {
+	scheme depthSurfaceRendering
+	
+	pass edges
+    {
+		//depth_check off
+		receive_shadows off
+		depth_write on
+		lighting off
+		//depth_bias 0 0
+			
+      vertex_program_ref EdgesVS
+      {
+      }
+	  
+      fragment_program_ref EdgesFS
+      {
+      }
+    }
+	
+	pass interior
+    {
+	  lighting off
+	  receive_shadows off
+	  //depth_bias 0 -1
+      vertex_program_ref DepthMapVS
+      {
+		 //param_named_auto depthRange scene_depth_range
+      }
+      fragment_program_ref DepthMapFS
+      {
+      }
+	  
+    }
+  }
+}
+
+// material DepthMapEdges
+// {
+    // receive_shadows off
+	// //depth_write off
+	// lighting off
+
+    // technique
+    // {
+        // pass
+        // {
+			// ambient 0.0 0.0 0.0 1.0
+			// diffuse 0.0 0.0 0.0 1.0
+			// specular 0.0 0.0 0.0 1.0
+			// emissive 0.0 0.0 0.0 1.0
+		// }
+	// }
+// }

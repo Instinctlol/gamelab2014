@@ -1,0 +1,54 @@
+vertex_program MultitouchShadowVertexProgramGLSL glsl
+{
+	source MultitouchShadow.vert
+}
+fragment_program MultitouchShadowFragmentProgramGLSL glsl
+{
+	source MultitouchShadow.frag
+	default_params
+	{
+		param_named tex int 0
+		param_named bg int 1
+		//param_named radius float 5.0
+		//param_named image_width float 1024.0
+		//param_named image_height float 768.0
+	}
+}
+
+material MultitouchShadow
+{
+	technique 
+	{
+		pass
+		{
+			// vertex_program_ref MultitouchShadowVertexProgramGLSL
+			// {
+			// }
+			
+			// fragment_program_ref MultitouchShadowFragmentProgramGLSL
+			// {
+			// }
+			
+			scene_blend alpha_blend
+			depth_write off
+			//lighting off
+			ambient 1.0 1.0 1.0 0.15
+			diffuse 1.0 1.0 1.0 0.15
+		 
+			// texture_unit
+			// {
+				// texture MultitouchShadowTexture 2d
+				// filtering anisotropic
+				// tex_address_mode border
+				// tex_border_colour 0.0 0.0 0.0 1.0
+			// }
+			
+			texture_unit
+			{
+				texture Chrome.jpg // MRAMOR-bump.jpg
+				//wave_xform scale sine 0.0 0.7 0.0 1.0
+				//scroll_anim 0.1 0.0
+			}
+		}
+	}
+}

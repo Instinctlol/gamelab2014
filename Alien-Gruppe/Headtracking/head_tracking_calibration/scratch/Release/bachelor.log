@@ -1,0 +1,41 @@
+﻿Der Buildvorgang wurde am 24.03.2014 16:52:37 gestartet.
+     1>Projekt "D:\a_gies06\projects\c++\void_shadows\bachelor.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         Aktualisieren des Timestamps von "D:\a_gies06\projects\c++\void_shadows\\scratch\Release\bachelor.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\OIS /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\OGRE /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\OGRE\Overlay /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\OgreBullet\Dynamics /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\OgreBullet\Collisions /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\bullet /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\viargo /ID:\a_gies06\libs\ogre_bullet_v1_9_pack\include\opencv /ID:\a_gies06\libs\boost_1_51_0\boost_1_51_0 /ID:\a_gies06\libs\kinect\inc /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D OGRE_SHOW_CONSOLE /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\a_gies06\projects\c++\void_shadows\\scratch\Release\\" /Fd"D:\a_gies06\projects\c++\void_shadows\\scratch\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\viargo_ogre_kinect_tracking_calibration_metaphor.cpp
+         viargo_ogre_kinect_tracking_calibration_metaphor.cpp
+     1>src\viargo_ogre_kinect_tracking_calibration_metaphor.cpp(21): warning C4305: 'Argument': Verkürzung von 'double' in 'const Ogre::Real'
+     1>src\viargo_ogre_kinect_tracking_calibration_metaphor.cpp(21): warning C4305: 'Argument': Verkürzung von 'double' in 'const Ogre::Real'
+       ResourceCompile:
+         Alle Ausgaben sind aktuell.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\a_gies06\libs\boost_1_51_0\boost_1_51_0\lib /LIBPATH:D:\a_gies06\libs\kinect\lib\x86 /LIBPATH:D:\a_gies06\libs\ogre_bullet_v1_9_pack\lib\Release OgreMain.lib OIS.lib OgreOverlay.lib OgreBulletCollisions.lib OgreBulletDynamics.lib BulletCollision.lib BulletDynamics.lib LinearMath.lib ConvexDecomposition.lib kinect10.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"D:\a_gies06\projects\c++\void_shadows\\scratch\Release\bachelor.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\a_gies06\projects\c++\void_shadows\bin\Release\bachelor.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.lib" /MACHINE:X86 D:\a_gies06\projects\c++\void_shadows\\scratch\Release\OgreBullet_Collision_test.res
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\BaseApplication.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\DynamicLines.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\DynamicRenderable.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\globals.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\main.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\OgreBulletCollisionMetaphor.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\OgreBulletStereo.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\RTTTargetListener.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\StereoRenderTargetListener.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\viargo_head_tracking_device.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\viargo_head_tracking_filter_metaphor.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\viargo_ogre_head_tracking_calibration_metaphor.obj
+         D:\a_gies06\projects\c++\void_shadows\\scratch\Release\viargo_ogre_kinect_tracking_calibration_metaphor.obj
+            Bibliothek "D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.lib" und Objekt "D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.exp" werden erstellt.
+     1>LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+         bachelor.vcxproj -> D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\a_gies06\projects\c++\void_shadows\\bin\Release\bachelor.exe;#1" /manifest D:\a_gies06\projects\c++\void_shadows\\scratch\Release\bachelor.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Die Datei "D:\a_gies06\projects\c++\void_shadows\\scratch\Release\bachelor.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "D:\a_gies06\projects\c++\void_shadows\\scratch\Release\bachelor.lastbuildstate".
+     1>Die Erstellung des Projekts "D:\a_gies06\projects\c++\void_shadows\bachelor.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:16.20

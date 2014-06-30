@@ -1,0 +1,21 @@
+material Ring/GreenWood
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 1 0.0470588 1
+			diffuse 0 1 0.0470588 1
+			specular 0.9 0.9 0.9 0 10
+
+			texture_unit
+			{
+				texture wood-texture.jpg
+				tex_address_mode clamp clamp
+				transform 0.1 0 0 0 0 0.2 0 0 0 0 1 0 0 0 0 1
+			}
+		}
+
+	}
+
+}

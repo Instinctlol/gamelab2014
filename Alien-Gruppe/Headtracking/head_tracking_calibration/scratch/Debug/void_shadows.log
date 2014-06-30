@@ -1,0 +1,19 @@
+﻿Der Buildvorgang wurde am 30.06.2014 11:45:11 gestartet.
+     1>Projekt "D:\projects\c++\head_tracking_calibration\void_shadows.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         "D:\projects\c++\head_tracking_calibration\\scratch\Debug\void_shadows.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       ClCompile:
+         Alle Ausgaben sind aktuell.
+       ResourceCompile:
+         Alle Ausgaben sind aktuell.
+       Link:
+         Alle Ausgaben sind aktuell.
+         void_shadows.vcxproj -> D:\projects\c++\head_tracking_calibration\\bin\Debug\void_shadows.exe
+       FinalizeBuildStatus:
+         Die Datei "D:\projects\c++\head_tracking_calibration\\scratch\Debug\void_shadows.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "D:\projects\c++\head_tracking_calibration\\scratch\Debug\void_shadows.lastbuildstate".
+     1>Die Erstellung des Projekts "D:\projects\c++\head_tracking_calibration\void_shadows.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:00.07

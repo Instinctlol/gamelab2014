@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien\HeadTracking">
+      <UniqueIdentifier>{bae1faf0-d880-40a2-9898-d8cd7d91c2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Touch">
+      <UniqueIdentifier>{ad3307c3-12b8-4fb7-854f-8fb375886dc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Core">
+      <UniqueIdentifier>{fbd6fcd4-114b-4a6a-a9fe-6720e9f9f9dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\HeadTracking">
+      <UniqueIdentifier>{98c4ba67-f450-404b-be34-5fd091d20933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Core">
+      <UniqueIdentifier>{bfa0369a-ec37-45b9-9d7f-907be91d34f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\OgreBullet_Collision_test.ico">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\OgreBullet_Collision_test.rc">
+      <Filter>Ressourcendateien</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\DynamicLines.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DynamicRenderable.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tracking\viargo_head_tracking_device.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tracking\viargo_ogre_head_tracking_metaphor.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tracking\viargo_head_tracking_filter_metaphor.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tracking\viargo_ogre_head_tracking_calibration_metaphor.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tracking\asymmetric frustum.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StereoBeamerCalibrationMetaphor.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HeadTrackingMetaphor.h">
+      <Filter>Headerdateien\HeadTracking</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StereoRenderTargetListener.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RTTTargetListener.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OgreBulletStereo.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OgreBulletCollisionMetaphor.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\globals.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DefaultCameraMetaphor.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BaseApplication.h">
+      <Filter>Headerdateien\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\threading\nixie_tiny_thread.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\DynamicLines.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DynamicRenderable.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tracking\viargo_ogre_head_tracking_calibration_metaphor.cpp">
+      <Filter>Quelldateien\HeadTracking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tracking\viargo_head_tracking_device.cpp">
+      <Filter>Quelldateien\HeadTracking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tracking\viargo_head_tracking_filter_metaphor.cpp">
+      <Filter>Quelldateien\HeadTracking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StereoRenderTargetListener.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RTTTargetListener.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OgreBulletStereo.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OgreBulletCollisionMetaphor.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\globals.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BaseApplication.cpp">
+      <Filter>Quelldateien\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\threading\nixie_tiny_thread.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

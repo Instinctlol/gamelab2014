@@ -1,0 +1,38 @@
+
+material _missing_material_ 
+{
+	receive_shadows off
+	technique
+	{
+		pass
+		{
+			ambient 0.1 0.1 0.1 1.0
+			diffuse 0.8 0.0 0.0 1.0
+			specular 0.5 0.5 0.5 1.0 12.5
+			emissive 0.3 0.3 0.3 1.0
+		}
+	}
+}
+
+material RainerHandFullResolut 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			ambient 0.550000011921 0.550000011921 0.550000011921 1.0
+			diffuse 0.440000016093 0.440000016093 0.440000016093 1.0
+			specular 0.25 0.25 0.25 1.0 12.5
+			emissive 0.0 0.0 0.0 1.0
+			texture_unit
+			{
+				texture HandAOMap.png
+				tex_address_mode wrap
+				scale 1.0 1.0
+				tex_coord_set 0
+				colour_op_ex blend_manual src_current src_texture 0.0
+			}
+		}
+	}
+}

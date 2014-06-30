@@ -1,0 +1,16 @@
+material Sphere/RedWood
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			
+			ambient 1 0 0 0.5
+			diffuse 1 0 0 0.5
+			specular 0.9 0.9 0.9 0 10
+		}
+
+	}
+
+}

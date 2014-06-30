@@ -1,0 +1,238 @@
+material FishTankFloor
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture fish_tank_floor.png
+			}
+		}
+	}
+}
+
+material FishTankSides
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture fish_tank_side.png
+			}
+		}
+	}
+}
+
+material FishTankTiltedBack
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture fish_tank_tited_back.png
+			}
+		}
+	}
+}
+
+material Puzzle1
+{
+	technique
+	{
+		pass
+		{
+			//ambient 1.0 1.0 1.0
+			//diffuse 1.0 1.0 1.0 1.0
+			
+			texture_unit
+			{
+				texture puzzle_1.jpg
+			}
+		}
+	}
+}
+
+material Puzzle2
+{
+	technique
+	{
+		pass
+		{
+			//ambient 1.0 1.0 1.0
+			//diffuse 1.0 1.0 1.0 1.0
+			
+			texture_unit
+			{
+				texture puzzle_2.jpg
+			}
+		}
+	}
+	
+}
+
+material Puzzle3
+{
+	technique
+	{
+		pass
+		{
+			//ambient 1.0 1.0 1.0
+			//diffuse 1.0 1.0 1.0 1.0
+			
+			texture_unit
+			{
+				texture puzzle_3.jpg
+			}
+		}
+	}
+}
+
+material Puzzle4
+{
+	technique
+	{
+		pass
+		{
+			//ambient 1.0 1.0 1.0
+			//diffuse 1.0 1.0 1.0 1.0
+			
+			texture_unit
+			{
+				texture puzzle_4.jpg
+			}
+		}
+	}
+}
+
+// -------------------------------
+
+material puzzle_1_1
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_1_1.png
+			}
+		}
+	}
+}
+
+material puzzle_1_2
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_1_2.png
+			}
+		}
+	}
+}
+
+material puzzle_1_3
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_1_3.png
+			}
+		}
+	}
+}
+
+material puzzle_2_1
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_2_1.png
+			}
+		}
+	}
+}
+
+material puzzle_2_2
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_2_2.png
+			}
+		}
+	}
+}
+
+material puzzle_2_3
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_2_3.png
+			}
+		}
+	}
+}
+
+material puzzle_3_1
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_3_1.png
+			}
+		}
+	}
+}
+
+material puzzle_3_2
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_3_2.png
+			}
+		}
+	}
+}
+
+material puzzle_3_3
+{
+	technique
+	{
+		pass
+		{			
+			texture_unit
+			{
+				texture puzzle_piece_3_3.png
+			}
+		}
+	}
+}

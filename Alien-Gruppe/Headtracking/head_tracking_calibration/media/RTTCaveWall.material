@@ -1,0 +1,135 @@
+vertex_program RTTCaveWallVertexProgramHLSL hlsl
+{
+	source RTTCaveWall.hlsl
+	entry_point mainVS
+	target vs_1_1
+	default_params
+	{
+		param_named_auto worldViewProj_m worldviewproj_matrix
+	}
+}
+fragment_program RTTCaveWallFragmentProgramHLSL hlsl
+{
+	source RTTCaveWall.hlsl
+	entry_point mainPS
+	target ps_2_0
+}
+vertex_program RTTCaveWallVertexProgramGLSL glsl
+{
+	source RTTCaveWall.vert
+}
+fragment_program RTTCaveWallFragmentProgramGLSL glsl
+{
+	source RTTCaveWall.frag
+	default_params
+	{
+		param_named tex int 0
+	}
+}
+// Unified definition
+vertex_program RTTCaveWallVertexProgram unified
+{
+	delegate RTTCaveWallVertexProgramGLSL
+	delegate RTTCaveWallVertexProgramHLSL
+}
+fragment_program RTTCaveWallFragmentProgram unified
+{
+	delegate RTTCaveWallFragmentProgramGLSL
+	delegate RTTCaveWallFragmentProgramHLSL
+}
+
+material RTTViewerMaterialLeft
+{
+	technique 
+	{
+		pass
+		{
+			vertex_program_ref RTTCaveWallVertexProgram
+			{
+			}
+			
+			fragment_program_ref RTTCaveWallFragmentProgram
+			{
+				param_named tctl float2   0.0  0.0
+				param_named tctr float2   1.0  0.0
+				param_named tcbl float2   0.0  1.0
+				param_named tcbr float2   1.0  1.0
+			}
+			
+			texture_unit
+			{
+				texture RttTexLeft 2d
+				//texture setup.png 2d
+				filtering anisotropic
+				tex_address_mode border
+				tex_border_colour 0.0 0.0 0.0 1.0
+			}
+		}
+	}
+}
+
+material RTTViewerMaterialRight
+{
+	technique 
+	{
+		pass
+		{
+			vertex_program_ref RTTCaveWallVertexProgram
+			{
+			}
+			
+			fragment_program_ref RTTCaveWallFragmentProgram
+			{
+				param_named tctl float2   0.0  0.0
+				param_named tctr float2   1.0  0.0
+				param_named tcbl float2   0.0  1.0
+				param_named tcbr float2   1.0  1.0
+			}
+			
+			texture_unit
+			{
+				texture RttTexRight 2d
+				//texture setup.png 2d
+				filtering anisotropic
+				tex_address_mode border
+				tex_border_colour 0.0 0.0 0.0 1.0
+			}
+		}
+	}
+}
+
+material Scenes/SpaceDome
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			depth_write off
+
+			texture_unit
+			{
+				texture space_dome2.jpg
+				scroll_anim 0.05 0.015
+			}
+		}
+	}
+}
+
+material Scenes/AlienSpaceDome
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			depth_write off
+
+			texture_unit
+			{
+				texture space_dome5.jpg
+				scroll_anim 0.01 0.05
+			}
+		}
+	}
+}
