@@ -13,18 +13,33 @@ namespace ProjectEntities
 
         enum NetworkMessages
         {
-            LightYellow,
-            LightBlue,
-            LightGreen,
-            LightRed
+            LightYellowToClient,
+            LightBlueToClient,
+            LightGreenToClient,
+            LightRedToClient,
+            ShowPlayButtonToClient,
+            HidePlayButtonToClient,
+            UnlightButtonsToClient,
+            YellowClickToClient,
+            BlueClickToClient,
+            GreenClickToClient,
+            RedClickToClient,
+            YellowClickToServer,
+            BlueClickToServer,
+            GreenClickToServer,
+            RedClickToServer,
+            PlayClickToServer,
         }
+        
+        //Konstanten
+        private const string BLUE = "blue";
+        private const string RED = "red";
+        private const string YELLOW = "yellow";
+        private const string GREEN = "green";
+        private const string[] COLOURS = {BLUE, RED, YELLOW, GREEN};
 
-        //NICHTS AENDERN!!!
-        private string blue = "blue";
-        private string red = "red";
-        private string yellow = "yellow";
-        private string green = "green";
-        private string[] colors = {"blue", "red", "yellow", "green"};
+
+
         private Button greenButton, redButton, yellowButton, blueButton, playButton;
         private Engine.MathEx.ColorValue yellowOVC, greenOVC, redOVC, blueOVC, yellowPSC, greenPSC, redPSC, bluePSC;
         private static Timer aTimer;
@@ -34,9 +49,10 @@ namespace ProjectEntities
         private int currLightButton = 0; //Laufzaehler, der alle solution Farben durchgehen soll
         private bool play = false;  //Indikator, prueft ob Sequenz abgespielt wird
         private bool buttonLighted = false; //Indikator, prueft ob ein Button beleuchtet ist
-        private bool clickable = false; //Indikator, wenn true, kann der Spieler die Buttons benutzen
         private string[] solution;  //enthaelt die Loesung, von der Form z.B. : {"blue","red","yellow",...}
-        private List<string> playerResultList=new List<string>(); //enthaelt die Spielereingaben
+        
+        //Unötig
+        //private List<string> playerResultList=new List<string>(); //enthaelt die Spielereingaben
         
         
 
@@ -86,112 +102,69 @@ namespace ProjectEntities
                 //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
              * */
             if(task.IsServer)
-                createSolution(solutionStartColors);
+                CreateSolution(solutionStartColors);
         }
 
         //"Spielt" alle Farben in Solution ab, abgerufen von Play_click(Button sender)
-        private void playButtons(object sender, ElapsedEventArgs e)
+        private void PlayButtons(object sender, ElapsedEventArgs e)
         {
+            //Falls er abspielen soll
             if(play)
             {
                 //Wenn zaehler nicht out of bounds und kein Button beleuchtet -> beleuchte den Button
-                if(currLightButton<=solution.Length && !buttonLighted)
+                if(currLightButton<=solution.Length)
                 {
-                    lightButton(solution[currLightButton], true);
-                    buttonLighted = true;
-                }
-                else if(currLightButton <=solution.Length && buttonLighted) //sonst beleuchte ihn nicht mehr und gehe zum naechsten
-                {
-                    lightButton(solution[currLightButton], false);
-                    buttonLighted = false;
-                    if (currLightButton == solution.Length-1)
+                    if (!buttonLighted)
                     {
-                        //letzter Button -> nicht mehr spielen, zaehler wieder auf 0 setzen, timer ausstellen
-                        play = false;
-                        currLightButton = 0;
-
-                        aTimer.Enabled = false;
-                        switchControlForButton(yellowButton, true);
-                        switchControlForButton(redButton, true);
-                        switchControlForButton(blueButton, true);
-                        switchControlForButton(greenButton, true);
-                        clickable = true;
+                        LightButton(solution[currLightButton], true);
+                        buttonLighted = true;
                     }
                     else
                     {
-                        //nicht letzter Button -> naechsten Button setzen
-                        currLightButton++;
+                        LightButton(solution[currLightButton], false);
+                        buttonLighted = false;
+                        if (currLightButton == solution.Length-1)
+                        {
+                            //letzter Button -> nicht mehr spielen, zaehler wieder auf 0 setzen, timer ausstellen
+                            play = false;
+                            currLightButton = 0;
+
+                            aTimer.Enabled = false;
+                            SwitchControlForButton(yellowButton, true);
+                            SwitchControlForButton(redButton, true);
+                            SwitchControlForButton(blueButton, true);
+                        }
+                        else
+                        {
+                            //nicht letzter Button -> naechsten Button setzen
+                            currLightButton++;
+                        }
                     }
-                }
-            }
+                }        
+            } 
         }
 
         //Spieler sagt: spiel mir alle Farben vor, so dass ich die Loesung sehen kann
         private void Play_click(Button sender)
         {
-            play = true;
-            playButton.Visible = false;
-            playButton.Enable = false;
-            clickable = false;
-            switchControlForButton(yellowButton, false);
-            switchControlForButton(redButton, false);
-            switchControlForButton(blueButton, false);
-            switchControlForButton(greenButton, false);
-            aTimer = new System.Timers.Timer(initialTime);
-            aTimer.Elapsed += playButtons;  //playButtons wird jedes mal ausgefuehrt, wenn Timer initialTime erreicht hat
-            aTimer.Enabled = true;          //timer startet
+            task.Client_SendWindowData((UInt16)NetworkMessages.PlayClickToServer);
         }
 
         //Farbbuttons fuegen Eingabe in die Spielereingabe zu und pruefen, falls SpielerEingabe gleich groß ist wie solution, ob richtig eingegeben wurde
         private void Blue_click(Button sender)
         {
-            if(clickable)
-            {
-                if (currPlayerResultPos < solution.Length)
-                {
-                    playerResultList.Add(blue);
-                    if (++currPlayerResultPos == solution.Length)
-                    {
-                        checkSolution();
-                    }
-                }
-                else //Hier sollte es nie hingehen
-                {
-                    console.Print("Not allowed to add more colors to solution");
-                }
-            }
-            else
-            {
-                console.Print("Did not play yet or is currently playing.");
-            }
+            task.Client_SendWindowData((UInt16)NetworkMessages.BlueClickToServer);
+
             if(!play)
             {
                 task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
             }
-            
         }
 
         private void Red_click(Button sender)
         {
-            if(clickable)
-            {
-                if (currPlayerResultPos < solution.Length)
-                {
-                    playerResultList.Add(red);
-                    if (++currPlayerResultPos == solution.Length)
-                    {
-                        checkSolution();
-                    }
-                }
-                else //Hier sollte es nie hingehen
-                {
-                    console.Print("Not allowed to add more colors to solution");
-                }
-            }
-            else
-            {
-                console.Print("Did not play yet or is currently playing.");
-            }
+            task.Client_SendWindowData((UInt16)NetworkMessages.RedClickToServer);
+
             if (!play)
             {
                 task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
@@ -200,25 +173,8 @@ namespace ProjectEntities
 
         private void Yellow_click(Button sender)
         {
-            if(clickable)
-            {
-                if (currPlayerResultPos < solution.Length)
-                {
-                    playerResultList.Add(yellow);
-                    if (++currPlayerResultPos == solution.Length)
-                    {
-                        checkSolution();
-                    }
-                }
-                else //Hier sollte es nie hingehen
-                {
-                    console.Print("Not allowed to add more colors to solution");
-                }
-            }
-            else
-            {
-                console.Print("Did not play yet or is currently playing.");
-            }
+            task.Client_SendWindowData((UInt16)NetworkMessages.YellowClickToServer);
+
             if (!play)
             {
                 task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
@@ -227,25 +183,8 @@ namespace ProjectEntities
 
         private void Green_click(Button sender)
         {
-            if(clickable)
-            {
-                if (currPlayerResultPos < solution.Length)
-                {
-                    playerResultList.Add(green);
-                    if (++currPlayerResultPos == solution.Length)
-                    {
-                        checkSolution();
-                    }
-                }
-                else //Hier sollte es nie hingehen
-                {
-                    console.Print("Not allowed to add more colors to solution");
-                }
-            }
-            else
-            {
-                console.Print("Did not play yet or is currently playing.");
-            }
+            task.Client_SendWindowData((UInt16)NetworkMessages.GreenClickToServer);
+
             if (!play)
             {
                 task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
@@ -253,7 +192,7 @@ namespace ProjectEntities
         }
 
         //Zeigt die MouseOverControl des Buttons oder verbirgt sie.
-        private void switchControlForButton(Button b, bool show)
+        private void SwitchControlForButton(Button b, bool show)
         {
             if(!show)
             {
@@ -299,58 +238,111 @@ namespace ProjectEntities
         }
 
         //Beleuchtet einen Button, falls lighted=true, sonst wird er nicht mehr beleuchtet
-        private void lightButton(String color, bool lighted)
+        private void LightButton(String color, bool lighted)
         {
-            
-            switch(color)
-            {
-                case "green":
-                    if (lighted)
-                    {
+            if(lighted)
+                switch(color)
+                {
+                    case "green":
+                        //Grün leuchtet
                         greenButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
-                    }  
-                    else
-                        greenButton.Active = false;
+
+                        //Alle anderen aus
+                        blueButton.Active = false;
+                        yellowButton.Active = false;
+                        redButton.Active = false;                      
                     
-                    break;
-                case "blue":
-                    if(lighted)
-                    {
+                        if(task.IsServer)
+                            task.Server_SendWindowData((UInt16)NetworkMessages.LightGreenToClient);
+                        break;
+                    case "blue":
+                        //Blau leuchtet
                         blueButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
-                    }
-                    else
-                        blueButton.Active = false;
-                    break;
-                case "yellow":
-                    if (lighted)
-                    {
+
+                        //Alle anderen aus
+                        greenButton.Active = false;
+                        yellowButton.Active = false;
+                        redButton.Active = false;
+
+                        if (task.IsServer)
+                            task.Server_SendWindowData((UInt16)NetworkMessages.LightBlueToClient);
+                        break;
+                    case "yellow":
+                        //Gelb leuchtet
                         yellowButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
-                        Server_SendLightButtonToAllClients("red");
-                    }
-                    else
-                        yellowButton.Active = false;
-                    break;
-                case "red":
-                    if (lighted)
-                    {
+
+                        //Alle anderen aus
+                        blueButton.Active = false;
+                        greenButton.Active = false;
+                        redButton.Active = false;
+
+                        if (task.IsServer)
+                            task.Server_SendWindowData((UInt16)NetworkMessages.LightYellowToClient);
+                        break;
+                    case "red":
+                        //Rot leuchtet
                         redButton.Active = true;
                         task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
-                        Server_SendLightButtonToAllClients("red");
+
+                        //Alle anderen aus
+                        blueButton.Active = false;
+                        yellowButton.Active = false;
+                        greenButton.Active = false;
+
+                        if (task.IsServer)
+                            task.Server_SendWindowData((UInt16)NetworkMessages.LightRedToClient);
+                        break;
+                    default:
+                        console.Print("Something went wrong lighting buttons...");
+                        break;
+                }
+            else
+            {
+                blueButton.Active = false;
+                yellowButton.Active = false;
+                greenButton.Active = false;
+                redButton.Active = false;
+
+                if (task.IsServer)
+                    task.Server_SendWindowData((UInt16)NetworkMessages.UnlightButtonsToClient);
+            }
+        }
+
+        //Eingabe des spielers überprüfen
+        private void CheckInput(string colour, int pos)
+        {
+            if (solution[pos] != colour)
+            {
+                //Bei Falscher Eingabe
+                task.Success = false;
+            }
+            else
+            {
+                //Wenn es letzte Eingabe für momentane Lösung war
+                if (solution.Length - 1 == pos)
+                {
+                    //Wenn noch nicht genug Iterationen gelöst, neue erstellen
+                    if (solvedCount < solvedMax)
+                    {
+                        CreateSolution(solution.Length + colorsToAdd);
+                        playButton.Enable = true;
+                        playButton.Visible = true;
+                        currPlayerResultPos = 0;
+                        solvedCount++;
                     }
                     else
-                        redButton.Active = false;
-                    break;
-                default:
-                    console.Print("Something went wrong lighting buttons...");
-                    break;
+                    {
+                        task.Success = true;
+                    }
+                }
             }
         }
 
         //Erstellt eine zufaellige solution, uebernimmt - falls vorhanden - die alte
-        private void createSolution(int length)
+        private void CreateSolution(int length)
         {
             //Wenn solution bereits existiert...
             if(!(solution==null || solution.Length==0))
@@ -364,7 +356,7 @@ namespace ProjectEntities
                     if (i < oldSolution.Length)
                         solution[i] = oldSolution[i];
                     else
-                        solution[i] = colors[rnd.Next(colors.Length)];
+                        solution[i] = COLOURS[rnd.Next(COLOURS.Length)];
                 }
             }
             else
@@ -373,140 +365,69 @@ namespace ProjectEntities
 
                 for(int i=0; i< solution.Length;i++)
                 {
-                    solution[i] = colors[rnd.Next(colors.Length)];
+                    solution[i] = COLOURS[rnd.Next(COLOURS.Length)];
                 }
             }
         }
 
-        //was gemacht werden soll, wenn eine Spielereingabe richtig oder falsch ist
-        private void checkSolution()
+
+
+        private void Server_ReceiveClicks(UInt16 click)
         {
-            if(compareSolutions())
+            NetworkMessages msg = (NetworkMessages) click;
+            switch (msg)
             {
-                ++solvedCount;
-                if (solvedCount == solvedMax)   //wenn limit erreicht
-                {
-                    playerResultList = new List<string>(); //nicht sicher ob das hier noetig ist,
-                    currPlayerResultPos = 0;               //besser drinlassen
-
-                    task.Success = true;
-                }
-                    
-                else //neue solution erstellen, playButton zeigen und playerResult loeschen
-                {
-                    createSolution(solution.Length + colorsToAdd);
-                    playButton.Enable = true;
-                    playButton.Visible = true;
-
-                    playerResultList=new List<string>();
-                    currPlayerResultPos = 0;
-
-                    //TODO: Anzeige des Erfolgs oder anderer Indikator..
-                }
-            }
-            else
-            {
-                task.Success = false;
-            }
-        }
-
-        //Vergleicht SpielerEingabe mit solution
-        private bool compareSolutions()
-        {
-            bool check=false;
-            string[] playerResult;
-            playerResult=playerResultList.ToArray();
-
-            if (solution.Length != playerResult.Length)
-                return false;
-            else
-            {
-                for (int i = 0; i < solution.Length; i++ )
-                {
-                    if (String.Compare(solution[i], playerResult[i], true)==0)
-                    {
-                        check = true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            return check;
-        }
-
-        //Altes Testzeug, arbeitet mit TaskData, also nicht randomisiert
-        private string[] TaskDataToArray(string tskdt)
-        {
-            string[] rtrn = tskdt.Split(',');
-            return rtrn;
-        }
-
-        //Altes Testzeug, arbeitet mit TaskData, also nicht randomisiert
-        private bool IsLegit(string input)
-        {
-            int[] indexes = CharPos(input, ',');
-            bool check=false;
-
-            int pos = 0;
-
-            for (int i = 0; i < indexes.Length; i++)
-            {
-                if (input.Substring(pos, indexes[i]-1) == blue || input.Substring(pos, indexes[i]-1) == red ||
-                    input.Substring(pos, indexes[i]-1) == yellow || input.Substring(pos, indexes[i]-1) == green)
-                {
-                    check = true;
-                    pos = indexes[i] + 1;
-                }
-                else
-                    return false;
-            }
-            if (input.Substring(pos, input.Length - 1) == blue || input.Substring(pos, input.Length - 1) == red ||
-                    input.Substring(pos, input.Length - 1) == yellow || input.Substring(pos, input.Length - 1) == green)
-            {
-                check = true;
-            }
-            else
-            {
-                return false;
-            }
-
-            return check;
-        }
-
-        //Altes Testzeug, arbeitet mit TaskData, also nicht randomisiert
-        private int[] CharPos(string Input, char C)
-        {
-            var foundIndexes = new List<int>();
-
-            for (int i = Input.IndexOf(C); i > -1; i = Input.IndexOf(C, i + 1))
-            {
-                // for loop end when i=-1 ('a' not found)
-                foundIndexes.Add(i);
-            }
-
-            return foundIndexes.ToArray();
-        }
-
-
-        private void Server_SendLightButtonToAllClients(string colour)
-        {
-            switch (colour)
-            {
-                case "green":
-                    task.Server_SendWindowData((UInt16)NetworkMessages.LightGreen);
+                case NetworkMessages.BlueClickToServer:
+                    if(!play)
+                        if (currPlayerResultPos < solution.Length)
+                        {
+                            currPlayerResultPos++;
+                            CheckInput(BLUE, currPlayerResultPos);
+                            task.Server_SendWindowData((UInt16)NetworkMessages.BlueClickToClient);
+                        }
                     break;
-                case "red":
-                    task.Server_SendWindowData((UInt16)NetworkMessages.LightRed);
+                case NetworkMessages.GreenClickToServer:
+                    if (!play)
+                        if (currPlayerResultPos < solution.Length)
+                        {
+                            currPlayerResultPos++;
+                            CheckInput(GREEN, currPlayerResultPos);
+                            task.Server_SendWindowData((UInt16)NetworkMessages.GreenClickToClient);
+                        }
                     break;
-                case "yellow":
-                    task.Server_SendWindowData((UInt16)NetworkMessages.LightYellow);
+                case NetworkMessages.RedClickToServer:
+                    if (!play)
+                        if (currPlayerResultPos < solution.Length)
+                        {
+                            currPlayerResultPos++;
+                            CheckInput(RED, currPlayerResultPos);
+                            task.Server_SendWindowData((UInt16)NetworkMessages.RedClickToClient);
+                        }
                     break;
-                case "blue":
-                    task.Server_SendWindowData((UInt16)NetworkMessages.LightBlue);
+                case NetworkMessages.YellowClickToServer:
+                    if (!play)
+                        if (currPlayerResultPos < solution.Length)
+                        {
+                            currPlayerResultPos++;
+                            CheckInput(YELLOW, currPlayerResultPos);
+                            task.Server_SendWindowData((UInt16)NetworkMessages.YellowClickToClient);
+                        }
                     break;
+                case NetworkMessages.PlayClickToServer:
+                    play = true;
+                    SwitchControlForButton(yellowButton, false);
+                    SwitchControlForButton(redButton, false);
+                    SwitchControlForButton(blueButton, false);
+                    SwitchControlForButton(greenButton, false);
+                    aTimer = new System.Timers.Timer(initialTime);
+                    aTimer.Elapsed += PlayButtons;  //playButtons wird jedes mal ausgefuehrt, wenn Timer initialTime erreicht hat
+                    aTimer.Enabled = true;          //timer startet
+
+                    task.Server_SendWindowData((UInt16)NetworkMessages.HidePlayButtonToClient);
+                    break;
+
             }
+
         }
     }
 }
