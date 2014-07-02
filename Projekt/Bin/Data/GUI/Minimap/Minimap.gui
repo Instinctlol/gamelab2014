@@ -38,16 +38,173 @@ control Window
 		control Control
 		{
 			position = ScaleByResolution 0 0
-			size = ScaleByResolution 650 650
-			name = Lights_Overlay
+			name = Highlight_Overlay
 			control RotControl
 			{
 				position = ScaleByResolution 0 0
-				size = ScaleByResolution 650 650
-				name = Secgrp_A_R7
-				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_a_r7.png"
+				name = f1r1_highlighted
+				backTexture = "GUI\\Textures\\f1r1_highlighted.png"
 				backTextureCoord = 0 0 0 0
+				visible = False
 			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r2_highlighted
+				backTexture = "GUI\\Textures\\f1r2_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r3_highlighted
+				backTexture = "GUI\\Textures\\f1r3_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r4_highlighted
+				backTexture = "GUI\\Textures\\f1r4_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r5_highlighted
+				backTexture = "GUI\\Textures\\f1r5_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r6_highlighted
+				backTexture = "GUI\\Textures\\f1r6_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r7_highlighted
+				backTexture = "GUI\\Textures\\f1r7_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f1r8_highlighted
+				backTexture = "GUI\\Textures\\f1r8_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r1_highlighted
+				backTexture = "GUI\\Textures\\f2r1_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r2_highlighted
+				backTexture = "GUI\\Textures\\f2r2_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r3_highlighted
+				backTexture = "GUI\\Textures\\f2r3_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r4_highlighted
+				backTexture = "GUI\\Textures\\f2r4_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r5_highlighted
+				backTexture = "GUI\\Textures\\f2r5_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r6_highlighted
+				backTexture = "GUI\\Textures\\f2r6_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r7_highlighted
+				backTexture = "GUI\\Textures\\f2r7_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f2r8_highlighted
+				backTexture = "GUI\\Textures\\f2r8_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f3r1_highlighted
+				backTexture = "GUI\\Textures\\f3r1_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f3r2_highlighted
+				backTexture = "GUI\\Textures\\f3r2_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f3r3_highlighted
+				backTexture = "GUI\\Textures\\f3r3_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				name = f3r4_highlighted
+				backTexture = "GUI\\Textures\\f3r4_highlighted.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			size = ScaleByResolution 650 650
+			name = Lights_Overlay
 			control RotControl
 			{
 				position = ScaleByResolution 0 0
@@ -84,6 +241,22 @@ control Window
 			{
 				position = ScaleByResolution 0 0
 				size = ScaleByResolution 650 650
+				name = Secgrp_G
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_g.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = Secgrp_A_R7
+				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_a_r7.png"
+				backTextureCoord = 0 0 0 0
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
 				name = Secgrp_E
 				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_e.png"
 				backTextureCoord = 0 0 0 0
@@ -94,14 +267,6 @@ control Window
 				size = ScaleByResolution 650 650
 				name = Secgrp_F
 				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_f.png"
-				backTextureCoord = 0 0 0 0
-			}
-			control RotControl
-			{
-				position = ScaleByResolution 0 0
-				size = ScaleByResolution 650 650
-				name = Secgrp_G
-				backTexture = "GUI\\Textures\\Minimap_lights_secgrp_g.png"
 				backTextureCoord = 0 0 0 0
 			}
 		}

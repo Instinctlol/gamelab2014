@@ -14,6 +14,9 @@ namespace ProjectEntities
         private RotControl ringOuterCntrl, ringInnerCntrl, ringMiddleCntrl;
         private RotControl secgrpAR7Cntrl, secgrpAR8Cntrl, secgrpBCntrl, secgrpCCntrl, secgrpDCntrl, secgrpECntrl, secgrpFCntrl, secgrpGCntrl;
         Control window, ringFullCntrl;
+        private List<RotControl> highlightedMiddleRingControls = new List<RotControl>();
+        private List<RotControl> highlightedInnerRingControls = new List<RotControl>();
+        private List<RotControl> highlightedOuterRingControls = new List<RotControl>();
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
 
         [Engine.EntitySystem.EntityType.FieldSerialize]
@@ -53,6 +56,15 @@ namespace ProjectEntities
             secgrpECntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_E"];
             secgrpFCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_F"];
             secgrpGCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_G"];
+
+            
+            for(int i=1; i<=8; i++)
+            {
+                highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r" + i + "_highlighted"]);
+                highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r" + i + "_highlighted"]);
+                if(i<=4)
+                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r" + i + "_highlighted"]);
+            }
 
         }
 
@@ -174,6 +186,12 @@ namespace ProjectEntities
             secgrpAR8Cntrl.Visible = status;
         }
 
+        //Zeigt oder versteckt das highlight Control fuer einen bestimmten Raum (z.B. "f1r3", true), case-sensitive
+        private void highlight(String s, bool b)
+        {
+            ringFullCntrl.Controls["Highlight_Overlay"].Controls[s+"_highlighted"].Visible=b;
+        }
+
 
         private void OnInnerRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
@@ -182,12 +200,20 @@ namespace ProjectEntities
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                foreach (RotControl r in highlightedInnerRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree + 45) % 360;
+                }
             }
             else
             {
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                foreach (RotControl r in highlightedInnerRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree - 45) % 360;
+                }
             }
         }
 
@@ -199,6 +225,10 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                foreach (RotControl r in highlightedMiddleRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree + 45) % 360;
+                }
             }
                 
             else
@@ -207,6 +237,10 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                foreach (RotControl r in highlightedMiddleRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree - 45) % 360;
+                }
             }
         }
 
@@ -219,6 +253,10 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                foreach (RotControl r in highlightedOuterRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree + 45) % 360;
+                }
             }
             else
             {
@@ -227,6 +265,10 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                foreach (RotControl r in highlightedOuterRingControls)
+                {
+                    r.RotateDegree = (r.RotateDegree - 45) % 360;
+                }
             }
         }
 
