@@ -45,7 +45,7 @@ namespace ProjectEntities
         private static Timer aTimer;
         private Random rnd = new Random();
         private int solvedCount = 0;    //zaehlt wie oft bereits geloest wurde
-        private int currPlayerResultPos = 0;    //pusht die vom Spieler gewaehlte Farbe an die richtige Stelle seines Loesungsarrays
+        private int currPlayerResultPos = -1;    //pusht die vom Spieler gewaehlte Farbe an die richtige Stelle seines Loesungsarrays
         private int currLightButton = 0; //Laufzaehler, der alle solution Farben durchgehen soll
         private bool play = false;  //Indikator, prueft ob Sequenz abgespielt wird
         private bool buttonLighted = false; //Indikator, prueft ob ein Button beleuchtet ist
@@ -302,7 +302,7 @@ namespace ProjectEntities
                     {
                         CreateSolution(solution.Length + colorsToAdd);
                         task.Server_SendWindowData((UInt16)NetworkMessages.ShowPlayButtonToClient);
-                        currPlayerResultPos = 0;
+                        currPlayerResultPos = -1;
                         solvedCount++;
                     }
                     else
