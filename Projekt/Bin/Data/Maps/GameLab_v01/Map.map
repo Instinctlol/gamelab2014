@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 40.08904 -14.58624 6.762413
-editorCameraDirection = 4.570111 0.03920493
+editorCameraPosition = 5.993565 -100.4496 2.332989
+editorCameraDirection = 2.74315 -0.2006076
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1264,7 +1264,7 @@ entity
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = RotateAndSingleSwitch
-	taskType = PIN
+	taskType = ColorSequence
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08
@@ -1529,7 +1529,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 152
+	uin = 112
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1543,7 +1543,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 153
+	uin = 113
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1557,7 +1557,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 148
+	uin = 114
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1571,7 +1571,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 149
+	uin = 115
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1585,7 +1585,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 154
+	uin = 116
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1598,7 +1598,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 155
+	uin = 117
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1611,7 +1611,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 156
+	uin = 118
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1625,7 +1625,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 157
+	uin = 119
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1639,7 +1639,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 158
+	uin = 120
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1653,7 +1653,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 159
+	uin = 121
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False

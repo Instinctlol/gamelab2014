@@ -104,7 +104,7 @@ namespace Game
             InitializeEventListener();
 
             //hudControl
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("GUI\\AlienHUD.gui");
             Controls.Add(hudControl);
 
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)

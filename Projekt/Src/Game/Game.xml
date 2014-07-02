@@ -78,6 +78,12 @@
             Event Listener initialisieren
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Game.AlienGameWindow.OnDetach" -->
+        <member name="M:Game.AlienGameWindow.SelectAllAliens">
+            <summary>
+            Alle Aliens auswählen
+            </summary>
+        </member>
         <member name="M:Game.AlienGameWindow.GetColor(ProjectEntities.Unit)">
             <summary>
             Farbe für kleine Aliens und Spawnpoint verschieden
@@ -97,9 +103,15 @@
             <param name="entity"></param>
             <param name="selected"></param>
         </member>
-        <member name="M:Game.AlienGameWindow.GetMapPositionByMouseOnMinimap">
+        <member name="T:Game.BigMinimapWindow">
             <summary>
-            Changes Map position by calculating the position from the position of the mouse on the minimap
+            Defines a system game menu.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Game.BigMinimapWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" -->
+        <member name="M:Game.BigMinimapWindow.GetMapPositionByMouseOnMinimap">
+            <summary>
+            Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
             </summary>
             <returns></returns>
         </member>

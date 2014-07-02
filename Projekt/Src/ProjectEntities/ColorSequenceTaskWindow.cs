@@ -36,7 +36,7 @@ namespace ProjectEntities
         private const string RED = "red";
         private const string YELLOW = "yellow";
         private const string GREEN = "green";
-        private const string[] COLOURS = {BLUE, RED, YELLOW, GREEN};
+        private string[] COLOURS = {BLUE, RED, YELLOW, GREEN};
 
 
 
@@ -49,11 +49,7 @@ namespace ProjectEntities
         private int currLightButton = 0; //Laufzaehler, der alle solution Farben durchgehen soll
         private bool play = false;  //Indikator, prueft ob Sequenz abgespielt wird
         private bool buttonLighted = false; //Indikator, prueft ob ein Button beleuchtet ist
-        private string[] solution;  //enthaelt die Loesung, von der Form z.B. : {"blue","red","yellow",...}
-        
-        //Unötig
-        //private List<string> playerResultList=new List<string>(); //enthaelt die Spielereingaben
-        
+        private string[] solution;  //enthaelt die Loesung, von der Form z.B. : {"blue","red","yellow",...       
         
 
         //KANN GEAENDERT WERDEN:
@@ -92,15 +88,12 @@ namespace ProjectEntities
             redPSC = redButton.PushControl.BackColor;
             bluePSC = blueButton.PushControl.BackColor;
 
+            task.Client_WindowDataReceived += Client_ReceiveClicks;
+            task.Client_WindowDataReceived += Client_ReceiveLightButton;
+            task.Client_WindowDataReceived += Client_ReceivePlayButtonStatus;
 
+            task.Server_WindowDataReceived += Server_ReceiveClicks;
 
-            /* Altes Testzeug, arbeitet mit TaskData, also nicht randomisiert
-            string taskData = task.Terminal.TaskData;
-            if (IsLegit(taskData))
-                solution = TaskDataToArray(taskData);
-            //else
-                //throw new Exception("Your given TaskDataText is not matching the standard: \"color,color,...,color\"");
-             * */
             if(task.IsServer)
                 CreateSolution(solutionStartColors);
         }
@@ -154,41 +147,21 @@ namespace ProjectEntities
         private void Blue_click(Button sender)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.BlueClickToServer);
-
-            if(!play)
-            {
-                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
-            }
         }
 
         private void Red_click(Button sender)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.RedClickToServer);
-
-            if (!play)
-            {
-                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
-            }
         }
 
         private void Yellow_click(Button sender)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.YellowClickToServer);
-
-            if (!play)
-            {
-                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
-            }
         }
 
         private void Green_click(Button sender)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.GreenClickToServer);
-
-            if (!play)
-            {
-                task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
-            }
         }
 
         //Zeigt die MouseOverControl des Buttons oder verbirgt sie.
@@ -328,8 +301,7 @@ namespace ProjectEntities
                     if (solvedCount < solvedMax)
                     {
                         CreateSolution(solution.Length + colorsToAdd);
-                        playButton.Enable = true;
-                        playButton.Visible = true;
+                        task.Server_SendWindowData((UInt16)NetworkMessages.ShowPlayButtonToClient);
                         currPlayerResultPos = 0;
                         solvedCount++;
                     }
@@ -378,56 +350,137 @@ namespace ProjectEntities
             switch (msg)
             {
                 case NetworkMessages.BlueClickToServer:
-                    if(!play)
+                    if (!play)
+                    {
+                        currPlayerResultPos++;
                         if (currPlayerResultPos < solution.Length)
                         {
-                            currPlayerResultPos++;
                             CheckInput(BLUE, currPlayerResultPos);
                             task.Server_SendWindowData((UInt16)NetworkMessages.BlueClickToClient);
                         }
+                    }
                     break;
                 case NetworkMessages.GreenClickToServer:
                     if (!play)
+                    {
+                        currPlayerResultPos++;
                         if (currPlayerResultPos < solution.Length)
                         {
-                            currPlayerResultPos++;
                             CheckInput(GREEN, currPlayerResultPos);
                             task.Server_SendWindowData((UInt16)NetworkMessages.GreenClickToClient);
                         }
+                    }
                     break;
                 case NetworkMessages.RedClickToServer:
                     if (!play)
+                    {
+                        currPlayerResultPos++;
                         if (currPlayerResultPos < solution.Length)
                         {
-                            currPlayerResultPos++;
                             CheckInput(RED, currPlayerResultPos);
                             task.Server_SendWindowData((UInt16)NetworkMessages.RedClickToClient);
                         }
+                    }
                     break;
                 case NetworkMessages.YellowClickToServer:
                     if (!play)
+                    {
+                        currPlayerResultPos++;
                         if (currPlayerResultPos < solution.Length)
                         {
-                            currPlayerResultPos++;
                             CheckInput(YELLOW, currPlayerResultPos);
                             task.Server_SendWindowData((UInt16)NetworkMessages.YellowClickToClient);
                         }
+                    }
                     break;
                 case NetworkMessages.PlayClickToServer:
                     play = true;
-                    SwitchControlForButton(yellowButton, false);
-                    SwitchControlForButton(redButton, false);
-                    SwitchControlForButton(blueButton, false);
-                    SwitchControlForButton(greenButton, false);
+
                     aTimer = new System.Timers.Timer(initialTime);
                     aTimer.Elapsed += PlayButtons;  //playButtons wird jedes mal ausgefuehrt, wenn Timer initialTime erreicht hat
                     aTimer.Enabled = true;          //timer startet
 
                     task.Server_SendWindowData((UInt16)NetworkMessages.HidePlayButtonToClient);
                     break;
+                default:
+                    return;
 
             }
 
+        }
+
+        private void Client_ReceiveClicks(UInt16 click)
+        {
+            NetworkMessages msg = (NetworkMessages) click;
+
+            switch (msg)
+            {
+                case NetworkMessages.YellowClickToClient:
+                    task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\yellowSimon.ogg", .5f, false);
+                    break;
+                case NetworkMessages.BlueClickToClient:
+                    task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\blueSimon.ogg", .5f, false);
+                    break;
+                case NetworkMessages.GreenClickToClient:
+                    task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\greenSimon.ogg", .5f, false);
+                    break;
+                case NetworkMessages.RedClickToClient:
+                    task.Terminal.SoundPlay3D("Sounds\\ColorSequenceSounds\\redSimon.ogg", .5f, false);
+                    break;
+                default:
+                    return;
+
+            }
+        }
+
+        private void Client_ReceivePlayButtonStatus(UInt16 status)
+        {
+
+            NetworkMessages msg = (NetworkMessages)status;
+
+            switch (msg)
+            {
+                case NetworkMessages.ShowPlayButtonToClient:
+                    playButton.Visible = true;
+                    playButton.Enable = true;
+                    break;
+                case NetworkMessages.HidePlayButtonToClient:
+                    playButton.Visible = false;
+                    playButton.Enable = false;
+
+                    SwitchControlForButton(yellowButton, false);
+                    SwitchControlForButton(redButton, false);
+                    SwitchControlForButton(blueButton, false);
+                    SwitchControlForButton(greenButton, false);
+                    break;
+                default:
+                    return;
+            }
+        }
+
+        private void Client_ReceiveLightButton(UInt16 button)
+        {
+            NetworkMessages msg = (NetworkMessages)button;
+            switch (msg)
+            {
+                case NetworkMessages.LightYellowToClient:
+                    LightButton(YELLOW, true);
+                    break;
+                case NetworkMessages.LightBlueToClient:
+                    LightButton(BLUE, true);
+                    break;
+                case NetworkMessages.LightGreenToClient:
+                    LightButton(GREEN, true);
+                    break;
+                case NetworkMessages.LightRedToClient:
+                    LightButton(RED, true);
+                    break;
+                case NetworkMessages.UnlightButtonsToClient:
+                    LightButton(null, false);
+                    break;
+                default:
+                    return;
+            }
         }
     }
 }
