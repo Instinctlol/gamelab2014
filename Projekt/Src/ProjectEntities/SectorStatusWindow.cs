@@ -187,7 +187,7 @@ namespace ProjectEntities
         }
 
         //Zeigt oder versteckt das highlight Control fuer einen bestimmten Raum (z.B. "f1r3", true), case-sensitive
-        private void highlight(String s, bool b)
+        public void highlight(String s, bool b)
         {
             ringFullCntrl.Controls["Highlight_Overlay"].Controls[s+"_highlighted"].Visible=b;
         }

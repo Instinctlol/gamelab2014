@@ -20,13 +20,14 @@ namespace Game
         // BigMinimap mode
         Sector selectedSector;
         Control bigMinimapControl;
+        string lastSelectedSector;
 
 		protected override void OnAttach()
 		{
             EngineConsole.Instance.Print("bigmap onattach");
 			base.OnAttach();
             
-			Control window = ControlDeclarationManager.Instance.CreateControl( "Gui\\BigMinimap.gui" );
+			Control window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
 			Controls.Add( window );
 
             // Big Minimap
@@ -120,9 +121,14 @@ namespace Game
                 {
                     selectedSector = (Sector)obj;
                     EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
+
+                    if(lastSelectedSector!=null)
+                        ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);
+                    lastSelectedSector = selectedSector.Name;
+
+                    ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true);
                 }
             });
-            // TODO Rahmen um Sector anzeigen
         }
 
         /// <summary>
