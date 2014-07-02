@@ -33,7 +33,13 @@ namespace ProjectEntities
         public bool IsAlien
         {
             get { return isAlien; }
-            set { isAlien = value; }
+            set { 
+                isAlien = value;
+                if (isAlien)
+                    Map.Instance.AmbientLight = new ColorValue(1,1,1);
+                else
+                    Map.Instance.AmbientLight = new ColorValue(100/255, 100/255, 100/255);
+            }
         }
 
 		[FieldSerialize]

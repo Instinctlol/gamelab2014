@@ -21,8 +21,6 @@ namespace ProjectEntities
 
         bool lightStatus = true;
 
-
-
         enum NetworkMessages
         {
             TranformationToClient,
