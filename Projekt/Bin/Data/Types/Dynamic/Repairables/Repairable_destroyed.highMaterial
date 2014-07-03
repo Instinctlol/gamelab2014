@@ -1,0 +1,24 @@
+highLevelMaterial Repairable_destroyed
+{
+	template = ShaderBaseMaterial
+	halfLambert = True
+	reflectionColor = 1 1 1
+	reflectionSpecificCubemap = "Models\\DemoCorridors\\SkyBox\\CorridorSkyBox.jpg"
+	specularColor = 1 1 1
+	diffuse1Map
+	{
+		texture = ".\\Repairable_cracked.dds"
+	}
+	reflectionMap
+	{
+		texture = ".\\PipeDirectSpecularMap.dds"
+	}
+	specularMap
+	{
+		texture = ".\\PipeDirectSpecularMap.dds"
+	}
+	normalMap
+	{
+		texture = ".\\PipeDirectNormalsMap.dds"
+	}
+}

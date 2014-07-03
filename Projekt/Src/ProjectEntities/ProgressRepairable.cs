@@ -56,8 +56,14 @@ namespace ProjectEntities
             }
         }
 
-        public override void Press()
+        public override void Press(Unit unit)
         {
+            if (!CanRepair(unit))
+            {
+                StatusMessageHandler.sendMessage("You are hitting it with your hands, but nothing happens.");
+                return;
+            }
+
             if (EntitySystemWorld.Instance.IsClientOnly())
             {
                 SoundPlay3D(Type.SoundUsing, .5f, false);

@@ -1,5 +1,7 @@
 ﻿using Engine;
 using Engine.EntitySystem;
+using Engine.MapSystem;
+using Engine.Renderer;
 using Engine.Utils;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,43 @@ namespace ProjectEntities
 
         [FieldSerialize]
         private string soundUsing;
+
+        [FieldSerialize]
+        List<RepairItem> repairItems = new List<RepairItem>();
+
+        public class RepairItem
+        {
+            [FieldSerialize]
+            ItemType itemType;
+
+            public ItemType ItemType
+            {
+                get { return itemType; }
+                set { itemType = value; }
+            }
+
+            public override string ToString()
+            {
+                if (itemType == null)
+                    return "(not initialized)";
+                return itemType.Name;
+            }
+        }
+
+        public List<RepairItem> RepairItems
+        {
+            get { return repairItems; }
+        }
+
+        [FieldSerialize]
+        private string destroyedTexture = "";
+
+        [Editor(typeof(EditorMaterialUITypeEditor), typeof(UITypeEditor))]
+        public string DestroyedTexture
+        {
+            get { return destroyedTexture; }
+            set { destroyedTexture = value; }
+        }
 
        
         [Description( "The sound when the object got repaired." )]
@@ -46,6 +85,9 @@ namespace ProjectEntities
         [FieldSerialize]
         private bool repaired = false;
 
+        private MeshObject mesh;
+        private string originalTexture;
+        private string destroyedTexture;
 
 
         enum NetworkMessages
@@ -78,6 +120,11 @@ namespace ProjectEntities
 
                 this.repaired = value;
 
+                if (repaired)
+                    mesh.SetMaterialNameForAllSubObjects(originalTexture);
+                else
+                    mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
+
                 if (EntitySystemWorld.Instance.IsClientOnly())
                     SoundPlay3D(Type.SoundRepaired, .5f, false);
                 else
@@ -89,8 +136,14 @@ namespace ProjectEntities
             }
         }
 
-        public virtual void Press()
+        public virtual void Press(Unit unit)
         {
+
+            if(!CanRepair(unit))
+            {
+                StatusMessageHandler.sendMessage("You are hitting it with your hands, but nothing happens.");
+                return;
+            }
 
             //Wenn nur client ist
             if(EntitySystemWorld.Instance.IsClientOnly())
@@ -98,6 +151,34 @@ namespace ProjectEntities
                 SoundPlay3D(Type.SoundUsing, .5f, false);
                 Client_SendPressToServer();
             }
+        }
+
+        protected bool CanRepair(Unit unit)
+        {
+            return true;
+        }
+
+        protected override void OnPostCreate(bool loaded)
+        {
+            base.OnPostCreate(loaded);
+
+            foreach(var v in AttachedObjects)
+            {
+                MapObjectAttachedMesh attachedMesh = v as MapObjectAttachedMesh;
+                if(attachedMesh != null)
+                {
+                    mesh = attachedMesh.MeshObject;
+                    originalTexture = mesh.SubObjects[ 0 ].MaterialName;
+                    break;
+                }
+            }
+            if (Type.DestroyedTexture == null || Type.DestroyedTexture.Length == 0)
+                destroyedTexture = originalTexture;
+            else
+                destroyedTexture = Type.DestroyedTexture;
+
+            if (mesh != null)
+                mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
         }
 
 

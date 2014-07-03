@@ -3,6 +3,7 @@ type TestRepairable
 	class = Repairable
 	soundRepaired = "Sounds\\steam-hiss.ogg"
 	soundUsing = "Sounds\\hammer.ogg"
+	destroyedTexture = Repairable_destroyed
 	networkType = Synchronized
 	attachedObjects
 	{
