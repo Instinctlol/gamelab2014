@@ -95,6 +95,26 @@ namespace Game
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddNotificationMessage);
         }
 
+        //hudFunktionen
+
+        private void hudFunctions(String name){
+
+            if (name == "Menu") {
+                Controls.Add(new MenuWindow());
+            }
+            if (name == "Help") {
+                hudControl.Controls["HelpWindow"].Visible = !hudControl.Controls["HelpWindow"].Visible;
+            }
+            if (name == "HelpClose") {
+                hudControl.Controls["HelpWindow"].Visible = false;
+            }
+            if (name == "Path") {
+                mapDrawPathMotionMap = !mapDrawPathMotionMap;
+            }
+        
+        }
+
+
         // Beim Starten des Spiels GUI initialisieren und co
         protected override void OnAttach()
         {
@@ -109,22 +129,22 @@ namespace Game
 
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)
             {
-                Controls.Add(new MenuWindow());
+                hudFunctions("Menu");
             };
 
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Help"]).Click += delegate(Button sender)
             {
-                hudControl.Controls["HelpWindow"].Visible = !hudControl.Controls["HelpWindow"].Visible;
+                hudFunctions("Help");
             };
 
             ((Button)hudControl.Controls["HelpWindow"].Controls["Close"]).Click += delegate(Button sender)
             {
-                hudControl.Controls["HelpWindow"].Visible = false;
+                hudFunctions("HelpClose");
             };
 
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["DebugPath"]).Click += delegate(Button sender)
             {
-                mapDrawPathMotionMap = !mapDrawPathMotionMap;
+                hudFunctions("Path");
             };
 
             InitControlPanelButtons();
@@ -208,11 +228,16 @@ namespace Game
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
-                    if (IsMouseInMenuArea(MousePos) && Controls.OfType<MenuWindow>().Count() == 0)
+                    if (Controls.OfType<MenuWindow>().Count() == 1)
+                    {
+                        Controls.OfType<MenuWindow>().First().SetShouldDetach();
+                    }
+                    else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
                         //Do Something
-                        Controls.Add(new MenuWindow());
+                        hudFunctions("Menu");
                     }
+                    //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
                     EngineApp.Instance.MousePosition = MousePos;
 
                     //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
@@ -282,10 +307,10 @@ namespace Game
         }
 
         //Pommes
-        bool IsMouseInMenuArea(Vec2 Pos)
+        bool IsMouseInButtonArea(Vec2 Pos, Button button)
         {
-            if (!hudControl.Controls["StatusNotificationTop"].Controls["Menu"].GetScreenRectangle().IsContainsPoint(Pos))
-
+            if (!button.GetScreenRectangle().IsContainsPoint(Pos))
+                
                 return false;
             return true;
         }
