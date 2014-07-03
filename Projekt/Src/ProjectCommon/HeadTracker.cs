@@ -4,15 +4,15 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Text;
 using System.IO;
-
 using System.Runtime.InteropServices;
-
+using Engine;
 using Engine.MathEx;
 
-namespace Game {
-
-class HeadTracker
+namespace ProjectCommon
 {
+
+    public class HeadTracker
+    {
     #region Private Members
     private volatile bool _shouldStop = false;
     private bool _isRunning = false;
@@ -129,6 +129,5 @@ class HeadTracker
     public delegate void receiveTrackingData(int sensorID, double x, double y, double z);
 
     public event receiveTrackingData TrackingEvent;
-}
-
+    }
 }

@@ -535,7 +535,7 @@ namespace Game
             else
             {
                 TuioInputDevice.InitDevice();
-                HeadTracker.start();
+                //HeadTracker.start();
             }
 
 			return true;
