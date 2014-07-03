@@ -51,7 +51,7 @@ namespace ProjectEntities
             ((Button)CurWindow.Controls["Clear"]).Click += Clear_click;
             ((Button)CurWindow.Controls["Enter"]).Click += Enter_click;
 
-            task.Client_WindowDataReceived += Client_DataReceived;
+            task.Client_WindowStringReceived += Client_StringReceived;
             task.Server_WindowDataReceived += Server_DataReceived;
         }
 
@@ -109,10 +109,16 @@ namespace ProjectEntities
             task.Client_SendWindowData((UInt16)NetworkMessages.EnterClicked);
         }
 
-        void Client_DataReceived(UInt16 message)
+        void Client_StringReceived(string message)
         {
-            NetworkMessages msg = (NetworkMessages)message;
+            curOutput = message;
+            UpdateOutput();            
+        }
 
+        void Server_DataReceived(UInt16 message)
+        {
+
+            NetworkMessages msg = (NetworkMessages)message;
             switch(msg)
             {
                 case NetworkMessages.OneClicked:
@@ -151,13 +157,8 @@ namespace ProjectEntities
 
             }
             UpdateOutput();
-        }
-
-        void Server_DataReceived(UInt16 message)
-        {
-            Client_DataReceived(message);
-            if(message != (UInt16)NetworkMessages.EnterClicked)
-                task.Server_SendWindowData(message);
+            if(msg != NetworkMessages.EnterClicked)
+                task.Server_SendWindowString(curOutput);
             else
             {
                 if(curOutput.Equals(task.Terminal.TaskData))

@@ -1264,7 +1264,7 @@ entity
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	buttonType = RotateAndSingleSwitch
-	taskType = ColorSequence
+	taskType = PIN
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
 	rotation = 0 0 -1 -4.371139E-08

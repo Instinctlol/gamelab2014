@@ -22,6 +22,7 @@ namespace ProjectEntities
             TerminalToClient,
             WindowDataToServer,
             WindowDataToClient,
+            WindowStringToClient,
         }
 
         private bool isServer = false;
@@ -73,10 +74,14 @@ namespace ProjectEntities
         //*******Delegates/Events*******
         //****************************** 
         public delegate void Client_WindowDataReceivedDelegate(UInt16 message);
+        public delegate void Client_WindowStringReceivedDelegate(string message);
         public delegate void Server_WindowDataReceivedDelegate(UInt16 message);
+        
 
         public event Client_WindowDataReceivedDelegate Client_WindowDataReceived;
+        public event Client_WindowStringReceivedDelegate Client_WindowStringReceived;
         public event Server_WindowDataReceivedDelegate Server_WindowDataReceived;
+
         //****************************** 
 
         public virtual void SetWindowEnabled(bool enable = true)
@@ -187,6 +192,26 @@ namespace ProjectEntities
             writer.Write(message);
             EndNetworkMessage();
 
+        }
+
+        public void Server_SendWindowString(string message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
+                       (ushort)NetworkMessages.WindowStringToClient);
+            writer.Write(message);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowStringToClient)]
+        private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string msg = reader.ReadString();
+
+            if (!reader.Complete())
+                return;
+
+            if (Client_WindowStringReceived != null)
+                Client_WindowStringReceived(msg);
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowDataToClient)]
