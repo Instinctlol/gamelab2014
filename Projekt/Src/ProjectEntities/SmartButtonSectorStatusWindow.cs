@@ -13,7 +13,7 @@ namespace ProjectEntities
         private Ring ringOuter, ringInner, ringMiddle;
         private RotControl ringOuterCntrl, ringInnerCntrl, ringMiddleCntrl;
         private RotControl secgrpAR7Cntrl, secgrpAR8Cntrl, secgrpBCntrl, secgrpCCntrl, secgrpDCntrl, secgrpECntrl, secgrpFCntrl, secgrpGCntrl;
-        Control window, ringFullCntrl;
+        Control ringFullCntrl;
         private List<RotControl> highlightedMiddleRingControls = new List<RotControl>();
         private List<RotControl> highlightedInnerRingControls = new List<RotControl>();
         private List<RotControl> highlightedOuterRingControls = new List<RotControl>();
@@ -55,9 +55,8 @@ namespace ProjectEntities
         public SmartButtonSectorStatusWindow(SmartButton button)
             : base(button)
         {
-            window = ControlDeclarationManager.Instance.CreateControl("GUI\\Minimap\\Minimap.gui");
-            Controls.Add(window);
-            ringFullCntrl = (Control)window.Controls["FullRing"];
+            CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Minimap\\Minimap.gui");
+            ringFullCntrl = (Control)CurWindow.Controls["FullRing"];
 
             ringInnerCntrl = (RotControl)ringFullCntrl.Controls["InnerRing"];
             ringMiddleCntrl = (RotControl)ringFullCntrl.Controls["MiddleRing"];
@@ -111,7 +110,7 @@ namespace ProjectEntities
             secgrpFCntrl.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
             secgrpGCntrl.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
 
-            window.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
+            CurWindow.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
         }
 
         public void initialize()

@@ -37,7 +37,8 @@ namespace ProjectEntities
         {
             None,
             PIN,
-            ColorSequence
+            ColorSequence,
+            Quiz,
         };
 
         //SmartButton type, spezifizieren welche art von Button initial angezeigt wird

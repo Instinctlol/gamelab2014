@@ -68,6 +68,9 @@ namespace ProjectEntities
                 case Terminal.TerminalTaskType.ColorSequence:
                     Window = new ColorSequenceTaskWindow(this);
                     break;
+                case Terminal.TerminalTaskType.Quiz:
+                    Window = new QuestionTaskWindow(this);
+                    break;
                 default:
                     Window = null;
                     break;

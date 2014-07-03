@@ -31,7 +31,7 @@ namespace ProjectEntities
         public int anzahlRunden;
         //csv einlesen
         //auf relativen Pfad ändern
-        private string pfadZurDatei = "GUI\\Tasks\\questions.txt";
+        private string pfadZurDatei = "Data\\GUI\\Tasks\\questions.txt";
         private string antwort;
         private int randomPositionTrue;
         //Button
@@ -53,7 +53,6 @@ namespace ProjectEntities
             string inputLine = "";
 
             string[] valueLine = { "question", "answer1", "answer2", "answer3", "answer4" };
-            List<string[]> questions = new List<string[]>();
 
             int i = 0;
             while ((inputLine = sr.ReadLine()) != null)
