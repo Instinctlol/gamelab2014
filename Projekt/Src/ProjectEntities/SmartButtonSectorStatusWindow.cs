@@ -92,6 +92,7 @@ namespace ProjectEntities
             }
 
             button.Client_WindowDataReceived += Client_WindowDataReceived;
+            initialize();
         }
 
         public void scaleAllRings(float size)
@@ -168,6 +169,42 @@ namespace ProjectEntities
                 secgrpECntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus;
                 secgrpFCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus;
                 secgrpGCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus;
+
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnALightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnALightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnBLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnBLightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnCLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnCLightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnDLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnDLightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnELightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnELightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnFLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnFLightsOff);
+
+                if (((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnGLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.TurnGLightsOff);
+
 
                 secgrpA.SwitchLight += OnSwitchLightsA;
                 secgrpB.SwitchLight += OnSwitchLightsB;
@@ -290,7 +327,7 @@ namespace ProjectEntities
         {
             if (!left)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.RotateOuterRingRight);
+                button.Server_SendWindowData((UInt16)NetworkMessages.RotateInnerRingRight);
 
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
@@ -302,7 +339,7 @@ namespace ProjectEntities
             }
             else
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.RotateOuterRingLeft);
+                button.Server_SendWindowData((UInt16)NetworkMessages.RotateInnerRingLeft);
 
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
