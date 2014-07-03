@@ -194,7 +194,7 @@ namespace ProjectEntities
 
         }
 
-        public void Server_SendWindowString(string message)
+        public void Server_SendWindowString(string message, UInt16 netMsg = 0)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                        (ushort)NetworkMessages.WindowStringToClient);
