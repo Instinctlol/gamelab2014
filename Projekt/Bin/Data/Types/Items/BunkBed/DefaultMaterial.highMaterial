@@ -1,4 +1,4 @@
-highLevelMaterial DefaultMaterial
+highLevelMaterial DefaultMaterial5
 {
 	dataSource = "Types\\Items\\BunkBed\\bunk_bed.modelImport"
 	template = ShaderBaseMaterial
