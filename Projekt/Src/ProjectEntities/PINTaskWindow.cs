@@ -109,7 +109,7 @@ namespace ProjectEntities
             task.Client_SendWindowData((UInt16)NetworkMessages.EnterClicked);
         }
 
-        void Client_StringReceived(string message)
+        void Client_StringReceived(string message, UInt16 netMsg)
         {
             curOutput = message;
             UpdateOutput();            

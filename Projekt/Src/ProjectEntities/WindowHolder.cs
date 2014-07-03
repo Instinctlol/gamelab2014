@@ -74,7 +74,7 @@ namespace ProjectEntities
         //*******Delegates/Events*******
         //****************************** 
         public delegate void Client_WindowDataReceivedDelegate(UInt16 message);
-        public delegate void Client_WindowStringReceivedDelegate(string message);
+        public delegate void Client_WindowStringReceivedDelegate(string message, UInt16 netMsg);
         public delegate void Server_WindowDataReceivedDelegate(UInt16 message);
         
 
@@ -199,6 +199,7 @@ namespace ProjectEntities
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                        (ushort)NetworkMessages.WindowStringToClient);
             writer.Write(message);
+            writer.Write(netMsg);
             EndNetworkMessage();
         }
 
@@ -206,12 +207,13 @@ namespace ProjectEntities
         private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             string msg = reader.ReadString();
+            UInt16 netMsg = reader.ReadUInt16();
 
             if (!reader.Complete())
                 return;
 
             if (Client_WindowStringReceived != null)
-                Client_WindowStringReceived(msg);
+                Client_WindowStringReceived(msg, netMsg);
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowDataToClient)]
