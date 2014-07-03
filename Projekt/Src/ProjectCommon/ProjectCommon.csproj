@@ -121,7 +121,9 @@
     <Compile Include="ExampleCustomInputDevice.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HeadTracker.cs" />
+    <Compile Include="HeadTracker.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MultiViewRenderingManager.cs" />
     <Compile Include="MyNativeDLL.cs" />
     <Compile Include="EngineConsole.cs" />

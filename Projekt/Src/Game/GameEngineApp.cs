@@ -527,9 +527,16 @@ namespace Game
 				EngineConsole.Instance.AddCommand( "showProfilingTool", ConsoleCommand_ShowProfilingTool );
 
 			//example of custom input device
-			
-            ExampleCustomInputDevice.InitDevice();
-		//TuioInputDevice.InitDevice();
+            bool workbench = false;
+            if (!workbench)
+            {
+                ExampleCustomInputDevice.InitDevice();
+            }
+            else
+            {
+                TuioInputDevice.InitDevice();
+                HeadTracker.start();
+            }
 
 			return true;
 		}
