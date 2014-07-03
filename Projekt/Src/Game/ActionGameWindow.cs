@@ -661,11 +661,46 @@ namespace Game
                 {
                     Bounds bounds = overRepairable.MapBounds;
                     DrawObjectSelectionBorder(bounds);
-                }
+                
 
-                if (overRepairable != currentRepairable)
-                {
-                    currentRepairable = overRepairable;
+                    if (overRepairable != currentRepairable)
+                    {
+                        currentRepairable = overRepairable;
+                    }
+
+
+                    ColorValue color;
+                    if ((Time % 2) < 1)
+                        color = new ColorValue(1, 1, 0);
+                    else
+                        color = new ColorValue(0, 1, 0);
+
+                    string text = "";
+                    
+                    {
+                        ProgressRepairable pRepair = currentRepairable as ProgressRepairable;
+                        if (pRepair != null)
+                            text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
+
+                        text += "Press \"Use\" to repair";
+
+                        //get binded keyboard key or mouse button
+                        GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
+                            GetItemByControlKey(GameControlKeys.Use);
+                        if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
+                        {
+                            GameControlsManager.SystemKeyboardMouseValue value =
+                                controlItem.DefaultKeyboardMouseValues[0];
+                            text += string.Format(" ({0})", value.ToString());
+                        }
+                    }
+
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                        VerticalAlign.Center, color);
+
+                    if (currentItem != null)
+                        AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, currentItem.Type.Name, new Vec2(.5f, .7f), HorizontalAlign.Center,
+                            VerticalAlign.Center, ColorValue.Construct(0, 1, 0));
                 }
             }
 
