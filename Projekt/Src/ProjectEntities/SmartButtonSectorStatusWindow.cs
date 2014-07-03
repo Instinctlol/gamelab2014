@@ -1,5 +1,6 @@
 ﻿using Engine.EntitySystem;
 using Engine.MathEx;
+using Engine.Renderer;
 using Engine.UISystem;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,6 @@ namespace ProjectEntities
         private RotControl ringOuterCntrl, ringInnerCntrl, ringMiddleCntrl;
         private RotControl secgrpAR7Cntrl, secgrpAR8Cntrl, secgrpBCntrl, secgrpCCntrl, secgrpDCntrl, secgrpECntrl, secgrpFCntrl, secgrpGCntrl;
         Control ringFullCntrl;
-        private List<RotControl> highlightedMiddleRingControls = new List<RotControl>();
-        private List<RotControl> highlightedInnerRingControls = new List<RotControl>();
-        private List<RotControl> highlightedOuterRingControls = new List<RotControl>();
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
 
         [Engine.EntitySystem.EntityType.FieldSerialize]
@@ -81,17 +79,11 @@ namespace ProjectEntities
             secgrpFCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_F"];
             secgrpGCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_G"];
 
-
-            for (int i = 1; i <= 8; i++)
-            {
-                highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r" + i + "_highlighted"]);
-                highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r" + i + "_highlighted"]);
-                if (i <= 4)
-                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r" + i + "_highlighted"]);
-            }
+            initializeWithRings();
 
             button.Client_WindowDataReceived += Client_WindowDataReceived;
-            initialize();
+
+            VerticalAlign = VerticalAlign.Center;
         }
 
         public void scaleAllRings(float size)
@@ -113,7 +105,7 @@ namespace ProjectEntities
             CurWindow.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
         }
 
-        public void initialize()
+        public void initializeWithRings()
         {
             if(button.IsServer)
             {
@@ -315,13 +307,6 @@ namespace ProjectEntities
             secgrpAR8Cntrl.Visible = status;
         }
 
-        //Zeigt oder versteckt das highlight Control fuer einen bestimmten Raum (z.B. "f1r3", true), case-sensitive
-        public void highlight(String s, bool b)
-        {
-            ringFullCntrl.Controls["Highlight_Overlay"].Controls[s + "_highlighted"].Visible = b;
-        }
-
-
         private void OnInnerRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
             if (!left)
@@ -331,10 +316,6 @@ namespace ProjectEntities
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedInnerRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
             else
             {
@@ -343,10 +324,6 @@ namespace ProjectEntities
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedInnerRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
 
@@ -360,10 +337,6 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedMiddleRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
 
             else
@@ -374,10 +347,6 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedMiddleRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
 
@@ -392,10 +361,6 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedOuterRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
             else
             {
@@ -406,10 +371,6 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedOuterRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
 
@@ -418,72 +379,70 @@ namespace ProjectEntities
 
         private void Client_WindowDataReceived(ushort message)
         {
-            if (button.IsActive)
+            
+            NetworkMessages msg = (NetworkMessages)message;
+            switch (msg)
             {
-                NetworkMessages msg = (NetworkMessages)message;
-                switch (msg)
-                {
-                    case NetworkMessages.TurnALightsOff:
-                        Client_OnSwitchLightsA(false);
-                        break;
-                    case NetworkMessages.TurnALightsOn:
-                        Client_OnSwitchLightsA(true);
-                        break;
-                    case NetworkMessages.TurnBLightsOff:
-                        Client_OnSwitchLightsB(false);
-                        break;
-                    case NetworkMessages.TurnBLightsOn:
-                        Client_OnSwitchLightsB(true);
-                        break;
-                    case NetworkMessages.TurnCLightsOff:
-                        Client_OnSwitchLightsC(false);
-                        break;
-                    case NetworkMessages.TurnCLightsOn:
-                        Client_OnSwitchLightsC(true);
-                        break;
-                    case NetworkMessages.TurnDLightsOff:
-                        Client_OnSwitchLightsD(false);
-                        break;
-                    case NetworkMessages.TurnDLightsOn:
-                        Client_OnSwitchLightsD(true);
-                        break;
-                    case NetworkMessages.TurnELightsOff:
-                        Client_OnSwitchLightsE(false);
-                        break;
-                    case NetworkMessages.TurnELightsOn:
-                        Client_OnSwitchLightsE(true);
-                        break;
-                    case NetworkMessages.TurnFLightsOff:
-                        Client_OnSwitchLightsF(false);
-                        break;
-                    case NetworkMessages.TurnFLightsOn:
-                        Client_OnSwitchLightsF(true);
-                        break;
-                    case NetworkMessages.TurnGLightsOff:
-                        Client_OnSwitchLightsG(false);
-                        break;
-                    case NetworkMessages.TurnGLightsOn:
-                        Client_OnSwitchLightsG(true);
-                        break;
-                    case NetworkMessages.RotateInnerRingLeft:
-                        Client_OnInnerRotation(true);
-                        break;
-                    case NetworkMessages.RotateInnerRingRight:
-                        Client_OnInnerRotation(false);
-                        break;
-                    case NetworkMessages.RotateOuterRingLeft:
-                        Client_OnOuterRotation(true);
-                        break;
-                    case NetworkMessages.RotateOuterRingRight:
-                        Client_OnOuterRotation(false);
-                        break;
-                    case NetworkMessages.RotateMiddleRingLeft:
-                        Client_OnMiddleRotation(true);
-                        break;
-                    case NetworkMessages.RotateMiddleRingRight:
-                        Client_OnMiddleRotation(false);
-                        break;
-                }
+                case NetworkMessages.TurnALightsOff:
+                    Client_OnSwitchLightsA(false);
+                    break;
+                case NetworkMessages.TurnALightsOn:
+                    Client_OnSwitchLightsA(true);
+                    break;
+                case NetworkMessages.TurnBLightsOff:
+                    Client_OnSwitchLightsB(false);
+                    break;
+                case NetworkMessages.TurnBLightsOn:
+                    Client_OnSwitchLightsB(true);
+                    break;
+                case NetworkMessages.TurnCLightsOff:
+                    Client_OnSwitchLightsC(false);
+                    break;
+                case NetworkMessages.TurnCLightsOn:
+                    Client_OnSwitchLightsC(true);
+                    break;
+                case NetworkMessages.TurnDLightsOff:
+                    Client_OnSwitchLightsD(false);
+                    break;
+                case NetworkMessages.TurnDLightsOn:
+                    Client_OnSwitchLightsD(true);
+                    break;
+                case NetworkMessages.TurnELightsOff:
+                    Client_OnSwitchLightsE(false);
+                    break;
+                case NetworkMessages.TurnELightsOn:
+                    Client_OnSwitchLightsE(true);
+                    break;
+                case NetworkMessages.TurnFLightsOff:
+                    Client_OnSwitchLightsF(false);
+                    break;
+                case NetworkMessages.TurnFLightsOn:
+                    Client_OnSwitchLightsF(true);
+                    break;
+                case NetworkMessages.TurnGLightsOff:
+                    Client_OnSwitchLightsG(false);
+                    break;
+                case NetworkMessages.TurnGLightsOn:
+                    Client_OnSwitchLightsG(true);
+                    break;
+                case NetworkMessages.RotateInnerRingLeft:
+                    Client_OnInnerRotation(true);
+                    break;
+                case NetworkMessages.RotateInnerRingRight:
+                    Client_OnInnerRotation(false);
+                    break;
+                case NetworkMessages.RotateOuterRingLeft:
+                    Client_OnOuterRotation(true);
+                    break;
+                case NetworkMessages.RotateOuterRingRight:
+                    Client_OnOuterRotation(false);
+                    break;
+                case NetworkMessages.RotateMiddleRingLeft:
+                    Client_OnMiddleRotation(true);
+                    break;
+                case NetworkMessages.RotateMiddleRingRight:
+                    Client_OnMiddleRotation(false);
+                    break;
             }
         }
 
@@ -530,20 +489,12 @@ namespace ProjectEntities
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedInnerRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
             else
             {
                 ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                 secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
                 secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedInnerRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
 
@@ -555,10 +506,6 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedMiddleRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
 
             else
@@ -567,10 +514,6 @@ namespace ProjectEntities
                 secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
                 secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
                 secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedMiddleRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
 
@@ -583,10 +526,6 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
-                foreach (RotControl r in highlightedOuterRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree + 45) % 360;
-                }
             }
             else
             {
@@ -595,10 +534,6 @@ namespace ProjectEntities
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
                 secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
                 secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
-                foreach (RotControl r in highlightedOuterRingControls)
-                {
-                    r.RotateDegree = (r.RotateDegree - 45) % 360;
-                }
             }
         }
     }

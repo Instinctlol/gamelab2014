@@ -40,24 +40,24 @@ namespace ProjectEntities
         //Aktualisiert den Button
         protected override void CreateWindow()
         {
-            switch (Terminal.ButtonType)
+            switch (Terminal.WindowType)
             {
-                case Terminal.TerminalSmartButtonType.Rotate:
+                case Terminal.TerminalWindowType.Rotate:
                     Window = new SmartButtonRotateWindow(this);
                     break;
-                case Terminal.TerminalSmartButtonType.RotateAndSingleSwitch:
+                case Terminal.TerminalWindowType.RotateAndSingleSwitch:
                     Window = new SmartButtonRotateAndSingleSwitchWindow(this);
                     break;
-                case Terminal.TerminalSmartButtonType.RotateAndDoubleSwitch:
+                case Terminal.TerminalWindowType.RotateAndDoubleSwitch:
                     Window = new SmartButtonRotateAndDoubleSwitchWindow(this);
                     break;
-                case Terminal.TerminalSmartButtonType.SingleSwitch:
+                case Terminal.TerminalWindowType.SingleSwitch:
                     Window = new SmartButtonSingleSwitchWindow(this);
                     break;
-                case Terminal.TerminalSmartButtonType.DoubleSwitch:
+                case Terminal.TerminalWindowType.DoubleSwitch:
                     Window = new SmartButtonDoubleSwitchWindow(this);
                     break;
-                case Terminal.TerminalSmartButtonType.SectorStatus:
+                case Terminal.TerminalWindowType.SectorStatus:
                     Window = new SmartButtonSectorStatusWindow(this);
                     break;
                 default:

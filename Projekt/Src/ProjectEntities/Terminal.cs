@@ -43,7 +43,7 @@ namespace ProjectEntities
 
         //SmartButton type, spezifizieren welche art von Button initial angezeigt wird
         //None = Task wird direkt angezeigt
-        public enum TerminalSmartButtonType
+        public enum TerminalWindowType
         {
             Rotate,
             RotateAndSingleSwitch,
@@ -72,9 +72,9 @@ namespace ProjectEntities
         [FieldSerialize]
         private string taskSuccessSound = "Sounds\\taskSuccess.ogg";
         
-        //ButtonType
+        //WindowType
         [FieldSerialize]
-        private TerminalSmartButtonType buttonType;
+        private TerminalWindowType windowType;
 
         //TaskType
         [FieldSerialize]
@@ -115,17 +115,20 @@ namespace ProjectEntities
             get { return taskType; }
             set
             {
-                taskType = value;
+                if(WindowType!= TerminalWindowType.SectorStatus)
+                    taskType = value;
             }
         }
 
-        [LocalizedDescription("None: Task is directly shown \n"+"Default: You have to click on a button to start and show the task", "ButtonType")]
-        public TerminalSmartButtonType ButtonType
+        [LocalizedDescription("None: Task is directly shown \n"+"Default: You have to click on a button to start and show the task", "WindowType")]
+        public TerminalWindowType WindowType
         {
-            get { return buttonType; }
+            get { return windowType; }
             set
             {
-                buttonType = value;
+                windowType = value;
+                if (windowType == TerminalWindowType.SectorStatus)
+                    taskType = TerminalTaskType.None;
             }
         }
 
@@ -248,7 +251,7 @@ namespace ProjectEntities
         {
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
 
-            Server_SendButtonType(buttonType);
+            Server_SendButtonType(windowType);
             Server_SendTaskType(taskType);
             Server_SendFindControlManager();
         }
@@ -379,7 +382,7 @@ namespace ProjectEntities
             EndNetworkMessage();
         }
 
-        private void Server_SendButtonType(TerminalSmartButtonType buttonType)
+        private void Server_SendButtonType(TerminalWindowType buttonType)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
                 (ushort)NetworkMessages.ButtonTypeToClient);
@@ -425,11 +428,11 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ButtonTypeToClient)]
         private void Client_ReceiveButtonType(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
-            TerminalSmartButtonType type = (TerminalSmartButtonType)reader.ReadInt16();
+            TerminalWindowType type = (TerminalWindowType)reader.ReadInt16();
             if (!reader.Complete())
                 return;
 
-            ButtonType = type;
+            WindowType = type;
         }
 
         public void DoRotateLeftEvent()
