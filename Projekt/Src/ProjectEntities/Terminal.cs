@@ -49,6 +49,7 @@ namespace ProjectEntities
             RotateAndDoubleSwitch,
             SingleSwitch,
             DoubleSwitch,
+            SectorStatus
         };
 
 

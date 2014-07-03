@@ -57,6 +57,9 @@ namespace ProjectEntities
                 case Terminal.TerminalSmartButtonType.DoubleSwitch:
                     Window = new SmartButtonDoubleSwitchWindow(this);
                     break;
+                case Terminal.TerminalSmartButtonType.SectorStatus:
+                    Window = new SmartButtonSectorStatusWindow(this);
+                    break;
                 default:
                     Window = null;
                     SmartButtonPressed();
