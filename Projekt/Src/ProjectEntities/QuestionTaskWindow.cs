@@ -187,51 +187,26 @@ namespace ProjectEntities
         }
 
 
-        void Client_DataReceived(UInt16 message)
-        {
-            NetworkMessages msg = (NetworkMessages)message;
-            switch (msg)
-            {
-                case NetworkMessages.OneClicked:
-                    if (randomPositionTrue == 1)
-                        geloest = true;
-                    break;
-                case NetworkMessages.TwoClicked:
-                    if (randomPositionTrue == 2)
-                        geloest = true;
-                    break;
-                case NetworkMessages.ThreeClicked:
-                    if (randomPositionTrue == 3)
-                        geloest = true;
-                    break;
-                case NetworkMessages.FourClicked:
-                    if (randomPositionTrue == 4)
-                        geloest = true;
-                    break;
-            }
-        }
-
         void Server_DataReceived(UInt16 message)
         {
-
             NetworkMessages msg = (NetworkMessages)message;
             switch (msg)
             {
                 case NetworkMessages.OneClicked:
                     if (randomPositionTrue == 1)
-                        geloest = true;
+                        task.Success = true;
                     break;
                 case NetworkMessages.TwoClicked:
                     if (randomPositionTrue == 2)
-                        geloest = true;
+                        task.Success = true;
                     break;
                 case NetworkMessages.ThreeClicked:
                     if (randomPositionTrue == 3)
-                        geloest = true;
+                        task.Success = true;
                     break;
                 case NetworkMessages.FourClicked:
                     if (randomPositionTrue == 4)
-                        geloest = true;
+                        task.Success = true;
                     break;
                 case NetworkMessages.Play:
                     if (statusPlay == false)
