@@ -1,0 +1,18 @@
+highLevelMaterial DefaultMaterial3
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.6 0.6 0.6
+	specularColor = 0 0 0 0
+	diffuse1Map
+	{
+		texture = ".\\DeskWood_Dirty_Diffuse.tga"
+	}
+	specularMap
+	{
+		texture = ".\\DeskWood_Dirty_Spec.tga"
+	}
+	heightMap
+	{
+		texture = ".\\DeskWood_Dirty_Normal.tga"
+	}
+}

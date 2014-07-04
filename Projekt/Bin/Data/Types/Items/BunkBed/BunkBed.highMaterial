@@ -1,0 +1,18 @@
+highLevelMaterial BunkBed
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.6 0.6 0.6
+	specularColor = 0 0 0 0
+	diffuse1Map
+	{
+		texture = ".\\bunk_bed_D.dds"
+	}
+	specularMap
+	{
+		texture = ".\\bunk_bed_S.dds"
+	}
+	heightMap
+	{
+		texture = ".\\bunk_bed_N.dds"
+	}
+}

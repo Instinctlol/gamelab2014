@@ -1,0 +1,11 @@
+type cpu
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\CPU Intel pentium.mesh"
+		}
+	}
+}

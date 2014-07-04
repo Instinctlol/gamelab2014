@@ -1,0 +1,9 @@
+highLevelMaterial "CPU Intel pentium_mso_CPU_sign1"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	diffuse1Map
+	{
+		texture = ".\\Texture\\CPU_sign1.tif"
+	}
+}

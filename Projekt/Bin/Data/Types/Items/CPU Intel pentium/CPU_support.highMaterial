@@ -1,0 +1,5 @@
+highLevelMaterial CPU_support
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+}

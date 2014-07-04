@@ -1,0 +1,12 @@
+type battery
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Battery.mesh"
+			position = 0 -0.003813416 0.001957148
+		}
+	}
+}

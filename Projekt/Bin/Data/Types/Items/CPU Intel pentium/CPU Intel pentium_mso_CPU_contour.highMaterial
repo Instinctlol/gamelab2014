@@ -1,0 +1,7 @@
+highLevelMaterial "CPU Intel pentium_mso_CPU_contour"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	specularColor = 0.5 0.5 0.5
+	specularShininess = 96.07842
+}

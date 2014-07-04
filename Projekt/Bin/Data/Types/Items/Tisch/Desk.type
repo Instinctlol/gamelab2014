@@ -1,0 +1,13 @@
+type Desk
+{
+	class = MapObject
+	physicsModel = ".\\Desk.physics"
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Desk_normal.mesh"
+			position = 0.04425385 0.004835725 -0.828701
+		}
+	}
+}

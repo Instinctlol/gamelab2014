@@ -1,0 +1,7 @@
+highLevelMaterial "Material #35_Material.003"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0 0
+	specularColor = 1 1 1
+	specularShininess = 50
+}
