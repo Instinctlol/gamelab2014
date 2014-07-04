@@ -108,6 +108,7 @@ namespace ProjectEntities
             initializeWithRings();
 
             button.Client_WindowDataReceived += Client_WindowDataReceived;
+            button.Server_WindowDataReceived += Server_WindowDataReceived;
 
             VerticalAlign = VerticalAlign.Center;
 
