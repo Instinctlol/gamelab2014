@@ -1,0 +1,17 @@
+highLevelMaterial laptop
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	diffuse1Map
+	{
+		texture = ".\\Laptop_D.tga"
+	}
+	emissionMap
+	{
+		texture = ".\\Laptop_E.tga"
+	}
+	heightMap
+	{
+		texture = ".\\Laptop_N.tga"
+	}
+}

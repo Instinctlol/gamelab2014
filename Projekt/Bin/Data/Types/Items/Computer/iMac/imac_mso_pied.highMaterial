@@ -1,0 +1,9 @@
+highLevelMaterial imac_mso_pied
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8 0.8 0.8
+	diffuse1Map
+	{
+		texture = ".\\piedSurface_Color.jpg"
+	}
+}

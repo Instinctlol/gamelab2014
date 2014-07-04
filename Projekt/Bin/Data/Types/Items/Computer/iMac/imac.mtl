@@ -1,0 +1,45 @@
+#  ==========================================================================
+#  Wavefront Material file
+#  Exported by Red-i Productions' "Riptide"
+#  (a free plugin for Cinema 4D PC & Mac, R7.3 or later)
+#  
+#  Red-i Productions
+#  http://skinprops.com
+#  
+#  ==========================================================================
+
+newmtl case
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd caseSurface_Color.jpg
+
+newmtl pied
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd piedSurface_Color.jpg
+
+newmtl Couvercle_2
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd Couvercle_2Surface_Color.jpg
+
+newmtl Couvercle_1
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd Couvercle_1Surface_Color.jpg
+
+newmtl ecrand_image
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd ecrand_imageSurface_Color.jpg
+
+newmtl ecrandcintour
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd ecrandcintourSurface_Color.jpg

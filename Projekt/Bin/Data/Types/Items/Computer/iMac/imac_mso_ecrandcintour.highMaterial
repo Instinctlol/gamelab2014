@@ -1,0 +1,9 @@
+highLevelMaterial imac_mso_ecrandcintour
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8 0.8 0.8
+	diffuse1Map
+	{
+		texture = ".\\ecrandcintourSurface_Color.jpg"
+	}
+}

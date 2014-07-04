@@ -1,0 +1,9 @@
+highLevelMaterial imac_mso_case
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8 0.8 0.8
+	diffuse1Map
+	{
+		texture = ".\\caseSurface_Color.jpg"
+	}
+}

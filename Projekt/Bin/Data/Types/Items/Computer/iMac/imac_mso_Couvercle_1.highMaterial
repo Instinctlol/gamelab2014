@@ -1,0 +1,9 @@
+highLevelMaterial imac_mso_Couvercle_12
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8 0.8 0.8
+	diffuse1Map
+	{
+		texture = ".\\Couvercle_1Surface_Color.jpg"
+	}
+}
