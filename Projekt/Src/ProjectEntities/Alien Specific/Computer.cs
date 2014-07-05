@@ -39,8 +39,9 @@ namespace ProjectEntities
 
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
-        // Rechtsrotationen werden mit +1 gespeichert, Linksrotationen mit -1
+        // Bei Rechtsrotation wird 1 % 8 addiert, bei Linksrotation 1 % 8 subtrahiert.
         static int[] ringRotations = new int[3];
+        public static int stop = 1;
 
 
 
@@ -217,13 +218,14 @@ namespace ProjectEntities
                 if (left)
                 {
                     EngineConsole.Instance.Print("links drehen");
-                    ringRotations[ringNumber - 1]--;
+                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] -1 ,8);
+                    EngineConsole.Instance.Print("Computer: neue RingRotations fuer "+ringNumber+": "+ringRotations[ringNumber-1]);
                     ring.RotateLeft();
                 }
                 else
                 {
                     EngineConsole.Instance.Print("rechts drehen");
-                    ringRotations[ringNumber - 1]++;
+                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
                 ///ToDo: Gridaktualisierung für die Rotation in der Map
@@ -306,6 +308,11 @@ namespace ProjectEntities
             availableAliens = (maxAliens - usedAliens);
             rotationCoupons = maxRotationCoupons;
             powerCoupons = maxPowerCoupons;
+        }
+
+        private static int mod(int x, int m)
+        {
+            return (x%m + m)%m;
         }
     }
 }

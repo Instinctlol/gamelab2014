@@ -18,6 +18,9 @@ namespace ProjectEntities
         Control ringFullCntrl;
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
         GameNetworkClient client = GameNetworkClient.Instance;
+        // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
+        private int[] currRingRotations = new int[3];
+        private int[] newestRingRotations;
 
         [Engine.EntitySystem.EntityType.FieldSerialize]
         private float scale = 650;
@@ -30,50 +33,30 @@ namespace ProjectEntities
 
         enum NetworkMessages
         {
-            Client_Oculus_RotateInnerRingLeft,
-            Client_Oculus_RotateInnerRingRight,
-            Client_Oculus_RotateMiddleRingLeft,
-            Client_Oculus_RotateMiddleRingRight,
-            Client_Oculus_RotateOuterRingLeft,
-            Client_Oculus_RotateOuterRingRight,
-            Client_Cave_RotateInnerRingLeft,
-            Client_Cave_RotateInnerRingRight,
-            Client_Cave_RotateOuterRingLeft,
-            Client_Cave_RotateOuterRingRight,
-            Client_Cave_RotateMiddleRingLeft,
-            Client_Cave_RotateMiddleRingRight,
-            Client_Oculus_TurnALightsOn,
-            Client_Oculus_TurnALightsOff,
-            Client_Oculus_TurnBLightsOn,
-            Client_Oculus_TurnBLightsOff,
-            Client_Oculus_TurnCLightsOn,
-            Client_Oculus_TurnCLightsOff,
-            Client_Oculus_TurnDLightsOn,
-            Client_Oculus_TurnDLightsOff,
-            Client_Oculus_TurnELightsOn,
-            Client_Oculus_TurnELightsOff,
-            Client_Oculus_TurnFLightsOn,
-            Client_Oculus_TurnFLightsOff,
-            Client_Oculus_TurnGLightsOn,
-            Client_Oculus_TurnGLightsOff,
-            Client_Oculus_AskForRotationsUpdate,
-            Client_Cave_AskForRotationsUpdate,
-            Server_UpdateRotationsForOculus,
-            Server_UpdateRotationsForCave,
-            Client_Cave_TurnALightsOff,
-            Client_Cave_TurnALightsOn,
-            Client_Cave_TurnBLightsOff,
-            Client_Cave_TurnBLightsOn,
-            Client_Cave_TurnCLightsOff,
-            Client_Cave_TurnCLightsOn,
-            Client_Cave_TurnDLightsOff,
-            Client_Cave_TurnDLightsOn,
-            Client_Cave_TurnELightsOff,
-            Client_Cave_TurnELightsOn,
-            Client_Cave_TurnFLightsOff,
-            Client_Cave_TurnFLightsOn,
-            Client_Cave_TurnGLightsOff,
-            Client_Cave_TurnGLightsOn,
+            //Client_ bedeutet, die Nachricht ist an den Clienten gerichtet
+            Client_RotateInnerRingLeft,
+            Client_RotateInnerRingRight,
+            Client_RotateMiddleRingLeft,
+            Client_RotateMiddleRingRight,
+            Client_RotateOuterRingLeft,
+            Client_RotateOuterRingRight,
+            Client_TurnALightsOn,
+            Client_TurnALightsOff,
+            Client_TurnBLightsOn,
+            Client_TurnBLightsOff,
+            Client_TurnCLightsOn,
+            Client_TurnCLightsOff,
+            Client_TurnDLightsOn,
+            Client_TurnDLightsOff,
+            Client_TurnELightsOn,
+            Client_TurnELightsOff,
+            Client_TurnFLightsOn,
+            Client_TurnFLightsOff,
+            Client_TurnGLightsOn,
+            Client_TurnGLightsOff,
+            Server_UpdateNewestRingRotationsForClient,      //fuer die Initialisierung des Clienten
+            Server_UpdateLightsForClient,                   //fuer die Initialisierung des Clienten
+            Client_ReceiveNewestRingRotations,
         }
 
         public SmartButtonSectorStatusWindow(SmartButton button)
@@ -105,20 +88,22 @@ namespace ProjectEntities
             secgrpFCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_F"];
             secgrpGCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_G"];
 
-            initializeWithRings();
+            for(int i=0; i<currRingRotations.Length; i++)
+                currRingRotations[i]=0;
+
+            Server_initializeWithRings();
 
             button.Client_WindowDataReceived += Client_WindowDataReceived;
+            button.Client_WindowStringReceived += Client_StringReceived;
             button.Server_WindowDataReceived += Server_WindowDataReceived;
 
             VerticalAlign = VerticalAlign.Center;
 
             if (!button.IsServer)
             {
-
-                if (client.isOculus)
-                    button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateRotationsForOculus);
-                else
-                    button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateRotationsForCave);
+                button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateNewestRingRotationsForClient);
+                Client_updateRotations();
+                button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateLightsForClient);
             }
                 
         }
@@ -142,7 +127,7 @@ namespace ProjectEntities
             CurWindow.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
         }
 
-        public void initializeWithRings()
+        public void Server_initializeWithRings()
         {
             if(button.IsServer)
             {
@@ -154,7 +139,7 @@ namespace ProjectEntities
                 ringInner.RotateRing += Server_OnInnerRotation;
                 ringMiddle.RotateRing += Server_OnMiddleRotation;
 
-                updateRotationsAndLights();
+                Server_updateRotationsAndLights();
 
                 secgrpA = ((SectorGroup)Entities.Instance.GetByName("F1SG-A"));
                 secgrpB = ((SectorGroup)Entities.Instance.GetByName("F1SG-B"));
@@ -176,734 +161,704 @@ namespace ProjectEntities
             }
         }
 
-        private void updateRotationsAndLights()
+        private void Server_updateRotationsAndLights()
         {
-            // Ringe drehen entsprechend der Computer-Konfig
-            for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
+            if (button.IsServer)
             {
-                if (Computer.RingRotations[0] != 0)
+                Vec3 pos = new Vec3();
+                Quat rotation = new Quat();
+
+                for (int i = 0; i < Computer.RingRotations.Length; i++)
                 {
-                    // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
-                    bool left = (Computer.RingRotations[ring] < 0);
-                    for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
+                    int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
+                    if (dist == 4)                                                              //Distanz in der Mitte: egal wohin drehen
                     {
-                        Vec3 pos = new Vec3();
-                        Quat rotation = new Quat();
-                        switch (ring)
+                        switch (i)
                         {
                             case 0:
-                                Server_OnOuterRotation(pos, rotation, left);
+                                for (int x = 0; x < 4; x++)
+                                    Server_OnOuterRotation(pos, rotation, true);
                                 break;
                             case 1:
-                                Server_OnMiddleRotation(pos, rotation, left);
+                                for (int x = 0; x < 4; x++)
+                                    Server_OnMiddleRotation(pos, rotation, true);
                                 break;
                             case 2:
-                                Server_OnInnerRotation(pos, rotation, left);
+                                for (int x = 0; x < 4; x++)
+                                    Server_OnInnerRotation(pos, rotation, true);
                                 break;
                         }
                     }
+                    if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
+                        (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                    Server_OnOuterRotation(pos, rotation, false);
+                                break;
+                            case 1:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                    Server_OnMiddleRotation(pos, rotation, false);
+                                break;
+                            case 2:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                    Server_OnInnerRotation(pos, rotation, false);
+                                break;
+                        }
+                    }
+                    if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
+                        (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                    Server_OnOuterRotation(pos, rotation, true);
+                                break;
+                            case 1:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                    Server_OnMiddleRotation(pos, rotation, true);
+                                break;
+                            case 2:
+                                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                    Server_OnInnerRotation(pos, rotation, true);
+                                break;
+                        }
+                    }
+
+
                 }
+
+
+                secgrpAR7Cntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus;
+                secgrpAR8Cntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus;
+                secgrpBCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus;
+                secgrpCCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus;
+                secgrpDCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus;
+                secgrpECntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus;
+                secgrpFCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus;
+                secgrpGCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus;
+
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOff);
+                if (((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus)
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOn);
+                else
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOff);
+
+
             }
-
-
-            secgrpAR7Cntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus;
-            secgrpAR8Cntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus;
-            secgrpBCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus;
-            secgrpCCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus;
-            secgrpDCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus;
-            secgrpECntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus;
-            secgrpFCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus;
-            secgrpGCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus;
-
-
-            
         }
 
-        private void updateRotationsAndLightsForClients(bool forOcunaut)
+        private void Client_updateRotations()
         {
-            if(forOcunaut)
+            if(!button.IsServer)
             {
-                // Ringe drehen entsprechend der Computer-Konfig
-                for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
+                EngineConsole.Instance.Print("Client updating Rotations:");
+                string s = "CurrPos: ";
+                for(int i=0; i<currRingRotations.Length; i++)
                 {
-                    if (Computer.RingRotations[0] != 0)
+                    s = s + currRingRotations[i];
+                }
+                EngineConsole.Instance.Print(s);
+                EngineConsole.Instance.Print("NewPos: ");
+                s = "";
+                for (int i = 0; i < newestRingRotations.Length; i++)
+                {
+                    s = s + newestRingRotations[i];
+                }
+                EngineConsole.Instance.Print(s);
+
+                bool done = false;
+                if (newestRingRotations != null)
+                {
+                    for (int i = 0; i < newestRingRotations.Length; i++)
                     {
-                        // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
-                        bool left = (Computer.RingRotations[ring] < 0);
-                        for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
+                        if (newestRingRotations[i] == currRingRotations[i])
+                            done = true;
+                        else
                         {
-                            switch (ring)
+                            done = false;
+                            break;
+                        }
+
+                    }
+
+                    if (!done)
+                    {   //Optimiertes Drehen
+                        for (int i = 0; i < newestRingRotations.Length; i++)
+                        {
+                            int dist = Math.Abs(newestRingRotations[i] - currRingRotations[i]); //Distanz zwischen curr und newest
+                            if (dist == 4)                                                      //Distanz in der Mitte: 4x egal wohin drehen
                             {
-                                case 0:
-                                    if(left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateOuterRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateOuterRingRight);
-                                    break;
-                                case 1:
-                                    if (left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateMiddleRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateMiddleRingRight);
-                                    break;
-                                case 2:
-                                    if (left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateInnerRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateInnerRingRight);
-                                    break;
+                                switch (i)
+                                {
+                                    case 0:
+                                        for (int x = 0; x < 4; x++)
+                                            Client_OnOuterRotation(true);
+                                        break;
+                                    case 1:
+                                        for (int x = 0; x < 4; x++)
+                                            Client_OnMiddleRotation(true);
+                                        break;
+                                    case 2:
+                                        for (int x = 0; x < 4; x++)
+                                            Client_OnInnerRotation(true);
+                                        break;
+                                }
+                            }
+                            if ((dist < 4 && currRingRotations[i] < newestRingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
+                                (dist > 4 && currRingRotations[i] > newestRingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+                            {
+                                switch (i)
+                                {
+                                    case 0:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                            Client_OnOuterRotation(false);
+                                        break;
+                                    case 1:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                            Client_OnMiddleRotation(false);
+                                        break;
+                                    case 2:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                            Client_OnInnerRotation(false);
+                                        break;
+                                }
+                            }
+                            if ((dist < 4 && currRingRotations[i] > newestRingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
+                                (dist > 4 && currRingRotations[i] < newestRingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+                            {
+                                switch (i)
+                                {
+                                    case 0:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                            Client_OnOuterRotation(true);
+                                        break;
+                                    case 1:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                            Client_OnMiddleRotation(true);
+                                        break;
+                                    case 2:
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                            Client_OnInnerRotation(true);
+                                        break;
+                                }
                             }
                         }
                     }
                 }
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnALightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnALightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnBLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnBLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnCLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnCLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnDLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnDLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnELightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnELightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnFLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnFLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnGLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnGLightsOff);
-            }
-            else
-            {
-                // Ringe drehen entsprechend der Computer-Konfig
-                for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
-                {
-                    if (Computer.RingRotations[0] != 0)
-                    {
-                        // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
-                        bool left = (Computer.RingRotations[ring] < 0);
-                        for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
-                        {
-                            switch (ring)
-                            {
-                                case 0:
-                                    if (left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateOuterRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateOuterRingRight);
-                                    break;
-                                case 1:
-                                    if (left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateMiddleRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateMiddleRingRight);
-                                    break;
-                                case 2:
-                                    if (left)
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateInnerRingLeft);
-                                    else
-                                        button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateInnerRingRight);
-                                    break;
-                            }
-                        }
-                    }
-                }
-
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnALightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnALightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnBLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnBLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnCLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnCLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnDLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnDLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnELightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnELightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnFLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnFLightsOff);
-
-                if (((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus)
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnGLightsOn);
-                else
-                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnGLightsOff);
             }
         }
 
         private void Server_OnSwitchLightsG(bool status)
         {
-            if(status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnGLightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnGLightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnGLightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnGLightsOff);
-            }
-            
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOff);
+                }
 
-            secgrpGCntrl.Visible = status;
+
+                secgrpGCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsF(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnFLightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnFLightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnFLightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnFLightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOff);
+                }
 
-            secgrpFCntrl.Visible = status;
+                secgrpFCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsE(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnELightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnELightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnELightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnELightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOff);
+                }
 
-            secgrpFCntrl.Visible = status;
+                secgrpFCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsD(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnDLightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnDLightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnDLightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnDLightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOff);
+                }
 
-            secgrpDCntrl.Visible = status;
+                secgrpDCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsC(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnCLightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnCLightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnCLightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnCLightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOff);
+                }
 
-            secgrpCCntrl.Visible = status;
+                secgrpCCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsB(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnBLightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnBLightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnBLightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnBLightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOff);
+                }
 
-            secgrpBCntrl.Visible = status;
+                secgrpBCntrl.Visible = status;
+            }
         }
 
         private void Server_OnSwitchLightsA(bool status)
         {
-            if (status)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnALightsOn);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnALightsOn);
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_TurnALightsOff);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_TurnALightsOff);
-            }
+                if (status)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOn);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOff);
+                }
 
-            secgrpAR7Cntrl.Visible = status;
-            secgrpAR8Cntrl.Visible = status;
+                secgrpAR7Cntrl.Visible = status;
+                secgrpAR8Cntrl.Visible = status;
+            }
         }
 
         private void Server_OnInnerRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (!left)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateInnerRingRight);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateInnerRingRight);
+                if (!left)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateInnerRingRight);
 
-                ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
-                secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
-                secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateInnerRingLeft);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateInnerRingLeft);
+                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
+                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
+                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateInnerRingLeft);
 
-                ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
-                secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
-                secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
+                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
+                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
+                }
             }
         }
 
         private void Server_OnMiddleRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (!left)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateMiddleRingRight);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateMiddleRingRight);
+                if (!left)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateMiddleRingRight);
 
-                ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
-                secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
-                secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
-                secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
-            }
+                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
+                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
+                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
+                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
+                }
 
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateMiddleRingLeft);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateMiddleRingLeft);
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateMiddleRingLeft);
 
-                ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
-                secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
-                secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
-                secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
+                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
+                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
+                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
+                }
             }
         }
 
         private void Server_OnOuterRotation(Engine.MathEx.Vec3 pos, Engine.MathEx.Quat rot, bool left)
         {
-            if (!left)
+            if (button.IsServer)
             {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateOuterRingRight);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateOuterRingRight);
+                if (!left)
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateOuterRingRight);
 
-                ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
+                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
 
-                secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
-                secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
-                secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
-            }
-            else
-            {
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Oculus_RotateOuterRingLeft);
-                button.Server_SendWindowData((UInt16)NetworkMessages.Client_Cave_RotateOuterRingLeft);
+                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
+                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
+                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[0] = (currRingRotations[0] + 1) % 8;
+                }
+                else
+                {
+                    button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateOuterRingLeft);
 
-                ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
+                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
 
-                secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
-                secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
-                secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
+                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
+                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    mod(currRingRotations[0] - 1, 8);
+                }
             }
         }
 
 
         private void Server_WindowDataReceived(ushort message)
         {
-            NetworkMessages msg = (NetworkMessages)message;
-            switch(msg)
+            if (button.IsServer)
             {
-                case NetworkMessages.Server_UpdateRotationsForOculus:
-                    updateRotationsAndLightsForClients(true);
-                    break;
-                case NetworkMessages.Server_UpdateRotationsForCave:
-                    updateRotationsAndLightsForClients(false);
-                    break;
+                NetworkMessages msg = (NetworkMessages)message;
+                switch (msg)
+                {
+                    case NetworkMessages.Server_UpdateNewestRingRotationsForClient:
+                        string ringRotationsAsString = string.Join(",", Computer.RingRotations); // e.g. "1,7,3" where 1 of F3, 7 of F2, 3 of F1
+                        button.Server_SendWindowString(ringRotationsAsString, (UInt16)NetworkMessages.Client_ReceiveNewestRingRotations);
+                        break;
+                    case NetworkMessages.Server_UpdateLightsForClient:
+                        if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F1SG-B")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnBLightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F1SG-C")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnCLightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F2SG-D")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnDLightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F2SG-E")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnFLightsOff);
+                        if (((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus)
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOn);
+                        else
+                            button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnGLightsOff);
+
+                        break;
+                }
+            }
+        }
+
+
+
+        private void Client_StringReceived(string message, UInt16 netMessage)
+        {
+            if (!button.IsServer)
+            {
+                NetworkMessages msg = (NetworkMessages)netMessage;
+                switch (msg)
+                {
+                    case NetworkMessages.Client_ReceiveNewestRingRotations:
+                        string[] stringTempArray = message.Split(',');
+                        EngineConsole.Instance.Print("Client received string message: " + message);
+                        if (stringTempArray.Length == 3)
+                        {
+                            int[] intTempArray = Array.ConvertAll(stringTempArray, int.Parse);
+                            if (intTempArray[0] <= 7 && intTempArray[1] <= 7 && intTempArray[2] <= 7 && intTempArray[0] >= 0 && intTempArray[1] >= 0 && intTempArray[2] >= 0)
+                            {
+                                newestRingRotations = intTempArray;
+                                EngineConsole.Instance.Print("Client assigning newestRingRotations: ");
+                                string s = "";
+                                for (int i = 0; i < newestRingRotations.Length; i++)
+                                {
+                                    s = s+"," + newestRingRotations[i];
+                                }
+                                EngineConsole.Instance.Print(s);
+                            }
+                        }
+                        break;
+                        
+                }
             }
         }
 
         private void Client_WindowDataReceived(ushort message)
         {
-            
-            NetworkMessages msg = (NetworkMessages)message;
-            switch (msg)
+            if (!button.IsServer)
             {
-                case NetworkMessages.Client_Oculus_TurnALightsOff:
-                    Client_Oculus_OnSwitchLightsA(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnALightsOn:
-                    Client_Oculus_OnSwitchLightsA(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnBLightsOff:
-                    Client_Oculus_OnSwitchLightsB(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnBLightsOn:
-                    Client_Oculus_OnSwitchLightsB(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnCLightsOff:
-                    Client_Oculus_OnSwitchLightsC(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnCLightsOn:
-                    Client_Oculus_OnSwitchLightsC(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnDLightsOff:
-                    Client_Oculus_OnSwitchLightsD(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnDLightsOn:
-                    Client_Oculus_OnSwitchLightsD(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnELightsOff:
-                    Client_Oculus_OnSwitchLightsE(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnELightsOn:
-                    Client_Oculus_OnSwitchLightsE(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnFLightsOff:
-                    Client_Oculus_OnSwitchLightsF(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnFLightsOn:
-                    Client_Oculus_OnSwitchLightsF(true);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnGLightsOff:
-                    Client_Oculus_OnSwitchLightsG(false);
-                    break;
-                case NetworkMessages.Client_Oculus_TurnGLightsOn:
-                    Client_Oculus_OnSwitchLightsG(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnALightsOff:
-                    Client_Cave_OnSwitchLightsA(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnALightsOn:
-                    Client_Cave_OnSwitchLightsA(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnBLightsOff:
-                    Client_Cave_OnSwitchLightsB(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnBLightsOn:
-                    Client_Cave_OnSwitchLightsB(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnCLightsOff:
-                    Client_Cave_OnSwitchLightsC(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnCLightsOn:
-                    Client_Cave_OnSwitchLightsC(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnDLightsOff:
-                    Client_Cave_OnSwitchLightsD(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnDLightsOn:
-                    Client_Cave_OnSwitchLightsD(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnELightsOff:
-                    Client_Cave_OnSwitchLightsE(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnELightsOn:
-                    Client_Cave_OnSwitchLightsE(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnFLightsOff:
-                    Client_Cave_OnSwitchLightsF(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnFLightsOn:
-                    Client_Cave_OnSwitchLightsF(true);
-                    break;
-                case NetworkMessages.Client_Cave_TurnGLightsOff:
-                    Client_Cave_OnSwitchLightsG(false);
-                    break;
-                case NetworkMessages.Client_Cave_TurnGLightsOn:
-                    Client_Cave_OnSwitchLightsG(true);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateInnerRingLeft:
-                    Client_Oculus_OnInnerRotation(true);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateInnerRingRight:
-                    Client_Oculus_OnInnerRotation(false);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateOuterRingLeft:
-                    Client_Oculus_OnOuterRotation(true);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateOuterRingRight:
-                    Client_Oculus_OnOuterRotation(false);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateMiddleRingLeft:
-                    Client_Oculus_OnMiddleRotation(true);
-                    break;
-                case NetworkMessages.Client_Oculus_RotateMiddleRingRight:
-                    Client_Oculus_OnMiddleRotation(false);
-                    break;
-                case NetworkMessages.Client_Cave_RotateInnerRingLeft:
-                    Client_Cave_OnInnerRotation(true);
-                    break;
-                case NetworkMessages.Client_Cave_RotateInnerRingRight:
-                    Client_Cave_OnInnerRotation(false);
-                    break;
-                case NetworkMessages.Client_Cave_RotateOuterRingLeft:
-                    Client_Cave_OnOuterRotation(true);
-                    break;
-                case NetworkMessages.Client_Cave_RotateOuterRingRight:
-                    Client_Cave_OnOuterRotation(false);
-                    break;
-                case NetworkMessages.Client_Cave_RotateMiddleRingLeft:
-                    Client_Cave_OnMiddleRotation(true);
-                    break;
-                case NetworkMessages.Client_Cave_RotateMiddleRingRight:
-                    Client_Cave_OnMiddleRotation(false);
-                    break;
+                NetworkMessages msg = (NetworkMessages)message;
+                switch (msg)
+                {
+                    case NetworkMessages.Client_TurnALightsOff:
+                        Client_OnSwitchLightsA(false);
+                        break;
+                    case NetworkMessages.Client_TurnALightsOn:
+                        Client_OnSwitchLightsA(true);
+                        break;
+                    case NetworkMessages.Client_TurnBLightsOff:
+                        Client_OnSwitchLightsB(false);
+                        break;
+                    case NetworkMessages.Client_TurnBLightsOn:
+                        Client_OnSwitchLightsB(true);
+                        break;
+                    case NetworkMessages.Client_TurnCLightsOff:
+                        Client_OnSwitchLightsC(false);
+                        break;
+                    case NetworkMessages.Client_TurnCLightsOn:
+                        Client_OnSwitchLightsC(true);
+                        break;
+                    case NetworkMessages.Client_TurnDLightsOff:
+                        Client_OnSwitchLightsD(false);
+                        break;
+                    case NetworkMessages.Client_TurnDLightsOn:
+                        Client_OnSwitchLightsD(true);
+                        break;
+                    case NetworkMessages.Client_TurnELightsOff:
+                        Client_OnSwitchLightsE(false);
+                        break;
+                    case NetworkMessages.Client_TurnELightsOn:
+                        Client_OnSwitchLightsE(true);
+                        break;
+                    case NetworkMessages.Client_TurnFLightsOff:
+                        Client_OnSwitchLightsF(false);
+                        break;
+                    case NetworkMessages.Client_TurnFLightsOn:
+                        Client_OnSwitchLightsF(true);
+                        break;
+                    case NetworkMessages.Client_TurnGLightsOff:
+                        Client_OnSwitchLightsG(false);
+                        break;
+                    case NetworkMessages.Client_TurnGLightsOn:
+                        Client_OnSwitchLightsG(true);
+                        break;
+                    case NetworkMessages.Client_RotateInnerRingLeft:
+                        Client_OnInnerRotation(true);
+                        break;
+                    case NetworkMessages.Client_RotateInnerRingRight:
+                        Client_OnInnerRotation(false);
+                        break;
+                    case NetworkMessages.Client_RotateOuterRingLeft:
+                        Client_OnOuterRotation(true);
+                        break;
+                    case NetworkMessages.Client_RotateOuterRingRight:
+                        Client_OnOuterRotation(false);
+                        break;
+                    case NetworkMessages.Client_RotateMiddleRingLeft:
+                        Client_OnMiddleRotation(true);
+                        break;
+                    case NetworkMessages.Client_RotateMiddleRingRight:
+                        Client_OnMiddleRotation(false);
+                        break;
+                }
             }
-        }
-
-        private void Client_Cave_OnSwitchLightsG(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsG(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsF(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsF(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsE(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsE(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsD(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsD(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsC(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsC(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsB(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsB(p);
-        }
-
-        private void Client_Cave_OnSwitchLightsA(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnSwitchLightsA(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsG(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsG(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsF(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsF(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsE(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsE(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsD(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsD(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsC(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsC(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsB(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsB(p);
-        }
-
-        private void Client_Oculus_OnSwitchLightsA(bool p)
-        {
-            if (client.isOculus)
-                Client_OnSwitchLightsA(p);
-        }
-
-        private void Client_Cave_OnMiddleRotation(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnMiddleRotation(p);
-        }
-
-        private void Client_Cave_OnOuterRotation(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnOuterRotation(p);
-        }
-
-        private void Client_Cave_OnInnerRotation(bool p)
-        {
-            if (!client.isOculus)
-                Client_OnInnerRotation(p);
-        }
-
-        private void Client_Oculus_OnMiddleRotation(bool p)
-        {
-            if (client.isOculus)
-                Client_OnMiddleRotation(p);
-        }
-
-        private void Client_Oculus_OnOuterRotation(bool p)
-        {
-            if (client.isOculus)
-                Client_OnOuterRotation(p);
-        }
-
-        private void Client_Oculus_OnInnerRotation(bool p)
-        {
-            if (client.isOculus)
-                Client_OnInnerRotation(p);
         }
 
         private void Client_OnSwitchLightsG(bool status)
         {
-            secgrpGCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpGCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsF(bool status)
         {
-            secgrpFCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpFCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsE(bool status)
         {
-            secgrpFCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpFCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsD(bool status)
         {
-            secgrpDCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpDCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsC(bool status)
         {
-            secgrpCCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpCCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsB(bool status)
         {
-            secgrpBCntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpBCntrl.Visible = status;
+            }
         }
 
         private void Client_OnSwitchLightsA(bool status)
         {
-            secgrpAR7Cntrl.Visible = status;
-            secgrpAR8Cntrl.Visible = status;
+            if (!button.IsServer)
+            {
+                secgrpAR7Cntrl.Visible = status;
+                secgrpAR8Cntrl.Visible = status;
+            }
         }
 
         private void Client_OnInnerRotation(bool left)
         {
-            if (!left)
+            if (!button.IsServer)
             {
-                ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
-                secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
-                secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
-            }
-            else
-            {
-                ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
-                secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
-                secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                if (!left)
+                {
+                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
+                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
+                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
+                }
+                else
+                {
+                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
+                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
+                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
+                }
             }
         }
 
         private void Client_OnMiddleRotation(bool left)
         {
-            if (!left)
+            if (!button.IsServer)
             {
-                ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
-                secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
-                secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
-                secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
-            }
+                if (!left)
+                {
+                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
+                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
+                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
+                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
+                }
 
-            else
-            {
-                ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
-                secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
-                secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
-                secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                else
+                {
+                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
+                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
+                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
+                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
+                }
             }
         }
 
         private void Client_OnOuterRotation(bool left)
         {
-            if (!left)
+            if (!button.IsServer)
             {
-                ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
+                if (!left)
+                {
+                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
 
-                secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
-                secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
-                secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
-            }
-            else
-            {
-                ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
+                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
+                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    currRingRotations[0] = (currRingRotations[0] + 1) % 8;
+                }
+                else
+                {
+                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
 
-                secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
-                secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
-                secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
+                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
+                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    mod(currRingRotations[0] - 1, 8);
+                }
             }
+        }
+
+        private int mod(int x, int m)
+        {
+            return (x % m + m) % m;
         }
     }
 }

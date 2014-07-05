@@ -18,6 +18,7 @@ namespace ProjectEntities
         private List<RotControl> highlightedInnerRingControls = new List<RotControl>();
         private List<RotControl> highlightedOuterRingControls = new List<RotControl>();
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
+        private int[] currRingRotations=new int[3];
 
         [Engine.EntitySystem.EntityType.FieldSerialize]
         private float scale;
@@ -66,6 +67,9 @@ namespace ProjectEntities
                     highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r" + i + "_highlighted"]);
             }
 
+            for(int i=0; i<currRingRotations.Length; i++)
+                currRingRotations[i]=0;
+
         }
 
         public void scaleAllRings(float size)
@@ -98,28 +102,80 @@ namespace ProjectEntities
             ringMiddle.RotateRing += OnMiddleRotation;
 
             // Ringe drehen entsprechend der Computer-Konfig
-            for (int ring = 0; ring < Computer.RingRotations.Length; ring++)
+            Vec3 pos = new Vec3();
+            Quat rotation = new Quat();
+
+            EngineConsole.Instance.Print("CurrRingRotations: ");
+            for (int i = 0; i < currRingRotations.Length; i++)
             {
-                if (Computer.RingRotations[0] != 0)
+                EngineConsole.Instance.Print("" + currRingRotations[i]);
+            }
+            EngineConsole.Instance.Print("ComputerRingRotations: ");
+            for (int i = 0; i < Computer.RingRotations.Length; i++)
+            {
+                EngineConsole.Instance.Print("" + Computer.RingRotations[i]);
+            }
+            
+
+
+
+            for (int i = 0; i < Computer.RingRotations.Length; i++)
+            {
+                int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
+                if (dist == 4)                                                              //Distanz in der Mitte: 4x egal wohin drehen
                 {
-                    // Negative Anzahl an Rotierungen heißt links herum wurde gedreht
-                    bool left = (Computer.RingRotations[ring] < 0);
-                    for (int rot = 0; rot < Math.Abs(Computer.RingRotations[ring]); rot++)
+                    switch (i)
                     {
-                        Vec3 pos = new Vec3();
-                        Quat rotation = new Quat();
-                        switch (ring)
-                        {
-                            case 0:
-                                OnOuterRotation(pos, rotation, left);
-                                break;
-                            case 1:
-                                OnMiddleRotation(pos, rotation, left);
-                                break;
-                            case 2:
-                                OnInnerRotation(pos, rotation, left);
-                                break;
-                        }
+                        case 0:
+                            for (int x = 0; x < 4; x++)
+                                OnOuterRotation(pos, rotation, true);
+                            break;
+                        case 1:
+                            for (int x = 0; x < 4; x++)
+                                OnMiddleRotation(pos, rotation, true);
+                            break;
+                        case 2:
+                            for (int x = 0; x < 4; x++)
+                                OnInnerRotation(pos, rotation, true);
+                            break;
+                    }
+                }
+                if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
+                    (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnOuterRotation(pos, rotation, false);
+                            break;
+                        case 1:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnMiddleRotation(pos, rotation, false);
+                            break;
+                        case 2:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnInnerRotation(pos, rotation, false);
+                            break;
+                    }
+                }
+                if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
+                    (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnOuterRotation(pos, rotation, true);
+                            break;
+                        case 1:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnMiddleRotation(pos, rotation, true);
+                            break;
+                        case 2:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnInnerRotation(pos, rotation, true);
+                            break;
                     }
                 }
             }
@@ -204,6 +260,7 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree + 45) % 360;
                 }
+                currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
             }
             else
             {
@@ -214,6 +271,7 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree - 45) % 360;
                 }
+                currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
             }
         }
 
@@ -229,6 +287,7 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree + 45) % 360;
                 }
+                currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
             }
                 
             else
@@ -241,6 +300,7 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree - 45) % 360;
                 }
+                currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
             }
         }
 
@@ -257,6 +317,7 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree + 45) % 360;
                 }
+                currRingRotations[0] = mod(currRingRotations[0] + 1, 8);
             }
             else
             {
@@ -269,8 +330,13 @@ namespace ProjectEntities
                 {
                     r.RotateDegree = (r.RotateDegree - 45) % 360;
                 }
+                currRingRotations[0] = mod(currRingRotations[0] - 1, 8);
             }
         }
 
+        private int mod(int x, int m)
+        {
+            return (x % m + m) % m;
+        }
     }
 }
