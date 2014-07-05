@@ -1,0 +1,10 @@
+highLevelMaterial Corpse_mso_Corpse_hair2
+{
+	template = ShaderBaseMaterial
+	blending = AlphaBlend
+	diffuseColor = 0.64 0.64 0.64 0
+	diffuse1Map
+	{
+		texture = ".\\Corpse_hair_D.tga"
+	}
+}

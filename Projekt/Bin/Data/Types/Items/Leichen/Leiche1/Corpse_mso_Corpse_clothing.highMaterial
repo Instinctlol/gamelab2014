@@ -1,0 +1,21 @@
+highLevelMaterial Corpse_mso_Corpse_clothing
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	diffuse1Map
+	{
+		texture = ".\\Corpse_clothing_D.tga"
+	}
+	reflectionMap
+	{
+		texture = ".\\Corpse_clothing_S.tga"
+	}
+	specularMap
+	{
+		texture = ".\\Corpse_clothing_S.tga"
+	}
+	normalMap
+	{
+		texture = ".\\Corpse_clothing_N.tga"
+	}
+}
