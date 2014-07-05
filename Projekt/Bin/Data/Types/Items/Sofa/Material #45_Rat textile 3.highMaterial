@@ -1,0 +1,7 @@
+highLevelMaterial "Material #45_Rat textile 3"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.03529412 0.03529412 0.03529412
+	specularColor = 0.01568628 0.01568628 0.01568628
+	specularShininess = 47
+}

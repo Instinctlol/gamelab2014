@@ -1,5 +1,0 @@
-highLevelMaterial CPU_sign2
-{
-	template = ShaderBaseMaterial
-	diffuseColor = 0.64 0.64 0.64
-}

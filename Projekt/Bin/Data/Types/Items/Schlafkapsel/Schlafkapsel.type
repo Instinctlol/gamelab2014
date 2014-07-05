@@ -1,0 +1,11 @@
+type Schlafkapsel
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Chestburster_capsule_chair.mesh"
+		}
+	}
+}

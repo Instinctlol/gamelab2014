@@ -1,0 +1,11 @@
+type laptop
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Laptop.mesh"
+		}
+	}
+}

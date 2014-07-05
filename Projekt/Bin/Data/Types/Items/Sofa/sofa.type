@@ -1,0 +1,12 @@
+type sofa
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\sofa .mesh"
+			position = 0.2879009 0.1864338 -1.78253
+		}
+	}
+}

@@ -6,7 +6,11 @@ type battery
 		mesh
 		{
 			meshName = ".\\Battery.mesh"
-			position = 0 -0.003813416 0.001957148
+			position = 0 0.01836497 0.06618041
+		}
+		particle
+		{
+			particleName = ItemParticle
 		}
 	}
 }

@@ -1,0 +1,7 @@
+highLevelMaterial "Material #45_01e9 cordao www."
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.08235294 0.0627451 0.05490196
+	specularColor = 0.01176471 0.01176471 0.01176471
+	specularShininess = 70
+}

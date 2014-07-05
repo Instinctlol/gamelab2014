@@ -2,15 +2,15 @@ type Dynamite
 {
 	class = Item
 	defaultRespawnTime = 10
-	soundTake = Types/Items/DefaultItemTake.ogg
-	allowEditorCreate = True
+	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
 		{
-			meshName = Types\Items\Dynamite\Dynamite.mesh
+			meshName = "Types\\Items\\Dynamite\\Dynamite.mesh"
 			castDynamicShadows = True
+			position = 0 0.003514992 0.1102488
 			scale = 0.01 0.01 0.01
 		}
 		particle

@@ -1263,7 +1263,7 @@ entity
 	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	buttonType = SingleSwitch
+	windowType = Rotate
 	taskType = Quiz
 	healthFactorAtBeginning = 1
 	position = 3.899243 -96.98579 1.991622
@@ -1662,4 +1662,17 @@ entity
 	position = -92.37087 -0.006235659 1.788434
 	name = OutDoor_10
 	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Terminal
+	uin = 160
+	classPrompt = Terminal
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = Quiz
+	healthFactorAtBeginning = 1
+	position = -2.389542 -100.7141 1.990006
+	name = Terminal_1
 }

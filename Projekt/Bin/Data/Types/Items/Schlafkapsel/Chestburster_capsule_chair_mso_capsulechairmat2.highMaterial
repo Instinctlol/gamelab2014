@@ -1,0 +1,21 @@
+highLevelMaterial Chestburster_capsule_chair_mso_capsulechairmat2
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	diffuse1Map
+	{
+		texture = ".\\Chestburster_capsule_chair_mat2_D.tga"
+	}
+	reflectionMap
+	{
+		texture = ".\\Chestburster_capsule_chair_mat2_S.tga"
+	}
+	specularMap
+	{
+		texture = ".\\Chestburster_capsule_chair_mat2_S.tga"
+	}
+	normalMap
+	{
+		texture = ".\\Chestburster_capsule_chair_mat2_N.tga"
+	}
+}

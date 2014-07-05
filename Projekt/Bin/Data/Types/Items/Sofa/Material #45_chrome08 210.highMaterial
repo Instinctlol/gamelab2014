@@ -1,0 +1,7 @@
+highLevelMaterial "Material #45_chrome08 210"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0 0
+	specularColor = 0.4431373 0.4431373 0.4431373
+	specularShininess = 100
+}

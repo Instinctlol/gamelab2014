@@ -6,17 +6,25 @@ type USB_Stick
 		mesh
 		{
 			meshName = ".\\Logo.mesh"
+			position = -0.01077259 0 0.03523576
 			scale = 0.01 0.01 0.01
 		}
 		mesh
 		{
 			meshName = ".\\Part_01.mesh"
+			position = -0.01077259 0 0.03523576
 			scale = 0.01 0.01 0.01
 		}
 		mesh
 		{
 			meshName = ".\\Part_02.mesh"
+			position = -0.01077259 0 0.03523576
 			scale = 0.01 0.01 0.01
+		}
+		particle
+		{
+			particleName = ItemParticle
+			position = -0.004298449 0 -0.0001140833
 		}
 	}
 }

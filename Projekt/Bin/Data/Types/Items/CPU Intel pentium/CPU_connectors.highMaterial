@@ -1,7 +1,0 @@
-highLevelMaterial CPU_connectors
-{
-	template = ShaderBaseMaterial
-	diffuseColor = 0.64 0.32 0
-	specularColor = 0.5 0.472897 0.446252
-	specularShininess = 96.07842
-}
