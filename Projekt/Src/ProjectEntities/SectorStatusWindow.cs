@@ -218,7 +218,7 @@ namespace ProjectEntities
 
         private void OnSwitchLightsE(bool status)
         {
-            secgrpFCntrl.Visible = status;
+            secgrpECntrl.Visible = status;
         }
 
         private void OnSwitchLightsD(bool status)

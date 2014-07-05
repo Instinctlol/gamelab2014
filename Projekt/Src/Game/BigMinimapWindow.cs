@@ -85,7 +85,8 @@ namespace Game
             }
             else
             {
-                Computer.SetSectorGroupPower(selectedSector.Group);
+                Computer.SetSectorGroupPower(selectedSector.Group, false);
+                EngineConsole.Instance.Print("Turn Power off for secgrp: "+selectedSector.Group.Name);
             }
         }
         
@@ -123,10 +124,10 @@ namespace Game
                     EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
 
                     if(lastSelectedSector!=null)
-                        ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);
+                        ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
                     lastSelectedSector = selectedSector.Name;
 
-                    ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true);
+                    ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
                 }
             });
         }

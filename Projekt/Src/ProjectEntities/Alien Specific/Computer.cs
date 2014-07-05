@@ -257,10 +257,11 @@ namespace ProjectEntities
         }
 
         /// <summary>
-        /// Switches off or on the power of one sector (room)
+        /// Switches off or on the power of one sectorgroup
         /// </summary>
-        /// <param name="sectorName"></param>
-        public static void SetSectorGroupPower(SectorGroup sectorGroup)
+        /// <param name="sectorGroup"></param>
+        /// <param name="b"</param>
+        public static void SetSectorGroupPower(SectorGroup sectorGroup, bool b)
         {
             if (sectorGroup == null)
             {
@@ -275,7 +276,7 @@ namespace ProjectEntities
             else
             {
                 Computer.DecrementPowerCoupons();
-                sectorGroup.DoSwitchLight(false);
+                sectorGroup.DoSwitchLight(b);
             }
         }
 

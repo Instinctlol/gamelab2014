@@ -99,7 +99,7 @@ namespace ProjectEntities
 
             VerticalAlign = VerticalAlign.Center;
 
-            if (!button.IsServer)
+            if (!button.IsServer && !(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor))
             {
                 button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateNewestRingRotationsForClient);
                 button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateLightsForClient);
@@ -422,7 +422,7 @@ namespace ProjectEntities
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnELightsOff);
                 }
 
-                secgrpFCntrl.Visible = status;
+                secgrpECntrl.Visible = status;
             }
         }
 
@@ -749,7 +749,7 @@ namespace ProjectEntities
         {
             if (!button.IsServer)
             {
-                secgrpFCntrl.Visible = status;
+                secgrpECntrl.Visible = status;
             }
         }
 
