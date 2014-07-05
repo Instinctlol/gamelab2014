@@ -102,7 +102,6 @@ namespace ProjectEntities
             if (!button.IsServer)
             {
                 button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateNewestRingRotationsForClient);
-                Client_updateRotations();
                 button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateLightsForClient);
             }
                 
@@ -337,15 +336,15 @@ namespace ProjectEntities
                                 switch (i)
                                 {
                                     case 0:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
                                             Client_OnOuterRotation(false);
                                         break;
                                     case 1:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
                                             Client_OnMiddleRotation(false);
                                         break;
                                     case 2:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
                                             Client_OnInnerRotation(false);
                                         break;
                                 }
@@ -356,15 +355,15 @@ namespace ProjectEntities
                                 switch (i)
                                 {
                                     case 0:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
                                             Client_OnOuterRotation(true);
                                         break;
                                     case 1:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
                                             Client_OnMiddleRotation(true);
                                         break;
                                     case 2:
-                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x + 1, 8))
+                                        for (int x = currRingRotations[i]; x != newestRingRotations[i]; x = mod(x - 1, 8))
                                             Client_OnInnerRotation(true);
                                         break;
                                 }
@@ -652,6 +651,7 @@ namespace ProjectEntities
                                 EngineConsole.Instance.Print(s);
                             }
                         }
+                        Client_updateRotations();
                         break;
                         
                 }

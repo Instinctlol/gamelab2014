@@ -146,15 +146,15 @@ namespace ProjectEntities
                     switch (i)
                     {
                         case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
                                 OnOuterRotation(pos, rotation, false);
                             break;
                         case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
                                 OnMiddleRotation(pos, rotation, false);
                             break;
                         case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
                                 OnInnerRotation(pos, rotation, false);
                             break;
                     }
@@ -165,15 +165,15 @@ namespace ProjectEntities
                     switch (i)
                     {
                         case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
                                 OnOuterRotation(pos, rotation, true);
                             break;
                         case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
                                 OnMiddleRotation(pos, rotation, true);
                             break;
                         case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
                                 OnInnerRotation(pos, rotation, true);
                             break;
                     }
