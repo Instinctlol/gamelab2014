@@ -40,6 +40,8 @@ namespace ProjectEntities
         //Aktualisiert den Button
         protected override void CreateWindow()
         {
+            if(Window != null)
+                Window.destruct();
             switch (Terminal.WindowType)
             {
                 case Terminal.TerminalWindowType.Rotate:

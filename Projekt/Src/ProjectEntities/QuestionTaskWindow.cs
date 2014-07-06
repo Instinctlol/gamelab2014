@@ -18,10 +18,10 @@ namespace ProjectEntities
             FourClicked,
             OneChangedText,
             TwoChangedText,
-            TreeChangedText,
+            ThreeChangedText,
             FourChangedText,
             QuestionChangedText,
-            Play,
+            PlayClicked,
         }
 
         private string loesung;
@@ -72,10 +72,10 @@ namespace ProjectEntities
             listButtons.Add((Button)CurWindow.Controls["Four"]);
                        
             //Methoden für die Button
-            ((Button)CurWindow.Controls["One"]).Click += One_click;
-            ((Button)CurWindow.Controls["Two"]).Click += Two_click;
-            ((Button)CurWindow.Controls["Three"]).Click += Three_click;
-            ((Button)CurWindow.Controls["Four"]).Click += Four_click;
+            ((Button)CurWindow.Controls["One"]).Click += One_Click;
+            ((Button)CurWindow.Controls["Two"]).Click += Two_Click;
+            ((Button)CurWindow.Controls["Three"]).Click += Three_Click;
+            ((Button)CurWindow.Controls["Four"]).Click += Four_Click;
 
             ((Button)CurWindow.Controls["Play"]).Click += Play_Click;
 
@@ -93,11 +93,11 @@ namespace ProjectEntities
                 case "One": 
                     return NetworkMessages.OneChangedText;
                 case "Two":
-                    return NetworkMessages.OneChangedText;
+                    return NetworkMessages.TwoChangedText;
                 case "Three":
-                    return NetworkMessages.OneChangedText;
+                    return NetworkMessages.ThreeChangedText;
                 case "Four":
-                    return NetworkMessages.OneChangedText; 
+                    return NetworkMessages.FourChangedText; 
             }
             return 0;
         }
@@ -105,9 +105,12 @@ namespace ProjectEntities
 
         private void updateQuestion()
         {
+            if (!statusPlay)
+                return;
+
             //Random Number für Questins
             int randomQuestionNumber = rnd.Next(1, questions.Count);
-            randomPositionTrue = rnd.Next(1, 4);
+            randomPositionTrue = rnd.Next(0, 3);
 
             int[] loesungPosition = {0,0,0,0};
 
@@ -115,75 +118,83 @@ namespace ProjectEntities
             for (int x = 0; x < loesungPosition.Length; x++)
             {
                 if (x == randomPositionTrue)
+                {
                     loesungPosition[x] = 1;
-                else
-                    loesungPosition[x] = 0;
+                    break;
+                }                
             }
 
             ((TextBox)CurWindow.Controls["Question"]).Text = questions[randomQuestionNumber][0];
             task.Server_SendWindowString(questions[randomQuestionNumber][0],(UInt16) NetworkMessages.QuestionChangedText);
 
             loesung = questions[randomQuestionNumber][1];
-            int i = 0;
+            int i = 1;
             //Zeiweisen der Texte zu den Button
             listButtons.ForEach(delegate(Button button)
             {
-                if (loesungPosition[i] == 1)
+                if (loesungPosition[i-1] == 1)
                 {
                     button.Text = loesung;
-                    task.Server_SendWindowString(loesung, (UInt16)changedValue(button));
+                    task.Server_SendWindowString(loesung, (UInt16)changedValue(button));                    
                 }
                 else
-                {
+                {                    
                     button.Text = questions[randomQuestionNumber][i];
                     task.Server_SendWindowString(questions[randomQuestionNumber][i], (UInt16)changedValue(button));
                 }
+
                 i++;
-            });
+                
+            } );
            
         }
 
 
-        void Client_StringReceived(string message, UInt16 netMassage)
+        void Client_StringReceived(string message, UInt16 netMessage)
         {
-            NetworkMessages msg = (NetworkMessages)netMassage;
+            NetworkMessages msg = (NetworkMessages)netMessage;
+            ((Button)CurWindow.Controls["Play"]).Visible = false;
+            ((Button)CurWindow.Controls["Play"]).Enable = false;
             switch (msg)
             {
-                case NetworkMessages.OneClicked:
+                case NetworkMessages.OneChangedText:
                     ((Button)CurWindow.Controls["One"]).Text = message;
                     break;
-                case NetworkMessages.TwoClicked:
+                case NetworkMessages.TwoChangedText:
                     ((Button)CurWindow.Controls["Two"]).Text = message;
                     break;
-                case NetworkMessages.ThreeClicked:
+                case NetworkMessages.ThreeChangedText:
                     ((Button)CurWindow.Controls["Three"]).Text = message;
                     break;
-                case NetworkMessages.FourClicked:
+                case NetworkMessages.FourChangedText:
                     ((Button)CurWindow.Controls["Four"]).Text = message;
+                    break;
+                case NetworkMessages.QuestionChangedText:
+                    ((TextBox)CurWindow.Controls["Question"]).Text = message;
                     break;
             }
 
         }
 
-        void One_click(Button b)
+        void One_Click(Button b)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.OneClicked);
         }
-        void Two_click(Button b)
+        void Two_Click(Button b)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.TwoClicked);
         }
-        void Three_click(Button b)
+        void Three_Click(Button b)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.ThreeClicked);
         }
-        void Four_click(Button b)
+        void Four_Click(Button b)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.FourClicked);
         }
         void Play_Click(Button b)
         {
-            task.Client_SendWindowData((UInt16)NetworkMessages.Play);
+            task.Client_SendWindowData((UInt16)NetworkMessages.PlayClicked);
         }
 
 
@@ -193,29 +204,28 @@ namespace ProjectEntities
             switch (msg)
             {
                 case NetworkMessages.OneClicked:
-                    if (randomPositionTrue == 1)
-                        task.Success = true;
+                    task.Success = randomPositionTrue == 1;
+                    statusPlay = false;
                     break;
                 case NetworkMessages.TwoClicked:
-                    if (randomPositionTrue == 2)
-                        task.Success = true;
+                    task.Success = randomPositionTrue == 2;
+                    statusPlay = false;
                     break;
                 case NetworkMessages.ThreeClicked:
-                    if (randomPositionTrue == 3)
-                        task.Success = true;
+                    task.Success = randomPositionTrue == 3;
+                    statusPlay = false;
                     break;
                 case NetworkMessages.FourClicked:
-                    if (randomPositionTrue == 4)
-                        task.Success = true;
+                    task.Success = randomPositionTrue == 4;
+                    statusPlay = false;
                     break;
-                case NetworkMessages.Play:
-                    if (statusPlay == false)
+                case NetworkMessages.PlayClicked:
+                    if (!statusPlay)
                     {
                         statusPlay = true;
                         updateQuestion();
                     }
                     break;
-
             }
            
         }

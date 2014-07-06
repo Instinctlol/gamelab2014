@@ -18,7 +18,15 @@ namespace ProjectEntities
             set { curWindow = value; }
         }
 
-
+        public void destruct()
+        {
+            if(curWindow != null)
+            {
+                curWindow.Enable = false;
+                curWindow.SetShouldDetach();
+                curWindow = null;
+            }
+        }
 
 
     }

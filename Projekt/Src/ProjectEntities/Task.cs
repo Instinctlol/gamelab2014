@@ -57,6 +57,9 @@ namespace ProjectEntities
 
         protected override void CreateWindow()
         {
+            if (Window != null)
+                Window.destruct(); 
+            
             switch (Terminal.TaskType)
             {
                 case Terminal.TerminalTaskType.None:
@@ -83,6 +86,7 @@ namespace ProjectEntities
         //Wenn der Button gedrückt wird Task erzeugen
         private void OnButtonPressed()
         {
+            CreateWindow();
             SetTerminalWindow(Window);
             if (Window == null)
                 SendTaskFinished(true);
