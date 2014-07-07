@@ -1,6 +1,7 @@
 type Armchair2
 {
 	class = MapObject
+	physicsModel = ".\\Armchair.physics"
 	attachedObjects
 	{
 		mesh

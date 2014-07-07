@@ -1,4 +1,4 @@
-type sofa
+type leiche2
 {
 	class = MapObject
 	physicsModel = ".\\Object.physics"
@@ -6,8 +6,7 @@ type sofa
 	{
 		mesh
 		{
-			meshName = ".\\sofa .mesh"
-			position = 0.2879009 0.1864338 -1.78253
+			meshName = ".\\DeadBody.mesh"
 		}
 	}
 }

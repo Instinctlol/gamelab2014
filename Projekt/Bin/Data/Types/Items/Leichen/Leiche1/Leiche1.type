@@ -1,6 +1,7 @@
 type Leiche1
 {
 	class = MapObject
+	physicsModel = ".\\Object.physics"
 	attachedObjects
 	{
 		mesh

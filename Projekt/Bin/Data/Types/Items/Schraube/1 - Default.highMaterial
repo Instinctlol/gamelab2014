@@ -1,0 +1,7 @@
+highLevelMaterial "1 - Default"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5882353 0.5882353 0.5882353
+	specularColor = 0.8980393 0.8980393 0.8980393
+	specularShininess = 30
+}

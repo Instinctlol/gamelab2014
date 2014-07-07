@@ -1,0 +1,11 @@
+highLevelMaterial 0
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.588 0.588 0.588
+	specularColor = 0.369 0.369 0.369
+	specularShininess = 9.999999
+	diffuse1Map
+	{
+		texture = ".\\dead_body_01_d.dds"
+	}
+}

@@ -1,0 +1,21 @@
+type Schrauben
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Schraube.mesh"
+			rotation = 0 0.3871331 0 0.9220238
+		}
+		particle
+		{
+			particleName = ItemParticle
+		}
+		mesh
+		{
+			meshName = ".\\Schraube.mesh"
+			rotation = 0.3897029 -0.1521561 -0.3303447 0.8460807
+		}
+	}
+}

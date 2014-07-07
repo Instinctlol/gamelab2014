@@ -1,6 +1,7 @@
 type BunkBed
 {
 	class = MapObject
+	physicsModel = ".\\Object.physics"
 	attachedObjects
 	{
 		mesh
