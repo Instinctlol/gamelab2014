@@ -18,9 +18,9 @@ namespace ProjectEntities
         Control ringFullCntrl;
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
         GameNetworkClient client = GameNetworkClient.Instance;
-        // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
-        private int[] currRingRotations = new int[3];
-        private int[] newestRingRotations;
+        // ringRotations[0] is Ring F1, ringRotations[1] is Ring F2 and ringRotations[2] is Ring F3 (inner Ring)
+        private int[] currRingRotations = new int[3];   //saves the current ring positions currently shown
+        private int[] newestRingRotations;  //server 'writes' newest ring positions here
 
         [Engine.EntitySystem.EntityType.FieldSerialize]
         private float scale = 650;
@@ -33,7 +33,7 @@ namespace ProjectEntities
 
         enum NetworkMessages
         {
-            //Client_ bedeutet, die Nachricht ist an den Clienten gerichtet
+            //Client_ means, the message is directed to the client
             Client_RotateInnerRingLeft,
             Client_RotateInnerRingRight,
             Client_RotateMiddleRingLeft,
@@ -54,8 +54,8 @@ namespace ProjectEntities
             Client_TurnFLightsOff,
             Client_TurnGLightsOn,
             Client_TurnGLightsOff,
-            Server_UpdateNewestRingRotationsForClient,      //fuer die Initialisierung des Clienten
-            Server_UpdateLightsForClient,                   //fuer die Initialisierung des Clienten
+            Server_UpdateNewestRingRotationsForClient,      //to initialize the client
+            Server_UpdateLightsForClient,                   //to initialize the client
             Client_ReceiveNewestRingRotations,
         }
 
@@ -68,7 +68,7 @@ namespace ProjectEntities
             ringInnerCntrl = (RotControl)ringFullCntrl.Controls["InnerRing"];
             ringMiddleCntrl = (RotControl)ringFullCntrl.Controls["MiddleRing"];
             ringOuterCntrl = (RotControl)ringFullCntrl.Controls["OuterRing"];
-            //scale setzen
+            //set control scale
             if (ringFullCntrl.Size.Value.X == ringFullCntrl.Size.Value.Y && ringInnerCntrl.Size.Value.X == ringInnerCntrl.Size.Value.Y
                 && ringOuterCntrl.Size.Value.X == ringOuterCntrl.Size.Value.Y && ringMiddleCntrl.Size.Value.X == ringMiddleCntrl.Size.Value.Y
                 && ringFullCntrl.Size.Value.X == ringOuterCntrl.Size.Value.X && ringOuterCntrl.Size.Value.X == ringMiddleCntrl.Size.Value.X
@@ -88,17 +88,23 @@ namespace ProjectEntities
             secgrpFCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_F"];
             secgrpGCntrl = (RotControl)ringFullCntrl.Controls["Lights_Overlay"].Controls["Secgrp_G"];
 
+            //initialize currRingRotations
             for(int i=0; i<currRingRotations.Length; i++)
                 currRingRotations[i]=0;
 
+            //the server initializes the controls with the help of the actual rings
             Server_initializeWithRings();
 
+            //network register method events..
             button.Client_WindowDataReceived += Client_WindowDataReceived;
             button.Client_WindowStringReceived += Client_StringReceived;
             button.Server_WindowDataReceived += Server_WindowDataReceived;
 
-            VerticalAlign = VerticalAlign.Center;
+            //center window
+            CurWindow.HorizontalAlign = HorizontalAlign.Center;
+            CurWindow.VerticalAlign = VerticalAlign.Center;
 
+            //if client and not editor: receive new ring status update
             if (!button.IsServer && !(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor))
             {
                 button.Client_SendWindowData((UInt16)NetworkMessages.Server_UpdateNewestRingRotationsForClient);
@@ -126,7 +132,7 @@ namespace ProjectEntities
             CurWindow.Size = new ScaleValue(Control.ScaleType.ScaleByResolution, new Vec2(size, size));
         }
 
-        public void Server_initializeWithRings()
+        private void Server_initializeWithRings()
         {
             if(button.IsServer)
             {
@@ -160,69 +166,72 @@ namespace ProjectEntities
             }
         }
 
+        //used for server initialization, to get the actual ring statuses
         private void Server_updateRotationsAndLights()
         {
             if (button.IsServer)
             {
+                //dummies..
                 Vec3 pos = new Vec3();
                 Quat rotation = new Quat();
 
+                //optimized rotation
                 for (int i = 0; i < Computer.RingRotations.Length; i++)
                 {
-                    int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
-                    if (dist == 4)                                                              //Distanz in der Mitte: egal wohin drehen
+                    int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
+                    if (dist == 4)                                                              //If distance is in the 'middle', it doesnt matter if you rotate left or right
                     {
                         switch (i)
                         {
                             case 0:
                                 for (int x = 0; x < 4; x++)
-                                    Server_OnOuterRotation(pos, rotation, true);
+                                    Server_OnOuterRotation(pos, rotation, true);    //also sends to clients
                                 break;
                             case 1:
                                 for (int x = 0; x < 4; x++)
-                                    Server_OnMiddleRotation(pos, rotation, true);
+                                    Server_OnMiddleRotation(pos, rotation, true);   //also sends to clients
                                 break;
                             case 2:
                                 for (int x = 0; x < 4; x++)
-                                    Server_OnInnerRotation(pos, rotation, true);
+                                    Server_OnInnerRotation(pos, rotation, true);    //also sends to clients
                                 break;
                         }
                     }
-                    if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
-                        (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+                    if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //if this applies, rotate right: e.g.
+                        (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rotate right
                     {
                         switch (i)
                         {
                             case 0:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                    Server_OnOuterRotation(pos, rotation, false);
+                                    Server_OnOuterRotation(pos, rotation, false);   //also sends to clients
                                 break;
                             case 1:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                    Server_OnMiddleRotation(pos, rotation, false);
+                                    Server_OnMiddleRotation(pos, rotation, false);  //also sends to clients
                                 break;
                             case 2:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                    Server_OnInnerRotation(pos, rotation, false);
+                                    Server_OnInnerRotation(pos, rotation, false);   //also sends to clients
                                 break;
                         }
                     }
-                    if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
-                        (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+                    if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //if this applies, rotate left: e.g.
+                        (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: rotate left
                     {
                         switch (i)
                         {
                             case 0:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                    Server_OnOuterRotation(pos, rotation, true);
+                                    Server_OnOuterRotation(pos, rotation, true);    //also sends to clients
                                 break;
                             case 1:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                    Server_OnMiddleRotation(pos, rotation, true);
+                                    Server_OnMiddleRotation(pos, rotation, true);   //also sends to clients
                                 break;
                             case 2:
                                 for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                    Server_OnInnerRotation(pos, rotation, true);
+                                    Server_OnInnerRotation(pos, rotation, true);    //also sends to clients
                                 break;
                         }
                     }
@@ -240,6 +249,7 @@ namespace ProjectEntities
                 secgrpFCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-F")).LightStatus;
                 secgrpGCntrl.Visible = ((SectorGroup)Entities.Instance.GetByName("F3SG-G")).LightStatus;
 
+                //send update to client
                 if (((SectorGroup)Entities.Instance.GetByName("F1SG-A")).LightStatus)
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_TurnALightsOn);
                 else
@@ -273,25 +283,12 @@ namespace ProjectEntities
             }
         }
 
+        //used for client initialization
         private void Client_updateRotations()
         {
             if(!button.IsServer)
             {
-                EngineConsole.Instance.Print("Client updating Rotations:");
-                string s = "CurrPos: ";
-                for(int i=0; i<currRingRotations.Length; i++)
-                {
-                    s = s + currRingRotations[i];
-                }
-                EngineConsole.Instance.Print(s);
-                EngineConsole.Instance.Print("NewPos: ");
-                s = "";
-                for (int i = 0; i < newestRingRotations.Length; i++)
-                {
-                    s = s + newestRingRotations[i];
-                }
-                EngineConsole.Instance.Print(s);
-
+                //check if curr == new
                 bool done = false;
                 if (newestRingRotations != null)
                 {
@@ -308,11 +305,11 @@ namespace ProjectEntities
                     }
 
                     if (!done)
-                    {   //Optimiertes Drehen
+                    {   //Optimized rotation, analog to server
                         for (int i = 0; i < newestRingRotations.Length; i++)
                         {
-                            int dist = Math.Abs(newestRingRotations[i] - currRingRotations[i]); //Distanz zwischen curr und newest
-                            if (dist == 4)                                                      //Distanz in der Mitte: 4x egal wohin drehen
+                            int dist = Math.Abs(newestRingRotations[i] - currRingRotations[i]);
+                            if (dist == 4)
                             {
                                 switch (i)
                                 {
@@ -330,8 +327,8 @@ namespace ProjectEntities
                                         break;
                                 }
                             }
-                            if ((dist < 4 && currRingRotations[i] < newestRingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
-                                (dist > 4 && currRingRotations[i] > newestRingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+                            if ((dist < 4 && currRingRotations[i] < newestRingRotations[i]) ||
+                                (dist > 4 && currRingRotations[i] > newestRingRotations[i]))
                             {
                                 switch (i)
                                 {
@@ -349,8 +346,8 @@ namespace ProjectEntities
                                         break;
                                 }
                             }
-                            if ((dist < 4 && currRingRotations[i] > newestRingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
-                                (dist > 4 && currRingRotations[i] < newestRingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+                            if ((dist < 4 && currRingRotations[i] > newestRingRotations[i]) ||     
+                                (dist > 4 && currRingRotations[i] < newestRingRotations[i]))
                             {
                                 switch (i)
                                 {
@@ -634,24 +631,17 @@ namespace ProjectEntities
                 switch (msg)
                 {
                     case NetworkMessages.Client_ReceiveNewestRingRotations:
+                        //check if new string is 'legal'
                         string[] stringTempArray = message.Split(',');
-                        EngineConsole.Instance.Print("Client received string message: " + message);
                         if (stringTempArray.Length == 3)
                         {
                             int[] intTempArray = Array.ConvertAll(stringTempArray, int.Parse);
                             if (intTempArray[0] <= 7 && intTempArray[1] <= 7 && intTempArray[2] <= 7 && intTempArray[0] >= 0 && intTempArray[1] >= 0 && intTempArray[2] >= 0)
                             {
-                                newestRingRotations = intTempArray;
-                                EngineConsole.Instance.Print("Client assigning newestRingRotations: ");
-                                string s = "";
-                                for (int i = 0; i < newestRingRotations.Length; i++)
-                                {
-                                    s = s+"," + newestRingRotations[i];
-                                }
-                                EngineConsole.Instance.Print(s);
+                                newestRingRotations = intTempArray; //if legal: assign to newestRingRotations
                             }
                         }
-                        Client_updateRotations();
+                        Client_updateRotations();   //and update the ring controls
                         break;
                         
                 }

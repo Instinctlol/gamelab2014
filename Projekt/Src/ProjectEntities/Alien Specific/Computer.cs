@@ -41,7 +41,6 @@ namespace ProjectEntities
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
         // Bei Rechtsrotation wird 1 % 8 addiert, bei Linksrotation 1 % 8 subtrahiert.
         static int[] ringRotations = new int[3];
-        public static int stop = 1;
 
 
 
