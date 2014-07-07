@@ -28,7 +28,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution 40 40
+			position = ScaleByResolution 220 520
 			size = Parent 0.5703125 0.04947919
 			name = Message
 		}
@@ -42,11 +42,11 @@ control Control
 	}
 	control TextBox
 	{
-		textHorizontalAlign = Left
 		textVerticalAlign = Top
+		font = German 0.025
 		textColor = 0.007843138 1 0.8509805
-		position = ScaleByResolution 20 20
-		size = Parent 0.482422 0.2317708
+		position = ScaleByResolution 270 300
+		size = Screen 0.4824219 0.07552084
 		name = MessageBox
 	}
 	control Control
@@ -58,26 +58,10 @@ control Control
 		name = Game
 		control Control
 		{
-			position = Screen -0.001669407 -0.01302083
+			position = Screen -0.3141694 0.4427083
 			horizontalAlign = Right
-			size = ScaleByResolution 182.2905 179.0941
-			backTexture = "GUI\\HUD\\Ironman 3.png"
-		}
-		control Control
-		{
-			position = ScaleByResolution 0 0
-			horizontalAlign = Center
-			size = Screen 1 0.2578125
-			name = HUD1
-			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
-			control Control
-			{
-				position = Parent 0.2636719 0
-				size = Screen 0.4824216 0.03645836
-				name = HealthBar
-				backTexture = "GUI\\HUD\\HealthBar2.png"
-				colorMultiplier = 1 0.7333333 0.6392157
-			}
+			size = ScaleByResolution 162.2905 99.09412
+			backTexture = "GUI\\HUD\\Ironman 2.png"
 		}
 		control Control
 		{
@@ -185,57 +169,35 @@ control Control
 			name = Weapon
 			text = Weapon
 		}
-		control TextBox
-		{
-			font = Default 0.017
-			shadow = True
-			shadowOffset = Pixel 1 1
-			shadowColor = 0 0 0 0.5019608
-			position = Screen -0.1122463 0.15625
-			horizontalAlign = Right
-			size = ScaleByResolution 79.05984 17.99998
-			name = WeaponBulletCountNormal
-			text = "50/100"
-		}
 		control Control
 		{
-			position = ScaleByResolution 0 0
+			position = ScaleByResolution 3.051758E-05 -169.9999
 			horizontalAlign = Center
 			verticalAlign = Bottom
-			size = Screen 1 0.3489583
+			size = Screen 0.8242188 0.2838542
 			name = HUD2
 			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Bottom\\bottom.png"
 		}
 		control Control
 		{
-			position = Screen 0.1464844 0.8203125
-			size = ScaleByResolution 138 138
+			position = Screen 0.08789063 -0.01302083
+			size = ScaleByResolution 138 77.99998
 			backTexture = "GUI\\HUD\\Ironman 4.png"
-		}
-		control TextBox
-		{
-			font = Default 0.017
-			shadow = True
-			shadowOffset = Pixel 1 1
-			shadowColor = 0 0 0 0.5019608
-			position = Screen 0.3491503 0.0390625
-			horizontalAlign = Center
-			size = ScaleByResolution 79.05984 18.00003
-			name = WeaponMagazineCountNormal
-			text = "10/30"
+			visible = False
 		}
 		control Control
 		{
-			position = Screen -0.02539065 0.02604167
+			position = Screen -0.328125 0.4557292
 			horizontalAlign = Right
-			size = Screen 0.125 0.1666667
+			size = Screen 0.125 0.1145834
 			name = WeaponIcon
 		}
 		control Control
 		{
-			position = Screen 0.1464844 0.8203125
-			size = ScaleByResolution 128 128
+			position = Screen 0 0
+			size = ScaleByResolution 128 78
 			name = PlayerIcon
+			visible = False
 		}
 		control TextBox
 		{
@@ -243,11 +205,51 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen -0.1109107 0.1041667
+			position = Screen -0.3843483 0.3255208
 			horizontalAlign = Right
 			size = ScaleByResolution 100.4274 18.00002
 			name = WeaponBulletCountAlternative
 			text = "50/100"
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 190
+			horizontalAlign = Center
+			size = Screen 0.8242188 0.2578125
+			name = HUD1
+			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
+			control Control
+			{
+				position = Parent 0.4146919 0.2020202
+				size = Screen 0.1406247 0.02555716
+				name = HealthBar
+				backTexture = "GUI\\HUD\\HealthBar4.png"
+				colorMultiplier = 1 0.7333333 0.6392157
+			}
+		}
+		control TextBox
+		{
+			font = Default 0.017
+			shadow = True
+			shadowOffset = Pixel 1 1
+			shadowColor = 0 0 0 0.5019608
+			position = ScaleByResolution -404.9402 270
+			horizontalAlign = Right
+			size = Screen 0.07720687 0.02343748
+			name = WeaponBulletCountNormal
+			text = "50/100"
+		}
+		control TextBox
+		{
+			font = Default 0.017
+			shadow = True
+			shadowOffset = Pixel 1 1
+			shadowColor = 0 0 0 0.5019608
+			position = Screen 0.06594718 0.3385417
+			horizontalAlign = Center
+			size = ScaleByResolution 79.05984 18.00003
+			name = WeaponMagazineCountNormal
+			text = "10/30"
 		}
 	}
 }
