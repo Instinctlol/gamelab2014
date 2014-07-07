@@ -9,24 +9,11 @@ namespace ProjectEntities
 {
     public class Server_SchereSteinPapierWindow : TaskWindow
     {
-        enum NetworkMessages
-        {
-            Client_SchereButtonClicked,
-            Client_PapierButtonClicked,
-            Client_SteinButtonClicked,
-            Client_PlayButtonClicked,   //not for this class
-            Server_UpdateTimer,
-            Server_ClientLoses,
-            Server_ClientWins,
-            Server_Draw,
-            Server_EvaluatingSolutions
-        }
-
         private EngineConsole console = EngineConsole.Instance;
 
         private Control window;
         private TextBox countdownBox, enemySelectedBox;
-        private Button schereButton, steinButton, papierButton;
+        private Button schereButton, steinButton, papierButton, tempButton;
         private string lastSelected, enemyLastSelected;
         private Timer aTimer;
 
@@ -49,12 +36,14 @@ namespace ProjectEntities
             steinButton.Enable = true;
             papierButton.Enable = true;
             enemySelectedBox.Visible = false;
+            ((Button)window.Controls["PlayButton"]).Visible = false;
 
             if (task.IsServer)
             {
                 task.Server_WindowDataReceived += Server_WindowDataReceived;
                 aTimer = new System.Timers.Timer(1000); //jede Sekunde
                 aTimer.Elapsed += countdown;
+                aTimer.Enabled = true;
             }
                 
         }
@@ -62,37 +51,69 @@ namespace ProjectEntities
         private void countdown(object sender, ElapsedEventArgs e)
         {
             countdownBox.Text = ""+(int.Parse(countdownBox.Text) -1);
-            task.Server_SendWindowString(countdownBox.Text, (UInt16)NetworkMessages.Server_UpdateTimer);
+            task.Server_SendWindowString(countdownBox.Text, (UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_UpdateTimer);
             if (countdownBox.Text.Equals("0"))
+            {
+                aTimer.Enabled = false;
                 compareSolutions();
+            }
+                
         }   
         
 
         private void Stein_clicked(Button sender)
         {
             if(!(countdownBox.Text.Equals("0")))
+            {
                 lastSelected = steinButton.Text;
+                if (!(tempButton == null))
+                {
+                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                }
+                steinButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+                tempButton = steinButton;
+            }
+                
         }
 
         private void Papier_clicked(Button sender)
         {
             if (!(countdownBox.Text.Equals("0")))
-                lastSelected = steinButton.Text;
+            {
+                lastSelected = papierButton.Text;
+                if (!(tempButton == null))
+                {
+                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                }
+                papierButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+                tempButton = papierButton;
+            }
+                
         }
 
         private void Schere_clicked(Button sender)
         {
             if (!(countdownBox.Text.Equals("0")))
-                lastSelected = steinButton.Text;
+            {
+                lastSelected = schereButton.Text;
+                if (!(tempButton == null))
+                {
+                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                }
+                schereButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+                tempButton = schereButton;
+            }
         }
 
         private void compareSolutions()
         {
-            task.Server_SendWindowData((UInt16)NetworkMessages.Server_EvaluatingSolutions);
+            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_EvaluatingSolutions);
 
             schereButton.Enable = false;
             papierButton.Enable = false;
             steinButton.Enable = false;
+            enemySelectedBox.Text = enemyLastSelected;
+            enemySelectedBox.Visible = true;
 
             switch(lastSelected)
             {
@@ -126,33 +147,33 @@ namespace ProjectEntities
 
         private void victoryStuff()
         {
-            task.Server_SendWindowData((UInt16)NetworkMessages.Server_ClientLoses);
+            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientLoses);
         }
 
         private void drawStuff()
         {
-            task.Server_SendWindowData((UInt16)NetworkMessages.Server_Draw);
+            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_Draw);
         }
 
         private void defeatStuff()
         {
-            task.Server_SendWindowData((UInt16)NetworkMessages.Server_ClientWins);
+            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientWins);
         }
 
         private void Server_WindowDataReceived(ushort message)
         {
             if(!task.IsServer)
             {
-                NetworkMessages msg = (NetworkMessages)message;
+                Client_SchereSteinPapierWindow.NetworkMessages msg = (Client_SchereSteinPapierWindow.NetworkMessages)message;
                 switch(msg)
                 {
-                    case NetworkMessages.Client_PapierButtonClicked:
+                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_PapierButtonClicked:
                         enemyLastSelected = papierButton.Text;
                         break;
-                    case NetworkMessages.Client_SchereButtonClicked:
+                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_SchereButtonClicked:
                         enemyLastSelected = schereButton.Text;
                         break;
-                    case NetworkMessages.Client_SteinButtonClicked:
+                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_SteinButtonClicked:
                         enemyLastSelected = steinButton.Text;
                         break;
                 }

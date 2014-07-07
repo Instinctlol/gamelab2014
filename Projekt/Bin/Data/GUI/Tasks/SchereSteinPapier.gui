@@ -37,7 +37,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Schere
-			backColor = 0.2745098 0.254902 0.6
+			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 			visible = False
 		}
 		overControl TextBox
@@ -45,7 +45,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Schere
-			backColor = 0.3294118 0.3058824 0.7176471
+			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
 		pushControl TextBox
@@ -53,12 +53,13 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Schere
-			backColor = 0.4470589 0.427451 1
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
@@ -66,7 +67,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Schere
-			backColor = 1 0.1137255 0.06666667
+			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 		}
 	}
 	control Button
@@ -81,7 +82,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Stein
-			backColor = 0.2745098 0.254902 0.6
+			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 			visible = False
 		}
 		overControl TextBox
@@ -89,7 +90,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Stein
-			backColor = 0.3294118 0.3058824 0.7176471
+			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
 		pushControl TextBox
@@ -97,12 +98,13 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Stein
-			backColor = 0.4470589 0.427451 1
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
@@ -110,7 +112,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Stein
-			backColor = 1 0.1137255 0.06666667
+			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 		}
 	}
 	control Button
@@ -125,7 +127,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Papier
-			backColor = 0.2745098 0.254902 0.6
+			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 			visible = False
 		}
 		overControl TextBox
@@ -133,7 +135,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Papier
-			backColor = 0.3294118 0.3058824 0.7176471
+			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
 		pushControl TextBox
@@ -141,12 +143,13 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Papier
-			backColor = 0.4470589 0.427451 1
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
@@ -154,7 +157,7 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Papier
-			backColor = 1 0.1137255 0.06666667
+			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 		}
 	}
 	control Button
@@ -167,14 +170,14 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Play
-			backColor = 0.2745098 0.254902 0.6
+			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 		}
 		overControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Play
-			backColor = 0.3294118 0.3058824 0.7176471
+			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
 		pushControl TextBox
@@ -182,19 +185,21 @@ control Window
 			font = Default 0.05
 			position = ScaleByResolution 0 0
 			text = Play
-			backColor = 0.4470589 0.427451 1
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			text = Play
+			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
 		{
 			position = ScaleByResolution 0 0
 			text = Play
+			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 			visible = False
 		}
 	}

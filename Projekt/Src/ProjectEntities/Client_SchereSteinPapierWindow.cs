@@ -1,15 +1,17 @@
-﻿using Engine.EntitySystem;
+﻿using Engine;
+using Engine.EntitySystem;
 using Engine.MathEx;
 using Engine.UISystem;
 using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.Timers;
+
 namespace ProjectEntities
 {
     public class Client_SchereSteinPapierWindow : TaskWindow
     {
-        enum NetworkMessages
+        public enum NetworkMessages
         {
             Client_SchereButtonClicked,
             Client_PapierButtonClicked,
@@ -26,7 +28,7 @@ namespace ProjectEntities
 
         private Control window;
         private TextBox countdownBox, enemySelectedBox;
-        private Button schereButton, steinButton, papierButton, playButton;
+        private Button schereButton, steinButton, papierButton, playButton, tempButton;
         private string lastSelected;
 
         public Client_SchereSteinPapierWindow(Task task) : base(task)
@@ -61,7 +63,13 @@ namespace ProjectEntities
         private void Play_clicked(Button sender)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_PlayButtonClicked);
+            
+            playButton.Enable = false;
             playButton.Visible = false;
+
+            schereButton.Enable = true;
+            steinButton.Enable = true;
+            papierButton.Enable = true;
         }
 
         
@@ -69,21 +77,36 @@ namespace ProjectEntities
         private void Stein_clicked(Button sender)
         {
             lastSelected = steinButton.Text;
-
+            if(!(tempButton==null))
+            {
+                tempButton.DefaultControl.BackColor = new ColorValue(74/255, 154/255, 221/255, 200/255);
+            }
+            steinButton.DefaultControl.BackColor = new ColorValue(181/255, 215/255, 255/255, 200/255);
+            tempButton = steinButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_SteinButtonClicked);
         }
 
         private void Papier_clicked(Button sender)
         {
-            lastSelected = steinButton.Text;
-
+            lastSelected = papierButton.Text;
+            if (!(tempButton == null))
+            {
+                tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+            }
+            papierButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+            tempButton = papierButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_PapierButtonClicked);
         }
 
         private void Schere_clicked(Button sender)
         {
-            lastSelected = steinButton.Text;
-
+            lastSelected = schereButton.Text;
+            if (!(tempButton == null))
+            {
+                tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+            }
+            schereButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+            tempButton = schereButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_SchereButtonClicked);
         }
 
@@ -93,12 +116,15 @@ namespace ProjectEntities
             {
                 case "Schere":
                     enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
                     enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
                     enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
             }
 
@@ -111,16 +137,17 @@ namespace ProjectEntities
             {
                 case "Schere":
                     enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
                     enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
                     enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
             }
-
-            throw new NotImplementedException();
         }
 
         private void defeatStuff()
@@ -129,16 +156,17 @@ namespace ProjectEntities
             {
                 case "Schere":
                     enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
                     enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
                     enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Visible = true;
                     break;
             }
-
-            throw new NotImplementedException();
         }
 
         private void Client_StringReceived(string message, UInt16 netMessage)
