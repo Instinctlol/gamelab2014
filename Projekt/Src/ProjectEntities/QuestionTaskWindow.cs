@@ -105,43 +105,39 @@ namespace ProjectEntities
                 return;
 
             //Random Number für Questins
-            int randomQuestionNumber = rnd.Next(1, questions.Count);
-            randomPositionTrue = rnd.Next(0, 3);
+            int randomQuestionNumber = rnd.Next(1, questions.Count - 1);
+            randomPositionTrue = rnd.Next(1, 4);
 
             int[] loesungPosition = {0,0,0,0};
+            int pos = 2;
 
             //Position mit 1 ist die Lösungsposition
-            for (int x = 0; x < loesungPosition.Length; x++)
+            for (int i = 0; i < loesungPosition.Length; i++)
             {
-                if (x == randomPositionTrue)
+                if (i == randomPositionTrue - 1)
                 {
-                    loesungPosition[x] = 1;
-                    break;
-                }                
+                    loesungPosition[i] = 1;
+                }
+                else
+                {
+                    loesungPosition[i] = pos;
+                    pos++;
+                }
             }
 
             ((TextBox)CurWindow.Controls["Question"]).Text = questions[randomQuestionNumber][0];
             task.Server_SendWindowString(questions[randomQuestionNumber][0],(UInt16) NetworkMessages.QuestionChangedText);
 
             loesung = questions[randomQuestionNumber][1];
-            int i = 1;
+            int ii = 0;
             //Zeiweisen der Texte zu den Button
             foreach(String button in new string[] {"One", "Two", "Three", "Four"})
             {
                 Button b = ((Button)CurWindow.Controls[button]);
 
-                if (loesungPosition[i - 1] == 1)
-                {
-                    b.Text = loesung;
-                    task.Server_SendWindowString(loesung, (UInt16)changedValue(b));
-                }
-                else
-                {
-                    b.Text = questions[randomQuestionNumber][i];
-                    task.Server_SendWindowString(questions[randomQuestionNumber][i], (UInt16)changedValue(b));
-                }
-
-                i++;
+                b.Text = questions[randomQuestionNumber][loesungPosition[ii]];
+                task.Server_SendWindowString(questions[randomQuestionNumber][loesungPosition[ii]], (UInt16) changedValue(b));
+                ii++;
             }           
         }
 
