@@ -56,7 +56,7 @@ namespace ProjectEntities
 
         //Repairable das zunächst reperiert werden muss
         [FieldSerialize]
-        private Repairable repairable = null;
+        private List<RepairableItem> repairables = new List<RepairableItem>();
 
         //Zusätzliche daten die an die Task übergeben werden können
         [FieldSerialize]
@@ -132,17 +132,38 @@ namespace ProjectEntities
             }
         }
 
-        public Repairable Repairable
+        public List<RepairableItem> Repairables
         {
-            get { return repairable; }
-            set
+            get { return repairables; }
+           /* set
             {
                 if (repairable != null)
-                    button.DetachRepairable(repairable);
+                    foreach(Repairable r in repairable)
+                        button.DetachRepairable(r);
 
                 repairable = value;
                 if (repairable != null)
-                    button.AttachRepairable(repairable);
+                    foreach (Repairable r in repairable)
+                        button.AttachRepairable(r);
+            }*/
+        }
+
+        public class RepairableItem
+        {
+            [FieldSerialize]
+            Repairable repairable;
+
+            public Repairable Repairable
+            {
+                get { return repairable; }
+                set { repairable = value; }
+            }
+
+            public override string ToString()
+            {
+                if (repairable == null)
+                    return "(not initialized)";
+                return repairable.Name;
             }
         }
 
@@ -296,8 +317,9 @@ namespace ProjectEntities
             //task.TaskFinished += OnTaskFinished;
 
             //Ggfs repairable an Button weiter reichen
-            if (repairable != null)
-                button.AttachRepairable(repairable);
+            if (repairables != null)
+                foreach (RepairableItem r in repairables)
+                    button.AttachRepairable(r.Repairable);
             else
                 button.SetWindowEnabled();
             

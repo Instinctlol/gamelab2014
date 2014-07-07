@@ -17,6 +17,8 @@ namespace ProjectEntities
     {
         SmartButtonType _type = null; public new SmartButtonType Type { get { return _type; } }
 
+        int repairablesBroken = 0;
+
 
         enum NetworkMessages
         {
@@ -94,6 +96,7 @@ namespace ProjectEntities
             if (r != null)
             {
                 r.Repair += OnRepair;
+
                 OnRepair(r);
             }
         }
@@ -103,6 +106,7 @@ namespace ProjectEntities
             if (r != null)
             {
                 r.Repair -= OnRepair;
+
                 OnRepair(r);
             }
         }
@@ -110,15 +114,18 @@ namespace ProjectEntities
         public void OnRepair(Repairable r)
         {
             if (r.Repaired)
+                repairablesBroken--;
+            else
+                repairablesBroken++;
+
+            if(repairablesBroken == 0)
             {
                 SetWindowEnabled();
                 if (!IsVisible)
                     SmartButtonPressed();
             }
             else
-            {
                 SetTerminalWindow(null);
-            }
         }
 
         public void Client_SendSmartButtonPressedToServer()

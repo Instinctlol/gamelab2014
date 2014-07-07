@@ -1259,7 +1259,6 @@ entity
 	uin = 90
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 8
-	repairable = 91
 	taskData = 1
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -1271,6 +1270,17 @@ entity
 	name = Terminal_0
 	logicClass = 8
 	editorLayer = "Root Layer\\F1\\Dynamics"
+	repairables
+	{
+		item
+		{
+			repairable = 95
+		}
+		item
+		{
+			repairable = 91
+		}
+	}
 }
 entity
 {
@@ -1666,7 +1676,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 160
+	uin = 122
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -1675,4 +1685,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = -2.389542 -100.7141 1.990006
 	name = Terminal_1
+	repairables
+	{
+	}
 }
