@@ -136,7 +136,7 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUDTest.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
 
@@ -870,10 +870,6 @@ namespace Game
 
                 AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
                     VerticalAlign.Center, color);
-
-                if (currentItem != null)
-                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, currentItem.Type.Name, new Vec2(.5f, .7f), HorizontalAlign.Center,
-                        VerticalAlign.Center, ColorValue.Construct(0, 1, 0));
             }
 
         }
@@ -987,7 +983,7 @@ namespace Game
                 if (playerUnit != null)
                     coef = playerUnit.Health / playerUnit.Type.HealthMax;
 
-                Control healthBar = hudControl.Controls["Game/HUD1/HealthBar"];
+                Control healthBar = hudControl.Controls["Game/HealthBar"];
                 Vec2 originalSize = new Vec2(256, 32);
                 Vec2 interval = new Vec2(117, 304);
                 float sizeX = (117 - 82) + coef * (interval[1] - interval[0]);
@@ -1332,11 +1328,13 @@ namespace Game
             String s_w = character.notification();
 
             if(s != "" && s_w == "")
-            AddTextWithShadow(renderer, s+" aufgenommen", new Vec2(.5f, .2f),
-                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            //AddTextWithShadow(renderer, s+" aufgenommen", new Vec2(.5f, .2f),
+            //            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+                StatusMessageHandler.sendMessage(s + "aufgenommen");
             else if(s_w != "" && s == "")
-            AddTextWithShadow(renderer, s_w+" aufgenommen", new Vec2(.5f, .2f),
-                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            //AddTextWithShadow(renderer, s_w+" aufgenommen", new Vec2(.5f, .2f),
+            //            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+                StatusMessageHandler.sendMessage(s_w + "aufgenommen");
 
             return true;
 
