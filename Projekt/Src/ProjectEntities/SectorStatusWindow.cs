@@ -105,20 +105,6 @@ namespace ProjectEntities
             Vec3 pos = new Vec3();
             Quat rotation = new Quat();
 
-            EngineConsole.Instance.Print("CurrRingRotations: ");
-            for (int i = 0; i < currRingRotations.Length; i++)
-            {
-                EngineConsole.Instance.Print("" + currRingRotations[i]);
-            }
-            EngineConsole.Instance.Print("ComputerRingRotations: ");
-            for (int i = 0; i < Computer.RingRotations.Length; i++)
-            {
-                EngineConsole.Instance.Print("" + Computer.RingRotations[i]);
-            }
-            
-
-
-
             for (int i = 0; i < Computer.RingRotations.Length; i++)
             {
                 int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
