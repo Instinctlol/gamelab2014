@@ -34,8 +34,7 @@ namespace ProjectEntities
         private string pfadZurDatei = "Data\\GUI\\Tasks\\questions.txt";
         private string antwort;
         private int randomPositionTrue;
-        //Button
-        List<Button> listButtons = new List<Button>();
+
         private static Timer aTimer;
         private Random rnd = new Random();
 
@@ -65,11 +64,6 @@ namespace ProjectEntities
             //GUI erzeugen
             CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\QuestionTaskWindow.gui");
             
-            //Liste der Button
-            listButtons.Add((Button)CurWindow.Controls["One"]);
-            listButtons.Add((Button)CurWindow.Controls["Two"]);
-            listButtons.Add((Button)CurWindow.Controls["Three"]);
-            listButtons.Add((Button)CurWindow.Controls["Four"]);
                        
             //Methoden für die Button
             ((Button)CurWindow.Controls["One"]).Click += One_Click;
@@ -79,10 +73,12 @@ namespace ProjectEntities
 
             ((Button)CurWindow.Controls["Play"]).Click += Play_Click;
 
-            task.Client_WindowStringReceived += Client_StringReceived;
-            task.Server_WindowDataReceived += Server_DataReceived;
-           
+            if(task.IsServer)
+                task.Server_WindowDataReceived += Server_DataReceived;
+            else
+                task.Client_WindowStringReceived += Client_StringReceived;
         }
+
 
         private NetworkMessages changedValue (Button button)
         {
@@ -130,23 +126,23 @@ namespace ProjectEntities
             loesung = questions[randomQuestionNumber][1];
             int i = 1;
             //Zeiweisen der Texte zu den Button
-            listButtons.ForEach(delegate(Button button)
+            foreach(String button in new string[] {"One", "Two", "Three", "Four"})
             {
-                if (loesungPosition[i-1] == 1)
+                Button b = ((Button)CurWindow.Controls[button]);
+
+                if (loesungPosition[i - 1] == 1)
                 {
-                    button.Text = loesung;
-                    task.Server_SendWindowString(loesung, (UInt16)changedValue(button));                    
+                    b.Text = loesung;
+                    task.Server_SendWindowString(loesung, (UInt16)changedValue(b));
                 }
                 else
-                {                    
-                    button.Text = questions[randomQuestionNumber][i];
-                    task.Server_SendWindowString(questions[randomQuestionNumber][i], (UInt16)changedValue(button));
+                {
+                    b.Text = questions[randomQuestionNumber][i];
+                    task.Server_SendWindowString(questions[randomQuestionNumber][i], (UInt16)changedValue(b));
                 }
 
                 i++;
-                
-            } );
-           
+            }           
         }
 
 

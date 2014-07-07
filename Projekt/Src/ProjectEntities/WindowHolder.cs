@@ -92,7 +92,9 @@ namespace ProjectEntities
         }
 
         protected virtual void CreateWindow() {
-            throw new NotImplementedException();
+            Server_WindowDataReceived = null;
+            Client_WindowDataReceived = null;
+            Client_WindowStringReceived = null;
         }
 
         protected void SetTerminalWindow(Window w)

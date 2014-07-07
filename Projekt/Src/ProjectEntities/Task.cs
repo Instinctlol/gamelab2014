@@ -55,11 +55,11 @@ namespace ProjectEntities
                 TaskFinished(success);
         }
 
+
+
         protected override void CreateWindow()
         {
-            if (Window != null)
-                Window.destruct(); 
-            
+            base.CreateWindow();
             switch (Terminal.TaskType)
             {
                 case Terminal.TerminalTaskType.None:
