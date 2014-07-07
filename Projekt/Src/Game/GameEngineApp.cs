@@ -532,11 +532,7 @@ namespace Game
             {
                 ExampleCustomInputDevice.InitDevice();
             }
-            else
-            {
-                TuioInputDevice.InitDevice();
-                //HeadTracker.start();
-            }
+            
 
 			return true;
 		}
@@ -964,6 +960,8 @@ namespace Game
                     //Ich bin Alien
                     gameWindow = new AlienGameWindow();
                     GameMap.Instance.IsAlien = true;
+                    TuioInputDevice.InitDevice();
+                    HeadTracker.Instance.Start();
                 }
                 else 
                 {

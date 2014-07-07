@@ -69,6 +69,9 @@ namespace Game
         float timeForUpdateNotificationStatus;
         float timeForDeleteNotificationMessage;
 
+        // Headtracking
+        
+
 
 
         /**************/
@@ -93,6 +96,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddNotificationMessage);
+            HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
         }
 
         //hudFunktionen
@@ -1446,6 +1450,37 @@ namespace Game
                 control.BackTexture = null;
         }
 
+        void adjustCamera(ref Camera camera, float x, float y, float z, float displayWidth, float displayHeight)
+        {
+            #region Aspect Ratio and Vertical Field of View
+            float aspect = displayWidth / displayHeight;
+            float c = (float)Math.Sqrt(z * z + (displayHeight / 2.0f) * (displayHeight / 2.0f));
+            float alpha = (float)Math.Acos(z / c);
+            float fovy = new Degree(new Radian(2.0f * alpha));
+            #endregion
+
+            #region Asymetric Frustum
+            Vec2 frustumOffset = new Vec2();
+
+            float nearPlane = camera.NearClipDistance;
+            float nearDistanceRatio = nearPlane / z;
+
+            frustumOffset.X = x / z;
+            frustumOffset.Y = y / z;
+            #endregion
+
+            #region Application to Camera
+            camera.Fov = fovy;
+            camera.AspectRatio = aspect;
+            camera.FrustumOffset = frustumOffset;
+            #endregion
+        }
+
+        void receiveTrackingData(int sensorID, double x, double y, double z)
+        {
+            //headtracking1
+        }
+
         protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward, out Vec3 up, ref Degree cameraFov)
         {
             Vec3 offset;
@@ -1461,6 +1496,17 @@ namespace Game
             position = lookAt + offset;
             forward = -offset;
             up = new Vec3(0, 0, 1);
+
+            // Headtracking Daten
+            //Vec3 headTrackingOffset = new Vec3(0, 0, 0);
+
+            //// Asymmetrisches Frustum
+            //Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
+            //Camera camera = RendererWorld.Instance.DefaultCamera;
+            //adjustCamera(ref camera, headTrackingOffset.X, headTrackingOffset.Y, headTrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
+
+            //// Headtracking position addieren
+            //position += headTrackingOffset;
         }
 
         void numberSpawnUnitsList_SelectedIndexChange(ListBox sender)
