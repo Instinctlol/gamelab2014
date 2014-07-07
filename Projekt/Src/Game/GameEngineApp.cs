@@ -596,12 +596,23 @@ namespace Game
 
 			EngineConsole.Shutdown();
 
+			if(OculusManager.Instance != null)
+			    OculusManager.Shutdown();
 			instance = null;
 			base.OnDestroy();
 		}
 
 		protected override bool OnKeyDown( KeyEvent e )
 		{
+			// KeyEvent wird an Cave oder Oculus weitergegeben
+            if (CaveManager.Instance != null)
+            {
+                CaveManager.Instance.OnKeyDown(e);
+            }       
+            else if(OculusManager.Instance != null)
+			{
+				OculusManager.Instance.OnKeyDown(e);
+			}
 			//Engine console
 			if( EngineConsole.Instance != null )
 				if( EngineConsole.Instance.DoKeyDown( e ) )
@@ -855,17 +866,22 @@ namespace Game
 			if( MultiViewRenderingManager.Instance != null )
 				MultiViewRenderingManager.Instance.RenderScreenUI( renderer );
 
-			controlManager.DoRenderUI( renderer );
-
             if (OculusManager.Instance != null)
             {
+                //Aufgerufen falls Oculus aktiv
                 OculusManager.Instance.RenderScreenUI(renderer);
             }
-            else
+
+            else if(CaveManager.Instance != null)
             {
-                // Abfragen ob Oculus aktiv ist, dann dies hier _nicht_ aufrufen
-                controlManager.DoRenderUI(renderer);
+                //Aufgerufen falls Cave aktiv
+                CaveManager.Instance.RenderScreenUI(renderer);
             }
+            else
+           {
+                // Wenn Oculus oder Cave nicht aktiv ist, dann das ausführen
+                controlManager.DoRenderUI(renderer);
+           }
 			//screenMessages
 			{
 				Viewport viewport = RendererWorld.Instance.DefaultViewport;

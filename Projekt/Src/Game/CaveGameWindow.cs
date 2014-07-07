@@ -1,4 +1,4 @@
-// Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
+ï»¿// Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +24,7 @@ namespace Game
     /// <summary>
     /// Defines a game window for FPS and TPS games.
     /// </summary>
-    public class OculusGameWindow : GameWindow
+    public class CaveGameWindow : GameWindow
     {
         public enum CameraType
         {
@@ -78,38 +78,38 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-        
+
 
         //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
-        const int maxIndex = 4;  // maximale Nachrichten in der Messagebox
-        List<string> MessageList = new List<string>(); // hier stecken die Nachichten drin 
+        const int maxIndex = 4;  // maximale Nachrichten in der Massagebox
+        List<string> MassageList = new List<string>(); // hier stecken die Nachichten drin 
 
-        public void sendMessageToHUD(String message)
+        public void sendMassageToHUD(String massage)
         {
             string output = "";
 
-            if (MessageList.Count <= maxIndex)
+            if (MassageList.Count <= maxIndex)
             {
-                MessageList.Add(message);
+                MassageList.Add(massage);
             }
             else
             {
-                MessageList.RemoveAt(0);
-                MessageList.Add(message);
+                MassageList.RemoveAt(0);
+                MassageList.Add(massage);
             }
 
 
-            hudControl.Controls["MessageBox"].Visible = true;
+            hudControl.Controls["MassageBox"].Visible = true;
 
-            foreach (string element in MessageList)
+            foreach (string element in MassageList)
             {
                 output += (element + "\r\n");
             }
 
-            hudControl.Controls["MessageBox"].Text = output;
-            //hudControl.Controls["MessageBox"].Text = hudControl.Controls["MessageBox"].Text + message + "\r\n";
+            hudControl.Controls["MassageBox"].Text = output;
+            //hudControl.Controls["MassageBox"].Text = hudControl.Controls["MassageBox"].Text + massage + "\r\n";
             BoxTimer.Interval = 5000;
             BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             BoxTimer.Enabled = true;
@@ -117,14 +117,14 @@ namespace Game
 
         void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            hudControl.Controls["MessageBox"].Visible = false;
+            hudControl.Controls["MassageBox"].Visible = false;
         }
 
-        // Event Handler for messaging
+        // Event Handler for massaging
         private void InitializeEventListener()
         {
-            // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
-            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
+            // Event zum Erhalten von Status Nachrichten, die angezeigt werden mÃ¼ssen registrieren
+            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMassageToHUD);
         }
 
 
@@ -136,7 +136,7 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUDTest.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
 
@@ -172,10 +172,9 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
-			
-			//Oculus initialisieren
-			if (OculusManager.Instance == null)
-                OculusManager.Init(true);
+
+            if (CaveManager.Instance == null)
+                CaveManager.Init();
         }
 
         protected override void OnDetach()
@@ -184,15 +183,15 @@ namespace Game
             GameControlsManager.Instance.GameControlsEvent -= GameControlsManager_GameControlsEvent;
 
             base.OnDetach();
-			
-			if (OculusManager.Instance != null)
-                OculusManager.Shutdown();
+
+            if (CaveManager.Instance != null)
+                CaveManager.Shutdown();
         }
 
-       
+
         protected override bool OnKeyDown(KeyEvent e)
         {
-            
+
 
             //If atop openly any window to not process
             if (Controls.Count != 1)
@@ -268,9 +267,9 @@ namespace Game
         protected override bool OnMouseDown(EMouseButtons button)
         {
             StatusMessageHandler.sendMessage("gut gedrueckt " + i);
-            //sendMessageToHUD("gut gedrueckt " + i);
+            //sendMassageToHUD("gut gedrueckt " + i);
             i++;
-            
+
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);
@@ -347,9 +346,6 @@ namespace Game
                     GameControlsManager.Instance.DoMouseMoveRelative(MousePosition);
                 }
             }
-			
-			if (OculusManager.Instance != null)
-                OculusManager.Instance.OnMouseMove(MousePosition);
         }
 
         protected override bool OnMouseWheel(int delta)
@@ -446,7 +442,7 @@ namespace Game
 
                 cameraDistance = tpsCameraDistance;
                 cameraCenterOffset = tpsCameraCenterOffset;
-                
+
                 if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
                 {
                     cameraDistance -= delta * distanceRange.Size() / 20.0f;
@@ -474,7 +470,7 @@ namespace Game
                     if (cameraCenterOffset < centerOffsetRange[0])
                         cameraCenterOffset = centerOffsetRange[0];
                 }
-                
+
                 tpsCameraDistance = cameraDistance;
                 tpsCameraCenterOffset = cameraCenterOffset;
             }
@@ -655,19 +651,19 @@ namespace Game
                 ProjectEntities.Repairable overRepairable = null;
 
                 Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
-                    {
-                        ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+                {
+                    ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
-                        if(r != null)
-                        {
-                            overRepairable = r;
-                            return false;
-                        }
-                        return true;
-                    });
+                    if (r != null)
+                    {
+                        overRepairable = r;
+                        return false;
+                    }
+                    return true;
+                });
 
                 //draw selection border
-                if (overRepairable != null  &&  overRepairable.Repaired == false)
+                if (overRepairable != null && overRepairable.Repaired == false)
                 {
                     Bounds bounds = overRepairable.MapBounds;
                     DrawObjectSelectionBorder(bounds);
@@ -737,16 +733,16 @@ namespace Game
             ProjectEntities.Item overItem = null;
 
             Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
-                {
-                    ProjectEntities.Item i = obj as ProjectEntities.Item;
+            {
+                ProjectEntities.Item i = obj as ProjectEntities.Item;
 
-                    if(i != null)
-                    {
-                        overItem = i;
-                        return false;
-                    }
-                    return true;
-                });
+                if (i != null)
+                {
+                    overItem = i;
+                    return false;
+                }
+                return true;
+            });
 
             //draw selection border
             if (overItem != null)
@@ -759,7 +755,7 @@ namespace Game
             {
                 currentItem = overItem;
 
-                
+
             }
 
 
@@ -962,7 +958,7 @@ namespace Game
                 if (playerUnit != null)
                     coef = playerUnit.Health / playerUnit.Type.HealthMax;
 
-                Control healthBar = hudControl.Controls["Game/HUD1/HealthBar"];
+                Control healthBar = hudControl.Controls["Game/HealthBar"];
                 Vec2 originalSize = new Vec2(256, 32);
                 Vec2 interval = new Vec2(117, 304);
                 float sizeX = (117 - 82) + coef * (interval[1] - interval[0]);
@@ -1215,14 +1211,6 @@ namespace Game
                 renderer.AddText("Game is paused on server", new Vec2(.5f, .5f),
                     HorizontalAlign.Center, VerticalAlign.Center, new ColorValue(1, 0, 0));
             }
-			
-			
-			//Spawner vor den Astronauten verstecken
-            IEnumerable<AlienSpawner> spawnerList = Map.Instance.SceneGraphObjects.OfType<AlienSpawner>();
-            foreach (AlienSpawner spawner in spawnerList)
-            {
-                spawner.Visible = false;
-            }
         }
 
         CameraType GetRealCameraType()
@@ -1308,18 +1296,18 @@ namespace Game
 
             if (currentItem == null)
                 return false;
-            //Übergebe an ItemManager
+            //Ãœbergebe an ItemManager
             iManager.TakeItem(playerunit, currentItem);
             //Gebe Hinweis aus
             String s = iManager.notificationstring();
             String s_w = character.notification();
 
-            if(s != "" && s_w == "")
-            AddTextWithShadow(renderer, s+" aufgenommen", new Vec2(.5f, .2f),
-                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
-            else if(s_w != "" && s == "")
-            AddTextWithShadow(renderer, s_w+" aufgenommen", new Vec2(.5f, .2f),
-                        HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            if (s != "" && s_w == "")
+                AddTextWithShadow(renderer, s + " aufgenommen", new Vec2(.5f, .2f),
+                            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            else if (s_w != "" && s == "")
+                AddTextWithShadow(renderer, s_w + " aufgenommen", new Vec2(.5f, .2f),
+                            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
 
             return true;
 
@@ -1571,7 +1559,7 @@ namespace Game
             }
 
             //To update data in player intellect about type of the camera
-            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;         
+            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;
 
             PlayerIntellect.Instance.TPSCameraCenterOffset = tpsCameraCenterOffset;
         }
@@ -1691,9 +1679,9 @@ namespace Game
         //bool IsPlayerUnitVehicle()
         //{
         //    Unit playerUnit = GetPlayerUnit();
-//
-  //          return false;
-    //    }
+        //
+        //          return false;
+        //    }
 
         static void ConsoleCommand_MovePlayerUnitToCamera(string arguments)
         {

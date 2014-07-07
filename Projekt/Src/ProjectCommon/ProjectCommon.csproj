@@ -136,6 +136,7 @@
     <Compile Include="OSCPacket.cs" />
     <Compile Include="OSCReceiver.cs" />
     <Compile Include="OSCTransmitter.cs" />
+    <Compile Include="Post Processing\CAVECompositorInstance.cs" />
     <Compile Include="Post Processing\ColorCorrectionCompositorInstance.cs" />
     <Compile Include="Post Processing\GrayscaleCompositorInstance.cs" />
     <Compile Include="Post Processing\DepthOfFieldCompositorInstance.cs" />

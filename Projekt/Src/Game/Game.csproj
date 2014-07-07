@@ -149,6 +149,8 @@
     <Compile Include="ActionGameWindow.cs" />
     <Compile Include="AlienGameWindow.cs" />
     <Compile Include="BigMinimapWindow.cs" />
+    <Compile Include="CaveGameWindow.cs" />
+    <Compile Include="CaveManager.cs" />
     <Compile Include="ExampleOfProceduralMapCreation.cs">
       <SubType>Code</SubType>
     </Compile>

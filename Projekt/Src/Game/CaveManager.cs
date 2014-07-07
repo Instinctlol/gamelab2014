@@ -11,8 +11,6 @@ using ProjectCommon;
 using ProjectEntities;
 using Engine.PhysicsSystem;
 
-using WiimoteLib;
-
 namespace Game
 {
     class CaveManager
@@ -60,10 +58,10 @@ namespace Game
 
         int preventTextureCreationRemainingFrames;
 
-        Wiimote _wiimote = null;
-        bool _wiimiteInitialized = false;
-        WiimoteState _lastState = null;//new WiimoteState();
-        bool _useWiiMote = true;
+        //Wiimote _wiimote = null;
+        //bool _wiimiteInitialized = false;
+        //WiimoteState _lastState = null;//new WiimoteState();
+        //bool _useWiiMote = true;
 
         static String _CAVEConfigFile = "cave_config.txt";
 
@@ -379,33 +377,33 @@ namespace Game
                 EngineApp.Instance.VideoMode = new Vec2I(width, height);
             }
 
-            if (Instance._useWiiMote)
-            {
-                try
-                {
-                    Instance._wiimote = new Wiimote();
-                    Instance._lastState = new WiimoteState();
+            //if (Instance._useWiiMote)
+            //{
+            //    try
+            //    {
+            //        Instance._wiimote = new Wiimote();
+            //        Instance._lastState = new WiimoteState();
 
-                    Instance._wiimote.Connect();
-                    Instance._wiimiteInitialized = true;
-                    Instance._wiimote.SetLEDs(false, true, true, false);
-                    Instance._lastState = Instance._wiimote.WiimoteState;
+            //        Instance._wiimote.Connect();
+            //        Instance._wiimiteInitialized = true;
+            //        Instance._wiimote.SetLEDs(false, true, true, false);
+            //        Instance._lastState = Instance._wiimote.WiimoteState;
 
-                    Instance._lastState.ButtonState.A = false;
-                    Instance._lastState.ButtonState.Up = false;
-                    Instance._lastState.ButtonState.Down = false;
-                    Instance._lastState.ButtonState.Left = false;
-                    Instance._lastState.ButtonState.Right = false;
-                }
-                catch (Exception  /*ex*/)
-                {
-                    Instance._wiimiteInitialized = false;
-                }
-            }
-            else
-            {
-                Instance._wiimiteInitialized = false;
-            }
+            //        Instance._lastState.ButtonState.A = false;
+            //        Instance._lastState.ButtonState.Up = false;
+            //        Instance._lastState.ButtonState.Down = false;
+            //        Instance._lastState.ButtonState.Left = false;
+            //        Instance._lastState.ButtonState.Right = false;
+            //    }
+            //    catch (Exception  /*ex*/)
+            //    {
+            //        Instance._wiimiteInitialized = false;
+            //    }
+            //}
+            //else
+            //{
+            //    Instance._wiimiteInitialized = false;
+            //}
 
             Instance.loadCAVEConfig(_CAVEConfigFile);
         }
@@ -419,11 +417,11 @@ namespace Game
 
                 EngineApp.Instance.VideoMode = new Vec2I(1280, 800);
 
-                if (Instance._wiimiteInitialized)
-                {
-                    Instance._wiimote.SetLEDs(false, false, false, false);
-                    Instance._wiimote.Disconnect();
-                }
+                //if (Instance._wiimiteInitialized)
+                //{
+                //    Instance._wiimote.SetLEDs(false, false, false, false);
+                //    Instance._wiimote.Disconnect();
+                //}
             }
         }
 
@@ -740,87 +738,87 @@ namespace Game
             #endregion
 
 
-            #region Wiimote controls
-            if (Instance._wiimiteInitialized)
-            {
-                WiimoteState wiiState = Instance._wiimote.WiimoteState;
-                const float nunchuckThreshold = 0.1f;
-                const float nunchuckScale = 0.01f;
+            //#region Wiimote controls
+            //if (Instance._wiimiteInitialized)
+            //{
+            //    WiimoteState wiiState = Instance._wiimote.WiimoteState;
+            //    const float nunchuckThreshold = 0.1f;
+            //    const float nunchuckScale = 0.01f;
 
-                float nunchuckX = wiiState.NunchukState.Joystick.X; // [-0.5, 0.5], left negative, right positive
-                float nunchuckY = wiiState.NunchukState.Joystick.Y; // [-0.5, 0.5], bottom negative, top positive
+            //    float nunchuckX = wiiState.NunchukState.Joystick.X; // [-0.5, 0.5], left negative, right positive
+            //    float nunchuckY = wiiState.NunchukState.Joystick.Y; // [-0.5, 0.5], bottom negative, top positive
 
-                bool buttonUpPressed = wiiState.ButtonState.Up;
-                bool buttonDownPressed = wiiState.ButtonState.Down;
-                bool buttonLeftPressed = wiiState.ButtonState.Left;
-                bool buttonRightPressed = wiiState.ButtonState.Right;
+            //    bool buttonUpPressed = wiiState.ButtonState.Up;
+            //    bool buttonDownPressed = wiiState.ButtonState.Down;
+            //    bool buttonLeftPressed = wiiState.ButtonState.Left;
+            //    bool buttonRightPressed = wiiState.ButtonState.Right;
 
-                bool buttonUpPressedOld = Instance._lastState.ButtonState.Up;
-                bool buttonDownPressedOld = Instance._lastState.ButtonState.Down;
-                bool buttonLeftPressedOld = Instance._lastState.ButtonState.Left;
-                bool buttonRightPressedOld = Instance._lastState.ButtonState.Right;
+            //    bool buttonUpPressedOld = Instance._lastState.ButtonState.Up;
+            //    bool buttonDownPressedOld = Instance._lastState.ButtonState.Down;
+            //    bool buttonLeftPressedOld = Instance._lastState.ButtonState.Left;
+            //    bool buttonRightPressedOld = Instance._lastState.ButtonState.Right;
 
-                bool buttonAPressed = wiiState.ButtonState.A;
-                bool buttonAPressedOld = Instance._lastState.ButtonState.A;
+            //    bool buttonAPressed = wiiState.ButtonState.A;
+            //    bool buttonAPressedOld = Instance._lastState.ButtonState.A;
 
-                if (buttonUpPressed /*&& !buttonUpPressedOld*/)
-                {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Up));
-                }
-                else /*if (!buttonUpPressed && buttonUpPressedOld)*/
-                {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Up));
-                }
+            //    if (buttonUpPressed /*&& !buttonUpPressedOld*/)
+            //    {
+            //        GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Up));
+            //    }
+            //    else /*if (!buttonUpPressed && buttonUpPressedOld)*/
+            //    {
+            //        GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Up));
+            //    }
 
-                if (buttonDownPressed)
-                {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Down));
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Down));
-                }
+            //    if (buttonDownPressed)
+            //    {
+            //        GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Down));
+            //    }
+            //    else
+            //    {
+            //        GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Down));
+            //    }
 
-                if (buttonLeftPressed)
-                {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Left));
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Left));
-                }
+            //    if (buttonLeftPressed)
+            //    {
+            //        GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Left));
+            //    }
+            //    else
+            //    {
+            //        GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Left));
+            //    }
 
-                if (buttonRightPressed)
-                {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Right));
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Right));
-                }
+            //    if (buttonRightPressed)
+            //    {
+            //        GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Right));
+            //    }
+            //    else
+            //    {
+            //        GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Right));
+            //    }
 
-                if (buttonAPressed)
-                {
-                    GameControlsManager.Instance.DoMouseDown(EMouseButtons.Left);
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoMouseUp(EMouseButtons.Left);
-                }
+            //    if (buttonAPressed)
+            //    {
+            //        GameControlsManager.Instance.DoMouseDown(EMouseButtons.Left);
+            //    }
+            //    else
+            //    {
+            //        GameControlsManager.Instance.DoMouseUp(EMouseButtons.Left);
+            //    }
                 
-                if (Math.Abs(nunchuckX) > nunchuckThreshold)
-                {
-                    GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(nunchuckScale * nunchuckX, 0.0f));
-                }
+            //    if (Math.Abs(nunchuckX) > nunchuckThreshold)
+            //    {
+            //        GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(nunchuckScale * nunchuckX, 0.0f));
+            //    }
 
-                if (Math.Abs(nunchuckY) > nunchuckThreshold)
-                {
-                    GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(0.0f, nunchuckScale * -1.0f * nunchuckY));
-                }
+            //    if (Math.Abs(nunchuckY) > nunchuckThreshold)
+            //    {
+            //        GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(0.0f, nunchuckScale * -1.0f * nunchuckY));
+            //    }
 
-                Instance._lastState = wiiState;
-            }
-            #endregion
+            //    Instance._lastState = wiiState;
+            //}
+            //#endregion
 
             #region Assign Camera Properties
 
