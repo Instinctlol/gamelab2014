@@ -89,6 +89,7 @@ namespace ProjectEntities
             isVisible = enable && window != null;
             if (isVisible)
                 SetTerminalWindow(window);
+
         }
 
         protected virtual void CreateWindow() {
@@ -166,11 +167,12 @@ namespace ProjectEntities
             Terminal = (Terminal)Entities.Instance.GetByName(terminalName);
         }
 
-        public void Client_SendWindowData(UInt16 message)
+        public void Client_SendWindowData(ushort message)
         {
+            UInt16 msg = (UInt16) message;
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                    (ushort)NetworkMessages.WindowDataToServer);
-            writer.Write(message);
+            writer.Write(msg);
             EndNetworkMessage();
         }
 
@@ -178,7 +180,7 @@ namespace ProjectEntities
         private void Server_ReceiveWindowData(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             UInt16 msg = reader.ReadUInt16();
-
+            
             if (!reader.Complete())
                 return;
 
@@ -187,21 +189,23 @@ namespace ProjectEntities
 
         }
 
-        public void Server_SendWindowData(UInt16 message)
+        public void Server_SendWindowData(ushort message)
         {
+            UInt16 msg = (UInt16)message;
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                        (ushort)NetworkMessages.WindowDataToClient);
-            writer.Write(message);
+            writer.Write(msg);
             EndNetworkMessage();
 
         }
 
-        public void Server_SendWindowString(string message, UInt16 netMsg = 0)
+        public void Server_SendWindowString(string message, ushort netMsg = 0)
         {
+            UInt16 msg = (UInt16)netMsg;
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                        (ushort)NetworkMessages.WindowStringToClient);
             writer.Write(message);
-            writer.Write(netMsg);
+            writer.Write(msg);
             EndNetworkMessage();
         }
 
