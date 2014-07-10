@@ -146,8 +146,8 @@ namespace Game
             Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
 
             // 10% vergrößern
-            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.2f);
-            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.2f);
+            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
+            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
 
             Rect mapRect = new Rect(vec1, vec2);
 
