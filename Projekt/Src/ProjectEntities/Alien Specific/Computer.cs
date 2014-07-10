@@ -37,6 +37,13 @@ namespace ProjectEntities
         static int usedAliens = 0;
         public static bool noSpawnTime = false;
 
+        public static delegate void csspwSetEvent();
+        public static event csspwSetEvent csspwSet;
+        private static Task csspwTask;
+
+        
+        
+
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
         // Bei Rechtsrotation wird 1 % 8 addiert, bei Linksrotation 1 % 8 subtrahiert.
@@ -82,7 +89,11 @@ namespace ProjectEntities
             get { return ringRotations; }
         }
 
-
+        public static Task CsspwTask
+        {
+            get { return Computer.csspwTask; }
+            set { Computer.csspwTask = value; }
+        }
 
         /**************/
         /* Funktionen */
@@ -311,6 +322,12 @@ namespace ProjectEntities
             availableAliens = (maxAliens - usedAliens);
             rotationCoupons = maxRotationCoupons;
             powerCoupons = maxPowerCoupons;
+        }
+
+        public static void doCsspwSet()
+        {
+            if (csspwSet != null)
+                csspwSet();
         }
 
         private static int mod(int x, int m)

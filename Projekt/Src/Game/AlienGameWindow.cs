@@ -192,6 +192,12 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
+            Computer.csspwSet += csspwSet;
+        }
+
+        private void csspwSet()
+        {
+            Controls.Add(new Server_SchereSteinPapierWindow(Computer.CsspwTask));
         }
 
         /// <summary>

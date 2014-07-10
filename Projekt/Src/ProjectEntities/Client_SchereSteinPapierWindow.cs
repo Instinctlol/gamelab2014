@@ -21,10 +21,12 @@ namespace ProjectEntities
             Server_ClientLoses,
             Server_ClientWins,
             Server_Draw,
-            Server_EvaluatingSolutions  //disable Buttons
+            Server_EvaluatingSolutions,  //disable Buttons
         }
 
         private EngineConsole console = EngineConsole.Instance;
+
+        
 
         private Control window;
         private TextBox countdownBox, enemySelectedBox;
@@ -49,6 +51,7 @@ namespace ProjectEntities
             playButton.Click += Play_clicked;
 
             enemySelectedBox.Visible = false;
+
 
             if (!task.IsServer)
             {
@@ -184,6 +187,8 @@ namespace ProjectEntities
             }
         }
 
+        
+
         private void Client_WindowDataReceived(ushort message)
         {
             if(!task.IsServer)
@@ -225,7 +230,8 @@ namespace ProjectEntities
 
         private void Server_createWindowForAlien()
         {
-            throw new NotImplementedException();
+            Computer.doCsspwSet();
+            Computer.CsspwTask = task;
         }
     }
 }

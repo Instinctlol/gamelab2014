@@ -23,6 +23,7 @@ namespace ProjectEntities
             WindowDataToServer,
             WindowDataToClient,
             WindowStringToClient,
+            WindowStringToServer,
         }
 
         private bool isServer = false;
@@ -76,11 +77,13 @@ namespace ProjectEntities
         public delegate void Client_WindowDataReceivedDelegate(UInt16 message);
         public delegate void Client_WindowStringReceivedDelegate(string message, UInt16 netMsg);
         public delegate void Server_WindowDataReceivedDelegate(UInt16 message);
+        public delegate void Server_WindowStringReceivedDelegate(string message, UInt16 netMsg);
         
 
         public event Client_WindowDataReceivedDelegate Client_WindowDataReceived;
         public event Client_WindowStringReceivedDelegate Client_WindowStringReceived;
         public event Server_WindowDataReceivedDelegate Server_WindowDataReceived;
+        public event Server_WindowStringReceivedDelegate Server_WindowStringReceived;
 
         //****************************** 
 
@@ -199,6 +202,16 @@ namespace ProjectEntities
 
         }
 
+        public void Client_SendWindowString(string message, ushort netMsg = 0)
+        {
+            UInt16 msg = (UInt16)netMsg;
+            SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
+                       (ushort)NetworkMessages.WindowStringToServer);
+            writer.Write(message);
+            writer.Write(msg);
+            EndNetworkMessage();
+        }
+
         public void Server_SendWindowString(string message, ushort netMsg = 0)
         {
             UInt16 msg = (UInt16)netMsg;
@@ -220,6 +233,19 @@ namespace ProjectEntities
 
             if (Client_WindowStringReceived != null)
                 Client_WindowStringReceived(msg, netMsg);
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.WindowStringToServer)]
+        private void Server_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string msg = reader.ReadString();
+            UInt16 netMsg = reader.ReadUInt16();
+
+            if (!reader.Complete())
+                return;
+
+            if (Server_WindowStringReceived != null)
+                Server_WindowStringReceived(msg, netMsg);
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.WindowDataToClient)]
