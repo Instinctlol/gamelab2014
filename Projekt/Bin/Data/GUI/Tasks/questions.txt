@@ -3,3 +3,7 @@ Wie alt bin ich?;24;20;18;15
 Bei welchem Fussballverein stand Christoph Metzelder unter Vertrag?;Preussen Muenster;FC Barcelona;1.FC Koeln;FC Arsenal
 In welchem Jahr wurde Preussen Muenster gegruendet?;1906;1908;1904;1899
 Welcher dieser Fussballvereine ist NICHT Gruendungsmitglied der Bundesliga?;FC Bayern Muenchen;1.FC Saarbruecken;Preussen Muenster;Werder Bremen
+Vervollstaendigen Sie folgende Zahlenreihe: -2 5 -4 3 -6;1;0;-3;-4
+Vervollstaendigen Sie folgende Zahlenreihe: 1 4 9 16 25;36;29;33;42
+Vervollstaendigen Sie folgende Zahlenreihe: 75 15 25 5 15;3;7;5,2
+Vervollstaendigen Sie folgende Zahlenreihe: 1 2 6 24 120;720;240;540;740 
