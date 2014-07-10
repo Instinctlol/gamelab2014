@@ -1,4 +1,13 @@
 type Sicherungskasten
 {
 	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\ElectricalBox.mesh"
+			position = 0 0 0.3
+			scale = 0.02 0.02 0.02
+		}
+	}
 }
