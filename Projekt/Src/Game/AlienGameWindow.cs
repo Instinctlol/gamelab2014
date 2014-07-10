@@ -1601,24 +1601,25 @@ namespace Game
         /// </summary>
         void DoOpenMinimap()
         {
-            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
+            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
 
             // BigMinimap öffnen
             //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
-            //Controls.Add(new BigMinimapWindow());
-            bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
-            ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).initialize();
-            hudControl.Controls["BigMinimapControl"].Visible = true;
-            bigMinimap.Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
+            Controls.Add(new BigMinimapWindow());
 
-            // Buttons
-            ((Button)bigMinimap.Controls["Close"]).Click += BigMinimapClose_Click;
-            ((Button)bigMinimap.Controls["RotateLeft"]).Click += BigMinimapRotateLeft_Click;
-            ((Button)bigMinimap.Controls["RotateRight"]).Click += BigMinimapRotateRight_Click;
-            ((Button)bigMinimap.Controls["Power"]).Click += BigMinimapPower_Click;
+            //bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
+            //((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).initialize();
+            //hudControl.Controls["BigMinimapControl"].Visible = true;
+            //bigMinimap.Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
 
-            MouseCover = true;
-            BackColor = new ColorValue(0, 0, 0, .5f);
+            //// Buttons
+            //((Button)bigMinimap.Controls["Close"]).Click += BigMinimapClose_Click;
+            //((Button)bigMinimap.Controls["RotateLeft"]).Click += BigMinimapRotateLeft_Click;
+            //((Button)bigMinimap.Controls["RotateRight"]).Click += BigMinimapRotateRight_Click;
+            //((Button)bigMinimap.Controls["Power"]).Click += BigMinimapPower_Click;
+
+            //MouseCover = true;
+            //BackColor = new ColorValue(0, 0, 0, .5f);
         }
 
         void BigMinimapClose_Click(object sender)
