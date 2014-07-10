@@ -391,7 +391,12 @@ control Control
 	{
 		position = ScaleByResolution 80 80
 		size = Parent 0.8144531 0.7395833
-		name = BigMiniMapControl
+		name = BigMinimapControl
 		visible = False
+		control "GUI\\BigMinimap.gui"
+		{
+			position = ScaleByResolution 0 0
+			name = BigMinimap
+		}
 	}
 }

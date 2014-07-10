@@ -222,16 +222,10 @@ namespace ProjectEntities
                 switch(msg)
                 {
                     case NetworkMessages.Client_PlayButtonClicked:
-                        Server_createWindowForAlien();
+                        Server_createWindowForAlien(task);
                         break;
                 }
             }
-        }
-
-        private void Server_createWindowForAlien()
-        {
-            /*Computer.CsspwTask = task;
-            Computer.doCsspwSet();*/
         }
     }
 }

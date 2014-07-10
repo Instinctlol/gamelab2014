@@ -46,6 +46,7 @@ namespace Game
         // GUI Attribute
         Control hudControl;
         Control numPad;
+        Control bigMinimap;
 
         // Spawning
         int spawnNumber = 1;
@@ -96,6 +97,8 @@ namespace Game
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddNotificationMessage);
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
+            // Event zum Starten von Duell-Spielen
+            TaskWindow.startAlienGame += csspwSet;
         }
 
         //hudFunktionen
@@ -191,13 +194,15 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
-            //Computer.csspwSet += csspwSet;
         }
 
-        /*private void csspwSet()
+        /// <summary>
+        /// Duell-Spiel starten
+        /// </summary>
+        private void csspwSet()
         {
             Controls.Add(new Server_SchereSteinPapierWindow(Computer.CsspwTask));
-        }*/
+        }
 
         // Beim Beenden des Spiels minimap freigeben
         protected override void OnDetach()
@@ -430,22 +435,6 @@ namespace Game
             }
 
             return base.OnMouseUp(button);
-        }
-
-        void DoOpenMinimap()
-        {
-
-            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
-            // BigMinimap öffnen
-            //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
-            Controls.Add(new BigMinimapWindow());
-            //hudControl.Controls["BigMiniMapControl"].Visible = true;
-
-
-            // Meldung anzeigen, da das Laden so lange dauert
-            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
-
-            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
         }
 
         bool IsEnableTaskTypeInTasks(List<AlienUnitAI.UserControlPanelTask> tasks, AlienUnitAI.Task.Types taskType)
@@ -1600,5 +1589,173 @@ namespace Game
             }
         }
 
+
+        //////////////////////////////////////////////////////////////////
+        ////                        BigMinimap                        ////
+        //////////////////////////////////////////////////////////////////
+        Sector selectedSector;
+        string lastSelectedSector;
+
+        /// <summary>
+        /// BigMinimap öffnen
+        /// </summary>
+        void DoOpenMinimap()
+        {
+            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
+
+            // BigMinimap öffnen
+            //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
+            //Controls.Add(new BigMinimapWindow());
+            bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
+            ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).initialize();
+            hudControl.Controls["BigMinimapControl"].Visible = true;
+            bigMinimap.Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
+
+            // Buttons
+            ((Button)bigMinimap.Controls["Close"]).Click += BigMinimapClose_Click;
+            ((Button)bigMinimap.Controls["RotateLeft"]).Click += BigMinimapRotateLeft_Click;
+            ((Button)bigMinimap.Controls["RotateRight"]).Click += BigMinimapRotateRight_Click;
+            ((Button)bigMinimap.Controls["Power"]).Click += BigMinimapPower_Click;
+
+            MouseCover = true;
+            BackColor = new ColorValue(0, 0, 0, .5f);
+        }
+
+        void BigMinimapClose_Click(object sender)
+        {
+            hudControl.Controls["BigMinimapControl"].Visible = false;
+            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
+            //SetShouldDetach();
+        }
+
+        void BigMinimapRotateLeft_Click(object sender)
+        {
+            EngineConsole.Instance.Print("links drehen");
+            if (selectedSector == null)
+            {
+                StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
+            }
+            else
+            {
+                Computer.RotateRing(selectedSector.Ring, true);
+            }
+        }
+
+        void BigMinimapRotateRight_Click(object sender)
+        {
+            EngineConsole.Instance.Print("rechts drehen");
+            if (selectedSector == null)
+            {
+                StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
+            }
+            else
+            {
+                Computer.RotateRing(selectedSector.Ring, false);
+            }
+        }
+
+        void BigMinimapPower_Click(object sender)
+        {
+            if (selectedSector == null)
+            {
+                StatusMessageHandler.sendMessage("Kein Sector ausgewählt. (Raum mit Doppel-Click auswählen)");
+            }
+            else
+            {
+                Computer.SetSectorGroupPower(selectedSector.Group, false);
+                EngineConsole.Instance.Print("Turn Power off for secgrp: " + selectedSector.Group.Name);
+            }
+        }
+
+        /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="button"></param>
+        public void BigMinimapClick(Control sender, EMouseButtons button)
+        {
+            // hier
+            Vec2 pos = GetMapPositionByMouseOnMinimap();
+            Rect rect = new Rect(pos);
+            Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
+            // Sector finden
+            Map.Instance.GetObjects(sphere, delegate(MapObject obj)
+            {
+                if (obj is Sector)
+                {
+                    selectedSector = (Sector)obj;
+                    EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
+
+                    if (lastSelectedSector != null)
+                        ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
+                    lastSelectedSector = selectedSector.Name;
+
+                    ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
+                }
+            });
+        }
+
+        /// <summary>
+        /// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
+        /// </summary>
+        /// <returns></returns>
+        Vec2 GetMapPositionByMouseOnMinimap()
+        {
+            Rect screenMapRect = bigMinimap.Controls["BigMinimap"].GetScreenRectangle();
+
+            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
+
+            // Die Vektoren für das Rechteck
+            Vec2 vec1 = initialBounds.Minimum.ToVec2();
+            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+
+            // 10% vergrößern
+            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
+            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
+
+            Rect mapRect = new Rect(vec1, vec2);
+
+            Vec2 point = MousePosition;
+            point -= screenMapRect.Minimum;
+            point /= screenMapRect.Size;
+            point = new Vec2(point.X, 1.0f - point.Y);
+            point *= mapRect.Size;
+            point += mapRect.Minimum;
+
+            return point;
+        }
+
+        bool isinarea(Button button, Vec2 pos)
+        {
+
+            return button.GetScreenRectangle().IsContainsPoint(pos);
+        }
+
+        public void workbench_Click(Vec2 mousepos)
+        {
+
+            if (isinarea((Button)bigMinimap.Controls["Close"], mousepos))
+            {
+                BigMinimapClose_Click(bigMinimap.Controls["Close"]);
+            }
+            else if (isinarea((Button)bigMinimap.Controls["RotateLeft"], mousepos))
+            {
+                BigMinimapRotateLeft_Click(bigMinimap.Controls["RotateLeft"]);
+            }
+            else if (isinarea((Button)bigMinimap.Controls["RotateRight"], mousepos))
+            {
+                BigMinimapRotateRight_Click(bigMinimap.Controls["RotateRight"]);
+            }
+            else if (isinarea((Button)bigMinimap.Controls["Power"], mousepos))
+            {
+                BigMinimapPower_Click(bigMinimap.Controls["Power"]);
+            }
+            else if (bigMinimap.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
+            {
+                BigMinimapClick(bigMinimap.Controls["BigMinimap"], EMouseButtons.Left);
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+        ////                   Ende BigMinimap                        ////
+        //////////////////////////////////////////////////////////////////
     }
 }

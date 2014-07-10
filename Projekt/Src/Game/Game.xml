@@ -78,6 +78,11 @@
             Event Listener initialisieren
             </summary>
         </member>
+        <member name="M:Game.AlienGameWindow.csspwSet">
+            <summary>
+            Duell-Spiel starten
+            </summary>
+        </member>
         <member name="M:Game.AlienGameWindow.SelectAllAliens">
             <summary>
             Alle Aliens auswählen
@@ -101,6 +106,18 @@
             </summary>
             <param name="entity"></param>
             <param name="selected"></param>
+        </member>
+        <member name="M:Game.AlienGameWindow.DoOpenMinimap">
+            <summary>
+            BigMinimap öffnen
+            </summary>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:Game.AlienGameWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" ignoriert -->
+        <member name="M:Game.AlienGameWindow.GetMapPositionByMouseOnMinimap">
+            <summary>
+            Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Game.BigMinimapWindow">
             <summary>
