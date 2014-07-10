@@ -19,6 +19,23 @@ control Control
 			size = Parent 0.5 0.2
 			name = StatusMessage
 		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			horizontalAlign = Center
+			verticalAlign = Center
+			size = Parent 0.3 0.2
+			name = LoadingMessage
+			backColor = 1 1 1 0.654902
+			visible = False
+			control TextBox
+			{
+				font = German 0.05
+				textColor = 0 0 0
+				position = ScaleByResolution 0 0
+				text = Loading...
+			}
+		}
 	}
 	control Control
 	{

@@ -42,6 +42,10 @@ namespace ProjectEntities
         // Bei Rechtsrotation wird 1 % 8 addiert, bei Linksrotation 1 % 8 subtrahiert.
         static int[] ringRotations = new int[3];
 
+        // Verwaltet alle Alienleichen in der Reihenfolge, wie sie gestorben sind
+        static Queue<Corpse> corpseList = new Queue<Corpse>();
+        const int maxAlienCorpses = 2;
+
 
 
         /*******************/
@@ -216,14 +220,13 @@ namespace ProjectEntities
                 int ringNumber = ring.GetRingNumber();
                 if (left)
                 {
-                    EngineConsole.Instance.Print("links drehen");
+                    EngineConsole.Instance.Print("computer links drehen");
                     ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] -1 ,8);
-                    EngineConsole.Instance.Print("Computer: neue RingRotations fuer "+ringNumber+": "+ringRotations[ringNumber-1]);
                     ring.RotateLeft();
                 }
                 else
                 {
-                    EngineConsole.Instance.Print("rechts drehen");
+                    EngineConsole.Instance.Print("computer rechts drehen");
                     ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
@@ -313,6 +316,28 @@ namespace ProjectEntities
         private static int mod(int x, int m)
         {
             return (x%m + m)%m;
+        }
+
+        /// <summary>
+        /// Fügt eine neue Alienleiche der Liste hinzu
+        /// </summary>
+        /// <param name="corpse"></param>
+        public static void AddAlienCorpse(Corpse corpse)
+        {
+            corpseList.Enqueue(corpse);
+            if (corpseList.Count > maxAlienCorpses)
+            {
+                DeleteFirstAlienCorpse();
+            }
+        }
+
+        /// <summary>
+        /// Löscht eine Alienleiche aus der Liste und lässt die Leiche im Spiel verschwinden
+        /// </summary>
+        private static void DeleteFirstAlienCorpse()
+        {
+            Corpse corpse = corpseList.Dequeue();
+            corpse.Die();
         }
     }
 }

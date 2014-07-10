@@ -262,12 +262,7 @@ namespace ProjectEntities
                     pos += buildPointAttachedHelper.PositionOffset;
             }
             productUnitAttachedMesh.PositionOffset = pos;
-
             productUnitAttachedMesh.ScaleOffset = meshScale;
-            EngineConsole.Instance.Print("bounds1:" + productUnitAttachedMesh.GetBox().ToBounds().ToString());
-            EngineConsole.Instance.Print("bounds2:" + productUnitAttachedMesh.MeshObject.Bounds.ToString());
-            productUnitAttachedMesh.MeshObject.SetCustomBoundsAndRadius(productUnitAttachedMesh.GetBox().ToBounds(), 0.5f);
-            EngineConsole.Instance.Print("bounds3:" + productUnitAttachedMesh.MeshObject.Bounds.ToString());
         }
 
         /// <summary>

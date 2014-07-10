@@ -294,6 +294,8 @@ namespace ProjectEntities
         {
             if (!left)
             {
+
+                EngineConsole.Instance.Print("sectorwindow rechts drehen");
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
 
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
@@ -307,6 +309,7 @@ namespace ProjectEntities
             }
             else
             {
+                EngineConsole.Instance.Print("sectorwindow links drehen");
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
 
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;

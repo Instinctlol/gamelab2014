@@ -378,7 +378,6 @@ namespace ProjectEntities
             if (tree != null)
             {
                 tree.ActivateTrigger("death");
-                EngineConsole.Instance.Print("ich sterbe");
             }
         }
 

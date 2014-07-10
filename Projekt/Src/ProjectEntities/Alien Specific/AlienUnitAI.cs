@@ -72,7 +72,6 @@ namespace ProjectEntities
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnDestroy()"/>.</summary>
 		protected override void OnDestroy()
 		{
-            EngineConsole.Instance.Print("ondestroy");
             ClearTaskList();
             base.OnDestroy();
 		}
@@ -155,8 +154,6 @@ namespace ProjectEntities
 			//SelfDestroy
 			if( task.Type == Task.Types.SelfDestroy )
 			{
-                EngineConsole.Instance.Print("die");
-
                 ControlledObject.Die();
 			}
 		}

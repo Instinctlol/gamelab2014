@@ -38,6 +38,9 @@ namespace ProjectEntities
 			AnimationTree tree = GetFirstAnimationTree();
 			if( tree != null )
 				tree.ActivateTrigger( "death" );
+
+            // Dem Computer mitteilen, dass man existiert
+            Computer.AddAlienCorpse(this);
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>

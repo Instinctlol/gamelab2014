@@ -422,8 +422,11 @@ namespace Game
 
         void DoOpenMinimap()
         {
-            //hudControl.Controls["BigMinimap"].Visible = !hudControl.Controls["BigMinimap"].Visible;
+            // Meldung anzeigen, da das Laden so lange dauert
+            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
+            // BigMinimap öffnen
             Controls.Add(new BigMinimapWindow());
+            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
         }
 
         bool IsEnableTaskTypeInTasks(List<AlienUnitAI.UserControlPanelTask> tasks, AlienUnitAI.Task.Types taskType)

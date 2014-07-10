@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Text;
+using ProjectCommon;
 
 namespace ProjectEntities
 {
@@ -91,6 +92,7 @@ namespace ProjectEntities
         public void RotateLeft()
         {
 
+            EngineConsole.Instance.Print("ring links drehen");
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
                 return;
@@ -117,6 +119,7 @@ namespace ProjectEntities
         public void RotateRight()
         {
 
+            EngineConsole.Instance.Print("ring rechts drehen");
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
                 return;

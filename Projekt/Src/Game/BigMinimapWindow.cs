@@ -24,7 +24,6 @@ namespace Game
 
 		protected override void OnAttach()
 		{
-            EngineConsole.Instance.Print("bigmap onattach");
 			base.OnAttach();
             
 			Control window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
@@ -114,7 +113,7 @@ namespace Game
             // hier
             Vec2 pos = GetMapPositionByMouseOnMinimap();
             Rect rect = new Rect(pos);
-            Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.1f);
+            Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
             // Sector finden
             Map.Instance.GetObjects(sphere, delegate(MapObject obj)
             {
@@ -142,8 +141,15 @@ namespace Game
 
             Bounds initialBounds = Map.Instance.InitialCollisionBounds;
 
+            // Die Vektoren für das Rechteck
+            Vec2 vec1 = initialBounds.Minimum.ToVec2();
             Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
-            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2(), vec2);
+
+            // 10% vergrößern
+            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.2f);
+            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.2f);
+
+            Rect mapRect = new Rect(vec1, vec2);
 
             Vec2 point = MousePosition;
             point -= screenMapRect.Minimum;
