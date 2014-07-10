@@ -805,14 +805,14 @@ namespace Game
                     if (vector != Vec2.Zero)
                     {
                         //rotate vector
-                        float angle = MathFunctions.ATan(-vector.Y, vector.X) +
-                            cameraDirection.Horizontal;
-                        vector = new Vec2(MathFunctions.Sin(angle), MathFunctions.Cos(angle));
+                        //float angle = MathFunctions.ATan(-vector.Y, vector.X) +
+                        //    cameraDirection.Horizontal;
+                        //vector = new Vec2(MathFunctions.Sin(angle), MathFunctions.Cos(angle));
 
-                        Vec2 neueCameraPosition = (cameraPosition + vector * delta * 50);
-                        if (CheckMapPosition(neueCameraPosition)) { 
-                            cameraPosition = neueCameraPosition;
-                        }
+                        todoTranslate += vector * delta * 50;
+                        //if (CheckMapPosition(neueCameraPosition)) { 
+                        //    cameraPosition = neueCameraPosition;
+                        //}
                     }
                 }
 
@@ -1523,24 +1523,25 @@ namespace Game
             //    offset *= cameraDistance;
             //}
             //Currywurst
-            Vec3 lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X*15, cameraPosition.Y += todoTranslate.Y*15, cameraDistance);
-            //Vec3 lookAt = new Vec3(cameraPosition.X, cameraPosition.Y, 0);
-            //Vec2 vector = Vec2.Zero;
-            //if (todoTranslate != Vec2.Zero) {
-            //    vector.X -= todoTranslate.X*15;
-            //    vector.Y += todoTranslate.Y*15;
+            if(CheckMapPosition(cameraPosition + todoTranslate * 15)){
+                Vec3 lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X*15, cameraPosition.Y += todoTranslate.Y*15, cameraDistance);
+                //Vec3 lookAt = new Vec3(cameraPosition.X, cameraPosition.Y, 0);
+                //Vec2 vector = Vec2.Zero;
+                //if (todoTranslate != Vec2.Zero) {
+                //    vector.X -= todoTranslate.X*15;
+                //    vector.Y += todoTranslate.Y*15;
+                //}
+
+                //position = lookAt + offset;
+                position = lookAt2;
+                //forward = -offset;
+                forward = new Vec3(0, 0, -1);
+                //up = new Vec3(0, 0, 1);
+                up = new Vec3(0, 1, 0);
+                Quat rot = new Angles(0, 0, cameraDirection.Horizontal).ToQuat();;
+                up *= rot;
+                }
             todoTranslate = Vec2.Zero;
-            //}
-
-
-            //position = lookAt + offset;
-            position = lookAt2;
-            //forward = -offset;
-            forward = new Vec3(0, 0, -1);
-            //up = new Vec3(0, 0, 1);
-            up = new Vec3(0, 1, 0);
-            Quat rot = new Angles(0, 0, cameraDirection.Horizontal).ToQuat();;
-            up *= rot;
             // Headtracking Daten
             //Vec3 headTrackingOffset = new Vec3(0, 0, 0);
 
