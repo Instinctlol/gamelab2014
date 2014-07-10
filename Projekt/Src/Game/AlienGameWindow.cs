@@ -238,6 +238,7 @@ namespace Game
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
+                    EngineApp.Instance.MousePosition = MousePos;
                     if (Controls.OfType<MenuWindow>().Count() == 1)
                     {
 
@@ -245,11 +246,19 @@ namespace Game
                     }
                     else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
-                        //Do Something
                         hudFunctions("Menu");
                     }
+                    else if (Controls.OfType<BigMinimapWindow>().Count() == 1)
+                    {
+
+                        Controls.OfType<BigMinimapWindow>().First().workbench_Click(MousePos);
+                    }
+                    else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && Controls.OfType<BigMinimapWindow>().Count() == 0)
+                    {
+                        DoOpenMinimap();
+                    }
                     //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
-                    EngineApp.Instance.MousePosition = MousePos;
+                    
 
                     //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);

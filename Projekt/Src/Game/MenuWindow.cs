@@ -100,11 +100,30 @@ namespace Game
 			//create main menu
 			GameEngineApp.Instance.ControlManager.Controls.Add( new MainMenuWindow() );
 		}
+        bool isinarea(Button button, Vec2 pos) {
+
+            return button.GetScreenRectangle().IsContainsPoint(pos);
+        }
+
         public void workbench_Click(Vec2 mousepos) {
 
-            if (window.Controls["Resume"].GetScreenRectangle().IsContainsPoint(mousepos))
+            if (isinarea((Button)window.Controls["Resume"],mousepos))
             {
-                SetShouldDetach();
+                resumeButton_Click(window.Controls["Resume"]);
+            }
+            else if (isinarea((Button)window.Controls["ExitToMainMenu"], mousepos))
+            {
+                exitToMainMenuButton_Click(window.Controls["ExitToMainMenu"]);
+            }
+            else if (isinarea((Button)window.Controls["Exit"], mousepos))
+            {
+                exitButton_Click(window.Controls["Exit"]);
+            }
+            else if (isinarea((Button)window.Controls["Options"], mousepos) || 
+                isinarea((Button)window.Controls["ProfilingTool"], mousepos) ||
+                isinarea((Button)window.Controls["About"], mousepos))
+            {
+                StatusMessageHandler.sendMessage("Diese Option ist nur für die Maus verfügbar");
             }
         }
 		void exitButton_Click( object sender )

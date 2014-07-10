@@ -21,12 +21,13 @@ namespace Game
         Sector selectedSector;
         Control bigMinimapControl;
         string lastSelectedSector;
+        Control window;
 
 		protected override void OnAttach()
 		{
 			base.OnAttach();
             
-			Control window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
+			window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
 			Controls.Add( window );
 
             // Big Minimap
@@ -160,7 +161,35 @@ namespace Game
 
             return point;
         }
+                bool isinarea(Button button, Vec2 pos) {
 
+            return button.GetScreenRectangle().IsContainsPoint(pos);
+        }
+
+            public void workbench_Click(Vec2 mousepos)
+            {
+
+                if (isinarea((Button)window.Controls["Close"], mousepos))
+                {
+                    closeButton_Click(window.Controls["Close"]);
+                }
+                else if (isinarea((Button)window.Controls["RotateLeft"], mousepos))
+                {
+                    rotateLeftButton_Click(window.Controls["RotateLeft"]);
+                }
+                else if (isinarea((Button)window.Controls["RotateRight"], mousepos))
+                {
+                    rotateLeftButton_Click(window.Controls["RotateRight"]);
+                }
+                else if (isinarea((Button)window.Controls["Power"], mousepos))
+                {
+                    powerButton_Click(window.Controls["Power"]);
+                }
+                else if (window.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
+                {
+                    BigMinimapClick(window.Controls["BigMinimap"],EMouseButtons.Left);
+                }
+            }
 		protected override bool OnKeyDown( KeyEvent e )
 		{
 			if( base.OnKeyDown( e ) )
