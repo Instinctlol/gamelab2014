@@ -228,13 +228,14 @@ namespace Game
                     if (angle < 0) todoRotate -= 1;
                     Console.WriteLine("Trying to Rotate " + angle);           
                 }
-                else if (true && test.getOPType() == opType.selection) {
+                else if (true && test.getOPType() == opType.click) {
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
                     if (Controls.OfType<MenuWindow>().Count() == 1)
                     {
-                        Controls.OfType<MenuWindow>().First().SetShouldDetach();
+
+                        Controls.OfType<MenuWindow>().First().workbench_Click(MousePos);
                     }
                     else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {

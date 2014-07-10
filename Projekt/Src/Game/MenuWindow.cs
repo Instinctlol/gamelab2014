@@ -17,11 +17,13 @@ namespace Game
 	/// </summary>
 	public class MenuWindow : Control
 	{
+        Control window;
+        
 		protected override void OnAttach()
 		{
 			base.OnAttach();
-
-			Control window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MenuWindow.gui" );
+            
+			window = ControlDeclarationManager.Instance.CreateControl( "Gui\\MenuWindow.gui" );
 			Controls.Add( window );
 
 			//( (Button)window.Controls[ "LoadSave" ] ).Click += loadSaveButton_Click;
@@ -98,7 +100,13 @@ namespace Game
 			//create main menu
 			GameEngineApp.Instance.ControlManager.Controls.Add( new MainMenuWindow() );
 		}
+        public void workbench_Click(Vec2 mousepos) {
 
+            if (window.Controls["Resume"].GetScreenRectangle().IsContainsPoint(mousepos))
+            {
+                SetShouldDetach();
+            }
+        }
 		void exitButton_Click( object sender )
 		{
 			GameEngineApp.Instance.SetFadeOutScreenAndExit();

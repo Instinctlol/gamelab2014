@@ -11,11 +11,10 @@ namespace ProjectCommon
 
     public enum opType
     {
-        selection,
+        click,
         translation,
         rotation,
-        headtracking,
-        gesture
+        selection
     };
 	//For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
 	//in the GameEngineApp.cs. After it you will see this device in the Game Options window.
@@ -138,7 +137,6 @@ namespace ProjectCommon
                 }
             }
 
-            //primitive Erkennung
             //block 1
             List<float[]> used = new List<float[]>();
             bool start1 = false, start2 = false, end1 = false, end2  = false;
@@ -208,9 +206,9 @@ namespace ProjectCommon
                 if (Math.Abs(workelement1[4] - line1changed[4]) < 0.01 && Math.Abs(workelement1[5] - line1changed[5]) < 0.01)
                 {
                     oldcoords = null;
-                    Console.WriteLine("Select");
+                    Console.WriteLine("Click");
                     TuioInputDeviceSpecialEvent customEvent =
-                        new TuioInputDeviceSpecialEvent(this, opType.selection, workelement1[4], workelement1[5]);
+                        new TuioInputDeviceSpecialEvent(this, opType.click, workelement1[4], workelement1[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
                     foreach (float[] usedelemt in used)
                     {
@@ -220,42 +218,45 @@ namespace ProjectCommon
             }
             else if ((start1 && start2) || wasrotating)
             {
-                //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
-                //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
-                
-                float dy = (line2changed[5] - line1changed[5]);
-                float dx = (line2changed[4] - line1changed[4]);
-                float rotangle = (float)-Math.Atan(dy/dx);
-                //float pi = MathFunctions.PI;
-                //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
-
-                if (oldangle == 1000) oldangle = rotangle;
-
-
-                TuioInputDeviceSpecialEvent customEvent =
-                new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
-                InputDeviceManager.Instance.SendEvent(customEvent);
-                oldangle = rotangle;
-                if (!end1 && !end2)
+                Console.Write("" + Math.Abs(line2changed[4] - line1changed[4])+" - "+ Math.Abs(line2changed[5] - line1changed[5]));
+                if (Math.Abs(line2changed[4] - line1changed[4]) > 0.05 || Math.Abs(line2changed[5] - line1changed[5]) > 0.05)
                 {
-                    used.Remove(line1changed);
-                    used.Remove(line2changed);
-                    used.Remove(workelement1);
-                    used.Remove(workelement3);
-                    wasrotating = true;
-                }
-                else
-                {
-                    oldangle = 1000;
-                    wasrotating = false;
-                    Console.WriteLine("Rotate Clear");
-                }
+                    //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
+                    //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
 
-                foreach (float[] usedelemt in used)
-                {
-                    tuioInputData.Remove(usedelemt);
-                }
+                    float dy = (line2changed[5] - line1changed[5]);
+                    float dx = (line2changed[4] - line1changed[4]);
+                    float rotangle = (float)-Math.Atan(dy / dx);
+                    //float pi = MathFunctions.PI;
+                    //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
 
+                    if (oldangle == 1000) oldangle = rotangle;
+
+
+                    TuioInputDeviceSpecialEvent customEvent =
+                    new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
+                    InputDeviceManager.Instance.SendEvent(customEvent);
+                    oldangle = rotangle;
+                    if (!end1 && !end2)
+                    {
+                        used.Remove(line1changed);
+                        used.Remove(line2changed);
+                        used.Remove(workelement1);
+                        used.Remove(workelement3);
+                        wasrotating = true;
+                    }
+                    else
+                    {
+                        oldangle = 1000;
+                        wasrotating = false;
+                        Console.WriteLine("Rotate Clear");
+                    }
+
+                    foreach (float[] usedelemt in used)
+                    {
+                        tuioInputData.Remove(usedelemt);
+                    }
+                }
             }
             else if ((end1 && wastranslating) || !wasrotating && (!start2 && oldcoords != null && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)))
             {
