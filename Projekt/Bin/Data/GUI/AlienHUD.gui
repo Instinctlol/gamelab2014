@@ -5,7 +5,7 @@ control Control
 	control Control
 	{
 		position = ScaleByResolution 0 110
-		size = Screen 0.8632813 0.65
+		size = Screen 1 0.65
 		name = ActiveArea
 		control TextBox
 		{
@@ -42,6 +42,7 @@ control Control
 		position = ScaleByResolution 0 580
 		size = Screen 1 0.25
 		backColor = 0 0 0 0.5
+		enable = False
 	}
 	control Control
 	{
@@ -67,6 +68,7 @@ control Control
 		position = ScaleByResolution 300 610
 		size = ScaleByResolution 500 160
 		name = SelectedUnitsInfo
+		enable = False
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
@@ -130,6 +132,7 @@ control Control
 		name = HelpWindow
 		text = AVA
 		visible = False
+		enable = False
 		control TextBox
 		{
 			textHorizontalAlign = Left
@@ -159,22 +162,6 @@ control Control
 		size = Parent 0.8632813 0.04947916
 		name = GameStatus
 	}
-	control TextBox
-	{
-		textHorizontalAlign = Left
-		position = ScaleByResolution -190 650
-		horizontalAlign = Right
-		size = Parent 0.1503906 0.04947914
-		name = NumberSpawnUnitsText
-		text = "Anzahl Aliens:"
-	}
-	control "GUI\\Controls\\DefaultListBox.gui"
-	{
-		position = ScaleByResolution -84 650
-		horizontalAlign = Right
-		size = ScaleByResolution 90 80
-		name = NumberSpawnUnitsList
-	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution -9 190
@@ -192,6 +179,7 @@ control Control
 		name = SteuerWindow
 		text = Alien steuern
 		visible = False
+		enable = False
 		control "Gui\\Controls\\DefaultButton.gui"
 		{
 			position = ScaleByResolution -40 -20
@@ -386,5 +374,24 @@ control Control
 			name = Help
 			text = Help
 		}
+	}
+	control Control
+	{
+		position = ScaleByResolution -14 610
+		horizontalAlign = Right
+		size = Parent 0.13 0.2
+		name = NumPad
+		control "GUI\\AlienNumPad.gui"
+		{
+			size = Parent 1 1
+			name = NumPadControl
+		}
+	}
+	control Control
+	{
+		position = ScaleByResolution 80 80
+		size = Parent 0.8144531 0.7395833
+		name = BigMiniMapControl
+		visible = False
 	}
 }

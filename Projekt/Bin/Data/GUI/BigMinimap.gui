@@ -9,9 +9,9 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	mouseCover = True
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 343 86
+		position = ScaleByResolution 333 86
 		horizontalAlign = Center
-		size = ScaleByResolution 150 30
+		size = ScaleByResolution 170 30
 		name = Close
 		text = Close
 	}
@@ -24,26 +24,26 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 343 136
+		position = ScaleByResolution 333 136
 		horizontalAlign = Center
-		size = ScaleByResolution 150 30
+		size = ScaleByResolution 170 30
 		name = RotateLeft
-		text = Rotate left
+		text = Clockwise
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 343 236
+		position = ScaleByResolution 333 236
 		horizontalAlign = Center
-		size = ScaleByResolution 150 30
+		size = ScaleByResolution 170 30
 		name = Power
 		text = Power off
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 343 186
+		position = ScaleByResolution 333 186
 		horizontalAlign = Center
-		size = ScaleByResolution 150 30
+		size = ScaleByResolution 170 30
 		name = RotateRight
-		text = Rotate right
+		text = Counterclockwise
 	}
 }

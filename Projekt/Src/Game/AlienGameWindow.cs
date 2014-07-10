@@ -45,10 +45,9 @@ namespace Game
 
         // GUI Attribute
         Control hudControl;
+        Control numPad;
 
         // Spawning
-        int possibleNumberSpawnAliens = 10;
-        ListBox numberSpawnUnitsList;
         int spawnNumber = 1;
 
         // Select mode
@@ -200,9 +199,6 @@ namespace Game
             Controls.Add(new Server_SchereSteinPapierWindow(Computer.CsspwTask));
         }*/
 
-        /// <summary>
-        
-
         // Beim Beenden des Spiels minimap freigeben
         protected override void OnDetach()
         {
@@ -337,6 +333,7 @@ namespace Game
 
         protected override bool OnMouseDown(EMouseButtons button)
         {
+            EngineConsole.Instance.Print("mousedown");
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);
@@ -437,11 +434,18 @@ namespace Game
 
         void DoOpenMinimap()
         {
-            // Meldung anzeigen, da das Laden so lange dauert
-            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
+
+            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
             // BigMinimap öffnen
+            //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
             Controls.Add(new BigMinimapWindow());
-            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
+            //hudControl.Controls["BigMiniMapControl"].Visible = true;
+
+
+            // Meldung anzeigen, da das Laden so lange dauert
+            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
+
+            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
         }
 
         bool IsEnableTaskTypeInTasks(List<AlienUnitAI.UserControlPanelTask> tasks, AlienUnitAI.Task.Types taskType)
@@ -1124,18 +1128,34 @@ namespace Game
                 button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
             }
 
-            // default listbox for number of spawn aliens is disabled
-            numberSpawnUnitsList = hudControl.Controls["NumberSpawnUnitsList"] as ListBox;
-            if (numberSpawnUnitsList != null)
+            // AlienNumPad
+            numPad = hudControl.Controls["NumPad"].Controls["NumPadControl"];
+            if (numPad != null)
             {
-                for (int i = 1; i <= possibleNumberSpawnAliens; i++)
+                for (int i = 0; i <= 9; i++)
                 {
-                    numberSpawnUnitsList.Items.Add(i);
+                    button = (Button)numPad.Controls["num_" + i.ToString()];
+                    if (button != null)
+                    {
+                        button.Click += new Button.ClickDelegate(NumPadButton_Click);
+                        EngineConsole.Instance.Print("numpadbutton"+i);
+                    }
                 }
-                numberSpawnUnitsList.SelectedIndex = 0;
-                numberSpawnUnitsList.SelectedIndexChange += numberSpawnUnitsList_SelectedIndexChange;
-                numberSpawnUnitsList.ItemMouseDoubleClick += numberSpawnUnitsList_ItemMouseDoubleClick;
+                button = (Button)numPad.Controls["Clear"];
+                button.Click += new Button.ClickDelegate(NumPadClear_Click);
             }
+        }
+
+        void NumPadClear_Click(Button sender)
+        {
+            EngineConsole.Instance.Print("clear");
+            numPad.Controls["Output"].Text = "";
+        }
+
+        void NumPadButton_Click(Button sender)
+        {
+            EngineConsole.Instance.Print("click" + sender.Text + " " + sender.Name);
+            numPad.Controls["Output"].Text = "" + sender.Text;
         }
 
         // Wenn ein Button zum Navigieren der Aliens/Spawnpoints geklickt wurde
@@ -1180,7 +1200,16 @@ namespace Game
 
                         if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
                         {
-                            intellect.DoTask(new AlienUnitAI.Task(taskType, tasks[index].Task.EntityType, spawnNumber), false);
+                            try
+                            {
+                                spawnNumber = int.Parse(numPad.Controls["Output"].Text);
+                                intellect.DoTask(new AlienUnitAI.Task(taskType, tasks[index].Task.EntityType, spawnNumber), false);
+                                EngineConsole.Instance.Print("spawnnumber:" + spawnNumber);
+                            }
+                            catch (FormatException e)
+                            {
+                                StatusMessageHandler.sendMessage("Keine gültige Zahl");
+                            }
                         }
                     }
                     break;
@@ -1210,9 +1239,7 @@ namespace Game
             }
 
             // Controls fürs Spawning zunächst verstecken
-            Control controlNumberSpawnUnitsText = hudControl.Controls["NumberSpawnUnitsText"];
-            controlNumberSpawnUnitsText.Visible = false;
-            numberSpawnUnitsList.Visible = false;
+            numPad.Visible = false;
 
             // make all buttons for AlienUnit visible or not
             for (int n = 0; ; n++)
@@ -1238,8 +1265,7 @@ namespace Game
                         // if task is to spawn aliens we have to show the listbox so that the player can choose the number of aliens to be spawned
                         if (tasks[n].Task.EntityType.FullName == "Alien")
                         {
-                            numberSpawnUnitsList.Visible = true;
-                            controlNumberSpawnUnitsText.Visible = true;
+                            numPad.Visible = true;
                         }
                     }
                     if (text == null)
@@ -1555,17 +1581,6 @@ namespace Game
 
             //// Headtracking position addieren
             //position += headTrackingOffset;
-        }
-
-        void numberSpawnUnitsList_SelectedIndexChange(ListBox sender)
-        {
-            // Den Index (beginnt bei 0) plus 1
-            spawnNumber = (int)sender.SelectedIndex + 1;
-        }
-
-        void numberSpawnUnitsList_ItemMouseDoubleClick(object sender, ListBox.ItemMouseEventArgs e)
-        {
-            spawnNumber = (int)e.ItemIndex + 1;
         }
 
         // Brauchen wir das??

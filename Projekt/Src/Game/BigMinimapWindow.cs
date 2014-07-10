@@ -48,6 +48,7 @@ namespace Game
 
         void closeButton_Click(object sender)
         {
+            //this.Visible = false;
             SetShouldDetach();
         }
 
