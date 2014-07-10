@@ -1,0 +1,32 @@
+sourceFile = "Types\\Items\\Granate\\grenade.obj"
+objects
+{
+	mesh
+	{
+		name = grenade
+		pivotPosition = 0 22.72347 31.12384
+		sources
+		{
+			item
+			{
+				name = grenade
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = grenade3
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = grenade2
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = grenade4
+				rotation = 0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}
