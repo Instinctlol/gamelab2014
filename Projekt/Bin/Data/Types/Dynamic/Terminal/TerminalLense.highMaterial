@@ -1,0 +1,8 @@
+highLevelMaterial TerminalLense
+{
+	template = ShaderBaseMaterial
+	blending = AlphaBlend
+	diffuseColor = 0 0.08235294 1 0.3921569
+	diffusePower = 10
+	emissionPower = 1.960784
+}

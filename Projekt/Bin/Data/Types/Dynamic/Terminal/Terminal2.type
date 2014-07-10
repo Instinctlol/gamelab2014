@@ -1,4 +1,4 @@
-type Terminal
+type Terminal2
 {
 	class = Terminal
 	networkType = Synchronized
@@ -6,23 +6,14 @@ type Terminal
 	{
 		mesh
 		{
-			meshName = "Types\\Dynamic\\Terminal\\Terminal.mesh"
-			castDynamicShadows = True
-			collision = True
-			position = 0.3 0 -0.09
-			scale = 0.844 0.844 0.844
-		}
-		mesh
-		{
 			meshName = "Types\\Dynamic\\Terminal\\TerminalBack.mesh"
 			castDynamicShadows = True
 			collision = True
-			position = 0.3 0 -0.09
+			alias = TerminalScreen
 			scale = 0.844 0.844 0.844
 		}
 		gui
 		{
-			position = 0.29 0 -0.1
 			rotation = 0.5 0.5 0.5 0.5
 			scale = 1.74666 1.31 0
 		}
@@ -33,6 +24,18 @@ type Terminal
 		mapObject
 		{
 			type = Task
+		}
+		mesh
+		{
+			meshName = ".\\TerminalLense.mesh"
+			position = -0.9769973 0 0
+			scale = 0.2 0.7 0.7
+		}
+		mesh
+		{
+			meshName = ".\\TerminalProjector.mesh"
+			position = -1 0 0
+			rotation = -0.006071072 -0.006145701 -0.006071072 0.9999443
 		}
 	}
 }
