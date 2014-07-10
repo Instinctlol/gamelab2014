@@ -110,12 +110,7 @@ namespace ProjectEntities
 			//networking mode
 			if( EntitySystemWorld.Instance.IsServer() )
 			{
-				if( GameMap.Instance.GameType == GameMap.GameTypes.Action ||
-					GameMap.Instance.GameType == GameMap.GameTypes.TPSArcade ||
-					GameMap.Instance.GameType == GameMap.GameTypes.TurretDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.VillageDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo ||
-                    GameMap.Instance.GameType == GameMap.GameTypes.AVA)
+				if( GameMap.Instance.GameType == GameMap.GameTypes.AVA)
 				{
 					if( PlayerManager.Instance != null )
 					{
@@ -196,7 +191,7 @@ namespace ProjectEntities
 						foreach( PlayerManager.ServerOrSingle_Player player in
 							PlayerManager.Instance.ServerOrSingle_Players )
 						{
-							if( player.Intellect != null && player.Intellect.ControlledObject == null )
+							if( player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
 							{
 								ServerOrSingle_CreatePlayerUnit( player );
 							}
@@ -328,8 +323,8 @@ namespace ProjectEntities
 		}
 
 		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player )
-		{
-			SpawnPoint spawnPoint = SpawnPoint.GetDefaultSpawnPoint();
+		{         
+            SpawnPoint spawnPoint = SpawnPoint.GetDefaultSpawnPoint();
 
 			if( spawnPoint == null )
 				spawnPoint = SpawnPoint.GetFreeRandomSpawnPoint();
