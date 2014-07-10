@@ -760,7 +760,6 @@ namespace Game
                 //change cameraPosition
                 if (!selectMode && Time > 2)
                 {
-
                     Vec2 vector = Vec2.Zero;
                     if (todoTranslate != Vec2.Zero) {
                         vector.X -= todoTranslate.X*15;
@@ -795,7 +794,10 @@ namespace Game
                             cameraDirection.Horizontal;
                         vector = new Vec2(MathFunctions.Sin(angle), MathFunctions.Cos(angle));
 
-                        cameraPosition += vector * delta * 50;
+                        Vec2 neueCameraPosition = (cameraPosition + vector * delta * 50);
+                        if (CheckMapPosition(neueCameraPosition)) { 
+                            cameraPosition = neueCameraPosition;
+                        }
                     }
                 }
 
@@ -1370,6 +1372,15 @@ namespace Game
             DrawHUD(renderer);
         }
 
+        bool CheckMapPosition(Vec2 cameraPosition)
+        {
+            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
+            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
+
+            return mapRect.IsContainsPoint(cameraPosition);
+        }
+
         CameraType GetRealCameraType()
         {
             return cameraType;
@@ -1489,8 +1500,7 @@ namespace Game
         {
             Vec3 offset;
             {
-                Quat rot = new Angles(0, 0, MathFunctions.RadToDeg(
-                    cameraDirection.Horizontal)).ToQuat();
+                Quat rot = new Angles(0, 0, MathFunctions.RadToDeg(cameraDirection.Horizontal)).ToQuat();
                 rot *= new Angles(0, MathFunctions.RadToDeg(cameraDirection.Vertical), 0).ToQuat();
                 offset = rot * new Vec3(1, 0, 0);
                 offset *= cameraDistance;
