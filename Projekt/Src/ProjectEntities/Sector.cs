@@ -278,16 +278,33 @@ namespace ProjectEntities
         {
             dynamics.Add(obj);
 
-            if (isHidden)
-                obj.Visible = false;
-            else
-                obj.Visible = true;
+            obj.Visible = !IsHidden;
 
         }
 
         private void OnDynamicOut(Dynamic obj)
         {
             dynamics.Remove(obj);
+
+
+
+            Vec3 source = obj.Position;
+            Vec3 direction = new Vec3(0, 0, -1);
+            Ray ray = new Ray(source, direction);
+
+
+            Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
+            {
+                Sector sec = mObj as Sector;
+
+                if (sec != null)
+                {
+                    obj.Visible = !sec.IsHidden;
+                    return false;
+                }
+
+                return true;
+            });
         }
 
         private void OnLightIn(Light obj)
