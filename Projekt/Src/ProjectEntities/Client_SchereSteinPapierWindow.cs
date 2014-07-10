@@ -230,8 +230,8 @@ namespace ProjectEntities
 
         private void Server_createWindowForAlien()
         {
-            Computer.doCsspwSet();
-            Computer.CsspwTask = task;
+            /*Computer.CsspwTask = task;
+            Computer.doCsspwSet();*/
         }
     }
 }

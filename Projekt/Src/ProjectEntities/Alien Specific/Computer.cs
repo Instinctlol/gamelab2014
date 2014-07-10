@@ -37,9 +37,9 @@ namespace ProjectEntities
         static int usedAliens = 0;
         public static bool noSpawnTime = false;
 
-        public static delegate void csspwSetEvent();
-        public static event csspwSetEvent csspwSet;
-        private static Task csspwTask;
+        //public static delegate void csspwSetEvent();
+        //public static event csspwSetEvent csspwSet;
+        //private static Task csspwTask;
 
         
         
@@ -89,11 +89,11 @@ namespace ProjectEntities
             get { return ringRotations; }
         }
 
-        public static Task CsspwTask
+        /*public static Task CsspwTask
         {
             get { return Computer.csspwTask; }
             set { Computer.csspwTask = value; }
-        }
+        }*/
 
         /**************/
         /* Funktionen */
@@ -324,11 +324,11 @@ namespace ProjectEntities
             powerCoupons = maxPowerCoupons;
         }
 
-        public static void doCsspwSet()
+        /*public static void doCsspwSet()
         {
             if (csspwSet != null)
                 csspwSet();
-        }
+        }*/
 
         private static int mod(int x, int m)
         {
