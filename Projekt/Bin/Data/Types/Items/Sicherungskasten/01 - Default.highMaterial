@@ -1,0 +1,9 @@
+highLevelMaterial "01 - Default"
+{
+	dataSource = "Types\\Items\\Sicherungskasten\\ElectricalBox.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.1254902 0.1254902 0.1254902
+	specularColor = 0.8980392 0.8980392 0.8980392 0
+	specularShininess = 9.599999
+	emissionColor = 0 0 0 0
+}

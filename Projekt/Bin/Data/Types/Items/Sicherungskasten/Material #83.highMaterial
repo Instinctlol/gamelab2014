@@ -1,0 +1,13 @@
+highLevelMaterial "Material #83"
+{
+	dataSource = "Types\\Items\\Sicherungskasten\\ElectricalBox.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.5843138 0.5843138 0.5843138
+	specularColor = 0.8980392 0.8980392 0.8980392 0
+	specularShininess = 20
+	emissionColor = 0 0 0 0
+	diffuse1Map
+	{
+		texture = ".\\BREAKERB.BMP"
+	}
+}
