@@ -6,7 +6,6 @@ type AlienSpawner
 	substance = Metal
 	soundMinDistance = 10
 	soundMaxDistance = 100
-	physicsModel = ".\\RTSFactory.physics"
 	networkType = Synchronized
 	attachedObjects
 	{

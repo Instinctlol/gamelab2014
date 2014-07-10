@@ -119,6 +119,11 @@ namespace ProjectEntities
             if (spawnedUnit != null)
                 CreateProductUnitAttachedMesh();
 
+           
+
+            if (!GameMap.Instance.IsAlien)
+                Visible = false;
+
             UpdateAttachedObjectsVisibility();
         }
         
