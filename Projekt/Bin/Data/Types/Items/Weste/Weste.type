@@ -1,0 +1,13 @@
+type Weste
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\augadam_vest13.mesh"
+			position = 0 0 0.6
+			scale = 0.05 0.05 0.05
+		}
+	}
+}

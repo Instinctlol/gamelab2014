@@ -1,0 +1,17 @@
+sourceFile = "Types\\Items\\Weste\\augadam_vest.obj"
+objects
+{
+	mesh
+	{
+		name = augadam_vest13
+		pivotPosition = 0 0.461345 44.66014
+		sources
+		{
+			item
+			{
+				name = augadam_vest13
+				rotation = 0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}
