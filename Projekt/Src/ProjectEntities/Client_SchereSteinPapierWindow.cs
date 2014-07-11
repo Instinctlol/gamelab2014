@@ -86,7 +86,7 @@ namespace ProjectEntities
                 tempButton.Enable = true;
             }
             steinButton.Enable = false;
-
+            tempButton = steinButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_SteinButtonClicked);
         }
 
@@ -98,6 +98,7 @@ namespace ProjectEntities
                 tempButton.Enable = true;
             }
             papierButton.Enable = false;
+            tempButton = papierButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_PapierButtonClicked);
         }
 

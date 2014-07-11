@@ -79,6 +79,7 @@ namespace ProjectEntities
                 {
                     tempButton.Enable = true;
                 }
+                tempButton = steinButton;
                 steinButton.Enable = false;
             }
                 
@@ -93,6 +94,7 @@ namespace ProjectEntities
                 {
                     tempButton.Enable = true;
                 }
+                tempButton = papierButton;
                 papierButton.Enable = false;
             }
                 
@@ -107,6 +109,7 @@ namespace ProjectEntities
                 {
                     tempButton.Enable = true;
                 }
+                tempButton = schereButton;
                 schereButton.Enable = false;
             }
         }
