@@ -39,6 +39,7 @@ namespace ProjectEntities
             PIN,
             ColorSequence,
             Quiz,
+            Duel_SchereSteinPapier,
         };
 
         //SmartButton type, spezifizieren welche art von Button initial angezeigt wird

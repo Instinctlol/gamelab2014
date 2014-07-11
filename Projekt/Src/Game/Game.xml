@@ -112,7 +112,7 @@
             BigMinimap öffnen
             </summary>
         </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "M:Game.AlienGameWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" ignoriert -->
+        <!-- Badly formed XML comment ignored for member "M:Game.AlienGameWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" -->
         <member name="M:Game.AlienGameWindow.GetMapPositionByMouseOnMinimap">
             <summary>
             Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
@@ -124,7 +124,7 @@
             Defines a system game menu.
             </summary>
         </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "M:Game.BigMinimapWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" ignoriert -->
+        <!-- Badly formed XML comment ignored for member "M:Game.BigMinimapWindow.BigMinimapClick(Engine.UISystem.Control,Engine.EMouseButtons)" -->
         <member name="M:Game.BigMinimapWindow.GetMapPositionByMouseOnMinimap">
             <summary>
             Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.

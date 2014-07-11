@@ -3,6 +3,7 @@ using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.UISystem;
 using Engine.Utils;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -73,6 +74,10 @@ namespace ProjectEntities
                     break;
                 case Terminal.TerminalTaskType.Quiz:
                     Window = new QuestionTaskWindow(this);
+                    break;
+                case Terminal.TerminalTaskType.Duel_SchereSteinPapier:
+                    EngineConsole.Instance.Print("Creating SchereSteinPapierWindow");
+                    Window = new Client_SchereSteinPapierWindow(this);
                     break;
                 default:
                     Window = null;

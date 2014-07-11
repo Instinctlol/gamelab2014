@@ -26,24 +26,20 @@ namespace ProjectEntities
 
         private EngineConsole console = EngineConsole.Instance;
 
-        
-
-        private Control window;
         private TextBox countdownBox, enemySelectedBox;
         private Button schereButton, steinButton, papierButton, playButton, tempButton;
         private string lastSelected;
 
         public Client_SchereSteinPapierWindow(Task task) : base(task)
         {
-            window = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\SchereSteinPapier.gui");
-            Controls.Add(window);
+            CurWindow = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\SchereSteinPapier.gui");
 
-            schereButton = (Button)window.Controls["SchereButton"];
-            steinButton = (Button)window.Controls["SteinButton"];
-            papierButton = (Button)window.Controls["PapierButton"];
-            playButton = (Button)window.Controls["PlayButton"];
-            enemySelectedBox = (TextBox)window.Controls["GegnerWahl"];
-            countdownBox = (TextBox)window.Controls["Countdown"];
+            schereButton = (Button)CurWindow.Controls["SchereButton"];
+            steinButton = (Button)CurWindow.Controls["SteinButton"];
+            papierButton = (Button)CurWindow.Controls["PapierButton"];
+            playButton = (Button)CurWindow.Controls["PlayButton"];
+            enemySelectedBox = (TextBox)CurWindow.Controls["GegnerWahl"];
+            countdownBox = (TextBox)CurWindow.Controls["Countdown"];
 
             schereButton.Click += Schere_clicked;
             papierButton.Click += Papier_clicked;
@@ -53,12 +49,17 @@ namespace ProjectEntities
             enemySelectedBox.Visible = false;
 
 
-            if (!task.IsServer)
+            if (!task.IsServer && !(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor))
             {
                 task.Client_WindowStringReceived += Client_StringReceived;
                 task.Client_WindowDataReceived += Client_WindowDataReceived;
             }
-                
+
+            if(task.IsServer)
+            {
+                task.Server_WindowDataReceived += Server_WindowDataReceived;
+            }
+            EngineConsole.Instance.Print("SchereSteinPapierWindow created");
         }
 
         
@@ -82,10 +83,10 @@ namespace ProjectEntities
             lastSelected = steinButton.Text;
             if(!(tempButton==null))
             {
-                tempButton.DefaultControl.BackColor = new ColorValue(74/255, 154/255, 221/255, 200/255);
+                tempButton.Enable = true;
             }
-            steinButton.DefaultControl.BackColor = new ColorValue(181/255, 215/255, 255/255, 200/255);
-            tempButton = steinButton;
+            steinButton.Enable = false;
+
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_SteinButtonClicked);
         }
 
@@ -94,10 +95,9 @@ namespace ProjectEntities
             lastSelected = papierButton.Text;
             if (!(tempButton == null))
             {
-                tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                tempButton.Enable = true;
             }
-            papierButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
-            tempButton = papierButton;
+            papierButton.Enable = false;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_PapierButtonClicked);
         }
 
@@ -106,9 +106,9 @@ namespace ProjectEntities
             lastSelected = schereButton.Text;
             if (!(tempButton == null))
             {
-                tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                tempButton.Enable = true;
             }
-            schereButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
+            schereButton.Enable = false;
             tempButton = schereButton;
             task.Client_SendWindowData((UInt16)NetworkMessages.Client_SchereButtonClicked);
         }
@@ -132,6 +132,7 @@ namespace ProjectEntities
             }
 
             task.Success = true;
+            console.Print("Client Victory");
         }
 
         private void drawStuff()
@@ -151,6 +152,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
+            console.Print("Client Draw");
         }
 
         private void defeatStuff()
@@ -170,6 +172,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
+            console.Print("Client Defeat");
         }
 
         private void Client_StringReceived(string message, UInt16 netMessage)
@@ -222,6 +225,7 @@ namespace ProjectEntities
                 switch(msg)
                 {
                     case NetworkMessages.Client_PlayButtonClicked:
+                        console.Print("Server: received Client_PlayButtonClicked");
                         Server_createWindowForAlien(task);
                         break;
                 }

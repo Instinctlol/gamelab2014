@@ -19,6 +19,15 @@ namespace ProjectEntities
 
         public Server_SchereSteinPapierWindow(Task task) : base(task)
         {
+            console.Print("Creating Server SSPW");
+        }
+
+        protected override void OnAttach()
+        {
+            base.OnAttach();
+
+            console.Print("Attaching Server_SchereSteinPapierWindow");
+
             window = ControlDeclarationManager.Instance.CreateControl("GUI\\Tasks\\SchereSteinPapier.gui");
             Controls.Add(window);
 
@@ -45,7 +54,6 @@ namespace ProjectEntities
                 aTimer.Elapsed += countdown;
                 aTimer.Enabled = true;
             }
-                
         }
 
         private void countdown(object sender, ElapsedEventArgs e)
@@ -54,6 +62,7 @@ namespace ProjectEntities
             task.Server_SendWindowString(countdownBox.Text, (UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_UpdateTimer);
             if (countdownBox.Text.Equals("0"))
             {
+                task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_EvaluatingSolutions);
                 aTimer.Enabled = false;
                 compareSolutions();
             }
@@ -68,10 +77,9 @@ namespace ProjectEntities
                 lastSelected = steinButton.Text;
                 if (!(tempButton == null))
                 {
-                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                    tempButton.Enable = true;
                 }
-                steinButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
-                tempButton = steinButton;
+                steinButton.Enable = false;
             }
                 
         }
@@ -83,10 +91,9 @@ namespace ProjectEntities
                 lastSelected = papierButton.Text;
                 if (!(tempButton == null))
                 {
-                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                    tempButton.Enable = true;
                 }
-                papierButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
-                tempButton = papierButton;
+                papierButton.Enable = false;
             }
                 
         }
@@ -98,17 +105,14 @@ namespace ProjectEntities
                 lastSelected = schereButton.Text;
                 if (!(tempButton == null))
                 {
-                    tempButton.DefaultControl.BackColor = new ColorValue(74 / 255, 154 / 255, 221 / 255, 200 / 255);
+                    tempButton.Enable = true;
                 }
-                schereButton.DefaultControl.BackColor = new ColorValue(181 / 255, 215 / 255, 255 / 255, 200 / 255);
-                tempButton = schereButton;
+                schereButton.Enable = false;
             }
         }
 
         private void compareSolutions()
         {
-            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_EvaluatingSolutions);
-
             schereButton.Enable = false;
             papierButton.Enable = false;
             steinButton.Enable = false;
@@ -148,16 +152,19 @@ namespace ProjectEntities
         private void victoryStuff()
         {
             task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientLoses);
+            console.Print("Server Victory");
         }
 
         private void drawStuff()
         {
             task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_Draw);
+            console.Print("Server Draw");
         }
 
         private void defeatStuff()
         {
             task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientWins);
+            console.Print("Server Defeat");
         }
 
         private void Server_WindowDataReceived(ushort message)
