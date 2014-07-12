@@ -399,4 +399,10 @@ control Control
 			name = BigMinimap
 		}
 	}
+	control "GUI\\Tasks\\Server_SchereSteinPapier.gui"
+	{
+		position = ScaleByResolution 190 110
+		name = SchereSteinPapier
+		visible = False
+	}
 }

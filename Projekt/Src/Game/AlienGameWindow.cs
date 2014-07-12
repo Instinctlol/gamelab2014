@@ -71,6 +71,8 @@ namespace Game
 
         // Headtracking
         
+        //SchereSteinPapierWindow
+        Server_SchereSteinPapierWindow sspw;
 
 
 
@@ -201,7 +203,15 @@ namespace Game
         /// </summary>
         private void csspwSet()
         {
-            Controls.Add(new Server_SchereSteinPapierWindow(Computer.CsspwTask));
+            if(sspw==null)
+            {
+                sspw = new Server_SchereSteinPapierWindow(Computer.CsspwTask, hudControl.Controls["SchereSteinPapier"]);
+                sspw.start(Computer.CsspwTask);
+            }
+            else
+            {
+                sspw.start(Computer.CsspwTask);
+            }
         }
 
         // Beim Beenden des Spiels minimap freigeben
