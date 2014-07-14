@@ -206,7 +206,7 @@ type BasicR
 		mapObject
 		{
 			type = durchgang
-			position = -5.404219 23.74036 0
+			position = -5.366822 23.7789 0
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh

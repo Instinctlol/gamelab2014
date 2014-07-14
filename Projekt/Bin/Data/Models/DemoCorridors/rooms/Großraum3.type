@@ -332,7 +332,7 @@ type "Gro\x00dfraum32"
 		mapObject
 		{
 			type = durchgang
-			position = -23.8656 6.370527 0
+			position = -23.80465 6.447999 0
 			rotation = 0 0 -1 -1.049952E-08
 		}
 		mesh

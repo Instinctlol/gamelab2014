@@ -39,6 +39,7 @@ type BasicL2
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = 0.05132246 11.86672 0
+			scale = 1 1.018794 1
 		}
 		mesh
 		{
@@ -52,6 +53,7 @@ type BasicL2
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = -11.93987 11.86665 0
+			scale = 1 1.010671 1
 		}
 		mesh
 		{
@@ -191,7 +193,7 @@ type BasicL2
 		mapObject
 		{
 			type = durchgang
-			position = -5.468137 23.72756 -0.02485657
+			position = -5.487473 23.82827 -0.02485657
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh

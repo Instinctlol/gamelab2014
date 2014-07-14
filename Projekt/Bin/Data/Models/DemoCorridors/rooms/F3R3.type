@@ -33,6 +33,7 @@ type F3R3
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = 0.05132246 11.86672 0
+			scale = 1 1.029323 1
 		}
 		mesh
 		{
@@ -46,6 +47,7 @@ type F3R3
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = -11.93987 11.86665 0
+			scale = 1 1.029852 1
 		}
 		mesh
 		{
@@ -200,7 +202,7 @@ type F3R3
 		mapObject
 		{
 			type = durchgang
-			position = -5.465182 23.66808 -0.03414866
+			position = -5.4629 23.8132 -0.03414866
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		mesh

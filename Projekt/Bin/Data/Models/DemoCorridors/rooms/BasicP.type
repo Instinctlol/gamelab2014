@@ -277,8 +277,7 @@ type BasicP2
 		mapObject
 		{
 			type = durchgang
-			position = 11.79977 -0.1410419 0
-			rotation = 0 0 -0.007011436 -0.9999754
+			position = 11.80709 -0.2778134 0
 		}
 		mapObject
 		{

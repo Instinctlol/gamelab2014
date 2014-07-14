@@ -1,19 +1,15 @@
-highLevelMaterial durchgangBoden2
+highLevelMaterial durchgangBoden
 {
 	template = ShaderBaseMaterial
 	doubleSided = True
 	useNormals = False
 	diffuseColor = 0.5372549 0.5372549 0.5372549
 	reflectionColor = 1 1 1
+	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"
 	specularColor = 1 1 1
 	diffuse1Map
 	{
 		texture = ".\\CorridorTex2DiffuseMap.dds"
-	}
-	diffuse2Map
-	{
-		texture = ".\\PassDownAO.dds"
-		texCoord = TexCoord1
 	}
 	reflectionMap
 	{

@@ -39,6 +39,7 @@ type "Gro\x00dfraum22"
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = 0.05132246 11.86672 0
+			scale = 1 1.018952 1
 		}
 		mesh
 		{
@@ -52,6 +53,7 @@ type "Gro\x00dfraum22"
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = -11.93987 11.86665 0
+			scale = 1 1.009806 1
 		}
 		mesh
 		{
@@ -171,7 +173,7 @@ type "Gro\x00dfraum22"
 			collision = True
 			position = 3.197901 23.80369 -0.01682854
 			rotation = 0 0 -0.7054104 -0.7087992
-			scale = 1 0.4950042 1
+			scale = 1 0.5096959 1
 		}
 		light
 		{
@@ -202,6 +204,7 @@ type "Gro\x00dfraum22"
 		{
 			attenuationFar = 10
 			position = 1.027165 14.80246 2.5
+			scale = 1 1.007531 1
 		}
 		mapObject
 		{
