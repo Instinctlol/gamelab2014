@@ -203,7 +203,7 @@ namespace ProjectEntities
                     break;
             }
             countdownBox.Text = "Victory";
-            Computer.addExperiencePoints(50);
+            Computer.AddExperiencePoints(50);
         }
 
         private void drawStuff()
