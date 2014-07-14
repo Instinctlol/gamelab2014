@@ -1,0 +1,7 @@
+highLevelMaterial "WHITE PLSTC1"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8980392 0.8980392 0.8980392
+	specularColor = 1 1 1
+	specularShininess = 53
+}

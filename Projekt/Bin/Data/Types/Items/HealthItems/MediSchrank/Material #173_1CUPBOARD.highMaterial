@@ -1,0 +1,11 @@
+highLevelMaterial "Material #173_1CUPBOARD"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.8745098 0.8745098 0.8745098
+	specularColor = 0.9372549 0.9372549 0.9372549
+	specularShininess = 4
+	diffuse1Map
+	{
+		texture = ".\\medikreu.jpg"
+	}
+}

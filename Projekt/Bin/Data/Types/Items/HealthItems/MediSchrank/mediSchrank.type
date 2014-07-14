@@ -1,0 +1,18 @@
+type mediSchrank
+{
+	class = HealthItem
+	health = 999
+	soundTake = "Types\\Items\\HealthItems\\Health.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\fbox.mesh"
+			castDynamicShadows = True
+			position = -0.07939744 0 -1.613682
+			rotation = -0.004946696 0.001766521 -0.9998934 0.01362525
+			scale = 0.06702413 0.06702413 0.06702413
+		}
+	}
+}

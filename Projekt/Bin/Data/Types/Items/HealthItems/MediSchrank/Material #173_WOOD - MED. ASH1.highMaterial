@@ -1,0 +1,7 @@
+highLevelMaterial "Material #173_WOOD - MED. ASH1"
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0 0 0
+	specularColor = 0.7058824 0.6980392 0.6470588
+	specularShininess = 15
+}
