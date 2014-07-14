@@ -19,8 +19,6 @@ namespace ProjectEntities
 
         public Server_SchereSteinPapierWindow(Task task, Control attachToThis) : base(task)
         {
-            console.Print("Creating Server SSPW");
-
             window = attachToThis;
             window.Visible = false;
         }
@@ -44,6 +42,10 @@ namespace ProjectEntities
             enemySelectedBox = (TextBox)window.Controls["GegnerWahl"];
             countdownBox = (TextBox)window.Controls["Countdown"];
             closeButton = (Button)window.Controls["CloseButton"];
+
+            countdownBox.Text = "5";
+            lastSelected = null;
+            enemyLastSelected=null;
 
             schereButton.Click += Schere_clicked;
             papierButton.Click += Papier_clicked;
@@ -83,7 +85,6 @@ namespace ProjectEntities
 
         private void Stein_clicked(Button sender)
         {
-            console.Print("Stein clicked");
             if(!(countdownBox.Text.Equals("0")))
             {
                 lastSelected = steinButton.Text;
@@ -99,7 +100,6 @@ namespace ProjectEntities
 
         private void Papier_clicked(Button sender)
         {
-            console.Print("Papier clicked");
             if (!(countdownBox.Text.Equals("0")))
             {
                 lastSelected = papierButton.Text;
@@ -115,7 +115,6 @@ namespace ProjectEntities
 
         private void Schere_clicked(Button sender)
         {
-            console.Print("Schere clicked");
             if (!(countdownBox.Text.Equals("0")))
             {
                 lastSelected = schereButton.Text;
@@ -203,7 +202,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            console.Print("Server Victory");
+            countdownBox.Text = "Victory";
         }
 
         private void drawStuff()
@@ -226,7 +225,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            console.Print("Server Draw");
+            countdownBox.Text = "Draw";
         }
 
         private void defeatStuff()
@@ -249,12 +248,13 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            console.Print("Server Defeat");
+            countdownBox.Text = "Defeat";
+            task.Success = true;
         }
 
         private void Server_WindowDataReceived(ushort message)
         {
-            if(!task.IsServer)
+            if(task.IsServer)
             {
                 Client_SchereSteinPapierWindow.NetworkMessages msg = (Client_SchereSteinPapierWindow.NetworkMessages)message;
                 switch(msg)

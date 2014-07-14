@@ -73,6 +73,9 @@ namespace ProjectEntities
             schereButton.Enable = true;
             steinButton.Enable = true;
             papierButton.Enable = true;
+
+            lastSelected = null;
+            enemySelectedBox.Visible = false;
         }
 
         
@@ -132,7 +135,7 @@ namespace ProjectEntities
             }
 
             task.Success = true;
-            console.Print("Client Victory");
+            countdownBox.Text = "Victory";
         }
 
         private void drawStuff()
@@ -152,7 +155,9 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            console.Print("Client Draw");
+            playButton.Enable = true;
+            playButton.Visible = true;
+            countdownBox.Text = "Draw";
         }
 
         private void defeatStuff()
@@ -172,7 +177,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            console.Print("Client Defeat");
+            countdownBox.Text = "Defeat";
         }
 
         private void Client_StringReceived(string message, UInt16 netMessage)
