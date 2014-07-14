@@ -41,5 +41,14 @@ type Terminal2
 			position = -1 0 0
 			rotation = -0.006071072 -0.006145701 -0.006071072 0.9999443
 		}
+		billboard
+		{
+			color = 0 0 1
+			materialName = Base_LightFlare
+			size = 0.4 0.4
+			alias = projectorLight
+			position = -0.9 0 0
+			visible = False
+		}
 	}
 }

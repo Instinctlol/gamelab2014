@@ -125,6 +125,8 @@ namespace ProjectEntities
 
         private MapObjectAttachedMesh terminalScreen;
 
+        private MapObjectAttachedBillboard projectorLight;
+
         private float nextCheckRemainingTime = 0.2f;
         
         //***************************
@@ -136,6 +138,7 @@ namespace ProjectEntities
             set { 
                 active = value;
                 terminalScreen.Visible = value;
+                projectorLight.Visible = value;
 
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendActiveValueToAllClients();
@@ -333,6 +336,13 @@ namespace ProjectEntities
                         terminalProjector = mesh;
                     else if (mesh.Alias == "terminalScreen")
                         terminalScreen = mesh;
+                }
+
+                MapObjectAttachedBillboard light = obj as MapObjectAttachedBillboard;
+                if(light != null)
+                {
+                    if (light.Alias == "projectorLight")
+                        projectorLight = light;
                 }
             }
 
