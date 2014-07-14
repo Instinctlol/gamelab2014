@@ -1,0 +1,22 @@
+sourceFile = "Types\\Items\\Dusche\\ko\x00eao JKPG90 kabina p\x00f3\x00eaokr\x00d1g\x00eaa S600 VKS2 90.obj"
+objects
+{
+	mesh
+	{
+		name = "ko\x00eao JKPG90 kabina p\x00f3\x00eaokr\x00d1g\x00eaa S600 VKS2 90"
+		pivotPosition = -8.515011 25.585 99.99998
+		sources
+		{
+			item
+			{
+				name = "ko\x00eao JKPG90 kabina p\x00f3\x00eaokr\x00d1g\x00eaa S600 VKS2 90"
+				rotation = 0.7071068 0 0 0.7071068
+			}
+			item
+			{
+				name = "ko\x00eao JKPG90 kabina p\x00f3\x00eaokr\x00d1g\x00eaa S600 VKS2 902"
+				rotation = 0.7071068 0 0 0.7071068
+			}
+		}
+	}
+}

@@ -104,7 +104,7 @@ namespace ProjectEntities
             if (!statusPlay)
                 return;
 
-            //Random Number für Questins
+            //Random Number für Questions
             int randomQuestionNumber = rnd.Next(1, questions.Count - 1);
             randomPositionTrue = rnd.Next(1, 4);
 

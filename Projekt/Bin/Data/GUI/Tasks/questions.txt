@@ -1,5 +1,4 @@
 Frage;Antwort 1(Richtige Antwort);Antwort 2;Antwort 3;Antwort 4
-Wie alt bin ich?;24;20;18;15
 Bei welchem Fussballverein stand Christoph Metzelder unter Vertrag?;Preussen Muenster;FC Barcelona;1.FC Koeln;FC Arsenal
 In welchem Jahr wurde Preussen Muenster gegruendet?;1906;1908;1904;1899
 Welcher dieser Fussballvereine ist NICHT Gruendungsmitglied der Bundesliga?;FC Bayern Muenchen;1.FC Saarbruecken;Preussen Muenster;Werder Bremen
