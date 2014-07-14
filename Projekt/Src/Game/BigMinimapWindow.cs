@@ -23,18 +23,51 @@ namespace Game
         string lastSelectedSector;
         Control window;
 
-		protected override void OnAttach()
-		{
-			base.OnAttach();
-            
-			window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
-			Controls.Add( window );
+        public BigMinimapWindow(Control c)
+        {
+            window = c;
+
+
+            //window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
+            //Controls.Add( window );
 
             // Big Minimap
             //initializing BigMinimap, only works on runtime
             bigMinimapControl = window.Controls["BigMinimap"];
             ((SectorStatusWindow)bigMinimapControl).initialize();
-            bigMinimapControl.MouseDoubleClick += BigMinimapClick;
+            //bigMinimapControl.MouseDoubleClick += BigMinimapClick;
+
+            // Buttons
+            ((Button)window.Controls["Close"]).Click += closeButton_Click;
+            ((Button)window.Controls["RotateLeft"]).Click += rotateLeftButton_Click;
+            ((Button)window.Controls["RotateRight"]).Click += rotateRightButton_Click;
+            ((Button)window.Controls["Power"]).Click += powerButton_Click;
+
+            MouseCover = true;
+            BackColor = new ColorValue(0, 0, 0, .5f);
+        }
+
+        // löschen
+        protected override bool OnMouseDown(EMouseButtons button)
+        {
+            EngineConsole.Instance.Print("bigminimap mousedown");
+            
+
+            return base.OnMouseDown(button);
+        }
+
+		protected override void OnAttach()
+		{
+			base.OnAttach();
+            
+            //window = ControlDeclarationManager.Instance.CreateControl( "GUI\\BigMinimap.gui" );
+            //Controls.Add( window );
+
+            // Big Minimap
+            //initializing BigMinimap, only works on runtime
+            bigMinimapControl = window.Controls["BigMinimap"];
+            ((SectorStatusWindow)bigMinimapControl).initialize();
+            //bigMinimapControl.MouseDoubleClick += BigMinimapClick;
 
             // Buttons
             ((Button)window.Controls["Close"]).Click += closeButton_Click;
@@ -48,8 +81,10 @@ namespace Game
 
         void closeButton_Click(object sender)
         {
-            //this.Visible = false;
-            SetShouldDetach();
+            window.Visible = false;
+            EngineConsole.Instance.Print("minimap clos");
+            //SetShouldDetach();
+            
         }
 
         void rotateLeftButton_Click(object sender)
@@ -110,62 +145,62 @@ namespace Game
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="button"></param>
-        public void BigMinimapClick(Control sender, EMouseButtons button)
-        {
-            // hier
-            Vec2 pos = GetMapPositionByMouseOnMinimap();
-            Rect rect = new Rect(pos);
-            Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
-            // Sector finden
-            Map.Instance.GetObjects(sphere, delegate(MapObject obj)
-            {
-                if (obj is Sector)
-                {
-                    selectedSector = (Sector)obj;
-                    EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
+        //public void BigMinimapClick(Control sender, EMouseButtons button)
+        //{
+        //    // hier
+        //    Vec2 pos = GetMapPositionByMouseOnMinimap();
+        //    Rect rect = new Rect(pos);
+        //    Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
+        //    // Sector finden
+        //    Map.Instance.GetObjects(sphere, delegate(MapObject obj)
+        //    {
+        //        if (obj is Sector)
+        //        {
+        //            selectedSector = (Sector)obj;
+        //            EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
 
-                    if(lastSelectedSector!=null)
-                        ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
-                    lastSelectedSector = selectedSector.Name;
+        //            if(lastSelectedSector!=null)
+        //                ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
+        //            lastSelectedSector = selectedSector.Name;
 
-                    ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
-                }
-            });
-        }
+        //            ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
+        //        }
+        //    });
+        //}
 
-        /// <summary>
-        /// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
-        /// </summary>
-        /// <returns></returns>
-        Vec2 GetMapPositionByMouseOnMinimap()
-        {
-            Rect screenMapRect = bigMinimapControl.GetScreenRectangle();
+        ///// <summary>
+        ///// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
+        ///// </summary>
+        ///// <returns></returns>
+        //Vec2 GetMapPositionByMouseOnMinimap()
+        //{
+        //    Rect screenMapRect = bigMinimapControl.GetScreenRectangle();
 
-            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
+        //    Bounds initialBounds = Map.Instance.InitialCollisionBounds;
 
-            // Die Vektoren für das Rechteck
-            Vec2 vec1 = initialBounds.Minimum.ToVec2();
-            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+        //    // Die Vektoren für das Rechteck
+        //    Vec2 vec1 = initialBounds.Minimum.ToVec2();
+        //    Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
 
-            // 10% vergrößern
-            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
-            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
+        //    // 10% vergrößern
+        //    vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
+        //    vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
 
-            Rect mapRect = new Rect(vec1, vec2);
+        //    Rect mapRect = new Rect(vec1, vec2);
 
-            Vec2 point = MousePosition;
-            point -= screenMapRect.Minimum;
-            point /= screenMapRect.Size;
-            point = new Vec2(point.X, 1.0f - point.Y);
-            point *= mapRect.Size;
-            point += mapRect.Minimum;
+        //    Vec2 point = MousePosition;
+        //    point -= screenMapRect.Minimum;
+        //    point /= screenMapRect.Size;
+        //    point = new Vec2(point.X, 1.0f - point.Y);
+        //    point *= mapRect.Size;
+        //    point += mapRect.Minimum;
 
-            return point;
-        }
-                bool isinarea(Button button, Vec2 pos) {
+        //    return point;
+        //}
+        //        bool isinarea(Button button, Vec2 pos) {
 
-            return button.GetScreenRectangle().IsContainsPoint(pos);
-        }
+        //    return button.GetScreenRectangle().IsContainsPoint(pos);
+        //}
 
             public void workbench_Click(Vec2 mousepos)
             {
@@ -186,11 +221,18 @@ namespace Game
                 {
                     powerButton_Click(window.Controls["Power"]);
                 }
-                else if (window.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
-                {
-                    BigMinimapClick(window.Controls["BigMinimap"],EMouseButtons.Left);
-                }
+                //else if (window.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
+                //{
+                //    BigMinimapClick(window.Controls["BigMinimap"],EMouseButtons.Left);
+                //}
             }
+
+        bool isinarea(Button button, Vec2 pos)
+            {
+
+                return button.GetScreenRectangle().IsContainsPoint(pos);
+            }
+
 		protected override bool OnKeyDown( KeyEvent e )
 		{
 			if( base.OnKeyDown( e ) )

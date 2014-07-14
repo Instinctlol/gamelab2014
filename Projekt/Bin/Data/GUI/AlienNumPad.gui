@@ -5,6 +5,7 @@ control Control
 	size = ScaleByResolution 324 548
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0 0.2007299
 		size = Parent 0.308642 0.1824818
 		name = num_1
@@ -12,6 +13,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.3395062 0.2007299
 		size = Parent 0.308642 0.1824818
 		name = num_2
@@ -19,6 +21,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.6790124 0.2007299
 		size = Parent 0.308642 0.1824818
 		name = num_3
@@ -26,6 +29,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0 0.4014598
 		size = Parent 0.308642 0.1824818
 		name = num_4
@@ -33,6 +37,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.3395062 0.4014598
 		size = Parent 0.308642 0.1824818
 		name = num_5
@@ -40,6 +45,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.6790124 0.4014598
 		size = Parent 0.308642 0.1824818
 		name = num_6
@@ -47,6 +53,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.3395062 0.6021898
 		size = Parent 0.308642 0.1824818
 		name = num_8
@@ -54,6 +61,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.6790124 0.6021898
 		size = Parent 0.308642 0.1824818
 		name = num_9
@@ -61,6 +69,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 2.980232E-08 0.8029196
 		size = Parent 0.308642 0.1824818
 		name = num_0
@@ -68,6 +77,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0 0.6021898
 		size = Parent 0.308642 0.1824818
 		name = num_7
@@ -75,6 +85,7 @@ control Control
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
+		topMost = True
 		position = Parent 0.3395062 0.8029196
 		size = Parent 0.6481482 0.1824818
 		name = Clear

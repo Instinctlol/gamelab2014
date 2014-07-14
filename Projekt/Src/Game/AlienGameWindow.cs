@@ -155,6 +155,15 @@ namespace Game
                 hudFunctions("Path");
             };
 
+
+            hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"].Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
+
+
+            ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).Click += delegate(Button sender)
+            {
+                EngineConsole.Instance.Print("sherebutton clicked");
+            };
+            ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).MouseEnter += AlienGameWindow_MouseEnter;
             InitControlPanelButtons();
             UpdateControlPanel();
 
@@ -196,6 +205,11 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
+        }
+
+        private void AlienGameWindow_MouseEnter(Control sender)
+        {
+            EngineConsole.Instance.Print("shere entered");
         }
 
         /// <summary>
@@ -348,27 +362,30 @@ namespace Game
 
         protected override bool OnMouseDown(EMouseButtons button)
         {
-            EngineConsole.Instance.Print("mousedown");
+            EngineConsole.Instance.Print("aliengame mousedown");
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);
 
             // Mouse click for select unit
-            if (button == EMouseButtons.Left && IsMouseInActiveArea() && TaskTargetChooseIndex == -1)
+            if ( !(hudControl.Controls["SchereSteinPapier"].Visible || hudControl.Controls["BigMinimapControl"].Visible) )
             {
-                selectMode = true;
-                selectDraggedMouse = false;
-                selectStartPos = EngineApp.Instance.MousePosition;
-                return true;
-            }
-
-            //minimap mouse change camera position
-            if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
-            {
-                if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
+                if (button == EMouseButtons.Left && IsMouseInActiveArea() && TaskTargetChooseIndex == -1)
                 {
-                    minimapClick = true;
+                    selectMode = true;
+                    selectDraggedMouse = false;
+                    selectStartPos = EngineApp.Instance.MousePosition;
                     return true;
+                }
+
+                //minimap mouse change camera position
+                if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
+                {
+                    if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
+                    {
+                        minimapClick = true;
+                        return true;
+                    }
                 }
             }
 
@@ -1154,7 +1171,10 @@ namespace Game
         void NumPadButton_Click(Button sender)
         {
             EngineConsole.Instance.Print("click" + sender.Text + " " + sender.Name);
-            numPad.Controls["Output"].Text = "" + sender.Text;
+            if (numPad.Controls["Output"].Text.Length >= 2)
+            {
+                numPad.Controls["Output"].Text = "" + sender.Text;
+            }
         }
 
         // Wenn ein Button zum Navigieren der Aliens/Spawnpoints geklickt wurde
@@ -1599,6 +1619,35 @@ namespace Game
             }
         }
 
+        protected override void OnControlAttach(Control control)
+        {
+            base.OnControlAttach(control);
+            if (control as BigMinimapWindow != null)
+            {
+                EngineConsole.Instance.Print("oncontrolattach bigminimap");
+                //simulationAfterCloseMenuWindow = EntitySystemWorld.Instance.Simulation;
+
+                //if (EntitySystemWorld.Instance.IsServer() || EntitySystemWorld.Instance.IsSingle())
+                //    EntitySystemWorld.Instance.Simulation = false;
+                EntitySystemWorld.Instance.SystemPauseOfSimulation = false;
+                EntitySystemWorld.Instance.Simulation = true;
+                //EngineApp.Instance.MouseRelativeMode = false;
+            }
+        }
+
+        protected override void OnControlDetach(Control control)
+        {
+            if (control as BigMinimapWindow != null)
+            {
+                EngineConsole.Instance.Print("oncontroldetach bigminimap");
+                //if (EntitySystemWorld.Instance.IsServer() || EntitySystemWorld.Instance.IsSingle())
+                EntitySystemWorld.Instance.Simulation = true;
+                EntitySystemWorld.Instance.SystemPauseOfSimulation = false;
+            }
+
+            base.OnControlDetach(control);
+        }
+
 
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////
@@ -1615,11 +1664,19 @@ namespace Game
 
             // BigMinimap öffnen
             //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
-            Controls.Add(new BigMinimapWindow());
-
+            //Controls.Add(new BigMinimapWindow());
+            if (bigMinimap == null)
+            {
+                EngineConsole.Instance.Print("==null");
+                bigMinimap = new BigMinimapWindow(hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"]);
+            }
+            else
+            {
+                hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"].Visible = true;
+            }
             //bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
             //((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).initialize();
-            //hudControl.Controls["BigMinimapControl"].Visible = true;
+            hudControl.Controls["BigMinimapControl"].Visible = true;
             //bigMinimap.Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
 
             //// Buttons
@@ -1632,51 +1689,7 @@ namespace Game
             //BackColor = new ColorValue(0, 0, 0, .5f);
         }
 
-        void BigMinimapClose_Click(object sender)
-        {
-            hudControl.Controls["BigMinimapControl"].Visible = false;
-            hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = false;
-            //SetShouldDetach();
-        }
 
-        void BigMinimapRotateLeft_Click(object sender)
-        {
-            EngineConsole.Instance.Print("links drehen");
-            if (selectedSector == null)
-            {
-                StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
-            }
-            else
-            {
-                Computer.RotateRing(selectedSector.Ring, true);
-            }
-        }
-
-        void BigMinimapRotateRight_Click(object sender)
-        {
-            EngineConsole.Instance.Print("rechts drehen");
-            if (selectedSector == null)
-            {
-                StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
-            }
-            else
-            {
-                Computer.RotateRing(selectedSector.Ring, false);
-            }
-        }
-
-        void BigMinimapPower_Click(object sender)
-        {
-            if (selectedSector == null)
-            {
-                StatusMessageHandler.sendMessage("Kein Sector ausgewählt. (Raum mit Doppel-Click auswählen)");
-            }
-            else
-            {
-                Computer.SetSectorGroupPower(selectedSector.Group, false);
-                EngineConsole.Instance.Print("Turn Power off for secgrp: " + selectedSector.Group.Name);
-            }
-        }
 
         /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
         /// </summary>
@@ -1684,6 +1697,7 @@ namespace Game
         /// <param name="button"></param>
         public void BigMinimapClick(Control sender, EMouseButtons button)
         {
+            Control bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
             // hier
             Vec2 pos = GetMapPositionByMouseOnMinimap();
             Rect rect = new Rect(pos);
@@ -1711,6 +1725,7 @@ namespace Game
         /// <returns></returns>
         Vec2 GetMapPositionByMouseOnMinimap()
         {
+            Control bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
             Rect screenMapRect = bigMinimap.Controls["BigMinimap"].GetScreenRectangle();
 
             Bounds initialBounds = Map.Instance.InitialCollisionBounds;
@@ -1735,36 +1750,36 @@ namespace Game
             return point;
         }
 
-        bool isinarea(Button button, Vec2 pos)
-        {
+        //bool isinarea(Button button, Vec2 pos)
+        //{
 
-            return button.GetScreenRectangle().IsContainsPoint(pos);
-        }
+        //    return button.GetScreenRectangle().IsContainsPoint(pos);
+        //}
 
-        public void workbench_Click(Vec2 mousepos)
-        {
+        //public void workbench_Click(Vec2 mousepos)
+        //{
 
-            if (isinarea((Button)bigMinimap.Controls["Close"], mousepos))
-            {
-                BigMinimapClose_Click(bigMinimap.Controls["Close"]);
-            }
-            else if (isinarea((Button)bigMinimap.Controls["RotateLeft"], mousepos))
-            {
-                BigMinimapRotateLeft_Click(bigMinimap.Controls["RotateLeft"]);
-            }
-            else if (isinarea((Button)bigMinimap.Controls["RotateRight"], mousepos))
-            {
-                BigMinimapRotateRight_Click(bigMinimap.Controls["RotateRight"]);
-            }
-            else if (isinarea((Button)bigMinimap.Controls["Power"], mousepos))
-            {
-                BigMinimapPower_Click(bigMinimap.Controls["Power"]);
-            }
-            else if (bigMinimap.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
-            {
-                BigMinimapClick(bigMinimap.Controls["BigMinimap"], EMouseButtons.Left);
-            }
-        }
+        //    if (isinarea((Button)bigMinimap.Controls["Close"], mousepos))
+        //    {
+        //        BigMinimapClose_Click(bigMinimap.Controls["Close"]);
+        //    }
+        //    else if (isinarea((Button)bigMinimap.Controls["RotateLeft"], mousepos))
+        //    {
+        //        BigMinimapRotateLeft_Click(bigMinimap.Controls["RotateLeft"]);
+        //    }
+        //    else if (isinarea((Button)bigMinimap.Controls["RotateRight"], mousepos))
+        //    {
+        //        BigMinimapRotateRight_Click(bigMinimap.Controls["RotateRight"]);
+        //    }
+        //    else if (isinarea((Button)bigMinimap.Controls["Power"], mousepos))
+        //    {
+        //        BigMinimapPower_Click(bigMinimap.Controls["Power"]);
+        //    }
+        //    else if (bigMinimap.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
+        //    {
+        //        BigMinimapClick(bigMinimap.Controls["BigMinimap"], EMouseButtons.Left);
+        //    }
+        //}
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////
         //////////////////////////////////////////////////////////////////
