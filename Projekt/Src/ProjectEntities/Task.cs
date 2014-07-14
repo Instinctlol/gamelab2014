@@ -76,7 +76,6 @@ namespace ProjectEntities
                     Window = new QuestionTaskWindow(this);
                     break;
                 case Terminal.TerminalTaskType.Duel_SchereSteinPapier:
-                    EngineConsole.Instance.Print("Creating SchereSteinPapierWindow");
                     Window = new Client_SchereSteinPapierWindow(this);
                     break;
                 default:

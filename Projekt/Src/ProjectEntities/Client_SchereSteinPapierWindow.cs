@@ -59,7 +59,6 @@ namespace ProjectEntities
             {
                 task.Server_WindowDataReceived += Server_WindowDataReceived;
             }
-            EngineConsole.Instance.Print("SchereSteinPapierWindow created");
         }
 
         
