@@ -637,13 +637,14 @@ namespace Game
                 {
                     if (currentAttachedGuiObject != null)
                         currentAttachedGuiObject.ControlManager.LostManagerFocus();
-                    if(attachedGuiObject != null && attachedGuiObject.Visible)
+                    
+                    if (attachedGuiObject != null && attachedGuiObject.Visible)
                         currentAttachedGuiObject = attachedGuiObject;
                     else
                         currentAttachedGuiObject = null;
                 }
 
-                if (currentAttachedGuiObject != null)
+                if (currentAttachedGuiObject != null && currentAttachedGuiObject.Visible)
                     currentAttachedGuiObject.ControlManager.DoMouseMove(screenPosition);
             }
 
