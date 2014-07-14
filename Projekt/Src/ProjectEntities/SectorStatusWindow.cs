@@ -102,69 +102,69 @@ namespace ProjectEntities
             ringMiddle.RotateRing += OnMiddleRotation;
 
             // Ringe drehen entsprechend der Computer-Konfig
-            Vec3 pos = new Vec3();
-            Quat rotation = new Quat();
+            //Vec3 pos = new Vec3();
+            //Quat rotation = new Quat();
 
-            for (int i = 0; i < Computer.RingRotations.Length; i++)
-            {
-                int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
-                if (dist == 4)                                                              //Distanz in der Mitte: 4x egal wohin drehen
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = 0; x < 4; x++)
-                                OnOuterRotation(pos, rotation, true);
-                            break;
-                        case 1:
-                            for (int x = 0; x < 4; x++)
-                                OnMiddleRotation(pos, rotation, true);
-                            break;
-                        case 2:
-                            for (int x = 0; x < 4; x++)
-                                OnInnerRotation(pos, rotation, true);
-                            break;
-                    }
-                }
-                if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
-                    (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnOuterRotation(pos, rotation, false);
-                            break;
-                        case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnMiddleRotation(pos, rotation, false);
-                            break;
-                        case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnInnerRotation(pos, rotation, false);
-                            break;
-                    }
-                }
-                if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
-                    (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnOuterRotation(pos, rotation, true);
-                            break;
-                        case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnMiddleRotation(pos, rotation, true);
-                            break;
-                        case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnInnerRotation(pos, rotation, true);
-                            break;
-                    }
-                }
-            }
+            //for (int i = 0; i < Computer.RingRotations.Length; i++)
+            //{
+            //    int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
+            //    if (dist == 4)                                                              //Distanz in der Mitte: 4x egal wohin drehen
+            //    {
+            //        switch (i)
+            //        {
+            //            case 0:
+            //                for (int x = 0; x < 4; x++)
+            //                    OnOuterRotation(pos, rotation, true);
+            //                break;
+            //            case 1:
+            //                for (int x = 0; x < 4; x++)
+            //                    OnMiddleRotation(pos, rotation, true);
+            //                break;
+            //            case 2:
+            //                for (int x = 0; x < 4; x++)
+            //                    OnInnerRotation(pos, rotation, true);
+            //                break;
+            //        }
+            //    }
+            //    if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
+            //        (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+            //    {
+            //        switch (i)
+            //        {
+            //            case 0:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                    OnOuterRotation(pos, rotation, false);
+            //                break;
+            //            case 1:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                    OnMiddleRotation(pos, rotation, false);
+            //                break;
+            //            case 2:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                    OnInnerRotation(pos, rotation, false);
+            //                break;
+            //        }
+            //    }
+            //    if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
+            //        (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+            //    {
+            //        switch (i)
+            //        {
+            //            case 0:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                    OnOuterRotation(pos, rotation, true);
+            //                break;
+            //            case 1:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                    OnMiddleRotation(pos, rotation, true);
+            //                break;
+            //            case 2:
+            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                    OnInnerRotation(pos, rotation, true);
+            //                break;
+            //        }
+            //    }
+            //}
 
             secgrpA = ((SectorGroup)Entities.Instance.GetByName("F1SG-A"));
             secgrpB = ((SectorGroup)Entities.Instance.GetByName("F1SG-B"));

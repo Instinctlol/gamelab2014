@@ -59,6 +59,14 @@ namespace ProjectEntities
             set { experiencePoints = value; }
         }
 
+        public static void AddExperiencePoints(int value)
+        {
+            if (value >= 0)
+            {
+                experiencePoints += value;
+            }
+        }
+
         public static int RotationCoupons
         {
             get { return rotationCoupons; }

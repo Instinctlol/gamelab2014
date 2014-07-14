@@ -47,6 +47,7 @@ namespace Game
         Control hudControl;
         Control numPad;
         Control bigMinimap;
+        BigMinimapWindow bigMinimapObj;
 
         // Spawning
         int spawnNumber = 1;
@@ -155,10 +156,6 @@ namespace Game
                 hudFunctions("Path");
             };
 
-
-            hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"].Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
-
-
             ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).Click += delegate(Button sender)
             {
                 EngineConsole.Instance.Print("sherebutton clicked");
@@ -166,6 +163,10 @@ namespace Game
             ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).MouseEnter += AlienGameWindow_MouseEnter;
             InitControlPanelButtons();
             UpdateControlPanel();
+
+            // BigMinimap
+            bigMinimap = hudControl.Controls["BigMinimap"].Controls["BigMinimap"];
+            bigMinimap.MouseDoubleClick += BigMinimapClick;
 
             //miniminimap
             minimapControl = hudControl.Controls["Minimap"];
@@ -273,12 +274,12 @@ namespace Game
                     {
                         hudFunctions("Menu");
                     }
-                    else if (Controls.OfType<BigMinimapWindow>().Count() == 1)
+                    else if (hudControl.Controls["BigMinimap"].Visible)
                     {
 
-                        Controls.OfType<BigMinimapWindow>().First().workbench_Click(MousePos);
+                        bigMinimapObj.workbench_Click(MousePos);
                     }
-                    else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && Controls.OfType<BigMinimapWindow>().Count() == 0)
+                    else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
                         DoOpenMinimap();
                     }
@@ -289,13 +290,6 @@ namespace Game
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
 
                 }
-
-
-
-
-
-
-
             }
             return false;
         }
@@ -360,6 +354,15 @@ namespace Game
             return true;
         }
 
+        /// <summary>
+        /// Hier alles reinpacken, wenn ein neues Window geöffnet wird, wo der Client nicht pausieren soll, wo also nur die Visibility verändert wird.
+        /// </summary>
+        /// <returns></returns>
+        private bool IsExtraWindowOpened()
+        {
+            return hudControl.Controls["SchereSteinPapier"].Visible || hudControl.Controls["BigMinimap"].Visible;
+        }
+
         protected override bool OnMouseDown(EMouseButtons button)
         {
             EngineConsole.Instance.Print("aliengame mousedown");
@@ -368,7 +371,7 @@ namespace Game
                 return base.OnMouseDown(button);
 
             // Mouse click for select unit
-            if ( !(hudControl.Controls["SchereSteinPapier"].Visible || hudControl.Controls["BigMinimapControl"].Visible) )
+            if ( !IsExtraWindowOpened() )
             {
                 if (button == EMouseButtons.Left && IsMouseInActiveArea() && TaskTargetChooseIndex == -1)
                 {
@@ -1171,9 +1174,14 @@ namespace Game
         void NumPadButton_Click(Button sender)
         {
             EngineConsole.Instance.Print("click" + sender.Text + " " + sender.Name);
-            if (numPad.Controls["Output"].Text.Length >= 2)
+            if (numPad.Controls["Output"].Text.Length < 2)
             {
-                numPad.Controls["Output"].Text = "" + sender.Text;
+                numPad.Controls["Output"].Text += "" + sender.Text;
+            }
+            else
+            {
+                // Meldung anzeigen
+                StatusMessageHandler.sendMessage("Nur zweistellige Zahlen möglich");
             }
         }
 
@@ -1619,41 +1627,12 @@ namespace Game
             }
         }
 
-        protected override void OnControlAttach(Control control)
-        {
-            base.OnControlAttach(control);
-            if (control as BigMinimapWindow != null)
-            {
-                EngineConsole.Instance.Print("oncontrolattach bigminimap");
-                //simulationAfterCloseMenuWindow = EntitySystemWorld.Instance.Simulation;
-
-                //if (EntitySystemWorld.Instance.IsServer() || EntitySystemWorld.Instance.IsSingle())
-                //    EntitySystemWorld.Instance.Simulation = false;
-                EntitySystemWorld.Instance.SystemPauseOfSimulation = false;
-                EntitySystemWorld.Instance.Simulation = true;
-                //EngineApp.Instance.MouseRelativeMode = false;
-            }
-        }
-
-        protected override void OnControlDetach(Control control)
-        {
-            if (control as BigMinimapWindow != null)
-            {
-                EngineConsole.Instance.Print("oncontroldetach bigminimap");
-                //if (EntitySystemWorld.Instance.IsServer() || EntitySystemWorld.Instance.IsSingle())
-                EntitySystemWorld.Instance.Simulation = true;
-                EntitySystemWorld.Instance.SystemPauseOfSimulation = false;
-            }
-
-            base.OnControlDetach(control);
-        }
-
-
+        
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////
         //////////////////////////////////////////////////////////////////
-        Sector selectedSector;
-        string lastSelectedSector;
+        //Sector selectedSector;
+        //string lastSelectedSector;
 
         /// <summary>
         /// BigMinimap öffnen
@@ -1663,33 +1642,15 @@ namespace Game
             //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
 
             // BigMinimap öffnen
-            //hudControl.Controls["BigMiniMapControl"].Controls.Add(new BigMinimapWindow());
-            //Controls.Add(new BigMinimapWindow());
-            if (bigMinimap == null)
+            if (bigMinimapObj == null)
             {
-                EngineConsole.Instance.Print("==null");
-                bigMinimap = new BigMinimapWindow(hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"]);
+                bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
             }
             else
             {
-                hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"].Visible = true;
+                hudControl.Controls["BigMinimap"].Visible = true;
             }
-            //bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
-            //((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).initialize();
-            hudControl.Controls["BigMinimapControl"].Visible = true;
-            //bigMinimap.Controls["BigMinimap"].MouseDoubleClick += BigMinimapClick;
-
-            //// Buttons
-            //((Button)bigMinimap.Controls["Close"]).Click += BigMinimapClose_Click;
-            //((Button)bigMinimap.Controls["RotateLeft"]).Click += BigMinimapRotateLeft_Click;
-            //((Button)bigMinimap.Controls["RotateRight"]).Click += BigMinimapRotateRight_Click;
-            //((Button)bigMinimap.Controls["Power"]).Click += BigMinimapPower_Click;
-
-            //MouseCover = true;
-            //BackColor = new ColorValue(0, 0, 0, .5f);
         }
-
-
 
         /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
         /// </summary>
@@ -1697,88 +1658,59 @@ namespace Game
         /// <param name="button"></param>
         public void BigMinimapClick(Control sender, EMouseButtons button)
         {
-            Control bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
-            // hier
-            Vec2 pos = GetMapPositionByMouseOnMinimap();
-            Rect rect = new Rect(pos);
-            Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
-            // Sector finden
-            Map.Instance.GetObjects(sphere, delegate(MapObject obj)
-            {
-                if (obj is Sector)
-                {
-                    selectedSector = (Sector)obj;
-                    EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
+            EngineConsole.Instance.Print("aienwindow bigminimapclick");
+            bigMinimapObj.BigMinimapClick(MousePosition);
+            //Control bigMinimap = hudControl.Controls["BigMinimap"];
+            //// hier
+            //Vec2 pos = GetMapPositionByMouseOnMinimap();
+            //Rect rect = new Rect(pos);
+            //Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
+            //// Sector finden
+            //Map.Instance.GetObjects(sphere, delegate(MapObject obj)
+            //{
+            //    if (obj is Sector)
+            //    {
+            //        selectedSector = (Sector)obj;
+            //        EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
 
-                    if (lastSelectedSector != null)
-                        ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
-                    lastSelectedSector = selectedSector.Name;
+            //        if (lastSelectedSector != null)
+            //            ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
+            //        lastSelectedSector = selectedSector.Name;
 
-                    ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
-                }
-            });
+            //        ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
+            //    }
+            //});
         }
 
-        /// <summary>
-        /// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
-        /// </summary>
-        /// <returns></returns>
-        Vec2 GetMapPositionByMouseOnMinimap()
-        {
-            Control bigMinimap = hudControl.Controls["BigMinimapControl"].Controls["BigMinimap"];
-            Rect screenMapRect = bigMinimap.Controls["BigMinimap"].GetScreenRectangle();
-
-            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-
-            // Die Vektoren für das Rechteck
-            Vec2 vec1 = initialBounds.Minimum.ToVec2();
-            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
-
-            // 10% vergrößern
-            vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
-            vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
-
-            Rect mapRect = new Rect(vec1, vec2);
-
-            Vec2 point = MousePosition;
-            point -= screenMapRect.Minimum;
-            point /= screenMapRect.Size;
-            point = new Vec2(point.X, 1.0f - point.Y);
-            point *= mapRect.Size;
-            point += mapRect.Minimum;
-
-            return point;
-        }
-
-        //bool isinarea(Button button, Vec2 pos)
+        ///// <summary>
+        ///// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
+        ///// </summary>
+        ///// <returns></returns>
+        //Vec2 GetMapPositionByMouseOnMinimap()
         //{
+        //    Control bigMinimap = hudControl.Controls["BigMinimap"];
+        //    Rect screenMapRect = bigMinimap.Controls["BigMinimap"].GetScreenRectangle();
 
-        //    return button.GetScreenRectangle().IsContainsPoint(pos);
-        //}
+        //    Bounds initialBounds = Map.Instance.InitialCollisionBounds;
 
-        //public void workbench_Click(Vec2 mousepos)
-        //{
+        //    // Die Vektoren für das Rechteck
+        //    Vec2 vec1 = initialBounds.Minimum.ToVec2();
+        //    Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
 
-        //    if (isinarea((Button)bigMinimap.Controls["Close"], mousepos))
-        //    {
-        //        BigMinimapClose_Click(bigMinimap.Controls["Close"]);
-        //    }
-        //    else if (isinarea((Button)bigMinimap.Controls["RotateLeft"], mousepos))
-        //    {
-        //        BigMinimapRotateLeft_Click(bigMinimap.Controls["RotateLeft"]);
-        //    }
-        //    else if (isinarea((Button)bigMinimap.Controls["RotateRight"], mousepos))
-        //    {
-        //        BigMinimapRotateRight_Click(bigMinimap.Controls["RotateRight"]);
-        //    }
-        //    else if (isinarea((Button)bigMinimap.Controls["Power"], mousepos))
-        //    {
-        //        BigMinimapPower_Click(bigMinimap.Controls["Power"]);
-        //    }
-        //    else if (bigMinimap.Controls["BigMinimap"].GetScreenRectangle().IsContainsPoint(mousepos))
-        //    {
-        //        BigMinimapClick(bigMinimap.Controls["BigMinimap"], EMouseButtons.Left);
-        //    }
+        //    // 10% vergrößern
+        //    vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
+        //    vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
+
+        //    Rect mapRect = new Rect(vec1, vec2);
+
+        //    Vec2 point = MousePosition;
+        //    point -= screenMapRect.Minimum;
+        //    point /= screenMapRect.Size;
+        //    point = new Vec2(point.X, 1.0f - point.Y);
+        //    point *= mapRect.Size;
+        //    point += mapRect.Minimum;
+
+        //    return point;
         //}
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////
