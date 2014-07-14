@@ -177,6 +177,8 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
+            playButton.Enable = true;
+            playButton.Visible = true;
             countdownBox.Text = "Defeat";
         }
 
