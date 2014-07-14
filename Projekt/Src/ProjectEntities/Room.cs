@@ -56,13 +56,11 @@ namespace ProjectEntities
 
                         if (status == false)
                         {
-                            s.SetCustomGpuParameter(
-                                (int)ShaderBaseMaterial.GpuParameters.emissionMapTransformAdd, new Vec4(0, 0, 0, 0));
+                            s.SetCustomGpuParameter((int)ShaderBaseMaterial.GpuParameters.emissionMapTransformMul, new Vec4(0, 0, 0, 0));
                         }
                         if (status == true)
                         {
-                            s.SetCustomGpuParameter(
-                                (int)ShaderBaseMaterial.GpuParameters.emissionMapTransformAdd, new Vec4(1, 1, 1, .5f));
+                            s.RemoveCustomGpuParameter((int)ShaderBaseMaterial.GpuParameters.emissionMapTransformMul);
                         }
                     }
                 }

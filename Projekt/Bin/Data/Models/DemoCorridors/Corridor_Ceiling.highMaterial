@@ -18,6 +18,10 @@ highLevelMaterial Corridor_Ceiling
 	emissionMap
 	{
 		texture = ".\\CeilingGlowMap.dds"
+		transform
+		{
+			dynamicParameters = True
+		}
 	}
 	specularMap
 	{
