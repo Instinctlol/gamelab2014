@@ -1,0 +1,16 @@
+sourceFile = "Models\\DemoCorridors\\Bodenplatte\\gitter.dae"
+objects
+{
+	mesh
+	{
+		name = gitter
+		pivotPosition = -0.001708984 4.768372E-07 0.252008
+		sources
+		{
+			item
+			{
+				name = gitter
+			}
+		}
+	}
+}

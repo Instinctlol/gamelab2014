@@ -55,18 +55,6 @@ type "Gro\x00dfraum42"
 		}
 		mesh
 		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = -11.99382 -0.06043942 0
-		}
-		mesh
-		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = -11.98533 -12.01673 0
-		}
-		mesh
-		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = -23.96417 -11.95196 -0.01682854
@@ -366,6 +354,16 @@ type "Gro\x00dfraum42"
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			position = -24 23.72177 -7.450581E-09
 			rotation = 0 0 -1 -4.371139E-08
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\gitter.mesh"
+			position = -11.86101 0.09268492 0.1806867
+		}
+		mesh
+		{
+			meshName = "Models\\DemoCorridors\\gitter.mesh"
+			position = -11.97272 -11.96913 0.1806867
 		}
 	}
 }

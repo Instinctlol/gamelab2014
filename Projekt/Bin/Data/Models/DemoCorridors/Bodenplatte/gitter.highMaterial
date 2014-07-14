@@ -1,0 +1,6 @@
+highLevelMaterial gitter
+{
+	dataSource = "Models\\DemoCorridors\\Bodenplatte\\gitter.modelImport"
+	template = ShaderBaseMaterial
+	diffuseColor = 0.6 0.6 0.6
+}
