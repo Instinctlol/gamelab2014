@@ -40,7 +40,6 @@ namespace ProjectEntities
         {
             ButtonTypeToClient,
             TaskTypeToClient,
-            FindControlManagerToClient,
             PressToServer,
             ActiveValueToClient,
         };
@@ -139,6 +138,7 @@ namespace ProjectEntities
                 active = value;
                 terminalScreen.Visible = value;
                 projectorLight.Visible = value;
+                attachedGuiObject.Visible = value;
 
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendActiveValueToAllClients();
@@ -318,7 +318,7 @@ namespace ProjectEntities
 
             Server_SendButtonType(windowType);
             Server_SendTaskType(taskType);
-            Server_SendFindControlManager();
+            Server_SendActiveValueToAllClients();
         }
 
 
@@ -345,6 +345,20 @@ namespace ProjectEntities
                         projectorLight = light;
                 }
             }
+
+            //AttachedGUIObjekt finden
+            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+            {
+                attachedGuiObject = attachedObject as MapObjectAttachedGui;
+                if (attachedGuiObject != null)
+                {
+                    controlManager = attachedGuiObject.ControlManager;
+                    break;
+                }
+            }
+
+            //MainControl erzeugen zum anzeigen der GUI
+            CreateMainControl();
 
             if (!loaded)
                 return;
@@ -385,20 +399,6 @@ namespace ProjectEntities
                     button.AttachRepairable(r.Repairable);
             else
                 button.SetWindowEnabled();
-            
-            //AttachedGUIObjekt finden
-            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-            {
-                attachedGuiObject = attachedObject as MapObjectAttachedGui;
-                if (attachedGuiObject != null)
-                {
-                    controlManager = attachedGuiObject.ControlManager;
-                    break;
-                }
-            }
-
-            //MainControl erzeugen zum anzeigen der GUI
-            CreateMainControl();
 
             SubscribeToTickEvent();
         }
@@ -453,8 +453,6 @@ namespace ProjectEntities
                     controlManager.Controls.Add(mainControl);
             }
 
-            //update MapBounds
-            //SetTransform(Position, Rotation, Scale);
         }
 
         public void Press()
@@ -477,30 +475,6 @@ namespace ProjectEntities
                 (ushort)NetworkMessages.ButtonTypeToClient);
             writer.Write((Int16)buttonType);
             EndNetworkMessage();
-        }
-
-        private void Server_SendFindControlManager()
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
-                (ushort)NetworkMessages.FindControlManagerToClient);
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FindControlManagerToClient)]
-        private void Client_FindControlManager(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            if (!reader.Complete())
-                return;
-
-            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-            {
-                attachedGuiObject = attachedObject as MapObjectAttachedGui;
-                if (attachedGuiObject != null)
-                {
-                    controlManager = attachedGuiObject.ControlManager;
-                    break;
-                }
-            }
         }
 
 

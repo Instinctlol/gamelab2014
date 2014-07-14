@@ -17,6 +17,7 @@ type Terminal
 		{
 			rotation = 0.5 0.5 0.5 0.5
 			scale = 1.74666 1.31 0
+			visible = False
 		}
 		mapObject
 		{

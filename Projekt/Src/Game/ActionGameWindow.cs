@@ -621,8 +621,8 @@ namespace Game
                         out attachedGuiObject, out screenPosition);
                 }
 
-                //ignore empty gui objects
-                if (attachedGuiObject != null)
+                //ignore empty gui objects and invisible ones
+                if (attachedGuiObject != null && attachedGuiObject.Visible)
                 {
                     In3dControlManager manager = attachedGuiObject.ControlManager;
 
@@ -637,12 +637,18 @@ namespace Game
                 {
                     if (currentAttachedGuiObject != null)
                         currentAttachedGuiObject.ControlManager.LostManagerFocus();
-                    currentAttachedGuiObject = attachedGuiObject;
+                    if(attachedGuiObject != null && attachedGuiObject.Visible)
+                        currentAttachedGuiObject = attachedGuiObject;
+                    else
+                        currentAttachedGuiObject = null;
                 }
 
                 if (currentAttachedGuiObject != null)
                     currentAttachedGuiObject.ControlManager.DoMouseMove(screenPosition);
             }
+
+            if (currentAttachedGuiObject != null)
+                return;
 
             //currentRepairable
             {
@@ -673,7 +679,7 @@ namespace Game
                 }
 
 
-                if (currentRepairable != null)
+                if (currentRepairable != null && !currentRepairable.Repaired)
                 {
                     ColorValue color;
                     if ((Time % 2) < 1)
