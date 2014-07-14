@@ -1,6 +1,7 @@
 ﻿using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
+using Engine.MathEx;
 using Engine.UISystem;
 using Engine.Utils;
 using ProjectCommon;
@@ -15,6 +16,18 @@ namespace ProjectEntities
 
     public class TerminalType : DynamicType
     {
+        const float automaticHideDistanceDefault = 3.0f;
+        [FieldSerialize]
+        [DefaultValue(automaticHideDistanceDefault)]
+        float automaticHideDistance = automaticHideDistanceDefault;
+
+        [DefaultValue(automaticHideDistanceDefault)]
+        public float AutomaticHideDistance
+        {
+            get { return automaticHideDistance; }
+            set { automaticHideDistance = value; }
+        }
+
     }
 
 
@@ -28,6 +41,8 @@ namespace ProjectEntities
             ButtonTypeToClient,
             TaskTypeToClient,
             FindControlManagerToClient,
+            PressToServer,
+            ActiveValueToClient,
         };
 
 
@@ -100,9 +115,34 @@ namespace ProjectEntities
         //SmartButton der angezeigt werden soll
         private SmartButton button;
 
+        //Ob das terminal grad aktiv is oder nicht
+        private bool active = false;
+
+
+
+        //Attached meshes
+        private MapObjectAttachedMesh terminalProjector;
+
+        private MapObjectAttachedMesh terminalScreen;
+
+        private float nextCheckRemainingTime = 0.2f;
+        
         //***************************
         //*******Getter-Setter*******
         //***************************   
+        public bool Active
+        {
+            get { return active; }
+            set { 
+                active = value;
+                terminalScreen.Visible = value;
+
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendActiveValueToAllClients();
+            }
+        }
+
+
         [LocalizedDescription("A string which some tasks use. \n"+"For PINTasks enter the code e.g. 1234", "TaskData")]
         public string TaskData
         {
@@ -136,17 +176,6 @@ namespace ProjectEntities
         public List<RepairableItem> Repairables
         {
             get { return repairables; }
-           /* set
-            {
-                if (repairable != null)
-                    foreach(Repairable r in repairable)
-                        button.DetachRepairable(r);
-
-                repairable = value;
-                if (repairable != null)
-                    foreach (Repairable r in repairable)
-                        button.AttachRepairable(r);
-            }*/
         }
 
         public class RepairableItem
@@ -223,6 +252,16 @@ namespace ProjectEntities
             get { return taskSuccessSound; }
             set { taskSuccessSound = value; }
         }
+
+        public MapObjectAttachedMesh TerminalScreen
+        {
+            get { return terminalScreen; }
+        }
+
+        public MapObjectAttachedMesh TerminalProjector
+        {
+            get { return terminalProjector; }
+        }
         //*********************************
 
         //******************************
@@ -240,6 +279,7 @@ namespace ProjectEntities
         public event TerminalActionDelegate TerminalRotateLeftAction;
         [LogicSystemBrowsable(true)]
         public event TerminalActionDelegate TerminalRotateRightAction;
+        
 
         //*****************************
 
@@ -283,6 +323,18 @@ namespace ProjectEntities
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
+
+            foreach(MapObjectAttachedObject obj in AttachedObjects)
+            {
+                MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
+                if(mesh != null)
+                {
+                    if (mesh.Alias == "terminalProjector")
+                        terminalProjector = mesh;
+                    else if (mesh.Alias == "terminalScreen")
+                        terminalScreen = mesh;
+                }
+            }
 
             if (!loaded)
                 return;
@@ -352,17 +404,29 @@ namespace ProjectEntities
         protected override void OnTick()
         {
             base.OnTick();
+
+            nextCheckRemainingTime -= TickDelta;
+            if (nextCheckRemainingTime <= 0)
+            {
+                nextCheckRemainingTime = .2f;
+
+                Sphere sphere = new Sphere(Position, Type.AutomaticHideDistance);
+
+                bool hide = true;
+                Map.Instance.GetObjects(sphere, delegate(MapObject mapObject)
+                {
+                    if ((mapObject as GameCharacter) == null)
+                        return;
+
+                    hide = false;
+                });
+
+
+                if (hide && active)
+                    Active = false;
+            }
         }
         
-        private void OnTaskFinished(bool success)
-        {
-            Window = button.Window;
-            if (success)
-                TaskSuccessful();
-            else
-                TaskFailed();
-        }
-
         //MainControl erzeugen
         private void CreateMainControl()
         {
@@ -383,18 +447,10 @@ namespace ProjectEntities
             //SetTransform(Position, Rotation, Scale);
         }
 
-
-
-        private void TaskFailed()
+        public void Press()
         {
-            //button.SetWindowEnabled();
-            //SoundPlay3D(TaskFailSound, .5f, false);
-        }
-
-        private void TaskSuccessful()
-        {
-            //Window = new FinishedWindow(this);
-            //SoundPlay3D(TaskSuccessSound, .5f, false);
+            if (!EntitySystemWorld.Instance.IsServer())
+                Client_SendPressToServer();
         }
 
         private void Server_SendTaskType(TerminalTaskType taskType)
@@ -486,6 +542,38 @@ namespace ProjectEntities
         {
             if (TerminalSwitchAction != null)
                 TerminalSwitchAction(this);
+        }
+
+        void Client_SendPressToServer()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.PressToServer);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.PressToServer)]
+        void Server_ReceivePress(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            if (!reader.Complete())
+                return;
+            Active = !active;
+        }
+
+        void Server_SendActiveValueToAllClients()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.ActiveValueToClient);
+            writer.Write(active);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ActiveValueToClient)]
+        void Client_ReceiveActiveValue(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool act = reader.ReadBoolean();
+            if (!reader.Complete())
+                return;
+            Active = act;
         }
 
     }

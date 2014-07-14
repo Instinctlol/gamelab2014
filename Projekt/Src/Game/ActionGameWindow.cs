@@ -52,6 +52,8 @@ namespace Game
 
         ProjectEntities.Repairable currentRepairable;
 
+        ProjectEntities.Terminal currentTerminal;
+
         ProjectEntities.Item currentItem;
 
         ItemManager iManager = ItemManager.Instance;
@@ -60,6 +62,8 @@ namespace Game
         bool switchUsing;
 
         bool repairableUsing;
+
+        bool terminalUsing;
 
         //HUD screen
         Control hudControl;
@@ -571,7 +575,7 @@ namespace Game
             }
         }
 
-        static Sphere GetSwitchUseAttachedMeshWorldSphere(MapObjectAttachedMesh attachedMesh)
+        static Sphere GetUseableUseAttachedMeshWorldSphere(MapObjectAttachedMesh attachedMesh)
         {
             float radius = 0;
 
@@ -669,15 +673,17 @@ namespace Game
                 }
 
 
-                ColorValue color;
-                if ((Time % 2) < 1)
-                    color = new ColorValue(1, 1, 0);
-                else
-                    color = new ColorValue(0, 1, 0);
-
-                string text = "";
-                    
+                if (currentRepairable != null)
                 {
+                    ColorValue color;
+                    if ((Time % 2) < 1)
+                        color = new ColorValue(1, 1, 0);
+                    else
+                        color = new ColorValue(0, 1, 0);
+
+                    string text = "";
+
+
                     ProgressRepairable pRepair = currentRepairable as ProgressRepairable;
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
@@ -693,14 +699,11 @@ namespace Game
                             controlItem.DefaultKeyboardMouseValues[0];
                         text += string.Format(" ({0})", value.ToString());
                     }
+
+
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                        VerticalAlign.Center, color);
                 }
-
-                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
-                    VerticalAlign.Center, color);
-
-                if (currentItem != null)
-                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, currentItem.Type.Name, new Vec2(.5f, .7f), HorizontalAlign.Center,
-                        VerticalAlign.Center, ColorValue.Construct(0, 1, 0));
                }
             
 
@@ -715,7 +718,7 @@ namespace Game
                     {
                         if (s.UseAttachedMesh != null)
                         {
-                            Sphere sphere = GetSwitchUseAttachedMeshWorldSphere(s.UseAttachedMesh);
+                            Sphere sphere = GetUseableUseAttachedMeshWorldSphere(s.UseAttachedMesh);
 
                             if (sphere.RayIntersection(ray))
                             {
@@ -739,7 +742,7 @@ namespace Game
                     Bounds bounds;
                     if (overSwitch.UseAttachedMesh != null)
                     {
-                        Sphere sphere = GetSwitchUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
+                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
                         bounds = sphere.ToBounds();
                     }
                     else
@@ -785,6 +788,44 @@ namespace Game
                 currentItem = overItem;
 
                 
+            }
+
+            //Current terminal
+            {
+                ProjectEntities.Terminal overTerminal = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
+                    if (t != null)
+                    {
+                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
+
+                        if (sphere.RayIntersection(ray))
+                        {
+                            overTerminal = t;
+                            return false;
+                        }
+                    }
+
+                    return true;
+                });
+
+                //draw selection border
+                if (overTerminal != null)
+                {
+                    Bounds bounds;
+                    Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overTerminal.TerminalProjector);
+                    bounds = sphere.ToBounds();
+
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                
+                if (overTerminal != currentTerminal)
+                {
+                    currentTerminal = overTerminal;
+                }
             }
 
 
@@ -844,7 +885,7 @@ namespace Game
             }
 
             //draw "Press Use" text
-            if (currentSwitch != null || currentItem != null ||
+            if (currentSwitch != null || currentItem != null || currentTerminal != null ||
                 currentSeeUnitAllowPlayerControl != null)
             {
                 ColorValue color;
@@ -1271,9 +1312,26 @@ namespace Game
         void RepairableUseEnd()
         {
             repairableUsing = false;
+        }
 
-            if (currentRepairable == null)
-                return;
+        bool TerminalUseStart()
+        {
+            if (terminalUsing)
+                return false;
+
+            if (currentTerminal == null)
+                return false;
+
+            //Einfach reparieren
+            currentTerminal.Press();
+
+            terminalUsing = true;
+            return true;
+        }
+
+        void TerminalUseEnd()
+        {
+            terminalUsing = false;
         }
 
         bool SwitchUseStart()
@@ -1762,6 +1820,10 @@ namespace Game
                         if (RepairableUseStart())
                             return;
 
+                        //key down for terminal use
+                        if (TerminalUseStart())
+                            return;
+
                         //key down for item take
                         if (ItemTake())
                             return;
@@ -1791,6 +1853,9 @@ namespace Game
 
                         //Key up for repairable use
                         RepairableUseEnd();
+
+                        //Key up for terminal use
+                        TerminalUseEnd();
                     }
 
                     return;

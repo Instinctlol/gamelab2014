@@ -9,8 +9,9 @@ type Terminal2
 			meshName = "Types\\Dynamic\\Terminal\\TerminalBack.mesh"
 			castDynamicShadows = True
 			collision = True
-			alias = TerminalScreen
+			alias = terminalScreen
 			scale = 0.844 0.844 0.844
+			visible = False
 		}
 		gui
 		{
@@ -20,10 +21,12 @@ type Terminal2
 		mapObject
 		{
 			type = SmartButton
+			position = -1 0 0
 		}
 		mapObject
 		{
 			type = Task
+			position = -1 0 0
 		}
 		mesh
 		{
@@ -34,6 +37,7 @@ type Terminal2
 		mesh
 		{
 			meshName = ".\\TerminalProjector.mesh"
+			alias = terminalProjector
 			position = -1 0 0
 			rotation = -0.006071072 -0.006145701 -0.006071072 0.9999443
 		}
