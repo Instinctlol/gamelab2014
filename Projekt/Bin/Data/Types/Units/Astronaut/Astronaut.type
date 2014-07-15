@@ -1,14 +1,45 @@
 type Astronaut
 {
-	class = GameCharacter
-	walkForwardMaxSpeed = 7
+	class = PlayerCharacter
 	walkForce = 420000
-	soundJump = "Types\\Units\\Rabbit\\Jump.ogg"
-	fpsCameraOffset = 0 0 0.9
+	flyControlForce = 49000
+	jumpSupport = True
+	soundJump = ".\\Jump.ogg"
+	allowPlayerControl = True
+	initialAI = DefaultGameCharacterAI
+	viewRadius = 70
+	fpsCameraOffset = 0 0 0.5
 	healthMax = 200
 	targetPriority = 1
 	substance = Flesh
 	networkType = Synchronized
+	weapons
+	{
+		item
+		{
+			weaponType = SubmachineGun
+		}
+		item
+		{
+			weaponType = Shotgun
+		}
+		item
+		{
+			weaponType = Hammer
+		}
+		item
+		{
+			weaponType = Glock
+		}
+		item
+		{
+			weaponType = ScarType
+		}
+		item
+		{
+			weaponType = Brechstange
+		}
+	}
 	attachedObjects
 	{
 		mesh
@@ -17,11 +48,42 @@ type Astronaut
 			castDynamicShadows = True
 			animationTree = ".\\Astronaut.animationTree"
 			position = 0 0 -1.15
-			rotation = 0 0 -0.7071068 -0.7071068
-			scale = 0.02 0.02 0.02
-			boneSlot hand
+			boneSlot gunHolderThirdPersonCamera
+			{
+				bone = Bip001 L Hand
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+			boneSlot gunHolderThirdPersonCamera_Shotgun
 			{
 				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+		}
+		mesh
+		{
+			meshName = ".\\FirstPersonArms\\Astronaut.mesh"
+			animationTree = ".\\FirstPersonArms\\Arms.animationTree"
+			alias = firstPersonArms
+			position = -0.1 -0.009999998 -0.2
+			visible = False
+			boneSlot gunHolderFirstPersonCamera
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+			boneSlot gunHolderFirstPersonCamera_Shotgun
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+			boneSlot hammerHolderFPS
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
 			}
 		}
 	}
@@ -29,12 +91,12 @@ type Astronaut
 	{
 		mapObject
 		{
-			type = RabbitDead
+			type = AstronautDead
 			copyVelocitiesFromParent = True
 		}
 		sound
 		{
-			soundName = "Types\\Units\\Rabbit\\Die.ogg"
+			soundName = ".\\Die.ogg"
 		}
 	}
 }
