@@ -1,0 +1,65 @@
+blocks
+{
+	block Parameter
+	{
+		uin = 1
+		parameterName = "move"
+		value = 0
+	}
+
+	block Parameter
+	{
+		uin = 2
+		parameterName = "run"
+		value = 0
+	}
+
+	block Parameter
+	{
+		uin = 3
+		parameterName = "moveSpeed"
+		//value = 1
+	}
+
+	block Parameter
+	{
+		uin = 4
+		parameterName = "moveSpeedFactor"
+		value = 1
+	}
+
+	/////////////////////////////////////////////
+
+	block Output
+	{
+		uin = 100
+		in = 101
+	}
+	
+	/////////////////////////////////////////////
+
+	block Transition
+	{
+		uin = 101
+		animation0 = 102 // idle animation
+		animation1 = 103 // walk animation
+		selectedIndexSource = 1
+		transitionTime = 0.5
+	}
+	block Animation
+	{
+		uin = 102
+		animationName = "idle_weapon"
+		speed = 1
+	}
+
+	block Animation
+	{
+		uin = 103
+		animationName = "walking_weapon"
+		speedSource = 4
+		//speed = 1
+	}
+
+	
+}

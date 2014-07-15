@@ -1,0 +1,16 @@
+type AstronautDead
+{
+	class = Dynamic
+	substance = Flesh
+	lifeTime = 10
+	physicsModel = ".\\Astronaut.physics"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Units\\Astronaut\\Astronaut.mesh"
+			castDynamicShadows = True
+		}
+	}
+}

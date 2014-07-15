@@ -1,0 +1,8 @@
+highLevelMaterial default22
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\0001_npcmcrewvar3_c.tg4d.jpg"
+	}
+}

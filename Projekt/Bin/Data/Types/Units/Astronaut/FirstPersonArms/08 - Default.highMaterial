@@ -1,0 +1,8 @@
+highLevelMaterial "08 - Default22"
+{
+	template = ShaderBaseMaterial
+	diffuse1Map
+	{
+		texture = ".\\0050_mouth_c.tg4d.jpg"
+	}
+}
