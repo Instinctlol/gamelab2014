@@ -19,6 +19,13 @@ highLevelMaterial Corridor_CornerExtUp2
 	{
 		texture = ".\\CorridorTex2SpecularMap.dds"
 	}
+	emissionMap
+	{
+		transform
+		{
+			dynamicParameters = True
+		}
+	}
 	specularMap
 	{
 		texture = ".\\CorridorTex2SpecularMap.dds"

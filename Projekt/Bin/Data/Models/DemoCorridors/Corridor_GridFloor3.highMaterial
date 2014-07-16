@@ -14,6 +14,13 @@ highLevelMaterial Corridor_GridFloor3
 	{
 		texCoord = TexCoord1
 	}
+	emissionMap
+	{
+		transform
+		{
+			dynamicParameters = True
+		}
+	}
 	specularMap
 	{
 		texture = ".\\GridS.dds"

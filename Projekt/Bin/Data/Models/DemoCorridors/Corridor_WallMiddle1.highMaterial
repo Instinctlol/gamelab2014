@@ -23,6 +23,7 @@ highLevelMaterial Corridor_WallMiddle1
 	emissionMap
 	{
 		texture = ".\\CorridorTex1GlowMap.dds"
+		clamp = True
 	}
 	specularMap
 	{

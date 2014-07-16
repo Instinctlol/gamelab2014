@@ -20,6 +20,10 @@ highLevelMaterial DurchgangWall2
 	emissionMap
 	{
 		texture = ".\\CorridorTex1GlowMap.dds"
+		transform
+		{
+			dynamicParameters = True
+		}
 	}
 	specularMap
 	{

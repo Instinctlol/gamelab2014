@@ -20,6 +20,10 @@ highLevelMaterial Corridor_WallDown2
 	{
 		texture = ".\\CorridorTex2SpecularMap.dds"
 	}
+	emissionMap
+	{
+		clamp = True
+	}
 	specularMap
 	{
 		texture = ".\\CorridorTex2SpecularMap.dds"

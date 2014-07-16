@@ -18,6 +18,13 @@ highLevelMaterial Corridor_Gates
 	{
 		texture = ".\\GatesDiffuseMap.dds"
 	}
+	emissionMap
+	{
+		transform
+		{
+			dynamicParameters = True
+		}
+	}
 	specularMap
 	{
 		texture = ".\\GatesDiffuseMap.dds"

@@ -23,6 +23,10 @@ highLevelMaterial Corridor_CornerIntUp1
 	emissionMap
 	{
 		texture = ".\\CorridorTex1GlowMap.dds"
+		transform
+		{
+			dynamicParameters = True
+		}
 	}
 	specularMap
 	{
