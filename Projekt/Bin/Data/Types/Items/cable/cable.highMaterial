@@ -1,0 +1,5 @@
+highLevelMaterial cable
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.1686275 0.1686275 0.1686275
+}

@@ -1,0 +1,17 @@
+type cable
+{
+	class = Item
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\cable.mesh"
+			position = 0 0 -0.001765216
+		}
+		particle
+		{
+			particleName = ItemParticle
+		}
+	}
+}

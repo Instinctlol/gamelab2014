@@ -1,0 +1,16 @@
+sourceFile = "Types\\Items\\cable\\cable.dae"
+objects
+{
+	mesh
+	{
+		name = cable
+		pivotPosition = -2.64245 -3.432957 0.41935
+		sources
+		{
+			item
+			{
+				name = cable
+			}
+		}
+	}
+}
