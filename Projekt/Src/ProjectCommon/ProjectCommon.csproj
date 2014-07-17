@@ -101,6 +101,7 @@
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
     <Reference Include="UISystem, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bin\UISystem.dll</HintPath>
@@ -115,8 +116,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\WiimoteLib.dll</HintPath>
     </Reference>
+    <Reference Include="WobbrockLib, Version=2.7.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\WobbrockLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlienDollar\Category.cs" />
+    <Compile Include="AlienDollar\NBestList.cs" />
+    <Compile Include="AlienDollar\PointR.cs" />
+    <Compile Include="AlienDollar\ProgressEvent.cs" />
+    <Compile Include="AlienDollar\Recognizer.cs" />
+    <Compile Include="AlienDollar\RectangleR.cs" />
+    <Compile Include="AlienDollar\SizeR.cs" />
+    <Compile Include="AlienDollar\Unistroke.cs" />
+    <Compile Include="AlienDollar\Utils.cs" />
     <Compile Include="DynamicMeshManagerImpl.cs" />
     <Compile Include="ExampleCustomInputDevice.cs">
       <SubType>Code</SubType>
@@ -178,6 +192,9 @@
     <Compile Include="TuioPoint.cs" />
     <Compile Include="TuioTime.cs" />
     <Compile Include="WiiManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
