@@ -504,7 +504,28 @@ namespace ProjectEntities
 				AnimationTree tree = GetFirstAnimationTree();
 				if( tree != null )
 				{
+                    String weaponName = "";
+
+                    if (activeWeapon != null)
+                    {
+                        weaponName = activeWeapon.Name.Split('_')[0];
+                    }
+
 					tree.SetParameterValue( "weapon", activeWeapon != null ? 1 : 0 );
+                    if (activeWeapon != null && weaponName == "Brechstange")
+                    {
+                        tree.SetParameterValue("weapon_Brechstange", 1);
+                    }
+                    else  if (activeWeapon != null)
+                    
+                    { tree.SetParameterValue("weapon_Brechstange", 0); }
+
+                    if (activeWeapon != null && weaponName == "Glock")
+                    {
+                        tree.SetParameterValue("weapon_Pistol", 1);
+                    }
+                    else if (activeWeapon != null)  
+                    { tree.SetParameterValue("weapon_Pistol", 0); }
 
 					Radian horizontalAngle = 0;
 					Radian verticalAngle = 0;
@@ -888,6 +909,31 @@ namespace ProjectEntities
 				AnimationTree tree = armsAttachedMesh.AnimationTree;
 				if( tree != null )
 				{
+                    String weaponName = "";
+
+                    if (activeWeapon != null)
+                    {
+                        weaponName = activeWeapon.Name.Split('_')[0];
+                    }
+
+                    tree.SetParameterValue("weapon", activeWeapon != null ? 1 : 0);
+                    if (activeWeapon != null && weaponName == "Brechstange")
+                    {
+                        tree.SetParameterValue("weapon_Brechstange", 1);
+                    }
+                    else if (activeWeapon != null)
+
+                    { tree.SetParameterValue("weapon_Brechstange", 0); }
+
+                    if (activeWeapon != null && weaponName == "Glock")
+                    {
+                        tree.SetParameterValue("weapon_Pistol", 1);
+                    }
+                    else if (activeWeapon != null)
+                    { 
+                        tree.SetParameterValue("weapon_Pistol", 0); 
+                    }
+
 					bool onGround = GetElapsedTimeSinceLastGroundContact() < .2f;//IsOnGround();
 
 					bool move = false;
