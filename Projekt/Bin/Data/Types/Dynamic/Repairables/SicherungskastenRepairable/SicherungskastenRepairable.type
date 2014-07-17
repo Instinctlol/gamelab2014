@@ -12,9 +12,8 @@ type SicherungskastenRepairable
 	{
 		mesh
 		{
-			meshName = "Types\\Items\\Sicherungskasten\\ElectricalBox.mesh"
-			position = 0 0 0.2375555
-			scale = 0.02 0.02 0.02
+			meshName = ".\\FuseBox.mesh"
+			position = 0 0 0.3
 		}
 	}
 }

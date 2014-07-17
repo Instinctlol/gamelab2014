@@ -1,0 +1,15 @@
+type MedicCabinet
+{
+	class = MedicCabinet
+	hpRestore = 500
+	soundUse = "Types\\Items\\HealthItems\\Health.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\fbox.mesh"
+			scale = 0.06702413 0.06702413 0.06702413
+		}
+	}
+}

@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 13.84491 -11.9454 118.2089
-editorCameraDirection = 1.559183 -1.148053
+editorCameraPosition = -4.746027 -101.6049 2.222645
+editorCameraDirection = 2.042927 -0.05139309
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1691,4 +1691,13 @@ entity
 	repairables
 	{
 	}
+}
+entity
+{
+	type = MedicCabinet
+	uin = 163
+	classPrompt = MedicCabinet
+	healthFactorAtBeginning = 1
+	position = -4.36107 -93.94422 1.334963
+	name = MedicCabinet_0
 }

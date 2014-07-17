@@ -35,8 +35,11 @@ namespace ProjectEntities
         //Lister aller Dynamischen Objekte wird automatisch generiert
         private List<Dynamic> dynamics = new List<Dynamic>();
 
-        //Liste aller statischen Objekte wird automatisch generiert
-        private List<MapObject> rooms = new List<MapObject>();
+        //Liste aller Raum Objekte wird automatisch generiert
+        private List<Room> rooms = new List<Room>();
+
+        //Liste aller statischen Objecte. TBD
+        private List<MapObject> statics = new List<MapObject>();
 
         //Ring zu dem dieser Sektore gehört
         [FieldSerialize]

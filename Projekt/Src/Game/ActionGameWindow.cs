@@ -56,6 +56,8 @@ namespace Game
 
         ProjectEntities.Item currentItem;
 
+        ProjectEntities.MedicCabinet currentMedicCabinet;
+
         ItemManager iManager = ItemManager.Instance;
 
         //For an opportunity to change an active unit and for work with float switches
@@ -64,6 +66,8 @@ namespace Game
         bool repairableUsing;
 
         bool terminalUsing;
+
+        bool medicCabinetUsing;
 
         //HUD screen
         Control hudControl;
@@ -637,7 +641,7 @@ namespace Game
                 {
                     if (currentAttachedGuiObject != null)
                         currentAttachedGuiObject.ControlManager.LostManagerFocus();
-                    
+
                     if (attachedGuiObject != null && attachedGuiObject.Visible)
                         currentAttachedGuiObject = attachedGuiObject;
                     else
@@ -659,7 +663,7 @@ namespace Game
                     {
                         ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
-                        if(r != null)
+                        if (r != null)
                         {
                             overRepairable = r;
                             return false;
@@ -668,7 +672,7 @@ namespace Game
                     });
 
                 //draw selection border
-                if (overRepairable != null  &&  overRepairable.Repaired == false)
+                if (overRepairable != null && overRepairable.Repaired == false)
                 {
                     Bounds bounds = overRepairable.MapBounds;
                     DrawObjectSelectionBorder(bounds);
@@ -711,8 +715,8 @@ namespace Game
                     AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
                         VerticalAlign.Center, color);
                 }
-               }
-            
+            }
+
 
             //currentFloatSwitch
             {
@@ -769,32 +773,32 @@ namespace Game
 
 
             //currentItem
-            ProjectEntities.Item overItem = null;
+            {
+                ProjectEntities.Item overItem = null;
 
-            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
-                {
-                    ProjectEntities.Item i = obj as ProjectEntities.Item;
-
-                    if(i != null)
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
                     {
-                        overItem = i;
-                        return false;
-                    }
-                    return true;
-                });
+                        ProjectEntities.Item i = obj as ProjectEntities.Item;
 
-            //draw selection border
-            if (overItem != null)
-            {
-                Bounds bounds = overItem.MapBounds;
-                DrawObjectSelectionBorder(bounds);
-            }
+                        if (i != null)
+                        {
+                            overItem = i;
+                            return false;
+                        }
+                        return true;
+                    });
 
-            if (currentItem != overItem)
-            {
-                currentItem = overItem;
+                //draw selection border
+                if (overItem != null)
+                {
+                    Bounds bounds = overItem.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
 
-                
+                if (currentItem != overItem)
+                {
+                    currentItem = overItem;
+                }
             }
 
             //Current terminal
@@ -828,13 +832,41 @@ namespace Game
                     DrawObjectSelectionBorder(bounds);
                 }
 
-                
+
                 if (overTerminal != currentTerminal)
                 {
                     currentTerminal = overTerminal;
                 }
             }
 
+            //Current medic cabinet
+            {
+                ProjectEntities.MedicCabinet overCabinet = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+
+                    if (c != null)
+                    {
+                        overCabinet = c;
+                        return false;
+                    }
+                    return true;
+                });
+
+                //draw selection border
+                if (overCabinet != null)
+                {
+                    Bounds bounds = overCabinet.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                if (currentMedicCabinet != overCabinet)
+                {
+                    currentMedicCabinet = overCabinet;
+                }
+            }
 
             //Use player control unit
             if (playerUnit != null)
@@ -892,7 +924,7 @@ namespace Game
             }
 
             //draw "Press Use" text
-            if (currentSwitch != null || currentItem != null || currentTerminal != null ||
+            if (currentSwitch != null || currentItem != null || currentTerminal != null || currentMedicCabinet != null||
                 currentSeeUnitAllowPlayerControl != null)
             {
                 ColorValue color;
@@ -1339,6 +1371,26 @@ namespace Game
         void TerminalUseEnd()
         {
             terminalUsing = false;
+        }
+
+        bool MedicCabinetUseStart()
+        {
+            if (medicCabinetUsing)
+                return false;
+
+            if (currentMedicCabinet == null)
+                return false;
+
+            //Einfach reparieren
+            currentMedicCabinet.Press(GetPlayerUnit());
+
+            medicCabinetUsing = true;
+            return true;
+        }
+
+        void MedicCabinetUseEnd()
+        {
+            medicCabinetUsing = false;
         }
 
         bool SwitchUseStart()
@@ -1831,6 +1883,10 @@ namespace Game
                         if (TerminalUseStart())
                             return;
 
+                        //key down for mdeicCabinet use
+                        if (MedicCabinetUseStart())
+                            return;
+
                         //key down for item take
                         if (ItemTake())
                             return;
@@ -1863,6 +1919,9 @@ namespace Game
 
                         //Key up for terminal use
                         TerminalUseEnd();
+
+                        //key up for mdeicCabinet use
+                        MedicCabinetUseEnd();
                     }
 
                     return;
