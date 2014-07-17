@@ -1,0 +1,6 @@
+highLevelMaterial TransparentWallDown22
+{
+	template = ShaderBaseMaterial
+	blending = AlphaBlend
+	diffuseColor = 0.6 0.6 0.6 0
+}
