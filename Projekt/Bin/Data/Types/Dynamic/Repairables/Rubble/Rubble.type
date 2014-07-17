@@ -1,0 +1,79 @@
+type Rubble
+{
+	class = Repairable
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeCorner_noplasma.mesh"
+			position = 0 -0.1541912 0.5728837
+			rotation = 0.5873423 0.1992523 -0.1352051 0.7726883
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeDirect1_noplasma.mesh"
+			position = 0.08656739 0.1756712 0.8735189
+			rotation = -0.1677739 -0.6564665 0.438957 0.590102
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeRackBase.mesh"
+			position = 0 0.8282002 0.297962
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeValveBase.mesh"
+			position = 0.2922182 1.478663 -0.2205381
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeFork3_noplasma.mesh"
+			position = -0.2898852 1.600796 0.540455
+			rotation = 0.6231972 0.4801337 0.161615 0.5958
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeDirect4_noplasma.mesh"
+			position = -0.1930115 2.187781 1.35942
+			rotation = 0.3384086 0.8299029 0.4057374 -0.1792156
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeDirect1_noplasma.mesh"
+			position = -0.1190136 2.500267 0.6061909
+			rotation = -0.181427 -0.8125024 0.4807196 0.2753778
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeDirect4.mesh"
+			position = -0.08828671 0.7289791 0.8302194
+			rotation = 0.01660933 -0.3518879 -0.5819629 0.7329517
+			scale = 0.5 0.2 0.5
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeCorner_noplasma.mesh"
+			position = -0.2731121 1.305163 0.9759867
+			rotation = 0.1814506 0.4350636 -0.1427439 0.8702986
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeValveHandle.mesh"
+			position = 0.5062129 0.478659 0
+			rotation = 0.1202892 -0.530244 0.6108443 0.5755356
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeDirect1_noplasma.mesh"
+			position = 0.0519096 0.6374011 1.166219
+			rotation = 0.151672 -0.1699385 -0.3692306 0.9009913
+			scale = 0.5 1 0.5
+		}
+		mesh
+		{
+			meshName = "Models\\Pipes\\PipeCorner_noplasma.mesh"
+			position = 0 1.68841 1.491667
+			rotation = 0.006476696 -0.3657847 -0.5748235 0.7319412
+		}
+	}
+}
