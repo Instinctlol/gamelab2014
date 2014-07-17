@@ -2,6 +2,7 @@ type laptop
 {
 	class = MapObject
 	physicsModel = ".\\Object.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

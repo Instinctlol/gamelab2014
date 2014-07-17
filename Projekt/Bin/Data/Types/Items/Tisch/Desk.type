@@ -2,6 +2,7 @@ type Desk
 {
 	class = MapObject
 	physicsModel = ".\\Desk.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

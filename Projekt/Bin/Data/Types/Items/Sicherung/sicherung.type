@@ -1,6 +1,7 @@
 type sicherung
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

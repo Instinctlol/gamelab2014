@@ -1,6 +1,7 @@
 type Kueche
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

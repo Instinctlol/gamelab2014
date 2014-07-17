@@ -1,6 +1,7 @@
 type USB_Stick
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

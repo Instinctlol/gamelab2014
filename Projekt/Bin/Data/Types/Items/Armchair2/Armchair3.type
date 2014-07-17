@@ -2,6 +2,7 @@ type Armchair3
 {
 	class = MapObject
 	physicsModel = ".\\armcharir2.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

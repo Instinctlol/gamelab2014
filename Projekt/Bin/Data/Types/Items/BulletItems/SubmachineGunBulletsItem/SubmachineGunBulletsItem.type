@@ -4,14 +4,14 @@ type SubmachineGunBulletsItem
 	bulletType = SubmachineGunBullet
 	bulletCount = 1500
 	defaultRespawnTime = 10
-	soundTake = Types/Items/DefaultItemTake.ogg
+	soundTake = "Types/Items/DefaultItemTake.ogg"
 	allowEditorCreate = True
 	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
 		{
-			meshName = Types\Items\BulletItems\SubmachineGunBulletsItem\SubmachineGunBulletsItem.mesh
+			meshName = "Types\\Items\\BulletItems\\SubmachineGunBulletsItem\\SubmachineGunBulletsItem.mesh"
 			castDynamicShadows = True
 			position = 0 0 0.2
 		}

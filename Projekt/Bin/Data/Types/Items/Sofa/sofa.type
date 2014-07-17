@@ -2,6 +2,7 @@ type sofa
 {
 	class = MapObject
 	physicsModel = ".\\Object.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

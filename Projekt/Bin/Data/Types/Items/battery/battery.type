@@ -1,6 +1,7 @@
 type battery
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

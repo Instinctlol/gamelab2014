@@ -1,6 +1,7 @@
 type Schrauben
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

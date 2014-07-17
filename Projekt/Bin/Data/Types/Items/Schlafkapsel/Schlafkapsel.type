@@ -1,6 +1,7 @@
 type Schlafkapsel
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

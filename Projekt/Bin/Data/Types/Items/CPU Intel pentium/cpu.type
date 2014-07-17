@@ -1,6 +1,7 @@
 type cpu
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

@@ -1,10 +1,6 @@
 highLevelMaterial medipack
 {
-	dataSource = "Types\\Items\\HealthItems\\Medipack\\medipack.modelImport"
 	template = ShaderBaseMaterial
-	diffuseColor = 0.6 0.6 0.6
-	specularColor = 0.9 0.9 0.9
-	specularShininess = 10.71773
 	diffuse1Map
 	{
 		texture = ".\\w_eq_medkit.tga"

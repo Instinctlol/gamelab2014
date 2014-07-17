@@ -2,6 +2,7 @@ type Leiche1
 {
 	class = MapObject
 	physicsModel = ".\\Object.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

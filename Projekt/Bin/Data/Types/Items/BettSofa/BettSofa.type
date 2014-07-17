@@ -1,6 +1,7 @@
 type BettSofa
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

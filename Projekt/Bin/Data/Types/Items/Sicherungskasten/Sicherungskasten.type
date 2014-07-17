@@ -1,6 +1,7 @@
 type Sicherungskasten
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

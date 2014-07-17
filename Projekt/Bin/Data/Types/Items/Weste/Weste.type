@@ -1,6 +1,7 @@
 type Weste
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

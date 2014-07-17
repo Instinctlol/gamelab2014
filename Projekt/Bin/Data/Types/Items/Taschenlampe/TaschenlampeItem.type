@@ -1,6 +1,7 @@
 type TaschenlampeItem
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
