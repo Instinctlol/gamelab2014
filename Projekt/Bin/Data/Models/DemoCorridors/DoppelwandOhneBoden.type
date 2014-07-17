@@ -1,6 +1,7 @@
 type DoppelwandOhneBoden
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
