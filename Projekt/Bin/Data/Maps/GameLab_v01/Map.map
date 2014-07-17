@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -4.746027 -101.6049 2.222645
-editorCameraDirection = 2.042927 -0.05139309
+editorCameraPosition = 12.05262 -99.50924 -0.1380125
+editorCameraDirection = 5.097421 -0.02482814
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1695,9 +1695,33 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 163
+	uin = 123
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -4.36107 -93.94422 1.334963
 	name = MedicCabinet_0
+}
+entity
+{
+	type = DoppelwandOhneBoden
+	uin = 124
+	classPrompt = MapObject
+	position = -19.38957 -120.7965 0.3097143
+	name = DoppelwandOhneBoden_0
+}
+entity
+{
+	type = DoppelwandOhneBoden
+	uin = 125
+	classPrompt = MapObject
+	position = -28.92551 -121.034 1.115907
+	name = DoppelwandOhneBoden_1
+}
+entity
+{
+	type = DoppelwandOhneBoden
+	uin = 166
+	classPrompt = MapObject
+	position = 12.23011 -119.9137 0
+	name = DoppelwandOhneBoden_2
 }
