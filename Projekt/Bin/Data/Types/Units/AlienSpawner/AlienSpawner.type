@@ -11,9 +11,11 @@ type AlienSpawner
 	{
 		mesh
 		{
-			meshName = ".\\RTSFactory.mesh"
-			position = 0 0 -1.399709
-			scale = 0.4280674 0.4280674 1.163681
+			meshName = ".\\Teleporter\\TeleporterBase.mesh"
+		}
+		mesh
+		{
+			meshName = ".\\Teleporter\\TeleporterEffect.mesh"
 		}
 	}
 }
