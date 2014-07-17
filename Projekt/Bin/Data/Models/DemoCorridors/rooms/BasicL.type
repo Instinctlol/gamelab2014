@@ -6,12 +6,6 @@ type BasicL2
 	{
 		mesh
 		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = -0.002626896 -0.06036377 0
-		}
-		mesh
-		{
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = 11.84741 -0.1446098 -0.01682854
@@ -54,12 +48,6 @@ type BasicL2
 			collision = True
 			position = -11.93987 11.86665 0
 			scale = 1 1.010671 1
-		}
-		mesh
-		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = -11.99382 -0.06043942 0
 		}
 		mesh
 		{
@@ -311,6 +299,16 @@ type BasicL2
 			position = -15.13403 -23.69877 -0.01682854
 			rotation = 0 0 0.7087992 -0.7054106
 			scale = 1 0.4950042 1
+		}
+		mapObject
+		{
+			type = gitter
+			position = -0.08359152 0 0.2357281
+		}
+		mapObject
+		{
+			type = gitter
+			position = -11.79833 -0.1952474 0.2357281
 		}
 	}
 }

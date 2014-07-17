@@ -30,12 +30,6 @@ type BasicP2
 		}
 		mesh
 		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = 0.05132246 11.86672 0
-		}
-		mesh
-		{
 			meshName = "Models\\DemoCorridors\\CornerIntDown.mesh"
 			collision = True
 			position = 11.86059 23.71235 0
@@ -52,12 +46,6 @@ type BasicP2
 			meshName = "Models\\DemoCorridors\\Floor.mesh"
 			collision = True
 			position = -11.99382 -0.06043942 0
-		}
-		mesh
-		{
-			meshName = "Models\\DemoCorridors\\Floor.mesh"
-			collision = True
-			position = -11.98533 -12.01673 0
 		}
 		mesh
 		{
@@ -292,6 +280,16 @@ type BasicP2
 			position = -5.711775 23.75791 0
 			rotation = 0 0 -0.7071068 -0.7071068
 			scale = 1 1.1 1
+		}
+		mapObject
+		{
+			type = gitter
+			position = -11.92339 -12.0351 0.2357281
+		}
+		mapObject
+		{
+			type = gitter
+			position = -0.1432261 11.88909 0.2357281
 		}
 	}
 }
