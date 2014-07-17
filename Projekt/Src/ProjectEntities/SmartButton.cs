@@ -19,6 +19,11 @@ namespace ProjectEntities
 
         int repairablesBroken = 0;
 
+        public int RepairablesBroken
+        {
+            get { return repairablesBroken; }
+        }
+
 
         enum NetworkMessages
         {

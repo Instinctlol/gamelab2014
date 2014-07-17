@@ -42,6 +42,7 @@ namespace ProjectEntities
             TaskTypeToClient,
             PressToServer,
             ActiveValueToClient,
+            TaskMessage,
         };
 
 
@@ -540,7 +541,12 @@ namespace ProjectEntities
         {
             if (!reader.Complete())
                 return;
-            Active = !active;
+            if(button.RepairablesBroken==0)
+                Active = !active;
+            else
+            {
+                Server_SendWindowString("Something is broken.");
+            }
         }
 
         void Server_SendActiveValueToAllClients()
@@ -558,6 +564,25 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
             Active = act;
+        }
+
+        private void Server_SendWindowString(string message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                       (ushort)NetworkMessages.TaskMessage);
+            writer.Write(message);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TaskMessage)]
+        private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string msg = reader.ReadString();
+
+            if (!reader.Complete())
+                return;
+
+            StatusMessageHandler.sendMessage(msg);
         }
 
     }
