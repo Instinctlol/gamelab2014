@@ -81,9 +81,7 @@ type Astronaut
 			}
 			boneSlot hammerHolderFPS
 			{
-				bone = Bip001 R Hand
-				position = 0.5 -0.1 0
-				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+				bone = Bip001 R Finger0
 			}
 		}
 	}

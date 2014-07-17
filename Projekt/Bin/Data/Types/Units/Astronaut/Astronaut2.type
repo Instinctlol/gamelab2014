@@ -1,10 +1,9 @@
 type Astronaut2
 {
 	class = PlayerCharacter
-	notAnimatedWeaponAttachPosition = 0.4 -0.1 -0.1
 	walkForce = 420000
 	flyControlForce = 49000
-	soundJump = "Types\\Units\\Rabbit\\Jump.ogg"
+	soundJump = ".\\Jump.ogg"
 	allowPlayerControl = True
 	initialAI = DefaultGameCharacterAI
 	viewRadius = 70
@@ -27,6 +26,18 @@ type Astronaut2
 		{
 			weaponType = Hammer
 		}
+		item
+		{
+			weaponType = Brechstange
+		}
+		item
+		{
+			weaponType = Glock
+		}
+		item
+		{
+			weaponType = ScarType
+		}
 	}
 	attachedObjects
 	{
@@ -36,19 +47,56 @@ type Astronaut2
 			castDynamicShadows = True
 			animationTree = ".\\Astronaut.animationTree"
 			position = 0 0 -1.15
-			rotation = 0 0 -0.7071068 -0.7071068
-			scale = 0.02 0.02 0.02
-			boneSlot Hand
+			boneSlot gunHolderThirdPersonCamera
 			{
-				bone = Bip001 L Hand
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
 			}
+			boneSlot gunHolderThirdPersonCamera_Shotgun
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+		}
+		mesh
+		{
+			meshName = ".\\FirstPersonArms\\Astronaut.mesh"
+			animationTree = ".\\FirstPersonArms\\Arms.animationTree"
+			alias = firstPersonArms
+			position = -0.1 -0.009999998 -0.2
+			visible = False
+			boneSlot gunHolderFirstPersonCamera
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+			boneSlot gunHolderFirstPersonCamera_Shotgun
+			{
+				bone = Bip001 R Hand
+				position = 0.5 -0.1 0
+				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+			}
+		}
+		mapObject
+		{
+			type = SubmachineGun
+			position = 0.9 -0.2 -0.3
+			rotation = -0.225673 -0.08488996 0.01974383 0.9702967
+		}
+		mapObject
+		{
+			type = Shotgun
+			position = 1.7 0.7 0
 		}
 	}
 	dieObjects
 	{
 		mapObject
 		{
-			type = RabbitDead
+			type = AstronautDead
 			copyVelocitiesFromParent = True
 		}
 		sound
