@@ -27,6 +27,7 @@ namespace Game
 		Button buttonConnect;
         Button buttonConnect2;
 
+        int port = 17001;
 		bool notDisposeClientOnDetach;
 
 		///////////////////////////////////////////
@@ -117,8 +118,6 @@ namespace Game
 
 			GameNetworkServer server = new GameNetworkServer( "AVA Server",	EngineVersionInformation.Version, 2, true );
 
-			int port = 16001;
-
 			string error;
 			if( !server.BeginListen( port, out error ) )
 			{
@@ -158,7 +157,6 @@ namespace Game
 
 			client.ConnectionStatusChanged += Client_ConnectionStatusChanged;
 
-            int port = 16001;
 			string password = "";
 
 			string error;
