@@ -127,10 +127,12 @@ namespace ProjectEntities
 
 			SubscribeToTickEvent();
 
+            /* Erstmal kein respawnen von items
 			if( loaded && !editor && EntitySystemWorld.Instance.SerializationMode ==
 				SerializationModes.Map )
 			{
-				ItemCreator obj = (ItemCreator)Entities.Instance.Create(
+				
+                ItemCreator obj = (ItemCreator)Entities.Instance.Create(
 					EntityTypes.Instance.GetByName( "ItemCreator" ), Parent );
 				obj.Position = Position;
 				obj.ItemType = Type;
@@ -138,6 +140,7 @@ namespace ProjectEntities
 				obj.Item = this;
 				obj.PostCreate();
 			}
+             */
 
 			if( EntitySystemWorld.Instance.IsServer() )
 			{
