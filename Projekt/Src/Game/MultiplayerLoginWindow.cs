@@ -117,7 +117,7 @@ namespace Game
 
 			GameNetworkServer server = new GameNetworkServer( "AVA Server",	EngineVersionInformation.Version, 2, true );
 
-			int port = 17000;
+			int port = 16001;
 
 			string error;
 			if( !server.BeginListen( port, out error ) )
@@ -158,7 +158,7 @@ namespace Game
 
 			client.ConnectionStatusChanged += Client_ConnectionStatusChanged;
 
-			int port = 17000;
+            int port = 16001;
 			string password = "";
 
 			string error;
