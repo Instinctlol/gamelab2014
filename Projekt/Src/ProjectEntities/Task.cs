@@ -21,6 +21,7 @@ namespace ProjectEntities
 
         enum NetworkMessages
         {
+            TaskMessage
         }
 
         private bool success = false;
@@ -92,10 +93,32 @@ namespace ProjectEntities
         {
             CreateWindow();
             SetTerminalWindow(Window);
+            Server_SendWindowString("Another operator has canceled your operation.");
             if (Window == null)
                 SendTaskFinished(true);
             else
                 IsVisible = true;
         }
+
+        private void Server_SendWindowString(string message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                       (ushort)NetworkMessages.TaskMessage);
+            writer.Write(message);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TaskMessage)]
+        private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string msg = reader.ReadString();
+
+            if (!reader.Complete())
+                return;
+
+            StatusMessageHandler.sendMessage(msg);
+        }
+
+        
     }
 }

@@ -108,6 +108,8 @@ namespace ProjectEntities
 
             terminal.Window = w;
 
+            
+
             if (isServer)
                 Server_SendWindowToClient(w!=null);
         }
