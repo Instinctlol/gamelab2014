@@ -71,7 +71,8 @@ namespace Game
         float timeForDeleteNotificationMessage;
 
         // Headtracking
-        
+        Vec3 headtrackingOffset;
+
         //SchereSteinPapierWindow
         Server_SchereSteinPapierWindow sspw;
 
@@ -1160,7 +1161,6 @@ namespace Game
                     if (button != null)
                     {
                         button.Click += new Button.ClickDelegate(NumPadButton_Click);
-                        EngineConsole.Instance.Print("numpadbutton"+i);
                     }
                 }
                 button = (Button)numPad.Controls["Clear"];
@@ -1443,6 +1443,7 @@ namespace Game
             DrawHUD(renderer);
         }
 
+        //Begrenzung der Mapansicht
         bool CheckMapPosition(Vec2 cameraPosition)
         {
             Bounds initialBounds = Map.Instance.InitialCollisionBounds;
@@ -1558,13 +1559,14 @@ namespace Game
             #region Application to Camera
             camera.Fov = fovy;
             camera.AspectRatio = aspect;
-            camera.FrustumOffset = frustumOffset;
+            camera.FrustumOffset = frustumOffset * (-1);
             #endregion
         }
 
         void receiveTrackingData(int sensorID, double x, double y, double z)
         {
             //headtracking1
+            headtrackingOffset = new Vec3((float)x, (float)y, (float)z);
         }
 
         protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward, out Vec3 up, ref Degree cameraFov)
@@ -1625,16 +1627,17 @@ namespace Game
                 up *= rot;
 
             todoTranslate = Vec2.Zero;
-            // Headtracking Daten
+            //// Headtracking Daten
             //Vec3 headTrackingOffset = new Vec3(0, 0, 0);
 
-            //// Asymmetrisches Frustum
-            //Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
-            //Camera camera = RendererWorld.Instance.DefaultCamera;
-            //adjustCamera(ref camera, headTrackingOffset.X, headTrackingOffset.Y, headTrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
+            // Asymmetrisches Frustum
+            Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
+            Camera camera = RendererWorld.Instance.DefaultCamera;
+            Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
+            adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
 
-            //// Headtracking position addieren
-            //position += headTrackingOffset;
+            // Headtracking position addieren
+            position += headtrackingOffset / 100;
         }
 
         // Brauchen wir das??

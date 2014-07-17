@@ -139,21 +139,34 @@ namespace ProjectCommon
 
         private Vec3D CalculatePos(Vec4D v, Mat4D m)
         {
-            Console.WriteLine("----calculatepos()-----");
-            Vec4D calculatedPos = Mat4D.Multiply(m, v);
-            Console.WriteLine("M: " + m.ToString());
-            Console.WriteLine("V: " + v.ToString());
-            Vec3D pos = new Vec3D();
-            if (calculatedPos.W != 1)
-            {
-                // Normalisieren
-                pos.X = calculatedPos.X / calculatedPos.W;
-                pos.Y = calculatedPos.Y / calculatedPos.W;
-                pos.Z = calculatedPos.Z / calculatedPos.W;
-            }
-            Console.WriteLine("Berechnete Positionen: "+pos.ToString()+"\n-----");
-            
-            return pos;
+            //Mat4D m1 = new Mat4D(0.999991, 0.00320434, -0.00272557, 40.7713, 0.00270982, 0.00490954, 0.999984, -23.0971, 0.00321766, -0.999983, 0.00490078, 0.0360617, 1.4013e-045, 2.71536e+023, 0.0575857, -9.88222e-032 );//{1,1,1,1,1,1,1,1,1,1,11,1 };
+            ////Console.WriteLine("----calculatepos()-----");
+            //Vec4D calculatedPos = Mat4D.Multiply(m1, v);
+            ////Console.WriteLine("M: " + m.ToString());
+            ////Console.WriteLine("V: " + v.ToString());
+            //Vec3D pos = new Vec3D();
+            //if (calculatedPos.W != 1)
+            //{
+            //    // Normalisieren
+            //    pos.X = calculatedPos.X / calculatedPos.W;
+            //    pos.Y = calculatedPos.Y / calculatedPos.W;
+            //    pos.Z = calculatedPos.Z / calculatedPos.W;
+            //}
+            //Console.WriteLine(pos.ToString());
+
+            Vec3D initialPos = new Vec3D(-0.392910123, 0.000637284073, 0.204409659);
+            Vec3D currentPosition = new Vec3D(v.X, v.Y, v.Z) - initialPos;
+
+	        double temp = currentPosition.Z;
+	        currentPosition.Z = currentPosition.Y;
+	        currentPosition.Y = temp;
+
+	        Vec3D headPosition = currentPosition;
+
+            Console.WriteLine(headPosition.ToString());
+
+            return headPosition;
+            //return pos;
         }
 
         #endregion
