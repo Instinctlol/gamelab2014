@@ -21,7 +21,8 @@ namespace ProjectEntities
 
         enum NetworkMessages
         {
-            TaskMessage
+            TaskMessage,
+            SuccessDataToClient,
         }
 
         private bool success = false;
@@ -55,6 +56,9 @@ namespace ProjectEntities
             IsVisible = false;
             if (TaskFinished != null)
                 TaskFinished(success);
+
+            if(IsServer)
+                Server_SendSuccessData(success);
         }
 
 
@@ -117,6 +121,31 @@ namespace ProjectEntities
                 return;
 
             StatusMessageHandler.sendMessage(msg);
+        }
+
+        private void Server_SendSuccessData(bool b)
+        {
+            
+            SendDataWriter writer = BeginNetworkMessage(typeof(Task),
+                       (ushort)NetworkMessages.SuccessDataToClient);
+            writer.Write(b);
+            EndNetworkMessage();
+
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.SuccessDataToClient)]
+        private void Client_ReceiveSuccessData(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool success = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            if (success)
+                Terminal.SoundPlay3D(Terminal.TaskSuccessSound, .5f, false);
+            else 
+                Terminal.SoundPlay3D(Terminal.TaskFailSound, .5f, false);
+            
         }
 
         
