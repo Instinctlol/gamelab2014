@@ -70,60 +70,6 @@ control Control
 		name = SelectedUnitsInfo
 		enable = False
 	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -184 610
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton0
-		text = 0
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -14 610
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton1
-		text = 1
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -184 650
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton2
-		text = 2
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -14 650
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton3
-		text = 3
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -184 690
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton4
-		text = 4
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution -14 690
-		horizontalAlign = Right
-		size = ScaleByResolution 160 35
-		name = ControlPanelButton5
-		text = 5
-	}
 	control "Gui\\Controls\\DefaultWindow.gui"
 	{
 		horizontalAlign = Center
@@ -377,9 +323,9 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution -14 610
+		position = ScaleByResolution -14 580
 		horizontalAlign = Right
-		size = Parent 0.13 0.2
+		size = Parent 0.234375 0.2390625
 		name = NumPad
 		control "GUI\\AlienNumPad.gui"
 		{
@@ -398,5 +344,59 @@ control Control
 		position = ScaleByResolution 0 0
 		name = BigMinimap
 		visible = False
+	}
+	control Control
+	{
+		position = ScaleByResolution 590 580
+		size = Parent 0.35 0.2
+		name = ControlPanelControl
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 10 10
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton0
+			text = 0
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 180 10
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton1
+			text = 1
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 10 50
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton2
+			text = 2
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 180 50
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton3
+			text = 3
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 10 90
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton4
+			text = 4
+		}
+		control "GUI\\Controls\\DefaultButton.gui"
+		{
+			soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
+			position = ScaleByResolution 180 90
+			size = ScaleByResolution 160 35
+			name = ControlPanelButton5
+			text = 5
+		}
 	}
 }

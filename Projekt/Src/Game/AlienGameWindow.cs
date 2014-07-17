@@ -1145,7 +1145,7 @@ namespace Game
             // ControlPanelButtons vorbereiten mit Click-Event-Funktionen
             for (int n = 0; ; n++)
             {
-                button = (Button)hudControl.Controls["ControlPanelButton" + n.ToString()];
+                button = (Button)hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
                 if (button == null)
                     break;
                 button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
@@ -1274,7 +1274,7 @@ namespace Game
             // make all buttons for AlienUnit visible or not
             for (int n = 0; ; n++)
             {
-                Control control = hudControl.Controls["ControlPanelButton" + n.ToString()];
+                Control control = hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
 
                 if (control == null)
                     break;
