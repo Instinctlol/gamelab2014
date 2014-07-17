@@ -55,6 +55,7 @@ namespace ProjectCommon
         public static float[] oldrot2;
         public static float oldangle;
         public static bool wastranslating = false, wasrotating = false;
+        public static bool detectgesturesState = false;
 		public TuioInputDevice( string name )
 			: base( name )
 		{
@@ -114,185 +115,208 @@ namespace ProjectCommon
             {
                 tuioInputData.Add(tuioInputDataTemp[i]);
             }
-            //Entferne Eintraege aelter als 3 Sekunden
-            float timestamp = DateTime.Now.Millisecond+DateTime.Now.Second*1000+DateTime.Now.Minute*60000+DateTime.Now.Hour*3600000;
-            if (tuioInputData.Count != 0)
+            if (!detectgesturesState)
             {
-                bool delete = true;
-                while (delete) {
-                    if (tuioInputData[0][2] + 3000 <= timestamp)
+                //Entferne Eintraege aelter als 3 Sekunden
+                float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
+                #region deleteold
+                if (tuioInputData.Count != 0)
+                {
+                    bool delete = true;
+                    while (delete)
                     {
-                        tuioInputData.Remove(tuioInputData[0]);
-                        if (tuioInputData.Count != 0)
+                        if (tuioInputData[0][2] + 3000 <= timestamp)
                         {
-                            delete = true;
+                            tuioInputData.Remove(tuioInputData[0]);
+                            if (tuioInputData.Count != 0)
+                            {
+                                delete = true;
+                            }
+                            else
+                            {
+                                delete = false;
+                            }
                         }
-                        else {
+                        else
+                        {
                             delete = false;
                         }
                     }
-                    else {
-                        delete = false;
-                    }
                 }
-            }
+                #endregion
 
-            //block 1
-            List<float[]> used = new List<float[]>();
-            bool start1 = false, start2 = false, end1 = false, end2  = false;
-            float[] workelement1 = new float[8];
-            float[] line1changed = new float[8];
-            float[] line2changed = new float[8];
-            float[] workelement2 = new float[8];
-            float[] workelement3 = new float[8];
-            float[] workelement4 = new float[8];
-            //Analyse
-            foreach (float[] elemt in tuioInputData) {
-                if (elemt[0] == 0 && elemt[3] == 1) {
-                    start1 = true;
-                    workelement1 = elemt;
-                    used.Add(elemt);
-                    line1changed = elemt;
-                    //Console.WriteLine("Start detected");
-                    if (oldcoords == null) {
-                        oldcoords = elemt;
-                    }
-                    if (oldrot1 == null)
+                //block 1
+                List<float[]> used = new List<float[]>();
+                bool start1 = false, start2 = false, end1 = false, end2 = false;
+                float[] workelement1 = new float[8];
+                float[] line1changed = new float[8];
+                float[] line2changed = new float[8];
+                float[] workelement2 = new float[8];
+                float[] workelement3 = new float[8];
+                float[] workelement4 = new float[8];
+                //Analyse
+
+                #region startstop
+                foreach (float[] elemt in tuioInputData)
+                {
+                    if (elemt[0] == 0 && elemt[3] == 1)
                     {
-                        oldrot1 = elemt;
+                        start1 = true;
+                        workelement1 = elemt;
+                        used.Add(elemt);
+                        line1changed = elemt;
+                        //Console.WriteLine("Start detected");
+                        if (oldcoords == null)
+                        {
+                            oldcoords = elemt;
+                        }
+                        if (oldrot1 == null)
+                        {
+                            oldrot1 = elemt;
+                        }
+                    }
+                    if (elemt[0] == 0 && elemt[3] == 2)
+                    {
+                        line1changed = elemt;
+                        used.Add(elemt);
+                    }
+                    if (elemt[0] == 0 && elemt[3] == 3)
+                    {
+                        end1 = true;
+                        workelement2 = elemt;
+                        used.Add(elemt);
+                        oldcoords = null;
+                        oldrot1 = null;
+                        //Console.WriteLine("End detected");
+                    }
+                    if (elemt[0] == 1 && elemt[3] == 1)
+                    {
+                        start2 = true;
+                        workelement3 = elemt;
+                        used.Add(elemt);
+                        if (oldrot2 == null)
+                        {
+                            oldrot2 = elemt;
+                        }
+                    }
+                    if (elemt[0] == 1 && elemt[3] == 2)
+                    {
+                        line2changed = elemt;
+                        used.Add(elemt);
+
+                    }
+                    if (elemt[0] == 1 && elemt[3] == 3)
+                    {
+                        end2 = true;
+                        workelement4 = elemt;
+                        used.Add(elemt);
+                        oldrot2 = null;
                     }
                 }
-                if (elemt[0] == 0 && elemt[3] == 2)
+                #endregion
+
+                if (start1 && end1 && !start2 && !wastranslating && !wasrotating)
                 {
-                    line1changed = elemt;
-                    used.Add(elemt);
-                }
-                if (elemt[0] == 0 && elemt[3] == 3) {
-                    end1 = true;
-                    workelement2 = elemt;
-                    used.Add(elemt);
-                    oldcoords = null;
-                    oldrot1 = null;
-                    //Console.WriteLine("End detected");
-                }
-                if (elemt[0] == 1 && elemt[3] == 1)
-                {
-                    start2 = true;
-                    workelement3 = elemt;
-                    used.Add(elemt);
-                    if (oldrot2 == null)
+                    #region click
+                    //Console.WriteLine("Cordset 1 " + workelement1[4] + " - " + line1changed[4] + " /// " + Math.Abs(workelement1[4] - line1changed[4]));
+                    //Console.WriteLine("Cordset 2 " + workelement1[5] + " - " + line1changed[5] + " /// " + Math.Abs(workelement1[5] - line1changed[5]));
+                    if (Math.Abs(workelement1[4] - line1changed[4]) < 0.01 && Math.Abs(workelement1[5] - line1changed[5]) < 0.01)
                     {
-                        oldrot2 = elemt;
+                        oldcoords = null;
+                        Console.WriteLine("Click");
+                        TuioInputDeviceSpecialEvent customEvent =
+                            new TuioInputDeviceSpecialEvent(this, opType.click, workelement1[4], workelement1[5]);
+                        InputDeviceManager.Instance.SendEvent(customEvent);
+                        foreach (float[] usedelemt in used)
+                        {
+                            tuioInputData.Remove(usedelemt);
+                        }
                     }
+                    #endregion
                 }
-                if (elemt[0] == 1 && elemt[3] == 2)
+                else if ((start1 && start2) || wasrotating)
                 {
-                    line2changed = elemt;
-                    used.Add(elemt);
-                    
-                }
-                if (elemt[0] == 1 && elemt[3] == 3)
-                {
-                    end2 = true;
-                    workelement4 = elemt;
-                    used.Add(elemt);
-                    oldrot2 = null;
-                }
-            }
-
-            if (start1 && end1 && !start2 && !wastranslating && !wasrotating) {
-                //Console.WriteLine("Cordset 1 " + workelement1[4] + " - " + line1changed[4] + " /// " + Math.Abs(workelement1[4] - line1changed[4]));
-                //Console.WriteLine("Cordset 2 " + workelement1[5] + " - " + line1changed[5] + " /// " + Math.Abs(workelement1[5] - line1changed[5]));
-                if (Math.Abs(workelement1[4] - line1changed[4]) < 0.01 && Math.Abs(workelement1[5] - line1changed[5]) < 0.01)
-                {
-                    oldcoords = null;
-                    Console.WriteLine("Click");
-                    TuioInputDeviceSpecialEvent customEvent =
-                        new TuioInputDeviceSpecialEvent(this, opType.click, workelement1[4], workelement1[5]);
-                    InputDeviceManager.Instance.SendEvent(customEvent);
-                    foreach (float[] usedelemt in used)
+                    #region Rotation
+                    Console.Write("" + Math.Abs(line2changed[4] - line1changed[4]) + " - " + Math.Abs(line2changed[5] - line1changed[5]));
+                    if (Math.Abs(line2changed[4] - line1changed[4]) > 0.05 || Math.Abs(line2changed[5] - line1changed[5]) > 0.05)
                     {
-                        tuioInputData.Remove(usedelemt);
+                        //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
+                        //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
+
+                        float dy = (line2changed[5] - line1changed[5]);
+                        float dx = (line2changed[4] - line1changed[4]);
+                        float rotangle = (float)-Math.Atan(dy / dx);
+                        //float pi = MathFunctions.PI;
+                        //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
+
+                        if (oldangle == 1000) oldangle = rotangle;
+
+
+                        TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
+                        InputDeviceManager.Instance.SendEvent(customEvent);
+                        oldangle = rotangle;
+                        if (!end1 && !end2)
+                        {
+                            used.Remove(line1changed);
+                            used.Remove(line2changed);
+                            used.Remove(workelement1);
+                            used.Remove(workelement3);
+                            wasrotating = true;
+                        }
+                        else
+                        {
+                            oldangle = 1000;
+                            wasrotating = false;
+                            Console.WriteLine("Rotate Clear");
+                        }
+
+                        foreach (float[] usedelemt in used)
+                        {
+                            tuioInputData.Remove(usedelemt);
+                        }
                     }
+                    #endregion
                 }
-            }
-            else if ((start1 && start2) || wasrotating)
-            {
-                Console.Write("" + Math.Abs(line2changed[4] - line1changed[4])+" - "+ Math.Abs(line2changed[5] - line1changed[5]));
-                if (Math.Abs(line2changed[4] - line1changed[4]) > 0.05 || Math.Abs(line2changed[5] - line1changed[5]) > 0.05)
+                else if ((end1 && wastranslating) || !wasrotating && (!start2 && oldcoords != null && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)))
                 {
-                    //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
-                    //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
-
-                    float dy = (line2changed[5] - line1changed[5]);
-                    float dx = (line2changed[4] - line1changed[4]);
-                    float rotangle = (float)-Math.Atan(dy / dx);
-                    //float pi = MathFunctions.PI;
-                    //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
-
-                    if (oldangle == 1000) oldangle = rotangle;
-
-
-                    TuioInputDeviceSpecialEvent customEvent =
-                    new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
-                    InputDeviceManager.Instance.SendEvent(customEvent);
-                    oldangle = rotangle;
-                    if (!end1 && !end2)
+                    #region translate
+                    if (oldcoords != null)
                     {
-                        used.Remove(line1changed);
-                        used.Remove(line2changed);
+                        //Console.WriteLine("Cordset 1 " + oldcoords[4] + " | " + line1changed[4] + " /// " + (line1changed[4] - oldcoords[4]));
+                        //Console.WriteLine("Cordset 2 " + oldcoords[5] + " | " + line1changed[5] + " /// " + (line1changed[5] - oldcoords[5]));
+                        TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(this, opType.translation, (line1changed[4] - oldcoords[4]), (line1changed[5] - oldcoords[5]));
+                        InputDeviceManager.Instance.SendEvent(customEvent);
+                    }
+                    if (!end1)
+                    {
+                        wastranslating = true;
                         used.Remove(workelement1);
-                        used.Remove(workelement3);
-                        wasrotating = true;
+                        used.Remove(line1changed);
+                        oldcoords = line1changed;
+                        Console.WriteLine("Translate");
                     }
                     else
                     {
-                        oldangle = 1000;
-                        wasrotating = false;
-                        Console.WriteLine("Rotate Clear");
+                        wastranslating = false;
+                        Console.WriteLine("Translate Clear");
                     }
 
                     foreach (float[] usedelemt in used)
                     {
                         tuioInputData.Remove(usedelemt);
                     }
+                    #endregion
+
                 }
             }
-            else if ((end1 && wastranslating) || !wasrotating && (!start2 && oldcoords != null && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)))
-            {
-                if (oldcoords != null)
-                {
-                    //Console.WriteLine("Cordset 1 " + oldcoords[4] + " | " + line1changed[4] + " /// " + (line1changed[4] - oldcoords[4]));
-                    //Console.WriteLine("Cordset 2 " + oldcoords[5] + " | " + line1changed[5] + " /// " + (line1changed[5] - oldcoords[5]));
-                    TuioInputDeviceSpecialEvent customEvent =
-                    new TuioInputDeviceSpecialEvent(this, opType.translation, (line1changed[4] - oldcoords[4]), (line1changed[5] - oldcoords[5]));
-                    InputDeviceManager.Instance.SendEvent(customEvent);
-                }
-                if (!end1)
-                {
-                    wastranslating = true;
-                    used.Remove(workelement1);
-                    used.Remove(line1changed);
-                    oldcoords = line1changed;
-                    Console.WriteLine("Translate");
-                } else {
-                    wastranslating = false;
-                    Console.WriteLine("Translate Clear");
-                }
-      
-                foreach (float[] usedelemt in used)
-                {
-                    tuioInputData.Remove(usedelemt);
-                }
-
-
-            }
-
                     //TuioInputDeviceSpecialEvent customEvent =
                     //    new TuioInputDeviceSpecialEvent(this, opType.rotation);
-                    //InputDeviceManager.Instance.SendEvent(customEvent);
+            //InputDeviceManager.Instance.SendEvent(customEvent);
 
 
+            #region oldcode
 
 
             //button1
@@ -301,56 +325,63 @@ namespace ProjectCommon
 
 
 
-            {
-                bool pressed = EngineApp.Instance.IsKeyPressed(EKeys.H);
-                if (Buttons[0].Pressed != pressed)
-                {
-                    if (pressed)
-                    {
-                        InputDeviceManager.Instance.SendEvent(
-                            new JoystickButtonDownEvent(this, Buttons[0]));
-                    }
-                    else
-                    {
-                        InputDeviceManager.Instance.SendEvent(
-                            new JoystickButtonUpEvent(this, Buttons[0]));
-                    }
-                    Buttons[0].Pressed = pressed;
-                }
-            }
+            //{
+            //    bool pressed = EngineApp.Instance.IsKeyPressed(EKeys.H);
+            //    if (Buttons[0].Pressed != pressed)
+            //    {
+            //        if (pressed)
+            //        {
+            //            InputDeviceManager.Instance.SendEvent(
+            //                new JoystickButtonDownEvent(this, Buttons[0]));
+            //        }
+            //        else
+            //        {
+            //            InputDeviceManager.Instance.SendEvent(
+            //                new JoystickButtonUpEvent(this, Buttons[0]));
+            //        }
+            //        Buttons[0].Pressed = pressed;
+            //    }
+            //}
 
-			//button2
-			{
-				bool pressed = EngineApp.Instance.IsKeyPressed( EKeys.J );
-				if( Buttons[ 1 ].Pressed != pressed )
-				{
-					if( pressed )
-					{
-						InputDeviceManager.Instance.SendEvent(
-							new JoystickButtonDownEvent( this, Buttons[ 1 ] ) );
-					}
-					else
-					{
-						InputDeviceManager.Instance.SendEvent(
-							new JoystickButtonUpEvent( this, Buttons[ 1 ] ) );
-					}
-					Buttons[ 1 ].Pressed = pressed;
-				}
-			}
+            ////button2
+            //{
+            //    bool pressed = EngineApp.Instance.IsKeyPressed( EKeys.J );
+            //    if( Buttons[ 1 ].Pressed != pressed )
+            //    {
+            //        if( pressed )
+            //        {
+            //            InputDeviceManager.Instance.SendEvent(
+            //                new JoystickButtonDownEvent( this, Buttons[ 1 ] ) );
+            //        }
+            //        else
+            //        {
+            //            InputDeviceManager.Instance.SendEvent(
+            //                new JoystickButtonUpEvent( this, Buttons[ 1 ] ) );
+            //        }
+            //        Buttons[ 1 ].Pressed = pressed;
+            //    }
+            //}
 
-			//axis X
-			{
-                float value = 0;
+            ////axis X
+            //{
+            //    float value = 0;
 
-				Axes[ 0 ].Value = value;
+            //    Axes[ 0 ].Value = value;
 
-				InputDeviceManager.Instance.SendEvent(
-					new JoystickAxisChangedEvent( this, Axes[ 0 ] ) );
-			}
+            //    InputDeviceManager.Instance.SendEvent(
+            //        new JoystickAxisChangedEvent( this, Axes[ 0 ] ) );
+            //}
 
-			//custom event example
+            ////custom event example
+        #endregion
 			
 		}
+
+
+        public void detectgestures(bool state) {
+            detectgesturesState = state;
+        }
+
 
 		/// <summary>
 		/// Initialize the device and register them in the InputDeviceManager
