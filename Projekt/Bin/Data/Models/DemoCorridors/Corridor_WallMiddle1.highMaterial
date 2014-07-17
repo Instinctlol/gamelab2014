@@ -24,6 +24,10 @@ highLevelMaterial Corridor_WallMiddle1
 	{
 		texture = ".\\CorridorTex1GlowMap.dds"
 		clamp = True
+		transform
+		{
+			dynamicParameters = True
+		}
 	}
 	specularMap
 	{

@@ -23,6 +23,10 @@ highLevelMaterial Corridor_WallDown2
 	emissionMap
 	{
 		clamp = True
+		transform
+		{
+			dynamicParameters = True
+		}
 	}
 	specularMap
 	{
