@@ -764,34 +764,37 @@ namespace Game
                     UpdateCameraScrollBars();
                 }
             */
-                if (todoRotate != 0)
-                {
-                    if (todoRotate > 0) {
-                        cameraDirection.Horizontal += (delta * 2) * 2;
-                    }
-                    else if (todoRotate < 0) {
-                        cameraDirection.Horizontal -= (delta * 2) * 2;
-                    }
+                //if (todoRotate != 0)
+                //{
+                //    if (todoRotate > 0) {
+                //        cameraDirection.Horizontal += (delta * 2) * 2;
+                //    }
+                //    else if (todoRotate < 0) {
+                //        cameraDirection.Horizontal -= (delta * 2) * 2;
+                //    }
                     
-                    if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
-                        cameraDirection.Horizontal -= MathFunctions.PI * 2;
-                    if (cameraDirection.Horizontal < 0)
-                        cameraDirection.Horizontal += MathFunctions.PI * 2;
-                    todoRotate = 0;
+                //    if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
+                //        cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                //    if (cameraDirection.Horizontal < 0)
+                //        cameraDirection.Horizontal += MathFunctions.PI * 2;
+                //    todoRotate = 0;
 
-                }
+                //}
                 if (EngineApp.Instance.IsKeyPressed(EKeys.Q))
                 {
-                    cameraDirection.Horizontal += delta * 2;
-                    if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
-                        cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                    //cameraDirection.Horizontal += delta * 2;
+                    //if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
+                    //    cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                    todoRotate += 1;
                 }
 
                 if (EngineApp.Instance.IsKeyPressed(EKeys.E))
                 {
-                    cameraDirection.Horizontal -= delta * 2;
-                    if (cameraDirection.Horizontal < 0)
-                        cameraDirection.Horizontal += MathFunctions.PI * 2;
+
+                    todoRotate -= 1;
+                    //cameraDirection.Horizontal -= delta * 2;
+                    //if (cameraDirection.Horizontal < 0)
+                    //    cameraDirection.Horizontal += MathFunctions.PI * 2;
                 }
 
 
@@ -1591,10 +1594,30 @@ namespace Game
                 //position = lookAt + offset;
                 //up = new Vec3(0, 0, 1);
                 //forward = -offset;
+            if (todoRotate != 0)
+            {
+                if (todoRotate > 0)
+                {
+                    cameraDirection.Horizontal += (mydelta * 2) * 2;
+                }
+                else if (todoRotate < 0)
+                {
+                    cameraDirection.Horizontal -= (mydelta * 2) * 2;
+                }
+
+                if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
+                    cameraDirection.Horizontal -= MathFunctions.PI * 2;
+                if (cameraDirection.Horizontal < 0)
+                    cameraDirection.Horizontal += MathFunctions.PI * 2;
+                todoRotate = 0;
+
+            }
+                Quat rot = new Angles(0, 0, cameraDirection.Horizontal*50).ToQuat();
+                Console.WriteLine(cameraDirection.Horizontal);
+                lookAt2 *= rot;
                 position = lookAt2;
                 forward = new Vec3(0, 0, -1);
                 up = new Vec3(0, 1, 0);
-                Quat rot = new Angles(0, 0, cameraDirection.Horizontal).ToQuat(); ;
                 up *= rot;
 
             todoTranslate = Vec2.Zero;
