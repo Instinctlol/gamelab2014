@@ -1,8 +1,6 @@
 highLevelMaterial WesteHigh
 {
-	dataSource = "Types\\Items\\Weste\\augadam_vest.modelImport"
 	template = ShaderBaseMaterial
-	diffuseColor = 0.6 0.6 0.6
+	diffuseColor = 0 0.2666667 0.03921569
 	specularColor = 0 0 0 0
-	specularShininess = 20
 }
