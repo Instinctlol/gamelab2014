@@ -39,7 +39,7 @@ namespace ProjectEntities
         private List<Room> rooms = new List<Room>();
 
         //Liste aller statischen Objecte. TBD
-        private List<MapObject> statics = new List<MapObject>();
+        private List<StaticObject> statics = new List<StaticObject>();
 
         //Ring zu dem dieser Sektore gehört
         [FieldSerialize]
@@ -137,6 +137,8 @@ namespace ProjectEntities
                 OnDynamicIn((Dynamic)obj);
             else if (obj is Room)
                 OnRoomIn((Room)obj);
+            else if (obj is StaticObject)
+                OnStaticIn((StaticObject) obj);
 
 
         }
@@ -277,19 +279,25 @@ namespace ProjectEntities
                 obj.LightStatus = lightStatus;
         }
 
+        private void OnStaticIn(StaticObject obj)
+        {
+            statics.Add(obj);
+            if (isHidden)
+                obj.SetLights(false);
+            else
+                obj.LightStatus = lightStatus;
+        }
+
         private void OnDynamicIn(Dynamic obj)
         {
             dynamics.Add(obj);
 
             obj.Visible = !IsHidden;
-
         }
 
         private void OnDynamicOut(Dynamic obj)
         {
             dynamics.Remove(obj);
-
-
 
             Vec3 source = obj.Position;
             Vec3 direction = new Vec3(0, 0, -1);

@@ -44,6 +44,7 @@ namespace ProjectEntities
         public void Press(Unit unit)
         {
             Client_SendPress(unit);
+
             SoundPlay3D(Type.SoundUse,.5f, false);
         }
 
