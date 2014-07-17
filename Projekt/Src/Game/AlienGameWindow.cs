@@ -1579,11 +1579,7 @@ namespace Game
             //    offset *= cameraDistance;
             //}
             //Currywurst
-            Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
-            if (CheckMapPosition(cameraPosition + todoTranslate * 15))
-            {
-                lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
-            }
+
 
                 //Vec3 lookAt = new Vec3(cameraPosition.X, cameraPosition.Y, 0);
                 //Vec2 vector = Vec2.Zero;
@@ -1598,11 +1594,11 @@ namespace Game
             {
                 if (todoRotate > 0)
                 {
-                    cameraDirection.Horizontal += (mydelta * 2) * 2;
+                    cameraDirection.Horizontal +=  0.01f;
                 }
                 else if (todoRotate < 0)
                 {
-                    cameraDirection.Horizontal -= (mydelta * 2) * 2;
+                    cameraDirection.Horizontal -=  0.01f;
                 }
 
                 if (cameraDirection.Horizontal >= MathFunctions.PI * 2)
@@ -1612,9 +1608,17 @@ namespace Game
                 todoRotate = 0;
 
             }
-                Quat rot = new Angles(0, 0, cameraDirection.Horizontal*50).ToQuat();
-                Console.WriteLine(cameraDirection.Horizontal);
-                lookAt2 *= rot;
+                Quat rot = new Angles(0, 0, cameraDirection.Horizontal / (2 * MathFunctions.PI)*360).ToQuat();
+                Vec3 translate;
+                translate = new Vec3(todoTranslate.X, todoTranslate.Y, 0);
+                translate *= rot;
+                todoTranslate.X = translate.X;
+                todoTranslate.Y = translate.Y;
+                Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
+                if (CheckMapPosition(cameraPosition + todoTranslate * 15))
+                {
+                    lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
+                }
                 position = lookAt2;
                 forward = new Vec3(0, 0, -1);
                 up = new Vec3(0, 1, 0);
