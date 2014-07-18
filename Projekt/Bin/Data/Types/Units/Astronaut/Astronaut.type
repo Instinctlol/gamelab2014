@@ -65,11 +65,11 @@ type Astronaut
 			meshName = ".\\FirstPersonArms\\Astronaut.mesh"
 			animationTree = ".\\FirstPersonArms\\Arms.animationTree"
 			alias = firstPersonArms
-			position = -0.1 -0.009999998 -0.2
+			position = -0.119255 -0.009999998 -0.3525942
 			visible = False
 			boneSlot gunHolderFirstPersonCamera
 			{
-				bone = Bip001 R Hand
+				bone = Bip001 L Hand
 				position = 0.5 -0.1 0
 				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
 			}
@@ -79,10 +79,16 @@ type Astronaut
 				position = 0.5 -0.1 0
 				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
 			}
-			boneSlot hammerHolderFPS
+			boneSlot glockHolderFirstPersonCamera
 			{
-				bone = Bip001 R Finger0
+				bone = Bip001 R Hand
+				position = 0.2511074 -0.01681818 -0.01331964
 			}
+		}
+		mesh
+		{
+			meshName = "Types\\Weapons\\SubmachineGun\\ScarRifle_FPSCamera\\ScarRifle_FPSCamera.mesh"
+			boneSlot = gunHolderFirstPersonCamera
 		}
 	}
 	dieObjects
