@@ -1,9 +1,10 @@
 type BrechstangeItem
 {
 	class = WeaponItem
-	weaponType = Hammer
+	weaponType = Brechstange
 	defaultRespawnTime = 10
-	soundTake = "Types/Items/DefaultItemTake.ogg"
+	soundTake = "Types\\Items\\DefaultItemTake.ogg"
+	soundCollision = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -12,13 +13,12 @@ type BrechstangeItem
 			meshName = "Types\\Weapons\\Brechstange\\brechstange.mesh"
 			castDynamicShadows = True
 			position = -0.01763713 0 -0.1177769
-			scale = 0.3087945 0.3087945 0.3087945
 		}
 		particle
 		{
 			particleName = ItemParticle
 			updateWhenItNotInView = False
-			position = 0 0 -0.1974521
+			position = -0.02576709 0 -0.1974521
 		}
 	}
 }
