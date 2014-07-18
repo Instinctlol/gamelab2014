@@ -1,6 +1,6 @@
 type BettSofa
 {
-	class = MapObject
+	class = StaticObject
 	networkType = Synchronized
 	attachedObjects
 	{

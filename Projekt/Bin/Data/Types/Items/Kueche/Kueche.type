@@ -1,6 +1,6 @@
 type Kueche
 {
-	class = Item
+	class = StaticObject
 	networkType = Synchronized
 	attachedObjects
 	{

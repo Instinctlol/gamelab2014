@@ -1,6 +1,6 @@
 type Armchair2
 {
-	class = MapObject
+	class = StaticObject
 	physicsModel = ".\\Armchair.physics"
 	networkType = Synchronized
 	attachedObjects

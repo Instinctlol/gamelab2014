@@ -1,6 +1,6 @@
 type Schlafkapsel
 {
-	class = MapObject
+	class = StaticObject
 	networkType = Synchronized
 	attachedObjects
 	{

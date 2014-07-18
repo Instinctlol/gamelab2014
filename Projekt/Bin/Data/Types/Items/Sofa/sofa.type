@@ -1,6 +1,6 @@
 type sofa
 {
-	class = MapObject
+	class = StaticObject
 	physicsModel = ".\\Object.physics"
 	networkType = Synchronized
 	attachedObjects

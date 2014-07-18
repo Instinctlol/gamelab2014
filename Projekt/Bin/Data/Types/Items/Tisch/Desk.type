@@ -1,6 +1,6 @@
 type Desk
 {
-	class = MapObject
+	class = StaticObject
 	physicsModel = ".\\Desk.physics"
 	networkType = Synchronized
 	attachedObjects

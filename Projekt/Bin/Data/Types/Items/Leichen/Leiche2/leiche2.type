@@ -1,6 +1,6 @@
 type leiche2
 {
-	class = MapObject
+	class = StaticObject
 	physicsModel = ".\\Object.physics"
 	networkType = Synchronized
 	attachedObjects
