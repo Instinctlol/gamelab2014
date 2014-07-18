@@ -3,7 +3,7 @@ type Brechstange
 	class = MeleeWeapon
 	characterBoneSlot = hammerHolderFPS
 	characterBoneSlotFirstPersonCamera = hammerHolderFPS
-	fpsCameraAttachPosition = 0.3 -0.2 -0.3
+	fpsCameraAttachPosition = 0.3 -0.2 2
 	soundCollision = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
 	networkType = Synchronized
 	normalMode
@@ -29,7 +29,6 @@ type Brechstange
 			meshName = ".\\brechstange.mesh"
 			castDynamicShadows = True
 			alias = fpsCamera
-			position = 0 0 -0.01659083
 		}
 	}
 }

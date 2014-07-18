@@ -4,9 +4,9 @@ type Glock
 	reloadTime = 0.8
 	soundReload = ".\\pistole_nachladen.ogg"
 	soundEmpty = ".\\pistole_magazin_leer.ogg"
-	characterBoneSlot = gunHolderThirdPersonCamera
-	characterBoneSlotFirstPersonCamera = gunHolderFirstPersonCamera
-	fpsCameraAttachPosition = 0.25 -0.15 -0.18
+	characterBoneSlot = glockHolderThirdPersonCamera
+	characterBoneSlotFirstPersonCamera = glockHolderFirstPersonCamera
+	fpsCameraAttachPosition = 0.25 -0.15 0.3
 	networkType = Synchronized
 	normalMode
 	{
@@ -57,8 +57,7 @@ type Glock
 		mesh
 		{
 			meshName = ".\\Glock.mesh"
-			position = 0 0 0.003400451
-			scale = 0.1386843 0.1386843 0.1386843
+			alias = fpsCamera
 		}
 	}
 }
