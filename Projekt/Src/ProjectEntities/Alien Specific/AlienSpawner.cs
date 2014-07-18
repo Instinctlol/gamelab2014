@@ -145,7 +145,7 @@ namespace ProjectEntities
             Degree angleDelta = TickDelta * 20;
 
             if (productUnitAttachedMesh != null)
-                productUnitAttachedMesh.RotationOffset *= new Angles(0, 0, angleDelta).ToQuat();
+                productUnitAttachedMesh.RotationOffset *= new Angles(0, angleDelta, 0).ToQuat();
 
             if (BuildUnitProgress >= 1 || Computer.noSpawnTime)
             {
@@ -239,6 +239,7 @@ namespace ProjectEntities
 
             string meshName = null;
             Vec3 meshOffset = Vec3.Zero;
+            Quat meshRotation = new Quat();
             Vec3 meshScale = new Vec3(1, 1, 1);
             {
                 foreach (MapObjectTypeAttachedObject typeAttachedObject in
@@ -252,6 +253,7 @@ namespace ProjectEntities
                     meshName = typeAttachedMesh.GetMeshNameFullPath();
                     meshOffset = typeAttachedMesh.Position;
                     meshScale = typeAttachedMesh.Scale;
+                    meshRotation = typeAttachedMesh.Rotation;
                     break;
                 }
             }
@@ -264,6 +266,19 @@ namespace ProjectEntities
                 if (buildPointAttachedHelper != null)
                     pos += buildPointAttachedHelper.PositionOffset;
             }
+            // x und y liegt, dreht normal
+            //meshRotation.X = 0.7071068f;
+            meshRotation.Z = -0.7071068f;
+            //meshRotation.Z = -0.99f;
+            meshRotation.Y = 0.7071068f;
+            //meshRotation.W = 0.7071068f;
+            pos.Z += 2;
+            meshRotation.X = 0;
+            //meshRotation.Y = 0;
+            //meshRotation.Z = 0;
+            meshRotation.W = 0;
+            Console.WriteLine("rotationoffset:"+meshRotation.ToString()+" | "+meshRotation.X+" | "+meshRotation.Y+" | "+meshRotation.Z+" | "+meshRotation.W);
+            productUnitAttachedMesh.RotationOffset = meshRotation;
             productUnitAttachedMesh.PositionOffset = pos;
             productUnitAttachedMesh.ScaleOffset = meshScale;
         }

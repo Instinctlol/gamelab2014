@@ -137,10 +137,10 @@ namespace Game
             hudControl = ControlDeclarationManager.Instance.CreateControl("GUI\\AlienHUD.gui");
             Controls.Add(hudControl);
 
-            ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)
-            {
-                hudFunctions("Menu");
-            };
+            //((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)
+            //{
+            //    hudFunctions("Menu");
+            //};
 
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Help"]).Click += delegate(Button sender)
             {
@@ -262,27 +262,59 @@ namespace Game
                     Console.WriteLine("Trying to Rotate " + angle);           
                 }
                 else if (true && test.getOPType() == opType.click) {
+                    Console.WriteLine("tuioclick");
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
+                    Button b;
                     EngineApp.Instance.MousePosition = MousePos;
                     if (Controls.OfType<MenuWindow>().Count() == 1)
                     {
-
                         Controls.OfType<MenuWindow>().First().workbench_Click(MousePos);
                     }
                     else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
+                        Console.WriteLine("inbuttonarea");
                         hudFunctions("Menu");
                     }
                     else if (hudControl.Controls["BigMinimap"].Visible)
                     {
-
                         bigMinimapObj.workbench_Click(MousePos);
                     }
                     else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
                         DoOpenMinimap();
+                    }
+                    else if (numPad.Visible && numPad.GetScreenRectangle().IsContainsPoint(MousePos))
+                    {
+                        // Alle Buttons des NumPads durchiterieren
+                        foreach (Control c in numPad.Controls)
+                        {
+                            b = c as Button;
+                            if (b != null && b.Visible && b.GetScreenRectangle().IsContainsPoint(MousePos))
+                            {
+                                if (b.Name == "Clear")
+                                {
+                                    NumPadClear_Click(b);
+                                }
+                                else
+                                {
+                                    NumPadButton_Click(b);
+                                }
+                            }
+                        }
+                    }
+                    else if (hudControl.Controls["ControlPanelControl"].Visible && hudControl.Controls["ControlPanelControl"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    {
+                        // Alle Buttons für Alien/Spawner durchiterieren
+                        foreach (Control c in hudControl.Controls["ControlPanelControl"].Controls)
+                        {
+                            b = c as Button;
+                            if (b != null && b.Visible && b.GetScreenRectangle().IsContainsPoint(MousePos))
+                            {
+                                ControlPanelButton_Click(b);
+                            }
+                        }
                     }
                     //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
                     
@@ -366,11 +398,11 @@ namespace Game
 
         protected override bool OnMouseDown(EMouseButtons button)
         {
-            EngineConsole.Instance.Print("aliengame mousedown");
             //If atop openly any window to not process
             if (Controls.Count != 1)
+            {
                 return base.OnMouseDown(button);
-
+            }
             // Mouse click for select unit
             if ( !IsExtraWindowOpened() )
             {
@@ -383,15 +415,21 @@ namespace Game
                 }
 
                 //minimap mouse change camera position
-                if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
-                {
-                    if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
-                    {
-                        minimapClick = true;
-                        return true;
-                    }
-                }
+                // läuft auch über workbench code
+                //if (button == EMouseButtons.Left && taskTargetChooseIndex == -1)
+                //{
+                //    if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
+                //    {
+                //        minimapClick = true;
+                //        return true;
+                //    }
+                //}
             }
+
+            // tuio mapping
+            TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(new TuioInputDevice("muh"), opType.click, MousePosition.X, MousePosition.Y);
+            InputDeviceManager.Instance.SendEvent(customEvent);
 
             return base.OnMouseDown(button);
         }
@@ -427,14 +465,6 @@ namespace Game
                         }
                     }
                 }
-
-                //pick on minimap TODO
-                //if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePosition))
-                //{
-                //    pickingSuccess = true;
-                //    Vec2 pos = GetMapPositionByMouseOnMinimap();
-                //    mouseMapPos = new Vec3(pos.X, pos.Y, GridBasedNavigationSystem.Instances[0].GetMotionMapHeight(pos));
-                //}
 
                 if (pickingSuccess)
                 {
@@ -731,40 +761,6 @@ namespace Game
 
             if (GetRealCameraType() == CameraType.Game && !activeConsole)
             {
-                /*
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
-               {
-                    cameraDistance -= delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance < cameraDistanceRange[0])
-                      cameraDistance = cameraDistanceRange[0];
-                    UpdateCameraScrollBars();
-                }
-                if (EngineApp.Instance.IsKeyPressed(EKeys.PageDown))
-                {
-                    cameraDistance += delta * (cameraDistanceRange[1] - cameraDistanceRange[0]) / 10.0f;
-                    if (cameraDistance > cameraDistanceRange[1])
-                        cameraDistance = cameraDistanceRange[1];
-                    UpdateCameraScrollBars();
-                }
-
-                //alienCameraDirection
-                //ToDo Home und End-Taste verändern den Winkel der Kamera
-                if (EngineApp.Instance.IsKeyPressed(EKeys.Home))
-                {
-                    cameraDirection.Vertical += delta * (cameraAngleRange[1] - cameraAngleRange[0]) / 2;
-                    if (cameraDirection.Vertical >= cameraAngleRange[1])
-                        cameraDirection.Vertical = cameraAngleRange[1];
-                    UpdateCameraScrollBars();
-                }
-
-                if (EngineApp.Instance.IsKeyPressed(EKeys.End))
-                {
-                    cameraDirection.Vertical -= delta * (cameraAngleRange[1] - cameraAngleRange[0]) / 2;
-                    if (cameraDirection.Vertical < cameraAngleRange[0])
-                        cameraDirection.Vertical = cameraAngleRange[0];
-                    UpdateCameraScrollBars();
-                }
-            */
                 //if (todoRotate != 0)
                 //{
                 //    if (todoRotate > 0) {
@@ -891,13 +887,6 @@ namespace Game
                 GridBasedNavigationSystem.Instances[0].AlwaysDrawGrid = mapDrawPathMotionMap;
 
             UpdateHUD();
-
-            //TODO: Spawner verstecken. Das sollte bei den Astronauten rein
-            //IEnumerable<AlienSpawner> spawnerList = Map.Instance.SceneGraphObjects.OfType<AlienSpawner>();
-            //foreach (AlienSpawner spawner in spawnerList)
-            //{
-            //    spawner.Visible = false;
-            //}
         }
 
         void UpdateHUD()
@@ -1141,31 +1130,31 @@ namespace Game
 
         void InitControlPanelButtons()
         {
-            Button button;
+            //Button button;
             // ControlPanelButtons vorbereiten mit Click-Event-Funktionen
-            for (int n = 0; ; n++)
-            {
-                button = (Button)hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
-                if (button == null)
-                    break;
-                button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
-            }
+            //for (int n = 0; ; n++)
+            //{
+            //    button = (Button)hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
+            //    if (button == null)
+            //        break;
+            //    button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
+            //}
 
             // AlienNumPad
-            numPad = hudControl.Controls["NumPad"].Controls["NumPadControl"];
-            if (numPad != null)
-            {
-                for (int i = 0; i <= 9; i++)
-                {
-                    button = (Button)numPad.Controls["num_" + i.ToString()];
-                    if (button != null)
-                    {
-                        button.Click += new Button.ClickDelegate(NumPadButton_Click);
-                    }
-                }
-                button = (Button)numPad.Controls["Clear"];
-                button.Click += new Button.ClickDelegate(NumPadClear_Click);
-            }
+            numPad = hudControl.Controls["NumPad"];
+            //if (numPad != null)
+            //{
+            //    for (int i = 0; i <= 9; i++)
+            //    {
+            //        button = (Button)numPad.Controls["num_" + i.ToString()];
+            //        if (button != null)
+            //        {
+            //            button.Click += NumPadButton_Click;
+            //        }
+            //    }
+            //    button = (Button)numPad.Controls["Clear"];
+            //    button.Click += NumPadClear_Click;
+            //}
         }
 
         void NumPadClear_Click(Button sender)
@@ -1176,7 +1165,7 @@ namespace Game
 
         void NumPadButton_Click(Button sender)
         {
-            EngineConsole.Instance.Print("click" + sender.Text + " " + sender.Name);
+            Console.WriteLine("click " + sender.Text + " " + sender.Name + " Text: " + numPad.Controls["Output"].Text);
             if (numPad.Controls["Output"].Text.Length < 2)
             {
                 numPad.Controls["Output"].Text += "" + sender.Text;
@@ -1633,11 +1622,11 @@ namespace Game
             // Asymmetrisches Frustum
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
-            Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
-            adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
+            //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
+            //adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
 
             // Headtracking position addieren
-            position += headtrackingOffset / 100;
+            //position += headtrackingOffset / 100;
         }
 
         // Brauchen wir das??
@@ -1661,9 +1650,6 @@ namespace Game
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////
         //////////////////////////////////////////////////////////////////
-        //Sector selectedSector;
-        //string lastSelectedSector;
-
         /// <summary>
         /// BigMinimap öffnen
         /// </summary>
@@ -1680,6 +1666,8 @@ namespace Game
             {
                 hudControl.Controls["BigMinimap"].Visible = true;
             }
+
+            //Control.Add(new BigMinimapWindow());
         }
 
         /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
@@ -1688,60 +1676,8 @@ namespace Game
         /// <param name="button"></param>
         public void BigMinimapClick(Control sender, EMouseButtons button)
         {
-            EngineConsole.Instance.Print("aienwindow bigminimapclick");
             bigMinimapObj.BigMinimapClick(MousePosition);
-            //Control bigMinimap = hudControl.Controls["BigMinimap"];
-            //// hier
-            //Vec2 pos = GetMapPositionByMouseOnMinimap();
-            //Rect rect = new Rect(pos);
-            //Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
-            //// Sector finden
-            //Map.Instance.GetObjects(sphere, delegate(MapObject obj)
-            //{
-            //    if (obj is Sector)
-            //    {
-            //        selectedSector = (Sector)obj;
-            //        EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
-
-            //        if (lastSelectedSector != null)
-            //            ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
-            //        lastSelectedSector = selectedSector.Name;
-
-            //        ((SectorStatusWindow)bigMinimap.Controls["BigMinimap"]).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
-            //    }
-            //});
         }
-
-        ///// <summary>
-        ///// Gets the position in Map by Mouse Position in BigMinimap. So that we can get the sector.
-        ///// </summary>
-        ///// <returns></returns>
-        //Vec2 GetMapPositionByMouseOnMinimap()
-        //{
-        //    Control bigMinimap = hudControl.Controls["BigMinimap"];
-        //    Rect screenMapRect = bigMinimap.Controls["BigMinimap"].GetScreenRectangle();
-
-        //    Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-
-        //    // Die Vektoren für das Rechteck
-        //    Vec2 vec1 = initialBounds.Minimum.ToVec2();
-        //    Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
-
-        //    // 10% vergrößern
-        //    vec1 = new Vec2(vec1.X * 1.1f, vec1.Y * 1.1f);
-        //    vec2 = new Vec2(vec2.X * 1.1f, vec2.Y * 1.1f);
-
-        //    Rect mapRect = new Rect(vec1, vec2);
-
-        //    Vec2 point = MousePosition;
-        //    point -= screenMapRect.Minimum;
-        //    point /= screenMapRect.Size;
-        //    point = new Vec2(point.X, 1.0f - point.Y);
-        //    point *= mapRect.Size;
-        //    point += mapRect.Minimum;
-
-        //    return point;
-        //}
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////
         //////////////////////////////////////////////////////////////////

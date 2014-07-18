@@ -321,18 +321,6 @@ control Control
 			text = Help
 		}
 	}
-	control Control
-	{
-		position = ScaleByResolution -14 580
-		horizontalAlign = Right
-		size = Parent 0.234375 0.2390625
-		name = NumPad
-		control "GUI\\AlienNumPad.gui"
-		{
-			size = Parent 1 1
-			name = NumPadControl
-		}
-	}
 	control "GUI\\Tasks\\Server_SchereSteinPapier.gui"
 	{
 		position = ScaleByResolution 190 110
@@ -347,7 +335,7 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 590 580
+		position = Parent 0.63 0.76
 		size = Parent 0.35 0.2
 		name = ControlPanelControl
 		control "GUI\\Controls\\DefaultButton.gui"
@@ -398,5 +386,11 @@ control Control
 			name = ControlPanelButton5
 			text = 5
 		}
+	}
+	control "GUI\\AlienNumPad.gui"
+	{
+		position = Parent 0.83 0.77
+		size = Parent 0.13 0.2
+		name = NumPad
 	}
 }
