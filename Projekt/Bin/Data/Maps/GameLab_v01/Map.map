@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -1.598269 -110.8139 6.694313
-editorCameraDirection = 4.453812 -0.5404524
+editorCameraPosition = 52.46777 6.80632 17.60096
+editorCameraDirection = 1.28978 -0.8654833
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1703,17 +1703,187 @@ entity
 }
 entity
 {
-	type = DoppelwandOhneBoden
-	uin = 124
-	classPrompt = MapObject
-	position = -28.92551 -121.034 1.115907
-	name = DoppelwandOhneBoden_1
+	type = DoppelWandOhneBodenFinal
+	uin = 125
+	classPrompt = StaticObject
+	position = 18.33237 -120.3933 0
+	name = DoppelWandOhneBodenFinal_0
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 165
+	uin = 166
 	classPrompt = StaticObject
-	position = -2.196975 -119.3238 0
-	name = DoppelWandOhneBodenFinal_0
+	position = 9.329703 -98.81692 0
+	name = DoppelWandOhneBodenFinal_1
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 167
+	classPrompt = StaticObject
+	position = -8.979295 -120.4469 0
+	name = DoppelWandOhneBodenFinal_2
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 168
+	classPrompt = StaticObject
+	position = 29.3796 -17.61872 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_3
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 169
+	classPrompt = StaticObject
+	position = 41.3242 -17.61872 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_4
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 170
+	classPrompt = StaticObject
+	position = 50.25124 -14.60116 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_5
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 171
+	classPrompt = StaticObject
+	position = 38.55002 -14.79346 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_6
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 172
+	classPrompt = StaticObject
+	position = 29.54254 -10.36501 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_7
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 173
+	classPrompt = StaticObject
+	position = 39.42313 -10.36501 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_8
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 174
+	classPrompt = StaticObject
+	position = 50.45958 -5.451076 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_9
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 175
+	classPrompt = StaticObject
+	position = 29.69028 -5.761032 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_10
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 176
+	classPrompt = StaticObject
+	position = 29.69028 -0.7037907 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_11
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 177
+	classPrompt = StaticObject
+	position = 41.36733 -0.7037907 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_12
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 178
+	classPrompt = StaticObject
+	position = 50.56729 4.436922 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_13
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 179
+	classPrompt = StaticObject
+	position = 38.69403 4.191422 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_14
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 180
+	classPrompt = StaticObject
+	position = 29.69901 7.736409 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_15
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 181
+	classPrompt = StaticObject
+	position = 41.36215 7.736409 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_16
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 182
+	classPrompt = StaticObject
+	position = 50.7007 11.95827 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_17
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 183
+	classPrompt = StaticObject
+	position = 39.13425 11.95827 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_18
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 184
+	classPrompt = StaticObject
+	position = 29.65712 17.03218 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_19
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 124
+	classPrompt = StaticObject
+	position = 50.73414 17.03218 0
+	rotation = 0 0 0.7099334 0.7042688
+	name = DoppelWandOhneBodenFinal_20
 }
