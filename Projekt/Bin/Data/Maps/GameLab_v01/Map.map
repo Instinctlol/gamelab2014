@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 12.05262 -99.50924 -0.1380125
-editorCameraDirection = 5.097421 -0.02482814
+editorCameraPosition = -1.598269 -110.8139 6.694313
+editorCameraDirection = 4.453812 -0.5404524
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1706,22 +1706,14 @@ entity
 	type = DoppelwandOhneBoden
 	uin = 124
 	classPrompt = MapObject
-	position = -19.38957 -120.7965 0.3097143
-	name = DoppelwandOhneBoden_0
-}
-entity
-{
-	type = DoppelwandOhneBoden
-	uin = 125
-	classPrompt = MapObject
 	position = -28.92551 -121.034 1.115907
 	name = DoppelwandOhneBoden_1
 }
 entity
 {
-	type = DoppelwandOhneBoden
-	uin = 166
-	classPrompt = MapObject
-	position = 12.23011 -119.9137 0
-	name = DoppelwandOhneBoden_2
+	type = DoppelWandOhneBodenFinal
+	uin = 165
+	classPrompt = StaticObject
+	position = -2.196975 -119.3238 0
+	name = DoppelWandOhneBodenFinal_0
 }

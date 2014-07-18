@@ -1,0 +1,20 @@
+type DoppelWandOhneBodenFinal
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
+			collision = True
+		}
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
+			collision = True
+			position = -2 0 0
+			rotation = 0 0 -0.9999863 0.005241929
+		}
+	}
+}
