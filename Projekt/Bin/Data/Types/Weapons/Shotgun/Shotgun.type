@@ -2,6 +2,7 @@ type Shotgun
 {
 	class = Gun
 	reloadTime = 1.5
+	soundEmpty = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
 	characterBoneSlot = gunHolderThirdPersonCamera_Shotgun
 	characterBoneSlotFirstPersonCamera = gunHolderFirstPersonCamera_Shotgun
 	fpsCameraAttachPosition = 0.3 -0.2 -0.3

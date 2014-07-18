@@ -1,23 +1,24 @@
 type Brechstange
 {
 	class = MeleeWeapon
-	characterBoneSlot = hand
-	fpsCameraAttachPosition = 0.4 -0.2 -0.3
+	characterBoneSlot = hammerHolderFPS
+	characterBoneSlotFirstPersonCamera = hammerHolderFPS
+	fpsCameraAttachPosition = 0.3 -0.2 -0.3
+	soundCollision = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
 	networkType = Synchronized
 	normalMode
 	{
 		damage = 20
 		impulse = 35000
 		kickCheckRadius = 1
-		soundKick = "Types\\Units\\Zombie\\Kick.ogg"
-		betweenFireTime = 0.6
-		soundFire = "Types\\Units\\Zombie\\Blow.ogg"
-		useDistanceRange = 0 2
+		betweenFireTime = 0.1
+		useDistanceRange = 0 1
 		fireTimes = 0.4
-		fireAnimationTrigger = blow
+		fireAnimationTrigger = fire
 	}
 	alternativeMode
 	{
+		soundFire = "Sounds\\hammer.ogg"
 		fireTimes = 
 		fireAnimationTrigger = fire
 	}
@@ -27,9 +28,8 @@ type Brechstange
 		{
 			meshName = ".\\brechstange.mesh"
 			castDynamicShadows = True
-			boneSlot = hand
-			position = 0 0 -0.1641405
-			scale = 0.2836397 0.2836397 0.2836397
+			alias = fpsCamera
+			position = 0 0 -0.01659083
 		}
 	}
 }
