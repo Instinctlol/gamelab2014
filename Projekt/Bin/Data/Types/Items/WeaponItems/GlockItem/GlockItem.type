@@ -13,7 +13,6 @@ type GlockItem
 		{
 			meshName = "Types\\Weapons\\Glock\\Glock.mesh"
 			castDynamicShadows = True
-			scale = 0.1272333 0.1272333 0.1272333
 		}
 		particle
 		{
