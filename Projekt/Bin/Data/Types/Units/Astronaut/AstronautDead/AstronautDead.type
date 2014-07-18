@@ -12,7 +12,6 @@ type AstronautDead
 			meshName = "Types\\Units\\Astronaut\\Astronaut.mesh"
 			castDynamicShadows = True
 			rotation = 0 0 -1 -4.371139E-08
-			scale = 0.02 0.02 0.02
 		}
 	}
 }

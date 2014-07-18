@@ -1,65 +1,335 @@
 blocks
 {
+
 	block Parameter
 	{
-		uin = 1
-		parameterName = "move"
+		uin = 1001
+		parameterName = "weapon"
 		value = 0
 	}
 
 	block Parameter
 	{
-		uin = 2
+		uin = 10011
+		parameterName = "weapon_Pistol"
+		value = 0
+	}
+	block Parameter
+	{
+		uin = 10012
+		parameterName = "weapon_Brechstange"
+		value = 0
+	}
+
+	block Parameter
+	{
+		uin = 5
 		parameterName = "run"
 		value = 0
 	}
 
 	block Parameter
 	{
-		uin = 3
-		parameterName = "moveSpeed"
-		//value = 1
+		uin = 401
+		parameterName = "move"
+		value = 0
 	}
 
 	block Parameter
 	{
-		uin = 4
-		parameterName = "moveSpeedFactor"
+		uin = 20
+		parameterName = "moveAngle"
+		value = 0
+	}
+
+	block Parameter
+	{
+		uin = 21
+		parameterName = "moveSpeed"
 		value = 1
 	}
 
+	
 	/////////////////////////////////////////////
-
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
 	block Output
 	{
-		uin = 100
-		in = 101
+		uin = 1
+		in = 1000
 	}
 	
 	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	
 
 	block Transition
 	{
+		uin = 1000
+	
+		selectedIndexSource = 1001
+		animation0 = 101 // weapon off
+		animation1 = 2000 // weapon on
+	}
+
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	
+
+	//Weapon off
+
+	/////////////////////////////////////////////
+	//Jump trigger
+
+	block Trigger
+	{
 		uin = 101
-		animation0 = 102 // idle animation
-		animation1 = 103 // walk animation
-		selectedIndexSource = 1
-		transitionTime = 0.5
+		triggerName = "jump"
+		off = 200
+		on = 100
+	}
+
+	block Animation
+	{
+		uin = 100
+		animationName = "jump"
+		speed = 1.0
+	}
+	
+	
+	block Transition
+	{
+		uin = 200
+	
+		selectedIndexSource = 5
+		animation0 = 3 // idle animation
+		animation1 = 310 // run animation
+	}
+	
+
+	/////////////////////////////////////////////
+	//run
+	
+	block Direction8Sides
+	{
+		uin = 310
+
+		angleSource = 20
+		speedMultiplierSource = 21
+
+		forward = 312
+		backward = 315
+		left = 312
+		right = 312
+		forwardLeft = 312
+		forwardRight = 312
+		backwardLeft = 315
+		backwardRight = 315
+	}
+
+
+	block Animation
+	{
+		uin = 312
+		animationName = "walk"
+		speed = 0.2
+	}
+
+	block Animation
+	{
+		uin = 315
+		animationName = "walk"
+		speed = -0.2
+	}
+
+
+	/////////////////////////////////////////////
+	//Idle
+
+	block Animation
+	{
+		uin = 3
+		animationName = "idle"
+		speed = 1
+	}
+	
+	//end Weapon off
+
+
+
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	/////////////////////////////////////////////
+	//Weapon on
+
+	
+	block Trigger
+	{
+		uin = 2000
+		triggerName = "jump"
+		off = 3200
+		on = 100
+	}
+
+	
+
+	/////////////////////////////////////////////
+	//Select run or idle for Pistol
+	block Transition
+	{
+		uin = 3200
+	
+		selectedIndexSource = 10011
+		animation0 = 3310 // default_animation
+		animation1 = 3003 // Pistol Animation
+	}
+
+	block Direction8Sides
+	{
+		uin = 3003
+
+		angleSource = 20
+		speedMultiplierSource = 21
+
+		forward = 3112
+		backward = 3115
+		left = 3112
+		right = 3112
+		forwardLeft = 3112
+		forwardRight = 3112
+		backwardLeft = 3115
+		backwardRight = 3115
+	}
+
+
+	block Animation
+	{
+		uin = 3112
+		animationName = "walking_pistol"
+		speed = 0.2
+	}
+
+	block Animation
+	{
+		uin = 3115
+		animationName = "walking_pistol"
+		speed = -0.2
+	}
+
+	//default Animation oder Brechstange animation 
+	
+	block Transition
+	{
+		uin = 3310
+	
+		selectedIndexSource = 10012
+		animation0 = 4200 // default_animation 
+		animation1 = 4110 // Brechstange animation
+	}
+	
+	block Trigger
+	{
+		uin = 4110
+		triggerName = "fire"
+		off = 4100
+		on = 4000
 	}
 	block Animation
 	{
-		uin = 102
+		uin = 4000
+		animationName = "metal_rod_hit"
+		speed = 1
+	}
+	
+
+
+	block Direction8Sides
+	{
+		uin = 4100
+
+		angleSource = 20
+		speedMultiplierSource = 21
+
+		forward = 4112
+		backward = 4115
+		left = 4112
+		right = 4112
+		forwardLeft = 4112
+		forwardRight = 4112
+		backwardLeft = 4115
+		backwardRight = 4115
+	}
+
+
+	block Animation
+	{
+		uin = 4112
+		animationName = "walk"
+		speed = 0.2
+	}
+
+	block Animation
+	{
+		uin = 4115
+		animationName = "walk"
+		speed = -0.2
+	}
+	
+
+	block Transition
+	{
+		uin = 4200
+	
+		selectedIndexSource = 5
+		animation0 = 5100 // Idel
+		animation1 = 5000 // walking
+	}
+	
+	block Direction8Sides
+	{
+		uin = 5000
+
+		angleSource = 20
+		speedMultiplierSource = 21
+
+		forward = 5112
+		backward = 5115
+		left = 5112
+		right = 5112
+		forwardLeft = 5112
+		forwardRight = 5112
+		backwardLeft = 5115
+		backwardRight = 5115
+	}
+
+
+	block Animation
+	{
+		uin = 5112
+		animationName = "walking_weapon"
+		speed = 0.2
+	}
+
+	block Animation
+	{
+		uin = 5115
+		animationName = "walking_weapon"
+		speed = -0.2
+	}
+	/////////////////////////////////////////////
+	//Idle
+
+	block Animation
+	{
+		uin = 5100
 		animationName = "idle_weapon"
 		speed = 1
 	}
-
-	block Animation
-	{
-		uin = 103
-		animationName = "walking_weapon"
-		speedSource = 4
-		//speed = 1
-	}
-
 	
 }
