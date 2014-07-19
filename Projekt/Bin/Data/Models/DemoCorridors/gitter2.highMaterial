@@ -1,7 +1,6 @@
 highLevelMaterial gitter2
 {
 	template = ShaderBaseMaterial
-	doubleSided = True
 	useNormals = False
 	alphaRejectFunction = GreaterEqual
 	alphaRejectValue = 70

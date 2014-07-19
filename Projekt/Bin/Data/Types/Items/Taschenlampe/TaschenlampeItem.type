@@ -7,7 +7,7 @@ type TaschenlampeItem
 		mesh
 		{
 			meshName = ".\\taschenlampe.mesh"
-			position = 0 0 0.0769673
+			position = 0.0009641051 0 0.1184229
 			scale = 0.6578947 0.6578947 0.6578947
 		}
 		particle

@@ -13,8 +13,8 @@ type DoppelWandOhneBodenFinal
 		{
 			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
 			collision = True
-			position = -2 0 0
-			rotation = 0 0 -0.9999863 0.005241929
+			position = -2.022494 0.02551568 0
+			rotation = 0 0 -1 -4.371139E-08
 		}
 	}
 }

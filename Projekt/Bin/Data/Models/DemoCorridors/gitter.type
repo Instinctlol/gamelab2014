@@ -1,0 +1,12 @@
+type gitter
+{
+	class = MapObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\gitter.mesh"
+			collision = True
+		}
+	}
+}

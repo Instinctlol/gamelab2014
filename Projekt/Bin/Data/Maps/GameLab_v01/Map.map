@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 104.8097 -36.70523 43.93052
-editorCameraDirection = 2.930337 -0.8517138
+editorCameraPosition = 72.91305 -34.99293 18.10349
+editorCameraDirection = 1.654431 -0.2565824
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -39,6 +39,18 @@ rootEditorLayer
 		layer
 		{
 			name = Dynamics
+		}
+		layer
+		{
+			name = Sporner
+		}
+		layer
+		{
+			name = Raueme
+		}
+		layer
+		{
+			name = Waende
 		}
 	}
 	layer
@@ -72,6 +84,32 @@ rootEditorLayer
 		{
 			name = Dynamics
 		}
+		layer
+		{
+			name = Raume
+			allowSelect = False
+		}
+		layer
+		{
+			name = Items
+		}
+		layer
+		{
+			name = Einrichtung
+		}
+		layer
+		{
+			name = Waende
+			allowSelect = False
+		}
+		layer
+		{
+			name = Sporner
+		}
+		layer
+		{
+			name = Terminal
+		}
 	}
 	layer
 	{
@@ -80,6 +118,42 @@ rootEditorLayer
 		{
 			name = Dynamics
 		}
+		layer
+		{
+			name = Einrichtung
+		}
+		layer
+		{
+			name = Items
+		}
+		layer
+		{
+			name = Waende
+		}
+		layer
+		{
+			name = Raume
+		}
+		layer
+		{
+			name = Leichen
+		}
+		layer
+		{
+			name = Terminal
+		}
+		layer
+		{
+			name = Sporner
+		}
+	}
+	layer
+	{
+		name = Layer 1
+	}
+	layer
+	{
+		name = Endkampf
 	}
 }
 entity
@@ -161,6 +235,35 @@ entity
 				isEntityEventMethod = True
 			}
 		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 300
+			subscriptionsToDeletionEvent = 292 314 333
+			entityClassName = Terminal
+			className = Terminal_Door1
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 301
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
+				methodName = TerminalRotateLeftAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 302
+				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateRight();"
+				methodName = TerminalRotateRightAction
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
 	}
 }
 entity
@@ -189,7 +292,7 @@ entity
 	classPrompt = Room
 	position = -34 0 0
 	name = F3R3
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -199,7 +302,7 @@ entity
 	position = 0 47 0
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F3R2
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -209,7 +312,7 @@ entity
 	position = 0 -47 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = F3R4
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -219,7 +322,7 @@ entity
 	position = 34 0 0
 	rotation = 0 0 -1 -4.371139E-08
 	name = F3R1
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -329,7 +432,7 @@ entity
 	classPrompt = Room
 	position = 82 0 0
 	name = F2R8
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -339,7 +442,7 @@ entity
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
 	name = F2R4
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -349,7 +452,7 @@ entity
 	position = 47.72524 48.80709 0
 	rotation = 0 0 -0.9238795 0.3826834
 	name = F2R1
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -360,7 +463,7 @@ entity
 	rotation = 0 0 -0.2739582 -0.9617418
 	scale = 0.6 0.6369697 1
 	name = F2C81
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -370,7 +473,7 @@ entity
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = F2R2
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -381,7 +484,7 @@ entity
 	rotation = 0 0 -0.5425553 -0.8400202
 	scale = 0.6 0.5736617 1
 	name = F2C12
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -390,6 +493,7 @@ entity
 	classPrompt = Room
 	position = 500 0 0
 	name = Endkampf-Room
+	editorLayer = "Root Layer\\Endkampf"
 }
 entity
 {
@@ -399,7 +503,7 @@ entity
 	position = -56.22261 -57.11971 0
 	rotation = 0 0 -0.9238795 0.3826834
 	name = F2R5
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -410,7 +514,7 @@ entity
 	rotation = 0 0 -0.9563128 0.2923453
 	scale = 0.6 0.6468202 1
 	name = F2C45
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -420,7 +524,7 @@ entity
 	position = -47.54507 48.79118 0
 	rotation = 0 0 -0.3826834 0.9238795
 	name = F2R3
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -431,7 +535,7 @@ entity
 	rotation = 0 0 -0.8695799 -0.4937924
 	scale = 0.6 0.5679622 1
 	name = F2C23
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -441,7 +545,7 @@ entity
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = F2R6
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -452,7 +556,7 @@ entity
 	rotation = 0 0 -0.8557401 0.517406
 	scale = 0.625 0.5702489 1
 	name = F2C56
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -462,7 +566,7 @@ entity
 	position = 56.75548 -57.5299 0
 	rotation = 0 0 -0.3826834 0.9238795
 	name = F2R7
-	editorLayer = "Root Layer\\F2"
+	editorLayer = "Root Layer\\F2\\Raume"
 }
 entity
 {
@@ -472,7 +576,7 @@ entity
 	position = -6.467893 104.5 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = F1R2
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -482,7 +586,7 @@ entity
 	position = -85.11515 -77.92515 0
 	rotation = 0 0 -0.9238795 0.3826834
 	name = F1R5
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -492,7 +596,7 @@ entity
 	position = 70.96076 -77.96041 0
 	rotation = 0 0 -0.9238796 -0.3826834
 	name = F1R7
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -502,7 +606,7 @@ entity
 	position = -116.4543 -5.95177 0
 	rotation = 0 0 -1 1.216796E-08
 	name = F1R4
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -513,7 +617,7 @@ entity
 	rotation = 0 0 -0.975753 0.2188754
 	scale = 0.625 1.033194 1
 	name = F1C45
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -523,7 +627,7 @@ entity
 	position = 78.85506 86.56708 0
 	rotation = 0 0 -0.3826835 -0.9238795
 	name = F1R1
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -534,7 +638,7 @@ entity
 	rotation = -0.0003997276 -0.0006686034 0.5660875 0.824345
 	scale = 0.6 1.049011 1
 	name = F1C12
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -544,7 +648,7 @@ entity
 	position = -6.280982 -115.8718 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = F1R6
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -555,7 +659,7 @@ entity
 	rotation = 0 0 -0.8291815 0.5589795
 	scale = 0.7 0.9847743 1
 	name = F1C56
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -566,7 +670,7 @@ entity
 	rotation = 0 0 -0.5676035 0.8233024
 	scale = 0.6 1.04482 1
 	name = F1C67
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -576,7 +680,7 @@ entity
 	position = -77.90519 87.95537 0
 	rotation = 0 0 -0.9238796 -0.3826834
 	name = F1R3
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -587,7 +691,7 @@ entity
 	rotation = 0 0 0.8274676 0.5615137
 	scale = 0.6 0.968473 1
 	name = F1C23
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -596,7 +700,7 @@ entity
 	classPrompt = Room
 	position = 117.2715 -6.203758 0
 	name = F1R8
-	editorLayer = "Root Layer\\F1"
+	editorLayer = "Root Layer\\F1\\Raume"
 }
 entity
 {
@@ -1122,20 +1226,6 @@ entity
 }
 entity
 {
-	type = AlienSpawner
-	uin = 81
-	classPrompt = AlienSpawner
-	aiType = AlienAI
-	sector = 57
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienSpawnerAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -37.48523 -60.38409 2.364102
-	name = AlienSpawner_0
-}
-entity
-{
 	type = GridBasedNavigationSystem
 	uin = 82
 	classPrompt = GridBasedNavigationSystem
@@ -1344,7 +1434,7 @@ entity
 	rotation = -0.0006641686 -0.001620354 0.9330865 0.3596482
 	scale = 0.6 0.9394693 1
 	name = F3C23
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -1373,7 +1463,7 @@ entity
 	rotation = 0 0 -0.3688734 0.9294797
 	scale = 0.6 0.9055075 1
 	name = F3C14
-	editorLayer = "Root Layer\\F3"
+	editorLayer = "Root Layer\\F3\\Raueme"
 }
 entity
 {
@@ -1408,32 +1498,6 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 101
-	classPrompt = AlienSpawner
-	sector = 19
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienSpawnerAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = 50.68651 -11.85533 0.5730705
-	name = AlienSpawner_1
-}
-entity
-{
-	type = AlienSpawner
-	uin = 102
-	classPrompt = AlienSpawner
-	sector = 20
-	intellectShouldDeleteAfterDetach = False
-	initialAI = AlienSpawnerAI
-	initialFaction = BadFaction
-	healthFactorAtBeginning = 1
-	position = -30.3451 -11.85533 0.5730705
-	name = AlienSpawner_2
-}
-entity
-{
-	type = AlienSpawner
 	uin = 103
 	classPrompt = AlienSpawner
 	sector = 51
@@ -1443,6 +1507,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = 84.91873 -11.85533 0.5730705
 	name = AlienSpawner_3
+	editorLayer = "Root Layer\\F2\\Sporner"
 }
 entity
 {
@@ -1469,6 +1534,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = 18.57857 121.6267 0.5730705
 	name = AlienSpawner_5
+	editorLayer = "Root Layer\\F1\\Sporner"
 }
 entity
 {
@@ -1482,6 +1548,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = -100.755 18.79956 0.5730705
 	name = AlienSpawner_6
+	editorLayer = "Root Layer\\F1\\Sporner"
 }
 entity
 {
@@ -1493,8 +1560,9 @@ entity
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
-	position = 14.77913 87.7559 2.386972
+	position = 14.82086 87.7559 0.4604104
 	name = AlienSpawner_7
+	editorLayer = "Root Layer\\F2\\Sporner"
 }
 entity
 {
@@ -1708,6 +1776,7 @@ entity
 	classPrompt = StaticObject
 	position = 18.33237 -120.3933 0
 	name = DoppelWandOhneBodenFinal_0
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1716,6 +1785,7 @@ entity
 	classPrompt = StaticObject
 	position = 9.329703 -98.81692 0
 	name = DoppelWandOhneBodenFinal_1
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1724,6 +1794,7 @@ entity
 	classPrompt = StaticObject
 	position = -8.979295 -120.4469 0
 	name = DoppelWandOhneBodenFinal_2
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1733,6 +1804,7 @@ entity
 	position = 29.3796 -17.61872 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_3
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1742,6 +1814,7 @@ entity
 	position = 41.3242 -17.61872 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_4
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1751,6 +1824,7 @@ entity
 	position = 50.25124 -14.60116 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_5
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1760,6 +1834,7 @@ entity
 	position = 38.55002 -14.79346 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_6
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1769,6 +1844,7 @@ entity
 	position = 29.54254 -10.36501 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_7
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1778,6 +1854,7 @@ entity
 	position = 39.42313 -10.36501 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_8
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1787,6 +1864,7 @@ entity
 	position = 50.45958 -5.451076 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_9
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1796,6 +1874,7 @@ entity
 	position = 29.69028 -5.761032 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_10
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1805,6 +1884,7 @@ entity
 	position = 29.69028 -0.7037907 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_11
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1814,6 +1894,7 @@ entity
 	position = 41.36733 -0.7037907 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_12
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1823,6 +1904,7 @@ entity
 	position = 50.56729 4.436922 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_13
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1832,6 +1914,7 @@ entity
 	position = 38.69403 4.191422 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_14
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1841,6 +1924,7 @@ entity
 	position = 29.69901 7.736409 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_15
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1850,6 +1934,7 @@ entity
 	position = 41.36215 7.736409 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_16
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1859,6 +1944,7 @@ entity
 	position = 50.7007 11.95827 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_17
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1868,6 +1954,7 @@ entity
 	position = 39.13425 11.95827 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_18
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1877,6 +1964,7 @@ entity
 	position = 29.65712 17.03218 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_19
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1886,6 +1974,7 @@ entity
 	position = 50.73414 17.03218 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_20
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -1894,6 +1983,7 @@ entity
 	classPrompt = StaticObject
 	position = 18.33237 -108.7202 0
 	name = DoppelWandOhneBodenFinal_21
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1902,6 +1992,7 @@ entity
 	classPrompt = StaticObject
 	position = 9.329703 -110.8042 0
 	name = DoppelWandOhneBodenFinal_22
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1910,6 +2001,7 @@ entity
 	classPrompt = StaticObject
 	position = -8.979295 -109.1871 0
 	name = DoppelWandOhneBodenFinal_23
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1919,6 +2011,7 @@ entity
 	position = -75.80009 -93.71338 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_24
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1928,6 +2021,7 @@ entity
 	position = -67.82227 -85.70976 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_25
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1937,6 +2031,7 @@ entity
 	position = -99.77061 -13.02662 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_26
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1946,6 +2041,7 @@ entity
 	position = -120.8991 -13.02662 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_27
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1955,6 +2051,7 @@ entity
 	position = -99.80917 10.9988 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_28
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1964,6 +2061,7 @@ entity
 	position = -111.5669 11.15181 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_29
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -1973,6 +2071,7 @@ entity
 	position = -86.505 4.344956 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_30
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -1982,6 +2081,7 @@ entity
 	position = -74.53034 4.229053 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_31
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -1991,6 +2091,7 @@ entity
 	position = -65.4338 -7.291977 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_32
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2000,6 +2101,7 @@ entity
 	position = -77.33529 -7.103328 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_33
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2009,6 +2111,7 @@ entity
 	position = -50.46114 -7.291977 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_34
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2018,6 +2121,7 @@ entity
 	position = -45.12346 -11.94425 0
 	rotation = 0 0 -0.9998785 -0.01559926
 	name = DoppelWandOhneBodenFinal_35
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2027,6 +2131,7 @@ entity
 	position = 70.89135 -10.27305 0
 	rotation = 0 0 -0.9998785 -0.01559926
 	name = DoppelWandOhneBodenFinal_36
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2036,6 +2141,7 @@ entity
 	position = 65.55367 -5.620771 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_37
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2045,6 +2151,7 @@ entity
 	position = -35.06163 11.08505 0
 	rotation = 0 0 -0.01581357 0.9998751
 	name = DoppelWandOhneBodenFinal_38
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2054,6 +2161,7 @@ entity
 	position = -29.72594 6.430483 0
 	rotation = 0 0 0.6986028 0.7155098
 	name = DoppelWandOhneBodenFinal_39
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2063,6 +2171,7 @@ entity
 	position = 86.5907 8.234824 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_40
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2072,6 +2181,7 @@ entity
 	position = 74.92196 8.39634 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_41
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2081,6 +2191,7 @@ entity
 	position = 121.3284 12.03355 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_42
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2090,6 +2201,7 @@ entity
 	position = 100.5281 -13.71832 0
 	rotation = 0 0 -0.71536 0.6987562
 	name = DoppelWandOhneBodenFinal_43
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2099,6 +2211,7 @@ entity
 	position = 116.2988 7.622689 0
 	rotation = 0 0 -0.0100827 0.9999493
 	name = DoppelWandOhneBodenFinal_44
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2108,6 +2221,7 @@ entity
 	position = 116.2988 -3.528219 0
 	rotation = 0 0 -0.0100827 0.9999493
 	name = DoppelWandOhneBodenFinal_45
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2115,8 +2229,9 @@ entity
 	uin = 170
 	classPrompt = StaticObject
 	position = 107.083 -7.371398 0
-	rotation = 0 0 -0.0100827 0.9999493
+	rotation = 0 0 -0.001066481 0.9999995
 	name = DoppelWandOhneBodenFinal_46
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2124,8 +2239,9 @@ entity
 	uin = 171
 	classPrompt = StaticObject
 	position = 107.083 4.383042 0
-	rotation = 0 0 -0.0100827 0.9999493
+	rotation = 0 0 -0.00597828 0.9999822
 	name = DoppelWandOhneBodenFinal_47
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2134,6 +2250,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.356504 -64.94912 0
 	name = DoppelWandOhneBodenFinal_48
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2142,6 +2259,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.356504 -76.2089 0
 	name = DoppelWandOhneBodenFinal_49
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2150,6 +2268,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.011282 -75.24268 0
 	name = DoppelWandOhneBodenFinal_50
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2158,6 +2277,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.011282 -86.50246 0
 	name = DoppelWandOhneBodenFinal_51
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2166,6 +2286,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.276335 -29.79623 0
 	name = DoppelWandOhneBodenFinal_52
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2174,6 +2295,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.276335 -41.05601 0
 	name = DoppelWandOhneBodenFinal_53
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2182,6 +2304,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.098894 -40.19081 0
 	name = DoppelWandOhneBodenFinal_54
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2190,6 +2313,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.098894 -51.4506 0
 	name = DoppelWandOhneBodenFinal_55
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2198,6 +2322,7 @@ entity
 	classPrompt = StaticObject
 	position = -4.939385 41.67094 0
 	name = DoppelWandOhneBodenFinal_56
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2206,6 +2331,7 @@ entity
 	classPrompt = StaticObject
 	position = -4.939385 30.41116 0
 	name = DoppelWandOhneBodenFinal_57
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2214,6 +2340,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.875213 51.40403 0
 	name = DoppelWandOhneBodenFinal_58
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2222,6 +2349,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.875213 40.14425 0
 	name = DoppelWandOhneBodenFinal_59
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -2230,6 +2358,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.202284 76.89806 0
 	name = DoppelWandOhneBodenFinal_60
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2238,6 +2367,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.202284 65.63828 0
 	name = DoppelWandOhneBodenFinal_61
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2246,6 +2376,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.468502 86.69763 0
 	name = DoppelWandOhneBodenFinal_62
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2254,6 +2385,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.468502 75.43785 0
 	name = DoppelWandOhneBodenFinal_63
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -2262,6 +2394,7 @@ entity
 	classPrompt = StaticObject
 	position = -12.47377 111.0039 0
 	name = DoppelWandOhneBodenFinal_64
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2270,6 +2403,7 @@ entity
 	classPrompt = StaticObject
 	position = -12.47377 99.74412 0
 	name = DoppelWandOhneBodenFinal_65
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2278,6 +2412,7 @@ entity
 	classPrompt = StaticObject
 	position = 11.60812 99.88652 0
 	name = DoppelWandOhneBodenFinal_66
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2286,6 +2421,7 @@ entity
 	classPrompt = StaticObject
 	position = 11.60812 121.3914 0
 	name = DoppelWandOhneBodenFinal_67
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2295,6 +2431,7 @@ entity
 	position = -77.55889 -61.83807 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_68
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -2304,274 +2441,911 @@ entity
 	position = -85.53671 -69.84169 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_69
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 194
 	classPrompt = StaticObject
-	position = -49.29823 -40.70616 0
+	position = -57.27605 -48.70978 0
 	rotation = 0 0 -0.3883735 0.9215021
-	name = DoppelWandOhneBodenFinal_70
+	name = DoppelWandOhneBodenFinal_71
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 195
 	classPrompt = StaticObject
-	position = -57.27605 -48.70978 0
+	position = -53.57549 -66.05229 0
 	rotation = 0 0 -0.3883735 0.9215021
-	name = DoppelWandOhneBodenFinal_71
+	name = DoppelWandOhneBodenFinal_72
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 196
 	classPrompt = StaticObject
-	position = -53.57549 -66.05229 0
+	position = -38.6909 -50.90552 0
 	rotation = 0 0 -0.3883735 0.9215021
-	name = DoppelWandOhneBodenFinal_72
+	name = DoppelWandOhneBodenFinal_73
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 197
 	classPrompt = StaticObject
-	position = -38.6909 -50.90552 0
-	rotation = 0 0 -0.3883735 0.9215021
-	name = DoppelWandOhneBodenFinal_73
+	position = -62.77613 96.788 0
+	rotation = 0 0 0.7889353 0.6144763
+	name = DoppelWandOhneBodenFinal_74
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 198
 	classPrompt = StaticObject
-	position = -62.77613 96.788 0
+	position = -74.13114 93.79574 0
 	rotation = 0 0 0.7889353 0.6144763
-	name = DoppelWandOhneBodenFinal_74
+	name = DoppelWandOhneBodenFinal_75
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 199
 	classPrompt = StaticObject
-	position = -74.13114 93.79574 0
-	rotation = 0 0 0.7889353 0.6144763
-	name = DoppelWandOhneBodenFinal_75
+	position = -93.92104 64.07745 0
+	rotation = 0 0 -0.3861697 0.9224278
+	name = DoppelWandOhneBodenFinal_76
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 200
 	classPrompt = StaticObject
-	position = -93.92104 64.07745 0
+	position = -85.53457 72.36806 0
 	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_76
+	name = DoppelWandOhneBodenFinal_77
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 201
 	classPrompt = StaticObject
-	position = -85.53457 72.36806 0
+	position = -77.28844 80.5809 0
 	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_77
+	name = DoppelWandOhneBodenFinal_78
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 202
 	classPrompt = StaticObject
-	position = -77.28844 80.5809 0
+	position = -51.23117 52.51439 0
 	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_78
+	name = DoppelWandOhneBodenFinal_79
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 203
 	classPrompt = StaticObject
-	position = -51.23117 52.51439 0
+	position = -42.98503 60.72723 0
 	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_79
+	name = DoppelWandOhneBodenFinal_80
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 204
 	classPrompt = StaticObject
-	position = -42.98503 60.72723 0
+	position = -59.61764 44.22379 0
 	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_80
+	name = DoppelWandOhneBodenFinal_81
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 205
 	classPrompt = StaticObject
-	position = -59.61764 44.22379 0
-	rotation = 0 0 -0.3861697 0.9224278
-	name = DoppelWandOhneBodenFinal_81
+	position = 49.42305 -41.44562 0
+	rotation = 0 0 0.3840269 0.9233219
+	name = DoppelWandOhneBodenFinal_82
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 206
 	classPrompt = StaticObject
-	position = 49.42305 -41.44562 0
+	position = 57.78271 -49.84201 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_82
+	name = DoppelWandOhneBodenFinal_83
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 207
 	classPrompt = StaticObject
-	position = 57.78271 -49.84201 0
+	position = 56.84018 -64.00275 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_83
+	name = DoppelWandOhneBodenFinal_84
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 208
 	classPrompt = StaticObject
-	position = 56.84018 -64.00275 0
+	position = 48.79535 -56.04842 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_84
+	name = DoppelWandOhneBodenFinal_85
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 209
 	classPrompt = StaticObject
-	position = 48.79535 -56.04842 0
+	position = 87.70425 -68.33926 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_85
+	name = DoppelWandOhneBodenFinal_86
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 210
 	classPrompt = StaticObject
-	position = 87.70425 -68.33926 0
+	position = 95.74908 -76.29358 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_86
+	name = DoppelWandOhneBodenFinal_87
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 211
 	classPrompt = StaticObject
-	position = 95.74908 -76.29358 0
+	position = 72.31583 -69.99042 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_87
+	name = DoppelWandOhneBodenFinal_88
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 212
 	classPrompt = StaticObject
-	position = 72.31583 -69.99042 0
+	position = 80.36065 -77.94474 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_88
+	name = DoppelWandOhneBodenFinal_89
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 213
 	classPrompt = StaticObject
-	position = 80.36065 -77.94474 0
+	position = 71.2187 -85.41177 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_89
+	name = DoppelWandOhneBodenFinal_90
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 214
 	classPrompt = StaticObject
-	position = 71.2187 -85.41177 0
+	position = 79.26353 -93.3661 0
 	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_90
+	name = DoppelWandOhneBodenFinal_91
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 215
 	classPrompt = StaticObject
-	position = 79.26353 -93.3661 0
-	rotation = 0 0 0.3840269 0.9233219
-	name = DoppelWandOhneBodenFinal_91
+	position = 94.63821 63.51005 0
+	rotation = 0 0 0.3708005 0.9287125
+	name = DoppelWandOhneBodenFinal_92
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 216
 	classPrompt = StaticObject
-	position = 94.63821 63.51005 0
+	position = 86.4886 72.05996 0
 	rotation = 0 0 0.3708005 0.9287125
-	name = DoppelWandOhneBodenFinal_92
+	name = DoppelWandOhneBodenFinal_93
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 217
 	classPrompt = StaticObject
-	position = 86.4886 72.05996 0
+	position = 78.40713 80.25066 0
 	rotation = 0 0 0.3708005 0.9287125
-	name = DoppelWandOhneBodenFinal_93
+	name = DoppelWandOhneBodenFinal_94
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 218
 	classPrompt = StaticObject
-	position = 78.40713 80.25066 0
+	position = 70.34785 88.68687 0
 	rotation = 0 0 0.3708005 0.9287125
-	name = DoppelWandOhneBodenFinal_94
+	name = DoppelWandOhneBodenFinal_95
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 219
 	classPrompt = StaticObject
-	position = 70.34785 88.68687 0
-	rotation = 0 0 0.3708005 0.9287125
-	name = DoppelWandOhneBodenFinal_95
+	position = 40.46668 49.60872 0
+	rotation = 0 0 -0.3902213 0.9207211
+	name = DoppelWandOhneBodenFinal_96
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 220
 	classPrompt = StaticObject
-	position = 40.46668 49.60872 0
+	position = 48.46551 57.51711 0
 	rotation = 0 0 -0.3902213 0.9207211
-	name = DoppelWandOhneBodenFinal_96
+	name = DoppelWandOhneBodenFinal_97
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 221
 	classPrompt = StaticObject
-	position = 48.46551 57.51711 0
+	position = 65.12805 54.6503 0
 	rotation = 0 0 -0.3902213 0.9207211
-	name = DoppelWandOhneBodenFinal_97
+	name = DoppelWandOhneBodenFinal_98
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
 	type = DoppelWandOhneBodenFinal
 	uin = 222
 	classPrompt = StaticObject
-	position = 65.12805 54.6503 0
-	rotation = 0 0 -0.3902213 0.9207211
-	name = DoppelWandOhneBodenFinal_98
-}
-entity
-{
-	type = DoppelWandOhneBodenFinal
-	uin = 223
-	classPrompt = StaticObject
 	position = 57.12923 46.7419 0
 	rotation = 0 0 -0.3902213 0.9207211
 	name = DoppelWandOhneBodenFinal_99
+	editorLayer = "Root Layer\\F2\\Waende"
+}
+entity
+{
+	type = StaticMesh
+	uin = 281
+	classPrompt = StaticMesh
+	position = 101.9037 72.03201 0.2684154
+	rotation = 0 0 -0.3912123 0.9203005
+	name = Schlafkapsel_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Schlafkapsel\\Chestburster_capsule_chair.mesh"
+}
+entity
+{
+	type = StaticMesh
+	uin = 282
+	classPrompt = StaticMesh
+	position = 96.71964 77.40591 0.2695482
+	rotation = 0 0 -0.3794215 0.9252239
+	name = Schlafkapsel_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Schlafkapsel\\Chestburster_capsule_chair.mesh"
+}
+entity
+{
+	type = Defkit
+	uin = 283
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 75.90049 76.75415 0.2699389
+	name = Inventar_1
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Defkit
+	uin = 284
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 86.73236 52.84182 0.2697208
+	name = Inventar_2
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 285
+	classPrompt = StaticObject
+	position = 12.78623 100.7791 0.3331405
+	name = Leiche1_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 286
+	classPrompt = StaticObject
+	position = 22.06517 97.03685 2.051654
+	rotation = 0 0 -1 8.282065E-05
+	name = sofa_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = leiche2
+	uin = 287
+	classPrompt = StaticObject
+	position = 17.31413 99.48827 0.3022272
+	rotation = 0 0 0.4080378 0.9129651
+	name = leiche2_0
+	editorLayer = "Root Layer\\F1\\Leichen"
+}
+entity
+{
+	type = leiche2
+	uin = 288
+	classPrompt = StaticObject
+	position = 9.107282 102.2958 0.3018224
+	name = leiche2_1
+	editorLayer = "Root Layer\\F1\\Leichen"
+}
+entity
+{
+	type = leiche2
+	uin = 289
+	classPrompt = StaticObject
+	position = 12.66842 114.0462 0.302039
+	rotation = 0 0 0.3010026 0.9536233
+	name = leiche2_2
+	editorLayer = "Root Layer\\F1\\Leichen"
+}
+entity
+{
+	type = BrechstangeItem
+	uin = 290
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 92.43082 60.75119 0.4591673
+	name = Brechstange_1
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = BrechstangeItem
+	uin = 291
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 9.068642 97.98837 0.4602894
+	name = Brechstange_2
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Terminal
+	uin = 294
+	classPrompt = Terminal
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = None
+	healthFactorAtBeginning = 1
+	position = -80.83833 75.27424 1.394616
+	rotation = 0 0 -0.397424 0.9176351
+	name = Terminal_2_status
+	editorLayer = "Root Layer\\F1\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = Leiche1
+	uin = 298
+	classPrompt = StaticObject
+	position = -25.69764 106.5927 0.2752736
+	name = Leiche1_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 299
+	classPrompt = StaticObject
+	position = -21.19793 123.3753 0.3732204
+	name = Armchair2_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 297
+	classPrompt = StaticObject
+	position = -21.23907 125.175 1.657189
+	rotation = 0 0 -1 -4.371139E-08
+	name = Desk_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Terminal
+	uin = 292
+	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 300
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = Quiz
+	healthFactorAtBeginning = 1
+	position = -64.92357 72.13921 1.413518
+	rotation = 0 0 0.9286773 0.3708888
+	name = Terminal_1_Door
+	logicClass = 300
+	editorLayer = "Root Layer\\F1\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = TaschenlampeItem
+	uin = 305
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 13.1623 115.607 0.2669983
+	name = Taschenlampe_2
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = TaschenlampeItem
+	uin = 304
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 11.70712 105.6269 0.372897
+	name = Taschenlampe_1
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = AccessCard
+	uin = 307
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -93.97009 81.27579 0.2713041
+	rotation = 0 0 -0.7681177 -0.6403087
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Armchair3
+	uin = 306
+	classPrompt = StaticObject
+	position = -101.7571 74.08173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 308
+	classPrompt = StaticObject
+	position = -104.019 70.35163 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 309
+	classPrompt = StaticObject
+	position = 72.35205 66.02629 0.2533433
+	rotation = 0 0 -0.3747393 0.9271302
+	name = BunkBed_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 310
+	classPrompt = StaticObject
+	position = 67.96542 70.14291 0.2531199
+	rotation = 0 0 -0.3812867 0.9244568
+	name = BunkBed_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 311
+	classPrompt = StaticObject
+	position = 64.36684 74.56969 0.2523472
+	rotation = 0 0 -0.432048 0.9018506
+	name = BunkBed_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = mediSchrank
+	uin = 312
+	classPrompt = HealthItem
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -52.33463 51.78075 2.962608
+	rotation = -0.01375245 0.02347619 -0.9227574 0.38442
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Terminal
+	uin = 314
+	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 300
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = Quiz
+	healthFactorAtBeginning = 1
+	position = -59.1364 66.00505 1.430393
+	rotation = 0.01357275 -0.001506668 -0.3813165 0.9243438
+	name = Terminal_Door1_2
+	logicClass = 300
+	editorLayer = "Root Layer\\F2\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = Terminal
+	uin = 317
+	classPrompt = Terminal
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = SectorStatus
+	taskType = None
+	healthFactorAtBeginning = 1
+	position = -60.72999 32.46761 1.316727
+	rotation = 0 0 -0.9163833 0.4003021
+	name = Terminal_Status_2
+	editorLayer = "Root Layer\\F2\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = GlockItem
+	uin = 320
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -50.51895 35.05504 0.3815589
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = GlockItem
+	uin = 321
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -35.03524 50.50998 0.4014486
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 319
+	classPrompt = StaticObject
+	position = -47.47464 54.90307 0.2913703
+	name = Leiche1_2
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Leiche1
+	uin = 322
+	classPrompt = StaticObject
+	position = -41.29594 44.56545 0.2903855
+	name = Leiche1_3
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Kueche
+	uin = 323
+	classPrompt = StaticObject
+	position = -30.13218 57.09611 0.2666531
+	rotation = 0 0 -0.9236579 0.3832182
+	scale = 0.8954889 1 0.8954889
+	name = Kueche_0
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 324
+	classPrompt = StaticObject
+	position = -46.83643 39.48967 2.052581
+	rotation = 0.005636828 0.007852182 -0.9193969 0.3932127
+	name = sofa_2
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = leiche2
+	uin = 102
+	classPrompt = StaticObject
+	position = 3.415375 61.98573 0.302501
+	rotation = 0 0 0.929499 0.3688246
+	name = leiche2_3
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = leiche2
+	uin = 101
+	classPrompt = StaticObject
+	position = 2.081081 62.48299 0.2952328
+	rotation = 0 0 0.2120357 0.977262
+	name = leiche2_4
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = leiche2
+	uin = 81
+	classPrompt = StaticObject
+	position = 2.999186 63.39927 0.1960419
+	rotation = 0 0 0.2212556 0.9752158
+	name = leiche2_5
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = battery
+	uin = 325
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 4.339417 63.47034 0.3501097
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 326
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 4.748599 61.82866 0.5722401
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 327
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 1.774801 61.47471 0.2742488
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = BunkBed
+	uin = 328
+	classPrompt = StaticObject
+	position = 17.40244 61.94762 0.2551948
+	name = BunkBed_3
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 329
+	classPrompt = StaticObject
+	position = 10.52904 62.05655 0.2511447
+	name = BunkBed_4
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = sicherung
+	uin = 330
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 43.87457 50.81009 0.3910584
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Dynamite
+	uin = 331
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 64.4546 59.14811 0.4202077
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = SmallHealthItem
+	uin = 332
+	classPrompt = HealthItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 69.10445 -6.962466 0.273473
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Terminal
+	uin = 333
+	classPrompt = Terminal
+	subscriptionsToDeletionEvent = 300
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = None
+	healthFactorAtBeginning = 1
+	position = 89.13876 -2.950985 1.854002
+	rotation = 0 0 -1 -4.371139E-08
+	name = Terminal_Door_1
+	logicClass = 300
+	editorLayer = "Root Layer\\F2\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = Terminal
+	uin = 336
+	classPrompt = Terminal
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = SectorStatus
+	taskType = None
+	healthFactorAtBeginning = 1
+	position = 62.21239 -13.57418 1.433119
+	name = Terminal_Status_3
+	editorLayer = "Root Layer\\F2\\Terminal"
+	repairables
+	{
+	}
+}
+entity
+{
+	type = Desk
+	uin = 340
+	classPrompt = StaticObject
+	position = 116.6325 25.52149 1.657189
+	rotation = 0 0 -1 -4.371139E-08
+	name = Desk_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 341
+	classPrompt = StaticObject
+	position = 116.6736 23.72171 0.3732204
+	name = Armchair2_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 339
+	classPrompt = StaticObject
+	position = 107.9937 25.47548 1.657189
+	rotation = 0 0 -1 -4.371139E-08
+	name = Desk_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 342
+	classPrompt = StaticObject
+	position = 108.0348 23.6757 0.3732204
+	name = Armchair2_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = iMac
+	uin = 343
+	classPrompt = StaticObject
+	position = 116.4711 25.5322 1.612713
+	name = iMac_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 344
+	classPrompt = StaticObject
+	position = 107.8227 25.63223 1.456624
+	name = laptop_0
+}
+entity
+{
+	type = ShotgunItem
+	uin = 345
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 124.4245 10.72429 0.3753132
+}
+entity
+{
+	type = ShotgunItem
+	uin = 346
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 144.1303 -9.585533 -0.03026079
+}
+entity
+{
+	type = ShotgunItem
+	uin = 347
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 135.4014 -6.116797 -0.0417462
+}
+entity
+{
+	type = ShotgunItem
+	uin = 348
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 124.3802 -25.23613 0.4241513
+}
+entity
+{
+	type = ShotgunItem
+	uin = 349
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 108.3056 22.99091 1.72884
 }
