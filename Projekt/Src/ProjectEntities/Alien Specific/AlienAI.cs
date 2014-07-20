@@ -362,6 +362,9 @@ namespace ProjectEntities
 
                                 if (weapon.Ready)
                                 {
+                                    // Attackieren
+                                    // Sound abspielen
+                                    controlledObj.PlaySound("attack");
                                     Range range;
 
                                     range = weapon.Type.WeaponNormalMode.UseDistanceRange;

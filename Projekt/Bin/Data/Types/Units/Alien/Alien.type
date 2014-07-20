@@ -26,6 +26,24 @@ type Alien
 			animationTree = ".\\Alien.animationTree"
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
+		sound
+		{
+			soundName = "Sounds\\alien_roar.wav"
+			alias = attack
+			visible = False
+		}
+		sound
+		{
+			soundName = "Sounds\\alien_roar2.wav"
+			alias = attack2
+			visible = False
+		}
+		sound
+		{
+			soundName = "Sounds\\alien_breath.wav"
+			alias = walk
+			visible = False
+		}
 	}
 	dieObjects
 	{
@@ -36,6 +54,10 @@ type Alien
 		mapObject
 		{
 			type = ShotgunItem
+		}
+		mapObject
+		{
+			type = medipack
 		}
 	}
 }

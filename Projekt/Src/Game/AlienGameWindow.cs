@@ -1002,37 +1002,17 @@ namespace Game
             {
                 string text = "";
 
-                if (selectedUnits.Count > 1)
+                if (selectedUnits.Count >= 1)
                 {
                     foreach (Unit unit in selectedUnits)
-                        text += unit.ToString() + "\n";
-                }
-
-                if (selectedUnits.Count == 1)
-                {
-                    Unit unit = selectedUnits[0];
-
-                    text += unit.ToString() + "\n";
-                    text += "\n";
-                    if (unit is Alien)
-                        text += string.Format("Life: {0}/{1}\n", unit.Health, unit.Type.HealthMax);
-
-                    text += "Intellect:\n";
-                    if (unit.Intellect != null)
                     {
-                        text += string.Format("- {0}\n", unit.Intellect.ToString());
-                        FactionType faction = unit.Intellect.Faction;
-                        text += string.Format("- Faction: {0}\n", faction != null ? faction.ToString() : "null");
-
-                        AlienUnitAI AlienUnitAI = unit.Intellect as AlienUnitAI;
-                        if (AlienUnitAI != null)
+                        text += unit.ToString();
+                        if (unit is Alien)
                         {
-                            text += string.Format("- CurrentTask: {0}\n", AlienUnitAI.CurrentTask.ToString());
+                            text += string.Format(": {0:0%}", unit.Health / unit.Type.HealthMax);//.HealthFactorAtBeginning
                         }
+                        text += "\n";
                     }
-                    else
-                        text += string.Format("- null\n");
-
                 }
 
                 hudControl.Controls["SelectedUnitsInfo"].Text = text;

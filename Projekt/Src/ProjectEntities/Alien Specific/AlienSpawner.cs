@@ -277,7 +277,6 @@ namespace ProjectEntities
             //meshRotation.Y = 0;
             //meshRotation.Z = 0;
             meshRotation.W = 0;
-            Console.WriteLine("rotationoffset:"+meshRotation.ToString()+" | "+meshRotation.X+" | "+meshRotation.Y+" | "+meshRotation.Z+" | "+meshRotation.W);
             productUnitAttachedMesh.RotationOffset = meshRotation;
             productUnitAttachedMesh.PositionOffset = pos;
             productUnitAttachedMesh.ScaleOffset = meshScale;

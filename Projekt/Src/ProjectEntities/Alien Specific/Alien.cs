@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.ComponentModel;
 using Engine.EntitySystem;
 using Engine;
@@ -29,7 +30,7 @@ namespace ProjectEntities
         [FieldSerialize]
         float height = heightDefault;
 
-        const float radiusDefault = .4f;
+        const float radiusDefault = .1f;
         [FieldSerialize]
         float radius = radiusDefault;
 
@@ -132,16 +133,10 @@ namespace ProjectEntities
             body.Position = Position;
             body.Rotation = Rotation;
 
-            // Sound erstellen
-            if (this._type.SoundCollision != null)
-            {
-                alienSound = SoundWorld.Instance.SoundCreate(this._type.SoundCollision, SoundMode.Record);
-            }
-
             float length = Type.Height - Type.Radius * 2;
             if (length < 0)
             {
-                Log.Error("Length < 0");
+                Log.Error("Alien Length < 0");
                 return;
             }
             CapsuleShape shape = body.CreateCapsuleShape();
@@ -396,15 +391,39 @@ namespace ProjectEntities
                     alienChannel.Stop();
                 }
                 // Play sound
-                if (alienSound != null)
-                {
-                    this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
-                }
+                PlaySound("walk");
             }
 
             tree.SetParameterValue("move", move ? 1 : 0);
             //tree.SetParameterValue( "moveAngle", moveAngle );
             tree.SetParameterValue("moveSpeed", moveSpeed);
+        }
+
+        /// <summary>
+        /// Spielt den Sound mit entsprechendem Alias ab
+        /// </summary>
+        /// <param name="name"></param>
+        public void PlaySound(String name)
+        {
+            if (alienChannel != null)
+            {
+                alienChannel.Stop();
+            }
+            // Play sound
+            IEnumerable<MapObjectTypeAttachedSound> sounds = this._type.AttachedObjects.OfType<MapObjectTypeAttachedSound>();
+            foreach (MapObjectTypeAttachedSound s in sounds)
+            {
+                if (s.Alias == name)
+                {
+                    alienSound = SoundWorld.Instance.SoundCreate(s.SoundName, SoundMode.Record);
+                    break;
+                }
+            }
+            // Sound erstellen
+            if (alienSound != null)
+            {
+                this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
+            }
         }
 
         public override bool IsAllowToChangeScale(out string reason)
