@@ -8,7 +8,7 @@ type Desk
 		mesh
 		{
 			meshName = ".\\Desk_normal.mesh"
-			position = 0.04425385 0.004835725 -0.828701
+			position = 0.07349551 0.004835725 -0.9860134
 		}
 	}
 }
