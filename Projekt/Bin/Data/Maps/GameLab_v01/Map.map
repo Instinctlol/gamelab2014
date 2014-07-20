@@ -8,8 +8,8 @@ windSpeed = 1
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -73.63171 -103.6594 2.079741
-editorCameraDirection = 3.524538 -1.033428
+editorCameraPosition = 57.51468 4.662001 43.39029
+editorCameraDirection = 0.160513 -1.142046
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -89,7 +89,6 @@ rootEditorLayer
 		layer
 		{
 			name = Raume
-			allowSelect = False
 		}
 		layer
 		{
@@ -2193,7 +2192,7 @@ entity
 	uin = 165
 	classPrompt = StaticObject
 	position = 70.89135 -10.27305 0
-	rotation = 0 0 -0.9998785 -0.01559926
+	rotation = 0 0 -0.9999816 -0.006109665
 	name = DoppelWandOhneBodenFinal_36
 	editorLayer = "Root Layer\\F2\\Waende"
 }
@@ -2896,7 +2895,7 @@ entity
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = 92.43082 60.75119 0.4591673
+	position = 5.126213 106.9393 0.4591673
 	name = Brechstange_1
 	editorLayer = "Root Layer\\F1\\Items"
 }
@@ -2995,7 +2994,7 @@ entity
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
-	position = 11.70712 105.6269 0.372897
+	position = 12.29997 96.88073 0.372897
 	name = Taschenlampe_1
 	editorLayer = "Root Layer\\F1\\Items"
 }
@@ -3243,7 +3242,7 @@ entity
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = 69.10445 -6.962466 0.273473
+	position = 65.0901 -7.521116 0.273473
 	editorLayer = "Root Layer\\F2\\Items"
 }
 entity
@@ -3257,7 +3256,7 @@ entity
 	windowType = Rotate
 	taskType = None
 	healthFactorAtBeginning = 1
-	position = 89.13876 -2.950985 1.854002
+	position = 89.25713 -4.431122 1.854002
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_Door_1
 	logicClass = 12
@@ -3276,7 +3275,7 @@ entity
 	windowType = SectorStatus
 	taskType = None
 	healthFactorAtBeginning = 1
-	position = 62.21239 -13.57418 1.433119
+	position = 62.32 -13.26154 1.433119
 	name = Terminal_Status_3
 	editorLayer = "Root Layer\\F2\\Terminal"
 	repairables
@@ -3750,7 +3749,7 @@ entity
 	type = Leiche1
 	uin = 317
 	classPrompt = StaticObject
-	position = 95.05223 58.97952 0.3331405
+	position = 7.747627 105.1677 0.3331405
 	name = Leiche1_5
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
@@ -3759,7 +3758,7 @@ entity
 	type = Leiche1
 	uin = 318
 	classPrompt = StaticObject
-	position = 94.01987 55.74247 0.3331405
+	position = 6.715263 101.9306 0.3331405
 	rotation = 0 0 0.939854 -0.3415769
 	name = Leiche1_6
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -4313,7 +4312,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 443
+	uin = 368
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4325,7 +4324,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 442
+	uin = 369
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4337,7 +4336,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 444
+	uin = 370
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4349,7 +4348,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 445
+	uin = 371
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4361,7 +4360,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 446
+	uin = 372
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4373,7 +4372,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 447
+	uin = 373
 	classPrompt = StaticObject
 	position = -89.57403 -73.57431 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -4383,7 +4382,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 448
+	uin = 374
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4395,7 +4394,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 449
+	uin = 375
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4407,7 +4406,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 450
+	uin = 376
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4419,7 +4418,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 451
+	uin = 377
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4431,7 +4430,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 452
+	uin = 378
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -4439,4 +4438,1669 @@ entity
 	position = -90.92294 -84.9526 0.5937495
 	name = PipeLeak_9
 	editorLayer = "Root Layer\\F1\\Flammen"
+}
+entity
+{
+	type = Armchair2
+	uin = 453
+	classPrompt = StaticObject
+	position = -122.4082 -7.799945 0.3732204
+	rotation = 0 0 0.8723112 0.4889512
+	name = Armchair2_11
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 454
+	classPrompt = StaticObject
+	position = -123.922 -8.774224 1.657189
+	rotation = 0 0 -0.4889512 0.8723112
+	name = Desk_11
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 455
+	classPrompt = StaticObject
+	position = 19.44552 74.96942 0.2551948
+	rotation = 0.1422925 0.2266116 0.5123812 0.8160059
+	name = BunkBed_17
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 456
+	classPrompt = StaticObject
+	position = 19.84238 77.54916 0.2551948
+	rotation = -0.173531 0.164803 -0.2245706 0.9446138
+	name = BunkBed_25
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = BunkBed
+	uin = 457
+	classPrompt = StaticObject
+	position = 19.70881 76.69619 0.2551948
+	rotation = -0.04977197 -0.2110638 0.6313417 0.7445688
+	name = BunkBed_26
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = SmallHealthItem
+	uin = 458
+	classPrompt = HealthItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 52.65973 1.343755 0.273473
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = StaticMesh
+	uin = 459
+	classPrompt = StaticMesh
+	position = 88.04964 8.407696 2.07281
+	name = StaticMesh_FuseBox_0
+	meshName = "Types\\Items\\Sicherungskasten\\FuseBox.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 461
+	classPrompt = StaticObject
+	position = 67.66613 -5.545903 1.657189
+	rotation = 0 0 -0.9999307 -0.01178183
+	name = Desk_12
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 462
+	classPrompt = StaticObject
+	position = 67.66482 -7.346104 0.3732204
+	rotation = 0 0 -0.0117818 0.9999307
+	name = Armchair2_12
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 463
+	classPrompt = StaticObject
+	position = 67.49888 -5.385197 1.456624
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_9
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 464
+	classPrompt = StaticObject
+	position = 68.88329 -5.594284 1.618737
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_10
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 465
+	classPrompt = StaticObject
+	position = 66.39091 -5.594284 1.618737
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_11
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 466
+	classPrompt = StaticMesh
+	position = 67.68074 -5.765375 2.122545
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_imac_0
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 467
+	classPrompt = StaticObject
+	position = 63.20977 -5.308029 1.456624
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_12
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 468
+	classPrompt = StaticObject
+	position = 63.37702 -5.468734 1.657189
+	rotation = 0 0 -0.9999307 -0.01178183
+	name = Desk_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 469
+	classPrompt = StaticObject
+	position = 63.37571 -7.268936 0.3732204
+	rotation = 0 0 -0.0117818 0.9999307
+	name = Armchair2_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 470
+	classPrompt = StaticObject
+	position = 64.59418 -5.517116 1.618737
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 471
+	classPrompt = StaticObject
+	position = 62.10181 -5.517116 1.618737
+	rotation = 0 0 -0.0117818 0.9999307
+	name = laptop_14
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 472
+	classPrompt = StaticMesh
+	position = 63.39163 -5.688207 2.122545
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_12
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 473
+	classPrompt = StaticObject
+	position = 60.87827 -10.11265 1.657189
+	rotation = 0 0 -0.7041125 0.7100888
+	name = Desk_14
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 474
+	classPrompt = StaticObject
+	position = 62.67759 -10.05634 0.3732204
+	rotation = 0 0 0.7100888 0.7041124
+	name = Armchair2_14
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 476
+	classPrompt = StaticObject
+	position = 60.96745 -11.38567 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_17
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 477
+	classPrompt = StaticMesh
+	position = 61.09716 -10.09103 2.122545
+	rotation = 0 0 0.7183352 0.6956974
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_13
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 478
+	classPrompt = StaticObject
+	position = 60.98674 -16.2459 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_19
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 479
+	classPrompt = StaticMesh
+	position = 61.11645 -14.95126 2.122545
+	rotation = 0 0 0.7183352 0.6956974
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_14
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 480
+	classPrompt = StaticObject
+	position = 60.89756 -14.97288 1.657189
+	rotation = 0 0 -0.7041125 0.7100888
+	name = Desk_15
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 481
+	classPrompt = StaticObject
+	position = 62.69688 -14.91657 0.3732204
+	rotation = 0 0 0.7100888 0.7041124
+	name = Armchair2_15
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 482
+	classPrompt = StaticObject
+	position = 60.85752 -20.99003 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_21
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 483
+	classPrompt = StaticMesh
+	position = 60.98724 -19.69539 2.122545
+	rotation = 0 0 0.7183352 0.6956974
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_15
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 484
+	classPrompt = StaticObject
+	position = 60.76835 -19.71702 1.657189
+	rotation = 0 0 -0.7041125 0.7100888
+	name = Desk_16
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 485
+	classPrompt = StaticObject
+	position = 62.56767 -19.6607 0.3732204
+	rotation = 0 0 0.7100888 0.7041124
+	name = Armchair2_16
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 486
+	classPrompt = StaticObject
+	position = 60.61308 -19.88933 1.456624
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_22
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 487
+	classPrompt = StaticObject
+	position = 60.85752 -20.99003 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_23
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 488
+	classPrompt = StaticMesh
+	position = 60.98724 -19.69539 2.122545
+	rotation = 0 0 0.7183352 0.6956974
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_16
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 489
+	classPrompt = StaticObject
+	position = 60.76835 -19.71702 1.657189
+	rotation = 0 0 -0.7041125 0.7100888
+	name = Desk_17
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 490
+	classPrompt = StaticObject
+	position = 62.56767 -19.6607 0.3732204
+	rotation = 0 0 0.7100888 0.7041124
+	name = Armchair2_17
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 491
+	classPrompt = StaticObject
+	position = 66.57076 -20.80909 1.618737
+	rotation = 0 0 0.9999486 -0.01016119
+	name = laptop_25
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 492
+	classPrompt = StaticMesh
+	position = 65.27467 -20.69475 2.122545
+	rotation = 0 0 0.9997594 -0.02194172
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_17
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 493
+	classPrompt = StaticObject
+	position = 65.2989 -20.91337 1.657189
+	rotation = 0 0 0.01016111 0.9999486
+	name = Desk_18
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 494
+	classPrompt = StaticObject
+	position = 65.22123 -19.11485 0.3732204
+	rotation = 0 0 0.9999486 -0.01016119
+	name = Armchair2_18
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 495
+	classPrompt = StaticObject
+	position = 69.58046 -20.90615 1.657189
+	rotation = 0 0 0.01016111 0.9999486
+	name = Desk_19
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 496
+	classPrompt = StaticObject
+	position = 68.40535 -20.69774 1.59085
+	rotation = 0 0 0.9999486 -0.01016119
+	name = laptop_26
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 497
+	classPrompt = StaticObject
+	position = 70.85233 -20.80187 1.618737
+	rotation = 0 0 0.9999486 -0.01016119
+	name = laptop_27
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 498
+	classPrompt = StaticMesh
+	position = 69.55624 -20.68753 2.122545
+	rotation = 0 0 0.9997594 -0.02194172
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_18
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Armchair2
+	uin = 499
+	classPrompt = StaticObject
+	position = 69.50279 -19.10762 0.3732204
+	rotation = 0 0 0.9999486 -0.01016119
+	name = Armchair2_19
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 502
+	classPrompt = StaticObject
+	position = 60.57492 -13.86538 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_28
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 510
+	classPrompt = StaticObject
+	position = 70.264 -8.428425 1.618737
+	rotation = 0 0 0.7101086 -0.7040925
+	name = laptop_30
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 511
+	classPrompt = StaticMesh
+	position = 70.11235 -9.720678 2.122545
+	rotation = 0 0 0.7017637 -0.71241
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_19
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Desk
+	uin = 512
+	classPrompt = StaticObject
+	position = 70.33157 -9.702766 1.657189
+	rotation = 0 0 0.7040925 0.7101087
+	name = Desk_20
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 513
+	classPrompt = StaticObject
+	position = 70.30152 -10.92052 1.618737
+	rotation = 0 0 0.7101086 -0.7040925
+	name = laptop_31
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 514
+	classPrompt = StaticObject
+	position = 68.53156 -9.728558 0.3732204
+	rotation = 0 0 0.7101086 -0.7040925
+	name = Armchair2_20
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 509
+	classPrompt = StaticObject
+	position = 70.28308 -13.96599 1.657189
+	rotation = 0 0 0.7040925 0.7101087
+	name = Desk_21
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 508
+	classPrompt = StaticObject
+	position = 70.25303 -15.18374 1.618737
+	rotation = 0 0 0.7101086 -0.7040925
+	name = laptop_32
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 507
+	classPrompt = StaticMesh
+	position = 70.06386 -13.9839 2.122545
+	rotation = 0 0 0.7017637 -0.71241
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_20
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Armchair2
+	uin = 506
+	classPrompt = StaticObject
+	position = 68.48306 -13.99178 0.3732204
+	rotation = 0 0 0.7101086 -0.7040925
+	name = Armchair2_21
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 505
+	classPrompt = StaticObject
+	position = 70.21551 -12.69164 1.618737
+	rotation = 0 0 0.7101086 -0.7040925
+	name = laptop_34
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 515
+	classPrompt = StaticObject
+	position = 79.40385 -20.90182 1.657189
+	rotation = 0 0 -0.02072852 0.9997856
+	name = Desk_22
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 516
+	classPrompt = StaticObject
+	position = 78.18775 -20.83166 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_35
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 517
+	classPrompt = StaticMesh
+	position = 79.39317 -20.68212 2.122545
+	rotation = 0 0 0.9999603 0.008947664
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_21
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Armchair2
+	uin = 518
+	classPrompt = StaticObject
+	position = 79.43738 -19.10192 0.3732204
+	rotation = 0 0 0.9997855 0.02072844
+	name = Armchair2_22
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 519
+	classPrompt = StaticObject
+	position = 73.92844 -20.64273 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_37
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 520
+	classPrompt = StaticMesh
+	position = 75.13387 -20.4932 2.122545
+	rotation = 0 0 0.9999603 0.008947664
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_22
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Armchair2
+	uin = 521
+	classPrompt = StaticObject
+	position = 75.17807 -18.913 0.3732204
+	rotation = 0 0 0.9997855 0.02072844
+	name = Armchair2_23
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 522
+	classPrompt = StaticObject
+	position = 75.14455 -20.71289 1.657189
+	rotation = 0 0 -0.02072852 0.9997856
+	name = Desk_23
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 523
+	classPrompt = StaticObject
+	position = 76.42042 -20.68734 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_39
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 524
+	classPrompt = StaticObject
+	position = 80.67973 -20.87626 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 460
+	classPrompt = StaticObject
+	position = 88.14047 -20.98015 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_42
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 525
+	classPrompt = StaticMesh
+	position = 89.34589 -20.83061 2.122545
+	rotation = 0 0 0.9999603 0.008947664
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_23
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 526
+	classPrompt = StaticObject
+	position = 90.63245 -21.02475 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_44
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 527
+	classPrompt = StaticObject
+	position = 83.88116 -20.79122 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_45
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 528
+	classPrompt = StaticMesh
+	position = 85.08659 -20.64169 2.122545
+	rotation = 0 0 0.9999603 0.008947664
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_24
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 529
+	classPrompt = StaticObject
+	position = 86.37314 -20.83583 1.618737
+	rotation = 0 0 0.9997855 0.02072844
+	name = laptop_46
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 530
+	classPrompt = StaticObject
+	position = 85.09727 -20.86138 1.657189
+	rotation = 0 0 -0.02072852 0.9997856
+	name = Desk_24
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 531
+	classPrompt = StaticObject
+	position = 89.35658 -21.0503 1.657189
+	rotation = 0 0 -0.02072852 0.9997856
+	name = Desk_25
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 532
+	classPrompt = StaticObject
+	position = 85.13079 -19.06149 0.3732204
+	rotation = 0 0 0.9997855 0.02072844
+	name = Armchair2_24
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 533
+	classPrompt = StaticObject
+	position = 89.3901 -19.25041 0.3732204
+	rotation = 0 0 0.9997855 0.02072844
+	name = Armchair2_25
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Kueche
+	uin = 534
+	classPrompt = StaticObject
+	position = 88.30032 13.19792 0.3
+	rotation = 0 0 -0.9999909 0.004271859
+	scale = 0.8954889 1 0.8954889
+	name = Kueche_4
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Kueche
+	uin = 535
+	classPrompt = StaticObject
+	position = 88.7871 18.34667 0.3
+	rotation = 0 0 -0.7100423 0.7041591
+	scale = 0.8954889 1 0.8954889
+	name = Kueche_5
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 536
+	classPrompt = StaticObject
+	position = 65.16134 19.22124 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_6
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 537
+	classPrompt = StaticObject
+	position = 62.89944 15.49113 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_7
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 538
+	classPrompt = StaticObject
+	position = 65.54794 13.39574 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_8
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 539
+	classPrompt = StaticObject
+	position = 79.49653 13.56711 0.2198927
+	rotation = 0 0 0.73258 0.680681
+	name = Armchair3_9
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 540
+	classPrompt = StaticObject
+	position = 83.03605 11.01728 0.2419727
+	rotation = 0 0 0.9991352 0.04158197
+	name = Armchair3_10
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 541
+	classPrompt = StaticObject
+	position = 85.37323 12.98037 0
+	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
+	name = Armchair3_11
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 542
+	classPrompt = StaticObject
+	position = 79.49653 13.56711 0.2198927
+	rotation = 0 0 0.73258 0.680681
+	name = Armchair3_12
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 543
+	classPrompt = StaticObject
+	position = 83.03605 11.01728 0.2419727
+	rotation = 0 0 0.9991352 0.04158197
+	name = Armchair3_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 544
+	classPrompt = StaticObject
+	position = 85.37323 12.98037 0
+	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
+	name = Armchair3_14
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 545
+	classPrompt = StaticObject
+	position = 86.44508 15.71511 0.2198927
+	rotation = 0 0 0.7397748 -0.6728547
+	name = Armchair3_15
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 546
+	classPrompt = StaticObject
+	position = 85.35091 18.68196 0.2419727
+	rotation = 0 0 0.397701 -0.9175152
+	name = Armchair3_16
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 547
+	classPrompt = StaticObject
+	position = 82.30067 18.79245 0
+	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
+	name = Armchair3_17
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 548
+	classPrompt = StaticObject
+	position = 63.07104 18.05352 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_18
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 549
+	classPrompt = StaticObject
+	position = 67.68414 18.48099 0.2198927
+	rotation = 0 0 -0.2377434 0.971328
+	name = Armchair3_19
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 550
+	classPrompt = StaticObject
+	position = 68.07041 15.48608 0.2198927
+	rotation = 0 0 -0.8573666 0.5147063
+	name = Armchair3_20
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 551
+	classPrompt = StaticObject
+	position = 71.95041 11.30145 2.051654
+	rotation = 0 0 -1 8.282065E-05
+	name = sofa_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 504
+	classPrompt = StaticObject
+	position = 76.72266 11.32555 2.051654
+	rotation = 0 0 -1 8.282065E-05
+	name = sofa_3
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 576
+	classPrompt = StaticObject
+	position = 90.86237 -15.46648 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_48
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 577
+	classPrompt = StaticMesh
+	position = 90.68888 -14.26427 2.122545
+	rotation = 0 0 0.7063993 -0.707814
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_25
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 578
+	classPrompt = StaticObject
+	position = 91.08209 -13.12779 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_50
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 579
+	classPrompt = StaticObject
+	position = 90.90833 -14.24923 1.657189
+	rotation = 0 0 0.6994423 0.7146897
+	name = Desk_27
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 580
+	classPrompt = StaticObject
+	position = 91.16447 -6.511157 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_53
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 581
+	classPrompt = StaticMesh
+	position = 90.99098 -5.308949 2.122545
+	rotation = 0 0 0.7063993 -0.707814
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_27
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 582
+	classPrompt = StaticObject
+	position = 91.15948 -4.01879 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_55
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 583
+	classPrompt = StaticObject
+	position = 91.10627 -9.556124 1.657189
+	rotation = 0 0 0.6994423 0.7146897
+	name = Desk_28
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 584
+	classPrompt = StaticObject
+	position = 91.06033 -10.77338 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_56
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 585
+	classPrompt = StaticMesh
+	position = 90.88684 -9.571165 2.122545
+	rotation = 0 0 0.7063993 -0.707814
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_28
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 586
+	classPrompt = StaticObject
+	position = 91.05534 -8.281012 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_57
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 587
+	classPrompt = StaticObject
+	position = 91.21042 -5.2939 1.657189
+	rotation = 0 0 0.6994423 0.7146897
+	name = Desk_29
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 588
+	classPrompt = StaticObject
+	position = 89.10812 -14.25152 0.3732204
+	rotation = 0 0 0.7146896 -0.6994422
+	name = Armchair2_27
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 589
+	classPrompt = StaticObject
+	position = 89.30607 -9.558414 0.3732204
+	rotation = 0 0 0.7146896 -0.6994422
+	name = Armchair2_28
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 590
+	classPrompt = StaticObject
+	position = 89.41022 -5.296192 0.3732204
+	rotation = 0 0 0.7146896 -0.6994422
+	name = Armchair2_29
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 475
+	classPrompt = StaticObject
+	position = 60.88766 -8.894567 1.618737
+	rotation = 0 0 0.7100888 0.7041124
+	name = laptop_16
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 575
+	classPrompt = StaticObject
+	position = 68.40535 -20.69774 1.59085
+	rotation = 0 0 0.9999486 -0.01016119
+	name = laptop_15
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 574
+	classPrompt = StaticMesh
+	position = 90.68888 -14.26427 2.122545
+	rotation = 0 0 0.7063993 -0.707814
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_26
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = Armchair2
+	uin = 573
+	classPrompt = StaticObject
+	position = 89.10812 -14.25152 0.3732204
+	rotation = 0 0 0.7146896 -0.6994422
+	name = Armchair2_26
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 572
+	classPrompt = StaticObject
+	position = 90.86237 -15.46648 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_18
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 571
+	classPrompt = StaticObject
+	position = 90.90833 -14.24923 1.657189
+	rotation = 0 0 0.6994423 0.7146897
+	name = Desk_26
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 570
+	classPrompt = StaticObject
+	position = 91.08209 -13.12779 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_20
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 569
+	classPrompt = StaticObject
+	position = 91.10627 -9.556124 1.657189
+	rotation = 0 0 0.6994423 0.7146897
+	name = Desk_30
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 568
+	classPrompt = StaticObject
+	position = 89.30607 -9.558414 0.3732204
+	rotation = 0 0 0.7146896 -0.6994422
+	name = Armchair2_30
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 567
+	classPrompt = StaticObject
+	position = 91.06033 -10.77338 1.618737
+	rotation = 0 0 0.7146896 -0.6994422
+	name = laptop_24
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 566
+	classPrompt = StaticMesh
+	position = 90.88684 -9.571165 2.122545
+	rotation = 0 0 0.7063993 -0.707814
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_29
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 554
+	classPrompt = StaticObject
+	position = 73.39603 -7.044763 1.618737
+	rotation = 0 0 0.6933005 0.7206491
+	name = laptop_29
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 553
+	classPrompt = StaticObject
+	position = 73.21896 -11.30458 1.618737
+	rotation = 0 0 0.6933005 0.7206491
+	name = laptop_33
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 552
+	classPrompt = StaticMesh
+	position = 73.37184 -12.50958 2.122545
+	rotation = 0 0 0.7017429 0.7124307
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_30
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 591
+	classPrompt = StaticObject
+	position = 73.18128 -13.79667 1.618737
+	rotation = 0 0 0.6933005 0.7206491
+	name = laptop_36
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 592
+	classPrompt = StaticMesh
+	position = 73.54892 -8.249771 2.122545
+	rotation = 0 0 0.7017429 0.7124307
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_31
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 593
+	classPrompt = StaticObject
+	position = 73.35836 -9.536855 1.618737
+	rotation = 0 0 0.6933005 0.7206491
+	name = laptop_38
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 594
+	classPrompt = StaticObject
+	position = 73.32926 -8.261058 1.657189
+	rotation = 0 0 -0.7206492 0.6933005
+	name = Desk_31
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 595
+	classPrompt = StaticObject
+	position = 73.15218 -12.52087 1.657189
+	rotation = 0 0 -0.7206492 0.6933005
+	name = Desk_32
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 596
+	classPrompt = StaticObject
+	position = 75.12924 -8.289576 0.3732204
+	rotation = 0 0 0.6933005 0.7206491
+	name = Armchair2_31
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 597
+	classPrompt = StaticObject
+	position = 74.95216 -12.54939 0.3732204
+	rotation = 0 0 0.6933005 0.7206491
+	name = Armchair2_32
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 555
+	classPrompt = StaticObject
+	position = 64.32272 -1.089812 0.3732204
+	rotation = 0 0 0.9999986 -0.001924462
+	name = Armchair2_33
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 556
+	classPrompt = StaticObject
+	position = 68.5862 -1.085633 0.3732204
+	rotation = 0 0 0.9999986 -0.001924462
+	name = Armchair2_34
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 557
+	classPrompt = StaticObject
+	position = 63.15272 -2.874377 1.618737
+	rotation = 0 0 0.9999986 -0.001924462
+	name = laptop_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 558
+	classPrompt = StaticObject
+	position = 67.41621 -2.870192 1.618737
+	rotation = 0 0 0.9999986 -0.001924462
+	name = laptop_43
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 559
+	classPrompt = StaticMesh
+	position = 68.61362 -2.666213 2.122545
+	rotation = 0 0 0.9999065 -0.01370621
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_32
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 560
+	classPrompt = StaticObject
+	position = 69.90765 -2.801878 1.618737
+	rotation = 0 0 0.9999986 -0.001924462
+	name = laptop_47
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 561
+	classPrompt = StaticMesh
+	position = 64.35014 -2.670398 2.122545
+	rotation = 0 0 0.9999065 -0.01370621
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_33
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 562
+	classPrompt = StaticObject
+	position = 65.64415 -2.806067 1.618737
+	rotation = 0 0 0.9999986 -0.001924462
+	name = laptop_49
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 563
+	classPrompt = StaticObject
+	position = 64.37075 -2.889379 1.657189
+	rotation = 0 0 0.001924432 0.9999987
+	name = Desk_33
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 564
+	classPrompt = StaticObject
+	position = 68.63424 -2.8852 1.657189
+	rotation = 0 0 0.001924432 0.9999987
+	name = Desk_34
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 598
+	classPrompt = StaticObject
+	position = 76.39059 6.120089 0.3732204
+	rotation = 0 0 0.009705653 -0.9999534
+	name = Armchair2_35
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 599
+	classPrompt = StaticObject
+	position = 72.12816 6.215072 0.3732204
+	rotation = 0 0 0.009705653 -0.9999534
+	name = Armchair2_36
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 600
+	classPrompt = StaticObject
+	position = 77.60178 7.876958 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_51
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 601
+	classPrompt = StaticObject
+	position = 73.33935 7.971932 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_52
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 602
+	classPrompt = StaticMesh
+	position = 72.13752 7.79586 2.122545
+	rotation = 0 0 -0.002076378 -0.9999983
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_34
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 603
+	classPrompt = StaticObject
+	position = 70.84699 7.96159 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_54
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 604
+	classPrompt = StaticMesh
+	position = 76.39995 7.700881 2.122545
+	rotation = 0 0 -0.002076378 -0.9999983
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_35
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 605
+	classPrompt = StaticObject
+	position = 75.10944 7.866613 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_58
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 606
+	classPrompt = StaticObject
+	position = 76.38443 7.920288 1.657189
+	rotation = 0 0 0.9999535 0.009705721
+	name = Desk_35
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 607
+	classPrompt = StaticObject
+	position = 72.122 8.015268 1.657189
+	rotation = 0 0 0.9999535 0.009705721
+	name = Desk_36
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 608
+	classPrompt = StaticObject
+	position = 86.11197 6.113287 0.3732204
+	rotation = 0 0 0.009705653 -0.9999534
+	name = Armchair2_37
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 609
+	classPrompt = StaticObject
+	position = 81.84953 6.208271 0.3732204
+	rotation = 0 0 0.009705653 -0.9999534
+	name = Armchair2_38
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 610
+	classPrompt = StaticObject
+	position = 87.32316 7.870156 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_59
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 611
+	classPrompt = StaticObject
+	position = 83.06072 7.965131 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_60
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 612
+	classPrompt = StaticMesh
+	position = 81.85889 7.789059 2.122545
+	rotation = 0 0 -0.002076378 -0.9999983
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_36
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 613
+	classPrompt = StaticObject
+	position = 80.56837 7.954788 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_61
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 614
+	classPrompt = StaticMesh
+	position = 86.12132 7.694078 2.122545
+	rotation = 0 0 -0.002076378 -0.9999983
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_37
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 615
+	classPrompt = StaticObject
+	position = 84.83081 7.859812 1.618737
+	rotation = 0 0 0.009705653 -0.9999534
+	name = laptop_62
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 616
+	classPrompt = StaticObject
+	position = 86.1058 7.913486 1.657189
+	rotation = 0 0 0.9999535 0.009705721
+	name = Desk_37
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 617
+	classPrompt = StaticObject
+	position = 81.84338 8.008467 1.657189
+	rotation = 0 0 0.9999535 0.009705721
+	name = Desk_38
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 618
+	classPrompt = StaticObject
+	position = 61.68835 8.807402 2.051654
+	rotation = 0 0 -0.7105156 -0.7036815
+	name = sofa_4
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 619
+	classPrompt = StaticObject
+	position = 61.75777 4.035595 2.051654
+	rotation = 0 0 -0.7105156 -0.7036815
+	name = sofa_5
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 620
+	classPrompt = StaticMesh
+	position = 89.77913 5.7078 0.4280794
+	name = StaticMesh_Shotgun_0
+	meshName = "Types\\Weapons\\Shotgun\\Shotgun.mesh"
 }
