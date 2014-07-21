@@ -61,11 +61,13 @@ type F3C90
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = 6.523992 2.40207 1.467014
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -3.957915 -9.607293 0
 		}
 		mesh
@@ -135,6 +137,7 @@ type F3C90
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -4.557915 2.492707 0
 		}
 	}

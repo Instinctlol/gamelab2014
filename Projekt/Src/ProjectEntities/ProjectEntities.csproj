@@ -151,6 +151,7 @@
     <Compile Include="Alien Specific\Computer.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="MedicCabinet.cs" />
+    <Compile Include="ServerRack.cs" />
     <Compile Include="Server_SchereSteinPapierWindow.cs" />
     <Compile Include="QuestionTaskWindow.cs" />
     <Compile Include="Client_SchereSteinPapierWindow.cs" />

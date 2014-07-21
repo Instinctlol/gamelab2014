@@ -151,31 +151,37 @@ type BasicL2
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -14.08707 -12.73813 2.5
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = 0.02838659 -12.99648 2.5
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -14.03227 0.04136476 2.5
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = 0.9822259 -0.1399193 2.5
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -14.41881 14.86238 2.5
 		}
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = 1.027165 14.80246 2.5
 		}
 		mapObject

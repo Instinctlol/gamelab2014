@@ -1,0 +1,10 @@
+highLevelMaterial ServerRack_console_cube
+{
+	template = ShaderBaseMaterial
+	specularColor = 1 1 1
+	specularShininess = 100
+	diffuse1Map
+	{
+		texture = ".\\ServerRack.png"
+	}
+}

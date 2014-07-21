@@ -28,16 +28,13 @@ namespace ProjectEntities
         [FieldSerialize]
         private bool rotatable = true;
 
-        //Deprecated
-        [FieldSerialize]
-        private int id = -1;
-
         //Anzahl der Ecken des Ringes, standard 8. Nur gebraucht für drehen, ist egal bei festen Ringen
         [FieldSerialize]
         private byte corners = 8;
 
         //Aktuelle Position des Ringes
-        private byte position;
+        [FieldSerialize]
+        private byte ringPosition;
 
 
 
@@ -50,12 +47,6 @@ namespace ProjectEntities
             set { rotatable = value; }
         }
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
         public byte Corners
         {
             get { return corners; }
@@ -64,8 +55,28 @@ namespace ProjectEntities
 
         public byte RingPosition
         {
-            get { return position; }
-            set { position = value; }
+            get { return ringPosition; }
+            set {
+
+                if (value < 0 || value >= corners)
+                    value = ringPosition;
+
+                ringPosition = value;
+
+                double angle = ringPosition * (Math.PI / corners);
+
+                Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
+
+                Quat newRot = rot * Rotation.GetInverse();
+                newRot.Normalize();
+
+                Rotation = rot;
+
+                if (RotateRing != null)
+                {
+                    RotateRing(this.Position, newRot, true);
+                } 
+            }
         }
         //*************************** 
 
@@ -92,26 +103,11 @@ namespace ProjectEntities
         [LogicSystemBrowsable(true)]
         public void RotateLeft()
         {
-            EngineConsole.Instance.Print("ring links drehen");
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
                 return;
 
-            position =(byte)( position + corners - 1);
-
-            double angle = position * (Math.PI / corners);
-
-            Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
-
-            Quat newRot = rot * Rotation.GetInverse();
-            newRot.Normalize();
-
-            Rotation = rot;
-
-            if (RotateRing != null)
-            {
-                RotateRing(this.Position, newRot, true);
-            }        
+           RingPosition =(byte)( ringPosition + corners - 1);
         }
 
         //Rotiert "rechts" herum
@@ -119,27 +115,11 @@ namespace ProjectEntities
         public void RotateRight()
         {
 
-            EngineConsole.Instance.Print("ring rechts drehen");
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
                 return;
 
-            position = (byte)( (position + 1) % corners );
-
-            double angle = position * (Math.PI/corners);
-
-            Quat rot = new Quat(0,0,(float) Math.Sin( angle ), (float) Math.Cos( angle ));
-
-            Quat newRot = rot * Rotation.GetInverse();
-            newRot.Normalize();
-
-            Rotation = rot;
-
-            if (RotateRing != null)
-            {
-                RotateRing(this.Position, newRot, false);
-            }
-
+            RingPosition = (byte)( (ringPosition + 1) % corners );
         }
 
         /// <summary>

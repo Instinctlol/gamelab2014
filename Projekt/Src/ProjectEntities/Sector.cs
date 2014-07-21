@@ -176,9 +176,6 @@ namespace ProjectEntities
 
             base.OnPostCreate(loaded);
 
-            if (!loaded)
-               return;
-
 
             //Wenn Ring vorhanden bei seinem Event unterschreiben
             if (ring != null)

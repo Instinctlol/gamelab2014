@@ -95,6 +95,10 @@ namespace ProjectEntities
         //TaskType
         [FieldSerialize]
         private TerminalTaskType taskType;
+
+        //Is broken?
+        [FieldSerialize]
+        private bool isBroken = false;
         
 
         //GUI Fenster das auf dem Terminal angezeigt wird

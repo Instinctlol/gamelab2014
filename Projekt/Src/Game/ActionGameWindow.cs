@@ -56,6 +56,8 @@ namespace Game
 
         ProjectEntities.Item currentItem;
 
+        ProjectEntities.ServerRack currentServerRack;
+
         ProjectEntities.MedicCabinet currentMedicCabinet;
 
         ItemManager iManager = ItemManager.Instance;
@@ -68,6 +70,8 @@ namespace Game
         bool terminalUsing;
 
         bool medicCabinetUsing;
+
+        bool serverRackUsing;
 
         //HUD screen
         Control hudControl;
@@ -672,19 +676,19 @@ namespace Game
                     });
 
                 //draw selection border
-                if (overRepairable != null && overRepairable.Repaired == false)
+                if (overRepairable != null && overRepairable.Repaired == false )
                 {
                     Bounds bounds = overRepairable.MapBounds;
                     DrawObjectSelectionBorder(bounds);
                 }
 
-                if (overRepairable != currentRepairable)
+                if (overRepairable != currentRepairable && (overRepairable == null || overRepairable.Repaired == false) )
                 {
                     currentRepairable = overRepairable;
                 }
 
 
-                if (currentRepairable != null && !currentRepairable.Repaired)
+                if (currentRepairable != null)
                 {
                     ColorValue color;
                     if ((Time % 2) < 1)
@@ -695,11 +699,72 @@ namespace Game
                     string text = "";
 
 
+                    
+
+
                     ProgressRepairable pRepair = currentRepairable as ProgressRepairable;
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
 
                     text += "Press \"Use\" to repair";
+
+                    //get binded keyboard key or mouse button
+                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
+                        GetItemByControlKey(GameControlKeys.Use);
+                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
+                    {
+                        GameControlsManager.SystemKeyboardMouseValue value =
+                            controlItem.DefaultKeyboardMouseValues[0];
+                        text += string.Format(" ({0})", value.ToString());
+                    }
+
+
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                        VerticalAlign.Center, color);
+                }
+            }
+
+            //currentServerRack
+            {
+                ProjectEntities.ServerRack overServerRack = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.ServerRack s = obj as ProjectEntities.ServerRack;
+
+                    if (s != null)
+                    {
+                        overServerRack = s;
+                        return false;
+                    }
+                    return true;
+                });
+
+                //draw selection border
+                if (overServerRack != null && overServerRack.CanUse() )
+                {
+                    Bounds bounds = overServerRack.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                if (overServerRack != currentServerRack && (overServerRack == null || overServerRack.CanUse() ))
+                {
+                    currentServerRack = overServerRack;
+                }
+
+
+                if (currentServerRack != null)
+                {
+                    ColorValue color;
+                    if ((Time % 2) < 1)
+                        color = new ColorValue(1, 1, 0);
+                    else
+                        color = new ColorValue(0, 1, 0);
+
+                    string text = "";
+
+
+                    text += "Insert USB stick";
 
                     //get binded keyboard key or mouse button
                     GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
@@ -1338,7 +1403,7 @@ namespace Game
             if (repairableUsing)
                 return false;
 
-            if (currentRepairable == null || currentRepairable.Repaired)
+            if (currentRepairable == null)
                 return false;
 
             //Einfach reparieren
@@ -1351,6 +1416,26 @@ namespace Game
         void RepairableUseEnd()
         {
             repairableUsing = false;
+        }
+
+        bool ServerRackUseStart()
+        {
+            if (serverRackUsing)
+                return false;
+
+            if (currentServerRack == null)
+                return false;
+
+            //Einfach reparieren
+            currentServerRack.Press(GetPlayerUnit());
+
+            serverRackUsing = true;
+            return true;
+        }
+
+        void ServerRackUseEnd()
+        {
+            serverRackUsing = false;
         }
 
         bool TerminalUseStart()
@@ -1879,6 +1964,10 @@ namespace Game
                         if (RepairableUseStart())
                             return;
 
+                        //key down for serverRack
+                        if (ServerRackUseStart())
+                            return;
+
                         //key down for terminal use
                         if (TerminalUseStart())
                             return;
@@ -1916,6 +2005,9 @@ namespace Game
 
                         //Key up for repairable use
                         RepairableUseEnd();
+
+                        //Key up for serverrack
+                        ServerRackUseEnd();
 
                         //Key up for terminal use
                         TerminalUseEnd();

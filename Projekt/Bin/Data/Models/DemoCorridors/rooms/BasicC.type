@@ -21,6 +21,7 @@ type BasicC
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = 5.623158 -0.757015 1.467014
 		}
 		mesh
@@ -58,6 +59,7 @@ type BasicC
 		light
 		{
 			attenuationFar = 10
+			castShadows = False
 			position = -5.458749 -0.666378 0
 		}
 		mesh

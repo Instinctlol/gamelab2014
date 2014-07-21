@@ -1,0 +1,15 @@
+type ServerRack_real
+{
+	class = ServerRack
+	secondsBetweenUse = 10
+	soundOnUse = "Sounds\\Beep.ogg"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\ServerRack.mesh"
+			collision = True
+		}
+	}
+}
