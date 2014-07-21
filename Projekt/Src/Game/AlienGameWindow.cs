@@ -72,6 +72,7 @@ namespace Game
 
         // Headtracking
         Vec3 headtrackingOffset;
+        bool isHeadtrackingActive = false;
 
         //SchereSteinPapierWindow
         Server_SchereSteinPapierWindow sspw;
@@ -387,6 +388,11 @@ namespace Game
             if (e.Key == EKeys.F6)
             {
                 SelectAllAliens();
+            }
+
+            if (e.Key == EKeys.F10)
+            {
+                isHeadtrackingActive = !isHeadtrackingActive;
             }
 
             return base.OnKeyDown(e);
@@ -1655,10 +1661,14 @@ namespace Game
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
             Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
-            adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
 
-            // Headtracking position addieren
-            position += headtrackingOffset / 100;
+            if (isHeadtrackingActive)
+            {
+                adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
+
+                // Headtracking position addieren
+                position += headtrackingOffset / 100;
+            }
         }
 
         // Brauchen wir das??

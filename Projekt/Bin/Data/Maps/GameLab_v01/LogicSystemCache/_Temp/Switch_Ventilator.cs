@@ -33,15 +33,6 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		}
 		
 		
-		public void fanControll( ProjectEntities.BooleanSwitch param0 )
-		{
-			//Fan fan = Fan_0 = Fan;
-			//if (param0 == True) {
-			//	fan.Throttle = 0.5;
-			//}
-			//Throttle [-1,1]
-		}
-
 		public void ValueChange()
 		{
 			if(Owner.Value)
