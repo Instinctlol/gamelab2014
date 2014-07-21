@@ -442,6 +442,6 @@ namespace ProjectEntities
 			SetIntellect( i, shouldDeleteAfterDetach );
 		}
 
-	}
+     }
 
 }

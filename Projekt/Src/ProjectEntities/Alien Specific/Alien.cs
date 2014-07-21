@@ -16,6 +16,7 @@ using System.Diagnostics;
 using Engine.SoundSystem;
 using Engine.FileSystem;
 using ProjectCommon;
+using System.Collections;
 
 
 namespace ProjectEntities
@@ -75,6 +76,8 @@ namespace ProjectEntities
 
         float pathFindWaitTime;
 
+        float patrolTickTime;
+
         Vec3 oldMainBodyPosition;
         Vec3 mainBodyVelocity;
         // Channel zum abspielen des Default-Sounds für die kleinen Aliens
@@ -83,10 +86,24 @@ namespace ProjectEntities
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
+        
+        
+
+
+        [FieldSerialize] //save this value
+        [DefaultValue(typeof(MovementPreference), "Patrol")] //this is our default selected value
+        private MovementPreference movPref; //this will hold our preference
+
+        public MovementPreference MovementPref //accessor for the variable. Not necessary, but could have more logic in 'set' and 'get'
+        {
+            get { return movPref; }
+            set { movPref = value; }
+        }
+
         [FieldSerialize]
         private MapObject movRoute; //will hold a MapCurve that we place on the map as patrol route
 
-
+        
         public MapObject MovementRoute //accessor for the MapCurve. Lets create some logic for the 'set'
         {
             get { return movRoute; }
@@ -100,7 +117,85 @@ namespace ProjectEntities
             }
         }
 
+        public enum MovementPreference //all our movement types
+        {
+            Patrol,
+            Random,
 
+        }
+
+        public void Patrol()
+        {
+            patrolEnabled = true;
+            IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
+            Vec3 myPosition = this.Position;
+            MapCurve minCurve = null;
+            float minDistance = 10000f;
+            // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
+            foreach (MapCurve curve in allPossibleCurves)
+            {
+                // calculate a value for priority to attack this object
+                Vec3 distance = this.Position - curve.Position;
+                if (distance.Length() < minDistance)
+                {
+                    minDistance = distance.Length();
+                    minCurve = curve;
+                }
+            }
+            EngineConsole.Instance.Print("MincurveNmae: " + minCurve.Name);
+            this.MovementRoute = minCurve;
+
+            //try to wander around if there is a Patrol-Task
+
+            MapCurve mapCurve = this.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (GameCharacter on the map)
+
+            if (mapCurve != null) //was there one set for this GameCharacter?
+            {
+                if (route == null) //initialize patrol route, if not already done
+                {
+                    route = new ArrayList();
+
+                    foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
+                    {
+                        route.Add(point);
+                    }
+                }
+
+
+                //create a movement task for the next point
+                MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+
+                //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
+                //move and use current CurvePoint (first MapCurvePoint) as destination  
+                Move(pt.Position);
+                routeIndex++; //next route waypoint
+
+                //reverse the route if we are at the end
+
+                if (routeIndex >= route.Count)
+                {
+                    routeIndex = 0;
+                    route.Reverse();
+                }
+            }
+        }
+
+        
+
+        private void TickPatrol()
+        {
+
+            patrolTickTime -= TickDelta;
+            if (patrolTickTime <= 0)
+            {
+            this.Patrol();
+            patrolTickTime = 5f;
+            }
+         }
+                      
+              
+                 
+             
       
         enum NetworkMessages
         {
@@ -156,6 +251,9 @@ namespace ProjectEntities
         protected override void OnTick()
         {
             base.OnTick();
+
+            if (patrolEnabled)
+                TickPatrol();
 
             if (MoveEnabled)
                 TickMove();
@@ -450,5 +548,7 @@ namespace ProjectEntities
                 obj.Position.ToVec2() - new Vec2(Type.Radius, Type.Radius),
                 obj.Position.ToVec2() + new Vec2(Type.Radius, Type.Radius)));
         }
+
+        
     }
 }

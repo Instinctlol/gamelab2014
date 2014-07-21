@@ -534,6 +534,7 @@ namespace Game
                     switch (taskType)
                     {
                         //Patrol, Move, Attack, Repair
+                        
                         case AlienUnitAI.Task.Types.Patrol:
                         case AlienUnitAI.Task.Types.Move:
                         case AlienUnitAI.Task.Types.Attack:
@@ -544,6 +545,9 @@ namespace Game
                             {
                                 if (taskType == AlienUnitAI.Task.Types.Move)
                                     intellect.DoTask(new AlienUnitAI.Task(taskType, mouseMapPos), toQueue);
+
+                                if(taskType == AlienUnitAI.Task.Types.Patrol)
+                                    intellect.DoTask(new AlienUnitAI.Task(taskType), toQueue);
 
                                 if (taskType == AlienUnitAI.Task.Types.Attack ||
                                     taskType == AlienUnitAI.Task.Types.Repair)
@@ -588,7 +592,8 @@ namespace Game
                             mouseOnObject), toQueue);
                         tasked = true;
                     }
-                    
+
+                                     
 
                     if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Attack) &&
                         mouseOnObject.Intellect != null &&
@@ -1214,7 +1219,20 @@ namespace Game
                     break;
 
                 //Patrol, Move, Attack, Repair
+                
                 case AlienUnitAI.Task.Types.Patrol:
+                foreach (Unit unit in selectedUnits)
+                {
+                    AlienAI intellect = unit.Intellect as AlienAI;
+                    if (intellect == null)
+                        continue;
+
+                    if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
+                    {
+                        intellect.DoTask(new AlienUnitAI.Task(taskType), false);
+                    }
+                }
+                break;
                 case AlienUnitAI.Task.Types.Move:
                 case AlienUnitAI.Task.Types.Attack:
                 case AlienUnitAI.Task.Types.Repair:
