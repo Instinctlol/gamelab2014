@@ -316,6 +316,37 @@ namespace Game
                             }
                         }
                     }
+                    else if(hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePos)){
+                    
+                        bool pickingSuccess = false;
+                        Vec3 mouseMapPos = Vec3.Zero;
+                        Unit mouseOnObject = null;
+                        //get pick information
+                        Ray ray = RendererWorld.Instance.DefaultCamera.GetCameraToViewportRay(
+                            EngineApp.Instance.MousePosition);
+                        if (!float.IsNaN(ray.Direction.X))
+                        {
+                            RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
+                                (int)ContactGroup.CastOnlyContact);
+                            if (result.Shape != null)
+                            {
+                                pickingSuccess = true;
+                                mouseOnObject = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as Unit;
+                                mouseMapPos = result.Position;
+                            }
+                        }
+
+                        if (pickingSuccess)
+                        {
+                            //do tasks
+                            if (TaskTargetChooseIndex != -1)
+                            {
+                                DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
+                            }
+                        }
+                    }
+
+                    //hudControl.Controls["ControlPanelControl"].Visible
                     //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
                     
 
@@ -1546,14 +1577,17 @@ namespace Game
             #region Application to Camera
             camera.Fov = fovy;
             camera.AspectRatio = aspect;
-            camera.FrustumOffset = frustumOffset * (-1);
+            camera.FrustumOffset = frustumOffset;// *(-1);
             #endregion
         }
 
         void receiveTrackingData(int sensorID, double x, double y, double z)
         {
-            //headtracking1
-            headtrackingOffset = new Vec3((float)x, (float)y, (float)z);
+            //headtracking
+            //if (Math.Sqrt(x*x+y*y+z*z) <= 2.5)
+            {
+                headtrackingOffset = new Vec3((float)x, (float)y, (float)z);
+            }
         }
 
         protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward, out Vec3 up, ref Degree cameraFov)

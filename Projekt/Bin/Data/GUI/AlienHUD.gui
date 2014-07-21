@@ -108,33 +108,6 @@ control Control
 		size = Parent 0.8632813 0.04947916
 		name = GameStatus
 	}
-	control "GUI\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution -9 190
-		horizontalAlign = Right
-		size = ScaleByResolution 135 30
-		name = ComputerAlienSteuern
-		text = Alien steuern
-		visible = False
-	}
-	control "Gui\\Controls\\DefaultWindow.gui"
-	{
-		horizontalAlign = Center
-		verticalAlign = Center
-		size = ScaleByResolution 800 600
-		name = SteuerWindow
-		text = Alien steuern
-		visible = False
-		enable = False
-		control "Gui\\Controls\\DefaultButton.gui"
-		{
-			position = ScaleByResolution -40 -20
-			horizontalAlign = Right
-			verticalAlign = Bottom
-			name = Close
-			text = Close
-		}
-	}
 	control Control
 	{
 		position = ScaleByResolution 310 730

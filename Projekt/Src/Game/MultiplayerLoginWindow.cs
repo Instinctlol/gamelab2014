@@ -26,7 +26,7 @@ namespace Game
 		Button buttonCreateServer;
 		Button buttonConnect;
         Button buttonConnect2;
-
+        
         int port = 17001;
 		bool notDisposeClientOnDetach;
 
