@@ -1,0 +1,14 @@
+type BrokenTerminal
+{
+	class = Repairable
+	destroyedTexture = TerminalProjector_broken
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Dynamic\\Terminal\\TerminalProjector.mesh"
+			position = 0 0 0.3
+			scale = 1.058369 1.052933 1.030025
+		}
+	}
+}
