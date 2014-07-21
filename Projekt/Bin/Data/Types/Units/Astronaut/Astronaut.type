@@ -33,7 +33,7 @@ type Astronaut
 		}
 		item
 		{
-			weaponType = ScarType
+			weaponType = Scar
 		}
 		item
 		{
@@ -66,6 +66,12 @@ type Astronaut
 				position = 0.25 -0.01 -0.01
 				rotation = -0.001221729 -0.001134463 1.386009E-06 0.9999986
 			}
+			boneSlot brechstangeHolderTPS
+			{
+				bone = Bip001 R Finger3
+				position = 0.08 0.01 0
+				rotation = 0.7094065 -0.409576 -0.2867882 -0.4967318
+			}
 		}
 		mesh
 		{
@@ -92,6 +98,16 @@ type Astronaut
 				position = 0.25 -0.01 -0.01
 				rotation = 0.001270453 0.00119594 -4.495319E-05 -0.9999985
 			}
+			boneSlot brechstangeHolderFPS
+			{
+				bone = Bip001 R Hand
+				rotation = 0.7094065 -0.409576 -0.2867882 -0.4967318
+			}
+		}
+		mesh
+		{
+			meshName = "Types\\Weapons\\Brechstange\\brechstange_FSP.mesh"
+			boneSlot = brechstangeHolderTPS
 		}
 	}
 	dieObjects
