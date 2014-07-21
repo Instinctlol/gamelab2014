@@ -1,13 +1,13 @@
 type BunkBed
 {
 	class = StaticObject
-	physicsModel = ".\\Object.physics"
 	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
 		{
 			meshName = ".\\bunk_bed.mesh"
+			collision = True
 			position = 0 0 1.6
 		}
 	}
