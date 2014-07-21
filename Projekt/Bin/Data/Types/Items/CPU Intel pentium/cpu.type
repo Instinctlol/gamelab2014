@@ -7,7 +7,7 @@ type cpu
 		mesh
 		{
 			meshName = ".\\CPU Intel pentium.mesh"
-			position = -0.005970746 -0.03019059 0.05814486
+			position = -0.005970746 -0.03019059 0.1224299
 		}
 		particle
 		{
