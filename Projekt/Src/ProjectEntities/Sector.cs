@@ -71,16 +71,18 @@ namespace ProjectEntities
         {
             get { return lightStatus; }
             set { 
-                if(lightStatus != value)
-                {
                     lightStatus = value;
-                    SetLights(lightStatus);
 
-                    if (group != null)
-                        if(group.LightStatus!=value)
+
+                    if (group != null && group.LightStatus != value)
+                    {
+                       // if()
                             group.LightStatus = value;
+                    }
+                    else
+                        SetLights(lightStatus);
                 }
-            }
+            
         }
 
         //Sets the room to be hidden for the alien
@@ -109,11 +111,18 @@ namespace ProjectEntities
         }
 
         
-        //DEPRECATED!!! Use setter from lightStatus
+        
         //Setzt die Lichter zu bestimmten status
         public void SwitchLights(bool status)
         {
             LightStatus = status;
+        }
+
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+            if (group != null)
+                SwitchLights(group.LightStatus);
         }
 
 
@@ -168,7 +177,7 @@ namespace ProjectEntities
             base.OnPostCreate(loaded);
 
             if (!loaded)
-                return;
+               return;
 
 
             //Wenn Ring vorhanden bei seinem Event unterschreiben
@@ -176,7 +185,10 @@ namespace ProjectEntities
                 ring.RotateRing += OnRotateRing;
 
             if (group != null)
+            {
                 group.SwitchLight += SwitchLights;
+                SwitchLights(group.LightStatus);
+            }
         }
 
         protected override void OnRender(Engine.Renderer.Camera camera)
@@ -191,7 +203,7 @@ namespace ProjectEntities
                 aliensInSector = 0;
                 IsHidden = true;
             }
-            
+
             loaded = true;
 
         }
@@ -231,6 +243,14 @@ namespace ProjectEntities
                         r.LightStatus = status;
                     else
                         r.SetLights(status);
+                }
+
+                foreach (StaticObject s in statics)
+                {
+                    if (sync)
+                        s.LightStatus = status;
+                    else
+                        s.SetLights(status);
                 }
         }
 
@@ -275,8 +295,8 @@ namespace ProjectEntities
             rooms.Add(obj);
             if (isHidden)
                 obj.SetLights(false);
-            else
-                obj.LightStatus = lightStatus;
+                
+           obj.LightStatus = lightStatus;
         }
 
         private void OnStaticIn(StaticObject obj)
@@ -284,8 +304,8 @@ namespace ProjectEntities
             statics.Add(obj);
             if (isHidden)
                 obj.SetLights(false);
-            else
-                obj.LightStatus = lightStatus;
+            
+            obj.LightStatus = lightStatus;
         }
 
         private void OnDynamicIn(Dynamic obj)

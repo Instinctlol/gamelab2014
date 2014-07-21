@@ -24,6 +24,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 			: base( ownerEntity )
 		{
 			this.__ownerEntity = ownerEntity;
+			ownerEntity.Repair += delegate( ProjectEntities.Repairable __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )Repair(  ); };
 		}
 		
 		public ProjectEntities.Repairable Owner
@@ -32,5 +33,10 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		}
 		
 		
+		public void Repair()
+		{
+			Computer.AllowedToChangeLight=true;
+		}
+
 	}
 }

@@ -279,6 +279,10 @@ namespace ProjectEntities
                     sector.SwitchLights(false);
                 }
             }
+            else
+            {
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+            }
             
         }
 
@@ -289,21 +293,29 @@ namespace ProjectEntities
         /// <param name="b"</param>
         public static void SetSectorGroupPower(SectorGroup sectorGroup, bool b)
         {
-            if (sectorGroup == null)
+            if (allowedToChangeLight)
             {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
-            }
-            else if (powerCoupons <= 0)
-            {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                if (sectorGroup == null)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+                }
+                else if (powerCoupons <= 0)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                }
+                else
+                {
+                    Computer.DecrementPowerCoupons();
+                    sectorGroup.LightStatus = b;
+                }
             }
             else
             {
-                Computer.DecrementPowerCoupons();
-                sectorGroup.DoSwitchLight(b);
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
             }
+            
         }
 
         /// <summary>

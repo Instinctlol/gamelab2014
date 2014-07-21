@@ -1,6 +1,7 @@
 type SicherungskastenRepairable
 {
 	class = Repairable
+	networkType = Synchronized
 	repairItems
 	{
 		item

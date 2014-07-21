@@ -15,7 +15,7 @@ namespace ProjectEntities
         SectorGroupType _type = null; public new SectorGroupType Type { get { return _type; } }
 
         [FieldSerialize]
-        bool lightStatus = true;
+        bool lightStatus;
 
         public bool LightStatus
         {
@@ -36,12 +36,12 @@ namespace ProjectEntities
         public event SwitchLightDelegate SwitchLight;
         //*****************************
 
+ 
         [LogicSystemBrowsable(true)]
-        public void DoSwitchLight(bool status)
+        private void DoSwitchLight(bool status)
         {
             if (SwitchLight != null)
                 SwitchLight(status);
-            lightStatus = status;
         }
     }
 }

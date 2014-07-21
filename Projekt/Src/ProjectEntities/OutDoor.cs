@@ -31,6 +31,35 @@ namespace ProjectEntities
         //***************************
 
 
+        protected override void OnPostCreate(bool loaded)
+        {
+            base.OnPostCreate(loaded);
+
+            if (partnerDoor != null)
+                partnerDoor.Opened = false;
+            Opened = false;
+            partnerDoor = null;
+
+            Box bounds = GetBox();
+            bounds.Expand(15);
+
+            foreach (MapObject obj in Map.Instance.GetObjects(bounds))
+            {
+
+
+                OutDoor d = obj as OutDoor;
+                if (d != null && d != this)
+                {
+                    partnerDoor = d;
+                    d.Opened = true;
+                    d.PartnerDoor = this;
+                    Opened = true;
+                    return;
+                }
+            }
+        }
+
+
         public void OnRotate(Vec3 pos, Quat rot, bool left)
         {
             if (partnerDoor != null)

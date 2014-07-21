@@ -94,7 +94,7 @@ namespace Game
             }
             else
             {
-                Computer.SetSectorGroupPower(selectedSector.Group, false);
+                Computer.SetSectorGroupPower(selectedSector.Group, !selectedSector.Group.LightStatus);
                 EngineConsole.Instance.Print("Turn Power off for secgrp: "+selectedSector.Group.Name);
             }
         }
