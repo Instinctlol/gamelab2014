@@ -38,6 +38,7 @@ namespace ProjectEntities
         public static bool noSpawnTime = false;
 
         private static Task csspwTask;
+        private static bool allowedToChangeLight;
 
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
@@ -98,6 +99,11 @@ namespace ProjectEntities
             set { Computer.csspwTask = value; }
         }
 
+        public static bool AllowedToChangeLight
+        {
+            get { return Computer.allowedToChangeLight; }
+            set { Computer.allowedToChangeLight = value; }
+        }
         /**************/
         /* Funktionen */
         /**************/
@@ -255,21 +261,25 @@ namespace ProjectEntities
         /// <param name="sector"></param>
         public static void SetSectorPower(Sector sector)
         {
-            if (sector == null)
+            if(allowedToChangeLight)
             {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+                if (sector == null)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+                }
+                else if (powerCoupons <= 0)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                }
+                else
+                {
+                    Computer.DecrementPowerCoupons();
+                    sector.SwitchLights(false);
+                }
             }
-            else if (powerCoupons <= 0)
-            {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
-            }
-            else
-            {
-                Computer.DecrementPowerCoupons();
-                sector.SwitchLights(false);
-            }
+            
         }
 
         /// <summary>
