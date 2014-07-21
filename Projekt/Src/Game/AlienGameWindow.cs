@@ -1593,6 +1593,10 @@ namespace Game
             if (Math.Sqrt(x * x + y * y + z * z) <= 2.5)
             {
                 headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
+                if (headtrackingOffset.Z < 0)
+                {
+                    headtrackingOffset.Z = 0.01f;
+                }
             }
         }
 
@@ -1667,7 +1671,7 @@ namespace Game
                 adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
 
                 // Headtracking position addieren
-                position += headtrackingOffset / 100;
+                position += headtrackingOffset;
             }
         }
 
