@@ -1,4 +1,4 @@
-type Schlafkapsel
+type ServerRack
 {
 	class = StaticObject
 	networkType = Synchronized
@@ -6,7 +6,7 @@ type Schlafkapsel
 	{
 		mesh
 		{
-			meshName = ".\\Chestburster_capsule_chair.mesh"
+			meshName = ".\\ServerV2+console.mesh"
 			collision = True
 		}
 	}

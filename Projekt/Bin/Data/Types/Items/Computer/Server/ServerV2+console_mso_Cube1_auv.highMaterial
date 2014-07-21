@@ -1,0 +1,10 @@
+highLevelMaterial "ServerV2+console_mso_Cube1_auv"
+{
+	template = ShaderBaseMaterial
+	specularColor = 1 1 1
+	specularShininess = 100
+	diffuse1Map
+	{
+		texture = ".\\rack.png"
+	}
+}

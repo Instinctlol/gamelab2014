@@ -7,6 +7,7 @@ type Kueche
 		mesh
 		{
 			meshName = ".\\Kitchen modern N180514.mesh"
+			collision = True
 			position = 0 0 1.8
 			scale = 0.05 0.05 0.05
 		}

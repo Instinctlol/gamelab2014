@@ -7,6 +7,7 @@ type BettSofa
 		mesh
 		{
 			meshName = ".\\Bed Novamobily Square Italy N200514.mesh"
+			collision = True
 			scale = 0.06 0.06 0.06
 		}
 	}
