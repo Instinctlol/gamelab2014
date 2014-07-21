@@ -50,14 +50,21 @@ type Astronaut
 			position = 0 0 -1.15
 			boneSlot gunHolderThirdPersonCamera
 			{
-				bone = Bip001 L Hand
-				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+				bone = Bip001 L Finger3
+				position = 0.08 0.01 0
+				rotation = 0.7094065 -0.4095761 -0.2867883 -0.4967318
 			}
 			boneSlot gunHolderThirdPersonCamera_Shotgun
 			{
+				bone = Bip001 L Finger3
+				position = 0.08 0.01 0
+				rotation = 0.7094065 -0.4095761 -0.2867883 -0.4967318
+			}
+			boneSlot glockHolderThirdPersonCamera
+			{
 				bone = Bip001 R Hand
-				position = 0.5 -0.1 0
-				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+				position = 0.25 -0.01 -0.01
+				rotation = -0.001221729 -0.001134463 1.386009E-06 0.9999986
 			}
 		}
 		mesh
@@ -65,37 +72,33 @@ type Astronaut
 			meshName = ".\\FirstPersonArms\\Astronaut.mesh"
 			animationTree = ".\\FirstPersonArms\\Arms.animationTree"
 			alias = firstPersonArms
-			position = -0.119255 -0.009999998 -0.3525942
+			position = -0.119255 -0.11 -1.752594
 			visible = False
 			boneSlot gunHolderFirstPersonCamera
 			{
-				bone = Bip001 L Hand
-				position = 0.5 -0.1 0
-				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+				bone = Bip001 L Finger3
+				position = 0.08 0.01 0
+				rotation = 0.7094065 -0.4095761 -0.2867883 -0.4967318
 			}
 			boneSlot gunHolderFirstPersonCamera_Shotgun
 			{
-				bone = Bip001 R Hand
-				position = 0.5 -0.1 0
-				rotation = -0.02703186 -0.1347004 -0.1150607 0.9838121
+				bone = Bip001 L Finger3
+				position = 0.08 0.01 0
+				rotation = 0.7094065 -0.4095761 -0.2867883 -0.4967318
 			}
 			boneSlot glockHolderFirstPersonCamera
 			{
 				bone = Bip001 R Hand
-				position = 0.2511074 -0.01681818 -0.01331964
+				position = 0.25 -0.01 -0.01
+				rotation = 0.001270453 0.00119594 -4.495319E-05 -0.9999985
 			}
-		}
-		mesh
-		{
-			meshName = "Types\\Weapons\\SubmachineGun\\ScarRifle_FPSCamera\\ScarRifle_FPSCamera.mesh"
-			boneSlot = gunHolderFirstPersonCamera
 		}
 	}
 	dieObjects
 	{
 		mapObject
 		{
-			type = AstronautDead
+			type = AstronautDead1
 			copyVelocitiesFromParent = True
 		}
 		sound

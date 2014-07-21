@@ -64,7 +64,8 @@ blocks
 	/////////////////////////////////////////////
 	/////////////////////////////////////////////
 	
-
+	
+	
 	block Transition
 	{
 		uin = 1000
@@ -87,7 +88,7 @@ blocks
 	block Trigger
 	{
 		uin = 101
-		triggerName = "jump"
+		triggerName = "death"
 		off = 200
 		on = 100
 	}
@@ -95,7 +96,7 @@ blocks
 	block Animation
 	{
 		uin = 100
-		animationName = "jump"
+		animationName = "die"
 		speed = 1.0
 	}
 	
@@ -172,7 +173,7 @@ blocks
 	block Trigger
 	{
 		uin = 2000
-		triggerName = "jump"
+		triggerName = "death"
 		off = 3200
 		on = 100
 	}
@@ -189,10 +190,23 @@ blocks
 		animation0 = 3310 // default_animation
 		animation1 = 3003 // Pistol Animation
 	}
+	
+
+
+	//////////////////////////////////////////
+	// pistol_animation
+	block Transition
+	{
+		uin = 3003
+	
+		selectedIndexSource = 5
+		animation0 = 3005 // idel
+		animation1 = 3004 // Pistol Animation
+	}
 
 	block Direction8Sides
 	{
-		uin = 3003
+		uin = 3004
 
 		angleSource = 20
 		speedMultiplierSource = 21
@@ -220,6 +234,13 @@ blocks
 		uin = 3115
 		animationName = "walking_pistol"
 		speed = -0.2
+	}
+
+	block Animation
+	{
+		uin = 3005
+		animationName = "idle_pistol"
+		
 	}
 
 	//default Animation oder Brechstange animation 
