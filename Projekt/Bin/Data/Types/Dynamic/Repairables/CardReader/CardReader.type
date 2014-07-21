@@ -1,0 +1,21 @@
+type CardReader
+{
+	class = Repairable
+	destroyedTexture = CardReader_broken
+	networkType = Synchronized
+	repairItems
+	{
+		item
+		{
+			itemType = AccessCard
+		}
+	}
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\CardReader.mesh"
+			position = 0 0 0.3
+		}
+	}
+}

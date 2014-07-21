@@ -1,0 +1,9 @@
+highLevelMaterial CardReader_broken
+{
+	template = ShaderBaseMaterial
+	specularColor = 0.5019608 0.5019608 0.5019608
+	diffuse1Map
+	{
+		texture = ".\\CardReader_broken.jpg"
+	}
+}
