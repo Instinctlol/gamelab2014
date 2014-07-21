@@ -163,7 +163,6 @@ namespace ProjectCommon
 
 	        Vec3D headPosition = currentPosition;
 
-            Console.WriteLine(headPosition.ToString());
 
             return headPosition;
             //return pos;

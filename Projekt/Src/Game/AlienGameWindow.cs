@@ -1577,16 +1577,16 @@ namespace Game
             #region Application to Camera
             camera.Fov = fovy;
             camera.AspectRatio = aspect;
-            camera.FrustumOffset = frustumOffset;// *(-1);
+            camera.FrustumOffset = frustumOffset;;
             #endregion
         }
 
         void receiveTrackingData(int sensorID, double x, double y, double z)
         {
             //headtracking
-            //if (Math.Sqrt(x*x+y*y+z*z) <= 2.5)
+            if (Math.Sqrt(x * x + y * y + z * z) <= 2.5)
             {
-                headtrackingOffset = new Vec3((float)x, (float)y, (float)z);
+                headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
             }
         }
 
@@ -1654,11 +1654,11 @@ namespace Game
             // Asymmetrisches Frustum
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
-            //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
-            //adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
+            Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
+            adjustCamera(ref camera, headtrackingOffset.X, headtrackingOffset.Y, headtrackingOffset.Z, workbenchDimension.X, workbenchDimension.Y);
 
             // Headtracking position addieren
-            //position += headtrackingOffset / 100;
+            position += headtrackingOffset / 100;
         }
 
         // Brauchen wir das??
