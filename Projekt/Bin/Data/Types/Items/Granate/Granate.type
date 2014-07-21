@@ -5,9 +5,12 @@ type Granate
 	{
 		mesh
 		{
-			meshName = ".\\grenade.mesh"
-			position = 0 0 0.1
-			scale = 0.001 0.001 0.001
+			meshName = ".\\granate_klein.mesh"
+			position = -0.2977504 -0.1830398 0.1199071
+		}
+		particle
+		{
+			particleName = ItemParticle
 		}
 	}
 }

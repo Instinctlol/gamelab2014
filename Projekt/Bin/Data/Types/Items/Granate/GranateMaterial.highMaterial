@@ -1,0 +1,6 @@
+highLevelMaterial GranateMaterial
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.6 0.2078432 0.2392157
+	specularColor = 0 0 0 0
+}

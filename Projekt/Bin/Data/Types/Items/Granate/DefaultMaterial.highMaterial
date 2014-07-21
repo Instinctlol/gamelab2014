@@ -1,8 +1,0 @@
-highLevelMaterial DefaultMaterial
-{
-	dataSource = "Types\\Items\\Granate\\grenade.modelImport"
-	template = ShaderBaseMaterial
-	diffuseColor = 0.6 0.6 0.6
-	specularColor = 0 0 0 0
-	specularShininess = 20
-}
