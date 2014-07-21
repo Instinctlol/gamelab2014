@@ -40,6 +40,7 @@ namespace ProjectEntities
         private byte position;
 
 
+
         //***************************
         //*******Getter-Setter*******
         //*************************** 
@@ -91,7 +92,6 @@ namespace ProjectEntities
         [LogicSystemBrowsable(true)]
         public void RotateLeft()
         {
-
             EngineConsole.Instance.Print("ring links drehen");
             //Vllt Error wenn man versucht statischen ring zu drehen
             if (!Rotatable)
