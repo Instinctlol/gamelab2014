@@ -1,7 +1,7 @@
 type ScarItem
 {
 	class = WeaponItem
-	weaponType = ScarType
+	weaponType = Scar
 	bulletType = ScarBullet
 	bulletCount = 300
 	defaultRespawnTime = 10
