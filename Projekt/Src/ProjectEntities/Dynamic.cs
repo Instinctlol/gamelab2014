@@ -1610,8 +1610,22 @@ namespace ProjectEntities
 		public virtual MapObjectCreateObjectCollection.CreateObjectsResultItem[] DieObjects_Create()
 		{
 			//create objects
-			MapObjectCreateObjectCollection.CreateObjectsResultItem[] result =
-				Type.DieObjects.CreateObjectsOfOneRandomSelectedGroup( this );
+            MapObjectCreateObjectCollection.CreateObjectsResultItem[] result;
+            if (this is Alien)
+            {
+                result = new MapObjectCreateObjectCollection.CreateObjectsResultItem[2];
+                // Corpse muss immer erstellt werden
+                MapObjectCreateObjectCollection.CreateObjectsResultItem[] temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 0);
+                result[0] = temp[0];
+                // Per Zufall ein Item aus Liste auswählen
+                Random index = new Random();
+                temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + index.Next(Type.DieObjects.Count - 1));
+                result[1] = temp[0];
+            }
+            else
+            {
+                result = Type.DieObjects.CreateObjectsOfOneRandomSelectedGroup(this);
+            }
 
 			//modify created objects:
 			//- Random rotate objects with Alias = "randomRotation"

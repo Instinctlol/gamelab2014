@@ -1187,7 +1187,6 @@ namespace Game
 
         void NumPadButton_Click(Button sender)
         {
-            Console.WriteLine("click " + sender.Text + " " + sender.Name + " Text: " + numPad.Controls["Output"].Text);
             if (numPad.Controls["Output"].Text.Length < 2)
             {
                 numPad.Controls["Output"].Text += "" + sender.Text;
@@ -1664,7 +1663,7 @@ namespace Game
             // Asymmetrisches Frustum
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
-            Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
+            //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
 
             if (isHeadtrackingActive)
             {

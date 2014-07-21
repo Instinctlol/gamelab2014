@@ -47,7 +47,7 @@ namespace ProjectEntities
 
         // Verwaltet alle Alienleichen in der Reihenfolge, wie sie gestorben sind
         static Queue<Corpse> corpseList = new Queue<Corpse>();
-        const int maxAlienCorpses = 2;
+        const int maxAlienCorpses = 10;
 
 
 
