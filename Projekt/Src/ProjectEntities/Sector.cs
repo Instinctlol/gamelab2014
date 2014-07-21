@@ -74,12 +74,12 @@ namespace ProjectEntities
                     lightStatus = value;
 
 
-                    if (group != null && group.LightStatus != value)
+                    /*if (group != null && group.LightStatus != value)
                     {
                        // if()
                             group.LightStatus = value;
                     }
-                    else
+                    else*/
                         SetLights(lightStatus);
                 }
             

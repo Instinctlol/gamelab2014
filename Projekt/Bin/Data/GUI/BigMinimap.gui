@@ -36,7 +36,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		horizontalAlign = Center
 		size = ScaleByResolution 170 30
 		name = Power
-		text = Power Off
+		text = Switch Power
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{

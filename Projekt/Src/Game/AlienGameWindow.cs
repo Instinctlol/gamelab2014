@@ -1656,7 +1656,7 @@ namespace Game
         /// <param name="button"></param>
         public void BigMinimapClick(Control sender, EMouseButtons button)
         {
-            bigMinimapObj.BigMinimapClick(MousePosition);
+            //bigMinimapObj.BigMinimapClick(MousePosition);
         }
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////

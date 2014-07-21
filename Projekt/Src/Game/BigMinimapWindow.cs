@@ -34,10 +34,10 @@ namespace Game
             //bigMinimapControl.MouseDoubleClick += BigMinimapClick;
 
             // Buttons
-            ((Button)window.Controls["Close"]).Click += closeButton_Click;
+            /* ((Button)window.Controls["Close"]).Click += closeButton_Click;
             ((Button)window.Controls["RotateLeft"]).Click += rotateLeftButton_Click;
             ((Button)window.Controls["RotateRight"]).Click += rotateRightButton_Click;
-            ((Button)window.Controls["Power"]).Click += powerButton_Click;
+            ((Button)window.Controls["Power"]).Click += powerButton_Click; */
 
             MouseCover = true;
             BackColor = new ColorValue(0, 0, 0, .5f);
