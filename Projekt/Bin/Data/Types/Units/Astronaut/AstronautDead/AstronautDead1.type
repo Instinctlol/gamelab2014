@@ -1,0 +1,15 @@
+type AstronautDead1
+{
+	class = Corpse
+	substance = Flesh
+	physicsModel = ".\\Astronaut.physics"
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Units\\Astronaut\\Astronaut.mesh"
+			animationTree = ".\\AstronautDead.animationTree"
+		}
+	}
+}
