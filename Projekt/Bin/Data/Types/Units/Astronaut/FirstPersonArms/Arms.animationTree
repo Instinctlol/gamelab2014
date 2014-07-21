@@ -253,11 +253,14 @@ blocks
 		animation1 = 4110 // Brechstange animation
 	}
 	
+	//Brechstange Animation oder Idle
+	
+
 	block Trigger
 	{
 		uin = 4110
 		triggerName = "fire"
-		off = 4100
+		off = 4101
 		on = 4000
 	}
 	block Animation
@@ -268,6 +271,16 @@ blocks
 	}
 	
 
+	block Transition
+	{
+		uin = 4101
+	
+		selectedIndexSource = 5
+		animation0 = 33 // idle
+		animation1 = 4100 // Brechstange animation
+	}
+	
+	
 
 	block Direction8Sides
 	{
@@ -299,6 +312,13 @@ blocks
 		uin = 4115
 		animationName = "walk"
 		speed = -0.2
+	}
+
+	block Animation
+	{
+		uin = 33
+		animationName = "idle"
+		speed = 1
 	}
 	
 
