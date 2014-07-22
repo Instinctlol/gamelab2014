@@ -86,7 +86,8 @@ namespace ProjectEntities
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
-        
+        float timeTilNextSound = 0;
+        String currentSoundName;
         
 
 
@@ -131,10 +132,10 @@ namespace ProjectEntities
             Vec3 myPosition = this.Position;
             MapCurve minCurve = null;
             float minDistance = 10000f;
-            
+            // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
             foreach (MapCurve curve in allPossibleCurves)
             {
-                
+                // calculate a value for priority to attack this object
                 Vec3 distance = this.Position - curve.Position;
                 if (distance.Length() < minDistance)
                 {
@@ -189,7 +190,7 @@ namespace ProjectEntities
             if (patrolTickTime <= 0)
             {
             this.Patrol();
-            patrolTickTime = 0.63f;
+            patrolTickTime = 5f;
             }
          }
                       
@@ -261,6 +262,10 @@ namespace ProjectEntities
             else
                 path.Clear();
 
+            if (timeTilNextSound > 0)
+            {
+                timeTilNextSound -= TickDelta;
+            }
 
             CalculateMainBodyVelocity();
 
@@ -485,10 +490,6 @@ namespace ProjectEntities
             {
                 move = true;
                 moveSpeed = (Rotation.GetInverse() * mainBodyVelocity).X;
-                if ( alienChannel != null)
-                {
-                    alienChannel.Stop();
-                }
                 // Play sound
                 PlaySound("walk");
             }
@@ -504,24 +505,29 @@ namespace ProjectEntities
         /// <param name="name"></param>
         public void PlaySound(String name)
         {
-            if (alienChannel != null)
+            if (timeTilNextSound <= 0 || currentSoundName != name)
             {
-                alienChannel.Stop();
-            }
-            // Play sound
-            IEnumerable<MapObjectTypeAttachedSound> sounds = this._type.AttachedObjects.OfType<MapObjectTypeAttachedSound>();
-            foreach (MapObjectTypeAttachedSound s in sounds)
-            {
-                if (s.Alias == name)
+                if (alienChannel != null)
                 {
-                    alienSound = SoundWorld.Instance.SoundCreate(s.SoundName, SoundMode.Record);
-                    break;
+                    alienChannel.Stop();
                 }
-            }
-            // Sound erstellen
-            if (alienSound != null)
-            {
-                this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
+                // Play sound
+                IEnumerable<MapObjectTypeAttachedSound> sounds = this._type.AttachedObjects.OfType<MapObjectTypeAttachedSound>();
+                foreach (MapObjectTypeAttachedSound s in sounds)
+                {
+                    if (s.Alias == name)
+                    {
+                        alienSound = SoundWorld.Instance.SoundCreate(s.SoundName, SoundMode.Record);
+                        currentSoundName = name;
+                        break;
+                    }
+                }
+                // Sound erstellen
+                if (alienSound != null)
+                {
+                    this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
+                }
+                timeTilNextSound = 2;
             }
         }
 

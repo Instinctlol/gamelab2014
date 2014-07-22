@@ -318,6 +318,7 @@ namespace Game
                     }
                     else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
+                        Console.WriteLine("tuio minimap click open");
                         DoOpenMinimap();
                     }
                     else if (numPad.Visible && numPad.GetScreenRectangle().IsContainsPoint(MousePos))
@@ -560,11 +561,11 @@ namespace Game
                 DoEndSelectMode();
 
             //minimap mouse change camera position
-            if (minimapClick)
-            {
-                minimapClick = false;
-                DoOpenMinimap();
-            }
+            //if (minimapClick)
+            //{
+            //    minimapClick = false;
+            //    DoOpenMinimap();
+            //}
 
             return base.OnMouseUp(button);
         }
@@ -1822,19 +1823,17 @@ namespace Game
         /// </summary>
         void DoOpenMinimap()
         {
-            //hudControl.Controls["ActiveArea"].Controls["LoadingMessage"].Visible = true;
-
             // BigMinimap öffnen
             if (bigMinimapObj == null)
             {
                 bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
+                hudControl.Controls["BigMinimap"].Visible = true;
             }
             else
             {
                 hudControl.Controls["BigMinimap"].Visible = true;
             }
 
-            //Control.Add(new BigMinimapWindow());
         }
 
         /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
