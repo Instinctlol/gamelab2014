@@ -131,10 +131,10 @@ namespace ProjectEntities
             Vec3 myPosition = this.Position;
             MapCurve minCurve = null;
             float minDistance = 10000f;
-            // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
+            
             foreach (MapCurve curve in allPossibleCurves)
             {
-                // calculate a value for priority to attack this object
+                
                 Vec3 distance = this.Position - curve.Position;
                 if (distance.Length() < minDistance)
                 {
@@ -189,7 +189,7 @@ namespace ProjectEntities
             if (patrolTickTime <= 0)
             {
             this.Patrol();
-            patrolTickTime = 5f;
+            patrolTickTime = 0.63f;
             }
          }
                       
