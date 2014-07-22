@@ -47,7 +47,7 @@ namespace Game
 
         Vec3 _direction = new Vec3();
         Vec3 _debugOffset = new Vec3();
-        float walkingScale = 1.0f;
+        float walkingScale = 2.0f;
 
         #endregion
 
@@ -111,6 +111,7 @@ namespace Game
 					camera.Direction = defaultCamera.Direction;
 					camera.Position = defaultCamera.Position;
 
+
 					////override visibility (hide main scene objects, show from lists)
 					//List<SceneNode> sceneNodes = new List<SceneNode>();
 					//if( owner.sceneNode != null )
@@ -153,7 +154,7 @@ namespace Game
 				get { return opacity; }
 				set { opacity = value; }
 			}
-
+            
 			public Texture Texture
 			{
 				get { return texture; }
@@ -309,9 +310,14 @@ namespace Game
         private void _swapTrackingToNeoAxis(ref Vec3 value)
         {
             Vec3 temp = new Vec3();
-            temp.Y = value.X;
-            temp.Z = value.Y;
-            temp.X = value.Z;
+            //temp.Y = value.X;
+            //temp.Z = value.Y;
+            //temp.X = value.Z;
+
+            ////Test
+            temp.Y = value.Y * walkingScale * (-1);
+            temp.Z = value.Z;
+            temp.X = value.X * walkingScale;
 
             value = temp;
         }
@@ -337,7 +343,21 @@ namespace Game
 
                 int frontID, leftID, rightID;
 
-                // Search left marker
+                //// Search left marker
+                //float currentValue = -9999.0f;
+                //int currentID = -1;
+                //for (int i = 0; i < 3; ++i)
+                //{
+                //    if (_sensors[i].Y > currentValue)
+                //    {
+                //        currentValue = _sensors[i].Y;
+                //        currentID = i;
+                //    }
+                //}
+
+                //leftID = currentID;
+
+                // Search front marker
                 float currentValue = -9999.0f;
                 int currentID = -1;
                 for (int i = 0; i < 3; ++i)
@@ -348,22 +368,36 @@ namespace Game
                         currentID = i;
                     }
                 }
+                frontID = currentID;
 
-                leftID = currentID;
+                //// Search front marker
+                //currentValue = 9999.0f;
+                //currentID = -1;
+                //for (int i = 0; i < 3; ++i)
+                //{
+                //    if (_sensors[i].Y < currentValue)
+                //    {
+                //        currentValue = _sensors[i].Y;
+                //        currentID = i;
+                //    }
+                //}
 
-                // Search front marker
+                //frontID = currentID;
+
+                // Search left marker
                 currentValue = 9999.0f;
                 currentID = -1;
                 for (int i = 0; i < 3; ++i)
                 {
-                    if (_sensors[i].Y < currentValue)
+                    if (_sensors[i].Z < currentValue)
                     {
                         currentValue = _sensors[i].Y;
                         currentID = i;
                     }
                 }
 
-                frontID = currentID;
+                leftID = currentID;
+
 
                 // Assign right marker to rest
                 if (leftID == 0 && frontID == 1 || leftID == 1 && frontID == 0)
@@ -531,9 +565,7 @@ namespace Game
             }
 
             // Initialize head tracking
-            //Instance._tracker = new HeadTracker(2425);
-            //Instance._tracker.TrackingEvent += new HeadTracker.receiveTrackingData(Instance.headTracking);
-            //Instance._tracker.start();
+            HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(Instance.headTracking);
 		}
 
 		public static void Shutdown()
