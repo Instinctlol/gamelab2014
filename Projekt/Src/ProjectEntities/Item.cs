@@ -187,7 +187,7 @@ namespace ProjectEntities
 
 		protected virtual bool OnTake( Unit unit )
 		{
-			return false;
+			return true;
 		}
 
         public void TakeItem( Unit unit )
