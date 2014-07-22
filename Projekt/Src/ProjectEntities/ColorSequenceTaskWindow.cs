@@ -29,6 +29,7 @@ namespace ProjectEntities
             GreenClickToServer,
             RedClickToServer,
             PlayClickToServer,
+            ShowMouseOverControls,
         }
         
         //Konstanten
@@ -126,6 +127,8 @@ namespace ProjectEntities
                             SwitchControlForButton(yellowButton, true);
                             SwitchControlForButton(redButton, true);
                             SwitchControlForButton(blueButton, true);
+                            SwitchControlForButton(greenButton, true);
+                            task.Server_SendWindowData((UInt16)NetworkMessages.ShowMouseOverControls);
                         }
                         else
                         {
@@ -452,6 +455,12 @@ namespace ProjectEntities
                     SwitchControlForButton(redButton, false);
                     SwitchControlForButton(blueButton, false);
                     SwitchControlForButton(greenButton, false);
+                    break;
+                case NetworkMessages.ShowMouseOverControls:
+                    SwitchControlForButton(yellowButton, true);
+                    SwitchControlForButton(redButton, true);
+                    SwitchControlForButton(blueButton, true);
+                    SwitchControlForButton(greenButton, true);
                     break;
                 default:
                     return;
