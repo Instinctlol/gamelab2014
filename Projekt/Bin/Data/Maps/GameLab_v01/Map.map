@@ -5,6 +5,7 @@ gameType = AVA
 gameMusic = "Sounds\\Music\\ava.ogg"
 windDirection = 0
 windSpeed = 1
+playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
