@@ -6570,7 +6570,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 16
-	position = -20.2 111.9 0.3
+	position = -20.2 111.8 0.3
 }
 entity
 {
@@ -6580,7 +6580,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 17
-	position = -20.1 109.1 0.3
+	position = -20.1 108.8 0.3
 }
 entity
 {
@@ -6590,7 +6590,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 18
-	position = -20.1 105.8 0.3
+	position = -20.1 105.7 0.3
 }
 entity
 {
