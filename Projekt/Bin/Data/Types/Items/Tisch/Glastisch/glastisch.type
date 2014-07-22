@@ -1,0 +1,13 @@
+type glastisch
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Cube.mesh"
+			collision = True
+		}
+	}
+}

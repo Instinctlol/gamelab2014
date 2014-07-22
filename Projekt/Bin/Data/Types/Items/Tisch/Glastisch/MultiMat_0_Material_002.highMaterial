@@ -1,0 +1,8 @@
+highLevelMaterial MultiMat_0_Material_002
+{
+	template = ShaderBaseMaterial
+	blending = AlphaBlend
+	diffuseColor = 0.64 0.64 0.64 0.18
+	specularColor = 0.5 0.5 0.5
+	specularShininess = 56.43856
+}
