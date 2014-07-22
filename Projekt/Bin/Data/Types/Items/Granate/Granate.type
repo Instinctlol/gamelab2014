@@ -8,9 +8,5 @@ type Granate
 			meshName = ".\\granate_klein.mesh"
 			position = -0.2977504 -0.1830398 0.1199071
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

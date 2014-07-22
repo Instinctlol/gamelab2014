@@ -13,10 +13,5 @@ type SmallHealthItem
 			castDynamicShadows = True
 			position = 0 0 0.25
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = 0 0 0.09607927
-		}
 	}
 }

@@ -1,6 +1,7 @@
 type durchgang
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

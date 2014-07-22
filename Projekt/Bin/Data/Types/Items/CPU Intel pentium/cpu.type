@@ -9,9 +9,5 @@ type cpu
 			meshName = ".\\CPU Intel pentium.mesh"
 			position = -0.005970746 -0.03019059 0.1224299
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

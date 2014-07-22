@@ -17,10 +17,5 @@ type ScarItem
 			rotation = 0 0 -0.1318847 -0.9912651
 			scale = 0.4255319 0.4255319 0.4255319
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = 0 0 -0.146689
-		}
 	}
 }

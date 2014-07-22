@@ -16,10 +16,5 @@ type ShotgunItem
 			meshName = "Types\\Weapons\\Shotgun\\Shotgun.mesh"
 			castDynamicShadows = True
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = 0 0 -0.1236138
-		}
 	}
 }

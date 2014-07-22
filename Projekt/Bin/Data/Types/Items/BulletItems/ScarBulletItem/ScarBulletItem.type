@@ -16,10 +16,5 @@ type ScarBulletItem
 			rotation = 0.0006204918 0.701611 0.7125598 0.0006301748
 			scale = 0.07577354 0.07577354 0.07577354
 		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
-		}
 	}
 }

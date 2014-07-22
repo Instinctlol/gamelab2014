@@ -9,9 +9,5 @@ type cable
 			meshName = ".\\cable.mesh"
 			position = -0.004195929 0 0.04127613
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

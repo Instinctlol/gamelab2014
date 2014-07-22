@@ -17,10 +17,5 @@ type SubmachineGunItem
 			castDynamicShadows = True
 			scale = 1.2 1.2 1.2
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = 0 0 -0.146689
-		}
 	}
 }

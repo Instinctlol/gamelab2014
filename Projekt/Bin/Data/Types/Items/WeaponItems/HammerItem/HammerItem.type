@@ -13,11 +13,5 @@ type HammerItem
 			castDynamicShadows = True
 			position = -0.5 0 0
 		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
-			position = 0 0 -0.1974521
-		}
 	}
 }

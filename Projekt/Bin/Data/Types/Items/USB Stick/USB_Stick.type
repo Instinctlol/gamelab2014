@@ -22,10 +22,5 @@ type USB_Stick
 			position = -0.01077259 0 0.03523576
 			scale = 0.01 0.01 0.01
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = -0.004298449 0 -0.0001140833
-		}
 	}
 }

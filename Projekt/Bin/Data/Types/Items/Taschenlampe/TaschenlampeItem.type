@@ -10,9 +10,5 @@ type TaschenlampeItem
 			position = 0.0009641051 0 0.1184229
 			scale = 0.6578947 0.6578947 0.6578947
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

@@ -4,20 +4,14 @@ type FastMoveInfluenceItem
 	influenceType = FastMoveInfluence
 	influenceTime = 10
 	defaultRespawnTime = 10
-	soundTake = Types/Items/DefaultItemTake.ogg
-	allowEditorCreate = True
+	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
 		{
-			meshName = Types\Items\FastMoveInfluenceItem\Main.mesh
+			meshName = "Types\\Items\\FastMoveInfluenceItem\\Main.mesh"
 			castDynamicShadows = True
-		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
 		}
 	}
 }

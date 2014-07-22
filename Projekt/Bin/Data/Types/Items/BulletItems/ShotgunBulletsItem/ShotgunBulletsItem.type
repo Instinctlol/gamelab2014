@@ -5,7 +5,6 @@ type ShotgunBulletsItem
 	bulletCount = 1000
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
-	allowEditorCreate = True
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -14,11 +13,6 @@ type ShotgunBulletsItem
 			meshName = "Types\\Items\\BulletItems\\ShotgunBulletsItem\\ShotgunBulletsItem.mesh"
 			castDynamicShadows = True
 			scale = 0.015 0.015 0.015
-		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
 		}
 	}
 }

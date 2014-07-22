@@ -14,11 +14,5 @@ type BrechstangeItem
 			castDynamicShadows = True
 			position = -0.01763713 0 -0.1177769
 		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
-			position = -0.02576709 0 -0.1974521
-		}
 	}
 }

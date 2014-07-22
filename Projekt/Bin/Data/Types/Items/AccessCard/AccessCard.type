@@ -13,10 +13,5 @@ type AccessCard
 			position = -0.00339222 0 0.03208083
 			scale = 0.05 0.05 0.05
 		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
-		}
 	}
 }

@@ -1,6 +1,7 @@
 type gitter
 {
 	class = MapObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh

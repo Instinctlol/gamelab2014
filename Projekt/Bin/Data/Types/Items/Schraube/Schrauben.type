@@ -9,10 +9,6 @@ type Schrauben
 			meshName = ".\\Schraube.mesh"
 			rotation = 0 0.3871331 0 0.9220238
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 		mesh
 		{
 			meshName = ".\\Schraube.mesh"

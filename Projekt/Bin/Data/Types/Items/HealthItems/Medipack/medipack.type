@@ -15,10 +15,5 @@ type medipack
 			rotation = -1 0 0 -4.371139E-08
 			scale = 0.06702413 0.06702413 0.06702413
 		}
-		particle
-		{
-			particleName = ItemParticle
-			position = 0 0 0.09607927
-		}
 	}
 }

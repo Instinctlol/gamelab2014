@@ -5,7 +5,6 @@ type BigDamageInfluenceItem
 	influenceTime = 10
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
-	allowEditorCreate = True
 	networkType = Synchronized
 	attachedObjects
 	{
@@ -13,11 +12,6 @@ type BigDamageInfluenceItem
 		{
 			meshName = "Types\\Items\\FastAttackInfluenceItem\\Main.mesh"
 			castDynamicShadows = True
-		}
-		particle
-		{
-			particleName = ItemParticle
-			updateWhenItNotInView = False
 		}
 	}
 }

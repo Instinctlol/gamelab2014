@@ -10,9 +10,5 @@ type "Schraubenschl\x00fcssel"
 			position = -0.007533915 0 0.1617732
 			scale = 0.0008174274 0.0008174274 0.0008174274
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

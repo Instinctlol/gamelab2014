@@ -9,9 +9,5 @@ type sicherung
 			meshName = ".\\fuse.mesh"
 			position = -0.1268607 -0.05663272 0.04193662
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }

@@ -10,9 +10,5 @@ type Defkit
 			position = 0 0 0.1568404
 			scale = 0.168802 0.168802 0.168802
 		}
-		particle
-		{
-			particleName = ItemParticle
-		}
 	}
 }
