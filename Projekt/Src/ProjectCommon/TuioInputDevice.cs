@@ -54,7 +54,7 @@ namespace ProjectCommon
         public static float[] oldrot1;
         public static float[] oldrot2;
         public static float oldangle;
-        public static bool wastranslating = false, wasrotating = false;
+        public static bool wastranslating = false, wasrotating = false, wasselecting = false;
         public static bool detectgesturesState = false;
 		public TuioInputDevice( string name )
 			: base( name )
@@ -148,15 +148,15 @@ namespace ProjectCommon
                 //block 1
                 List<float[]> used = new List<float[]>();
                 bool start1 = false, start2 = false, end1 = false, end2 = false;
-                float[] workelement1 = new float[8];
                 float[] line1changed = new float[8];
                 float[] line2changed = new float[8];
+                float[] workelement1 = new float[8];
                 float[] workelement2 = new float[8];
                 float[] workelement3 = new float[8];
                 float[] workelement4 = new float[8];
                 //Analyse
 
-                #region startstop
+                #region startstopdetection
                 foreach (float[] elemt in tuioInputData)
                 {
                     if (elemt[0] == 0 && elemt[3] == 1)
@@ -215,7 +215,9 @@ namespace ProjectCommon
                 }
                 #endregion
 
-                if (start1 && end1 && !start2 && !wastranslating && !wasrotating)
+                float d = (float) Math.Sqrt(Math.Pow((line2changed[4] - line1changed[4]), 2) + Math.Pow((line2changed[5] - line1changed[5]), 2));
+
+                if (start1 && end1 && !start2 && !wastranslating && !wasrotating && !wasselecting)
                 {
                     #region click
                     //Console.WriteLine("Cordset 1 " + workelement1[4] + " - " + line1changed[4] + " /// " + Math.Abs(workelement1[4] - line1changed[4]));
@@ -234,53 +236,82 @@ namespace ProjectCommon
                     }
                     #endregion
                 }
-                else if ((start1 && start2) || wasrotating)
+                else if ((start1 && start2 && d < 0.05f && d > 0f && line2changed[4] != 0f || wasselecting))
                 {
-                    #region Rotation
-                    Console.Write("" + Math.Abs(line2changed[4] - line1changed[4]) + " - " + Math.Abs(line2changed[5] - line1changed[5]));
-                    if (Math.Abs(line2changed[4] - line1changed[4]) > 0.05 || Math.Abs(line2changed[5] - line1changed[5]) > 0.05)
+                    #region Selection
+                    Console.WriteLine("Selection");
+                    if (!end1 && !end2)
                     {
-                        //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
-                        //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
-
-                        float dy = (line2changed[5] - line1changed[5]);
-                        float dx = (line2changed[4] - line1changed[4]);
-                        float rotangle = (float)-Math.Atan(dy / dx);
-                        //float pi = MathFunctions.PI;
-                        //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
-
-                        if (oldangle == 1000) oldangle = rotangle;
-
-
+                        float dx = line2changed[4] + (line2changed[4] - line1changed[4]);
+                        float dy = line2changed[5] + (line2changed[5] - line1changed[5]);
+                        used.Remove(line1changed);
+                        used.Remove(line2changed);
+                        used.Remove(workelement1);
+                        used.Remove(workelement3);
+                        wasselecting = true;
                         TuioInputDeviceSpecialEvent customEvent =
-                        new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
+                            new TuioInputDeviceSpecialEvent(this, opType.selection, dx, dy);
                         InputDeviceManager.Instance.SendEvent(customEvent);
-                        oldangle = rotangle;
-                        if (!end1 && !end2)
-                        {
-                            used.Remove(line1changed);
-                            used.Remove(line2changed);
-                            used.Remove(workelement1);
-                            used.Remove(workelement3);
-                            wasrotating = true;
-                        }
-                        else
-                        {
-                            oldangle = 1000;
-                            wasrotating = false;
-                            Console.WriteLine("Rotate Clear");
-                        }
-
-                        foreach (float[] usedelemt in used)
-                        {
-                            tuioInputData.Remove(usedelemt);
-                        }
+                    }
+                    else
+                    {
+                        TuioInputDeviceSpecialEvent customEvent =
+                            new TuioInputDeviceSpecialEvent(this, opType.selection, 0f, 0f);
+                        InputDeviceManager.Instance.SendEvent(customEvent);
+                        wasselecting = false;
+                        Console.WriteLine("Selection Clear");
+                    }
+                    foreach (float[] usedelemt in used)
+                    {
+                        tuioInputData.Remove(usedelemt);
                     }
                     #endregion
                 }
-                else if ((end1 && wastranslating) || !wasrotating && (!start2 && oldcoords != null && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)))
+                else if ((start1 && start2 && d > 0.05f && line2changed[4] != 0f || wasrotating))
                 {
-                    #region translate
+                    #region Rotation
+                    //Console.Write("" + Math.Abs(line2changed[4] - line1changed[4]) + " - " + Math.Abs(line2changed[5] - line1changed[5]));
+ 
+                    //Console.WriteLine("Cordset 1 " + line1changed[4] + " | " + line2changed[4] + " /// " + (line2changed[4] - line1changed[4]));
+                    //Console.WriteLine("Cordset 2 " + line1changed[5] + " | " + line2changed[5] + " /// " + (line2changed[5] - line1changed[5]));
+
+                    float dy = (line2changed[5] - line1changed[5]);
+                    float dx = (line2changed[4] - line1changed[4]);
+                    float rotangle = (float)-Math.Atan(dy / dx);
+                    //float pi = MathFunctions.PI;
+                    //Console.WriteLine("Angle: " + (rotangle/(2 * pi) *360));
+
+                    if (oldangle == 1000) oldangle = rotangle;
+
+
+                    TuioInputDeviceSpecialEvent customEvent =
+                    new TuioInputDeviceSpecialEvent(this, opType.rotation, rotangle, oldangle);
+                    InputDeviceManager.Instance.SendEvent(customEvent);
+                    oldangle = rotangle;
+                    if (!end1 && !end2)
+                    {
+                        used.Remove(line1changed);
+                        used.Remove(line2changed);
+                        used.Remove(workelement1);
+                        used.Remove(workelement3);
+                        wasrotating = true;
+                    }
+                    else
+                    {
+                        oldangle = 1000;
+                        wasrotating = false;
+                        Console.WriteLine("Rotate Clear");
+                    }
+
+                    foreach (float[] usedelemt in used)
+                    {
+                        tuioInputData.Remove(usedelemt);
+                    }
+                    #endregion
+                }
+                else if ((oldcoords != null && start1 && (!start2 && !end2) && (Math.Abs(line1changed[4] - oldcoords[4]) > 0.01 || Math.Abs(line1changed[5] - oldcoords[5]) > 0.01)) || wastranslating)
+                {
+                    #region Translation
                     if (oldcoords != null)
                     {
                         //Console.WriteLine("Cordset 1 " + oldcoords[4] + " | " + line1changed[4] + " /// " + (line1changed[4] - oldcoords[4]));

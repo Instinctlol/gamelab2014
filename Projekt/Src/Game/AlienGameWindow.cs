@@ -57,6 +57,8 @@ namespace Game
         bool selectMode;
         Vec2 selectStartPos;
         bool selectDraggedMouse;
+        bool selectworkbench;
+        Vec2 selectworkbenchcoord;
         
         // Task Attribute
         int taskTargetChooseIndex = -1;
@@ -252,8 +254,40 @@ namespace Game
                 // HIER Desoxyribonukleinsaeure
                 if (test.getOPType() == opType.translation) {
                     Console.WriteLine("Trying to Translate");
-                    todoTranslate.X += test.getx();
-                    todoTranslate.Y += test.gety();
+                    todoTranslate.X += test.getx()*-10;
+                    todoTranslate.Y += test.gety()*10;
+                }
+                else if(test.getOPType() == opType.selection){
+                    Vec2 select = new Vec2(test.getx(),test.gety());
+                    selectworkbenchcoord = select;
+                    if (select.X == 0f && select.Y == 0f)
+                    {
+                        if(selectworkbench){
+                            DoEndSelectModeWorkbench(select);
+                            selectworkbench = false;
+                        Console.WriteLine("endselection");
+                        }
+                    }
+                    else {
+                        if (!selectworkbench)
+                        {
+                            selectworkbench = true;
+                            selectDraggedMouse = false;
+                            selectStartPos = select;
+                        }
+                        else
+                        {
+                            Vec2 diffPixels = (select - selectStartPos) * new Vec2(EngineApp.Instance.VideoMode.X, EngineApp.Instance.VideoMode.Y);
+                            if (Math.Abs(diffPixels.X) >= 3 || Math.Abs(diffPixels.Y) >= 3)
+                            {
+                                selectDraggedMouse = true;
+                            }
+
+                        }
+
+
+                        Console.WriteLine("Selection @ " + test.getx() + " | " + test.gety());
+                    }
                 }
                 else if (test.getOPType() == opType.rotation) {
                     todoRotate = 0;
@@ -727,7 +761,53 @@ namespace Game
                 SetEntitySelected(obj, true);
             }
         }
+        void DoEndSelectModeWorkbench(Vec2 mousepos)
+        {
 
+            List<AlienUnit> areaObjs = new List<AlienUnit>();
+            {
+                if (selectDraggedMouse)
+                {
+                    Rect rect = new Rect(selectStartPos);
+                    rect.Add(mousepos);
+
+                    Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
+                        MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
+                        {
+                            if (obj is AlienUnit)
+                            {
+                                AlienUnit unit = (AlienUnit)obj;
+                                areaObjs.Add(unit);
+                            }
+                        });
+                }
+                else
+                {
+                    Ray ray = RendererWorld.Instance.DefaultCamera.GetCameraToViewportRay(
+                        mousepos);
+
+                    RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
+                        (int)ContactGroup.CastOnlyContact);
+                    if (result.Shape != null)
+                    {
+                        AlienUnit unit = MapSystemWorld.GetMapObjectByBody(result.Shape.Body) as AlienUnit;
+                        if (unit != null)
+                            areaObjs.Add(unit);
+                    }
+                }
+            }
+
+
+            if (areaObjs.Count == 0)
+                return;
+
+            // alle objekte aus der area durchgehen
+            // nur die als selected hinzunehmen, die auch...
+            foreach (AlienUnit obj in areaObjs)
+            {
+                SetEntitySelected(obj, true);
+            }
+        }
         /// <summary>
         /// Alle Aliens auswählen
         /// </summary>
@@ -994,6 +1074,22 @@ namespace Game
                 {
                     Rect rect = new Rect(selectStartPos);
                     rect.Add(EngineApp.Instance.MousePosition);
+
+                    Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
+                        MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
+                        {
+                            Unit unit = (Unit)obj;
+
+                            camera.DebugGeometry.Color = new ColorValue(1, 1, 0);
+                            Bounds bounds = obj.MapBounds;
+                            bounds.Expand(.1f);
+                            camera.DebugGeometry.AddBounds(bounds);
+                        });
+                }
+                else if (selectDraggedMouse && selectworkbench)
+                {
+                    Rect rect = new Rect(selectStartPos);
+                    rect.Add(selectworkbenchcoord);
 
                     Map.Instance.GetObjectsByScreenRectangle(RendererWorld.Instance.DefaultCamera, rect,
                         MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject obj)
@@ -1346,6 +1442,31 @@ namespace Game
             {
                 Rect rect = new Rect(selectStartPos);
                 rect.Add(EngineApp.Instance.MousePosition);
+
+                Vec2I windowSize = EngineApp.Instance.VideoMode;
+                Vec2 thickness = new Vec2(1.0f / (float)windowSize.X, 1.0f / (float)windowSize.Y);
+
+                renderer.AddQuad(new Rect(rect.Left, rect.Top + thickness.Y,
+                    rect.Right, rect.Top + thickness.Y * 2), new ColorValue(0, 0, 0, .5f));
+                renderer.AddQuad(new Rect(rect.Left, rect.Bottom,
+                    rect.Right, rect.Bottom + thickness.Y), new ColorValue(0, 0, 0, .5f));
+                renderer.AddQuad(new Rect(rect.Left + thickness.X, rect.Top,
+                    rect.Left + thickness.X * 2, rect.Bottom), new ColorValue(0, 0, 0, .5f));
+                renderer.AddQuad(new Rect(rect.Right, rect.Top,
+                    rect.Right + thickness.X, rect.Bottom), new ColorValue(0, 0, 0, .5f));
+
+                renderer.AddQuad(new Rect(rect.Left, rect.Top,
+                    rect.Right, rect.Top + thickness.Y), new ColorValue(0, 1, 0, 1));
+                renderer.AddQuad(new Rect(rect.Left, rect.Bottom - thickness.Y,
+                    rect.Right, rect.Bottom), new ColorValue(0, 1, 0, 1));
+                renderer.AddQuad(new Rect(rect.Left, rect.Top,
+                    rect.Left + thickness.X, rect.Bottom), new ColorValue(0, 1, 0, 1));
+                renderer.AddQuad(new Rect(rect.Right - thickness.X, rect.Top,
+                    rect.Right, rect.Bottom), new ColorValue(0, 1, 0, 1));
+            } else if (selectworkbench && selectDraggedMouse)
+            {
+                Rect rect = new Rect(selectStartPos);
+                rect.Add(selectworkbenchcoord);
 
                 Vec2I windowSize = EngineApp.Instance.VideoMode;
                 Vec2 thickness = new Vec2(1.0f / (float)windowSize.X, 1.0f / (float)windowSize.Y);
