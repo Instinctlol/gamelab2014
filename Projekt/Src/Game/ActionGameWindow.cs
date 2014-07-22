@@ -1536,13 +1536,9 @@ namespace Game
             String s_w = character.notification();
 
             if(s != "" && s_w == "")
-            //AddTextWithShadow(renderer, s+" aufgenommen", new Vec2(.5f, .2f),
-            //            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
-                StatusMessageHandler.sendMessage(s + "aufgenommen");
+                StatusMessageHandler.sendMessage(s + " aufgenommen");
             else if(s_w != "" && s == "")
-            //AddTextWithShadow(renderer, s_w+" aufgenommen", new Vec2(.5f, .2f),
-            //            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
-                StatusMessageHandler.sendMessage(s_w + "aufgenommen");
+                StatusMessageHandler.sendMessage(s_w + " aufgenommen");
 
             return true;
 

@@ -51,7 +51,7 @@ namespace ProjectEntities
 
                 case "Defkit":
                     currentItem.TakeItem(unit);
-                    s = "Werkzeuggürtel aufgenommen";
+                    s = "Werkzeuggürtel";
                     break;
 
                 case "SmallHealthItem":
@@ -59,7 +59,7 @@ namespace ProjectEntities
                         s = "Gesundheit Voll";
                     else
                         currentItem.TakeItem(unit);
-                    s = "Gesundheit aufgenommen";
+                    s = "Gesundheit";
                     break;
 
                 case "Medipack":
@@ -72,12 +72,12 @@ namespace ProjectEntities
 
                 case "Schraubenschlüssel":
                     currentItem.TakeItem(unit);
-                    s = "Schraubenschlüssel aufgenommen";
+                    s = "Schraubenschlüssel";
                     break;
 
                 case "TaschenlampeItem":
                     currentItem.TakeItem(unit);
-                    s = "Taschenlampe aufgenommen";
+                    s = "Taschenlampe";
                     break;
 
                 case "ScarItem":
@@ -104,6 +104,7 @@ namespace ProjectEntities
                     currentItem.TakeItem(unit);
                     break;
                 default:
+                    currentItem.TakeItem(unit);
                     break;
             }
             }
