@@ -105,7 +105,7 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
-            lastUse = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            LastUse = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
 
         private void Server_SendLastUse()
