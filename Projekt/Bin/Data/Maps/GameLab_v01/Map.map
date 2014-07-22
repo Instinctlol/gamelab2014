@@ -6440,7 +6440,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 3
-	position = 10.2 110.8 0.3
+	position = 10.4 111 0.3
 }
 entity
 {
@@ -6450,7 +6450,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 4
-	position = 7.199999 110.8 0.3
+	position = 7.099999 111 0.3
 }
 entity
 {
@@ -6520,7 +6520,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 11
-	position = -10.8 121.1 0.3
+	position = -10.7 121.2 0.3
 }
 entity
 {
@@ -6530,7 +6530,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 12
-	position = -14.2 121.3 0.3
+	position = -14.2 121.5 0.3
 }
 entity
 {
@@ -6540,7 +6540,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 13
-	position = -17.2 120.2 0.3
+	position = -17.5 120.5 0.3
 }
 entity
 {
@@ -6550,7 +6550,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 14
-	position = -19.2 117.8 0.3
+	position = -19.6 118 0.3
 }
 entity
 {
@@ -6560,7 +6560,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 15
-	position = -19.9 114.9 0.3
+	position = -20.2 114.9 0.3
 }
 entity
 {
@@ -6570,7 +6570,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 16
-	position = -20.1 111.9 0.3
+	position = -20.2 111.9 0.3
 }
 entity
 {
@@ -6590,7 +6590,7 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 18
-	position = -20.1 106.1 0.3
+	position = -20.1 105.8 0.3
 }
 entity
 {
@@ -6600,5 +6600,5 @@ entity
 	subscriptionsToDeletionEvent = 562
 	owner = 562
 	time = 19
-	position = -20 103 0.3
+	position = -20 102.5 0.3
 }
