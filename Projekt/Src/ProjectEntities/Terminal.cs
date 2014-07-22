@@ -399,7 +399,7 @@ namespace ProjectEntities
             //task.TaskFinished += OnTaskFinished;
 
             //Ggfs repairable an Button weiter reichen
-            if (repairables != null)
+            if (repairables != null && repairables.Count > 0)
                 foreach (RepairableItem r in repairables)
                     button.AttachRepairable(r.Repairable);
             else
