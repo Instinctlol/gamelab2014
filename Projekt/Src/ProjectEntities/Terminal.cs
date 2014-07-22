@@ -332,6 +332,10 @@ namespace ProjectEntities
         {
             base.OnPostCreate(loaded);
 
+            Server_SendButtonType(windowType);
+            Server_SendTaskType(taskType);
+            Server_SendActiveValueToAllClients();
+
             foreach(MapObjectAttachedObject obj in AttachedObjects)
             {
                 MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
