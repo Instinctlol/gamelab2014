@@ -43,8 +43,8 @@ namespace ProjectEntities
                 if (terminal != null)
                 {
                     CreateWindow();
-                    if (EntitySystemWorld.Instance.IsServer())
-                        Server_SendTerminalToAllClients(terminal);
+                    //if (EntitySystemWorld.Instance.IsServer())
+                    //    Server_SendTerminalToAllClients(terminal);
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace ProjectEntities
         protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
         {
             base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
-            Server_SendTerminalToAllClients(terminal);
+            //Server_SendTerminalToAllClients(terminal);
             if (isVisible)
                 Server_SendWindowToClient();
         }
@@ -158,18 +158,18 @@ namespace ProjectEntities
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(WindowHolder),
                 (ushort)NetworkMessages.TerminalToClient);
-            writer.Write(terminal.Name);
+            writer.Write(terminal.NetworkUIN);
             EndNetworkMessage();
         }
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.TerminalToClient)]
         private void Client_ReceiveTerminal(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
-            string terminalName = reader.ReadString();
+            uint terminalUIN = reader.ReadUInt32();
             if (!reader.Complete())
                 return;
 
-            Terminal = (Terminal)Entities.Instance.GetByName(terminalName);
+            Terminal = Entities.Instance.GetByUIN(terminalUIN) as Terminal;
         }
 
         public void Client_SendWindowData(ushort message)

@@ -332,12 +332,7 @@ namespace ProjectEntities
         {
             base.OnPostCreate(loaded);
 
-            if (EntitySystemWorld.Instance.IsServer())
-            {
-                Server_SendButtonType(windowType);
-                Server_SendTaskType(taskType);
-                Server_SendActiveValueToAllClients();
-            }
+
 
             foreach(MapObjectAttachedObject obj in AttachedObjects)
             {
@@ -356,49 +351,31 @@ namespace ProjectEntities
                     if (light.Alias == "projectorLight")
                         projectorLight = light;
                 }
-            }
 
-            //AttachedGUIObjekt finden
-            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
-            {
-                attachedGuiObject = attachedObject as MapObjectAttachedGui;
-                if (attachedGuiObject != null)
+                MapObjectAttachedMapObject mapObj = obj as MapObjectAttachedMapObject;
+                if(mapObj != null)
                 {
+                    if (mapObj.Alias == "task")
+                        task = mapObj.MapObject as Task;
+                    else if (mapObj.Alias == "button")
+                        button = mapObj.MapObject as SmartButton;
+
+                }
+
+                MapObjectAttachedGui guiObj = obj as MapObjectAttachedGui;
+                if (guiObj != null)
+                {
+                    attachedGuiObject = guiObj;
                     controlManager = attachedGuiObject.ControlManager;
-                    break;
                 }
             }
+
 
             //MainControl erzeugen zum anzeigen der GUI
             CreateMainControl();
 
-            if (!loaded)
-                return;
-
-            button = null;
-            task = null;
-
-
-
-            foreach(MapObject o in Map.Instance.GetObjects(this.MapBounds))
-            {
-                SmartButton b = o as SmartButton;
-                if (b != null)
-                {
-                    button = b;
-                    continue;
-                }
-
-                Task t = o as Task;
-                if (t != null)
-                {
-                    task = t;
-                    continue;
-                }
-
-                if (button != null && task != null)
-                    break;
-            }
+            //if (!loaded)
+            //    return;
 
             button.Terminal = this;
             task.Terminal = this;
@@ -411,6 +388,13 @@ namespace ProjectEntities
                     button.AttachRepairable(r.Repairable);
             else
                 button.SetWindowEnabled();
+
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                Server_SendButtonType(windowType);
+                Server_SendTaskType(taskType);
+                Server_SendActiveValueToAllClients();
+            }
 
             SubscribeToTickEvent();
         }

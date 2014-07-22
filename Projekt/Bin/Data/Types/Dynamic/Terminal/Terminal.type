@@ -22,11 +22,13 @@ type Terminal
 		mapObject
 		{
 			type = SmartButton
+			alias = button
 			position = -1 0 0
 		}
 		mapObject
 		{
 			type = Task
+			alias = task
 			position = -1 0 0
 		}
 		mesh
