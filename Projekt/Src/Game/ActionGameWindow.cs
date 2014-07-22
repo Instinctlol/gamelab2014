@@ -682,9 +682,12 @@ namespace Game
                     DrawObjectSelectionBorder(bounds);
                 }
 
-                if (overRepairable != currentRepairable && (overRepairable == null || overRepairable.Repaired == false) )
+                if (overRepairable != currentRepairable )
                 {
-                    currentRepairable = overRepairable;
+                    if (overRepairable != null && !overRepairable.Repaired)
+                        currentRepairable = overRepairable;
+                    else
+                        currentRepairable = null;
                 }
 
 
@@ -747,9 +750,12 @@ namespace Game
                     DrawObjectSelectionBorder(bounds);
                 }
 
-                if (overServerRack != currentServerRack && (overServerRack == null || overServerRack.CanUse() ))
+                if (overServerRack != currentServerRack)
                 {
-                    currentServerRack = overServerRack;
+                    if (overServerRack != null && overServerRack.CanUse())
+                        currentServerRack = overServerRack;
+                    else
+                        currentServerRack = null;
                 }
 
 
