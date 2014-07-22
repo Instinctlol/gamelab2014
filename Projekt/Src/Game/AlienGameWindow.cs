@@ -1695,6 +1695,7 @@ namespace Game
 
             float nearPlane = camera.NearClipDistance;
             float nearDistanceRatio = nearPlane / z;
+            // vielleicht hier noch: camera.NearClipDistance = nearDistanceRatio;
 
             frustumOffset.X = x / z;
             frustumOffset.Y = y / z;

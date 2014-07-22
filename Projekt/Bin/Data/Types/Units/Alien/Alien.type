@@ -44,6 +44,12 @@ type Alien
 			alias = walk
 			visible = False
 		}
+		sound
+		{
+			soundName = "Sounds\\alien_die.wav"
+			alias = die
+			visible = False
+		}
 	}
 	dieObjects
 	{

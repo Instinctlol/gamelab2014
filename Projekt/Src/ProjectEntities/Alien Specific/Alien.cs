@@ -208,6 +208,7 @@ namespace ProjectEntities
         /// <param name="prejudicial"></param>
         protected override void OnDie(MapObject prejudicial)
         {
+            PlaySound("die");
             Computer.DecrementUsedAliens();
             base.OnDie(prejudicial);
         }
