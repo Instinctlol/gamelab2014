@@ -57,6 +57,8 @@ namespace ProjectCommon
         public static bool wastranslating = false, wasrotating = false, wasselecting = false;
         public static bool detectgesturesState = false;
         public static Recognizer.Dollar.Recognizer Recog;
+        private float[] failsafe;
+        private bool failsafebool = false;
 		public TuioInputDevice( string name )
 			: base( name )
 		{
@@ -392,28 +394,34 @@ namespace ProjectCommon
                     if (elemt[0] == 0 && elemt[3] == 1)
                     {
                         start1 = true;
+                        if (failsafebool) {
+                         //hier 
+                        }
                     }
                     if (elemt[0] == 0 && elemt[3] == 3)
                     {
+                        failsafe = elemt;
+                        failsafebool = true;
                         end1 = true;
                     }
                 }
                 if (start1 && end1)
                 {
+ 
+                        //Daten konvertieren
+                        List<TimePointF> data = new List<TimePointF>();
+                        foreach (float[] elemt in tuioInputData)
+                        {
+                            if (elemt[0] == 0 && elemt[3] != 3)
+                                data.Add(new TimePointF(elemt[4], elemt[5], elemt[2]));
+                        }
 
-                    //Daten konvertieren
-                    List<TimePointF> data = new List<TimePointF>();
-                    foreach (float[] elemt in tuioInputData) {
-                        data.Add(new TimePointF(elemt[4], elemt[5], elemt[2]));
-                    }
+                        //Gesten erkennen
+                        Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
+                        list = Recog.Recognize(data, false);
 
-                    //Gesten erkennen
-                    Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
-                    list = Recog.Recognize(data, false);
-
-                    Console.WriteLine(list.Name);
-                    tuioInputData.Clear();
-
+                        Console.WriteLine(list.Name);
+                        tuioInputData.Clear();
                 }
             }
 
