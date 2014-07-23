@@ -4,6 +4,7 @@ physicsModel
 {
 	body body1
 	{
+		static = True
 		position = 0 0.08412129 0.4515539
 		massMethod = Manually
 		mass = 100
