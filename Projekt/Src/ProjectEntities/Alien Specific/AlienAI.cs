@@ -346,8 +346,5 @@ namespace ProjectEntities
                 }
             }
         }
-
-     
-
     }
 }
