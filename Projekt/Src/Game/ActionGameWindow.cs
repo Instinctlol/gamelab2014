@@ -308,8 +308,8 @@ namespace Game
             if (e.Key == EKeys.L)
             {
                 PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
-                if (GetPlayerUnit().Inventar.taschenlampeBesitz && GetPlayerUnit().Inventar.taschenlampeEnergie != 0 && player != null)
-                    player.Setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
+                if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0 )
+                    player.Setflashlight(!player.Inventar.taschenlampevisible);
                 
             }
 

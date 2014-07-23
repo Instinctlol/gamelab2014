@@ -668,13 +668,9 @@ namespace ProjectEntities
 						//first person arms is visible only for first person camera. The weapon is also must be activated.
 						attachedObject.Visible = fpsCamera && activeWeaponAttachedObject != null;
 					}
-                    else if (attachedObject.Alias == "taschenlampe" && PlayerIntellect.Instance != null)
+                    else if (attachedObject.Alias == "taschenlampe")
 					{
-                        if (PlayerIntellect.Instance.ControlledObject.Inventar.taschenlampevisible)
-                        {
-						//hide attached objects for first person camera
-                            attachedObject.Visible = true;
-                        }
+                            attachedObject.Visible = Inventar.taschenlampevisible;
 					}
                     else 
                     {
@@ -867,6 +863,7 @@ namespace ProjectEntities
 			IList<RemoteEntityWorld> worlds = new RemoteEntityWorld[] { remoteEntityWorld };
 			Server_SendSetActiveWeaponToClients( worlds );
 			Server_SendContusionTimeRemainingToClients( worlds );
+            Server_SendLightStatus(Inventar.taschenlampevisible);
 		}
 
 		void Server_SendSetActiveWeaponToClients( IList<RemoteEntityWorld> remoteEntityWorlds )
@@ -986,7 +983,6 @@ namespace ProjectEntities
         public void Setflashlight(bool b)
         {
             Client_SendSwitchLight(b);
-            Inventar.taschenlampevisible = b;
         }
 
         private void Client_SendSwitchLight(bool status)
