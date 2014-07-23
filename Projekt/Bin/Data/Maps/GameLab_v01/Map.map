@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -0.4833687 109.9352 22.51923
-editorCameraDirection = 1.555076 -1.560796
+editorCameraPosition = -66.24364 74.90128 4.230061
+editorCameraDirection = 5.602206 -0.3748708
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -261,7 +261,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 13
-				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
+				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -271,7 +271,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 14
-				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateRight();"
+				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -290,7 +290,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 16
-				code = "((Ring)Entities.Instance.GetByName(\"F3_Ring\")).RotateLeft();"
+				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -300,7 +300,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 17
-				code = "((Ring)Entities.Instance.GetByName(\"F3_Ring\")).RotateRight();"
+				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
