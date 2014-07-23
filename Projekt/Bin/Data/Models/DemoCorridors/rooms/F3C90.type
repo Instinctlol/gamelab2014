@@ -58,18 +58,6 @@ type F3C90
 			position = 2.469693 8.717781 0.02603555
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 6.523992 2.40207 1.467014
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -3.957915 -9.607293 0
-		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
@@ -136,9 +124,9 @@ type F3C90
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = -4.557915 2.492707 0
+			attenuationFar = 18
+			attenuationPower = 0.01
+			position = -1.110382 -1.516411 0
 		}
 	}
 }

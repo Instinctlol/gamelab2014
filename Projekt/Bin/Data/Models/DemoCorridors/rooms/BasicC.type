@@ -20,9 +20,9 @@ type BasicC
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = 5.623158 -0.757015 1.467014
+			attenuationFar = 16
+			attenuationPower = 0.01
+			position = -0.1525269 -0.757015 1.02821
 		}
 		mesh
 		{
@@ -55,12 +55,6 @@ type BasicC
 			position = 11.34394 -6.692214 0
 			rotation = 0 0 -0.7071068 0.7071068
 			scale = 1 0.5020761 1
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -5.458749 -0.666378 0
 		}
 		mesh
 		{

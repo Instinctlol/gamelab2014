@@ -175,43 +175,6 @@ type "Gro\x00dfraum22"
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.5096959 1
 		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.08707 -12.73813 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 0.9283866 -12.59648 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.03227 0.04136476 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 0.9822259 -0.1399193 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.41881 14.86238 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 1.027165 14.80246 2.5
-			scale = 1 1.007531 1
-		}
 		mapObject
 		{
 			type = durchgang
@@ -329,15 +292,9 @@ type "Gro\x00dfraum22"
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.08707 -26.63813 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 1.01293 -26.33813 2.5
+			attenuationFar = 34
+			attenuationPower = 0.01
+			position = -3.933872 -5.634197 2.5
 		}
 		mesh
 		{

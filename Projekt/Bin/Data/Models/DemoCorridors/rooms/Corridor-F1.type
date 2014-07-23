@@ -51,15 +51,10 @@ type "Corridor-F1"
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = -0.6151423 6.134817 3.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -0.5733925 -8.693904 3.5
+			diffusePower = 0.7
+			attenuationFar = 19
+			attenuationPower = 0.01
+			position = -0.5733925 -0.4339218 3.5
 		}
 		mesh
 		{

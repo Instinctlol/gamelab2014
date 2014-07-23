@@ -146,39 +146,9 @@ type "Gro\x00dfraum32"
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.08707 -12.73813 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 0.02838659 -12.99648 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -14.03227 0.04136476 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 0.9822259 -0.1399193 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -13.51881 13.36238 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 1.027165 14.80246 2.5
+			attenuationFar = 35
+			attenuationPower = 0.01
+			position = -6.330921 6.573036 0.4349251
 		}
 		mapObject
 		{
@@ -316,18 +286,6 @@ type "Gro\x00dfraum32"
 			meshName = "Models\\DemoCorridors\\WallDown.mesh"
 			collision = True
 			position = 11.81092 23.67532 -0.01682854
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = 1.027165 24.00246 2.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -13.51881 24.96238 2.5
 		}
 		mesh
 		{

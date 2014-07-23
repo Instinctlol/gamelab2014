@@ -47,15 +47,9 @@ type "Corridor-F3"
 		}
 		light
 		{
-			attenuationFar = 10
-			castShadows = False
-			position = -1.262723 6.036989 3.5
-		}
-		light
-		{
-			attenuationFar = 10
-			castShadows = False
-			position = -0.9312769 -8.852133 3.5
+			attenuationFar = 19
+			attenuationPower = 0.01
+			position = -1.262723 -0.6340981 0.05838585
 		}
 		mesh
 		{
