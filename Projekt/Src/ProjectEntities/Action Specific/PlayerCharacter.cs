@@ -145,8 +145,8 @@ namespace ProjectEntities
 		{
 			ActiveWeaponToClient,
 			ContusionTimeRemainingToClient,
-            lightStatusToServer,
-            lightStatusToClient,
+            SwitchLightToServer,
+            LightStatusToClient,
 		}
 
 		///////////////////////////////////////////
@@ -983,10 +983,55 @@ namespace ProjectEntities
             return s;
         }
 
-        public void setflashlight(bool o)
+        public void Setflashlight(bool b)
         {
-            Inventar.taschenlampevisible = o;
+            Client_SendSwitchLight(b);
+            Inventar.taschenlampevisible = b;
         }
+
+        private void Client_SendSwitchLight(bool status)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
+                       (ushort)NetworkMessages.SwitchLightToServer);
+
+            writer.Write(status);
+
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.SwitchLightToServer)]
+        private void Server_ReceiveSwitchLight(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            Inventar.taschenlampevisible = status;
+            Server_SendLightStatus(status);
+        }
+
+        private void Server_SendLightStatus(bool status)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
+                      (ushort)NetworkMessages.LightStatusToClient);
+
+            writer.Write(status);
+
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.LightStatusToClient)]
+        private void Client_ReceiveLightStatus(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            Inventar.taschenlampevisible = status;
+        }
+
     }
 
 }

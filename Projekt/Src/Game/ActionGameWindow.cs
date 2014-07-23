@@ -309,7 +309,7 @@ namespace Game
             {
                 PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
                 if (GetPlayerUnit().Inventar.taschenlampeBesitz && GetPlayerUnit().Inventar.taschenlampeEnergie != 0 && player != null)
-                    player.setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
+                    player.Setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
                 
             }
 
