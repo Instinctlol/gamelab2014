@@ -27,14 +27,6 @@ namespace ProjectEntities
 		float viewRadius;
 
 		[FieldSerialize]
-        Inventar inventar;
-		[DefaultValue(false)]
-        public Inventar Inventar
-        {
-            get { return inventar; }
-            set { inventar = value; }
-        }
-		[FieldSerialize]
 		Vec3 fpsCameraOffset;
 
 		[FieldSerialize]
