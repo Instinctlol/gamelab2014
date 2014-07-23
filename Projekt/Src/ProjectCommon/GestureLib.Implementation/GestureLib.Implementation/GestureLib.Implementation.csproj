@@ -57,9 +57,8 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WiimoteLib, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\GameLab\Projekt\Lib\WiimoteLib.dll</HintPath>
+    <Reference Include="WiimoteLib">
+      <HintPath>..\..\..\..\Lib\WiimoteLib.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
