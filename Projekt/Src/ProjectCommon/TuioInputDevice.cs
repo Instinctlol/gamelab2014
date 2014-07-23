@@ -56,6 +56,7 @@ namespace ProjectCommon
         public static float oldangle;
         public static bool wastranslating = false, wasrotating = false, wasselecting = false;
         public static bool detectgesturesState = false;
+        public static Recognizer.Dollar.Recognizer Recog;
 		public TuioInputDevice( string name )
 			: base( name )
 		{
@@ -68,32 +69,36 @@ namespace ProjectCommon
 		internal bool Init()
 		{
             Console.WriteLine("init methode");
-
-			//buttons
-			Button[] buttons = new Button[ 2 ];
-			buttons[ 0 ] = new Button( JoystickButtons.Button1, 0 );
+            //Gesten einlesen
+            Recog = new Recognizer.Dollar.Recognizer();
+            Recognizer.Dollar.Recognizer.load(Recog);
+            #region muell
+            ////buttons
+            //Button[] buttons = new Button[ 2 ];
+            //buttons[ 0 ] = new Button( JoystickButtons.Button1, 0 );
             
-            buttons[ 1 ] = new Button(JoystickButtons.Button2, 1);
+            //buttons[ 1 ] = new Button(JoystickButtons.Button2, 1);
 
-			//axes
-			Axis[] axes = new Axis[ 1 ];
-			axes[ 0 ] = new JoystickInputDevice.Axis( JoystickAxes.X, new Range( -1, 1 ), false );
+            ////axes
+            //Axis[] axes = new Axis[ 1 ];
+            //axes[ 0 ] = new JoystickInputDevice.Axis( JoystickAxes.X, new Range( -1, 1 ), false );
 
-			//povs
-			POV[] povs = new POV[ 0 ];
-			//povs[ 0 ] = new JoystickInputDevice.POV( JoystickPOVs.POV1 );
+            ////povs
+            //POV[] povs = new POV[ 0 ];
+            ////povs[ 0 ] = new JoystickInputDevice.POV( JoystickPOVs.POV1 );
 
-			//sliders
-			Slider[] sliders = new Slider[ 0 ];
-			//sliders[ 0 ] = new Slider( JoystickSliders.Slider1 );
+            ////sliders
+            //Slider[] sliders = new Slider[ 0 ];
+            ////sliders[ 0 ] = new Slider( JoystickSliders.Slider1 );
 
-			//forceFeedbackController
-			ForceFeedbackController forceFeedbackController = null;
+            ////forceFeedbackController
+            //ForceFeedbackController forceFeedbackController = null;
 
-			//initialize data
-			InitDeviceData( buttons, axes, povs, sliders, forceFeedbackController );
+            ////initialize data
+            //InitDeviceData( buttons, axes, povs, sliders, forceFeedbackController );
+            #endregion
 
-			return true;
+            return true;
 		}
 
 		/// <summary>
@@ -379,7 +384,7 @@ namespace ProjectCommon
                 #endregion
             }
             else {
-                Console.WriteLine("Gesture Detection Started");
+                //Console.WriteLine("Gesture Detection Started");
 
                 bool start1 = false, end1 = false;
                 foreach (float[] elemt in tuioInputData)
@@ -395,9 +400,6 @@ namespace ProjectCommon
                 }
                 if (start1 && end1)
                 {
-                    //Gesten einlesen
-                    Recognizer.Dollar.Recognizer Recog = new Recognizer.Dollar.Recognizer();
-                    Recognizer.Dollar.Recognizer.load(Recog);
 
                     //Daten konvertieren
                     List<TimePointF> data = new List<TimePointF>();
@@ -409,7 +411,8 @@ namespace ProjectCommon
                     Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
                     list = Recog.Recognize(data, false);
 
-                    Console.WriteLine();
+                    Console.WriteLine(list.Name);
+                    tuioInputData.Clear();
 
                 }
             }
@@ -418,7 +421,7 @@ namespace ProjectCommon
         }
 
 
-        public void detectgestures(bool state) {
+        public static void detectgestures(bool state) {
             detectgesturesState = state;
         }
 
@@ -429,19 +432,19 @@ namespace ProjectCommon
 		public static void InitDevice()
 		{
             TuioDump.runTuio();
-
-            Console.WriteLine("TUIO gestartet");
+            detectgestures(true);
+            
             //if (InputDeviceManager.Instance == null) {
             //}
             //    return;
-            Console.WriteLine("instance OK");
+            
 			TuioInputDevice device = new TuioInputDevice( "TUIO" );
-            Console.WriteLine("Device erstellt");
+    
 			if( !device.Init() )
 				return;
 
 			InputDeviceManager.Instance.RegisterDevice( device );
-            Console.WriteLine("Device hinzugefügt");
+            Console.WriteLine("Workbench hinzugefügt");
 		}
 	}
 }
