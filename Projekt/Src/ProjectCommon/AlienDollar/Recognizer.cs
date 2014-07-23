@@ -392,40 +392,40 @@ namespace Recognizer.Dollar
 			return success; // Xml file successfully written (or not)
 		}
 
-		public bool LoadGesture(string filename)
-		{
-			bool success = true;
-			XmlTextReader reader = null;
-            try
-            {
-                reader = new XmlTextReader(filename);
-                reader.WhitespaceHandling = WhitespaceHandling.None;
-                reader.MoveToContent();
+        //public bool LoadGesture(string filename)
+        //{
+        //    bool success = true;
+        //    XmlTextReader reader = null;
+        //    try
+        //    {
+        //        reader = new XmlTextReader(filename);
+        //        reader.WhitespaceHandling = WhitespaceHandling.None;
+        //        reader.MoveToContent();
 
-                Unistroke p = ReadGesture(reader);
+        //        Unistroke p = ReadGesture(reader);
 
-                // remove any with the same name and add the prototype gesture
-                if (_gestures.ContainsKey(p.Name))
-                    _gestures.Remove(p.Name);
-                _gestures.Add(p.Name, p);
-            }
-            catch (XmlException xex)
-            {
-                Console.Write(xex.Message);
-                success = false;
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex.Message);
-                success = false;
-            }
-			finally
-			{
-				if (reader != null)
-					reader.Close();
-			}
-			return success;
-		}
+        //        // remove any with the same name and add the prototype gesture
+        //        if (_gestures.ContainsKey(p.Name))
+        //            _gestures.Remove(p.Name);
+        //        _gestures.Add(p.Name, p);
+        //    }
+        //    catch (XmlException xex)
+        //    {
+        //        Console.Write(xex.Message);
+        //        success = false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.Write(ex.Message);
+        //        success = false;
+        //    }
+        //    finally
+        //    {
+        //        if (reader != null)
+        //            reader.Close();
+        //    }
+        //    return success;
+        //}
 
         // assumes the reader has been just moved to the head of the content.
         private Unistroke ReadGesture(XmlTextReader reader)
