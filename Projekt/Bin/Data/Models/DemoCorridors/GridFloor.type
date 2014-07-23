@@ -1,0 +1,13 @@
+type GridFloor
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\GridFloor.mesh"
+			collision = True
+		}
+	}
+}
