@@ -155,7 +155,13 @@ namespace ProjectEntities
 
         protected bool CanRepair(Unit unit)
         {
-            return true;
+            string useItem = unit.Inventar.useItem.Type.FullName;
+            foreach (RepairableType.RepairItem item in Type.RepairItems)
+            {
+                if (item.ItemType.FullName.Equals(useItem))
+                    return true;
+            }
+            return false;
         }
 
         protected override void OnPostCreate(bool loaded)
