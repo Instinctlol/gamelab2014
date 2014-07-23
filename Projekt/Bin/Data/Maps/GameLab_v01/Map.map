@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 62.76187 -35.04301 15.86696
-editorCameraDirection = 1.381353 0.0967744
+editorCameraPosition = -18.64349 -7.549349 50.10194
+editorCameraDirection = 0.7157584 -1.174242
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -1295,7 +1295,7 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 83.65987 -81.88248 3
+	position = 79.70628 -77.65553 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
 	name = F1R7-S
@@ -2862,7 +2862,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -80.83833 75.27424 1.394616
+	position = -82.06057 75.27424 1.892273
 	rotation = 0 0 -0.397424 0.9176351
 	name = Terminal_2_status
 	editorLayer = "Root Layer\\F1\\Terminal"
@@ -2910,7 +2910,7 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -64.92357 72.13921 1.413518
+	position = -64.13674 71.62685 1.816561
 	rotation = 0 0 0.9286773 0.3708888
 	name = Terminal_1_Door
 	logicClass = 12
@@ -3191,7 +3191,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 89.25713 -4.431122 1.854002
+	position = 91.39593 -4.431122 1.914252
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_Door_1
 	logicClass = 12
@@ -3215,7 +3215,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 62.32 -13.26154 1.433119
+	position = 60.42867 -13.26154 2.084634
 	name = Terminal_Status_3
 	editorLayer = "Root Layer\\F2\\Terminal"
 	repairables
@@ -3922,7 +3922,7 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 65.86175 -59.44778 2.143283
+	position = 67.20062 -60.35325 1.881515
 	rotation = 0 0 0.9231132 0.3845282
 	name = Terminal_2
 	logicClass = 12
@@ -3943,7 +3943,7 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 39.61004 -46.49428 1.374188
+	position = 37.75575 -46.22164 2.005113
 	rotation = 0 0 -0.3737277 0.9275385
 	name = Terminal_Rotate_F3
 	logicClass = 15
@@ -3963,7 +3963,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 54.77301 -45.09253 1.375985
+	position = 54.77301 -46.27583 1.817784
 	rotation = 0 0 0.3662475 0.9305175
 	name = Terminal_3
 	editorLayer = "Root Layer\\F2\\Terminal"
@@ -6184,8 +6184,8 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 67.89273 -72.73848 1.607113
-	rotation = 0 0 -0.7045983 0.7096063
+	position = 67.67353 -68.90146 1.82771
+	rotation = 0 0 -0.9225185 0.3859527
 	name = Terminal_Door_12
 	logicClass = 12
 	editorLayer = "Root Layer\\F1\\Terminal"
@@ -6208,7 +6208,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -8.268059 -115.9317 1.329097
+	position = -8.639577 -115.9317 1.888588
 	name = Terminal_Status_11
 	editorLayer = "Root Layer\\F1\\Terminal"
 	repairables
@@ -6333,8 +6333,8 @@ entity
 	subscriptionsToDeletionEvent = 30
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = 67.83275 -71.69273 1.153155
-	rotation = 0 0 -0.714846 0.699282
+	position = 68.37247 -68.20147 1.525842
+	rotation = 0 0 -0.9225186 0.3859528
 	name = BrokenTerminal_0
 	logicClass = 30
 	editorLayer = "Root Layer\\F1\\Items"
