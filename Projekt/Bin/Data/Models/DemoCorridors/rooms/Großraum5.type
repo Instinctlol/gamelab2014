@@ -144,12 +144,6 @@ type "Gro\x00dfraum52"
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
-		light
-		{
-			attenuationFar = 34
-			attenuationPower = 0.01
-			position = -4.129833 5.949833 2.5
-		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"

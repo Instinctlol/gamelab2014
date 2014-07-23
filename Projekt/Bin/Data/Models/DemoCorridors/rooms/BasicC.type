@@ -18,12 +18,6 @@ type BasicC
 			position = 2.469693 5.117781 0.02603555
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
-		light
-		{
-			attenuationFar = 16
-			attenuationPower = 0.01
-			position = -0.1525269 -0.757015 1.02821
-		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"

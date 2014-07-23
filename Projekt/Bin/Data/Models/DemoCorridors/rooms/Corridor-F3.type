@@ -45,12 +45,6 @@ type "Corridor-F3"
 			collision = True
 			position = 5.151735 -12.52552 0
 		}
-		light
-		{
-			attenuationFar = 19
-			attenuationPower = 0.01
-			position = -1.262723 -0.6340981 0.05838585
-		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"

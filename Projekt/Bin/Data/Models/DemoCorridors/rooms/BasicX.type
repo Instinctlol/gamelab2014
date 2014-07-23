@@ -160,13 +160,6 @@ type BasicX2
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
-		light
-		{
-			diffusePower = 1.1
-			attenuationFar = 30
-			attenuationPower = 0.01
-			position = -5.849161 -0.1399193 2.5
-		}
 		mapObject
 		{
 			type = durchgang

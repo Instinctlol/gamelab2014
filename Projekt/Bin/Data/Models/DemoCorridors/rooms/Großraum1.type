@@ -146,12 +146,6 @@ type "Gro\x00dfraum12"
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
-		light
-		{
-			attenuationFar = 34
-			attenuationPower = 0.01
-			position = -5.298542 5.777729 2.5
-		}
 		mapObject
 		{
 			type = durchgang

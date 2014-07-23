@@ -93,6 +93,7 @@ namespace ProjectEntities
 
                 case "BrechstangeItem":
                     currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
                     break;
 
                 case "GlockItem":

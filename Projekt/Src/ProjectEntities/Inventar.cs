@@ -103,7 +103,7 @@ namespace ProjectEntities
         public bool isWeaponOrBullet(Item i)
         {
             //Handelt es sich um eine Waffe bzw Munition oder um ein anderes Item
-            if (i.Type.ClassInfo.ToString() == "WeaponItem" || i.Type.ClassInfo.ToString() == "BulletItem")
+            if ( (i.Type.ClassInfo.ToString() == "WeaponItem" || i.Type.ClassInfo.ToString() == "BulletItem")  && !i.Type.FullName.ToLower().Equals("brechstangeitem") )
                 return true;
             else
                 return false;

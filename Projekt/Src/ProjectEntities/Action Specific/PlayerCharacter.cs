@@ -670,8 +670,13 @@ namespace ProjectEntities
 					}
                     else if (attachedObject.Alias == "taschenlampe")
 					{
-                        if(Inventar != null)
+                        if (Inventar != null)
+                        {
                             attachedObject.Visible = Inventar.taschenlampevisible;
+                            Quat newRotOffset = (camera.Rotation.GetInverse() * Rotation);
+                            newRotOffset.Normalize();
+                            attachedObject.RotationOffset = newRotOffset;
+                        }
 					}
                     else 
                     {

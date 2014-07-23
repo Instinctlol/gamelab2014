@@ -90,7 +90,7 @@ namespace ProjectEntities
         public bool hasItem(Unit unit)
         {
             string useItem = unit.Inventar.useItem.Type.FullName.ToLower();
-            return useItem.Equals(Type.RequiredToUse.ToLower());
+            return Type.RequiredToUse != "" && useItem.Equals(Type.RequiredToUse.ToLower());
         }
 
         private void Client_SendPress()

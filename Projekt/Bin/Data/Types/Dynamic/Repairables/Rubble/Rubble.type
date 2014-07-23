@@ -1,6 +1,14 @@
 type Rubble
 {
 	class = Repairable
+	networkType = Synchronized
+	repairItems
+	{
+		item
+		{
+			itemType = BrechstangeItem
+		}
+	}
 	attachedObjects
 	{
 		mesh

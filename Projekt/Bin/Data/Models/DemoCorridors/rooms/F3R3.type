@@ -169,12 +169,6 @@ type F3R3
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.4950042 1
 		}
-		light
-		{
-			attenuationFar = 30
-			attenuationPower = 0.01
-			position = -5.982639 -0.1399193 2.5
-		}
 		mapObject
 		{
 			type = durchgang

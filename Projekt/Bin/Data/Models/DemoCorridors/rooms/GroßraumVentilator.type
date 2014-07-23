@@ -175,12 +175,6 @@ type "Gro\x00dfraumVentilator"
 			rotation = 0 0 -0.7054104 -0.7087992
 			scale = 1 0.5096959 1
 		}
-		light
-		{
-			attenuationFar = 34
-			attenuationPower = 0.01
-			position = -4.489986 -5.883614 2.5
-		}
 		mapObject
 		{
 			type = durchgang

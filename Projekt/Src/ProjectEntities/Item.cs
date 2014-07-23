@@ -118,15 +118,15 @@ namespace ProjectEntities
 		{
 			base.OnPostCreate( loaded );
 
-			bool editor = EntitySystemWorld.Instance.IsEditor();
+            //bool editor = EntitySystemWorld.Instance.IsEditor();
 
-			if( !editor )
-			{
-				UpdateRotation();
-				OldRotation = Rotation;
-			}
+            //if (!editor)
+            //{
+            //    UpdateRotation();
+            //    OldRotation = Rotation;
+            //}
 
-			SubscribeToTickEvent();
+            //SubscribeToTickEvent();
 
             /* Erstmal kein respawnen von items
 			if( loaded && !editor && EntitySystemWorld.Instance.SerializationMode ==
@@ -151,21 +151,21 @@ namespace ProjectEntities
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
-		protected override void OnTick()
-		{
-			base.OnTick();
+        //protected override void OnTick()
+        //{
+        //    base.OnTick();
 
-			rotationAngle += TickDelta;
-			UpdateRotation();
-		}
+        //    rotationAngle += TickDelta;
+        //    UpdateRotation();
+        //}
 
-		protected override void Client_OnTick()
-		{
-			base.Client_OnTick();
+        //protected override void Client_OnTick()
+        //{
+        //    base.Client_OnTick();
 
-			rotationAngle += TickDelta;
-			UpdateRotation();
-		}
+        //    rotationAngle += TickDelta;
+        //    UpdateRotation();
+        //}
 
 		protected override void OnSetTransform( ref Vec3 pos, ref Quat rot, ref Vec3 scl )
 		{

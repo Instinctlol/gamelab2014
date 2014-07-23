@@ -122,11 +122,5 @@ type F3C90
 			rotation = 0 0 0.0006257351 -0.9999999
 			scale = 1 0.6292328 1
 		}
-		light
-		{
-			attenuationFar = 18
-			attenuationPower = 0.01
-			position = -1.110382 -1.516411 0
-		}
 	}
 }

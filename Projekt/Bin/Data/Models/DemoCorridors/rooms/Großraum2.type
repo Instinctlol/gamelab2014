@@ -290,12 +290,6 @@ type "Gro\x00dfraum22"
 			collision = True
 			position = 11.91097 -23.70072 -0.01682854
 		}
-		light
-		{
-			attenuationFar = 34
-			attenuationPower = 0.01
-			position = -3.933872 -5.634197 2.5
-		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\Ceiling.mesh"
