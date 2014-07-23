@@ -340,7 +340,7 @@ void OgreBulletStereo::createScene() {
 
 	// Create calibration metaphor
 	viargo::ViargoOgreHeadTrackingCalibrationMetaphor* calibrationMetaphor = 
-		new viargo::ViargoOgreHeadTrackingCalibrationMetaphor("HeadtrackingCalibration-Metaphor", windowSizeCm, 3, Ogre::Vector4(0.3f, 0.3f, 0.3f, 0.3f), true);
+		new viargo::ViargoOgreHeadTrackingCalibrationMetaphor("HeadtrackingCalibration-Metaphor", windowSizeCm, 2, Ogre::Vector4(0.3f, 0.3f, 0.3f, 0.3f), true);
 
 	// Add calibration metaphor to viargo
 	Viargo.addMetaphor(calibrationMetaphor);

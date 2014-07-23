@@ -762,6 +762,7 @@ namespace Game
                 SetEntitySelected(obj, true);
             }
         }
+       
         void DoEndSelectModeWorkbench(Vec2 mousepos)
         {
 
@@ -1705,20 +1706,16 @@ namespace Game
             #region Application to Camera
             camera.Fov = fovy;
             camera.AspectRatio = aspect;
-            camera.FrustumOffset = frustumOffset;;
+            camera.FrustumOffset = frustumOffset;
             #endregion
         }
 
         void receiveTrackingData(int sensorID, double x, double y, double z)
         {
             //headtracking
-            if (Math.Sqrt(x * x + y * y + z * z) <= 2.5)
+            if (Math.Sqrt(x * x + y * y + z * z) <= 2.5 && z >= 0)
             {
                 headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
-                if (headtrackingOffset.Z < 0)
-                {
-                    headtrackingOffset.Z = 0.01f;
-                }
             }
         }
 
@@ -1786,6 +1783,7 @@ namespace Game
             // Asymmetrisches Frustum
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
+            camera.NearClipDistance = .1f;
             //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
 
             if (isHeadtrackingActive)

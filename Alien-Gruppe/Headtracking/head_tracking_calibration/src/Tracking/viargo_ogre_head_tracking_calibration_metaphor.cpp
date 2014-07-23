@@ -281,6 +281,8 @@ void ViargoOgreHeadTrackingCalibrationMetaphor::_handleFilteredPositionEvent(Fil
 		// Transform by matrix
 		_transform(positionIn, positionOut);
 		
+		std::cout << "POS: " << positionOut.x << ", " << positionOut.y << ", " << positionOut.z << std::endl;
+
 		cv::Point3f transformed = cv::Point3f(positionOut.x, -1.0f * positionOut.y, -1.0f * positionOut.z);
 
 		// Broadcast event
@@ -290,7 +292,7 @@ void ViargoOgreHeadTrackingCalibrationMetaphor::_handleFilteredPositionEvent(Fil
 		Viargo.metaphor("HeadTracking").handleEvent(calibratedEvent);
 		calibratedEvent->drop();
 
-		//std::cout << "POS: " << transformed.x << ", " << transformed.y << ", " << transformed.z << std::endl;
+		
 	}
 }
 

@@ -139,33 +139,43 @@ namespace ProjectCommon
 
         private Vec3D CalculatePos(Vec4D v, Mat4D m)
         {
-            //Mat4D m1 = new Mat4D(0.999991, 0.00320434, -0.00272557, 40.7713, 0.00270982, 0.00490954, 0.999984, -23.0971, 0.00321766, -0.999983, 0.00490078, 0.0360617, 1.4013e-045, 2.71536e+023, 0.0575857, -9.88222e-032 );//{1,1,1,1,1,1,1,1,1,1,11,1 };
-            ////Console.WriteLine("----calculatepos()-----");
-            //Vec4D calculatedPos = Mat4D.Multiply(m1, v);
-            ////Console.WriteLine("M: " + m.ToString());
-            ////Console.WriteLine("V: " + v.ToString());
-            //Vec3D pos = new Vec3D();
+            Mat4D m1 = new Mat4D(
+                -0.209122,-0.977655,-0.0213996,71.4782,
+                0.15086,-0.0538752,0.987086,-290.879,
+                -0.966183,0.203193,0.158756,388.412,
+                0, 0, 0, 1
+                );
+
+            Vec4D tempPos = new Vec4D(100.0 * v.X, 100.0 * v.Y, 100.0 * v.Z, 1.0);
+
+            //Console.WriteLine("----calculatepos()-----");
+            //Vec4D calculatedPos = Mat4D.Multiply(m1, v * 100) / 100;
+            Vec4D calculatedPos = new Vec4D();
+
+            calculatedPos.X = m1.Item0.X * tempPos.X + m1.Item0.Y * tempPos.Y + m1.Item0.Z * tempPos.Z + m1.Item0.W;
+            calculatedPos.Y = m1.Item1.X * tempPos.X + m1.Item1.Y * tempPos.Y + m1.Item1.Z * tempPos.Z + m1.Item1.W;
+            calculatedPos.Z = m1.Item2.X * tempPos.X + m1.Item2.Y * tempPos.Y + m1.Item2.Z * tempPos.Z + m1.Item2.W;
+
+            //calculatedPos /= calculatedPos.W;
+            calculatedPos.X /= 100.0;
+            calculatedPos.Y /= 100.0;
+            calculatedPos.Z /= 100.0;
+            //Console.WriteLine("M: " + m.ToString());
+            //Console.WriteLine("V: " + v.ToString());
+            Vec3D pos = new Vec3D();
             //if (calculatedPos.W != 1)
-            //{
-            //    // Normalisieren
-            //    pos.X = calculatedPos.X / calculatedPos.W;
-            //    pos.Y = calculatedPos.Y / calculatedPos.W;
-            //    pos.Z = calculatedPos.Z / calculatedPos.W;
-            //}
+            {
+                // Normalisieren
+                pos.X = (-1)*calculatedPos.Y;// / calculatedPos.W;
+                pos.Y = (-1) * calculatedPos.Z;// / calculatedPos.W;
+                pos.Z = (-1) * calculatedPos.X;// / calculatedPos.W;
+            }
             //Console.WriteLine(pos.ToString());
 
-            Vec3D initialPos = new Vec3D(-0.392910123, 0.000637284073, 0.204409659);
-            Vec3D currentPosition = new Vec3D(v.X, v.Y, v.Z) - initialPos;
+            //Vec3D initialPos = new Vec3D(-0.392910123, 0.000637284073, 0.204409659);
+            //Vec3D currentPosition = new Vec3D(v.X, v.Y, v.Z) - initialPos;
 
-	        double temp = currentPosition.Z;
-	        currentPosition.Z = currentPosition.Y;
-	        currentPosition.Y = temp;
-
-	        Vec3D headPosition = currentPosition;
-
-
-            return headPosition;
-            //return pos;
+            return pos;
         }
 
         #endregion

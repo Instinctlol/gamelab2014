@@ -1,47 +1,75 @@
-﻿Der Buildvorgang wurde am 30.06.2014 13:03:45 gestartet.
-     1>Projekt "D:\alex\projects\c++\head_tracking_calibration\void_shadows.vcxproj" auf Knoten "2", build Ziel(e).
+﻿Der Buildvorgang wurde am 23.07.2014 14:15:41 gestartet.
+     1>Projekt "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\void_shadows.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
-         "D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+         Aktualisieren des Timestamps von "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /ID:\alex\libs\ogre_3d_v1_9_sdk\include /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OIS /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OGRE /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OGRE\Overlay /ID:\alex\libs\ogre_bullet\include\OgreBullet\Dynamics /ID:\alex\libs\ogre_bullet\include\OgreBullet\Collisions /ID:\alex\libs\bullet_sdk\include /ID:\alex\libs\viargo\include\ /ID:\alex\libs\opencv\build\include\ /ID:\alex\libs\boost\boost_1_51_0 /ID:\alex\libs\kinect\inc /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D OGRE_SHOW_CONSOLE /D _MBCS /Gm /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\\" /Fd"D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\OgreBulletStereo.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /ID:\alex\libs\ogre_3d_v1_9_sdk\include /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OIS /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OGRE /ID:\alex\libs\ogre_3d_v1_9_sdk\include\OGRE\Overlay /ID:\alex\libs\ogre_bullet\include\OgreBullet\Dynamics /ID:\alex\libs\ogre_bullet\include\OgreBullet\Collisions /ID:\alex\libs\bullet_sdk\include /ID:\alex\libs\viargo\include\ /ID:\alex\libs\opencv\build\include\ /ID:\alex\libs\boost\boost_1_51_0 /ID:\alex\libs\kinect\inc /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D OGRE_SHOW_CONSOLE /D _MBCS /Gm /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\\" /Fd"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\BaseApplication.cpp src\DynamicLines.cpp src\DynamicRenderable.cpp src\OgreBulletCollisionMetaphor.cpp src\OgreBulletStereo.cpp src\RTTTargetListener.cpp src\StereoRenderTargetListener.cpp src\Tracking\viargo_head_tracking_device.cpp src\Tracking\viargo_head_tracking_filter_metaphor.cpp src\Tracking\viargo_ogre_head_tracking_calibration_metaphor.cpp src\globals.cpp src\main.cpp src\threading\nixie_tiny_thread.cpp
+         nixie_tiny_thread.cpp
+         main.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         globals.cpp
+         viargo_ogre_head_tracking_calibration_metaphor.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         viargo_head_tracking_filter_metaphor.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         viargo_head_tracking_device.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         StereoRenderTargetListener.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         RTTTargetListener.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
          OgreBulletStereo.cpp
          VIARGO >> VERSION 0.4.3
          VIARGO >> linking to <viargo_mtdll.lib>
+         OgreBulletCollisionMetaphor.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
+         DynamicRenderable.cpp
+         DynamicLines.cpp
+         BaseApplication.cpp
+         VIARGO >> VERSION 0.4.3
+         VIARGO >> linking to <viargo_mtdll.lib>
        ResourceCompile:
-         Alle Ausgaben sind aktuell.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\OgreBullet_Collision_test.res" res\OgreBullet_Collision_test.rc 
        ManifestResourceCompile:
-         Alle Ausgaben sind aktuell.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.exe.embed.manifest.res" "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows_manifest.rc" 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\alex\projects\c++\head_tracking_calibration\\bin\Release\void_shadows.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\alex\libs\boost\boost_1_51_0\lib /LIBPATH:D:\alex\libs\bullet_sdk\lib /LIBPATH:D:\alex\libs\kinect\lib\x86 /LIBPATH:D:\alex\libs\ogre_3d_v1_9_sdk\lib\Release /LIBPATH:D:\alex\libs\ogre_3d_v1_9_sdk\lib\Release\opt /LIBPATH:D:\alex\libs\viargo\lib /LIBPATH:D:\alex\libs\opencv\build\x86\vc10\lib /LIBPATH:D:\alex\libs\ogre_bullet\lib OgreMain.lib OIS.lib OgreOverlay.lib OgreBulletCollisions.lib OgreBulletDynamics.lib BulletCollision.lib BulletDynamics.lib LinearMath.lib ConvexDecomposition.lib kinect10.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT /MANIFEST /ManifestFile:"D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\alex\projects\c++\head_tracking_calibration\bin\Release\void_shadows.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\alex\projects\c++\head_tracking_calibration\\bin\Release\void_shadows.lib" /MACHINE:X86 D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\OgreBullet_Collision_test.res
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.exe.embed.manifest.res
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\BaseApplication.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\DynamicLines.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\DynamicRenderable.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\globals.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\main.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\OgreBulletCollisionMetaphor.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\OgreBulletStereo.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\RTTTargetListener.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\StereoRenderTargetListener.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\nixie_tiny_thread.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\viargo_head_tracking_device.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\viargo_head_tracking_filter_metaphor.obj
-         D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\viargo_ogre_head_tracking_calibration_metaphor.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\bin\Release\void_shadows.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\alex\libs\boost\boost_1_51_0\lib /LIBPATH:D:\alex\libs\bullet_sdk\lib /LIBPATH:D:\alex\libs\kinect\lib\x86 /LIBPATH:D:\alex\libs\ogre_3d_v1_9_sdk\lib\Release /LIBPATH:D:\alex\libs\ogre_3d_v1_9_sdk\lib\Release\opt /LIBPATH:D:\alex\libs\viargo\lib /LIBPATH:D:\alex\libs\opencv\build\x86\vc10\lib /LIBPATH:D:\alex\libs\ogre_bullet\lib OgreMain.lib OIS.lib OgreOverlay.lib OgreBulletCollisions.lib OgreBulletDynamics.lib BulletCollision.lib BulletDynamics.lib LinearMath.lib ConvexDecomposition.lib kinect10.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT /MANIFEST /ManifestFile:"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\bin\Release\void_shadows.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\bin\Release\void_shadows.lib" /MACHINE:X86 "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\OgreBullet_Collision_test.res"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.exe.embed.manifest.res"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\BaseApplication.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\DynamicLines.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\DynamicRenderable.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\globals.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\main.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\OgreBulletCollisionMetaphor.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\OgreBulletStereo.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\RTTTargetListener.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\StereoRenderTargetListener.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\nixie_tiny_thread.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\viargo_head_tracking_device.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\viargo_head_tracking_filter_metaphor.obj"
+         "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\viargo_ogre_head_tracking_calibration_metaphor.obj"
      1>LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /LTCG ignoriert.
-            Bibliothek "D:\alex\projects\c++\head_tracking_calibration\\bin\Release\void_shadows.lib" und Objekt "D:\alex\projects\c++\head_tracking_calibration\\bin\Release\void_shadows.exp" werden erstellt.
+            Bibliothek "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\bin\Release\void_shadows.lib" und Objekt "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\bin\Release\void_shadows.exp" werden erstellt.
          Code wird generiert.
          Codegenerierung ist abgeschlossen.
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.exe.embed.manifest" /manifest D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.exe.embed.manifest" /manifest "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.exe.intermediate.manifest"
          Alle Ausgaben sind aktuell.
        LinkEmbedManifest:
          Alle Ausgaben sind aktuell.
-         void_shadows.vcxproj -> D:\alex\projects\c++\head_tracking_calibration\\bin\Release\void_shadows.exe
+         void_shadows.vcxproj -> C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\bin\Release\void_shadows.exe
        FinalizeBuildStatus:
-         Die Datei "D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.unsuccessfulbuild" wird gelöscht.
-         Aktualisieren des Timestamps von "D:\alex\projects\c++\head_tracking_calibration\\scratch\Release\void_shadows.lastbuildstate".
-     1>Die Erstellung des Projekts "D:\alex\projects\c++\head_tracking_calibration\void_shadows.vcxproj" ist abgeschlossen, build Ziel(e).
+         Die Datei "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\\scratch\Release\void_shadows.lastbuildstate".
+     1>Die Erstellung des Projekts "C:\Users\a_mati01\Desktop\GameLab SVN\Alien-Gruppe\Headtracking\head_tracking_calibration\void_shadows.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:24.91
+Verstrichene Zeit 00:01:13.50
