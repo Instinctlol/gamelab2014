@@ -54,13 +54,12 @@ namespace ProjectEntities
 
 		///////////////////////////////////////////
 
-		[DefaultValue( typeof( Vec3 ), "0 0 0" )]
-		public Vec3 NotAnimatedWeaponAttachPosition
-		{
-			get { return notAnimatedWeaponAttachPosition; }
-			set { notAnimatedWeaponAttachPosition = value; }
-		}
-
+        [DefaultValue(typeof(Vec3), "0 0 0")]
+        public Vec3 NotAnimatedWeaponAttachPosition
+        {
+            get { return notAnimatedWeaponAttachPosition; }
+            set { notAnimatedWeaponAttachPosition = value; }
+        }
 		public List<WeaponItem> Weapons
 		{
 			get { return weapons; }

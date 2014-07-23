@@ -7,7 +7,7 @@ using Engine.EntitySystem;
 
 namespace ProjectCommon
 {
-    public enum GameControlKeys
+    public enum  GameControlKeys
     {
         ///////////////////////////////////////////
         //Moving
