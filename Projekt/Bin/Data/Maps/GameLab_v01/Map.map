@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 114.154 10.60874 17.42201
-editorCameraDirection = 6.088344 -0.9594979
+editorCameraPosition = 83.19705 23.06558 48.29815
+editorCameraDirection = 5.247823 -0.8114458
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -105,6 +105,7 @@ rootEditorLayer
 		layer
 		{
 			name = Waende
+			allowSelect = False
 		}
 		layer
 		{
@@ -5981,26 +5982,6 @@ entity
 }
 entity
 {
-	type = ServerRack
-	uin = 527
-	classPrompt = StaticObject
-	position = 114.1109 -1.320378 0.2670097
-	rotation = 0 0 -1 -4.371139E-08
-	name = ServerRack_0
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = ServerRack
-	uin = 528
-	classPrompt = StaticObject
-	position = 114.1109 -6.218911 0.2670097
-	rotation = 0 0 -1 -4.371139E-08
-	name = ServerRack_1
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
 	type = Terminal
 	uin = 529
 	classPrompt = Terminal
@@ -6630,4 +6611,24 @@ entity
 	rotation = 0 0 -0.3734877 0.9276351
 	name = Desk_1
 	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = ServerRack
+	uin = 528
+	classPrompt = StaticObject
+	position = 114.1109 -6.218911 0.2670097
+	rotation = 0 0 -1 -4.371139E-08
+	name = ServerRack_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = ServerRack
+	uin = 527
+	classPrompt = StaticObject
+	position = 114.1109 -1.320378 0.2670097
+	rotation = 0 0 -1 -4.371139E-08
+	name = ServerRack_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
