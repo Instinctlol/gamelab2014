@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GestureLib.AbstractGestureDevice">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAgAAAAAAAAAAIAABAQAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\AbstractGestureDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GestureLib.IPointerGestureDevice">
+    <Position X="0.5" Y="4.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IPointerGestureDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IAccelerationGestureDevice">
+    <Position X="0.5" Y="5.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IAccelerationGestureDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IMouseEmulationDevice">
+    <Position X="0.5" Y="3" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IMouseEmulationDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

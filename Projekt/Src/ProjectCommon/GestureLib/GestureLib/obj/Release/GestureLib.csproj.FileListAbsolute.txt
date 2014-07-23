@@ -1,0 +1,13 @@
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\bin\Release\GestureLib.dll
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\bin\Release\GestureLib.pdb
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\obj\Release\GestureLib.OverlayForm.resources
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\obj\Release\GestureLib.csproj.GenerateResource.Cache
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\obj\Release\GestureLib.dll
+C:\Users\Prime\Downloads\gesturelib-81799\trunk\main\GestureLib\GestureLib\obj\Release\GestureLib.pdb
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Release\GestureLib.dll
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Release\GestureLib.pdb
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Release\GestureLib.OverlayForm.resources
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Release\GestureLib.csproj.GenerateResource.Cache
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Release\GestureLib.dll
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Release\GestureLib.pdb
+D:\NeoAxisTMP\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Release\GestureLib.csprojResolveAssemblyReference.cache

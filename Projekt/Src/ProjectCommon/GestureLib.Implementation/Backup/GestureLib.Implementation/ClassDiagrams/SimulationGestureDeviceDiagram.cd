@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GestureLib.SimulationGestureDevice">
+    <Position X="0.5" Y="1" Width="5.25" />
+    <Members>
+      <Field Name="_currentGestureIndex" Hidden="true" />
+      <Field Name="_eventRaiseTimer" Hidden="true" />
+      <Field Name="_gestures" Hidden="true" />
+      <Method Name="EventRaiseTimer_Raised" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACAgAAgBECAAAAAAAAAAQAABAABAAAAAAgAABAAAAAA=</HashCode>
+      <FileName>Devices\SimulationGestureDevice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

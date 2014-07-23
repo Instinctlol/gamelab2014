@@ -63,6 +63,12 @@
       <HintPath>..\..\Bin\FileSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GestureLib">
+      <HintPath>..\..\Lib\GestureLib.dll</HintPath>
+    </Reference>
+    <Reference Include="GestureLib.Implementation">
+      <HintPath>..\..\Lib\GestureLib.Implementation.dll</HintPath>
+    </Reference>
     <Reference Include="Log, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bin\Log.dll</HintPath>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- see help: ms-help://MS.VSCC.v90/MS.MSDNQTR.v90.en/dv_vsetsa03/html/f2c7a44d-1690-44ca-9cd0-681b04b12b2a.htm -->
+
+<Dictionary>
+  <Words>
+    <Unrecognized>
+    </Unrecognized>
+    <Recognized>
+      <Word>Wii</Word>
+      <Word>Wiimote</Word>
+    </Recognized>
+    <Deprecated>
+    </Deprecated>
+  </Words>
+  <Acronyms>
+    <CasingExceptions>
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>

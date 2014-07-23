@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GestureLib.MouseGestureDevice">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <Members>
+      <Field Name="_mouseHook" Hidden="true" />
+      <Field Name="_screenSize" Hidden="true" />
+      <Method Name="MouseHook_MouseEvent" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="GestureLib.MouseGestureDevice.MouseButton">
+        <TypeIdentifier>
+          <NewMemberFileName>Devices\MouseGestureDevice.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgABAAAAACAAAAAAAAAAAAAIAABAAAAgCAAAAAAAAAE=</HashCode>
+      <FileName>Devices\MouseGestureDevice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

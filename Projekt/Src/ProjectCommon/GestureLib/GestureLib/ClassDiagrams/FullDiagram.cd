@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="Recognition-Algorithms">
+    <Position X="10.034" Y="14.835" Height="0.366" Width="1.992" />
+  </Comment>
+  <Comment CommentText="Functions or Actions which occur after a matching Gesture">
+    <Position X="10.038" Y="12.66" Height="0.531" Width="2.157" />
+  </Comment>
+  <Comment CommentText="Saves or loads settings, which include all TrainedGestures (When the algorithms are matching there, then the actions are executed)">
+    <Position X="9.94" Y="9.416" Height="0.713" Width="2.953" />
+  </Comment>
+  <Comment CommentText="Provides a basic structure for saving the TrainedGestures">
+    <Position X="10.065" Y="17.752" Height="0.491" Width="1.992" />
+  </Comment>
+  <Class Name="GestureLib.GestureLib">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <AssociationLine Name="Recording" Type="GestureLib.Recording">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.085" Y="-0.216" Height="0.182" Width="0.847" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAAABAiAEgQIAAAAAAAACAAAIAAAoAAAAAICAAAA=</HashCode>
+      <FileName>GestureLib.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GestureDevice" />
+      <Property Name="ConfigurationManager" />
+      <Property Name="TrainedGestures" />
+      <Property Name="AvailableGestureActions" />
+      <Property Name="AvailableGestureAlgorithms" />
+      <Property Name="Recording" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestureLib.GestureActionCollection">
+    <Position X="3.5" Y="12.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Actions\GestureActionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.AbstractGestureDevice">
+    <Position X="6.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAgAAAAAAAAAAIAABAQAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\AbstractGestureDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.GestureAlgorithmCollection" Collapsed="true">
+    <Position X="3.5" Y="14.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Algorithms\GestureAlgorithmCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.PointerGestureState" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>PointerGestureState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestureLib.TrainedGesture">
+    <Position X="6.75" Y="9.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAgAAAAAAAAAAABQAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>TrainedGesture.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestureLib.TrainedGestureCollection">
+    <Position X="3.5" Y="9.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrainedGestureCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.Recording">
+    <Position X="3.5" Y="3.25" Width="3" />
+    <AssociationLine Name="GestureLib" Type="GestureLib.GestureLib">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.042" Y="0.069" Height="0.182" Width="0.951" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQEEAAgAACAEQAAAAAAEAAAACAAEAEIAgAABACAAAQA=</HashCode>
+      <FileName>Recording\Recording.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GestureLib" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestureLib.AccelerationGestureState" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAE=</HashCode>
+      <FileName>AccelerationGestureState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestureLib.GestureStateCollection&lt;T&gt;" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GestureStateCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.PointTendenceAnalyzer">
+    <Position X="6.75" Y="3.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAEAAAAAAAACAAAAgAAAAAEAEA=</HashCode>
+      <FileName>Recording\PointTendenceAnalyzer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.PointTendence">
+    <Position X="6.75" Y="6.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAAAAABAAAAAAAAAAAIAAAAIAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Recording\PointTendence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.MouseEmulationStateEventArgs" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Devices\MouseEmulationStateEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureLib.AbstractConfigurationManager">
+    <Position X="3.5" Y="17.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAEAIAAAAgAAIAAAAAQAAAAAAA=</HashCode>
+      <FileName>Configuration\AbstractConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GestureLib.IGestureAction">
+    <Position X="6.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\IGestureAction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IPointerGestureDevice" Collapsed="true">
+    <Position X="10" Y="1.5" Width="2.25" />
+    <AssociationLine Name="PointerGestureState" Type="GestureLib.PointerGestureState" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="1.813" />
+        <Point X="12.75" Y="1.813" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.01" Y="-0.463" Height="0.162" Width="1.371" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IPointerGestureDevice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PointerGestureState" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="GestureLib.IAccelerationGestureDevice" Collapsed="true">
+    <Position X="10" Y="2.5" Width="2.25" />
+    <AssociationLine Name="AccelerationGestureState" Type="GestureLib.AccelerationGestureState">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.057" Y="-0.489" Height="0.162" Width="1.601" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IAccelerationGestureDevice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccelerationGestureState" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="GestureLib.IGestureAlgorithm" Collapsed="true">
+    <Position X="6.75" Y="14.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IPointerGestureAlgorithm">
+    <Position X="6.75" Y="16" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IPointerGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IMouseEmulationDevice" Collapsed="true">
+    <Position X="10" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\IMouseEmulationDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IAccelerationGestureAlgorithm">
+    <Position X="9" Y="16" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IAccelerationGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IGestureState" Collapsed="true">
+    <Position X="15" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGestureState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.INamed">
+    <Position X="13" Y="11.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INamed.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GestureLib.HorizontalTendenceDirection" Collapsed="true">
+    <Position X="10.75" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAEAAAA=</HashCode>
+      <FileName>Recording\PointTendence.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GestureLib.VerticalTendenceDirection" Collapsed="true">
+    <Position X="10.75" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Recording\PointTendence.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

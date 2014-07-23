@@ -91,6 +91,10 @@ namespace ProjectCommon
         /// </summary>
         protected override void OnUpdateState()
         {
+            WiiManager.InstanceWM.wm.SetReportType(InputReport.ButtonsAccel, false);// gestenerkennung
+            WiiManager.InstanceWM.wm.SetReportType(InputReport.ButtonsExtension, true); // steuerung
+
+
             WiimoteState wiiState = WiiManager.InstanceWM.wm.WiimoteState;
 
             //WiiManager.UpdateWiimoteChanged();

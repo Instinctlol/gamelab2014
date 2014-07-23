@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GestureLib.GestureAlgorithmCollection">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Algorithms\GestureAlgorithmCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GestureLib.IPointerGestureAlgorithm">
+    <Position X="0.5" Y="2.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IPointerGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IAccelerationGestureAlgorithm">
+    <Position X="0.5" Y="4" Width="5.25" />
+    <InheritanceLine Type="GestureLib.IGestureAlgorithm" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="3.688" />
+        <Point X="6.625" Y="3.688" />
+        <Point X="6.625" Y="4.625" />
+        <Point X="5.75" Y="4.625" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IAccelerationGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GestureLib.IGestureAlgorithm">
+    <Position X="7" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\IGestureAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

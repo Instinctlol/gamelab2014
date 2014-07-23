@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA7C88A4-8590-4D81-8580-60BE81219C3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestureLib.Implementation</RootNamespace>
+    <AssemblyName>GestureLib.Implementation</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Kennedy.ManagedHooks, Version=1.2.0.10, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dependencies\SystemHooks\Kennedy.ManagedHooks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WiimoteLib, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dependencies\WiimoteLib\WiimoteLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\DebugGestureAction.cs" />
+    <Compile Include="Actions\FileExecuteGestureAction.cs" />
+    <Compile Include="Algorithms\BottomTopGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\DiagonalBottomLeftTopRightGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\DiagonalBottomRightTopLeftGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\DiagonalTopLeftBottomRightGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\DiagonalTopRightBottomLeftGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\JabGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\LeftRightAccelerationGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\RightLeftAccelerationGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\LeftRightGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\PitchGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\RightLeftGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\RollGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\ShakingLeftRightGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\ShakingTopBottomGestureAlgorithm.cs" />
+    <Compile Include="Algorithms\TopBottomGestureAlgorithm.cs" />
+    <Compile Include="Configuration\XmlConfigurationManager.cs" />
+    <Compile Include="Devices\MouseGestureDevice.cs" />
+    <Compile Include="Devices\SimulationGestureDevice.cs" />
+    <Compile Include="Devices\WiiAirMouseGestureDevice.cs" />
+    <Compile Include="Devices\WiiGestureDevice.cs" />
+    <Compile Include="MathUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="CustomDicionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GestureLib\GestureLib\GestureLib.csproj">
+      <Project>{AA478CEB-84FE-4953-A147-721484E17DCE}</Project>
+      <Name>GestureLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagrams\MouseGestureDeviceDiagram.cd" />
+    <None Include="ClassDiagrams\SimulationGestureDeviceDiagram.cd" />
+    <None Include="ClassDiagrams\WiiAirMouseGestureDevice.cd" />
+    <None Include="ClassDiagrams\WiiGestureDeviceDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\dependencies\SystemHooks\SystemHookCore.dll">
+      <Link>SystemHookCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
