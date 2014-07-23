@@ -69,6 +69,7 @@ using System.Reflection;
 using System.Text;
 using WobbrockLib;
 using WobbrockLib.Extensions;
+using System.Threading;
 
 namespace Recognizer.Dollar
 {
@@ -416,5 +417,22 @@ namespace Recognizer.Dollar
 
         #endregion
 
+        #region loadall
+        static public void load(Recognizer rec) {
+            string appPath = System.Environment.CurrentDirectory;
+            appPath += "\\Data\\WorkbenchGestures";
+            Console.WriteLine(appPath);
+            System.IO.FileInfo[] fi = new System.IO.DirectoryInfo(appPath).GetFiles();
+            foreach (var fileInfo in fi)
+            {
+                
+                rec.LoadGesture(appPath + "\\" + fileInfo.Name);
+                //Console.WriteLine(fileInfo.Name);
+            }
+            Console.WriteLine(rec._gestures);
+            Thread.Sleep(1000000);
+        
+        }
+        #endregion
     }
 }

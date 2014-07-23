@@ -5,6 +5,8 @@ using System.Text;
 using Engine;
 using Engine.MathEx;
 using TUIO;
+using WobbrockLib;
+using WobbrockLib.Extensions;
 
 namespace ProjectCommon
 {
@@ -352,11 +354,13 @@ namespace ProjectCommon
                 else if (start1 && end1 && !start2 && !end2 && !wastranslating && !wasrotating && !wasselecting && Math.Abs(workelement1[4] - line1changed[4]) <= 0.01f && Math.Abs(workelement1[5] - line1changed[5]) <= 0.01f)
                 {
                     #region click
-                    Console.WriteLine(used.Count + " - " + tuioInputData.Count);
-                    foreach (float[] element in tuioInputData)
-                    {
-                        Console.WriteLine(element[0] + " " + element[3] + " " + element[4] + "/" + element[5] + " @ " + element[2]);
-                    }
+                    #region debugprint
+                    //Console.WriteLine(used.Count + " - " + tuioInputData.Count);
+                    //foreach (float[] element in tuioInputData)
+                    //{
+                    //    Console.WriteLine(element[0] + " " + element[3] + " " + element[4] + "/" + element[5] + " @ " + element[2]);
+                    //}
+                    #endregion
                     #region send
                     TuioInputDeviceSpecialEvent customEvent =
                             new TuioInputDeviceSpecialEvent(this, opType.click, workelement1[4], workelement1[5]);
@@ -375,7 +379,39 @@ namespace ProjectCommon
                 #endregion
             }
             else {
-                Console.WriteLine("Gesture Detection");
+                Console.WriteLine("Gesture Detection Started");
+
+                bool start1 = false, end1 = false;
+                foreach (float[] elemt in tuioInputData)
+                {
+                    if (elemt[0] == 0 && elemt[3] == 1)
+                    {
+                        start1 = true;
+                    }
+                    if (elemt[0] == 0 && elemt[3] == 3)
+                    {
+                        end1 = true;
+                    }
+                }
+                if (start1 && end1)
+                {
+                    //Gesten einlesen
+                    Recognizer.Dollar.Recognizer Recog = new Recognizer.Dollar.Recognizer();
+                    Recognizer.Dollar.Recognizer.load(Recog);
+
+                    //Daten konvertieren
+                    List<TimePointF> data = new List<TimePointF>();
+                    foreach (float[] elemt in tuioInputData) {
+                        data.Add(new TimePointF(elemt[4], elemt[5], elemt[2]));
+                    }
+
+                    //Gesten erkennen
+                    Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
+                    list = Recog.Recognize(data, false);
+
+                    Console.WriteLine();
+
+                }
             }
 
 
@@ -393,6 +429,7 @@ namespace ProjectCommon
 		public static void InitDevice()
 		{
             TuioDump.runTuio();
+
             Console.WriteLine("TUIO gestartet");
             //if (InputDeviceManager.Instance == null) {
             //}
