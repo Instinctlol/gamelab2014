@@ -234,7 +234,7 @@ namespace ProjectEntities
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Keine Rotationen möglich");
             }
-            else if (ring.Rotatable==false)
+            else if (ring.CanRotate() == false)
             {
                 StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar.");
             }

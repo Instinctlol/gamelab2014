@@ -59,36 +59,6 @@ namespace ProjectEntities
         public byte RingPosition
         {
             get { return ringPosition; }
-            set {
-
-                if (!CanRotate())
-                    return;
-
-                lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
-
-                Sound sound = SoundWorld.Instance.SoundCreate("Sounds\\rotationSound.ogg", 0);
-                SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
-                        0.5f);
-
-                if (value < 0 || value >= corners)
-                    value = ringPosition;
-
-                ringPosition = value;
-
-                double angle = ringPosition * (Math.PI / corners);
-
-                Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
-
-                Quat newRot = rot * Rotation.GetInverse();
-                newRot.Normalize();
-
-                Rotation = rot;
-
-                if (RotateRing != null)
-                {
-                    RotateRing(this.Position, newRot, true);
-                } 
-            }
         }
         //*************************** 
 
@@ -108,23 +78,60 @@ namespace ProjectEntities
         [LogicSystemBrowsable(true)]
         public void RotateLeft()
         {
-            //Vllt Error wenn man versucht statischen ring zu drehen
-            if (!Rotatable)
-                return;
+           if (!CanRotate())
+               return;
 
-           RingPosition =(byte)( ringPosition + corners - 1);
+           lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
+
+           Sound sound = SoundWorld.Instance.SoundCreate("Sounds\\rotationSound.ogg", 0);
+           SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
+                   0.5f);
+
+           ringPosition = (byte)( ringPosition + corners - 1);
+
+           double angle = ringPosition * (Math.PI / corners);
+
+           Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
+
+           Quat newRot = rot * Rotation.GetInverse();
+           newRot.Normalize();
+
+           Rotation = rot;
+
+           if (RotateRing != null)
+           {
+               RotateRing(this.Position, newRot, true);
+           } 
         }
 
         //Rotiert "rechts" herum
         [LogicSystemBrowsable(true)]
         public void RotateRight()
         {
-
-            //Vllt Error wenn man versucht statischen ring zu drehen
-            if (!Rotatable)
+            if (!CanRotate())
                 return;
 
-            RingPosition = (byte)( (ringPosition + 1) % corners );
+            lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
+
+            Sound sound = SoundWorld.Instance.SoundCreate("Sounds\\rotationSound.ogg", 0);
+            SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
+                    0.5f);
+
+            ringPosition = (byte)((ringPosition + 1) % corners);
+
+            double angle = ringPosition * (Math.PI / corners);
+
+            Quat rot = new Quat(0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle));
+
+            Quat newRot = rot * Rotation.GetInverse();
+            newRot.Normalize();
+
+            Rotation = rot;
+
+            if (RotateRing != null)
+            {
+                RotateRing(this.Position, newRot, true);
+            } 
         }
 
         /// <summary>
@@ -137,7 +144,7 @@ namespace ProjectEntities
             return (n-48);
         }
 
-        private bool CanRotate()
+        public bool CanRotate()
         {
             return rotatable && ( (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds > lastRotate );
         }

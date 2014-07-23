@@ -284,6 +284,13 @@ namespace ProjectEntities
                 m.Position = newRot * offset + Position;
             }
 
+            foreach(MapObject m in statics)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
+
         }
 
 
