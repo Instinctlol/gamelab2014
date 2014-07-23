@@ -1,4 +1,4 @@
-ï»¿// Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
+// Copyright (C) NeoAxis Group Ltd. This is part of NeoAxis 3D Engine SDK.
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -52,7 +52,13 @@ namespace Game
 
         ProjectEntities.Repairable currentRepairable;
 
+        ProjectEntities.Terminal currentTerminal;
+
         ProjectEntities.Item currentItem;
+
+        ProjectEntities.ServerRack currentServerRack;
+
+        ProjectEntities.MedicCabinet currentMedicCabinet;
 
         ItemManager iManager = ItemManager.Instance;
 
@@ -60,6 +66,12 @@ namespace Game
         bool switchUsing;
 
         bool repairableUsing;
+
+        bool terminalUsing;
+
+        bool medicCabinetUsing;
+
+        bool serverRackUsing;
 
         //HUD screen
         Control hudControl;
@@ -78,38 +90,38 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-
+        
 
         //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
-        const int maxIndex = 4;  // maximale Nachrichten in der Massagebox
-        List<string> MassageList = new List<string>(); // hier stecken die Nachichten drin 
+        const int maxIndex = 4;  // maximale Nachrichten in der Messagebox
+        List<string> MessageList = new List<string>(); // hier stecken die Nachichten drin 
 
-        public void sendMassageToHUD(String massage)
+        public void sendMessageToHUD(String message)
         {
             string output = "";
 
-            if (MassageList.Count <= maxIndex)
+            if (MessageList.Count <= maxIndex)
             {
-                MassageList.Add(massage);
+                MessageList.Add(message);
             }
             else
             {
-                MassageList.RemoveAt(0);
-                MassageList.Add(massage);
+                MessageList.RemoveAt(0);
+                MessageList.Add(message);
             }
 
 
-            hudControl.Controls["MassageBox"].Visible = true;
+            hudControl.Controls["MessageBox"].Visible = true;
 
-            foreach (string element in MassageList)
+            foreach (string element in MessageList)
             {
                 output += (element + "\r\n");
             }
 
-            hudControl.Controls["MassageBox"].Text = output;
-            //hudControl.Controls["MassageBox"].Text = hudControl.Controls["MassageBox"].Text + massage + "\r\n";
+            hudControl.Controls["MessageBox"].Text = output;
+            //hudControl.Controls["MessageBox"].Text = hudControl.Controls["MessageBox"].Text + message + "\r\n";
             BoxTimer.Interval = 5000;
             BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             BoxTimer.Enabled = true;
@@ -117,14 +129,14 @@ namespace Game
 
         void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            hudControl.Controls["MassageBox"].Visible = false;
+            hudControl.Controls["MessageBox"].Visible = false;
         }
 
-        // Event Handler for massaging
+        // Event Handler for messaging
         private void InitializeEventListener()
         {
-            // Event zum Erhalten von Status Nachrichten, die angezeigt werden mÃ¼ssen registrieren
-            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMassageToHUD);
+            // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
+            StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
         }
 
 
@@ -136,9 +148,16 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\OculusHUD Inventar.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
+
+            //Inventar ausblenden
+            hudControl.Controls["Item_Leiste"].Visible = false;
+
+            //Waffenicon ausblenden
+            hudControl.Controls["Game/WeaponIcon"].Visible = false;
+            hudControl.Controls["Game/WeaponCircle"].Visible = false;
 
             //CutSceneManager specific
             if (CutSceneManager.Instance != null)
@@ -172,9 +191,10 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
-
-            if (CaveManager.Instance == null)
+			
+			if (CaveManager.Instance == null)
                 CaveManager.Init();
+
         }
 
         protected override void OnDetach()
@@ -183,15 +203,15 @@ namespace Game
             GameControlsManager.Instance.GameControlsEvent -= GameControlsManager_GameControlsEvent;
 
             base.OnDetach();
-
-            if (CaveManager.Instance != null)
+			
+			if (CaveManager.Instance != null)
                 CaveManager.Shutdown();
         }
 
-
+       
         protected override bool OnKeyDown(KeyEvent e)
         {
-
+            
 
             //If atop openly any window to not process
             if (Controls.Count != 1)
@@ -231,6 +251,74 @@ namespace Game
                 }
             }
 
+
+            if(e.Key == EKeys.I)
+            {
+                if(hudControl.Controls["Item_Leiste"].Visible)
+                {
+                    hudControl.Controls["Item_Leiste"].Visible = false;
+                }
+                else
+                {
+                    zeigeInventar();
+                    hudControl.Controls["Item_Leiste"].Visible = true;
+                }
+            }
+
+            if (e.Key == EKeys.P)
+            {
+                if (hudControl.Controls["Item_Leiste"].Visible == true)
+                {
+                    Unit u = GetPlayerUnit();
+                    List<Item> inv = u.Inventar.getInventarliste();
+                    if (u.Inventar.getIndexUseItem() + 1 <= inv.Count-1)
+                    {
+                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
+                        zeigeInventar();
+                    }
+                    else
+                        //Fehler ausgeben
+                        return false;
+                }
+            }
+
+            if (e.Key == EKeys.O)
+            {
+                if (hudControl.Controls["Item_Leiste"].Visible == true)
+                {
+                    Unit u = GetPlayerUnit();
+                    List<Item> inv = u.Inventar.getInventarliste();
+                    if (u.Inventar.getIndexUseItem() - 1 >= 0)
+                    {
+                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
+                        zeigeInventar();
+                    }
+                    else
+                        //Fehler ausgeben
+                        return false;
+                }
+            }
+
+            if (e.Key == EKeys.U)
+            {
+                if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
+                {
+                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                    Timer aTimer = new Timer(5000);
+                    aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed); 
+                    aTimer.Enabled = true;
+                }
+            }
+
+            if (e.Key == EKeys.L)
+            {
+                PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
+                if (GetPlayerUnit().Inventar.taschenlampeBesitz && GetPlayerUnit().Inventar.taschenlampeEnergie != 0 && player != null)
+                    player.Setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
+                
+            }
+
             return base.OnKeyDown(e);
         }
 
@@ -258,7 +346,7 @@ namespace Game
 
             //GameControlsManager
             GameControlsManager.Instance.DoKeyUp(e);
-
+            
             return base.OnKeyUp(e);
         }
 
@@ -267,9 +355,9 @@ namespace Game
         protected override bool OnMouseDown(EMouseButtons button)
         {
             StatusMessageHandler.sendMessage("gut gedrueckt " + i);
-            //sendMassageToHUD("gut gedrueckt " + i);
+            //sendMessageToHUD("gut gedrueckt " + i);
             i++;
-
+            
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnMouseDown(button);
@@ -346,6 +434,9 @@ namespace Game
                     GameControlsManager.Instance.DoMouseMoveRelative(MousePosition);
                 }
             }
+
+
+            
         }
 
         protected override bool OnMouseWheel(int delta)
@@ -442,7 +533,7 @@ namespace Game
 
                 cameraDistance = tpsCameraDistance;
                 cameraCenterOffset = tpsCameraCenterOffset;
-
+                
                 if (EngineApp.Instance.IsKeyPressed(EKeys.PageUp))
                 {
                     cameraDistance -= delta * distanceRange.Size() / 20.0f;
@@ -470,7 +561,7 @@ namespace Game
                     if (cameraCenterOffset < centerOffsetRange[0])
                         cameraCenterOffset = centerOffsetRange[0];
                 }
-
+                
                 tpsCameraDistance = cameraDistance;
                 tpsCameraCenterOffset = cameraCenterOffset;
             }
@@ -577,7 +668,7 @@ namespace Game
             }
         }
 
-        static Sphere GetSwitchUseAttachedMeshWorldSphere(MapObjectAttachedMesh attachedMesh)
+        static Sphere GetUseableUseAttachedMeshWorldSphere(MapObjectAttachedMesh attachedMesh)
         {
             float radius = 0;
 
@@ -623,8 +714,8 @@ namespace Game
                         out attachedGuiObject, out screenPosition);
                 }
 
-                //ignore empty gui objects
-                if (attachedGuiObject != null)
+                //ignore empty gui objects and invisible ones
+                if (attachedGuiObject != null && attachedGuiObject.Visible)
                 {
                     In3dControlManager manager = attachedGuiObject.ControlManager;
 
@@ -639,41 +730,149 @@ namespace Game
                 {
                     if (currentAttachedGuiObject != null)
                         currentAttachedGuiObject.ControlManager.LostManagerFocus();
-                    currentAttachedGuiObject = attachedGuiObject;
+
+                    if (attachedGuiObject != null && attachedGuiObject.Visible)
+                        currentAttachedGuiObject = attachedGuiObject;
+                    else
+                        currentAttachedGuiObject = null;
                 }
 
-                if (currentAttachedGuiObject != null)
+                if (currentAttachedGuiObject != null && currentAttachedGuiObject.Visible)
                     currentAttachedGuiObject.ControlManager.DoMouseMove(screenPosition);
             }
+
+            if (currentAttachedGuiObject != null)
+                return;
 
             //currentRepairable
             {
                 ProjectEntities.Repairable overRepairable = null;
 
                 Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
-                {
-                    ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
-
-                    if (r != null)
                     {
-                        overRepairable = r;
+                        ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+
+                        if (r != null)
+                        {
+                            overRepairable = r;
+                            return false;
+                        }
+                        return true;
+                    });
+
+                //draw selection border
+                if (overRepairable != null && overRepairable.Repaired == false )
+                {
+                    Bounds bounds = overRepairable.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                if (overRepairable != currentRepairable )
+                {
+                    if (overRepairable != null && !overRepairable.Repaired)
+                        currentRepairable = overRepairable;
+                    else
+                        currentRepairable = null;
+                }
+
+
+                if (currentRepairable != null)
+                {
+                    ColorValue color;
+                    if ((Time % 2) < 1)
+                        color = new ColorValue(1, 1, 0);
+                    else
+                        color = new ColorValue(0, 1, 0);
+
+                    string text = "";
+
+
+                    
+
+
+                    ProgressRepairable pRepair = currentRepairable as ProgressRepairable;
+                    if (pRepair != null)
+                        text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
+
+                    text += "Press \"Use\" to repair";
+
+                    //get binded keyboard key or mouse button
+                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
+                        GetItemByControlKey(GameControlKeys.Use);
+                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
+                    {
+                        GameControlsManager.SystemKeyboardMouseValue value =
+                            controlItem.DefaultKeyboardMouseValues[0];
+                        text += string.Format(" ({0})", value.ToString());
+                    }
+
+
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                        VerticalAlign.Center, color);
+                }
+            }
+
+            //currentServerRack
+            {
+                ProjectEntities.ServerRack overServerRack = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.ServerRack s = obj as ProjectEntities.ServerRack;
+
+                    if (s != null)
+                    {
+                        overServerRack = s;
                         return false;
                     }
                     return true;
                 });
 
                 //draw selection border
-                if (overRepairable != null && overRepairable.Repaired == false)
+                if (overServerRack != null && overServerRack.CanUse() )
                 {
-                    Bounds bounds = overRepairable.MapBounds;
+                    Bounds bounds = overServerRack.MapBounds;
                     DrawObjectSelectionBorder(bounds);
                 }
 
-                if (overRepairable != currentRepairable)
+                if (overServerRack != currentServerRack)
                 {
-                    currentRepairable = overRepairable;
+                    if (overServerRack != null && overServerRack.CanUse())
+                        currentServerRack = overServerRack;
+                    else
+                        currentServerRack = null;
+                }
+
+
+                if (currentServerRack != null)
+                {
+                    ColorValue color;
+                    if ((Time % 2) < 1)
+                        color = new ColorValue(1, 1, 0);
+                    else
+                        color = new ColorValue(0, 1, 0);
+
+                    string text = "";
+
+
+                    text += "Insert USB stick";
+
+                    //get binded keyboard key or mouse button
+                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
+                        GetItemByControlKey(GameControlKeys.Use);
+                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
+                    {
+                        GameControlsManager.SystemKeyboardMouseValue value =
+                            controlItem.DefaultKeyboardMouseValues[0];
+                        text += string.Format(" ({0})", value.ToString());
+                    }
+
+
+                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                        VerticalAlign.Center, color);
                 }
             }
+
 
             //currentFloatSwitch
             {
@@ -686,7 +885,7 @@ namespace Game
                     {
                         if (s.UseAttachedMesh != null)
                         {
-                            Sphere sphere = GetSwitchUseAttachedMeshWorldSphere(s.UseAttachedMesh);
+                            Sphere sphere = GetUseableUseAttachedMeshWorldSphere(s.UseAttachedMesh);
 
                             if (sphere.RayIntersection(ray))
                             {
@@ -710,7 +909,7 @@ namespace Game
                     Bounds bounds;
                     if (overSwitch.UseAttachedMesh != null)
                     {
-                        Sphere sphere = GetSwitchUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
+                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
                         bounds = sphere.ToBounds();
                     }
                     else
@@ -730,34 +929,100 @@ namespace Game
 
 
             //currentItem
-            ProjectEntities.Item overItem = null;
-
-            Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
             {
-                ProjectEntities.Item i = obj as ProjectEntities.Item;
+                ProjectEntities.Item overItem = null;
 
-                if (i != null)
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                    {
+                        ProjectEntities.Item i = obj as ProjectEntities.Item;
+
+                        if (i != null)
+                        {
+                            overItem = i;
+                            return false;
+                        }
+                        return true;
+                    });
+
+                //draw selection border
+                if (overItem != null)
                 {
-                    overItem = i;
-                    return false;
+                    Bounds bounds = overItem.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
                 }
-                return true;
-            });
 
-            //draw selection border
-            if (overItem != null)
-            {
-                Bounds bounds = overItem.MapBounds;
-                DrawObjectSelectionBorder(bounds);
+                if (currentItem != overItem)
+                {
+                    currentItem = overItem;
+                }
             }
 
-            if (currentItem != overItem)
+            //Current terminal
             {
-                currentItem = overItem;
+                ProjectEntities.Terminal overTerminal = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
+                    if (t != null)
+                    {
+                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
+
+                        if (sphere.RayIntersection(ray))
+                        {
+                            overTerminal = t;
+                            return false;
+                        }
+                    }
+
+                    return true;
+                });
+
+                //draw selection border
+                if (overTerminal != null)
+                {
+                    Bounds bounds;
+                    Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overTerminal.TerminalProjector);
+                    bounds = sphere.ToBounds();
+
+                    DrawObjectSelectionBorder(bounds);
+                }
 
 
+                if (overTerminal != currentTerminal)
+                {
+                    currentTerminal = overTerminal;
+                }
             }
 
+            //Current medic cabinet
+            {
+                ProjectEntities.MedicCabinet overCabinet = null;
+
+                Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+                {
+                    ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+
+                    if (c != null)
+                    {
+                        overCabinet = c;
+                        return false;
+                    }
+                    return true;
+                });
+
+                //draw selection border
+                if (overCabinet != null)
+                {
+                    Bounds bounds = overCabinet.MapBounds;
+                    DrawObjectSelectionBorder(bounds);
+                }
+
+                if (currentMedicCabinet != overCabinet)
+                {
+                    currentMedicCabinet = overCabinet;
+                }
+            }
 
             //Use player control unit
             if (playerUnit != null)
@@ -815,7 +1080,7 @@ namespace Game
             }
 
             //draw "Press Use" text
-            if (currentSwitch != null || currentItem != null ||
+            if (currentSwitch != null || currentItem != null || currentTerminal != null || currentMedicCabinet != null||
                 currentSeeUnitAllowPlayerControl != null)
             {
                 ColorValue color;
@@ -841,10 +1106,6 @@ namespace Game
 
                 AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
                     VerticalAlign.Center, color);
-
-                if (currentItem != null)
-                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, currentItem.Type.Name, new Vec2(.5f, .7f), HorizontalAlign.Center,
-                        VerticalAlign.Center, ColorValue.Construct(0, 1, 0));
             }
 
         }
@@ -934,6 +1195,49 @@ namespace Game
                 control.BackTexture = null;
         }
 
+        void zeigeInventar()
+        {
+            Unit unit = GetPlayerUnit();
+            List<Item> inv = unit.Inventar.getInventarliste();
+            string itemname;
+            int indexUseItem = unit.Inventar.getIndexUseItem();
+            int start;
+            int ende;
+            if(inv.Count == 0)
+            {
+                string itemnumber;
+                for(int i=0; i < 5; i++)
+                {
+                    itemnumber = "item" + (i + 1);
+                    hudControl.Controls["Item_Leiste/" + itemnumber].BackTexture = null;
+                }
+            }
+            else
+            {
+                start = indexUseItem-2;
+                ende = indexUseItem+2;
+                int itemnr = 1;
+                for(int i = start; i <= ende; i++)
+                {
+                    if (i < 0 || i > inv.Count-1)
+                    {
+                        hudControl.Controls["Item_Leiste/item" + itemnr].BackTexture = null;
+                        itemnr++;
+                    }
+                    else
+                    {
+                        itemname = string.Format("Gui\\HUD\\Icons\\{0}.png", inv[i].Type.Name);
+                        hudControl.Controls["Item_Leiste/item" + itemnr].BackTexture = TextureManager.Instance.Load(itemname);
+                        itemnr++;
+                    }
+
+                }
+                
+            }
+
+            
+        }
+
         /// <summary>
         /// Updates HUD screen
         /// </summary>
@@ -958,7 +1262,7 @@ namespace Game
                 if (playerUnit != null)
                     coef = playerUnit.Health / playerUnit.Type.HealthMax;
 
-                Control healthBar = hudControl.Controls["Game/HealthBar"];
+                Control healthBar = hudControl.Controls["Game/HUD1/HealthBar"];
                 Vec2 originalSize = new Vec2(256, 32);
                 Vec2 interval = new Vec2(117, 304);
                 float sizeX = (117 - 82) + coef * (interval[1] - interval[0]);
@@ -1233,7 +1537,7 @@ namespace Game
             if (repairableUsing)
                 return false;
 
-            if (currentRepairable == null || currentRepairable.Repaired)
+            if (currentRepairable == null)
                 return false;
 
             //Einfach reparieren
@@ -1246,9 +1550,66 @@ namespace Game
         void RepairableUseEnd()
         {
             repairableUsing = false;
+        }
 
-            if (currentRepairable == null)
-                return;
+        bool ServerRackUseStart()
+        {
+            if (serverRackUsing)
+                return false;
+
+            if (currentServerRack == null)
+                return false;
+
+            //Einfach reparieren
+            currentServerRack.Press(GetPlayerUnit());
+
+            serverRackUsing = true;
+            return true;
+        }
+
+        void ServerRackUseEnd()
+        {
+            serverRackUsing = false;
+        }
+
+        bool TerminalUseStart()
+        {
+            if (terminalUsing)
+                return false;
+
+            if (currentTerminal == null)
+                return false;
+
+            //Einfach reparieren
+            currentTerminal.Press();
+
+            terminalUsing = true;
+            return true;
+        }
+
+        void TerminalUseEnd()
+        {
+            terminalUsing = false;
+        }
+
+        bool MedicCabinetUseStart()
+        {
+            if (medicCabinetUsing)
+                return false;
+
+            if (currentMedicCabinet == null)
+                return false;
+
+            //Einfach reparieren
+            currentMedicCabinet.Press(GetPlayerUnit());
+
+            medicCabinetUsing = true;
+            return true;
+        }
+
+        void MedicCabinetUseEnd()
+        {
+            medicCabinetUsing = false;
         }
 
         bool SwitchUseStart()
@@ -1296,18 +1657,16 @@ namespace Game
 
             if (currentItem == null)
                 return false;
-            //Ãœbergebe an ItemManager
+            //Übergebe an ItemManager
             iManager.TakeItem(playerunit, currentItem);
             //Gebe Hinweis aus
             String s = iManager.notificationstring();
             String s_w = character.notification();
 
-            if (s != "" && s_w == "")
-                AddTextWithShadow(renderer, s + " aufgenommen", new Vec2(.5f, .2f),
-                            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
-            else if (s_w != "" && s == "")
-                AddTextWithShadow(renderer, s_w + " aufgenommen", new Vec2(.5f, .2f),
-                            HorizontalAlign.Left, VerticalAlign.Bottom, new ColorValue(1, 1, 1, .5f));
+            if(s != "" && s_w == "")
+                StatusMessageHandler.sendMessage(s + " aufgenommen");
+            else if(s_w != "" && s == "")
+                StatusMessageHandler.sendMessage(s_w + " aufgenommen");
 
             return true;
 
@@ -1559,7 +1918,7 @@ namespace Game
             }
 
             //To update data in player intellect about type of the camera
-            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;
+            PlayerIntellect.Instance.FPSCamera = GetRealCameraType() == CameraType.FPS;         
 
             PlayerIntellect.Instance.TPSCameraCenterOffset = tpsCameraCenterOffset;
         }
@@ -1679,9 +2038,9 @@ namespace Game
         //bool IsPlayerUnitVehicle()
         //{
         //    Unit playerUnit = GetPlayerUnit();
-        //
-        //          return false;
-        //    }
+//
+  //          return false;
+    //    }
 
         static void ConsoleCommand_MovePlayerUnitToCamera(string arguments)
         {
@@ -1735,6 +2094,18 @@ namespace Game
                         if (RepairableUseStart())
                             return;
 
+                        //key down for serverRack
+                        if (ServerRackUseStart())
+                            return;
+
+                        //key down for terminal use
+                        if (TerminalUseStart())
+                            return;
+
+                        //key down for mdeicCabinet use
+                        if (MedicCabinetUseStart())
+                            return;
+
                         //key down for item take
                         if (ItemTake())
                             return;
@@ -1764,6 +2135,15 @@ namespace Game
 
                         //Key up for repairable use
                         RepairableUseEnd();
+
+                        //Key up for serverrack
+                        ServerRackUseEnd();
+
+                        //Key up for terminal use
+                        TerminalUseEnd();
+
+                        //key up for mdeicCabinet use
+                        MedicCabinetUseEnd();
                     }
 
                     return;
@@ -1784,6 +2164,17 @@ namespace Game
             renderer.AddText(text, position + shadowOffset, horizontalAlign, verticalAlign,
                 new ColorValue(0, 0, 0, color.Alpha / 2));
             renderer.AddText(text, position, horizontalAlign, verticalAlign, color);
+        }
+
+        void WeaponIconTimeElapsed(object source, ElapsedEventArgs e)
+        {
+            hudControl.Controls["Game/WeaponIcon"].Visible = false;
+            hudControl.Controls["Game/WeaponCircle"].Visible = false;
+        }
+
+        public void tlEnergieVerringern(object source, ElapsedEventArgs e)
+        {
+            GetPlayerUnit().Inventar.taschenlampeEnergie--;
         }
     }
 }

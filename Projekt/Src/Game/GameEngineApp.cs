@@ -972,7 +972,7 @@ namespace Game
                     }
                     else
                     {
-                        gameWindow = new ActionGameWindow();
+                        gameWindow = new CaveGameWindow();
                         GameMap.Instance.IsAlien = false;
                     }
                 }

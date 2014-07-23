@@ -99,11 +99,15 @@ namespace Game
             Rect rectangle;
             float opacity = 1;
 
+            public bool guirender;
+
             Texture texture;
             Vec2I initializedTextureSize;
             Camera camera;
             Viewport viewport;
             ViewRenderTargetListener renderTargetListener;
+
+            GuiRenderer guiRenderer;
 
             ///////////////
 
@@ -157,6 +161,13 @@ namespace Game
                 protected override void OnPostRenderTargetUpdate(RenderTargetEvent evt)
                 {
                     //SceneManager.Instance.ResetOverrideVisibleObjects();
+
+                    base.OnPostRenderTargetUpdate(evt);
+
+                    if (owner.Render != null && owner.guirender)
+                    {
+                        GameEngineApp.Instance.ControlManager.DoRenderUI(owner.guiRenderer);
+                    }
                 }
             }
 
@@ -230,6 +241,8 @@ namespace Game
                 //add viewport
                 viewport = renderTarget.AddViewport(camera, 0);
                 viewport.ShadowsEnabled = true;
+                guiRenderer = new GuiRenderer(viewport);
+                guiRenderer.ApplyPostEffectsToScreenRenderer = true;
                 
                 //Create compositor for HDR render technique
                 bool hdrCompositor =
@@ -342,21 +355,21 @@ namespace Game
             const float stepY = 1.0f / 3.0f;
 
             // Front (0, 1)
-            view = instance.AddView(new Rect(0.0f, 0.0f, stepX, stepY));
+            view = instance.AddView(new Rect(0.0f, 0.0f, stepX, stepY), true);
             view.Render += viewRender;
-            view = instance.AddView(new Rect(stepX, 0.0f, 1.0f, stepY));
+            view = instance.AddView(new Rect(stepX, 0.0f, 1.0f, stepY), true);
             view.Render += viewRender;
 
             // Right (2, 3)
-            view = instance.AddView(new Rect(0.0f, stepY, stepX, 2.0f * stepY));
+            view = instance.AddView(new Rect(0.0f, stepY, stepX, 2.0f * stepY), false);
             view.Render += viewRender;
-            view = instance.AddView(new Rect(stepX, stepY, 1.0f, 2.0f * stepY));
+            view = instance.AddView(new Rect(stepX, stepY, 1.0f, 2.0f * stepY), false);
             view.Render += viewRender;
 
             // Bottom (2, 3)
-            view = instance.AddView(new Rect(0.0f, 2.0f * stepY, stepX, 3.0f * stepY));
+            view = instance.AddView(new Rect(0.0f, 2.0f * stepY, stepX, 3.0f * stepY), false);
             view.Render += viewRender;
-            view = instance.AddView(new Rect(stepX, 2.0f * stepY, 1.0f, 3.0f * stepY));
+            view = instance.AddView(new Rect(stepX, 2.0f * stepY, 1.0f, 3.0f * stepY), false);
             view.Render += viewRender;
 
             const int widthBeamer = 1400;
@@ -607,11 +620,13 @@ namespace Game
             }
         }
 
-        public View AddView(Rect rectangle)
+        public View AddView(Rect rectangle, bool gui)
         {
             View view = new View();
             view.Rectangle = rectangle;
+            view.guirender = gui;
             views.Add(view);
+
             return view;
         }
 
@@ -717,23 +732,23 @@ namespace Game
             Vec3 right = Vec3.Cross(direction, up);
 
             const float heightOffset = 1.66f;
-            direction.Z = 0.0f;
+            //direction.Z = 0.0f;
             //position.Z = 1.66f;
-            up = new Vec3(0, 0, 1);
+         //   up = new Vec3(0, 0, 1);
 
             #endregion
 
             #region Adjust Height
-            Ray ray = new Ray(new Vec3(position.X, position.Y, position.Z + 100), new Vec3(0, 0, -1));
-            RayCastResult[] results = PhysicsWorld.Instance.RayCastPiercing(ray, (int)ContactGroup.CastOnlyCollision);
+            //Ray ray = new Ray(new Vec3(position.X, position.Y, position.Z + 100), new Vec3(0, 0, -1));
+            //RayCastResult[] results = PhysicsWorld.Instance.RayCastPiercing(ray, (int)ContactGroup.CastOnlyCollision);
 
-            foreach (RayCastResult result in results)
-            {
-                if (result.Shape != null && result.Shape.ShapeType == Shape.Type.HeightField)
-                {
-                    position.Z = result.Position.Z + heightOffset;                    
-                }
-            }
+            //foreach (RayCastResult result in results)
+            //{
+            //    if (result.Shape != null && result.Shape.ShapeType == Shape.Type.HeightField)
+            //    {
+            //        position.Z = result.Position.Z + heightOffset;                    
+            //    }
+            //}
 
             #endregion
 
@@ -931,11 +946,11 @@ namespace Game
                         camera.AspectRatio = aspect;
                         camera.Fov = fovy;
 
-                        //Mat3 rotation = RotationMatrix((float)(Math.PI / 2.0), right);
+                        Mat3 rotation = RotationMatrix((float)(Math.PI / 2.0), right);
 
                         //camera.FixedUp = rotation * up;
                         camera.FixedUp = direction;
-                        camera.Direction = new Vec3(0, 0, -1);//rotation * direction;
+                        camera.Direction = rotation * direction;
                         camera.Position = position;
 
                         Instance.computeStereoCameraProperties(ref camera, Instance.PlayerDistance.Z, Instance.PlayerDistance.X - BottomWidth / 2.0f, Instance.PlayerDistance.Y - BottomHeight / 2.0f, BottomWidth, BottomHeight, true);
@@ -954,11 +969,11 @@ namespace Game
                         camera.AspectRatio = aspect;
                         camera.Fov = fovy;
 
-                        //Mat3 rotation = RotationMatrix((float)(Math.PI / 2.0), right);
+                        Mat3 rotation = RotationMatrix((float)(Math.PI / 2.0), right);
 
                         //camera.FixedUp = rotation * up;
                         camera.FixedUp = direction;
-                        camera.Direction = new Vec3(0, 0, -1);//rotation * direction;
+                        camera.Direction = rotation * direction;
                         camera.Position = position;
 
                         Instance.computeStereoCameraProperties(ref camera, Instance.PlayerDistance.Z, Instance.PlayerDistance.X - BottomWidth / 2.0f, Instance.PlayerDistance.Y - BottomHeight / 2.0f, BottomWidth, BottomHeight, false);
