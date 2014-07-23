@@ -221,9 +221,8 @@ namespace ProjectCommon
                     }
                 }
                 #endregion
-
                 float d = (float) Math.Sqrt(Math.Pow((line2changed[4] - line1changed[4]), 2) + Math.Pow((line2changed[5] - line1changed[5]), 2));
-
+                //Console.WriteLine(start1 + " " + end1 + " " + start2 + " " + end2 + " " + Math.Abs(workelement1[4] - line1changed[4]));
                 if (wastranslating || start1 && !end1 && (!start2 && !end2) && (Math.Abs(workelement1[4] - line1changed[4]) > 0.01 || Math.Abs(workelement1[5] - line1changed[5]) > 0.01))
                 {
                     #region Translation
@@ -256,8 +255,8 @@ namespace ProjectCommon
                     #region Selection
                     if (!end1 && !end2)
                     {
-                        float dx = line2changed[4] + (line2changed[4] - line1changed[4]);
-                        float dy = line2changed[5] + (line2changed[5] - line1changed[5]);
+                        float dx = line1changed[4] + (line2changed[4] - line1changed[4]);
+                        float dy = line1changed[5] + (line2changed[5] - line1changed[5]);
                         used.Remove(line1changed);
                         used.Remove(line2changed);
                         used.Remove(workelement1);
@@ -272,13 +271,25 @@ namespace ProjectCommon
                     }
                     else
                     {
-                        #region send
-                        TuioInputDeviceSpecialEvent customEvent =
-                            new TuioInputDeviceSpecialEvent(this, opType.selection, 0f, 0f);
-                        InputDeviceManager.Instance.SendEvent(customEvent);
-                        #endregion
-                        wasselecting = false;
-                        Console.WriteLine("Selection Clear");
+                        if (end1 && end2)
+                        {
+                            #region send
+                            TuioInputDeviceSpecialEvent customEvent =
+                                new TuioInputDeviceSpecialEvent(this, opType.selection, 0f, 0f);
+                            InputDeviceManager.Instance.SendEvent(customEvent);
+                            #endregion
+                            wasselecting = false;
+                            Console.WriteLine("Selection Clear");
+                        }
+                        else
+                        {
+                                used.Remove(line1changed);
+                                used.Remove(line2changed);
+                                used.Remove(workelement1);
+                                used.Remove(workelement3);
+                                if (end1) used.Remove(workelement2);
+                                if (end2) used.Remove(workelement4);
+                        }
                     }
 
                     foreach (float[] usedelemt in used)
@@ -286,11 +297,6 @@ namespace ProjectCommon
                         tuioInputData.Remove(usedelemt);
                     }
                     #endregion
-                    Console.WriteLine(used.Count + " - " + tuioInputData.Count);
-                    foreach (float[] element in tuioInputData)
-                    {
-                        Console.WriteLine(element[0] + " " + element[3] + " " + element[4] + "/"+ element[5] + " @ " + element[2]);
-                    }
                 }
                 else if (wasrotating || (start1 && start2 && d >= 0.1f && line2changed[4] != 0f))
                 {
