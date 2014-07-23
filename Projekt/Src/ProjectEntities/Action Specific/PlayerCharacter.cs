@@ -670,6 +670,7 @@ namespace ProjectEntities
 					}
                     else if (attachedObject.Alias == "taschenlampe")
 					{
+                        if(Inventar != null)
                             attachedObject.Visible = Inventar.taschenlampevisible;
 					}
                     else 
