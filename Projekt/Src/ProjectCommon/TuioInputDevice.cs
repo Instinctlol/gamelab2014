@@ -115,6 +115,7 @@ namespace ProjectCommon
             }
             if (!detectgesturesState)
             {
+                #region Navigation
                 //Entferne Eintraege aelter als 3 Sekunden
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
                 #region deleteold
@@ -208,7 +209,7 @@ namespace ProjectCommon
                     }
                     if (elemt[0] == 1 && elemt[3] == 3)
                     {
-                        #region end2 
+                        #region end2
                         end2 = true;
                         workelement4 = elemt;
                         used.Add(elemt);
@@ -221,29 +222,29 @@ namespace ProjectCommon
                     }
                 }
                 #endregion
-                float d = (float) Math.Sqrt(Math.Pow((line2changed[4] - line1changed[4]), 2) + Math.Pow((line2changed[5] - line1changed[5]), 2));
+                float d = (float)Math.Sqrt(Math.Pow((line2changed[4] - line1changed[4]), 2) + Math.Pow((line2changed[5] - line1changed[5]), 2));
                 //Console.WriteLine(start1 + " " + end1 + " " + start2 + " " + end2 + " " + Math.Abs(workelement1[4] - line1changed[4]));
                 if (wastranslating || start1 && !end1 && (!start2 && !end2) && (Math.Abs(workelement1[4] - line1changed[4]) > 0.01 || Math.Abs(workelement1[5] - line1changed[5]) > 0.01))
                 {
                     #region Translation
-                        if (!end1)
-                        {
-                            #region send
-                            TuioInputDeviceSpecialEvent customEvent =
-                            new TuioInputDeviceSpecialEvent(this, opType.translation, (line1changed[4] - oldcoords[4]), (line1changed[5] - oldcoords[5]));
-                            InputDeviceManager.Instance.SendEvent(customEvent);
-                            #endregion send
-                            wastranslating = true;
-                            used.Remove(workelement1);
-                            used.Remove(line1changed);
-                            oldcoords = line1changed;
-                            //Console.WriteLine("Translate");
-                        }
-                        else
-                        {
-                            wastranslating = false;
-                            //Console.WriteLine("Translate Clear");
-                        }
+                    if (!end1)
+                    {
+                        #region send
+                        TuioInputDeviceSpecialEvent customEvent =
+                        new TuioInputDeviceSpecialEvent(this, opType.translation, (line1changed[4] - oldcoords[4]), (line1changed[5] - oldcoords[5]));
+                        InputDeviceManager.Instance.SendEvent(customEvent);
+                        #endregion send
+                        wastranslating = true;
+                        used.Remove(workelement1);
+                        used.Remove(line1changed);
+                        oldcoords = line1changed;
+                        //Console.WriteLine("Translate");
+                    }
+                    else
+                    {
+                        wastranslating = false;
+                        //Console.WriteLine("Translate Clear");
+                    }
                     foreach (float[] usedelemt in used)
                     {
                         tuioInputData.Remove(usedelemt);
@@ -283,12 +284,12 @@ namespace ProjectCommon
                         }
                         else
                         {
-                                used.Remove(line1changed);
-                                used.Remove(line2changed);
-                                used.Remove(workelement1);
-                                used.Remove(workelement3);
-                                if (end1) used.Remove(workelement2);
-                                if (end2) used.Remove(workelement4);
+                            used.Remove(line1changed);
+                            used.Remove(line2changed);
+                            used.Remove(workelement1);
+                            used.Remove(workelement3);
+                            if (end1) used.Remove(workelement2);
+                            if (end2) used.Remove(workelement4);
                         }
                     }
 
@@ -368,73 +369,17 @@ namespace ProjectCommon
 
                     #endregion
                 }
-
+                //TuioInputDeviceSpecialEvent customEvent =
+                //    new TuioInputDeviceSpecialEvent(this, opType.rotation);
+                //InputDeviceManager.Instance.SendEvent(customEvent);
+                #endregion
             }
-                    //TuioInputDeviceSpecialEvent customEvent =
-                    //    new TuioInputDeviceSpecialEvent(this, opType.rotation);
-                    //InputDeviceManager.Instance.SendEvent(customEvent);
+            else {
+                Console.WriteLine("Gesture Detection");
+            }
 
 
-            #region oldcode
-
-
-            //button1
-
-
-
-
-
-            //{
-            //    bool pressed = EngineApp.Instance.IsKeyPressed(EKeys.H);
-            //    if (Buttons[0].Pressed != pressed)
-            //    {
-            //        if (pressed)
-            //        {
-            //            InputDeviceManager.Instance.SendEvent(
-            //                new JoystickButtonDownEvent(this, Buttons[0]));
-            //        }
-            //        else
-            //        {
-            //            InputDeviceManager.Instance.SendEvent(
-            //                new JoystickButtonUpEvent(this, Buttons[0]));
-            //        }
-            //        Buttons[0].Pressed = pressed;
-            //    }
-            //}
-
-            ////button2
-            //{
-            //    bool pressed = EngineApp.Instance.IsKeyPressed( EKeys.J );
-            //    if( Buttons[ 1 ].Pressed != pressed )
-            //    {
-            //        if( pressed )
-            //        {
-            //            InputDeviceManager.Instance.SendEvent(
-            //                new JoystickButtonDownEvent( this, Buttons[ 1 ] ) );
-            //        }
-            //        else
-            //        {
-            //            InputDeviceManager.Instance.SendEvent(
-            //                new JoystickButtonUpEvent( this, Buttons[ 1 ] ) );
-            //        }
-            //        Buttons[ 1 ].Pressed = pressed;
-            //    }
-            //}
-
-            ////axis X
-            //{
-            //    float value = 0;
-
-            //    Axes[ 0 ].Value = value;
-
-            //    InputDeviceManager.Instance.SendEvent(
-            //        new JoystickAxisChangedEvent( this, Axes[ 0 ] ) );
-            //}
-
-            ////custom event example
-        #endregion
-			
-		}
+        }
 
 
         public void detectgestures(bool state) {
