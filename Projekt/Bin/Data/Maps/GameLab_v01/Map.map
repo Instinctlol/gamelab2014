@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -18.64349 -7.549349 50.10194
-editorCameraDirection = 0.7157584 -1.174242
+editorCameraPosition = 86.28073 2.690669 7.333336
+editorCameraDirection = 0.06590521 -1.22361
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -456,6 +456,15 @@ entity
 				parameters = 
 				isEntityEventMethod = True
 			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 664
+			subscriptionsToDeletionEvent = 555
+			entityClassName = Repairable
+			className = CardReader_0
+			customScriptCodeCreated = False
 		}
 	}
 }
@@ -6319,10 +6328,13 @@ entity
 	type = CardReader
 	uin = 555
 	classPrompt = Repairable
+	subscriptionsToDeletionEvent = 664
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = 91.61182 3.380165 1.345598
+	position = 92.40694 3.380165 1.468285
+	rotation = 0 0 1 7.54979E-08
 	name = CardReader_0
+	logicClass = 664
 	editorLayer = "Root Layer\\F2\\Items"
 }
 entity
