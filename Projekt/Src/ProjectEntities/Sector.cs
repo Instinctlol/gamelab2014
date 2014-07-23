@@ -297,19 +297,23 @@ namespace ProjectEntities
         private void OnRoomIn(Room obj)
         {
             rooms.Add(obj);
+
+            obj.LightStatus = lightStatus;
+
             if (isHidden)
                 obj.SetLights(false);
-            else
-                obj.LightStatus = lightStatus;
+                
         }
 
         private void OnStaticIn(StaticObject obj)
         {
             statics.Add(obj);
+
+            obj.LightStatus = lightStatus;
+
             if (isHidden)
                 obj.SetLights(false);
-            else
-                obj.LightStatus = lightStatus;
+                
         }
 
         private void OnDynamicIn(Dynamic obj)

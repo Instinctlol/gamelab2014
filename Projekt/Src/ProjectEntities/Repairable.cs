@@ -130,7 +130,8 @@ namespace ProjectEntities
                 else
                 {
                     OnRepair();
-                    Server_SendRepairedToAllClients();
+                    if(!EntitySystemWorld.Instance.IsEditor())
+                        Server_SendRepairedToAllClients();
                 }
 
             }
