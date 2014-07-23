@@ -301,7 +301,7 @@ namespace ProjectCommon
                 else if (wasrotating || (start1 && start2 && d >= 0.1f && line2changed[4] != 0f))
                 {
                     #region Rotation
-                    Console.WriteLine(d +" @ " + wasrotating + " - " + line1changed[4] + " / " + line1changed[5] + " - " + line2changed[4] + " / " + line2changed[5]);
+                    //Console.WriteLine(d +" @ " + wasrotating + " - " + line1changed[4] + " / " + line1changed[5] + " - " + line2changed[4] + " / " + line2changed[5]);
                     float dy = (line2changed[5] - line1changed[5]);
                     float dx = (line2changed[4] - line1changed[4]);
                     float rotangle = (float)-Math.Atan(dy / dx);
@@ -324,9 +324,22 @@ namespace ProjectCommon
                     }
                     else
                     {
-                        oldangle = 1000;
-                        wasrotating = false;
-                        Console.WriteLine("Rotate Clear");
+                        if (end1 && end2)
+                        {
+
+                            oldangle = 1000;
+                            wasrotating = false;
+                            Console.WriteLine("Rotate Clear");
+                        }
+                        else
+                        {
+                            used.Remove(line1changed);
+                            used.Remove(line2changed);
+                            used.Remove(workelement1);
+                            used.Remove(workelement3);
+                            if (end1) used.Remove(workelement2);
+                            if (end2) used.Remove(workelement4);
+                        }
                     }
 
                     foreach (float[] usedelemt in used)
