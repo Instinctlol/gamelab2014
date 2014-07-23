@@ -148,9 +148,16 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\ActionHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\OculusHUD Inventar.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
+
+            //Inventar ausblenden
+            hudControl.Controls["Item_Leiste"].Visible = false;
+
+            //Waffenicon ausblenden
+            hudControl.Controls["Game/WeaponIcon"].Visible = false;
+            hudControl.Controls["Game/WeaponCircle"].Visible = false;
 
             //CutSceneManager specific
             if (CutSceneManager.Instance != null)
@@ -184,6 +191,7 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
+
         }
 
         protected override void OnDetach()
@@ -237,6 +245,74 @@ namespace Game
                 }
             }
 
+
+            if(e.Key == EKeys.I)
+            {
+                if(hudControl.Controls["Item_Leiste"].Visible)
+                {
+                    hudControl.Controls["Item_Leiste"].Visible = false;
+                }
+                else
+                {
+                    zeigeInventar();
+                    hudControl.Controls["Item_Leiste"].Visible = true;
+                }
+            }
+
+            if (e.Key == EKeys.P)
+            {
+                if (hudControl.Controls["Item_Leiste"].Visible == true)
+                {
+                    Unit u = GetPlayerUnit();
+                    List<Item> inv = u.Inventar.getInventarliste();
+                    if (u.Inventar.getIndexUseItem() + 1 <= inv.Count-1)
+                    {
+                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
+                        zeigeInventar();
+                    }
+                    else
+                        //Fehler ausgeben
+                        return false;
+                }
+            }
+
+            if (e.Key == EKeys.O)
+            {
+                if (hudControl.Controls["Item_Leiste"].Visible == true)
+                {
+                    Unit u = GetPlayerUnit();
+                    List<Item> inv = u.Inventar.getInventarliste();
+                    if (u.Inventar.getIndexUseItem() - 1 >= 0)
+                    {
+                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
+                        zeigeInventar();
+                    }
+                    else
+                        //Fehler ausgeben
+                        return false;
+                }
+            }
+
+            if (e.Key == EKeys.U)
+            {
+                if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
+                {
+                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                    Timer aTimer = new Timer(5000);
+                    aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed); 
+                    aTimer.Enabled = true;
+                }
+            }
+
+            if (e.Key == EKeys.L)
+            {
+                PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
+                if (GetPlayerUnit().Inventar.taschenlampeBesitz && GetPlayerUnit().Inventar.taschenlampeEnergie != 0 && player != null)
+                    player.setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
+                
+            }
+
             return base.OnKeyDown(e);
         }
 
@@ -264,7 +340,7 @@ namespace Game
 
             //GameControlsManager
             GameControlsManager.Instance.DoKeyUp(e);
-
+            
             return base.OnKeyUp(e);
         }
 
@@ -352,6 +428,9 @@ namespace Game
                     GameControlsManager.Instance.DoMouseMoveRelative(MousePosition);
                 }
             }
+
+
+            
         }
 
         protected override bool OnMouseWheel(int delta)
@@ -1110,6 +1189,49 @@ namespace Game
                 control.BackTexture = null;
         }
 
+        void zeigeInventar()
+        {
+            Unit unit = GetPlayerUnit();
+            List<Item> inv = unit.Inventar.getInventarliste();
+            string itemname;
+            int indexUseItem = unit.Inventar.getIndexUseItem();
+            int start;
+            int ende;
+            if(inv.Count == 0)
+            {
+                string itemnumber;
+                for(int i=0; i < 5; i++)
+                {
+                    itemnumber = "item" + (i + 1);
+                    hudControl.Controls["Item_Leiste/" + itemnumber].BackTexture = null;
+                }
+            }
+            else
+            {
+                start = indexUseItem-2;
+                ende = indexUseItem+2;
+                int itemnr = 1;
+                for(int i = start; i <= ende; i++)
+                {
+                    if (i < 0 || i > inv.Count-1)
+                    {
+                        hudControl.Controls["Item_Leiste/item" + itemnr].BackTexture = null;
+                        itemnr++;
+                    }
+                    else
+                    {
+                        itemname = string.Format("Gui\\HUD\\Icons\\{0}.png", inv[i].Type.Name);
+                        hudControl.Controls["Item_Leiste/item" + itemnr].BackTexture = TextureManager.Instance.Load(itemname);
+                        itemnr++;
+                    }
+
+                }
+                
+            }
+
+            
+        }
+
         /// <summary>
         /// Updates HUD screen
         /// </summary>
@@ -1134,7 +1256,7 @@ namespace Game
                 if (playerUnit != null)
                     coef = playerUnit.Health / playerUnit.Type.HealthMax;
 
-                Control healthBar = hudControl.Controls["Game/HealthBar"];
+                Control healthBar = hudControl.Controls["Game/HUD1/HealthBar"];
                 Vec2 originalSize = new Vec2(256, 32);
                 Vec2 interval = new Vec2(117, 304);
                 float sizeX = (117 - 82) + coef * (interval[1] - interval[0]);
@@ -2036,6 +2158,17 @@ namespace Game
             renderer.AddText(text, position + shadowOffset, horizontalAlign, verticalAlign,
                 new ColorValue(0, 0, 0, color.Alpha / 2));
             renderer.AddText(text, position, horizontalAlign, verticalAlign, color);
+        }
+
+        void WeaponIconTimeElapsed(object source, ElapsedEventArgs e)
+        {
+            hudControl.Controls["Game/WeaponIcon"].Visible = false;
+            hudControl.Controls["Game/WeaponCircle"].Visible = false;
+        }
+
+        public void tlEnergieVerringern(object source, ElapsedEventArgs e)
+        {
+            GetPlayerUnit().Inventar.taschenlampeEnergie--;
         }
     }
 }

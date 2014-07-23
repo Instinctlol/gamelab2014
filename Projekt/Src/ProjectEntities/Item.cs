@@ -26,12 +26,11 @@ namespace ProjectEntities
 		string soundTake;
 
 		//
-
+		
 		public ItemType()
 		{
 			AllowEmptyName = true;
 		}
-
 		[DefaultValue( 0.0f )]
 		public float DefaultRespawnTime
 		{
@@ -68,6 +67,8 @@ namespace ProjectEntities
 
 		Vec3 server_sentPositionToClients;
 
+		
+        public int anzahl = 0;
 		///////////////////////////////////////////
 
 		enum NetworkMessages

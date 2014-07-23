@@ -37,3 +37,13 @@ D:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implem
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.pdb
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll.CodeAnalysisLog.xml
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll.lastcodeanalysissucceeded
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.pdb
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll.CodeAnalysisLog.xml
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll.lastcodeanalysissucceeded
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.dll
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.pdb
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.xml
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\obj\Debug\GestureLib.Implementation.csprojResolveAssemblyReference.cache
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\obj\Debug\GestureLib.Implementation.dll
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\obj\Debug\GestureLib.Implementation.pdb

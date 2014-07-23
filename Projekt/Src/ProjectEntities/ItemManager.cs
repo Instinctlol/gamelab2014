@@ -53,6 +53,7 @@ namespace ProjectEntities
 
                 case "Defkit":
                     currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
                     s = "Werkzeuggürtel";
                     break;
 
@@ -74,11 +75,15 @@ namespace ProjectEntities
 
                 case "Schraubenschlüssel":
                     currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
                     s = "Schraubenschlüssel";
                     break;
 
                 case "TaschenlampeItem":
                     currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.taschenlampeBesitz = true;
+                    unit.Inventar.taschenlampeEnergie = 100;
                     s = "Taschenlampe";
                     break;
 
@@ -105,6 +110,49 @@ namespace ProjectEntities
                 case "HammerItem":
                     currentItem.TakeItem(unit);
                     break;
+
+                case "battery":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "Batterie";
+                    break;
+
+                case "cpu":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "CPU";
+                    break;
+
+                case "Schrauben":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "Schrauben";
+                    break;
+
+                case "USB_Stick":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "USB Stick";
+                    break;
+
+                case "sicherung":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "Sicherung";
+                    break;
+
+                case "Dynamite":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "Dynamit";
+                    break;
+
+                case "AccessCard":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "AccessCard";
+                    break;
+
                 default:
                     currentItem.TakeItem(unit);
                     break;

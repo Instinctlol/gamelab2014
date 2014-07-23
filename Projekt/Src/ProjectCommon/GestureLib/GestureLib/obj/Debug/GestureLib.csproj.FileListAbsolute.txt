@@ -26,3 +26,13 @@ D:\GameLab\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.csproj.GenerateResource.Cache
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.dll
 D:\GameLab\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.pdb
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Debug\GestureLib.XML
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Debug\GestureLib.dll
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Debug\GestureLib.pdb
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Debug\GestureLib.dll.CodeAnalysisLog.xml
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\bin\Debug\GestureLib.dll.lastcodeanalysissucceeded
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.csprojResolveAssemblyReference.cache
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.OverlayForm.resources
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.csproj.GenerateResource.Cache
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.dll
+C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib\GestureLib\obj\Debug\GestureLib.pdb

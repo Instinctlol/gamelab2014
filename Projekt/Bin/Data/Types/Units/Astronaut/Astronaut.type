@@ -109,6 +109,16 @@ type Astronaut
 			meshName = "Types\\Weapons\\Brechstange\\brechstange_FSP.mesh"
 			boneSlot = brechstangeHolderTPS
 		}
+		light
+		{
+			lightType = Spot
+			diffusePower = 3
+			attenuationNear = 1
+			attenuationFar = 30
+			alias = taschenlampe
+			position = 0.15 0.1 0.4
+			rotation = 0 0.06700827 0 0.9977524
+		}
 	}
 	dieObjects
 	{

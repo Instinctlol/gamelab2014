@@ -150,6 +150,7 @@
     <Compile Include="Alien Specific\AlienUnitAI.cs" />
     <Compile Include="Alien Specific\Computer.cs" />
     <Compile Include="BooleanSwitch.cs" />
+    <Compile Include="Inventar.cs" />
     <Compile Include="MedicCabinet.cs" />
     <Compile Include="ServerRack.cs" />
     <Compile Include="Server_SchereSteinPapierWindow.cs" />

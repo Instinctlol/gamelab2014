@@ -27,6 +27,14 @@ namespace ProjectEntities
 		float viewRadius;
 
 		[FieldSerialize]
+        Inventar inventar;
+		[DefaultValue(false)]
+        public Inventar Inventar
+        {
+            get { return inventar; }
+            set { inventar = value; }
+        }
+		[FieldSerialize]
 		Vec3 fpsCameraOffset;
 
 		[FieldSerialize]
@@ -100,6 +108,9 @@ namespace ProjectEntities
 		[FieldSerialize]
 		FactionType initialFaction;
 
+		[FieldSerialize]
+        private Inventar inventar = new Inventar();
+
 		float takeItemsTimer;
 
 		//influences. only for optimization
@@ -139,6 +150,12 @@ namespace ProjectEntities
 
 			return base.OnLoad( block );
 		}
+
+        public Inventar Inventar
+        {
+            get { return inventar; }
+            set { inventar = value; }
+        }
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
 		protected override void OnPostCreate( bool loaded )
@@ -411,6 +428,7 @@ namespace ProjectEntities
 			set { initialAI = value; }
 		}
 
+		 
 		protected override void Server_OnClientConnectedAfterPostCreate(
 			RemoteEntityWorld remoteEntityWorld )
 		{

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="d:\programme (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="12.0">
  <Targets>
-  <Target Name="D:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll">
+  <Target Name="C:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll">
    <Modules>
     <Module Name="gesturelib.implementation.dll">
      <Namespaces>
@@ -12,15 +12,15 @@
          <Members>
           <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Status="Active" Created="2014-07-23 12:34:02Z" FixCategory="Breaking">
-             <Issue Name="DisposeBoolSignature" Certainty="95" Level="Error" Path="d:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="99">Vergewissern Sie sich, dass 'SimulationGestureDevice.Dispose(bool)' als "protected", "virtual" und "unsealed" deklariert ist.</Issue>
+            <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Status="Active" Created="2014-07-23 13:51:19Z" FixCategory="Breaking">
+             <Issue Name="DisposeBoolSignature" Certainty="95" Level="Error" Path="c:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="99">Vergewissern Sie sich, dass 'SimulationGestureDevice.Dispose(bool)' als "protected", "virtual" und "unsealed" deklariert ist.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#StartGestureDevice()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Objekte nicht mehrmals verwerfen" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-07-23 12:34:02Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="d:\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="41">Das Objekt "'reader'" kann mehrere Male in der 'SimulationGestureDevice.StartGestureDevice()'-Methode verworfen werden. Um zu verhindern, dass eine System.ObjectDisposedException generiert wird, sollten Sie die Dispose-Methode nur einmal für ein Objekt aufrufen.: Lines: 41</Issue>
+            <Message TypeName="Objekte nicht mehrmals verwerfen" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-07-23 13:51:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\John\svn\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="41">Das Objekt "'reader'" kann mehrere Male in der 'SimulationGestureDevice.StartGestureDevice()'-Methode verworfen werden. Um zu verhindern, dass eine System.ObjectDisposedException generiert wird, sollten Sie die Dispose-Methode nur einmal für ein Objekt aufrufen.: Lines: 41</Issue>
             </Message>
            </Messages>
           </Member>

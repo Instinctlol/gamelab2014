@@ -28,6 +28,9 @@ namespace ProjectEntities
 		[FieldSerialize]
 		List<WeaponItem> weapons = new List<WeaponItem>();
 
+        //[FieldSerialize]
+        //List<Item> items = new List<Item>();
+
 		///////////////////////////////////////////
 
 		public class WeaponItem
@@ -142,6 +145,8 @@ namespace ProjectEntities
 		{
 			ActiveWeaponToClient,
 			ContusionTimeRemainingToClient,
+            lightStatusToServer,
+            lightStatusToClient,
 		}
 
 		///////////////////////////////////////////
@@ -200,7 +205,7 @@ namespace ProjectEntities
                         if (weapons[n].normalBulletCount > gunType.NormalMode.BulletCapacity)
                             weapons[n].normalBulletCount = gunType.NormalMode.BulletCapacity;
 
-                        //Munition wird aufgenommen
+                        //Hinweis Munition wird aufgenommen
                         s = gunType.NormalMode.BulletType.Name;
                     }
                     //wenn Munition voll ist, notification ausgeben und Munition nicht aufnehmen
@@ -663,17 +668,26 @@ namespace ProjectEntities
 						//first person arms is visible only for first person camera. The weapon is also must be activated.
 						attachedObject.Visible = fpsCamera && activeWeaponAttachedObject != null;
 					}
-					else
+                    else if (attachedObject.Alias == "taschenlampe" && PlayerIntellect.Instance != null)
 					{
+                        if (PlayerIntellect.Instance.ControlledObject.Inventar.taschenlampevisible)
+                        {
 						//hide attached objects for first person camera
-						attachedObject.Visible = !fpsCamera;
+                            attachedObject.Visible = true;
+                        }
 					}
+                    else 
+                    {
+                        //hide attached objects for first person camera
+                        attachedObject.Visible = !fpsCamera;
+                    }
 				}
 
 				//hide shadows for first person camera mode
 				if( playerIntellectFPSCamera && mainCameraUpdating && camera.Purpose == Camera.Purposes.ShadowMap )
 				{
 					foreach( MapObjectAttachedObject attachedObject in AttachedObjects )
+                        //if(attachedObject.Alias != "taschenlampe")
 						attachedObject.Visible = false;
 				}
 			}
@@ -967,6 +981,11 @@ namespace ProjectEntities
         public string notification()
         {
             return s;
+        }
+
+        public void setflashlight(bool o)
+        {
+            Inventar.taschenlampevisible = o;
         }
     }
 
