@@ -98,7 +98,7 @@ namespace ProjectEntities
             get { return movePosition; }
         }
 
-        protected bool patrolEnabled = false;
+        public bool patrolEnabled = false;
 
 
         /**************/
@@ -118,54 +118,6 @@ namespace ProjectEntities
         }
 
        
-        //begin patrol
-        //public bool Patrol()
-        //{
-
-        //    //MapCurve des ausgewählten Aliens:
-            
-        //    MapCurve mapCurve = this.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (Alien on the map)
-
-        //    if (mapCurve != null) //was there one set for this Alien?
-        //    {
-        //        if (route == null) //initialize patrol route, if not already done
-        //        {
-        //            route = new ArrayList();
-
-        //            foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
-        //            {
-        //                route.Add(point);
-        //            }
-        //        }
-
-
-        //        //create a movement task for the next point
-        //        MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
-
-        //        //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
-        //        new AlienAI.Mission.MoveTask(this, pt.Position, .5f); //create a new move task and use current CurvePoint as destination
-        //        routeIndex++; //next route waypoint
-
-        //        //reverse the route if we are at the end
-        //        if (routeIndex >= route.Count)
-        //        {
-        //            routeIndex = 0;
-        //            route.Reverse();
-        //        }
-
-        //        return true; //we found something to do!
-        //    }
-        //    else // we are not patrolling. Select a random destination from the curve
-        //    {
-        //        Random rnd = new Random();
-        //        MapCurvePoint pt = route[rnd.Next(route.Count)] as MapCurvePoint;
-        //        //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks;
-        //        new AlienAI.Mission.MoveTask(this, pt.Position, .5f);
-        //        return true;
-        //    }
-
-        //}
-        ////end Patrol
         
 
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
