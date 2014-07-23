@@ -40,9 +40,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kennedy.ManagedHooks, Version=1.2.0.10, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\dependencies\SystemHooks\Kennedy.ManagedHooks.dll</HintPath>
+    <Reference Include="Kennedy.ManagedHooks">
+      <HintPath>..\..\..\..\Lib\dependencies\SystemHooks\Kennedy.ManagedHooks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
