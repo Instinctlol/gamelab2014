@@ -31,6 +31,8 @@ namespace ProjectEntities
             currentItem = item;
             character = unit as PlayerCharacter;
 
+            s = "";
+
             switch (currentItem.Type.Name)
             {
                 case "ShotgunBulletsItem":

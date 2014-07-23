@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using System.Text;
 using ProjectCommon;
+using Engine.SoundSystem;
 
 namespace ProjectEntities
 {
@@ -23,6 +24,8 @@ namespace ProjectEntities
     {
         RingType _type = null; public new RingType Type { get { return _type; } }
 
+
+        private UInt32 lastRotate = 0;
 
         //Variable ob der Ring drehbar sein soll
         [FieldSerialize]
@@ -58,6 +61,15 @@ namespace ProjectEntities
             get { return ringPosition; }
             set {
 
+                if (!CanRotate())
+                    return;
+
+                lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
+
+                Sound sound = SoundWorld.Instance.SoundCreate("Sounds\\rotationSound.ogg", 0);
+                SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
+                        0.5f);
+
                 if (value < 0 || value >= corners)
                     value = ringPosition;
 
@@ -92,13 +104,6 @@ namespace ProjectEntities
 
 
 
-        public Ring() : base()
-        {
-            base.ShapeType = ShapeTypes.Box;
-            base.Filter = Filters.All;
-        }
-
-
         //Rotiert "links" herum
         [LogicSystemBrowsable(true)]
         public void RotateLeft()
@@ -130,6 +135,11 @@ namespace ProjectEntities
         {
             int n = Name.ToCharArray()[1];
             return (n-48);
+        }
+
+        private bool CanRotate()
+        {
+            return rotatable && ( (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds > lastRotate );
         }
     }
 }
