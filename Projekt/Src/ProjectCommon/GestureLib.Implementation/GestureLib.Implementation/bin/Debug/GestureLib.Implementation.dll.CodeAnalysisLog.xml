@@ -12,14 +12,14 @@
          <Members>
           <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Status="Active" Created="2014-07-23 14:21:48Z" FixCategory="Breaking">
+            <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Status="Active" Created="2014-07-23 15:12:58Z" FixCategory="Breaking">
              <Issue Name="DisposeBoolSignature" Certainty="95" Level="Error" Path="c:\Users\Mattias\Desktop\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="99">Ensure that 'SimulationGestureDevice.Dispose(bool)' is declared as protected, virtual, and unsealed.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#StartGestureDevice()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-07-23 14:21:48Z" FixCategory="DependsOnFix">
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-07-23 15:12:58Z" FixCategory="DependsOnFix">
              <Issue Certainty="75" Level="Warning" Path="c:\Users\Mattias\Desktop\GameLab\Projekt\Src\ProjectCommon\GestureLib.Implementation\GestureLib.Implementation\Devices" File="SimulationGestureDevice.cs" Line="41">Object 'reader' can be disposed more than once in method 'SimulationGestureDevice.StartGestureDevice()'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 41</Issue>
             </Message>
            </Messages>
