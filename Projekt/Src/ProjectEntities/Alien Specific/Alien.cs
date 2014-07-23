@@ -190,7 +190,7 @@ namespace ProjectEntities
             if (patrolTickTime <= 0)
             {
             this.Patrol();
-            patrolTickTime = 5f;
+            patrolTickTime = 0.63f;
             }
          }
                       
