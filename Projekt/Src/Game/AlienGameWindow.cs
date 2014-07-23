@@ -611,12 +611,15 @@ namespace Game
                         case AlienUnitAI.Task.Types.Move:
                         case AlienUnitAI.Task.Types.Attack:
                         case AlienUnitAI.Task.Types.Repair:
+
                             if (mouseOnObject != null)
                                 intellect.DoTask(new AlienUnitAI.Task(taskType, mouseOnObject), toQueue);
                             else
                             {
                                 if (taskType == AlienUnitAI.Task.Types.Move)
+                                {
                                     intellect.DoTask(new AlienUnitAI.Task(taskType, mouseMapPos), toQueue);
+                                }
 
                                 if(taskType == AlienUnitAI.Task.Types.Patrol)
                                     intellect.DoTask(new AlienUnitAI.Task(taskType), toQueue);

@@ -100,6 +100,8 @@ namespace ProjectEntities
 
         public bool patrolEnabled = false;
 
+       
+
 
         /**************/
         /* Funktionen */

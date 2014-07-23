@@ -188,6 +188,11 @@ namespace ProjectEntities
 			if( toQueue && currentTask.Type == Task.Types.Stop && tasks.Count == 0 )
 				toQueue = false;
 
+            if (this.ControlledObject.patrolEnabled && task.Type == Task.Types.Move)
+            {
+                DoTaskInternal(new AlienUnitAI.Task(Task.Types.Stop));
+            }
+
 			if( !toQueue )
 			{
 				ClearTaskList();
