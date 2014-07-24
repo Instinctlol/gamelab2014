@@ -104,11 +104,6 @@ type Astronaut
 				rotation = 0.7094065 -0.409576 -0.2867882 -0.4967318
 			}
 		}
-		mesh
-		{
-			meshName = "Types\\Weapons\\Brechstange\\brechstange_FSP.mesh"
-			boneSlot = brechstangeHolderTPS
-		}
 		light
 		{
 			lightType = Spot
