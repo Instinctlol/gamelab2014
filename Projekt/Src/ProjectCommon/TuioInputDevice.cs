@@ -260,7 +260,7 @@ namespace ProjectCommon
                     }
                     #endregion
                 }
-                else if (wasselecting || (start1 && start2 && d < 0.1f && d > 0f && line2changed[4] != 0f))
+                else if (wasselecting || (start1 && start2 && d < 0.05f && d > 0f && line2changed[4] != 0f))
                 {
                     #region Selection
                     if (!end1 && !end2)
@@ -308,7 +308,7 @@ namespace ProjectCommon
                     }
                     #endregion
                 }
-                else if (wasrotating || (start1 && start2 && d >= 0.1f && line2changed[4] != 0f))
+                else if (wasrotating || (start1 && start2 && d >= 0.05f && line2changed[4] != 0f))
                 {
                     #region Rotation
                     //Console.WriteLine(d +" @ " + wasrotating + " - " + line1changed[4] + " / " + line1changed[5] + " - " + line2changed[4] + " / " + line2changed[5]);
@@ -388,6 +388,8 @@ namespace ProjectCommon
             else {
                 //Console.WriteLine("Gesture Detection Started");
                 int threshold = 100;
+                bool startb = false, endb = false;
+                float[] start = new float[8], end = new float[8];
                 List<float[]> used = new List<float[]>();
 
                 foreach (float[] elemt in tuioInputData)
@@ -401,11 +403,15 @@ namespace ProjectCommon
                             failsafebool = false;
                             failsafe = null;
                         }
+                        startb = true;
+                        start = elemt;
                     }
                     if (elemt[0] == 0 && elemt[3] == 3)
                     {
                         failsafe = elemt;
                         failsafebool = true;
+                        endb = true;
+                        end = elemt;
                     }
 
                 }
@@ -416,7 +422,11 @@ namespace ProjectCommon
                     }
                 }
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
-                if (failsafebool && failsafe[2] + threshold < timestamp)
+                if (startb && endb && Math.Abs(start[4] - end[4]) <= 0.01f && Math.Abs(start[5] - end[5]) <= 0.01f)
+                {
+                    //Klick
+                }
+                else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
  
                         //Daten konvertieren
@@ -433,6 +443,10 @@ namespace ProjectCommon
 
                         Console.WriteLine(list.Name);
                         tuioInputData.Clear();
+                        detectgestures(false);
+                        
+                } else if(end[2]-start[2]>5000){
+                //abbruch nach 5 sekunden
                 }
             }
 
