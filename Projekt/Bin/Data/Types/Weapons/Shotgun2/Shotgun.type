@@ -1,0 +1,72 @@
+type Shotgun2
+{
+	class = Gun
+	reloadTime = 1.5
+	soundEmpty = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
+	characterBoneSlot = gunHolderThirdPersonCamera_Shotgun
+	characterBoneSlotFirstPersonCamera = gunHolderFirstPersonCamera_Shotgun
+	fpsCameraAttachPosition = 0.3 -0.2 -0.3
+	networkType = Synchronized
+	normalMode
+	{
+		bulletType = ShotgunBullet2
+		bulletCapacity = 1000
+		bulletExpense = 0
+		betweenFireTime = 2.1
+		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
+		useDistanceRange = 0 40
+		fireTimes = 0.1 0.2 0.3 0.4 0.5
+		fireAnimationTrigger = fire
+		fireObjects
+		{
+			billboard
+			{
+				materialName = DefaultFlare
+				size = 3 3
+				position = 1 0 0
+				lifeTime = 0.1
+			}
+			light
+			{
+				diffuseColor = 1 1 0.3921569 0
+				specularColor = 1 1 1
+				attenuationFar = 5
+				attenuationPower = 1
+				ffpAttenuationLinear = 0.2
+				ffpAttenuationQuadric = 0.5
+				castShadows = False
+				position = 1 0 0
+				attachToOwner = True
+				lifeTime = 0.1
+			}
+		}
+	}
+	alternativeMode
+	{
+		bulletType = ShotgunGravityBullet
+		bulletCapacity = 2000
+		bulletExpense = 2
+		betweenFireTime = 0.5
+		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
+		startOffsetPosition = 0.5 0 0
+		startOffsetRotation = 0 -0.0784591 0 0.9969173
+		fireTimes = 
+		fireAnimationTrigger = fire_alternative
+	}
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Shotgun.mesh"
+			castDynamicShadows = True
+			alias = tpsCamera
+		}
+		mesh
+		{
+			meshName = ".\\Shotgun_FPSCamera.mesh"
+			castDynamicShadows = True
+			alias = fpsCamera
+			scale = 0.7 1 1
+		}
+	}
+}

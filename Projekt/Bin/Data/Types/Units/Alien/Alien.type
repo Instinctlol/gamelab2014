@@ -16,7 +16,7 @@ type Alien
 	{
 		mapObject
 		{
-			type = Shotgun
+			type = Shotgun2
 			position = 0.5680642 0 1.009582
 		}
 		mesh
@@ -60,8 +60,8 @@ type Alien
 		}
 		mapObject
 		{
-			type = ShotgunItem
-			alias = shotgun
+			type = SmallHealthItem
+			alias = smallhealthitem
 			group = 1
 		}
 		mapObject
