@@ -425,6 +425,11 @@ namespace Game
                 SelectAllAliens();
             }
 
+            //if (e.Key == EKeys.F7)
+            //{
+            //    Computer.SetAlienControlPaused();
+            //}
+
             if (e.Key == EKeys.F10)
             {
                 isHeadtrackingActive = !isHeadtrackingActive;

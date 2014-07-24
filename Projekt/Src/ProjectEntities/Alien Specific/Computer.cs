@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
@@ -37,6 +38,10 @@ namespace ProjectEntities
         static int usedAliens = 0;
         public static bool noSpawnTime = false;
 
+        // Für USB
+        static bool alienControlPaused = false;
+        static Timer alienControlTimer;
+
         private static Task csspwTask;
         private static bool allowedToChangeLight;
 
@@ -58,14 +63,6 @@ namespace ProjectEntities
         {
             get { return experiencePoints; }
             set { experiencePoints = value; }
-        }
-
-        public static void AddExperiencePoints(int value)
-        {
-            if (value >= 0)
-            {
-                experiencePoints += value;
-            }
         }
 
         public static int RotationCoupons
@@ -104,9 +101,35 @@ namespace ProjectEntities
             get { return Computer.allowedToChangeLight; }
             set { Computer.allowedToChangeLight = value; }
         }
+
+
+
+
         /**************/
         /* Funktionen */
         /**************/
+        /// <summary>
+        /// ExperiencePoints hinzufügen
+        /// </summary>
+        /// <param name="value"></param>
+        public static void AddExperiencePoints(int value)
+        {
+            if (value >= 0)
+            {
+                experiencePoints += value;
+            }
+        }
+
+        /// <summary>
+        /// ExperiencePoints um Eins erniedrigen
+        /// </summary>
+        public static void DecrementExperiencePoints()
+        {
+            if (experiencePoints > 0)
+            {
+                experiencePoints--;
+            }
+        }
         /// <summary>
         /// Rotation Coupons um Eins erhöhen
         /// </summary>
@@ -224,7 +247,11 @@ namespace ProjectEntities
         /// <param name="left"></param>
         public static void RotateRing(Ring ring, bool left)
         {
-            if (ring == null)
+            if (alienControlPaused)
+            {
+                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
+            }
+            else if (ring == null)
             {
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
@@ -236,7 +263,7 @@ namespace ProjectEntities
             }
             else if (ring.CanRotate() == false)
             {
-                StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar.");
+                StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar");
             }
             else
             {
@@ -265,7 +292,11 @@ namespace ProjectEntities
         /// <param name="sector"></param>
         public static void SetSectorPower(Sector sector)
         {
-            if(allowedToChangeLight)
+            if (alienControlPaused)
+            {
+                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
+            }
+            else if (allowedToChangeLight)
             {
                 if (sector == null)
                 {
@@ -297,7 +328,11 @@ namespace ProjectEntities
         /// <param name="b"</param>
         public static void SetSectorGroupPower(SectorGroup sectorGroup, bool b)
         {
-            if (allowedToChangeLight)
+            if (alienControlPaused)
+            {
+                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
+            }
+            else if (allowedToChangeLight)
             {
                 if (sectorGroup == null)
                 {
@@ -375,6 +410,28 @@ namespace ProjectEntities
             {
                 DeleteFirstAlienCorpse();
             }
+        }
+
+        /// <summary>
+        /// Wenn USB von Astronauten eingesetzt wurde, dann hat das Alien für 2 Min keine Kontrolle.
+        /// Timmer erstellen, der nach 2 Min die Kontrolle wieder einstellt.
+        /// </summary>
+        public static void SetAlienControlPaused()
+        {
+            alienControlPaused = true;
+            alienControlTimer = new Timer(120000); // 2 Min
+            alienControlTimer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
+            alienControlTimer.Enabled = true; // Enable it
+        }
+
+        /// <summary>
+        /// Kontrolle für Alien wieder einstellen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        static void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            alienControlPaused = false;
         }
 
         /// <summary>
