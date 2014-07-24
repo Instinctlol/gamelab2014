@@ -1607,7 +1607,19 @@ namespace ProjectEntities
 			return list.ToArray();
 		}
 
-		public virtual MapObjectCreateObjectCollection.CreateObjectsResultItem[] DieObjects_Create()
+        private bool InArray(int a, int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == a)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public virtual MapObjectCreateObjectCollection.CreateObjectsResultItem[] DieObjects_Create()
 		{
 			//create objects
             MapObjectCreateObjectCollection.CreateObjectsResultItem[] result;
@@ -1619,7 +1631,17 @@ namespace ProjectEntities
                 result[0] = temp[0];
                 // Per Zufall ein Item aus Liste auswählen
                 Random index = new Random();
-                temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + index.Next(Type.DieObjects.Count - 1));
+                int group = index.Next(Type.DieObjects.Count - 1);
+                int[] groups = Type.DieObjects.GetGroups();
+                // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
+                // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
+                while (!InArray(group + 1, groups))
+                {
+                    group = index.Next(Type.DieObjects.Count - 1);
+                }
+
+                Console.WriteLine("group-nr " + group);
+                temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
                 result[1] = temp[0];
             }
             else

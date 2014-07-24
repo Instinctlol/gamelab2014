@@ -185,6 +185,11 @@ namespace ProjectEntities
         /// <param name="toQueue"></param>
 		public void DoTask( Task task, bool toQueue )
 		{
+            if (this.ControlledObject == null)
+            {
+                return;
+            }
+
 			if( toQueue && currentTask.Type == Task.Types.Stop && tasks.Count == 0 )
 				toQueue = false;
 
