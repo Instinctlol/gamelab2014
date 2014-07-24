@@ -16,7 +16,11 @@ namespace ProjectCommon
         click,
         translation,
         rotation,
-        selection
+        selection,
+        blitz,
+        iuhr,
+        guhr,
+        term
     };
 	//For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
 	//in the GameEngineApp.cs. After it you will see this device in the Game Options window.
@@ -424,7 +428,9 @@ namespace ProjectCommon
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
                 if (startb && endb && Math.Abs(start[4] - end[4]) <= 0.01f && Math.Abs(start[5] - end[5]) <= 0.01f)
                 {
-                    //Klick
+                    TuioInputDeviceSpecialEvent customEvent =
+                    new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                    InputDeviceManager.Instance.SendEvent(customEvent);
                 }
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
@@ -440,13 +446,45 @@ namespace ProjectCommon
                         //Gesten erkennen
                         Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
                         list = Recog.Recognize(data, false);
-
+                        TuioInputDeviceSpecialEvent customEvent =
+                                    new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                        switch (list.Name) {
+                            case "blitz": {
+                                customEvent = new TuioInputDeviceSpecialEvent(this, opType.blitz, 0, 0);
+                                break;
+                            }
+                            case "term":
+                                {
+                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.term, 0, 0);
+                                    break;
+                                }
+                            case "iuhr":
+                                {
+                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.iuhr, 0, 0);
+                                    break;
+                                }
+                            case "guhr":
+                                {
+                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.guhr, 0, 0);
+                                    break;
+                                }
+                            default:
+                                {
+                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                                    break;
+                                }
+                            
+                        }
+                        InputDeviceManager.Instance.SendEvent(customEvent);
                         Console.WriteLine(list.Name);
                         tuioInputData.Clear();
                         detectgestures(false);
                         
-                } else if(end[2]-start[2]>5000){
+                } else if(startb && endb&& end[2]-start[2]>5000){
                 //abbruch nach 5 sekunden
+                    Console.WriteLine("no Gesture");
+                    tuioInputData.Clear();
+                    detectgestures(false);
                 }
             }
 
