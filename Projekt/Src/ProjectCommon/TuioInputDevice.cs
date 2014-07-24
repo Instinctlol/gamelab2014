@@ -440,8 +440,10 @@ namespace ProjectCommon
 		public static void InitDevice()
 		{
             TuioDump.runTuio();
-            detectgestures(true);
-            
+            #region gestureswitch
+            //detectgestures(true);
+            #endregion 
+
             //if (InputDeviceManager.Instance == null) {
             //}
             //    return;
