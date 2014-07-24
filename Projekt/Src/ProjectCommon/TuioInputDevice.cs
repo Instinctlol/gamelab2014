@@ -387,25 +387,36 @@ namespace ProjectCommon
             }
             else {
                 //Console.WriteLine("Gesture Detection Started");
+                int threshold = 100;
+                List<float[]> used = new List<float[]>();
 
-                bool start1 = false, end1 = false;
                 foreach (float[] elemt in tuioInputData)
                 {
                     if (elemt[0] == 0 && elemt[3] == 1)
                     {
-                        start1 = true;
-                        if (failsafebool) {
-                         //hier 
+                        if (failsafebool && failsafe[2] + threshold >= elemt[2] && failsafe[2] < elemt[2])
+                        {
+                            used.Add(failsafe);
+                            used.Add(elemt);
+                            failsafebool = false;
+                            failsafe = null;
                         }
                     }
                     if (elemt[0] == 0 && elemt[3] == 3)
                     {
                         failsafe = elemt;
                         failsafebool = true;
-                        end1 = true;
+                    }
+
+                }
+                if (used.Count > 0) {
+                    foreach (float[] usedelemt in used)
+                    {
+                        tuioInputData.Remove(usedelemt);
                     }
                 }
-                if (start1 && end1)
+                float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
+                if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
  
                         //Daten konvertieren
