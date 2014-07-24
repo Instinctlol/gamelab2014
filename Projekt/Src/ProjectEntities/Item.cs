@@ -25,14 +25,14 @@ namespace ProjectEntities
 		[FieldSerialize]
 		string soundTake;
 
-        [FieldSerialize]
-        [DefaultValue("True")]
-        string trueValueAttachedAlias = "True";
+       /* [FieldSerialize]
+        //[DefaultValue("True")]
+        //string trueValueAttachedAlias = "True";
 
-        [FieldSerialize]
-        [DefaultValue("False")]
-        string falseValueAttachedAlias = "False";
-
+//        [FieldSerialize]
+  //      [DefaultValue("False")]
+    //    string falseValueAttachedAlias = "False";
+        
         [DefaultValue("True")]
         public string TrueValueAttachedAlias
         {
@@ -47,7 +47,7 @@ namespace ProjectEntities
             set { falseValueAttachedAlias = value; }
         }
 
-
+*/
 
 		//
 		
@@ -91,8 +91,8 @@ namespace ProjectEntities
 
 		Vec3 server_sentPositionToClients;
 
-        [FieldSerialize]
-        bool value;
+       // [FieldSerialize]
+       // bool value;
 
        // ItemType _type = null; 
         //public new ItemType Type { get { return _type; } }
@@ -101,21 +101,22 @@ namespace ProjectEntities
         public int anzahl = 0;
 		///////////////////////////////////////////
 
-		enum NetworkMessages
-		{
-			//using special method of position synchronization (not using Dynamic class features),
-			//because we need only position to be synchronized (without rotation and scale)
-			PositionToClient,
-            ValueToClient,
+        enum NetworkMessages
+        {
+            //using special method of position synchronization (not using Dynamic class features),
+            //because we need only position to be synchronized (without rotation and scale)
+            PositionToClient,
+            //ValueToClient,
 
-			SoundPlayTakeToClient,
-            TakeItemToServer
-		}
+            SoundPlayTakeToClient,
+            // TakeItemToServer
+            TakeItemToServer,
+        }
 
 		///////////////////////////////////////////
 
 		ItemType _type = null; public new ItemType Type { get { return _type; } }
-        public bool Value
+    /*    public bool Value
         {
             get { return this.value; }
             set
@@ -145,7 +146,7 @@ namespace ProjectEntities
                 else if (attachedObject.Alias == Type.FalseValueAttachedAlias)
                     attachedObject.Visible = !value;
             }
-        }
+        }*/
 		public Item()
 		{
 			rotationAngle = World.Instance.Random.NextFloat() * MathFunctions.PI * 2;
@@ -254,17 +255,14 @@ namespace ProjectEntities
 
         public void TakeItem( Unit unit )
         {
-            if (!EntitySystemWorld.Instance.IsServer()||EntitySystemWorld .Instance .IsSingle ())
-            {value=!value ;}
-                //Client_SendTakeItemToServer(unit);
+            if (!EntitySystemWorld.Instance.IsServer())
+         
+                Client_SendTakeItemToServer(unit);
             //client. send message to server. 
             else 
-            {SendDataWriter writer = BeginNetworkMessage( typeof( BooleanSwitch ),
-					(ushort)NetworkMessages.TakeItemToServer );
-				EndNetworkMessage();
-			}
+            
 
-                //Take(unit);
+                Take(unit);
         }
 
         void Client_SendTakeItemToServer(Unit unit)
@@ -324,13 +322,13 @@ namespace ProjectEntities
 
 		[NetworkReceive( NetworkDirections.ToClient, (ushort)NetworkMessages.SoundPlayTakeToClient )]
 
-        void Server_SendValueToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+       /* void Server_SendValueToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Item ),
                 (ushort)NetworkMessages.ValueToClient);
             writer.Write(Value);
             EndNetworkMessage();}
-            [NetworkReceive( NetworkDirections.ToClient, (ushort)NetworkMessages.ValueToClient )]
+            [NetworkReceive( NetworkDirections.ToClient, (ushort)NetworkMessages.ValueToClient )]*/
         
 		void Client_ReceiveSoundPlayTake( RemoteEntityWorld sender, ReceiveDataReader reader )
 		{
