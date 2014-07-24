@@ -25,6 +25,30 @@ namespace ProjectEntities
 		[FieldSerialize]
 		string soundTake;
 
+        [FieldSerialize]
+        [DefaultValue("True")]
+        string trueValueAttachedAlias = "True";
+
+        [FieldSerialize]
+        [DefaultValue("False")]
+        string falseValueAttachedAlias = "False";
+
+        [DefaultValue("True")]
+        public string TrueValueAttachedAlias
+        {
+            get { return trueValueAttachedAlias; }
+            set { trueValueAttachedAlias = value; }
+        }
+
+        [DefaultValue("False")]
+        public string FalseValueAttachedAlias
+        {
+            get { return falseValueAttachedAlias; }
+            set { falseValueAttachedAlias = value; }
+        }
+
+
+
 		//
 		
 		public ItemType()
@@ -67,6 +91,12 @@ namespace ProjectEntities
 
 		Vec3 server_sentPositionToClients;
 
+        [FieldSerialize]
+        bool value;
+
+       // ItemType _type = null; 
+        //public new ItemType Type { get { return _type; } }
+
 		
         public int anzahl = 0;
 		///////////////////////////////////////////
@@ -76,15 +106,46 @@ namespace ProjectEntities
 			//using special method of position synchronization (not using Dynamic class features),
 			//because we need only position to be synchronized (without rotation and scale)
 			PositionToClient,
+            ValueToClient,
 
 			SoundPlayTakeToClient,
-            TakeItemToServer,
+            TakeItemToServer
 		}
 
 		///////////////////////////////////////////
 
 		ItemType _type = null; public new ItemType Type { get { return _type; } }
+        public bool Value
+        {
+            get { return this.value; }
+            set
+            {
+                if (this.value == value)
+                    return;
 
+                this.value = value;
+
+                OnValueChange();
+                UpdateAttachedObjects();
+
+                if (EntitySystemWorld.Instance.IsServer())
+                {
+                    if (Type.NetworkType == EntityNetworkTypes.Synchronized)
+                        Server_SendValueToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+                }
+            }
+        }
+
+        void UpdateAttachedObjects()
+        {
+            foreach (MapObjectAttachedObject attachedObject in AttachedObjects)
+            {
+                if (attachedObject.Alias == Type.TrueValueAttachedAlias)
+                    attachedObject.Visible = value;
+                else if (attachedObject.Alias == Type.FalseValueAttachedAlias)
+                    attachedObject.Visible = !value;
+            }
+        }
 		public Item()
 		{
 			rotationAngle = World.Instance.Random.NextFloat() * MathFunctions.PI * 2;
@@ -193,10 +254,17 @@ namespace ProjectEntities
 
         public void TakeItem( Unit unit )
         {
-            if (!EntitySystemWorld.Instance.IsServer())
-                Client_SendTakeItemToServer(unit);
-            else
-                Take(unit);
+            if (!EntitySystemWorld.Instance.IsServer()||EntitySystemWorld .Instance .IsSingle ())
+            {value=!value ;}
+                //Client_SendTakeItemToServer(unit);
+            //client. send message to server. 
+            else 
+            {SendDataWriter writer = BeginNetworkMessage( typeof( BooleanSwitch ),
+					(ushort)NetworkMessages.TakeItemToServer );
+				EndNetworkMessage();
+			}
+
+                //Take(unit);
         }
 
         void Client_SendTakeItemToServer(Unit unit)
@@ -238,6 +306,7 @@ namespace ProjectEntities
 			return ret;
 		}
 
+
 		protected override void Server_OnClientConnectedBeforePostCreate(
 			RemoteEntityWorld remoteEntityWorld )
 		{
@@ -254,6 +323,15 @@ namespace ProjectEntities
 		}
 
 		[NetworkReceive( NetworkDirections.ToClient, (ushort)NetworkMessages.SoundPlayTakeToClient )]
+
+        void Server_SendValueToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Item ),
+                (ushort)NetworkMessages.ValueToClient);
+            writer.Write(Value);
+            EndNetworkMessage();}
+            [NetworkReceive( NetworkDirections.ToClient, (ushort)NetworkMessages.ValueToClient )]
+        
 		void Client_ReceiveSoundPlayTake( RemoteEntityWorld sender, ReceiveDataReader reader )
 		{
 			if( !reader.Complete() )

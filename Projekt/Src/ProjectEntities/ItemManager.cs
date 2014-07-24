@@ -79,6 +79,12 @@ namespace ProjectEntities
                     s = "Schraubenschlüssel";
                     break;
 
+                case "Kabel":
+                    currentItem.TakeItem(unit);
+                    unit.Inventar.addItem(currentItem);
+                    s = "Kabel";
+                    break;
+
                 case "TaschenlampeItem":
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
