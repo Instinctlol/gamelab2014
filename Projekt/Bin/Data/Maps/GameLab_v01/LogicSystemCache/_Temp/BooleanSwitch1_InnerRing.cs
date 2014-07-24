@@ -35,8 +35,9 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void ValueChange()
 		{
-			if(((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch1_InnerRing")).Value && ((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch2_InnerRing")).Value && 
-			((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch3_InnerRing")).Value && ((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch4_InnerRing")).Value)
+			if( ((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch1_InnerRing")).Value && 
+			((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch2_InnerRing")).Value && 
+			((BooleanSwitch)Entities.Instance.GetByName("BooleanSwitch3_InnerRing")).Value )
 			{
 				((Ring)Entities.Instance.GetByName("F3_Ring")).Rotatable=true;
 			}

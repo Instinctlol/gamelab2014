@@ -268,7 +268,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 12
-			subscriptionsToDeletionEvent = 240 246 265 335 529 537 542
+			subscriptionsToDeletionEvent = 240 246 265 335 527 535 540
 			entityClassName = Terminal
 			className = Terminal_Door1
 			customScriptCodeCreated = False
@@ -345,7 +345,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 20
-			subscriptionsToDeletionEvent = 544
+			subscriptionsToDeletionEvent = 542
 			entityClassName = Repairable
 			className = SicherungskastenRepairable_0
 			customScriptCodeCreated = False
@@ -364,7 +364,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 22
-			subscriptionsToDeletionEvent = 547
+			subscriptionsToDeletionEvent = 545
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch2_InnerRing
 			customScriptCodeCreated = False
@@ -372,7 +372,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 23
-				code = "if(((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
+				code = "if(((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value )\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -383,7 +383,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 24
-			subscriptionsToDeletionEvent = 546
+			subscriptionsToDeletionEvent = 544
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch3_InnerRing
 			customScriptCodeCreated = False
@@ -391,7 +391,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 25
-				code = "if(((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
+				code = "if(((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value )\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -402,7 +402,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 26
-			subscriptionsToDeletionEvent = 545
+			subscriptionsToDeletionEvent = 543
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch1_InnerRing
 			customScriptCodeCreated = False
@@ -410,7 +410,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 27
-				code = "if(((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
+				code = "if( ((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch1_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch2_InnerRing\")).Value && \r\n((BooleanSwitch)Entities.Instance.GetByName(\"BooleanSwitch3_InnerRing\")).Value )\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=true;\r\n}\r\nelse\r\n{\r\n\t((Ring)Entities.Instance.GetByName(\"F3_Ring\")).Rotatable=false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -421,7 +421,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 28
-			subscriptionsToDeletionEvent = 552
+			subscriptionsToDeletionEvent = 550
 			entityClassName = Repairable
 			className = BrokenTerminal_0
 			customScriptCodeCreated = False
@@ -440,7 +440,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 30
-			subscriptionsToDeletionEvent = 550
+			subscriptionsToDeletionEvent = 548
 			entityClassName = Repairable
 			className = "Tr\x00fcmmer"
 			customScriptCodeCreated = False
@@ -459,7 +459,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 32
-			subscriptionsToDeletionEvent = 551
+			subscriptionsToDeletionEvent = 549
 			entityClassName = Repairable
 			className = CardReader_0
 			customScriptCodeCreated = False
@@ -2810,6 +2810,7 @@ entity
 	uin = 229
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 75.90049 76.75415 0.2699389
 	name = Inventar_1
@@ -2821,6 +2822,7 @@ entity
 	uin = 230
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 86.73236 52.84182 0.2697208
 	name = Inventar_2
@@ -2948,6 +2950,7 @@ entity
 	uin = 241
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 13.1623 115.607 0.2669983
 	name = Taschenlampe_2
@@ -2959,6 +2962,7 @@ entity
 	uin = 242
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 12.29997 96.88073 0.372897
 	name = Taschenlampe_1
@@ -2970,6 +2974,7 @@ entity
 	uin = 243
 	classPrompt = Item
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = -93.97009 81.27579 0.2713041
 	rotation = 0 0 -0.7681177 -0.6403087
@@ -3041,6 +3046,7 @@ entity
 	uin = 248
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = -50.51895 35.05504 0.3815589
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3051,6 +3057,7 @@ entity
 	uin = 249
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = -35.03524 50.50998 0.4014486
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3130,6 +3137,7 @@ entity
 	uin = 257
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 4.339417 63.47034 0.3501097
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3140,6 +3148,7 @@ entity
 	uin = 258
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 4.748599 61.82866 0.5722401
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3150,6 +3159,7 @@ entity
 	uin = 259
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 1.774801 61.47471 0.2742488
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3178,6 +3188,7 @@ entity
 	uin = 262
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 43.87457 50.81009 0.3910584
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3188,6 +3199,7 @@ entity
 	uin = 263
 	classPrompt = Item
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 64.4546 59.14811 0.4202077
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3198,6 +3210,7 @@ entity
 	uin = 264
 	classPrompt = HealthItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 102.009 -16.27925 0.273473
 	editorLayer = "Root Layer\\F2\\Items"
@@ -3223,7 +3236,7 @@ entity
 	{
 		item
 		{
-			repairable = 551
+			repairable = 549
 		}
 	}
 }
@@ -3251,6 +3264,7 @@ entity
 	uin = 267
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 122.1645 6.388959 1
 	name = Shutgun_1
@@ -3262,6 +3276,7 @@ entity
 	uin = 268
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 121.3484 -22.97385 0.4241513
 	name = Shutgun_2
@@ -4342,6 +4357,7 @@ entity
 	uin = 368
 	classPrompt = HealthItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 52.65973 1.343755 0.273473
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5983,7 +5999,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 529
+	uin = 527
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -6004,7 +6020,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 530
+	uin = 528
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -6022,9 +6038,10 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 531
+	uin = 529
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -10.16415 -65.27451 0.3171929
 	name = "Scharaubenschl\x00fcssel_2"
@@ -6033,9 +6050,10 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 532
+	uin = 530
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -1.153195 -62.60851 0.3022462
 	name = "Schraubenschl\x00fcssel_1"
@@ -6044,9 +6062,10 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 533
+	uin = 531
 	classPrompt = Item
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 19.0001 -78.06461 0.4025804
 	editorLayer = "Root Layer\\F2\\Items"
@@ -6054,9 +6073,10 @@ entity
 entity
 {
 	type = Weste
-	uin = 534
+	uin = 532
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -39.23902 -53.0421 0.2706617
 	editorLayer = "Root Layer\\F2\\Items"
@@ -6064,9 +6084,10 @@ entity
 entity
 {
 	type = Weste
-	uin = 535
+	uin = 533
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -48.25845 -76.35174 0.2721765
 	editorLayer = "Root Layer\\F2\\Items"
@@ -6074,9 +6095,10 @@ entity
 entity
 {
 	type = USB_Stick
-	uin = 536
+	uin = 534
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -63.17719 -9.285853 0.2704878
 	editorLayer = "Root Layer\\F2\\Items"
@@ -6084,7 +6106,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 537
+	uin = 535
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -6104,7 +6126,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 538
+	uin = 536
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -6123,9 +6145,10 @@ entity
 entity
 {
 	type = cpu
-	uin = 539
+	uin = 537
 	classPrompt = Item
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = -23.20164 -120.0651 0.2728281
 	name = Platine
@@ -6134,9 +6157,10 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 540
+	uin = 538
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = 14.75553 -122.0606 0.4545996
 	name = Scar_1
@@ -6145,9 +6169,10 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 541
+	uin = 539
 	classPrompt = WeaponItem
 	respawnTime = 10
+	value = False
 	healthFactorAtBeginning = 1
 	position = -7.217249 -122.3846 0.4567038
 	name = Scar_2
@@ -6156,7 +6181,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 542
+	uin = 540
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -6174,14 +6199,14 @@ entity
 	{
 		item
 		{
-			repairable = 552
+			repairable = 550
 		}
 	}
 }
 entity
 {
 	type = Terminal
-	uin = 543
+	uin = 541
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -6199,7 +6224,7 @@ entity
 entity
 {
 	type = SicherungskastenRepairable
-	uin = 544
+	uin = 542
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 20
 	repaired = False
@@ -6213,7 +6238,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 545
+	uin = 543
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 26
 	value = False
@@ -6227,7 +6252,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 546
+	uin = 544
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 24
 	value = False
@@ -6240,7 +6265,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 547
+	uin = 545
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 22
 	value = False
@@ -6252,9 +6277,10 @@ entity
 entity
 {
 	type = BrechstangeItem
-	uin = 548
+	uin = 546
 	classPrompt = WeaponItem
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 2.730835 104.8948 0.5612494
 	name = Brechstange_0
@@ -6263,9 +6289,10 @@ entity
 entity
 {
 	type = BrechstangeItem
-	uin = 549
+	uin = 547
 	classPrompt = WeaponItem
 	respawnTime = 0
+	value = False
 	healthFactorAtBeginning = 1
 	position = 4.322563 100.1927 0.5007266
 	name = Brechstange_1
@@ -6274,7 +6301,7 @@ entity
 entity
 {
 	type = Rubble
-	uin = 550
+	uin = 548
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 30
 	repaired = False
@@ -6289,7 +6316,7 @@ entity
 entity
 {
 	type = CardReader
-	uin = 551
+	uin = 549
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 32
 	repaired = False
@@ -6303,7 +6330,7 @@ entity
 entity
 {
 	type = BrokenTerminal
-	uin = 552
+	uin = 550
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 28
 	repaired = False
@@ -6317,12 +6344,12 @@ entity
 entity
 {
 	type = MapCameraCurve
-	uin = 553
+	uin = 551
 	classPrompt = MapCameraCurve
 	fov = 0
 	curveType = UniformCubicSpline
-	points = 553
-	owner = 553
+	points = 551
+	owner = 551
 	time = 0
 	position = 38.7 32 0
 	name = MapCameraCurve_0
@@ -6331,12 +6358,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 554
+	uin = 552
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569 570 571 572 573
+	subscriptionsToDeletionEvent = 553 554 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569 570 571
 	curveType = UniformCubicSpline
-	points = 554 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569 570 571 572 573
-	owner = 554
+	points = 552 553 554 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569 570 571
+	owner = 552
 	time = 0
 	position = 17.9 105.5 0.3
 	name = MapCurve_0
@@ -6345,10 +6372,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 555
+	uin = 553
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 1
 	position = 16.1 108.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6356,10 +6383,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 556
+	uin = 554
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 2
 	position = 13.5 110 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6367,10 +6394,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 557
+	uin = 555
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 3
 	position = 10.4 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6378,10 +6405,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 558
+	uin = 556
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 4
 	position = 7.099999 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6389,10 +6416,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 559
+	uin = 557
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 5
 	position = 3.999999 110.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6400,10 +6427,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 560
+	uin = 558
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 6
 	position = 0.7999985 111.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6411,10 +6438,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 561
+	uin = 559
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 7
 	position = -2.100001 112.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6422,10 +6449,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 562
+	uin = 560
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 8
 	position = -4.100001 114.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6433,10 +6460,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 563
+	uin = 561
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 9
 	position = -5.700001 117.3 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6444,10 +6471,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 564
+	uin = 562
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 10
 	position = -7.800001 119.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6455,10 +6482,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 565
+	uin = 563
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 11
 	position = -10.7 121.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6466,10 +6493,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 566
+	uin = 564
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 12
 	position = -14.2 121.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6477,10 +6504,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 567
+	uin = 565
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 13
 	position = -17.5 120.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6488,10 +6515,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 568
+	uin = 566
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 14
 	position = -19.6 118 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6499,10 +6526,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 569
+	uin = 567
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 15
 	position = -20.2 114.9 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6510,10 +6537,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 570
+	uin = 568
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 16
 	position = -20.2 111.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6521,10 +6548,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 571
+	uin = 569
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 17
 	position = -20.1 108.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6532,10 +6559,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 572
+	uin = 570
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 18
 	position = -20.1 105.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6543,10 +6570,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 573
+	uin = 571
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 554
-	owner = 554
+	subscriptionsToDeletionEvent = 552
+	owner = 552
 	time = 19
 	position = -20 102.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6554,7 +6581,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 574
+	uin = 572
 	classPrompt = StaticObject
 	position = 100.0275 75.26779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6564,7 +6591,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 575
+	uin = 573
 	classPrompt = StaticObject
 	position = 104.4275 70.86779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6574,7 +6601,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 576
+	uin = 574
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -52.12039 52.39715 1.659452
@@ -6585,7 +6612,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 577
+	uin = 575
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -14.94524 24.67883 1.362918
@@ -6596,7 +6623,7 @@ entity
 entity
 {
 	type = GridFloor
-	uin = 660
+	uin = 576
 	classPrompt = StaticObject
 	position = -116.3991 5.895276 -0.03060913
 	name = GridFloor_0
@@ -6605,7 +6632,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 661
+	uin = 577
 	classPrompt = StaticObject
 	position = -66.71773 -56.44236 1.64531
 	rotation = 0 0 -0.3734877 0.9276351
@@ -6615,7 +6642,7 @@ entity
 entity
 {
 	type = ServerRack
-	uin = 528
+	uin = 578
 	classPrompt = StaticObject
 	position = 114.1109 -6.218911 0.2670097
 	rotation = 0 0 -1 -4.371139E-08
@@ -6625,7 +6652,7 @@ entity
 entity
 {
 	type = ServerRack
-	uin = 527
+	uin = 579
 	classPrompt = StaticObject
 	position = 114.1109 -1.320378 0.2670097
 	rotation = 0 0 -1 -4.371139E-08

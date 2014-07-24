@@ -125,7 +125,7 @@ namespace ProjectEntities
 
                 this.value = value;
 
-                OnValueChange();
+                //OnValueChange();
                 UpdateAttachedObjects();
 
                 if (EntitySystemWorld.Instance.IsServer())
