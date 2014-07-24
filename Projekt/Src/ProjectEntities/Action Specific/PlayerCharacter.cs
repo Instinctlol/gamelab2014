@@ -79,6 +79,8 @@ namespace ProjectEntities
 		[FieldSerialize]
 		float contusionTimeRemaining;
 
+        Quat flashLightRotation;
+
 		///////////////////////////////////////////
 
         String s = "";
@@ -146,11 +148,27 @@ namespace ProjectEntities
 			ContusionTimeRemainingToClient,
             SwitchLightToServer,
             LightStatusToClient,
+            FlashLightRotationToClient,
+            FlashLightRotationToServer,
 		}
 
 		///////////////////////////////////////////
 
 		PlayerCharacterType _type = null; public new PlayerCharacterType Type { get { return _type; } }
+
+        [Browsable(false)]
+        public Quat FlashLightRotation
+        {
+            get { return flashLightRotation; }
+            set {
+
+                flashLightRotation = value;
+
+                if (EntitySystemWorld.Instance.IsServer())                    
+                    Server_SendFlashLightRotation(flashLightRotation);           
+            
+            }
+        }
 
 		[Browsable( false )]
 		public List<WeaponItem> Weapons
@@ -673,9 +691,11 @@ namespace ProjectEntities
                         {
                             attachedObject.Visible = Inventar.taschenlampevisible;
 
-                            Quat newOffSet = new Quat(attachedObject.RotationOffset.X, camera.Rotation.Y, attachedObject.RotationOffset.Z, attachedObject.RotationOffset.W);
-                            newOffSet.Normalize();
-                            attachedObject.RotationOffset = newOffSet;
+                            if(fpsCamera)
+                                Client_SendFlashLightRotation( new Quat(attachedObject.RotationOffset.X, camera.Rotation.Y, attachedObject.RotationOffset.Z, camera.Rotation.W) );
+
+                            flashLightRotation.Normalize();
+                            attachedObject.RotationOffset = FlashLightRotation;
                         }
 					}
                     else 
@@ -1032,6 +1052,48 @@ namespace ProjectEntities
                 return;
 
             Inventar.taschenlampevisible = status;
+        }
+
+        private void Client_SendFlashLightRotation(Quat rotation)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
+                      (ushort)NetworkMessages.FlashLightRotationToServer);
+
+            writer.Write(rotation);
+
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.FlashLightRotationToServer)]
+        private void Server_ReceiveFlashLightRotation(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            Quat rotation = reader.ReadQuat();
+
+            if (!reader.Complete())
+                return;
+
+            FlashLightRotation = rotation;
+        }
+
+        private void Server_SendFlashLightRotation(Quat rotation)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
+                      (ushort)NetworkMessages.FlashLightRotationToClient);
+
+            writer.Write(rotation);
+
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FlashLightRotationToClient)]
+        private void Client_ReceiveFlashLightRotation(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            Quat rotation = reader.ReadQuat();
+
+            if (!reader.Complete())
+                return;
+
+            flashLightRotation = rotation;
         }
 
     }
