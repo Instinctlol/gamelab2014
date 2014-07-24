@@ -1442,7 +1442,7 @@ entity
 	type = Ring
 	uin = 103
 	classPrompt = Ring
-	rotatable = True
+	rotatable = False
 	corners = 8
 	ringPosition = 0
 	enabled = True
