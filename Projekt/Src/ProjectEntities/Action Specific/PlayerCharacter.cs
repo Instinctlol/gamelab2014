@@ -672,9 +672,10 @@ namespace ProjectEntities
                         if (Inventar != null)
                         {
                             attachedObject.Visible = Inventar.taschenlampevisible;
-                            Quat newRotOffset = (camera.Rotation.GetInverse() * Rotation);
-                            newRotOffset.Normalize();
-                            attachedObject.RotationOffset = newRotOffset;
+
+                            Quat newOffSet = new Quat(attachedObject.RotationOffset.X, camera.Rotation.Y, attachedObject.RotationOffset.Z, attachedObject.RotationOffset.W);
+                            newOffSet.Normalize();
+                            attachedObject.RotationOffset = newOffSet;
                         }
 					}
                     else 
