@@ -691,8 +691,11 @@ namespace ProjectEntities
                         {
                             attachedObject.Visible = Inventar.taschenlampevisible;
 
-                            if(fpsCamera)
-                                Client_SendFlashLightRotation( new Quat(attachedObject.RotationOffset.X, camera.Rotation.Y, attachedObject.RotationOffset.Z, camera.Rotation.W) );
+                            if (fpsCamera)
+                            {
+                                Quat newRot = Rotation.GetInverse() * camera.Rotation;
+                                Client_SendFlashLightRotation(new Quat(0, newRot.Y, 0, newRot.W));
+                            }
 
                             flashLightRotation.Normalize();
                             attachedObject.RotationOffset = FlashLightRotation;
