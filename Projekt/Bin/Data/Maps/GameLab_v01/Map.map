@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 83.19705 23.06558 48.29815
-editorCameraDirection = 5.247823 -0.8114458
+editorCameraPosition = 12.5562 -12.74016 25.78284
+editorCameraDirection = 6.043994 -0.9217336
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -2022,7 +2022,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 148
 	classPrompt = StaticObject
-	position = 39.13425 11.95827 0
+	position = 29.56247 18.68548 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_18
 	editorLayer = "Root Layer\\F3\\Waende"
@@ -2032,7 +2032,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 149
 	classPrompt = StaticObject
-	position = 29.65712 17.03218 0
+	position = 31.80017 15.30926 0
 	rotation = 0 0 0.7099334 0.7042688
 	name = DoppelWandOhneBodenFinal_19
 	editorLayer = "Root Layer\\F3\\Waende"
@@ -6658,4 +6658,24 @@ entity
 	rotation = 0 0 -1 -4.371139E-08
 	name = ServerRack_0
 	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 662
+	classPrompt = StaticObject
+	position = 35.39545 10.92039 0
+	rotation = 0 0 -0.7094766 -0.7047293
+	name = DoppelWandOhneBodenFinal_102
+	editorLayer = "Root Layer\\F3\\Waende"
+}
+entity
+{
+	type = DoppelWandOhneBodenFinal
+	uin = 663
+	classPrompt = StaticObject
+	position = 39.84206 16.43058 0
+	rotation = 0 0 -0.9999741 0.007215822
+	name = DoppelWandOhneBodenFinal_103
+	editorLayer = "Root Layer\\F3\\Waende"
 }
