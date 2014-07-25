@@ -27,7 +27,7 @@ namespace Game
         enum CameraType
         {
             Game,
-            Count
+            //Count
         }
 		static float mydelta  = 0;
         static Vec2 todoTranslate = Vec2.Zero;
@@ -1718,12 +1718,14 @@ namespace Game
             #endregion
         }
 
-        void receiveTrackingData(int sensorID, double x, double y, double z)
+        void receiveTrackingData(int sensorID, double x, double y, double z, Boolean output)
         {
             //headtracking
-            if (Math.Sqrt(x * x + y * y + z * z) <= 2.5 && z >= 0)
-            {
-                headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
+            if(output){
+                if (Math.Sqrt(x * x + y * y + z * z) <= 2.5 && z >= 0)
+                {
+                    headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
+                }
             }
         }
 

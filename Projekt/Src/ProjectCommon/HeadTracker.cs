@@ -55,8 +55,8 @@ namespace ProjectCommon
         IPEndPoint _endPoint;
         byte[] receiveByteArray;
 
-        private String path = "C:/Users/a_mati01/Desktop/GameLab SVN/Alien-Gruppe/Headtracking/head_tracking_matrix.txt";
-        private Mat4D coordinates = new Mat4D();
+        //private String path = "C:/Users/a_mati01/Desktop/GameLab SVN/Alien-Gruppe/Headtracking/head_tracking_matrix.txt";
+        //private Mat4D coordinates = new Mat4D();
 
         private static HeadTracker instance;
 
@@ -87,7 +87,7 @@ namespace ProjectCommon
 
         private void run()
         {
-            this.CreateMatrix();
+            //this.CreateMatrix();
             const string magicWord = "VALI";
             //const string positionEvent = "POS";
             //const string accelerationEvent = "ACC";
@@ -130,15 +130,21 @@ namespace ProjectCommon
             
                 if (TrackingEvent != null)
                 {
-                    Vec3D pos = this.CalculatePos(new Vec4D(posX, posY, posZ, 1), this.coordinates);
-                    TrackingEvent(sensorID, pos.X, pos.Y, pos.Z);
+                    Vec3D posMTT = this.CalculatePosMultiTouch(new Vec4D(posX, posY, posZ, 1));
+                    TrackingEvent(sensorID, posMTT.X, posMTT.Y, posMTT.Z, false);
                     //TrackingEvent(sensorID, posX, posY, posZ);
+
+                    Vec3D posCave = this.CalculatePosCave(new Vec4D(posX, posY, posZ, 1));
+                    TrackingEvent(sensorID, posCave.X, posCave.Y, posCave.Z, true);
+                    //TrackingEvent(sensorID, posX, posY, posZ);
+
                 }
             }
         }
 
-        private Vec3D CalculatePos(Vec4D v, Mat4D m)
+        private Vec3D CalculatePosMultiTouch(Vec4D v)
         {
+            // Konfigurierte Matrix des MultiTouch-Tisches
             Mat4D m1 = new Mat4D(
                 -0.209122,-0.977655,-0.0213996,71.4782,
                 0.15086,-0.0538752,0.987086,-290.879,
@@ -146,38 +152,64 @@ namespace ProjectCommon
                 0, 0, 0, 1
                 );
 
+            // Berechnung des Vectors auf cm
             Vec4D tempPos = new Vec4D(100.0 * v.X, 100.0 * v.Y, 100.0 * v.Z, 1.0);
 
-            //Console.WriteLine("----calculatepos()-----");
-            //Vec4D calculatedPos = Mat4D.Multiply(m1, v * 100) / 100;
+            // Berechnung der Headtracking-Position (Nach Programm von Alex)
             Vec4D calculatedPos = new Vec4D();
-
             calculatedPos.X = m1.Item0.X * tempPos.X + m1.Item0.Y * tempPos.Y + m1.Item0.Z * tempPos.Z + m1.Item0.W;
             calculatedPos.Y = m1.Item1.X * tempPos.X + m1.Item1.Y * tempPos.Y + m1.Item1.Z * tempPos.Z + m1.Item1.W;
             calculatedPos.Z = m1.Item2.X * tempPos.X + m1.Item2.Y * tempPos.Y + m1.Item2.Z * tempPos.Z + m1.Item2.W;
 
-            //calculatedPos /= calculatedPos.W;
+            // Vector auf m umstellen
             calculatedPos.X /= 100.0;
             calculatedPos.Y /= 100.0;
             calculatedPos.Z /= 100.0;
-            //Console.WriteLine("M: " + m.ToString());
-            //Console.WriteLine("V: " + v.ToString());
+
+            // Koordinatensystem anpassen
             Vec3D pos = new Vec3D();
-            //if (calculatedPos.W != 1)
-            {
-                // Normalisieren
-                pos.X = (-1)*calculatedPos.Y;// / calculatedPos.W;
-                pos.Y = (-1) * calculatedPos.Z;// / calculatedPos.W;
-                pos.Z = (-1) * calculatedPos.X;// / calculatedPos.W;
-            }
-            //Console.WriteLine(pos.ToString());
+            pos.X = (-1) * calculatedPos.Y;
+            pos.Y = (-1) * calculatedPos.Z;
+            pos.Z = (-1) * calculatedPos.X;
+            
+            return pos;
+        }
+        
 
-            //Vec3D initialPos = new Vec3D(-0.392910123, 0.000637284073, 0.204409659);
-            //Vec3D currentPosition = new Vec3D(v.X, v.Y, v.Z) - initialPos;
+        private Vec3D CalculatePosCave(Vec4D v)
+        {
+            // KonfigurationsMatrix des Caves in cm
+            Mat4D m1 = new Mat4D(
+                -0.209122, -0.977655, -0.0213996, 71.4782,
+                0.15086, -0.0538752, 0.987086, -290.879,
+                -0.966183, 0.203193, 0.158756, 388.412,
+                0, 0, 0, 1
+                );
 
+            // Berechnung des Vectors auf cm
+            Vec4D tempPos = new Vec4D(100.0 * v.X, 100.0 * v.Y, 100.0 * v.Z, 1.0);
+
+            // Berechnung der Posiotion im Raum
+            Vec4D calculatedPos = new Vec4D();
+            calculatedPos.X = m1.Item0.X * tempPos.X + m1.Item0.Y * tempPos.Y + m1.Item0.Z * tempPos.Z + m1.Item0.W;
+            calculatedPos.Y = m1.Item1.X * tempPos.X + m1.Item1.Y * tempPos.Y + m1.Item1.Z * tempPos.Z + m1.Item1.W;
+            calculatedPos.Z = m1.Item2.X * tempPos.X + m1.Item2.Y * tempPos.Y + m1.Item2.Z * tempPos.Z + m1.Item2.W;
+
+            // Berechnung des Vectors auf m
+            calculatedPos.X /= 100.0;
+            calculatedPos.Y /= 100.0;
+            calculatedPos.Z /= 100.0;
+
+            Vec3D pos = new Vec3D();
+            // Hier muss das Koordinatensystem angepasst werden
+            pos.X = (-1) * calculatedPos.Y;
+            pos.Y = (-1) * calculatedPos.Z;
+            pos.Z = (-1) * calculatedPos.X;
+            
             return pos;
         }
 
+        
         #endregion
 
         private HeadTracker(int port)
@@ -220,6 +252,7 @@ namespace ProjectCommon
             return true;
         }
 
+        /*
         private void CreateMatrix()
         {
             try
@@ -239,8 +272,9 @@ namespace ProjectCommon
             } catch (Exception e)
             { }
         }
+         * */
 
-        public delegate void receiveTrackingData(int sensorID, double x, double y, double z);
+        public delegate void receiveTrackingData(int sensorID, double x, double y, double z, Boolean output);
 
         public event receiveTrackingData TrackingEvent;
     }
