@@ -15,8 +15,16 @@ namespace ProjectEntities
 
         //Taschenlampe
         private int _taschenlampeEnergie;
+        private int _taschenlampeEnergieMax = 100;
+
         private bool _taschenlampeBesitz = false;
         private bool _taschenlampevisible = false;
+
+        public int taschenlampeEnergieMax
+        {
+            get { return _taschenlampeEnergieMax; }
+            set { _taschenlampeEnergieMax = value; }
+        }
 
         public bool taschenlampevisible
         {
@@ -133,6 +141,12 @@ namespace ProjectEntities
             return inventar.IndexOf(useItem);
         }
 
-        
+        public bool inBesitz(Item i)
+        {
+            if (inventar.Exists(x => x.Type.Name == i.Type.Name))
+                return true;
+            else
+                return false;
+        }
     }
 }

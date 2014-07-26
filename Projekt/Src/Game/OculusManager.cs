@@ -322,7 +322,7 @@ namespace Game
             value = temp;
         }
 
-        public void headTracking(int sensorID, double x, double y, double z)
+        public void headTracking(int sensorID, double x, double y, double z, bool output)
         {
             //Vec3 position = new Vec3();
             //float yaw = 0.0f;

@@ -18,6 +18,7 @@ using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
 using System.Timers;
+using System.Timers;
 
 namespace Game
 {
@@ -90,7 +91,8 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-        
+        //Taschenlampe Timer
+        Timer energieTimer = new Timer();
 
         //Message System here===================================
 
@@ -148,7 +150,7 @@ namespace Game
 
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
-            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\OculusHUD Inventar.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\CaveHUD Inventar.gui");
             //Attach the HUD screen to the this window
             Controls.Add(hudControl);
 
@@ -191,6 +193,10 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
+
+            //Timerintervall und Event, um Taschenlampenenergie zu verringern
+            energieTimer.Interval = 5000;
+            energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
 
         }
 
@@ -305,11 +311,31 @@ namespace Game
                 }
             }
 
+            
+
             if (e.Key == EKeys.L)
             {
+                
+                
                 PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
-                if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0 )
+                if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
+                {
                     player.Setflashlight(!player.Inventar.taschenlampevisible);
+
+                    if (!player.Inventar.taschenlampevisible)
+                    {
+                        
+                        energieTimer.AutoReset = true;
+                        energieTimer.Enabled = true;
+                    }
+                    else if(player.Inventar.taschenlampevisible)
+                    {
+                        energieTimer.AutoReset = false;
+                        energieTimer.Enabled = false;
+                    }
+                }
+                else
+                    sendMessageToHUD("Taschenlampe noch nicht vorhanden oder die Batterie ist leer");
                 
             }
 
@@ -348,9 +374,9 @@ namespace Game
         int i = 0;
         protected override bool OnMouseDown(EMouseButtons button)
         {
-            StatusMessageHandler.sendMessage("gut gedrueckt " + i);
-            //sendMessageToHUD("gut gedrueckt " + i);
-            i++;
+            //StatusMessageHandler.sendMessage("gut gedrueckt " + i);
+            ////sendMessageToHUD("gut gedrueckt " + i);
+            //i++;
             
             //If atop openly any window to not process
             if (Controls.Count != 1)
@@ -1226,7 +1252,20 @@ namespace Game
                     }
 
                 }
-                
+
+                //Itemname und anzahl des Useitem ausgeben
+                String itemtext;
+                if(unit.Inventar.useItem.Name == "Taschenlampe")
+                {
+                    itemtext = unit.Inventar.useItem.Name + " " + unit.Inventar.taschenlampeEnergie + "%";
+                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                }
+                else
+                {
+                    itemtext = unit.Inventar.useItem.Name + " x" + unit.Inventar.useItem.anzahl;
+                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                }
+
             }
 
             
@@ -2168,7 +2207,11 @@ namespace Game
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
         {
-            GetPlayerUnit().Inventar.taschenlampeEnergie--;
+            if (GetPlayerUnit().Inventar.taschenlampeEnergie > 0)
+                GetPlayerUnit().Inventar.taschenlampeEnergie -= 2;
+            else
+                sendMessageToHUD("Batterie der Taschenlampe ist leer.");
+
         }
     }
 }

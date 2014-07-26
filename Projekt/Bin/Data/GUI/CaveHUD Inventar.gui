@@ -45,7 +45,7 @@ control Control
 		textVerticalAlign = Top
 		font = German 0.025
 		textColor = 0.007843138 1 0.8509805
-		position = ScaleByResolution 270 300
+		position = Screen 0.2636719 0.3515625
 		size = Screen 0.4824219 0.07552084
 		name = MessageBox
 	}
@@ -275,8 +275,10 @@ control Control
 		}
 		control TextBox
 		{
-			position = ScaleByResolution 180 100
-			size = Parent 0.35 0.28
+			font = German 0.035
+			textColor = 0.1921569 0.627451 0.7843138
+			position = Screen 0.3027344 0.5859375
+			size = Screen 0.3792969 0.07166667
 			name = item_name
 		}
 		control Control

@@ -52,9 +52,17 @@ namespace ProjectEntities
                     break;
 
                 case "Defkit":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "Werkzeuggürtel";
+                    currentItem.Name = "Werkzeuggürtel";
+                    if(!unit.Inventar.inBesitz(currentItem))
+                    {
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        s = "Werkzeuggürtel";
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 case "SmallHealthItem":
@@ -74,23 +82,40 @@ namespace ProjectEntities
                     break;
 
                 case "Schraubenschlüssel":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "Schraubenschlüssel";
+                    currentItem.Name = "Schraubenschlüssel";
+                    if (!unit.Inventar.inBesitz(currentItem))
+                    {
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        s = "Schraubenschlüssel";
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 case "Kabel":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "Kabel";
+                    currentItem.Name = "Kabel";
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        s = "Kabel";
                     break;
 
                 case "TaschenlampeItem":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    unit.Inventar.taschenlampeBesitz = true;
-                    unit.Inventar.taschenlampeEnergie = 100;
-                    s = "Taschenlampe";
+                    currentItem.Name = "Taschenlampe";
+                    if (!unit.Inventar.inBesitz(currentItem))
+                    {
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.taschenlampeBesitz = true;
+                        unit.Inventar.taschenlampeEnergie = unit.Inventar.taschenlampeEnergieMax;
+                        s = "Taschenlampe";
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 case "ScarItem":
@@ -98,8 +123,16 @@ namespace ProjectEntities
                     break;
 
                 case "BrechstangeItem":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    currentItem.Name = "Brechstange";
+                    if (!unit.Inventar.inBesitz(currentItem))
+                    {
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 case "GlockItem":
@@ -119,45 +152,81 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "Batterie";
+                    currentItem.Name = "Batterie";
+                    if (!unit.Inventar.taschenlampeBesitz)
+                        s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
+                    else
+                    {
+                        if (unit.Inventar.taschenlampeEnergie == unit.Inventar.taschenlampeEnergieMax)
+                        {
+                            s = "Taschenlampebatterie ist voll. Nicht";
+                        }
+                        else
+                        {
+                            currentItem.TakeItem(unit);
+                            if (unit.Inventar.taschenlampeEnergie + 50 < unit.Inventar.taschenlampeEnergieMax)
+                                unit.Inventar.taschenlampeEnergie += 50;
+                            else
+                                unit.Inventar.taschenlampeEnergie = unit.Inventar.taschenlampeEnergieMax;
+                            s = "Batterie";
+                        }
+                    }
                     break;
 
                 case "cpu":
+                    currentItem.Name = "CPU";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
                     s = "CPU";
                     break;
 
                 case "Schrauben":
+                    currentItem.Name = "Schrauben";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
                     s = "Schrauben";
                     break;
 
                 case "USB_Stick":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "USB Stick";
+                    currentItem.Name = "USB-Stick";
+                    if(!unit.Inventar.inBesitz(currentItem))
+                    {
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        s = "USB Stick";
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 case "sicherung":
+                    currentItem.Name = "Sicherung";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
                     s = "Sicherung";
                     break;
 
                 case "Dynamite":
+                    currentItem.Name = "Dynamit";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
                     s = "Dynamit";
                     break;
 
                 case "AccessCard":
-                    currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
-                    s = "AccessCard";
+                    currentItem.Name = "Zugangskarte";
+                    if(!unit.Inventar.inBesitz(currentItem))
+                    { 
+                        currentItem.TakeItem(unit);
+                        unit.Inventar.addItem(currentItem);
+                        s = "AccessCard";
+                    }
+                    else
+                    {
+                        s = "Item schon vorhanden. Nicht";
+                    }
                     break;
 
                 default:
