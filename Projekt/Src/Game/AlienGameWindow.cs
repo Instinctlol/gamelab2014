@@ -1725,33 +1725,34 @@ namespace Game
             // Strahlensatz verwenden, um den Ausschnitt des Bildes festzusetzen
             // Aktuell liegt der auf dem MultiTouchTisch
             #region Aspect Ratio and Vertical Field of View
-            float mapWidth = displayWidth / z * (z + cameraDistance);
-            float mapHeight = displayHeight / z * (z + cameraDistance);
-
-            Console.WriteLine("Mapbreite: " + mapWidth + ", Maphoehe: " + mapHeight);
+            float mapWidth = (displayWidth / 2.0f) * (z + cameraDistance) / z;
+            // ist nur die halbe map-Breite
+            float mapHeight = (displayHeight / 2.0f) * (z + cameraDistance) / z;
+            Console.WriteLine("Mapbreite: " + mapWidth * 2.0f + ", Maphoehe: " + mapHeight * 2.0f);
 
             //float aspect = displayWidth / displayHeight;
             float aspect = mapWidth / mapHeight;
             //float c = (float)Math.Sqrt(z * z + (displayHeight / 2.0f) * (displayHeight / 2.0f));
-            float c = (float)Math.Sqrt((z + cameraDistance) * (z + cameraDistance) + (mapHeight / 2.0f) * (mapHeight / 2.0f));
-            float alpha = (float)Math.Acos((z + cameraDistance) / c);
-            float fovy = new Degree(new Radian(2.0f * alpha));
+            float hypotenuse1 = (float)Math.Sqrt((z + cameraDistance) * (z + cameraDistance) + (mapHeight + y) * (mapHeight + y)); //(mapWidth + x) * (mapWidth + x) +
+            float hypotenuse2 = (float)Math.Sqrt((z + cameraDistance) * (z + cameraDistance) + (mapHeight - y) * (mapHeight - y)); //(mapWidth - x) * (mapWidth - x) + 
+            
+            float alpha1 = (float)Math.Acos((z + cameraDistance) / hypotenuse1);
+            float alpha2 = (float)Math.Acos((z + cameraDistance) / hypotenuse2);
+            float fovy = new Degree(new Radian(alpha1 + alpha2));
             #endregion
 
             #region Asymetric Frustum
             Vec2 frustumOffset = new Vec2();
 
-            float nearPlane = camera.NearClipDistance;
+            //float nearPlane = camera.NearClipDistance;
             //float nearDistanceRatio = nearPlane / z;
-            float nearDistanceRatio = nearPlane / (z + cameraDistance);
+            //float nearDistanceRatio = nearPlane / (z + cameraDistance);
             // vielleicht hier noch: camera.NearClipDistance = nearDistanceRatio;
 
-            //frustumOffset.X = x / z;
-            //frustumOffset.Y = y / z;
-
-
-            frustumOffset.X = x / (z + cameraDistance);
-            frustumOffset.Y = y / (z + cameraDistance);
+            frustumOffset.X = x - (z / (z + cameraDistance) * x);// / z;
+            frustumOffset.Y = y - (z / (z + cameraDistance) * y);// / z;
+            //frustumOffset.X = x / (z + cameraDistance);
+            //frustumOffset.Y = y / (z + cameraDistance);
             #endregion
 
             #region Application to Camera
@@ -1836,7 +1837,7 @@ namespace Game
             // Asymmetrisches Frustum
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
-            camera.NearClipDistance = .1f;
+            //camera.NearClipDistance = .1f;
             //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
 
             if (isHeadtrackingActive)

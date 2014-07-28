@@ -431,6 +431,9 @@ namespace ProjectCommon
                     TuioInputDeviceSpecialEvent customEvent =
                     new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
+
+                    tuioInputData.Clear();
+                    detectgestures(false);
                 }
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
@@ -477,10 +480,9 @@ namespace ProjectCommon
                         }
                         InputDeviceManager.Instance.SendEvent(customEvent);
                         Console.WriteLine(list.Name);
-
+                        tuioInputData.Clear();
+                        detectgestures(false);
                 }
-                tuioInputData.Clear();
-                detectgestures(false);
                 //else if(startb && endb&& end[2]-start[2]>5000){
                 ////abbruch nach 5 sekunden
                 //    Console.WriteLine("no Gesture");
@@ -495,6 +497,7 @@ namespace ProjectCommon
 
         public static void detectgestures(bool state) {
             detectgesturesState = state;
+            Console.WriteLine("Change Gesture State to " + state);
         }
 
 
