@@ -459,6 +459,11 @@ namespace ProjectEntities
 			UpdateRotation( true );
 		}
 
+        public void OnHit()
+        {
+
+        }
+
 		public void UpdateRotation( bool allowUpdateOldRotation )
 		{
 			float halfAngle = horizontalDirectionForUpdateRotation * .5f;
@@ -581,6 +586,13 @@ namespace ProjectEntities
 
 			base.OnDestroy();
 		}
+
+        protected override void OnDamage(MapObject prejudicial, Vec3 pos, Engine.PhysicsSystem.Shape shape, float damage, bool allowMoveDamageToParent)
+        {
+            base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
+            // Dem Computer mitteilen, dass ein Alien einen Astronauten getroffen hat.
+            Computer.AddExperiencePoints((int)damage);
+        }
 
 		protected override void OnSuspendPhysicsDuringMapLoading( bool suspend )
 		{

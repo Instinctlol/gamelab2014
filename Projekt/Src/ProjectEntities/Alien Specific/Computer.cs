@@ -54,6 +54,12 @@ namespace ProjectEntities
         static Queue<Corpse> corpseList = new Queue<Corpse>();
         const int maxAlienCorpses = 10;
 
+        // Verwaltet die Signale für das Radar
+        static LinkedList<Signal> signalList = new LinkedList<Signal>();
+
+        // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
+        static int maxItemDropGroupNr = 2;
+
 
 
         /*******************/
@@ -102,12 +108,31 @@ namespace ProjectEntities
             set { Computer.allowedToChangeLight = value; }
         }
 
+        public static int MaxItemDropGroupNr
+        {
+            get { return Computer.maxItemDropGroupNr; }
+        }
+
 
 
 
         /**************/
         /* Funktionen */
         /**************/
+        /// <summary>
+        /// Anzahl erhöhen bis Gesamtanzahl an Gruppen der Drop-Items des Aliens erreicht wurde. Damit kann eingeschränkt werden, 
+        /// bis zu welcher Gruppennummer die Items gedroppt werden dürfen.
+        /// </summary>
+        public static void IncrementMaxItemDropGroupNr()
+        {
+            Console.WriteLine("ItemDropNr increment");
+            AlienType a = new AlienType();
+            if (maxItemDropGroupNr < a.DieObjects.Count)
+            {
+                maxItemDropGroupNr++;
+            }
+        }
+
         /// <summary>
         /// ExperiencePoints hinzufügen
         /// </summary>

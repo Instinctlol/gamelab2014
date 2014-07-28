@@ -106,6 +106,21 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
+
+            // Auf die Terminals lauschen, um neue Drop-Items für das Alien freizuschalten
+            IEnumerable<Terminal> terminalList = Entities.Instance.EntitiesCollection.OfType<Terminal>();
+            IEnumerable<Terminal> terminal = from Terminal t in terminalList
+                                             where t.Name == "Terminal_1_Door" || t.Name == "Terminal_Door_1" || t.Name == "Terminal_Door_10" //(F1R3 , F2R8 , F2R4 ) TODO
+                                             select t;
+            foreach (Terminal t in terminal)
+            {
+                t.TerminalDoorAction += DoTerminalDoorAction;
+            }
+        }
+
+        private void DoTerminalDoorAction(Terminal t)
+        {
+            Computer.IncrementMaxItemDropGroupNr();
         }
 
         //hudFunktionen

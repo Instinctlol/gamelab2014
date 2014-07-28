@@ -1631,18 +1631,17 @@ namespace ProjectEntities
                 result[0] = temp[0];
                 // Per Zufall ein Item aus Liste auswählen
                 Random index = new Random();
-                int group = index.Next(Type.DieObjects.Count - 1);
+                int group = index.Next(Computer.MaxItemDropGroupNr + (int)(Computer.MaxItemDropGroupNr*3/4)); // etwas erhöhen, wenn nicht gültig, dann wird halt nichts gedroppt
                 int[] groups = Type.DieObjects.GetGroups();
+                Console.WriteLine("group-nr1: " + group);
                 // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
                 // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
-                while (!InArray(group + 1, groups))
+                if (InArray(group + 1, groups) && group + 1 <= Computer.MaxItemDropGroupNr)
                 {
-                    group = index.Next(Type.DieObjects.Count - 1);
+                    Console.WriteLine("group-nr2: " + group);
+                    temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
+                    result[1] = temp[0];
                 }
-
-                Console.WriteLine("group-nr " + group);
-                temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
-                result[1] = temp[0];
             }
             else
             {

@@ -119,9 +119,6 @@ namespace ProjectEntities
             movePosition = pos;
         }
 
-       
-        
-
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
         protected override void OnPostCreate(bool loaded)
         {

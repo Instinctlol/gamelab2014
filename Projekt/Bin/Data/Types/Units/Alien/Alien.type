@@ -79,14 +79,14 @@ type Alien
 		}
 		mapObject
 		{
-			type = ScarBulletItem
-			alias = scarbullet
+			type = ShotgunBulletsItem
+			alias = shotgunbullet
 			group = 4
 		}
 		mapObject
 		{
-			type = ShotgunBulletsItem
-			alias = shotgunbullet
+			type = ScarBulletItem
+			alias = scarbullet
 			group = 5
 		}
 		mapObject
