@@ -786,7 +786,7 @@ namespace Game
              ProjectEntities.MedicCabinet overCabinet = null;
              ProjectEntities.Switch overSwitch = null;
 
-             Map.Instance.GetObjects(spehere, delegate(MapObject obj, float scale)
+             Map.Instance.GetObjects(sphere, delegate(MapObject obj)
              {
                 ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
@@ -794,7 +794,7 @@ namespace Game
                 {
                     overRepairable = r;
                     isRepairable = true;
-                    return false;
+                    return;
                 }
 
                 ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
@@ -802,20 +802,20 @@ namespace Game
                 {
                     if (sw.UseAttachedMesh != null)
                     {
-                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
+                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
 
-                        if (sphere.RayIntersection(ray))
+                        if (sph.RayIntersection(ray))
                         {
                             overSwitch = sw;
                             isSwitch = true;
-                            return false;
+                            return;
                         }
                     }
                     else
                     {
                         overSwitch = sw;
                         isSwitch = true;
-                        return false;
+                        return;
                     }
                 }
 
@@ -825,7 +825,7 @@ namespace Game
                 {
                     overServerRack = se;
                     isServerRack = true;
-                    return false;
+                    return;
                 }
 
                 ProjectEntities.Item i = obj as ProjectEntities.Item;
@@ -834,19 +834,19 @@ namespace Game
                 {
                     overItem = i;
                     isItem = true;
-                    return false;
+                    return;
                 }
 
                 ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
                 if (t != null)
                 {
-                    Sphere sphere = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
+                    Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
 
-                    if (sphere.RayIntersection(ray))
+                    if (sph.RayIntersection(ray))
                     {
                         overTerminal = t;
                         isTerminal = true;
-                        return false;
+                        return;
                     }
                 }
 
@@ -856,10 +856,10 @@ namespace Game
                 {
                     overCabinet = c;
                     isMedicCabinet = true;
-                    return false;
+                    return;
                 }
 
-                return true;
+                return;
              }
             );
 
@@ -976,8 +976,8 @@ namespace Game
                     Bounds bounds;
                     if (overSwitch.UseAttachedMesh != null)
                     {
-                        Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
-                        bounds = sphere.ToBounds();
+                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
+                        bounds = sph.ToBounds();
                     }
                     else
                         bounds = overSwitch.MapBounds;
@@ -1015,8 +1015,8 @@ namespace Game
                 if (overTerminal != null)
                 {
                     Bounds bounds;
-                    Sphere sphere = GetUseableUseAttachedMeshWorldSphere(overTerminal.TerminalProjector);
-                    bounds = sphere.ToBounds();
+                    Sphere sph = GetUseableUseAttachedMeshWorldSphere(overTerminal.TerminalProjector);
+                    bounds = sph.ToBounds();
 
                     DrawObjectSelectionBorder(bounds);
                 }
