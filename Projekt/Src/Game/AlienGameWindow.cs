@@ -1226,15 +1226,19 @@ namespace Game
         /// </summary>
         /// <param name="unit"></param>
         /// <returns></returns>
-        ColorValue GetColor(Unit unit)
+        ColorValue GetColor(Dynamic unit)
         {
             if (unit is Alien)
             {
-                return new ColorValue(1, 0, 0);
+                return new ColorValue(1, 1, 0);
             }
             else if (unit is AlienSpawner)
             {
                 return new ColorValue(0, 1, 0);
+            } 
+            else if (unit is Terminal) // Hier werden Sigale farblich hervorgehoben
+            {
+                return new ColorValue(1, 0, 0);
             }
             return new ColorValue();
         }
@@ -1568,6 +1572,24 @@ namespace Game
                 ColorValue color = GetColor(unit);
                 renderer.AddQuad(rect, color);
             }
+            //foreach(Signal s in signalList){
+            //Rect rect = new Rect();//s.MapBounds.Minimum.ToVec2(), s.MapBounds.Maximum.ToVec2());
+
+            //rect -= mapRect.Minimum;
+            //rect.Minimum *= mapSizeInv;
+            //rect.Maximum *= mapSizeInv;
+            //rect.Minimum = new Vec2(rect.Minimum.X, 1.0f - rect.Minimum.Y);
+            //rect.Maximum = new Vec2(rect.Maximum.X, 1.0f - rect.Maximum.Y);
+            //rect.Minimum *= screenMapRect.Size;
+            //rect.Maximum *= screenMapRect.Size;
+            //rect += screenMapRect.Minimum;
+
+            //increase 1 pixel
+            //rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
+
+            //ColorValue color = GetColor(s);
+            //renderer.AddQuad(rect, color);
+            //}
 
             //Draw camera borders
             {
@@ -1756,7 +1778,7 @@ namespace Game
             #endregion
 
             #region Application to Camera
-            camera.Fov = fovy;
+            //camera.Fov = fovy;
             camera.AspectRatio = aspect;
             camera.FrustumOffset = frustumOffset;
             #endregion
