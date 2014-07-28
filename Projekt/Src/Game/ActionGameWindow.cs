@@ -786,89 +786,96 @@ namespace Game
              ProjectEntities.MedicCabinet overCabinet = null;
              ProjectEntities.Switch overSwitch = null;
 
-             Map.Instance.GetObjects(ray, delegate(MapObject o, float scale)
+             Vec3 origin = PhysicsWorld.Instance.RayCast(ray, (int)ContactGroup.CastOnlyCollision).Position;
+
+             //Map.Instance.GetObjects(ray, delegate(MapObject o, float scale)
+             //{
+             //    if (scale == 0 || o is Sector )
+             //        return true;
+
+             if (origin.Length() != 0)
              {
-                 Sphere sphere = new Sphere(ray.GetPointOnRay(scale), 0.1f);
+                 Sphere sphere = new Sphere(origin, 0.33f);
 
-                 foreach (MapObject obj in Map.Instance.GetObjects(sphere) )
-	            {
-		 
-                    ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+                 foreach (MapObject obj in Map.Instance.GetObjects(sphere))
+                 {
 
-                    if (r != null)
-                    {
-                        overRepairable = r;
-                        isRepairable = true;
-                        return false;
-                    }
+                     ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
-                    ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
-                    if (sw != null)
-                    {
-                        if (sw.UseAttachedMesh != null)
-                        {
-                            Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
+                     if (r != null)
+                     {
+                         overRepairable = r;
+                         isRepairable = true;
+                         break;
+                     }
 
-                            if (sph.RayIntersection(ray))
-                            {
-                                overSwitch = sw;
-                                isSwitch = true;
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            overSwitch = sw;
-                            isSwitch = true;
-                            return false;
-                        }
-                    }
+                     ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
+                     if (sw != null)
+                     {
+                         if (sw.UseAttachedMesh != null)
+                         {
+                             Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
 
-                    ProjectEntities.ServerRack se = obj as ProjectEntities.ServerRack;
+                             if (sph.RayIntersection(ray))
+                             {
+                                 overSwitch = sw;
+                                 isSwitch = true;
+                                 break;
+                             }
+                         }
+                         else
+                         {
+                             overSwitch = sw;
+                             isSwitch = true;
+                             break;
+                         }
+                     }
 
-                    if (se != null)
-                    {
-                        overServerRack = se;
-                        isServerRack = true;
-                        return false;
-                    }
+                     ProjectEntities.ServerRack se = obj as ProjectEntities.ServerRack;
 
-                    ProjectEntities.Item i = obj as ProjectEntities.Item;
+                     if (se != null)
+                     {
+                         overServerRack = se;
+                         isServerRack = true;
+                         break;
+                     }
 
-                    if (i != null)
-                    {
-                        overItem = i;
-                        isItem = true;
-                        return false;
-                    }
+                     ProjectEntities.Item i = obj as ProjectEntities.Item;
 
-                    ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
-                    if (t != null)
-                    {
-                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
+                     if (i != null)
+                     {
+                         overItem = i;
+                         isItem = true;
+                         break;
+                     }
 
-                        if (sph.RayIntersection(ray))
-                        {
-                            overTerminal = t;
-                            isTerminal = true;
-                            return false;
-                        }
-                    }
+                     ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
+                     if (t != null)
+                     {
+                         Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
 
-                    ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+                         if (sph.RayIntersection(ray))
+                         {
+                             overTerminal = t;
+                             isTerminal = true;
+                             break;
+                         }
+                     }
 
-                    if (c != null)
-                    {
-                        overCabinet = c;
-                        isMedicCabinet = true;
-                        return false;
-                    }
+                     ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
 
-                    return false;
+                     if (c != null)
+                     {
+                         overCabinet = c;
+                         isMedicCabinet = true;
+                         break;
+                     }
+
                  }
-                     return false;
              }
-            );
+                     
+             
+
 
             //currentRepairable
             if(isRepairable)
