@@ -137,6 +137,7 @@ namespace Game
                     lastSelectedSector = selectedSector.Name;
 
                     ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
+                    TuioInputDevice.detectgestures(true);
                 }
             });
         }
@@ -196,6 +197,12 @@ namespace Game
             }
         }
 
+        public void workbench_gestures(opType evnt) {
+            if (evnt == opType.iuhr) {
+                rotateLeftButton_Click(window.Controls["RotateRight"]);
+            }
+        
+        }
         bool isinarea(Button button, Vec2 pos)
         {
 

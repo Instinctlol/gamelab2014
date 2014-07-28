@@ -252,12 +252,17 @@ namespace Game
             {
                 Console.WriteLine(test.getOPType());
                 // HIER Desoxyribonukleinsaeure
-                if (test.getOPType() == opType.translation) {
+                if (test.getOPType() == opType.translation)
+                {
+                    #region translate
                     Console.WriteLine("Trying to Translate");
                     todoTranslate.X += test.getx()*-10;
                     todoTranslate.Y += test.gety()*10;
+                    #endregion
                 }
-                else if(test.getOPType() == opType.selection){
+                else if(test.getOPType() == opType.selection)
+                {
+                    #region selection
                     Vec2 select = new Vec2(test.getx(),test.gety());
                     selectworkbenchcoord = select;
                     if (select.X == 0f && select.Y == 0f)
@@ -288,41 +293,58 @@ namespace Game
 
                         Console.WriteLine("Selection @ " + test.getx() + " | " + test.gety());
                     }
+                    #endregion
                 }
-                else if (test.getOPType() == opType.rotation) {
+                else if (test.getOPType() == opType.rotation)
+                {
+                    #region rotation
                     todoRotate = 0;
                     float angle = test.getx() - test.gety();
                     if (angle > 0) todoRotate += 1;
                     if (angle < 0) todoRotate -= 1;
-                    Console.WriteLine("Trying to Rotate " + angle);           
+                    Console.WriteLine("Trying to Rotate " + angle);
+                    #endregion
                 }
-                else if (true && test.getOPType() == opType.click) {
+                else if (test.getOPType() == opType.click)
+                {
+                    #region click
+                    #region Mousepos
                     Console.WriteLine("tuioclick");
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
                     Button b;
                     EngineApp.Instance.MousePosition = MousePos;
+                    #endregion
                     if (Controls.OfType<MenuWindow>().Count() == 1)
                     {
+                        #region Menue
                         Controls.OfType<MenuWindow>().First().workbench_Click(MousePos);
+                        #endregion
                     }
                     else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
+                        #region button
                         Console.WriteLine("inbuttonarea");
                         hudFunctions("Menu");
+                        #endregion
                     }
                     else if (hudControl.Controls["BigMinimap"].Visible)
                     {
+                        #region bigminimap
                         bigMinimapObj.workbench_Click(MousePos);
+                        #endregion
                     }
                     else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
+                        #region openminimap
                         Console.WriteLine("tuio minimap click open");
                         DoOpenMinimap();
+                        #endregion
                     }
                     else if (numPad.Visible && numPad.GetScreenRectangle().IsContainsPoint(MousePos))
                     {
+                        #region numpad
                         // Alle Buttons des NumPads durchiterieren
                         foreach (Control c in numPad.Controls)
                         {
@@ -339,9 +361,11 @@ namespace Game
                                 }
                             }
                         }
+                        #endregion
                     }
                     else if (hudControl.Controls["ControlPanelControl"].Visible && hudControl.Controls["ControlPanelControl"].GetScreenRectangle().IsContainsPoint(MousePos))
                     {
+                        #region controlbuttons
                         // Alle Buttons für Alien/Spawner durchiterieren
                         foreach (Control c in hudControl.Controls["ControlPanelControl"].Controls)
                         {
@@ -351,9 +375,11 @@ namespace Game
                                 ControlPanelButton_Click(b);
                             }
                         }
+                        #endregion
                     }
-                    else if(hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePos)){
-                    
+                    else if(hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    {
+                        #region ActiveAreaClick
                         bool pickingSuccess = false;
                         Vec3 mouseMapPos = Vec3.Zero;
                         Unit mouseOnObject = null;
@@ -380,15 +406,18 @@ namespace Game
                                 DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
                             }
                         }
+                        #endregion
                     }
 
                     //hudControl.Controls["ControlPanelControl"].Visible
                     //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
-                    
-
                     //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
-
+                    #endregion
+                }
+                else if (test.getOPType() == opType.iuhr)
+                {
+                    bigMinimapObj.workbench_gestures(test.getOPType());
                 }
             }
             return false;

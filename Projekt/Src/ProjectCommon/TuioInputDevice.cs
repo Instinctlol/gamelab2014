@@ -480,12 +480,13 @@ namespace ProjectCommon
                         tuioInputData.Clear();
                         detectgestures(false);
                         
-                } else if(startb && endb&& end[2]-start[2]>5000){
-                //abbruch nach 5 sekunden
-                    Console.WriteLine("no Gesture");
-                    tuioInputData.Clear();
-                    detectgestures(false);
-                }
+                } 
+                //else if(startb && endb&& end[2]-start[2]>5000){
+                ////abbruch nach 5 sekunden
+                //    Console.WriteLine("no Gesture");
+                //    tuioInputData.Clear();
+                //    detectgestures(false);
+                //}
             }
 
 
