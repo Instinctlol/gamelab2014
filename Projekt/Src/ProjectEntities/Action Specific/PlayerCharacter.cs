@@ -165,8 +165,7 @@ namespace ProjectEntities
                 flashLightRotation = value;
 
                 if (EntitySystemWorld.Instance.IsServer())                    
-                    Server_SendFlashLightRotation(flashLightRotation);           
-            
+                    Server_SendFlashLightRotation(flashLightRotation);                           
             }
         }
 
@@ -694,7 +693,9 @@ namespace ProjectEntities
                             if (fpsCamera)
                             {
                                 Quat newRot = Rotation.GetInverse() * camera.Rotation;
-                                Client_SendFlashLightRotation(new Quat(0, newRot.Y, 0, newRot.W));
+                                PlayerIntellect i = Intellect as PlayerIntellect;
+                                if(i != null)
+                                    Client_SendFlashLightRotation(new Quat(0, -(float)Math.Sin(i.LookDirection.Vertical / 2), 0, (float)Math.Cos(i.LookDirection.Vertical / 2)));
                             }
 
                             flashLightRotation.Normalize();
