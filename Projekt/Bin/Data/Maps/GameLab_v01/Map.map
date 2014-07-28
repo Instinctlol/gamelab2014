@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 40.05277 52.38928 116.2117
-editorCameraDirection = 5.44839 -1.552984
+editorCameraPosition = 69.38011 96.80862 3.01001
+editorCameraDirection = 5.807855 -0.2107963
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -6668,4 +6668,13 @@ entity
 	rotation = 0 0 -0.9999741 0.007215822
 	name = DoppelWandOhneBodenFinal_103
 	editorLayer = "Root Layer\\F3\\Waende"
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 663
+	classPrompt = StaticObject
+	position = 76.5737 90.99494 0
+	rotation = 0 0 0.3713385 0.9284976
+	name = DoppelwandAbschluss_0
 }
