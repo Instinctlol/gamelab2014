@@ -1693,9 +1693,18 @@ namespace Game
 
         void adjustCamera(ref Camera camera, float x, float y, float z, float displayWidth, float displayHeight)
         {
+            // Strahlensatz verwenden, um den Ausschnitt des Bildes festzusetzen
+            // Aktuell liegt der auf dem MultiTouchTisch
             #region Aspect Ratio and Vertical Field of View
-            float aspect = displayWidth / displayHeight;
-            float c = (float)Math.Sqrt(z * z + (displayHeight / 2.0f) * (displayHeight / 2.0f));
+            float mapWidth = ((displayWidth / 2.0f) / z * (z + cameraDistance)) * 2.0f;
+            float mapHeight = ((displayHeight / 2.0f) / z * (z + cameraDistance)) * 2.0f;
+
+            Console.WriteLine("Mapbreite: " + mapWidth + ", Maphoehe: " + mapHeight);
+
+            //float aspect = displayWidth / displayHeight;
+            float aspect = mapWidth / mapHeight;
+            //float c = (float)Math.Sqrt(z * z + (displayHeight / 2.0f) * (displayHeight / 2.0f));
+            float c = (float)Math.Sqrt(z * z + (mapHeight / 2.0f) * (mapHeight / 2.0f));
             float alpha = (float)Math.Acos(z / c);
             float fovy = new Degree(new Radian(2.0f * alpha));
             #endregion
