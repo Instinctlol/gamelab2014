@@ -1725,16 +1725,16 @@ namespace Game
             // Strahlensatz verwenden, um den Ausschnitt des Bildes festzusetzen
             // Aktuell liegt der auf dem MultiTouchTisch
             #region Aspect Ratio and Vertical Field of View
-            float mapWidth = ((displayWidth / 2.0f) / z * (z + cameraDistance)) * 2.0f;
-            float mapHeight = ((displayHeight / 2.0f) / z * (z + cameraDistance)) * 2.0f;
+            float mapWidth = displayWidth / z * (z + cameraDistance);
+            float mapHeight = displayHeight / z * (z + cameraDistance);
 
             Console.WriteLine("Mapbreite: " + mapWidth + ", Maphoehe: " + mapHeight);
 
             //float aspect = displayWidth / displayHeight;
             float aspect = mapWidth / mapHeight;
             //float c = (float)Math.Sqrt(z * z + (displayHeight / 2.0f) * (displayHeight / 2.0f));
-            float c = (float)Math.Sqrt(z * z + (mapHeight / 2.0f) * (mapHeight / 2.0f));
-            float alpha = (float)Math.Acos(z / c);
+            float c = (float)Math.Sqrt((z + cameraDistance) * (z + cameraDistance) + (mapHeight / 2.0f) * (mapHeight / 2.0f));
+            float alpha = (float)Math.Acos((z + cameraDistance) / c);
             float fovy = new Degree(new Radian(2.0f * alpha));
             #endregion
 
@@ -1742,11 +1742,16 @@ namespace Game
             Vec2 frustumOffset = new Vec2();
 
             float nearPlane = camera.NearClipDistance;
-            float nearDistanceRatio = nearPlane / z;
+            //float nearDistanceRatio = nearPlane / z;
+            float nearDistanceRatio = nearPlane / (z + cameraDistance);
             // vielleicht hier noch: camera.NearClipDistance = nearDistanceRatio;
 
-            frustumOffset.X = x / z;
-            frustumOffset.Y = y / z;
+            //frustumOffset.X = x / z;
+            //frustumOffset.Y = y / z;
+
+
+            frustumOffset.X = x / (z + cameraDistance);
+            frustumOffset.Y = y / (z + cameraDistance);
             #endregion
 
             #region Application to Camera
@@ -1762,7 +1767,7 @@ namespace Game
             if(output){
                 if (Math.Sqrt(x * x + y * y + z * z) <= 2.5 && z >= 0)
                 {
-                    headtrackingOffset = new Vec3((float)Math.Round(x, 3) / 5f, (float)Math.Round(y, 3) / 5f, (float)Math.Round(z, 3));
+                    headtrackingOffset = new Vec3((float)Math.Round(x, 3), (float)Math.Round(y, 3), (float)Math.Round(z, 3));
                 }
             }
         }
