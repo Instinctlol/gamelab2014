@@ -1,0 +1,13 @@
+type BettOne
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\bettOne.mesh"
+			collision = True
+		}
+	}
+}

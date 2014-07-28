@@ -1,0 +1,9 @@
+highLevelMaterial Matratze
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.4704 0.4704 0.4704
+	diffuse1Map
+	{
+		texture = ".\\Gotham_Objects_Mattress_D.tga"
+	}
+}

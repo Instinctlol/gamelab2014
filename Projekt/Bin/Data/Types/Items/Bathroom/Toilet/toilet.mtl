@@ -1,0 +1,13 @@
+# Blender MTL File: 'toilet.blend'
+# Material Count: 1
+
+newmtl FIT_Toilet_Toilet_MAT
+Ns 7.843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd FIT_Toilet_Toilet_D.tga
+map_Ka FIT_Toilet_Toilet_D.tga

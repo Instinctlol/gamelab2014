@@ -1,0 +1,13 @@
+type toilet
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\toilet.mesh"
+			collision = True
+		}
+	}
+}

@@ -1,0 +1,9 @@
+highLevelMaterial FIT_Toilet_Toilet_MAT
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.4704 0.4704 0.4704
+	diffuse1Map
+	{
+		texture = ".\\FIT_Toilet_Toilet_D.tga"
+	}
+}

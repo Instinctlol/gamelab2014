@@ -1,0 +1,9 @@
+highLevelMaterial bettOne
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.4704 0.4704 0.4704
+	diffuse1Map
+	{
+		texture = ".\\Gotham_Fences_3BarGate_D.tga"
+	}
+}
