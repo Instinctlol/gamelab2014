@@ -17,13 +17,14 @@ type Alien
 		mapObject
 		{
 			type = Shotgun2
-			position = 0.5680642 0 1.009582
+			position = 0.5680642 0.0368256 0.7932961
 		}
 		mesh
 		{
 			meshName = ".\\Alien.mesh"
 			collisionSpecialMeshName = ".\\Alien.mesh"
 			animationTree = ".\\Alien.animationTree"
+			position = 0 0 -0.3223426
 			rotation = 0 0 -0.7071068 -0.7071068
 		}
 		sound
