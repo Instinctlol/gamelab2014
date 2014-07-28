@@ -264,7 +264,6 @@ namespace Game
                 {
                     #region selection
                     Vec2 select = new Vec2(test.getx(),test.gety());
-                    selectworkbenchcoord = select;
                     if (select.X == 0f && select.Y == 0f)
                     {
                         if(selectworkbench){
@@ -274,6 +273,8 @@ namespace Game
                         }
                     }
                     else {
+
+                        selectworkbenchcoord = select;
                         if (!selectworkbench)
                         {
                             selectworkbench = true;
