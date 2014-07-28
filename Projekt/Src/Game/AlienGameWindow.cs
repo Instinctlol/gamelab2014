@@ -415,7 +415,7 @@ namespace Game
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
                     #endregion
                 }
-                else if (test.getOPType() == opType.iuhr)
+                else if (test.getOPType() == opType.iuhr || test.getOPType() == opType.guhr || test.getOPType() == opType.blitz)
                 {
                     bigMinimapObj.workbench_gestures(test.getOPType());
                 }

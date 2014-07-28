@@ -185,7 +185,7 @@ namespace Game
             }
             else if (isinarea((Button)window.Controls["RotateRight"], mousepos))
             {
-                rotateLeftButton_Click(window.Controls["RotateRight"]);
+                rotateRightButton_Click(window.Controls["RotateRight"]);
             }
             else if (isinarea((Button)window.Controls["Power"], mousepos))
             {
@@ -199,9 +199,17 @@ namespace Game
 
         public void workbench_gestures(opType evnt) {
             if (evnt == opType.iuhr) {
-                rotateLeftButton_Click(window.Controls["RotateRight"]);
+                rotateRightButton_Click(window.Controls["RotateRight"]);
             }
-        
+
+            if (evnt == opType.guhr)
+            {
+                rotateLeftButton_Click(window.Controls["RotateLeft"]);
+            }
+            if (evnt == opType.blitz)
+            {
+                powerButton_Click(window.Controls["Power"]); 
+            }
         }
         bool isinarea(Button button, Vec2 pos)
         {
