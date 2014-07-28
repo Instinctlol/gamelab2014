@@ -60,6 +60,9 @@ namespace ProjectEntities
         // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
         static int maxItemDropGroupNr = 2;
 
+        // Statistik
+        static Statistic statistic = new Statistic();
+
 
 
         /*******************/
@@ -111,6 +114,11 @@ namespace ProjectEntities
         public static int MaxItemDropGroupNr
         {
             get { return Computer.maxItemDropGroupNr; }
+        }
+
+        public static Statistic Statistic
+        {
+            get { return statistic; }
         }
 
 
@@ -233,6 +241,7 @@ namespace ProjectEntities
         private static void IncrementUsedAliens()
         {
             usedAliens++;
+            statistic.IncrementSpawnedAliens();
         }
         /// <summary>
         /// Aktive Aliens um Eins erniedrigen
@@ -242,6 +251,7 @@ namespace ProjectEntities
             if (usedAliens > 0)
             {
                 usedAliens--;
+                statistic.IncrementKilledAliens();
             }
         }
 
@@ -506,6 +516,16 @@ namespace ProjectEntities
         {
             Corpse corpse = corpseList.Dequeue();
             corpse.Die();
+        }
+        
+        public static void AddDamageAstronouts(float damage)
+        {
+            statistic.AddDamageAstronouts(damage);
+        }
+
+        public static void IncrementKilledAstronouts()
+        {
+            statistic.IncrementKilledAstronouts();
         }
     }
 }

@@ -164,6 +164,7 @@
     <Compile Include="SmartButtonRotateWindow.cs" />
     <Compile Include="SmartButtonSingleSwitchWindow.cs" />
     <Compile Include="StaticObject.cs" />
+    <Compile Include="Statistic.cs" />
     <Compile Include="TaskIOManager.cs" />
     <Compile Include="ColorSequenceTaskWindow.cs" />
     <Compile Include="DefaultSmartButtonWindow.cs" />
