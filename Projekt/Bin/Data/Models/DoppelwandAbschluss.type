@@ -1,6 +1,7 @@
 type DoppelwandAbschluss
 {
 	class = StaticObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
