@@ -477,10 +477,10 @@ namespace ProjectCommon
                         }
                         InputDeviceManager.Instance.SendEvent(customEvent);
                         Console.WriteLine(list.Name);
-                        tuioInputData.Clear();
-                        detectgestures(false);
-                        
-                } 
+
+                }
+                tuioInputData.Clear();
+                detectgestures(false);
                 //else if(startb && endb&& end[2]-start[2]>5000){
                 ////abbruch nach 5 sekunden
                 //    Console.WriteLine("no Gesture");
