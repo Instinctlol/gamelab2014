@@ -726,6 +726,8 @@ namespace Game
             Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
             ray.Direction = ray.Direction.GetNormalize() * maxDistance;
 
+            Sphere sphere = new Sphere(ray.GetPointOnRay(maxDistance), 0.5f);
+
             //currentAttachedGuiObject
             {
                 MapObjectAttachedGui attachedGuiObject = null;
@@ -784,7 +786,7 @@ namespace Game
              ProjectEntities.MedicCabinet overCabinet = null;
              ProjectEntities.Switch overSwitch = null;
 
-             Map.Instance.GetObjects(ray, delegate(MapObject obj, float scale)
+             Map.Instance.GetObjects(spehere, delegate(MapObject obj, float scale)
              {
                 ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
