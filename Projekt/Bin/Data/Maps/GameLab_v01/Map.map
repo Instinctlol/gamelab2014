@@ -267,7 +267,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 12
-			subscriptionsToDeletionEvent = 219 225 244 313 505 513 518
+			subscriptionsToDeletionEvent = 205 211 230 299 490 498 503
 			entityClassName = Terminal
 			className = Terminal_Door1
 			customScriptCodeCreated = False
@@ -296,7 +296,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 15
-			subscriptionsToDeletionEvent = 314
+			subscriptionsToDeletionEvent = 300
 			entityClassName = Terminal
 			className = Terminal_Rotate_F3
 			customScriptCodeCreated = False
@@ -325,7 +325,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 18
-			subscriptionsToDeletionEvent = 317
+			subscriptionsToDeletionEvent = 303
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator
 			customScriptCodeCreated = False
@@ -344,7 +344,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 20
-			subscriptionsToDeletionEvent = 520
+			subscriptionsToDeletionEvent = 505
 			entityClassName = Repairable
 			className = SicherungskastenRepairable_0
 			customScriptCodeCreated = False
@@ -363,7 +363,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 22
-			subscriptionsToDeletionEvent = 523
+			subscriptionsToDeletionEvent = 508
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch2_InnerRing
 			customScriptCodeCreated = False
@@ -382,7 +382,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 24
-			subscriptionsToDeletionEvent = 522
+			subscriptionsToDeletionEvent = 507
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch3_InnerRing
 			customScriptCodeCreated = False
@@ -401,7 +401,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 26
-			subscriptionsToDeletionEvent = 521
+			subscriptionsToDeletionEvent = 506
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch1_InnerRing
 			customScriptCodeCreated = False
@@ -420,7 +420,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 28
-			subscriptionsToDeletionEvent = 528
+			subscriptionsToDeletionEvent = 513
 			entityClassName = Repairable
 			className = BrokenTerminal_0
 			customScriptCodeCreated = False
@@ -439,7 +439,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 30
-			subscriptionsToDeletionEvent = 526
+			subscriptionsToDeletionEvent = 511
 			entityClassName = Repairable
 			className = "Tr\x00fcmmer"
 			customScriptCodeCreated = False
@@ -458,7 +458,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 32
-			subscriptionsToDeletionEvent = 527
+			subscriptionsToDeletionEvent = 512
 			entityClassName = Repairable
 			className = CardReader_0
 			customScriptCodeCreated = False
@@ -1428,7 +1428,7 @@ entity
 	type = GridBasedNavigationSystem
 	uin = 102
 	classPrompt = GridBasedNavigationSystem
-	gridBounds = -140 -140 140 140
+	gridBounds = -140 -140 512 140
 	gridCellSize = 0.7
 	agentHeight = 2
 	agentMaxSlope = 30
@@ -2059,7 +2059,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 154
+	uin = 152
 	classPrompt = StaticObject
 	position = -99.80917 10.9988 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2069,7 +2069,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 155
+	uin = 153
 	classPrompt = StaticObject
 	position = -86.50467 4.202077 -0.006078199
 	rotation = 0.0003377298 -0.0003807478 -0.7069719 0.7072415
@@ -2079,7 +2079,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 157
+	uin = 154
 	classPrompt = StaticObject
 	position = -65.43335 -7.138415 -0.001534464
 	rotation = -8.836739E-05 9.400142E-05 -0.7062857 0.7079271
@@ -2089,7 +2089,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 158
+	uin = 155
 	classPrompt = StaticObject
 	position = -50.46114 -7.291977 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2099,7 +2099,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 159
+	uin = 156
 	classPrompt = StaticObject
 	position = -45.12346 -11.94425 0
 	rotation = 0 0 -0.9998785 -0.01559926
@@ -2109,7 +2109,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 160
+	uin = 157
 	classPrompt = StaticObject
 	position = 65.55367 -5.620771 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2119,7 +2119,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 161
+	uin = 158
 	classPrompt = StaticObject
 	position = -35.06163 11.08505 0
 	rotation = 0 0 -0.01581357 0.9998751
@@ -2129,7 +2129,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 162
+	uin = 159
 	classPrompt = StaticObject
 	position = -29.72594 6.430483 0
 	rotation = 0 0 0.6986028 0.7155098
@@ -2139,7 +2139,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 163
+	uin = 160
 	classPrompt = StaticObject
 	position = 86.5907 8.234824 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2149,7 +2149,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 164
+	uin = 161
 	classPrompt = StaticObject
 	position = 121.3284 12.03355 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2159,7 +2159,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 165
+	uin = 162
 	classPrompt = StaticObject
 	position = 100.5281 -13.71832 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2169,7 +2169,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 166
+	uin = 163
 	classPrompt = StaticObject
 	position = 116.2988 7.622689 0
 	rotation = -0.005936021 0.00122507 -0.001338071 0.9999808
@@ -2179,7 +2179,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 167
+	uin = 164
 	classPrompt = StaticObject
 	position = 107.083 -7.371398 0
 	rotation = 0 0 -0.001066481 0.9999995
@@ -2189,7 +2189,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 168
+	uin = 165
 	classPrompt = StaticObject
 	position = -5.356504 -64.94912 0
 	name = DoppelWandOhneBodenFinal_48
@@ -2198,7 +2198,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 169
+	uin = 166
 	classPrompt = StaticObject
 	position = 7.011282 -86.50246 0
 	name = DoppelWandOhneBodenFinal_51
@@ -2207,7 +2207,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 170
+	uin = 167
 	classPrompt = StaticObject
 	position = 7.276335 -29.79623 0
 	name = DoppelWandOhneBodenFinal_52
@@ -2216,7 +2216,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 171
+	uin = 168
 	classPrompt = StaticObject
 	position = 7.276335 -41.05601 0
 	name = DoppelWandOhneBodenFinal_53
@@ -2225,7 +2225,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 172
+	uin = 169
 	classPrompt = StaticObject
 	position = -5.098894 -40.19081 0
 	name = DoppelWandOhneBodenFinal_54
@@ -2234,7 +2234,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 173
+	uin = 170
 	classPrompt = StaticObject
 	position = -5.098894 -51.4506 0
 	name = DoppelWandOhneBodenFinal_55
@@ -2243,7 +2243,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 174
+	uin = 171
 	classPrompt = StaticObject
 	position = -4.939385 41.67094 0
 	name = DoppelWandOhneBodenFinal_56
@@ -2252,7 +2252,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 175
+	uin = 172
 	classPrompt = StaticObject
 	position = -4.939385 30.41116 0
 	name = DoppelWandOhneBodenFinal_57
@@ -2261,7 +2261,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 176
+	uin = 173
 	classPrompt = StaticObject
 	position = 7.875213 51.40403 0
 	name = DoppelWandOhneBodenFinal_58
@@ -2270,7 +2270,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 177
+	uin = 174
 	classPrompt = StaticObject
 	position = 7.875213 40.14425 0
 	name = DoppelWandOhneBodenFinal_59
@@ -2279,7 +2279,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 179
+	uin = 175
 	classPrompt = StaticObject
 	position = 7.202284 65.63828 0
 	name = DoppelWandOhneBodenFinal_61
@@ -2288,7 +2288,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 180
+	uin = 176
 	classPrompt = StaticObject
 	position = -5.468502 86.69763 0
 	name = DoppelWandOhneBodenFinal_62
@@ -2297,7 +2297,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 183
+	uin = 177
 	classPrompt = StaticObject
 	position = -12.47377 99.74412 0
 	name = DoppelWandOhneBodenFinal_65
@@ -2306,7 +2306,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 186
+	uin = 178
 	classPrompt = StaticObject
 	position = -77.55889 -61.83807 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -2316,7 +2316,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 187
+	uin = 179
 	classPrompt = StaticObject
 	position = -85.66786 -69.76234 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -2326,7 +2326,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 188
+	uin = 180
 	classPrompt = StaticObject
 	position = -62.77613 96.788 0
 	rotation = 0 0 0.7889353 0.6144763
@@ -2336,7 +2336,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 190
+	uin = 181
 	classPrompt = StaticObject
 	position = -93.92104 64.07745 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2346,7 +2346,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 191
+	uin = 182
 	classPrompt = StaticObject
 	position = -85.53457 72.36806 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2356,7 +2356,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 193
+	uin = 183
 	classPrompt = StaticObject
 	position = -51.23117 52.51439 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2366,7 +2366,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 196
+	uin = 184
 	classPrompt = StaticObject
 	position = 49.42305 -41.44562 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2376,7 +2376,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 197
+	uin = 185
 	classPrompt = StaticObject
 	position = 56.84018 -64.00275 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2386,7 +2386,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 198
+	uin = 186
 	classPrompt = StaticObject
 	position = 95.74908 -76.29358 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2396,7 +2396,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 199
+	uin = 187
 	classPrompt = StaticObject
 	position = 72.31583 -69.99042 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2406,7 +2406,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 200
+	uin = 188
 	classPrompt = StaticObject
 	position = 79.26353 -93.3661 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2416,7 +2416,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 201
+	uin = 189
 	classPrompt = StaticObject
 	position = 94.63821 63.51005 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2426,7 +2426,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 202
+	uin = 190
 	classPrompt = StaticObject
 	position = 86.4886 72.05996 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2436,7 +2436,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 203
+	uin = 191
 	classPrompt = StaticObject
 	position = 78.41779 80.716 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2446,7 +2446,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 204
+	uin = 192
 	classPrompt = StaticObject
 	position = 40.46668 49.60872 0
 	rotation = 0 0 -0.3902213 0.9207211
@@ -2456,7 +2456,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 206
+	uin = 193
 	classPrompt = StaticObject
 	position = 65.12805 54.6503 0
 	rotation = 0 0 -0.3902213 0.9207211
@@ -2466,7 +2466,7 @@ entity
 entity
 {
 	type = Defkit
-	uin = 208
+	uin = 194
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2478,7 +2478,7 @@ entity
 entity
 {
 	type = Defkit
-	uin = 209
+	uin = 195
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2490,7 +2490,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 210
+	uin = 196
 	classPrompt = StaticObject
 	position = 49.57011 76.25195 0.3331405
 	name = Leiche1_0
@@ -2499,7 +2499,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 211
+	uin = 197
 	classPrompt = StaticObject
 	position = 22.06517 97.03685 2.051654
 	rotation = 0 0 -1 8.282065E-05
@@ -2509,7 +2509,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 212
+	uin = 198
 	classPrompt = StaticObject
 	position = 28.90552 56.7198 0.3
 	rotation = 0 0 0.4080378 0.9129651
@@ -2519,7 +2519,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 213
+	uin = 199
 	classPrompt = StaticObject
 	position = 9.107282 102.2958 0.3018224
 	name = leiche2_1
@@ -2528,7 +2528,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 214
+	uin = 200
 	classPrompt = StaticObject
 	position = 47.91633 76.57713 0.3
 	rotation = 0 0 0.3010026 0.9536233
@@ -2538,7 +2538,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 215
+	uin = 201
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -2557,7 +2557,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 216
+	uin = 202
 	classPrompt = StaticObject
 	position = -25.69764 106.5927 0.2752736
 	name = Leiche1_1
@@ -2566,7 +2566,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 217
+	uin = 203
 	classPrompt = StaticObject
 	position = -21.19793 123.3753 0.3732204
 	name = Armchair2_0
@@ -2575,7 +2575,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 218
+	uin = 204
 	classPrompt = StaticObject
 	position = -21.23907 125.175 1.657189
 	rotation = 0 0 -1 -4.371139E-08
@@ -2585,7 +2585,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 219
+	uin = 205
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2606,7 +2606,7 @@ entity
 entity
 {
 	type = TaschenlampeItem
-	uin = 220
+	uin = 206
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2618,7 +2618,7 @@ entity
 entity
 {
 	type = TaschenlampeItem
-	uin = 221
+	uin = 207
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2630,7 +2630,7 @@ entity
 entity
 {
 	type = AccessCard
-	uin = 222
+	uin = 208
 	classPrompt = Item
 	respawnTime = 10
 	value = False
@@ -2642,7 +2642,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 223
+	uin = 209
 	classPrompt = StaticObject
 	position = -101.7571 74.08173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -2652,7 +2652,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 224
+	uin = 210
 	classPrompt = StaticObject
 	position = -104.019 70.35163 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -2662,7 +2662,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 225
+	uin = 211
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2683,7 +2683,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 226
+	uin = 212
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -2702,7 +2702,7 @@ entity
 entity
 {
 	type = GlockItem
-	uin = 227
+	uin = 213
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -2713,7 +2713,7 @@ entity
 entity
 {
 	type = GlockItem
-	uin = 228
+	uin = 214
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -2724,7 +2724,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 229
+	uin = 215
 	classPrompt = StaticObject
 	position = -47.47464 54.90307 0.2913703
 	name = Leiche1_2
@@ -2733,7 +2733,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 230
+	uin = 216
 	classPrompt = StaticObject
 	position = -43.52556 43.52837 0.358241
 	name = Leiche1_3
@@ -2742,7 +2742,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 231
+	uin = 217
 	classPrompt = StaticObject
 	position = -30.13218 57.09611 0.2666531
 	rotation = 0 0 -0.9236579 0.3832182
@@ -2753,7 +2753,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 232
+	uin = 218
 	classPrompt = StaticObject
 	position = -46.06426 38.96661 2.052581
 	rotation = 0.005636828 0.007852182 -0.9193969 0.3932127
@@ -2763,7 +2763,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 233
+	uin = 219
 	classPrompt = StaticObject
 	position = 3.415375 61.98573 0.302501
 	rotation = 0 0 0.929499 0.3688246
@@ -2773,7 +2773,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 234
+	uin = 220
 	classPrompt = StaticObject
 	position = 2.081081 62.48299 0.2952328
 	rotation = 0 0 0.2120357 0.977262
@@ -2783,7 +2783,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 235
+	uin = 221
 	classPrompt = StaticObject
 	position = 2.999186 63.39927 0.1960419
 	rotation = 0 0 0.2212556 0.9752158
@@ -2793,7 +2793,7 @@ entity
 entity
 {
 	type = battery
-	uin = 236
+	uin = 222
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2804,7 +2804,7 @@ entity
 entity
 {
 	type = battery
-	uin = 237
+	uin = 223
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2815,7 +2815,7 @@ entity
 entity
 {
 	type = battery
-	uin = 238
+	uin = 224
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2826,7 +2826,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 239
+	uin = 225
 	classPrompt = StaticObject
 	position = 17.40244 61.94762 0.2551948
 	name = BunkBed_3
@@ -2835,7 +2835,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 240
+	uin = 226
 	classPrompt = StaticObject
 	position = 10.52904 62.05655 0.2511447
 	name = BunkBed_4
@@ -2844,7 +2844,7 @@ entity
 entity
 {
 	type = sicherung
-	uin = 241
+	uin = 227
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -2855,7 +2855,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 242
+	uin = 228
 	classPrompt = Item
 	respawnTime = 10
 	value = False
@@ -2866,7 +2866,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 243
+	uin = 229
 	classPrompt = HealthItem
 	respawnTime = 10
 	value = False
@@ -2877,7 +2877,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 244
+	uin = 230
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2895,14 +2895,14 @@ entity
 	{
 		item
 		{
-			repairable = 527
+			repairable = 512
 		}
 	}
 }
 entity
 {
 	type = Terminal
-	uin = 245
+	uin = 231
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -2920,7 +2920,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 246
+	uin = 232
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -2932,7 +2932,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 247
+	uin = 233
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -2944,7 +2944,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 248
+	uin = 234
 	classPrompt = StaticObject
 	position = -11.37311 27.47523 0
 	rotation = 0 0 0.2212556 0.9752158
@@ -2954,7 +2954,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 249
+	uin = 235
 	classPrompt = StaticObject
 	position = 89.55993 86.5727 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2964,7 +2964,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 250
+	uin = 236
 	classPrompt = StaticObject
 	position = 86.62569 89.27711 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2974,7 +2974,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 251
+	uin = 237
 	classPrompt = StaticObject
 	position = 81.1179 94.92849 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2984,7 +2984,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 252
+	uin = 238
 	classPrompt = StaticObject
 	position = 84.05213 92.22408 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2994,7 +2994,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 253
+	uin = 239
 	classPrompt = StaticObject
 	position = 75.55471 100.615 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3004,7 +3004,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 254
+	uin = 240
 	classPrompt = StaticObject
 	position = 78.48895 97.91062 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3014,7 +3014,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 255
+	uin = 241
 	classPrompt = StaticObject
 	position = 95.42476 81.12565 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3024,7 +3024,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 256
+	uin = 242
 	classPrompt = StaticObject
 	position = 92.49052 83.83006 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3034,7 +3034,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 257
+	uin = 243
 	classPrompt = StaticObject
 	position = 83.07414 69.78667 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3044,7 +3044,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 258
+	uin = 244
 	classPrompt = StaticObject
 	position = 80.13991 72.49107 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3054,7 +3054,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 259
+	uin = 245
 	classPrompt = StaticObject
 	position = 77.20931 75.23372 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3064,7 +3064,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 260
+	uin = 246
 	classPrompt = StaticObject
 	position = 74.27508 77.93813 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3074,7 +3074,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 261
+	uin = 247
 	classPrompt = StaticObject
 	position = 71.70152 80.8851 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3084,7 +3084,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 262
+	uin = 248
 	classPrompt = StaticObject
 	position = 68.76728 83.58951 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3094,7 +3094,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 263
+	uin = 249
 	classPrompt = StaticObject
 	position = 66.13833 86.57164 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3104,7 +3104,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 264
+	uin = 250
 	classPrompt = StaticObject
 	position = 75.4038 61.92062 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3114,7 +3114,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 265
+	uin = 251
 	classPrompt = StaticObject
 	position = 72.46957 64.62503 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3124,7 +3124,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 266
+	uin = 252
 	classPrompt = StaticObject
 	position = 69.53897 67.36768 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3134,7 +3134,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 267
+	uin = 253
 	classPrompt = StaticObject
 	position = 66.60474 70.07208 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3144,7 +3144,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 268
+	uin = 254
 	classPrompt = StaticObject
 	position = 64.03117 73.01906 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3154,7 +3154,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 269
+	uin = 255
 	classPrompt = StaticObject
 	position = 61.09694 75.72346 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3164,7 +3164,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 270
+	uin = 256
 	classPrompt = StaticObject
 	position = 58.46799 78.7056 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3174,7 +3174,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 271
+	uin = 257
 	classPrompt = StaticMesh
 	position = 5.518668 125.9107 0
 	name = StaticMesh_sofa _0
@@ -3184,7 +3184,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 272
+	uin = 258
 	classPrompt = StaticMesh
 	position = 9.544312 122.4278 0
 	rotation = 0 0 -0.7195131 0.694479
@@ -3195,7 +3195,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 273
+	uin = 259
 	classPrompt = StaticObject
 	position = -101.8772 68.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -3205,7 +3205,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 274
+	uin = 260
 	classPrompt = StaticObject
 	position = -50.78985 -86.22603 0
 	rotation = 0 0 -0.9236579 0.3832182
@@ -3216,7 +3216,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 275
+	uin = 261
 	classPrompt = StaticObject
 	position = 38.6927 46.80204 0.3331405
 	name = Leiche1_4
@@ -3225,7 +3225,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 276
+	uin = 262
 	classPrompt = StaticObject
 	position = 95.5968 -79.23106 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3235,7 +3235,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 277
+	uin = 263
 	classPrompt = StaticObject
 	position = 94.37379 -80.55209 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3245,7 +3245,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 278
+	uin = 264
 	classPrompt = StaticObject
 	position = 95.58311 -78.9995 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3255,7 +3255,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 279
+	uin = 265
 	classPrompt = StaticObject
 	position = 92.92506 -85.93216 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3265,7 +3265,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 280
+	uin = 266
 	classPrompt = StaticObject
 	position = 91.59009 -84.72439 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3275,7 +3275,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 281
+	uin = 267
 	classPrompt = StaticObject
 	position = 93.15645 -85.91582 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3285,7 +3285,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 282
+	uin = 268
 	classPrompt = StaticObject
 	position = 70.97878 -103.8326 0.3
 	rotation = 0 0 -0.9210275 -0.3894977
@@ -3296,7 +3296,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 283
+	uin = 269
 	classPrompt = StaticMesh
 	position = -20.07283 50.50789 0.3
 	rotation = 0 0 -0.705533 0.7086771
@@ -3307,7 +3307,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 284
+	uin = 270
 	classPrompt = StaticObject
 	position = 7.747627 105.1677 0.3331405
 	name = Leiche1_5
@@ -3316,7 +3316,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 285
+	uin = 271
 	classPrompt = StaticObject
 	position = 6.715263 101.9306 0.3331405
 	rotation = 0 0 0.939854 -0.3415769
@@ -3326,7 +3326,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 286
+	uin = 272
 	classPrompt = StaticMesh
 	position = -101.4483 10.49983 0.2751936
 	name = Sofa_12
@@ -3336,7 +3336,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 287
+	uin = 273
 	classPrompt = StaticMesh
 	position = -95.47076 4.471558 0.2564104
 	rotation = 0 0 -0.7195131 0.694479
@@ -3347,7 +3347,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 288
+	uin = 274
 	classPrompt = StaticObject
 	position = -80.85766 -61.56083 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3357,7 +3357,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 289
+	uin = 275
 	classPrompt = StaticObject
 	position = -82.19263 -60.35305 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3367,7 +3367,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 290
+	uin = 276
 	classPrompt = StaticObject
 	position = -78.18592 -54.85972 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3377,7 +3377,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 291
+	uin = 277
 	classPrompt = StaticObject
 	position = -79.40894 -56.18075 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3387,7 +3387,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 292
+	uin = 278
 	classPrompt = StaticObject
 	position = -80.62627 -61.54448 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3397,7 +3397,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 293
+	uin = 279
 	classPrompt = StaticObject
 	position = -78.19962 -54.62816 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3407,7 +3407,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 294
+	uin = 280
 	classPrompt = StaticObject
 	position = -32.36958 -60.346 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3417,7 +3417,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 295
+	uin = 281
 	classPrompt = StaticObject
 	position = -30.80322 -61.53743 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3427,7 +3427,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 296
+	uin = 282
 	classPrompt = StaticObject
 	position = -31.0346 -61.55378 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3437,7 +3437,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 297
+	uin = 283
 	classPrompt = StaticObject
 	position = -28.36287 -54.85267 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3447,7 +3447,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 298
+	uin = 284
 	classPrompt = StaticObject
 	position = -28.37656 -54.62111 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3457,7 +3457,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 299
+	uin = 285
 	classPrompt = StaticObject
 	position = -29.58588 -56.1737 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3467,7 +3467,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 300
+	uin = 286
 	classPrompt = StaticObject
 	position = -25.11661 98.05526 0.2666531
 	rotation = 0 0 -0.7046587 -0.7095466
@@ -3478,7 +3478,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 301
+	uin = 287
 	classPrompt = StaticObject
 	position = -10.73005 95.97068 0.2752736
 	rotation = 0 0 0.8672425 0.497886
@@ -3488,7 +3488,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 302
+	uin = 288
 	classPrompt = StaticObject
 	position = 26.19346 118.853 1.456624
 	rotation = 0 0 -0.7113683 0.7028197
@@ -3498,7 +3498,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 303
+	uin = 289
 	classPrompt = StaticObject
 	position = 24.23451 118.6646 0.3732204
 	rotation = 0 0 -0.7113683 0.7028197
@@ -3508,7 +3508,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 304
+	uin = 290
 	classPrompt = StaticObject
 	position = 26.03465 118.6839 1.657189
 	rotation = 0 0 -0.7028197 -0.7113683
@@ -3518,7 +3518,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 305
+	uin = 291
 	classPrompt = StaticObject
 	position = 23.44763 125.4182 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -3528,7 +3528,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 306
+	uin = 292
 	classPrompt = StaticObject
 	position = 23.44632 123.618 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3538,7 +3538,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 307
+	uin = 293
 	classPrompt = StaticObject
 	position = 23.28038 125.5789 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3548,7 +3548,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 308
+	uin = 294
 	classPrompt = StaticObject
 	position = 1.423443 97.56021 0.2198927
 	rotation = 0 0 0.7160259 0.6980738
@@ -3558,7 +3558,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 309
+	uin = 295
 	classPrompt = StaticObject
 	position = 3.803837 95.7542 0.2419727
 	rotation = 0 0 0.9978488 0.06555885
@@ -3568,7 +3568,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 310
+	uin = 296
 	classPrompt = StaticObject
 	position = 6.232563 97.60284 0.24
 	rotation = -0.01515642 -0.0282446 0.818315 -0.5738757
@@ -3578,7 +3578,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 311
+	uin = 297
 	classPrompt = StaticMesh
 	position = -81.95638 54.96434 0.2566535
 	rotation = 0 0 -0.9284949 0.3713453
@@ -3589,7 +3589,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 312
+	uin = 298
 	classPrompt = StaticMesh
 	position = -90.63953 54.69839 0.2719591
 	rotation = 0 0 0.9250473 0.3798521
@@ -3600,7 +3600,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 313
+	uin = 299
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -3621,7 +3621,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 314
+	uin = 300
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 15
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -3642,7 +3642,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 315
+	uin = 301
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -3661,7 +3661,7 @@ entity
 entity
 {
 	type = Fan
-	uin = 316
+	uin = 302
 	classPrompt = Fan
 	forceMaximum = 3500
 	influenceRegionScale = 20 3 3
@@ -3675,7 +3675,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 317
+	uin = 303
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 18
 	value = False
@@ -3689,7 +3689,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 318
+	uin = 304
 	classPrompt = StaticMesh
 	position = -89.21072 -82.73579 0.5981727
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3700,7 +3700,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 320
+	uin = 305
 	classPrompt = StaticMesh
 	position = -86.39321 -85.54063 0.5945648
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3711,7 +3711,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 321
+	uin = 306
 	classPrompt = StaticMesh
 	position = -80.79059 -91.14296 0.5958894
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3722,7 +3722,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 322
+	uin = 307
 	classPrompt = StaticMesh
 	position = -83.6081 -88.33813 0.5952249
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3733,7 +3733,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 323
+	uin = 308
 	classPrompt = StaticMesh
 	position = -78.03195 -93.8897 0.5965402
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3744,7 +3744,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 324
+	uin = 309
 	classPrompt = StaticMesh
 	position = -76.24516 -95.60761 0.5633807
 	rotation = 0.2753712 -0.6310276 -0.6719612 0.272843
@@ -3755,7 +3755,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 325
+	uin = 310
 	classPrompt = StaticMesh
 	position = -90.97498 -81.06221 0.5633807
 	rotation = 0.6299204 0.2743941 0.2875097 0.6672682
@@ -3766,7 +3766,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 326
+	uin = 311
 	classPrompt = StaticMesh
 	position = -78.22958 -97.8726 0.5633807
 	rotation = -0.2744414 0.6298998 0.6672466 -0.2875598
@@ -3777,7 +3777,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 327
+	uin = 312
 	classPrompt = StaticMesh
 	position = -79.99408 -96.1993 0.5981727
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3788,7 +3788,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 328
+	uin = 313
 	classPrompt = StaticMesh
 	position = -82.812 -93.39488 0.5945648
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3799,7 +3799,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 329
+	uin = 314
 	classPrompt = StaticMesh
 	position = -85.59753 -90.59779 0.5952249
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3810,7 +3810,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 330
+	uin = 315
 	classPrompt = StaticMesh
 	position = -88.41547 -87.79337 0.5958894
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3821,7 +3821,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 331
+	uin = 316
 	classPrompt = StaticMesh
 	position = -91.17453 -85.0471 0.5965402
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3832,7 +3832,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 332
+	uin = 317
 	classPrompt = StaticMesh
 	position = -92.96158 -83.32937 0.5633807
 	rotation = 0.6310069 0.2754186 0.2728935 0.6719407
@@ -3843,7 +3843,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 333
+	uin = 318
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3855,7 +3855,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 334
+	uin = 319
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3867,7 +3867,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 335
+	uin = 320
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3879,7 +3879,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 336
+	uin = 321
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3891,7 +3891,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 337
+	uin = 322
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3903,7 +3903,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 338
+	uin = 323
 	classPrompt = StaticObject
 	position = -89.57403 -73.57431 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -3913,7 +3913,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 339
+	uin = 324
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3925,7 +3925,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 340
+	uin = 325
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3937,7 +3937,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 341
+	uin = 326
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3949,7 +3949,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 342
+	uin = 327
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3961,7 +3961,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 343
+	uin = 328
 	classPrompt = PhysicalStream
 	alternativeMode = False
 	throttle = 0
@@ -3973,7 +3973,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 344
+	uin = 329
 	classPrompt = StaticObject
 	position = -122.4082 -7.799945 0.3732204
 	rotation = 0 0 0.8723112 0.4889512
@@ -3983,7 +3983,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 345
+	uin = 330
 	classPrompt = StaticObject
 	position = -123.922 -8.774224 1.657189
 	rotation = 0 0 -0.4889512 0.8723112
@@ -3993,7 +3993,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 346
+	uin = 331
 	classPrompt = HealthItem
 	respawnTime = 10
 	value = False
@@ -4004,7 +4004,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 347
+	uin = 332
 	classPrompt = StaticObject
 	position = 104.5851 -14.30404 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -4014,7 +4014,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 348
+	uin = 333
 	classPrompt = StaticObject
 	position = 104.5837 -16.10424 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4024,7 +4024,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 349
+	uin = 334
 	classPrompt = StaticObject
 	position = 104.4178 -14.14333 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4034,7 +4034,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 350
+	uin = 335
 	classPrompt = StaticObject
 	position = 105.8022 -14.35242 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4044,7 +4044,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 351
+	uin = 336
 	classPrompt = StaticObject
 	position = 103.3098 -14.35242 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4054,7 +4054,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 352
+	uin = 337
 	classPrompt = StaticMesh
 	position = 104.5997 -14.52351 2.122545
 	scale = 0.821943 0.9117532 0.9014972
@@ -4065,7 +4065,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 353
+	uin = 338
 	classPrompt = StaticObject
 	position = 100.1287 -14.06616 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4075,7 +4075,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 354
+	uin = 339
 	classPrompt = StaticObject
 	position = 100.296 -14.22687 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -4085,7 +4085,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 355
+	uin = 340
 	classPrompt = StaticObject
 	position = 100.2946 -16.02707 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4095,7 +4095,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 356
+	uin = 341
 	classPrompt = StaticObject
 	position = 101.5131 -14.27525 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4105,7 +4105,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 357
+	uin = 342
 	classPrompt = StaticObject
 	position = 99.02074 -14.27525 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -4115,7 +4115,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 358
+	uin = 343
 	classPrompt = StaticMesh
 	position = 100.3106 -14.44634 2.122545
 	scale = 0.821943 0.9117532 0.9014972
@@ -4126,7 +4126,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 359
+	uin = 344
 	classPrompt = StaticObject
 	position = 96.75645 -16.15771 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4136,7 +4136,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 360
+	uin = 345
 	classPrompt = StaticObject
 	position = 98.55576 -16.1014 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4146,7 +4146,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 361
+	uin = 346
 	classPrompt = StaticObject
 	position = 96.84562 -17.43073 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4156,7 +4156,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 362
+	uin = 347
 	classPrompt = StaticMesh
 	position = 96.97533 -16.13609 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4168,7 +4168,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 363
+	uin = 348
 	classPrompt = StaticObject
 	position = 96.86491 -22.29096 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4178,7 +4178,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 364
+	uin = 349
 	classPrompt = StaticMesh
 	position = 96.99462 -20.99632 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4190,7 +4190,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 365
+	uin = 350
 	classPrompt = StaticObject
 	position = 96.77573 -21.01794 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4200,7 +4200,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 366
+	uin = 351
 	classPrompt = StaticObject
 	position = 98.57505 -20.96163 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4210,7 +4210,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 367
+	uin = 352
 	classPrompt = StaticObject
 	position = 96.75316 -27.09961 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4220,7 +4220,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 368
+	uin = 353
 	classPrompt = StaticMesh
 	position = 97.13474 -25.29279 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4232,7 +4232,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 369
+	uin = 354
 	classPrompt = StaticObject
 	position = 96.91585 -25.31442 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4242,7 +4242,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 370
+	uin = 355
 	classPrompt = StaticObject
 	position = 98.71516 -25.2581 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4252,7 +4252,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 371
+	uin = 356
 	classPrompt = StaticObject
 	position = 96.76057 -25.48673 1.456624
 	rotation = 0 0 0.7100888 0.7041124
@@ -4262,7 +4262,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 372
+	uin = 357
 	classPrompt = StaticObject
 	position = 96.75316 -27.09961 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4272,7 +4272,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 373
+	uin = 358
 	classPrompt = StaticMesh
 	position = 97.13474 -25.29279 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4284,7 +4284,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 374
+	uin = 359
 	classPrompt = StaticObject
 	position = 96.91585 -25.31442 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4294,7 +4294,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 375
+	uin = 360
 	classPrompt = StaticObject
 	position = 98.71516 -25.2581 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4304,7 +4304,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 376
+	uin = 361
 	classPrompt = StaticObject
 	position = 102.4261 -26.89255 1.618737
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4314,7 +4314,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 377
+	uin = 362
 	classPrompt = StaticMesh
 	position = 101.13 -26.77821 2.122545
 	rotation = 0 0 0.9997594 -0.02194172
@@ -4326,7 +4326,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 378
+	uin = 363
 	classPrompt = StaticObject
 	position = 101.1543 -26.99683 1.657189
 	rotation = 0 0 0.01016111 0.9999486
@@ -4336,7 +4336,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 379
+	uin = 364
 	classPrompt = StaticObject
 	position = 101.0766 -25.19831 0.3732204
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4346,7 +4346,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 380
+	uin = 365
 	classPrompt = StaticObject
 	position = 105.4358 -26.98961 1.657189
 	rotation = 0 0 0.01016111 0.9999486
@@ -4356,7 +4356,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 381
+	uin = 366
 	classPrompt = StaticObject
 	position = 104.2607 -26.7812 1.59085
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4366,7 +4366,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 382
+	uin = 367
 	classPrompt = StaticObject
 	position = 106.7077 -26.88533 1.618737
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4376,7 +4376,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 383
+	uin = 368
 	classPrompt = StaticMesh
 	position = 105.4116 -26.77099 2.122545
 	rotation = 0 0 0.9997594 -0.02194172
@@ -4388,7 +4388,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 384
+	uin = 369
 	classPrompt = StaticObject
 	position = 105.3581 -25.19108 0.3732204
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4398,7 +4398,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 385
+	uin = 370
 	classPrompt = StaticObject
 	position = 96.45309 -19.91044 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4408,7 +4408,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 386
+	uin = 371
 	classPrompt = StaticObject
 	position = 126.0392 -1.009204 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4418,7 +4418,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 387
+	uin = 372
 	classPrompt = StaticMesh
 	position = 125.8876 -2.301457 2.122545
 	rotation = 0 0 0.7017637 -0.71241
@@ -4430,7 +4430,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 388
+	uin = 373
 	classPrompt = StaticObject
 	position = 126.1068 -2.283545 1.657189
 	rotation = 0 0 0.7040925 0.7101087
@@ -4440,7 +4440,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 389
+	uin = 374
 	classPrompt = StaticObject
 	position = 126.0767 -3.501298 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4450,7 +4450,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 390
+	uin = 375
 	classPrompt = StaticObject
 	position = 124.3068 -2.309337 0.3732204
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4460,7 +4460,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 391
+	uin = 376
 	classPrompt = StaticObject
 	position = 126.0583 -6.546769 1.657189
 	rotation = 0 0 0.7040925 0.7101087
@@ -4470,7 +4470,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 392
+	uin = 377
 	classPrompt = StaticObject
 	position = 126.0283 -7.764518 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4480,7 +4480,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 393
+	uin = 378
 	classPrompt = StaticMesh
 	position = 125.8391 -6.564679 2.122545
 	rotation = 0 0 0.7017637 -0.71241
@@ -4492,7 +4492,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 394
+	uin = 379
 	classPrompt = StaticObject
 	position = 124.2583 -6.572558 0.3732204
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4502,7 +4502,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 395
+	uin = 380
 	classPrompt = StaticObject
 	position = 125.9907 -5.272418 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4512,7 +4512,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 396
+	uin = 381
 	classPrompt = StaticObject
 	position = 115.2592 -26.98528 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4522,7 +4522,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 397
+	uin = 382
 	classPrompt = StaticObject
 	position = 114.0431 -26.91512 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4532,7 +4532,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 398
+	uin = 383
 	classPrompt = StaticMesh
 	position = 115.2485 -26.76558 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4544,7 +4544,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 399
+	uin = 384
 	classPrompt = StaticObject
 	position = 115.2927 -25.18538 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4554,7 +4554,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 400
+	uin = 385
 	classPrompt = StaticObject
 	position = 109.7838 -26.72619 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4564,7 +4564,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 401
+	uin = 386
 	classPrompt = StaticMesh
 	position = 110.9892 -26.57666 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4576,7 +4576,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 402
+	uin = 387
 	classPrompt = StaticObject
 	position = 111.0334 -24.99646 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4586,7 +4586,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 403
+	uin = 388
 	classPrompt = StaticObject
 	position = 110.9999 -26.79635 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4596,7 +4596,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 404
+	uin = 389
 	classPrompt = StaticObject
 	position = 112.2758 -26.7708 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4606,7 +4606,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 405
+	uin = 390
 	classPrompt = StaticObject
 	position = 116.5351 -26.95972 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4616,7 +4616,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 406
+	uin = 391
 	classPrompt = StaticObject
 	position = 123.9958 -27.06361 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4626,7 +4626,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 407
+	uin = 392
 	classPrompt = StaticMesh
 	position = 125.2012 -26.91407 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4638,7 +4638,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 408
+	uin = 393
 	classPrompt = StaticObject
 	position = 126.4878 -27.10821 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4648,7 +4648,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 409
+	uin = 394
 	classPrompt = StaticObject
 	position = 119.7365 -26.87468 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4658,7 +4658,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 410
+	uin = 395
 	classPrompt = StaticMesh
 	position = 120.9419 -26.72515 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4670,7 +4670,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 411
+	uin = 396
 	classPrompt = StaticObject
 	position = 122.2285 -26.91929 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4680,7 +4680,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 412
+	uin = 397
 	classPrompt = StaticObject
 	position = 120.9526 -26.94484 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4690,7 +4690,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 413
+	uin = 398
 	classPrompt = StaticObject
 	position = 125.2119 -27.13376 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4700,7 +4700,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 414
+	uin = 399
 	classPrompt = StaticObject
 	position = 120.9861 -25.14495 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4710,7 +4710,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 415
+	uin = 400
 	classPrompt = StaticObject
 	position = 125.2455 -25.33387 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4720,7 +4720,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 416
+	uin = 401
 	classPrompt = StaticObject
 	position = 123.7933 16.72994 0.3
 	rotation = 0 0 -0.9999909 0.004271859
@@ -4731,7 +4731,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 417
+	uin = 402
 	classPrompt = StaticObject
 	position = 124.0426 23.3263 0.3
 	rotation = 0 0 -0.7100423 0.7041591
@@ -4742,7 +4742,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 418
+	uin = 403
 	classPrompt = StaticObject
 	position = 118.9981 22.63119 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -4752,7 +4752,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 419
+	uin = 404
 	classPrompt = StaticObject
 	position = 116.7362 18.90108 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -4762,7 +4762,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 420
+	uin = 405
 	classPrompt = StaticObject
 	position = 119.3847 16.80569 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -4772,7 +4772,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 421
+	uin = 406
 	classPrompt = StaticObject
 	position = 100.7262 17.24666 0.2198927
 	rotation = 0 0 0.73258 0.680681
@@ -4782,7 +4782,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 422
+	uin = 407
 	classPrompt = StaticObject
 	position = 104.2657 14.69683 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
@@ -4792,7 +4792,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 423
+	uin = 408
 	classPrompt = StaticObject
 	position = 106.6029 16.65992 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
@@ -4802,7 +4802,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 424
+	uin = 409
 	classPrompt = StaticObject
 	position = 100.7262 17.24666 0.2198927
 	rotation = 0 0 0.73258 0.680681
@@ -4812,7 +4812,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 425
+	uin = 410
 	classPrompt = StaticObject
 	position = 104.2657 14.69683 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
@@ -4822,7 +4822,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 426
+	uin = 411
 	classPrompt = StaticObject
 	position = 106.6029 16.65992 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
@@ -4832,7 +4832,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 427
+	uin = 412
 	classPrompt = StaticObject
 	position = 107.6747 19.39466 0.2198927
 	rotation = 0 0 0.7397748 -0.6728547
@@ -4842,7 +4842,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 428
+	uin = 413
 	classPrompt = StaticObject
 	position = 106.5805 22.36151 0.2419727
 	rotation = 0 0 0.397701 -0.9175152
@@ -4852,7 +4852,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 429
+	uin = 414
 	classPrompt = StaticObject
 	position = 103.5303 22.472 0
 	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
@@ -4862,7 +4862,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 430
+	uin = 415
 	classPrompt = StaticObject
 	position = 116.9078 21.46347 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -4872,7 +4872,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 431
+	uin = 416
 	classPrompt = StaticObject
 	position = 121.5209 21.89094 0.2198927
 	rotation = 0 0 -0.2377434 0.971328
@@ -4882,7 +4882,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 432
+	uin = 417
 	classPrompt = StaticObject
 	position = 121.9072 18.89603 0.2198927
 	rotation = 0 0 -0.8573666 0.5147063
@@ -4892,7 +4892,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 433
+	uin = 418
 	classPrompt = StaticObject
 	position = 114.0727 26.46305 2.051654
 	rotation = 0 0 -0.004554355 0.9999896
@@ -4902,7 +4902,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 434
+	uin = 419
 	classPrompt = StaticObject
 	position = 109.3005 26.48323 2.051654
 	rotation = 0 0 -0.004554355 0.9999896
@@ -4912,7 +4912,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 435
+	uin = 420
 	classPrompt = StaticObject
 	position = 125.3906 -21.67308 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4922,7 +4922,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 436
+	uin = 421
 	classPrompt = StaticMesh
 	position = 125.2171 -20.47087 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4934,7 +4934,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 437
+	uin = 422
 	classPrompt = StaticObject
 	position = 125.6103 -19.33439 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4944,7 +4944,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 438
+	uin = 423
 	classPrompt = StaticObject
 	position = 125.4365 -20.45583 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4954,7 +4954,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 439
+	uin = 424
 	classPrompt = StaticObject
 	position = 125.6927 -12.71775 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4964,7 +4964,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 440
+	uin = 425
 	classPrompt = StaticMesh
 	position = 125.5192 -11.51554 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4976,7 +4976,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 441
+	uin = 426
 	classPrompt = StaticObject
 	position = 125.9822 -10.19333 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4986,7 +4986,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 442
+	uin = 427
 	classPrompt = StaticObject
 	position = 125.6345 -15.76272 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4996,7 +4996,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 443
+	uin = 428
 	classPrompt = StaticObject
 	position = 125.5885 -16.97998 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5006,7 +5006,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 444
+	uin = 429
 	classPrompt = StaticMesh
 	position = 125.4151 -15.77776 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -5018,7 +5018,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 445
+	uin = 430
 	classPrompt = StaticObject
 	position = 125.5836 -14.48761 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5028,7 +5028,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 446
+	uin = 431
 	classPrompt = StaticObject
 	position = 125.7386 -11.5005 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -5038,7 +5038,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 447
+	uin = 432
 	classPrompt = StaticObject
 	position = 123.6363 -20.45812 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5048,7 +5048,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 448
+	uin = 433
 	classPrompt = StaticObject
 	position = 123.8343 -15.76501 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5058,7 +5058,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 449
+	uin = 434
 	classPrompt = StaticObject
 	position = 123.9384 -11.50279 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5068,7 +5068,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 450
+	uin = 435
 	classPrompt = StaticObject
 	position = 96.76583 -14.93962 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -5078,7 +5078,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 451
+	uin = 436
 	classPrompt = StaticObject
 	position = 104.2607 -26.7812 1.59085
 	rotation = 0 0 0.9999486 -0.01016119
@@ -5088,7 +5088,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 452
+	uin = 437
 	classPrompt = StaticMesh
 	position = 125.2171 -20.47087 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -5100,7 +5100,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 453
+	uin = 438
 	classPrompt = StaticObject
 	position = 123.6363 -20.45812 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5110,7 +5110,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 454
+	uin = 439
 	classPrompt = StaticObject
 	position = 125.3906 -21.67308 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5120,7 +5120,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 455
+	uin = 440
 	classPrompt = StaticObject
 	position = 125.4365 -20.45583 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -5130,7 +5130,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 456
+	uin = 441
 	classPrompt = StaticObject
 	position = 125.6103 -19.33439 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5140,7 +5140,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 457
+	uin = 442
 	classPrompt = StaticObject
 	position = 125.6345 -15.76272 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -5150,7 +5150,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 458
+	uin = 443
 	classPrompt = StaticObject
 	position = 123.8343 -15.76501 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5160,7 +5160,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 459
+	uin = 444
 	classPrompt = StaticObject
 	position = 125.5885 -16.97998 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -5170,7 +5170,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 460
+	uin = 445
 	classPrompt = StaticMesh
 	position = 125.4151 -15.77776 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -5182,7 +5182,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 461
+	uin = 446
 	classPrompt = StaticObject
 	position = 116.9342 -1.748109 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5192,7 +5192,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 462
+	uin = 447
 	classPrompt = StaticObject
 	position = 116.7571 -6.007925 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5202,7 +5202,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 463
+	uin = 448
 	classPrompt = StaticMesh
 	position = 116.91 -7.212925 2.122545
 	rotation = 0 0 0.7017429 0.7124307
@@ -5214,7 +5214,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 464
+	uin = 449
 	classPrompt = StaticObject
 	position = 116.7194 -8.500015 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5224,7 +5224,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 465
+	uin = 450
 	classPrompt = StaticMesh
 	position = 117.0871 -2.953117 2.122545
 	rotation = 0 0 0.7017429 0.7124307
@@ -5236,7 +5236,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 466
+	uin = 451
 	classPrompt = StaticObject
 	position = 116.8965 -4.2402 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5246,7 +5246,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 467
+	uin = 452
 	classPrompt = StaticObject
 	position = 116.8674 -2.964403 1.657189
 	rotation = 0 0 -0.7206492 0.6933005
@@ -5256,7 +5256,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 468
+	uin = 453
 	classPrompt = StaticObject
 	position = 116.6903 -7.224216 1.657189
 	rotation = 0 0 -0.7206492 0.6933005
@@ -5266,7 +5266,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 469
+	uin = 454
 	classPrompt = StaticObject
 	position = 118.6674 -2.992922 0.3732204
 	rotation = 0 0 0.6933005 0.7206491
@@ -5276,7 +5276,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 470
+	uin = 455
 	classPrompt = StaticObject
 	position = 118.4903 -7.252735 0.3732204
 	rotation = 0 0 0.6933005 0.7206491
@@ -5286,7 +5286,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 471
+	uin = 456
 	classPrompt = StaticObject
 	position = 124.0494 2.432932 0.3732204
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5296,7 +5296,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 472
+	uin = 457
 	classPrompt = StaticObject
 	position = 124.0014 6.696135 0.3732204
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5306,7 +5306,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 473
+	uin = 458
 	classPrompt = StaticObject
 	position = 125.6734 1.258018 1.618737
 	rotation = 0 0 0.7202064 -0.6937605
@@ -5316,7 +5316,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 474
+	uin = 459
 	classPrompt = StaticObject
 	position = 125.7979 5.54454 1.618737
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5326,7 +5326,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 475
+	uin = 460
 	classPrompt = StaticMesh
 	position = 125.5816 6.739789 2.122545
 	rotation = 0 0 0.6936585 -0.7203047
@@ -5338,7 +5338,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 476
+	uin = 461
 	classPrompt = StaticObject
 	position = 125.8796 8.010199 1.618737
 	rotation = 0 0 0.7202064 -0.6937605
@@ -5348,7 +5348,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 477
+	uin = 462
 	classPrompt = StaticMesh
 	position = 125.6296 2.476583 2.122545
 	rotation = 0 0 0.6936585 -0.7203047
@@ -5360,7 +5360,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 478
+	uin = 463
 	classPrompt = StaticObject
 	position = 125.752 3.771918 1.618737
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5370,7 +5370,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 479
+	uin = 464
 	classPrompt = StaticObject
 	position = 125.8483 2.499441 1.657189
 	rotation = 0 0 0.7120821 0.702097
@@ -5380,7 +5380,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 480
+	uin = 465
 	classPrompt = StaticObject
 	position = 125.8004 6.762662 1.657189
 	rotation = 0 0 0.7120821 0.702097
@@ -5390,7 +5390,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 481
+	uin = 466
 	classPrompt = StaticObject
 	position = 118.9833 5.775735 0.3732204
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5400,7 +5400,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 482
+	uin = 467
 	classPrompt = StaticObject
 	position = 118.9167 1.512766 0.3732204
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5410,7 +5410,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 483
+	uin = 468
 	classPrompt = StaticObject
 	position = 117.2185 6.975232 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5420,7 +5420,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 484
+	uin = 469
 	classPrompt = StaticObject
 	position = 117.1518 2.712259 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5430,7 +5430,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 485
+	uin = 470
 	classPrompt = StaticMesh
 	position = 117.1742 1.457438 2.122545
 	rotation = 0 0 -0.7109135 -0.70328
@@ -5442,7 +5442,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 486
+	uin = 471
 	classPrompt = StaticObject
 	position = 117.1787 0.2200303 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5452,7 +5452,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 487
+	uin = 472
 	classPrompt = StaticMesh
 	position = 117.4025 5.774596 2.122545
 	rotation = 0 0 -0.7109135 -0.70328
@@ -5464,7 +5464,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 488
+	uin = 473
 	classPrompt = StaticObject
 	position = 117.2454 4.483016 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5474,7 +5474,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 489
+	uin = 474
 	classPrompt = StaticObject
 	position = 117.1832 5.757619 1.657189
 	rotation = 0 0 0.7116073 -0.7025783
@@ -5484,7 +5484,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 490
+	uin = 475
 	classPrompt = StaticObject
 	position = 117.1166 1.494653 1.657189
 	rotation = 0 0 0.7116073 -0.7025783
@@ -5494,7 +5494,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 491
+	uin = 476
 	classPrompt = StaticObject
 	position = 123.8487 9.246616 0.3732204
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5504,7 +5504,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 492
+	uin = 477
 	classPrompt = StaticObject
 	position = 119.5863 9.3416 0.3732204
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5514,7 +5514,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 493
+	uin = 478
 	classPrompt = StaticObject
 	position = 125.0599 11.00348 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5524,7 +5524,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 494
+	uin = 479
 	classPrompt = StaticObject
 	position = 120.7975 11.09846 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5534,7 +5534,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 495
+	uin = 480
 	classPrompt = StaticMesh
 	position = 119.5956 10.92239 2.122545
 	rotation = 0 0 -0.002076378 -0.9999983
@@ -5546,7 +5546,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 496
+	uin = 481
 	classPrompt = StaticObject
 	position = 118.3051 11.08812 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5556,7 +5556,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 497
+	uin = 482
 	classPrompt = StaticMesh
 	position = 123.8581 10.82741 2.122545
 	rotation = 0 0 -0.002076378 -0.9999983
@@ -5568,7 +5568,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 498
+	uin = 483
 	classPrompt = StaticObject
 	position = 122.5676 10.99314 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5578,7 +5578,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 499
+	uin = 484
 	classPrompt = StaticObject
 	position = 123.8426 11.04681 1.657189
 	rotation = 0 0 0.9999535 0.009705721
@@ -5588,7 +5588,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 500
+	uin = 485
 	classPrompt = StaticObject
 	position = 119.5801 11.1418 1.657189
 	rotation = 0 0 0.9999535 0.009705721
@@ -5598,7 +5598,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 501
+	uin = 486
 	classPrompt = StaticObject
 	position = 96.67959 19.71797 2.051654
 	rotation = 0 0 -0.7105156 -0.7036815
@@ -5608,7 +5608,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 502
+	uin = 487
 	classPrompt = StaticObject
 	position = 96.74902 14.94616 2.051654
 	rotation = 0 0 -0.7105156 -0.7036815
@@ -5618,7 +5618,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 503
+	uin = 488
 	classPrompt = StaticObject
 	position = 98.48 -10.90332 2.051654
 	rotation = 0 0 -0.9999321 -0.01167015
@@ -5628,7 +5628,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 504
+	uin = 489
 	classPrompt = StaticObject
 	position = 103.2515 -10.9914 2.051654
 	rotation = 0 0 -0.9999321 -0.01167015
@@ -5638,7 +5638,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 505
+	uin = 490
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5659,7 +5659,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 506
+	uin = 491
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -5677,7 +5677,7 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 507
+	uin = 492
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5689,7 +5689,7 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 508
+	uin = 493
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5701,7 +5701,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 509
+	uin = 494
 	classPrompt = Item
 	respawnTime = 10
 	value = False
@@ -5712,7 +5712,7 @@ entity
 entity
 {
 	type = Weste
-	uin = 510
+	uin = 495
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5723,7 +5723,7 @@ entity
 entity
 {
 	type = Weste
-	uin = 511
+	uin = 496
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5734,7 +5734,7 @@ entity
 entity
 {
 	type = USB_Stick
-	uin = 512
+	uin = 497
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5745,7 +5745,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 513
+	uin = 498
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5765,7 +5765,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 514
+	uin = 499
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -5784,7 +5784,7 @@ entity
 entity
 {
 	type = cpu
-	uin = 515
+	uin = 500
 	classPrompt = Item
 	respawnTime = 0
 	value = False
@@ -5796,7 +5796,7 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 516
+	uin = 501
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -5808,7 +5808,7 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 517
+	uin = 502
 	classPrompt = WeaponItem
 	respawnTime = 10
 	value = False
@@ -5820,7 +5820,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 518
+	uin = 503
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5838,14 +5838,14 @@ entity
 	{
 		item
 		{
-			repairable = 528
+			repairable = 513
 		}
 	}
 }
 entity
 {
 	type = Terminal
-	uin = 519
+	uin = 504
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -5863,7 +5863,7 @@ entity
 entity
 {
 	type = SicherungskastenRepairable
-	uin = 520
+	uin = 505
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 20
 	repaired = False
@@ -5877,7 +5877,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 521
+	uin = 506
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 26
 	value = False
@@ -5891,7 +5891,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 522
+	uin = 507
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 24
 	value = False
@@ -5904,7 +5904,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 523
+	uin = 508
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 22
 	value = False
@@ -5916,7 +5916,7 @@ entity
 entity
 {
 	type = BrechstangeItem
-	uin = 524
+	uin = 509
 	classPrompt = WeaponItem
 	respawnTime = 0
 	value = False
@@ -5928,7 +5928,7 @@ entity
 entity
 {
 	type = BrechstangeItem
-	uin = 525
+	uin = 510
 	classPrompt = WeaponItem
 	respawnTime = 0
 	value = False
@@ -5940,7 +5940,7 @@ entity
 entity
 {
 	type = Rubble
-	uin = 526
+	uin = 511
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 30
 	repaired = False
@@ -5955,7 +5955,7 @@ entity
 entity
 {
 	type = CardReader
-	uin = 527
+	uin = 512
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 32
 	repaired = False
@@ -5969,7 +5969,7 @@ entity
 entity
 {
 	type = BrokenTerminal
-	uin = 528
+	uin = 513
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 28
 	repaired = False
@@ -5983,12 +5983,12 @@ entity
 entity
 {
 	type = MapCameraCurve
-	uin = 529
+	uin = 514
 	classPrompt = MapCameraCurve
 	fov = 0
 	curveType = UniformCubicSpline
-	points = 529
-	owner = 529
+	points = 514
+	owner = 514
 	time = 0
 	position = 38.7 32 0
 	name = MapCameraCurve_0
@@ -5997,12 +5997,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 530
+	uin = 515
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 531 532 533 534 535 536 537 538 539 540 541 542 543 544 545 546 547 548 549
+	subscriptionsToDeletionEvent = 516 517 518 519 520 521 522 523 524 525 526 527 528 529 530 531 532 533 534
 	curveType = UniformCubicSpline
-	points = 530 531 532 533 534 535 536 537 538 539 540 541 542 543 544 545 546 547 548 549
-	owner = 530
+	points = 515 516 517 518 519 520 521 522 523 524 525 526 527 528 529 530 531 532 533 534
+	owner = 515
 	time = 0
 	position = 17.9 105.5 0.3
 	name = MapCurve_0
@@ -6011,10 +6011,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 531
+	uin = 516
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 1
 	position = 16.1 108.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6022,10 +6022,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 532
+	uin = 517
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 2
 	position = 13.5 110 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6033,10 +6033,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 533
+	uin = 518
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 3
 	position = 10.4 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6044,10 +6044,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 534
+	uin = 519
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 4
 	position = 7.099999 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6055,10 +6055,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 535
+	uin = 520
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 5
 	position = 3.999999 110.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6066,10 +6066,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 536
+	uin = 521
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 6
 	position = 0.7999985 111.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6077,10 +6077,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 537
+	uin = 522
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 7
 	position = -2.100001 112.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6088,10 +6088,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 538
+	uin = 523
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 8
 	position = -4.100001 114.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6099,10 +6099,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 539
+	uin = 524
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 9
 	position = -5.700001 117.3 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6110,10 +6110,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 540
+	uin = 525
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 10
 	position = -7.800001 119.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6121,10 +6121,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 541
+	uin = 526
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 11
 	position = -10.7 121.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6132,10 +6132,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 542
+	uin = 527
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 12
 	position = -14.2 121.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6143,10 +6143,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 543
+	uin = 528
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 13
 	position = -17.5 120.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6154,10 +6154,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 544
+	uin = 529
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 14
 	position = -19.6 118 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6165,10 +6165,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 545
+	uin = 530
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 15
 	position = -20.2 114.9 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6176,10 +6176,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 546
+	uin = 531
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 16
 	position = -20.2 111.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6187,10 +6187,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 547
+	uin = 532
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 17
 	position = -20.1 108.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6198,10 +6198,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 548
+	uin = 533
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 18
 	position = -20.1 105.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6209,10 +6209,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 549
+	uin = 534
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 530
-	owner = 530
+	subscriptionsToDeletionEvent = 515
+	owner = 515
 	time = 19
 	position = -20 102.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -6220,7 +6220,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 550
+	uin = 535
 	classPrompt = StaticObject
 	position = 100.0275 75.26779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6230,7 +6230,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 551
+	uin = 536
 	classPrompt = StaticObject
 	position = 104.4275 70.86779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6240,7 +6240,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 552
+	uin = 537
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -52.12039 52.39715 1.659452
@@ -6251,7 +6251,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 553
+	uin = 538
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -14.94524 24.67883 1.362918
@@ -6262,7 +6262,7 @@ entity
 entity
 {
 	type = GridFloor
-	uin = 554
+	uin = 539
 	classPrompt = StaticObject
 	position = -116.3991 5.895276 -0.03060913
 	name = GridFloor_0
@@ -6271,7 +6271,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 555
+	uin = 540
 	classPrompt = StaticObject
 	position = -66.71773 -56.44236 1.64531
 	rotation = 0 0 -0.3734877 0.9276351
@@ -6281,7 +6281,7 @@ entity
 entity
 {
 	type = ServerRack
-	uin = 556
+	uin = 541
 	classPrompt = StaticObject
 	position = 114.1109 -6.218911 0.2670097
 	rotation = 0 0 -1 -4.371139E-08
@@ -6291,7 +6291,7 @@ entity
 entity
 {
 	type = ServerRack
-	uin = 557
+	uin = 542
 	classPrompt = StaticObject
 	position = 114.1109 -1.320378 0.2670097
 	rotation = 0 0 -1 -4.371139E-08
@@ -6301,7 +6301,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 558
+	uin = 543
 	classPrompt = StaticObject
 	position = 35.39545 10.92039 0
 	rotation = 0 0 -0.7094766 -0.7047293
@@ -6311,7 +6311,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 559
+	uin = 544
 	classPrompt = StaticObject
 	position = 39.84206 16.43058 0
 	rotation = 0 0 -0.9999741 0.007215822
@@ -6321,7 +6321,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 560
+	uin = 545
 	classPrompt = StaticObject
 	position = 95.51722 76.33778 0
 	rotation = 0 0 0.9226092 0.3857362
@@ -6330,7 +6330,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 561
+	uin = 546
 	classPrompt = StaticObject
 	position = 70.46264 88.63217 0
 	rotation = 0 0 0.3837602 0.9234328
@@ -6339,7 +6339,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 644
+	uin = 547
 	classPrompt = StaticObject
 	position = 12.31856 99.79991 0
 	name = DoppelwandAbschluss_2
@@ -6347,7 +6347,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 645
+	uin = 548
 	classPrompt = StaticObject
 	position = 10.73503 121.0016 0
 	rotation = 0 0 1 2.934956E-08
@@ -6356,7 +6356,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 646
+	uin = 549
 	classPrompt = StaticObject
 	position = -12.60235 111.6679 0
 	name = DoppelwandAbschluss_4
@@ -6364,7 +6364,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 647
+	uin = 550
 	classPrompt = StaticObject
 	position = -74.17822 93.64269 0
 	rotation = 0 0 0.7933534 0.6087615
@@ -6373,7 +6373,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 648
+	uin = 551
 	classPrompt = StaticObject
 	position = -77.28846 80.79086 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6382,7 +6382,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 649
+	uin = 552
 	classPrompt = StaticObject
 	position = -111.6428 13.00219 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6391,7 +6391,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 650
+	uin = 553
 	classPrompt = StaticObject
 	position = -99.79622 -11.35881 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6400,7 +6400,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 651
+	uin = 554
 	classPrompt = StaticObject
 	position = -120.8696 -13.28697 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6409,7 +6409,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 652
+	uin = 555
 	classPrompt = StaticObject
 	position = -74.13967 -98.00296 0
 	rotation = 0 0 -0.9238796 0.3826835
@@ -6418,7 +6418,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 185
+	uin = 556
 	classPrompt = StaticObject
 	position = -9.102201 -108.6377 0
 	name = DoppelwandAbschluss_11
@@ -6426,7 +6426,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 184
+	uin = 557
 	classPrompt = StaticObject
 	position = 7.490952 -110.1901 0
 	rotation = 0 0 1 3.36741E-08
@@ -6435,7 +6435,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 189
+	uin = 558
 	classPrompt = StaticObject
 	position = 18.22809 -108.5283 0
 	name = DoppelwandAbschluss_13
@@ -6443,7 +6443,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 192
+	uin = 559
 	classPrompt = StaticObject
 	position = 70.82073 -85.1879 0
 	rotation = 0 0 0.3826834 0.9238796
@@ -6452,7 +6452,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 152
+	uin = 560
 	classPrompt = StaticObject
 	position = 79.33573 -79.62156 0
 	rotation = 0 0 -0.9238797 0.3826835
@@ -6461,7 +6461,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 153
+	uin = 561
 	classPrompt = StaticObject
 	position = 87.23034 -68.01769 0
 	rotation = 0 0 0.3826835 0.9238796
@@ -6470,7 +6470,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 319
+	uin = 562
 	classPrompt = StaticObject
 	position = 106.876 4.336354 0
 	name = DoppelwandAbschluss_17
@@ -6478,7 +6478,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 182
+	uin = 563
 	classPrompt = StaticObject
 	position = 114.506 -4.139952 0
 	rotation = 0 0 1 7.54979E-08
@@ -6487,7 +6487,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 653
+	uin = 564
 	classPrompt = StaticObject
 	position = 55.31351 47.63442 0
 	rotation = 0 0 0.9238796 0.3826834
@@ -6496,7 +6496,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 654
+	uin = 565
 	classPrompt = StaticObject
 	position = 48.84109 58.09861 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6505,7 +6505,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 655
+	uin = 566
 	classPrompt = StaticObject
 	position = 7.036875 77.60447 0
 	name = DoppelwandAbschluss_21
@@ -6513,7 +6513,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 656
+	uin = 567
 	classPrompt = StaticObject
 	position = -7.313236 74.91512 0
 	rotation = 0 0 1 1.398742E-08
@@ -6522,7 +6522,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 657
+	uin = 568
 	classPrompt = StaticObject
 	position = -42.93675 61.03579 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6531,7 +6531,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 658
+	uin = 569
 	classPrompt = StaticObject
 	position = -61.06284 45.47041 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6540,7 +6540,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 659
+	uin = 570
 	classPrompt = StaticObject
 	position = -74.62195 4.339099 0
 	rotation = 0 0 -0.7071068 0.7071069
@@ -6549,7 +6549,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 660
+	uin = 571
 	classPrompt = StaticObject
 	position = -77.33794 -5.272487 0
 	rotation = 0 0 0.7071069 0.7071068
@@ -6558,7 +6558,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 661
+	uin = 572
 	classPrompt = StaticObject
 	position = -39.78839 -49.97813 0
 	rotation = 0 0 0.9238796 0.3826834
@@ -6567,7 +6567,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 207
+	uin = 573
 	classPrompt = StaticObject
 	position = -53.75844 -66.16175 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6576,7 +6576,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 205
+	uin = 574
 	classPrompt = StaticObject
 	position = -7.170385 -76.69859 0
 	rotation = 0 0 -1 0
@@ -6585,7 +6585,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 181
+	uin = 575
 	classPrompt = StaticObject
 	position = 6.879058 -74.95396 0
 	name = DoppelwandAbschluss_30
@@ -6593,7 +6593,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 194
+	uin = 576
 	classPrompt = StaticObject
 	position = 56.51817 -51.09067 0
 	rotation = 0 0 -0.9238796 0.3826835
@@ -6602,7 +6602,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 195
+	uin = 577
 	classPrompt = StaticObject
 	position = 48.45343 -55.94317 0
 	rotation = 0 0 0.3826834 0.9238796
@@ -6611,7 +6611,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 178
+	uin = 578
 	classPrompt = StaticObject
 	position = 74.82309 10.20036 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6620,7 +6620,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 156
+	uin = 579
 	classPrompt = StaticObject
 	position = 70.30923 -10.35162 0
 	rotation = 0 0 1 -2.977396E-08
