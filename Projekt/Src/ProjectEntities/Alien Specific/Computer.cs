@@ -286,6 +286,46 @@ namespace ProjectEntities
             }
         }
 
+        public static void AstronautRotateRing(Ring ring, bool left)
+        {
+            if (alienControlPaused)
+            {
+                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
+            }
+            else if (ring == null)
+            {
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
+            }
+            else if (rotationCoupons <= 0)
+            {
+                // Nachricht ausgeben
+                StatusMessageHandler.sendMessage("Keine Rotationen möglich");
+            }
+            else if (ring.CanRotate() == false)
+            {
+                StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar");
+            }
+            else
+            {
+                int ringNumber = ring.GetRingNumber();
+                if (left)
+                {
+                    EngineConsole.Instance.Print("computer links drehen");
+                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] - 1, 8);
+                    ring.RotateLeft();
+                }
+                else
+                {
+                    EngineConsole.Instance.Print("computer rechts drehen");
+                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] + 1, 8);
+                    ring.RotateRight();
+                }
+                ///ToDo: Gridaktualisierung für die Rotation in der Map
+                GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
+            }
+        }
+
         /// <summary>
         /// Switches off or on the power of one sector (room)
         /// </summary>
