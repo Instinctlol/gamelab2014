@@ -8,6 +8,7 @@ type DoppelwandAbschluss
 		{
 			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
 			collision = True
+			position = 0.2 0 0
 		}
 		mesh
 		{
@@ -20,9 +21,9 @@ type DoppelwandAbschluss
 		{
 			meshName = ".\\DemoCorridors\\CornerInt.mesh"
 			collision = True
-			position = -1 5.5 0.1
+			position = -0.9 5.5 0.2
 			rotation = 0 0 0.9132883 0.4073139
-			scale = 0.1352482 0.1425192 0.8534821
+			scale = 0.1180663 0.1275393 0.8534821
 		}
 	}
 }
