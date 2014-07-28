@@ -726,7 +726,7 @@ namespace Game
             Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
             ray.Direction = ray.Direction.GetNormalize() * maxDistance;
 
-            Sphere sphere = new Sphere(ray.GetPointOnRay(maxDistance), 0.5f);
+            
 
             //currentAttachedGuiObject
             {
@@ -786,80 +786,87 @@ namespace Game
              ProjectEntities.MedicCabinet overCabinet = null;
              ProjectEntities.Switch overSwitch = null;
 
-             Map.Instance.GetObjects(sphere, delegate(MapObject obj)
+             Map.Instance.GetObjects(ray, delegate(MapObject o, float scale)
              {
-                ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+                 Sphere sphere = new Sphere(ray.GetPointOnRay(scale), 0.1f);
 
-                if (r != null)
-                {
-                    overRepairable = r;
-                    isRepairable = true;
-                    return;
-                }
+                 foreach (MapObject obj in Map.Instance.GetObjects(sphere) )
+	            {
+		 
+                    ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
 
-                ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
-                if (sw != null)
-                {
-                    if (sw.UseAttachedMesh != null)
+                    if (r != null)
                     {
-                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
+                        overRepairable = r;
+                        isRepairable = true;
+                        return false;
+                    }
 
-                        if (sph.RayIntersection(ray))
+                    ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
+                    if (sw != null)
+                    {
+                        if (sw.UseAttachedMesh != null)
+                        {
+                            Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
+
+                            if (sph.RayIntersection(ray))
+                            {
+                                overSwitch = sw;
+                                isSwitch = true;
+                                return false;
+                            }
+                        }
+                        else
                         {
                             overSwitch = sw;
                             isSwitch = true;
-                            return;
+                            return false;
                         }
                     }
-                    else
+
+                    ProjectEntities.ServerRack se = obj as ProjectEntities.ServerRack;
+
+                    if (se != null)
                     {
-                        overSwitch = sw;
-                        isSwitch = true;
-                        return;
+                        overServerRack = se;
+                        isServerRack = true;
+                        return false;
                     }
-                }
 
-                ProjectEntities.ServerRack se = obj as ProjectEntities.ServerRack;
+                    ProjectEntities.Item i = obj as ProjectEntities.Item;
 
-                if (se != null)
-                {
-                    overServerRack = se;
-                    isServerRack = true;
-                    return;
-                }
-
-                ProjectEntities.Item i = obj as ProjectEntities.Item;
-
-                if (i != null)
-                {
-                    overItem = i;
-                    isItem = true;
-                    return;
-                }
-
-                ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
-                if (t != null)
-                {
-                    Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
-
-                    if (sph.RayIntersection(ray))
+                    if (i != null)
                     {
-                        overTerminal = t;
-                        isTerminal = true;
-                        return;
+                        overItem = i;
+                        isItem = true;
+                        return false;
                     }
-                }
 
-                ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+                    ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
+                    if (t != null)
+                    {
+                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
 
-                if (c != null)
-                {
-                    overCabinet = c;
-                    isMedicCabinet = true;
-                    return;
-                }
+                        if (sph.RayIntersection(ray))
+                        {
+                            overTerminal = t;
+                            isTerminal = true;
+                            return false;
+                        }
+                    }
 
-                return;
+                    ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+
+                    if (c != null)
+                    {
+                        overCabinet = c;
+                        isMedicCabinet = true;
+                        return false;
+                    }
+
+                    return false;
+                 }
+                     return false;
              }
             );
 
