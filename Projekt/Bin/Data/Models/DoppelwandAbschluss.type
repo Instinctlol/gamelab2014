@@ -22,7 +22,7 @@ type DoppelwandAbschluss
 			collision = True
 			position = -1 5.5 0.1
 			rotation = 0 0 0.9132883 0.4073139
-			scale = 0.1352482 0.1425192 0.7976952
+			scale = 0.1352482 0.1425192 0.8534821
 		}
 	}
 }
