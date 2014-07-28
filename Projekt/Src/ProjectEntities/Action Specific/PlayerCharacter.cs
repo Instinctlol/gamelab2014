@@ -699,7 +699,7 @@ namespace ProjectEntities
                                     Client_SendFlashLightRotation(i.LookDirection.Vertical / 2);
                             }
 
-                            Quat newPitch = new Quat(0, (float)Math.Sin(flashLightPitch), 0, (float)Math.Cos(flashLightPitch));
+                            Quat newPitch = new Quat(0, -(float)Math.Sin(flashLightPitch), 0, (float)Math.Cos(flashLightPitch));
                             attachedObject.RotationOffset = newPitch;
                         }
                     }
