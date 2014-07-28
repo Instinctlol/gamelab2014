@@ -48,7 +48,6 @@ namespace Game
         //Current ingame GUI which with which the player can cooperate
         MapObjectAttachedGui currentAttachedGuiObject;
 
-
         MapObject currentUseObject;
 
         bool currentUsing;
@@ -69,7 +68,8 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-
+        //Taschenlampe Timer
+        Timer energieTimer = new Timer();
 
         //Message System here===================================
 
@@ -173,6 +173,10 @@ namespace Game
 
             if (CaveManager.Instance == null)
                 CaveManager.Init();
+
+            //Timerintervall und Event, um Taschenlampenenergie zu verringern
+            energieTimer.Interval = 5000;
+            energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
 
         }
 
@@ -297,8 +301,24 @@ namespace Game
 
 
                 PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
-                if (GetPlayerUnit().Inventar.taschenlampeBesitz && GetPlayerUnit().Inventar.taschenlampeEnergie != 0 && player != null)
-                    player.Setflashlight(!GetPlayerUnit().Inventar.taschenlampevisible);
+                if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
+                {
+                    player.Setflashlight(!player.Inventar.taschenlampevisible);
+
+                    if (!player.Inventar.taschenlampevisible)
+                    {
+
+                        energieTimer.AutoReset = true;
+                        energieTimer.Enabled = true;
+                    }
+                    else if (player.Inventar.taschenlampevisible)
+                    {
+                        energieTimer.AutoReset = false;
+                        energieTimer.Enabled = false;
+                    }
+                }
+                else
+                    sendMessageToHUD("Taschenlampe noch nicht vorhanden oder die Batterie ist leer");
 
             }
 
@@ -1575,7 +1595,6 @@ namespace Game
         }
 
 
-
         bool IsCutSceneEnabled()
         {
             return CutSceneManager.Instance != null && CutSceneManager.Instance.CutSceneEnable;
@@ -2016,7 +2035,11 @@ namespace Game
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
         {
-            GetPlayerUnit().Inventar.taschenlampeEnergie--;
+            if (GetPlayerUnit().Inventar.taschenlampeEnergie > 0)
+                GetPlayerUnit().Inventar.taschenlampeEnergie -= 2;
+            else
+                sendMessageToHUD("Batterie der Taschenlampe ist leer.");
+
         }
     }
 }
