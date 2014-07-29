@@ -542,6 +542,9 @@ namespace ProjectEntities
             {
                 Server_SendWindowString("Something is broken.");
             }
+            if (Active){
+                Computer.AddRadarElement(new Vec2(Position.X, Position.Y));
+            }
         }
 
         void Server_SendActiveValueToAllClients()

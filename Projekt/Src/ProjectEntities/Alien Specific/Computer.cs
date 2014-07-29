@@ -6,6 +6,7 @@ using System.Timers;
 using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
+using Engine.MathEx;
 using ProjectCommon;
 
 namespace ProjectEntities
@@ -55,7 +56,7 @@ namespace ProjectEntities
         const int maxAlienCorpses = 10;
 
         // Verwaltet die Signale für das Radar
-        static LinkedList<Signal> signalList = new LinkedList<Signal>();
+        public static LinkedList<Signal> signalList = new LinkedList<Signal>();
 
         // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
         static int maxItemDropGroupNr = 2;
@@ -120,9 +121,6 @@ namespace ProjectEntities
         {
             get { return statistic; }
         }
-
-
-
 
         /**************/
         /* Funktionen */
@@ -527,5 +525,30 @@ namespace ProjectEntities
         {
             statistic.IncrementKilledAstronouts();
         }
+
+        /// <summary>
+        /// Fügt ein Signal der Minimap für eine gewisse Zeit hinzu
+        /// </summary>
+        /// <param name="v"></param>
+        public static void AddRadarElement(Vec2 v)
+        {
+            //Position an AlienGameWindow senden, um damit weiter zu arbeiten
+            Signal s = new Signal(v, v);
+            signalList.AddLast(s);
+        }
+
+        /// <summary>
+        /// Löscht das erste Signalelement der Signalliste
+        /// </summary>
+        /// <param name="v"></param>
+        public static void RemoveRadarElement(Signal s)
+        {
+            //Position an AlienGameWindow senden, um damit weiter zu arbeiten
+            if (signalList != null) 
+            {
+                signalList.RemoveFirst();
+            }
+        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace ProjectEntities
     /// <summary>
     /// Klasse für das Alien-Radar
     /// </summary>
-    class Signal
+    public class Signal
     {
         Vec2 min;
         Vec2 max;
