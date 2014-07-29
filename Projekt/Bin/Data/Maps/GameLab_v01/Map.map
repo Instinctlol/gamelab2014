@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 83.41254 -45.35293 70.94835
-editorCameraDirection = 2.80997 -1.413921
+editorCameraPosition = -99.48416 -20.36468 9.500781
+editorCameraDirection = 1.451516 -0.7569003
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -325,7 +325,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 18
-			subscriptionsToDeletionEvent = 303
+			subscriptionsToDeletionEvent = 303 662 663
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator
 			customScriptCodeCreated = False
@@ -2469,7 +2469,6 @@ entity
 	uin = 194
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 75.90049 76.75415 0.2699389
 	name = Inventar_1
@@ -2481,7 +2480,6 @@ entity
 	uin = 195
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 86.73236 52.84182 0.2697208
 	name = Inventar_2
@@ -2609,7 +2607,6 @@ entity
 	uin = 206
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 13.1623 115.607 0.2669983
 	name = Taschenlampe_2
@@ -2621,7 +2618,6 @@ entity
 	uin = 207
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 12.29997 96.88073 0.372897
 	name = Taschenlampe_1
@@ -2633,7 +2629,6 @@ entity
 	uin = 208
 	classPrompt = Item
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = -93.97009 81.27579 0.2713041
 	rotation = 0 0 -0.7681177 -0.6403087
@@ -2705,7 +2700,6 @@ entity
 	uin = 213
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = -50.51895 35.05504 0.3815589
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2716,7 +2710,6 @@ entity
 	uin = 214
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = -35.03524 50.50998 0.4014486
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2796,7 +2789,6 @@ entity
 	uin = 222
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 4.339417 63.47034 0.3501097
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2807,7 +2799,6 @@ entity
 	uin = 223
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 4.748599 61.82866 0.5722401
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2818,7 +2809,6 @@ entity
 	uin = 224
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 1.774801 61.47471 0.2742488
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2847,7 +2837,6 @@ entity
 	uin = 227
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 43.87457 50.81009 0.3910584
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2858,7 +2847,6 @@ entity
 	uin = 228
 	classPrompt = Item
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 64.4546 59.14811 0.4202077
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2869,7 +2857,6 @@ entity
 	uin = 229
 	classPrompt = HealthItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 102.009 -16.27925 0.273473
 	editorLayer = "Root Layer\\F2\\Items"
@@ -2923,7 +2910,6 @@ entity
 	uin = 232
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 122.1645 6.388959 1
 	name = Shutgun_1
@@ -2935,7 +2921,6 @@ entity
 	uin = 233
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 121.3484 -22.97385 0.4241513
 	name = Shutgun_2
@@ -3663,9 +3648,9 @@ entity
 	type = Fan
 	uin = 302
 	classPrompt = Fan
-	forceMaximum = 3500
+	forceMaximum = 35000
 	influenceRegionScale = 20 3 3
-	throttle = 1
+	throttle = 0
 	healthFactorAtBeginning = 1
 	position = -116.6538 5.985963 -1.317088
 	rotation = 0 -0.7071068 0 0.7071068
@@ -3682,7 +3667,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = -102.3333 -13.04353 1.886906
 	rotation = 0 0 -0.7232569 0.6905791
-	name = Switch_Ventilator
+	name = Switch_Ventilator_1
 	logicClass = 18
 	editorLayer = "Root Layer\\F1\\Ventilator"
 }
@@ -3996,7 +3981,6 @@ entity
 	uin = 331
 	classPrompt = HealthItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 52.65973 1.343755 0.273473
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5680,7 +5664,6 @@ entity
 	uin = 492
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -10.16415 -65.27451 0.3171929
 	name = "Scharaubenschl\x00fcssel_2"
@@ -5692,7 +5675,6 @@ entity
 	uin = 493
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -1.153195 -62.60851 0.3022462
 	name = "Schraubenschl\x00fcssel_1"
@@ -5704,7 +5686,6 @@ entity
 	uin = 494
 	classPrompt = Item
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 19.0001 -78.06461 0.4025804
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5715,7 +5696,6 @@ entity
 	uin = 495
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -39.23902 -53.0421 0.2706617
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5726,7 +5706,6 @@ entity
 	uin = 496
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -48.25845 -76.35174 0.2721765
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5737,7 +5716,6 @@ entity
 	uin = 497
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -63.17719 -9.285853 0.2704878
 	editorLayer = "Root Layer\\F2\\Items"
@@ -5787,7 +5765,6 @@ entity
 	uin = 500
 	classPrompt = Item
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = -23.20164 -120.0651 0.2728281
 	name = Platine
@@ -5799,7 +5776,6 @@ entity
 	uin = 501
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = 14.75553 -122.0606 0.4545996
 	name = Scar_1
@@ -5811,7 +5787,6 @@ entity
 	uin = 502
 	classPrompt = WeaponItem
 	respawnTime = 10
-	value = False
 	healthFactorAtBeginning = 1
 	position = -7.217249 -122.3846 0.4567038
 	name = Scar_2
@@ -5882,8 +5857,8 @@ entity
 	subscriptionsToDeletionEvent = 26
 	value = False
 	healthFactorAtBeginning = 1
-	position = -116.0539 7.870613 2.8543
-	rotation = 0 0 -0.7268858 0.6867584
+	position = -115.4908 6.436861 4.40293
+	rotation = 0.5018983 0.5042838 -0.4977406 0.4960346
 	name = BooleanSwitch1_InnerRing
 	logicClass = 26
 	editorLayer = "Root Layer\\F1\\Ventilator"
@@ -5919,7 +5894,6 @@ entity
 	uin = 509
 	classPrompt = WeaponItem
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 2.730835 104.8948 0.5612494
 	name = Brechstange_0
@@ -5931,7 +5905,6 @@ entity
 	uin = 510
 	classPrompt = WeaponItem
 	respawnTime = 0
-	value = False
 	healthFactorAtBeginning = 1
 	position = 4.322563 100.1927 0.5007266
 	name = Brechstange_1
@@ -6625,4 +6598,32 @@ entity
 	position = 70.30923 -10.35162 0
 	rotation = 0 0 1 -2.977396E-08
 	name = DoppelwandAbschluss_34
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 662
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 18
+	value = False
+	healthFactorAtBeginning = 1
+	position = -94.74127 -19.11004 1.886906
+	rotation = 0 0 -0.9996876 -0.02499592
+	name = Switch_Ventilator_2
+	logicClass = 18
+	editorLayer = "Root Layer\\F1\\Ventilator"
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 663
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 18
+	value = False
+	healthFactorAtBeginning = 1
+	position = -94.74127 -7.392529 1.886906
+	rotation = 0 0 -0.9996876 -0.02499592
+	name = Switch_Ventilator_3
+	logicClass = 18
+	editorLayer = "Root Layer\\F1\\Ventilator"
 }
