@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -99.48416 -20.36468 9.500781
-editorCameraDirection = 1.451516 -0.7569003
+editorCameraPosition = -2.185352 83.1759 21.13751
+editorCameraDirection = 1.451516 -0.4372897
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -325,7 +325,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 18
-			subscriptionsToDeletionEvent = 303 662 663
+			subscriptionsToDeletionEvent = 303 580 581
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator
 			customScriptCodeCreated = False
@@ -1606,6 +1606,7 @@ entity
 	uin = 114
 	classPrompt = AlienSpawner
 	sector = 72
+	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1623,6 +1624,7 @@ entity
 	uin = 115
 	classPrompt = AlienSpawner
 	sector = 95
+	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1640,6 +1642,7 @@ entity
 	uin = 116
 	classPrompt = AlienSpawner
 	sector = 92
+	spawnLimit = 2
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1657,6 +1660,7 @@ entity
 	uin = 117
 	classPrompt = AlienSpawner
 	sector = 89
+	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1674,6 +1678,7 @@ entity
 	uin = 118
 	classPrompt = AlienSpawner
 	sector = 75
+	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -1691,6 +1696,7 @@ entity
 	uin = 119
 	classPrompt = AlienSpawner
 	sector = 90
+	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -6602,7 +6608,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 662
+	uin = 580
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 18
 	value = False
@@ -6616,7 +6622,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 663
+	uin = 581
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 18
 	value = False

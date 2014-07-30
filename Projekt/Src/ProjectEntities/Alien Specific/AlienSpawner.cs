@@ -52,8 +52,12 @@ namespace ProjectEntities
         [FieldSerialize]
         Sector sector;
 
+        [FieldSerialize]
+        int spawnLimit;
+
         //the amount of entities left to spawn
         int aliensToSpawn;
+        int spawnCounter = 0;
 
         AlienSpawnerType _type = null; public new AlienSpawnerType Type { get { return _type; } }
 
@@ -99,6 +103,18 @@ namespace ProjectEntities
             {
                 buildedProgress = value;
                 UpdateAttachedObjectsVisibility();
+            }
+        }
+
+        public int SpawnLimit
+        {
+            get { return spawnLimit; }
+            set
+            {
+                if (value >= 0)
+                {
+                    spawnLimit = value;
+                }
             }
         }
 
@@ -181,7 +197,7 @@ namespace ProjectEntities
             //}
 
             bool spawningAllowed = true;
-            
+
             // Prüfung ob genügend Aliens verfügbar sind
             if (Computer.AvailableAliens == 0)
             {
@@ -195,6 +211,23 @@ namespace ProjectEntities
                 // Nicht Genügend Aliens verfügbar, aber min. ein Alien kann gespawnt werden
                 // Nachricht anzeigen
                 StatusMessageHandler.sendMessage(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens));
+                spawnNumber = Computer.AvailableAliens;
+            }
+            // Limit prüfen
+            if (spawningAllowed && spawnLimit > 0)
+            {
+                if (spawnCounter >= spawnLimit)
+                {
+                    // Limit wurde bereits erreicht
+                    spawningAllowed = false;
+                    StatusMessageHandler.sendMessage("Dieser Spawner hat das Spawn-Limit bereits erreicht. Es können keine Aliens gespawnt werden.");
+                }
+                else if ((spawnCounter + spawnNumber) > spawnLimit)
+                {
+                    // Limit wird in diesem Durchgang überschritten
+                    StatusMessageHandler.sendMessage(String.Format("Dieser Spawner hat ein Limit eingestellt und es wurden bereits {0:d} von {1:d} Aliens gespawnt.", spawnCounter, spawnLimit));
+                    spawnNumber = SpawnLimit - spawnCounter;
+                }
             }
             // Befinden sich Astronauten im Raum?
             if (IsAstronoutInSector())
@@ -321,6 +354,7 @@ namespace ProjectEntities
 
                 // Anzahl zu spawnender Aliens anpassen
                 aliensToSpawn--;
+                spawnCounter++;
                 // Computer aktualisieren
                 Computer.AddUsedAlien();
             }
