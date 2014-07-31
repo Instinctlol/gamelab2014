@@ -1624,23 +1624,36 @@ namespace ProjectEntities
 			//create objects
             MapObjectCreateObjectCollection.CreateObjectsResultItem[] result;
             if (this is Alien)
-            {
+            {                
                 result = new MapObjectCreateObjectCollection.CreateObjectsResultItem[2];
-                // Corpse muss immer erstellt werden
-                MapObjectCreateObjectCollection.CreateObjectsResultItem[] temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 0);
-                result[0] = temp[0];
-                // Per Zufall ein Item aus Liste auswählen
-                Random index = new Random();
-                int group = index.Next(Computer.MaxItemDropGroupNr + (int)(Computer.MaxItemDropGroupNr*3/4)); // etwas erhöhen, wenn nicht gültig, dann wird halt nichts gedroppt
-                int[] groups = Type.DieObjects.GetGroups();
-                Console.WriteLine("group-nr1: " + group);
-                // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
-                // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
-                if (InArray(group + 1, groups) && group + 1 <= Computer.MaxItemDropGroupNr)
+                try
                 {
-                    Console.WriteLine("group-nr2: " + group);
-                    temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
-                    result[1] = temp[0];
+                    Console.WriteLine("die_objects_create");
+                    // Corpse muss immer erstellt werden
+                    MapObjectCreateObjectCollection.CreateObjectsResultItem[] temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 0);
+                    foreach (MapObjectCreateObjectCollection.CreateObjectsResultItem i in temp)
+                    {
+                        Console.WriteLine(i.Source.Alias);
+                    }
+                    result[0] = temp[0];
+                    // Per Zufall ein Item aus Liste auswählen
+                    Random index = new Random();
+                    int group = index.Next(Computer.MaxItemDropGroupNr + (int)(Computer.MaxItemDropGroupNr * 3 / 4)); // etwas erhöhen, wenn nicht gültig, dann wird halt nichts gedroppt
+                    int[] groups = Type.DieObjects.GetGroups();
+                    Console.WriteLine("group-nr1: " + group);
+                    // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
+                    // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
+                    if (InArray(group + 1, groups) && group + 1 <= Computer.MaxItemDropGroupNr)
+                    {
+                        Console.WriteLine("group-nr2: " + group);
+                        temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
+                        result[1] = temp[0];
+                    }
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine("create_die_objects indexoutofboundsexception!");
+                    return result;
                 }
             }
             else
