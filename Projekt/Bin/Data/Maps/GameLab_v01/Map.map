@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -26.3838 112.9349 23.18997
-editorCameraDirection = 3.785044 -1.104955
+editorCameraPosition = -114.5891 -16.29536 6.481091
+editorCameraDirection = 0.3086189 -0.1270351
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -324,7 +324,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 18
-			subscriptionsToDeletionEvent = 301 578 579
+			subscriptionsToDeletionEvent = 301 578 579 301
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator
 			customScriptCodeCreated = False
@@ -461,6 +461,44 @@ entity
 			entityClassName = Repairable
 			className = CardReader_0
 			customScriptCodeCreated = False
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 662
+			subscriptionsToDeletionEvent = 301 579
+			entityClassName = BooleanSwitch
+			className = Switch_Ventilator_1
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 665
+				code = "if(Owner.Value)\r\n{\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_2\")).Value = false;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_1\")).Value = false;\r\n}"
+				methodName = ValueChange
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 663
+			subscriptionsToDeletionEvent = 578
+			entityClassName = BooleanSwitch
+			className = Switch_Ventilator_2
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 664
+				code = "if(Owner.Value)\r\n{\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_1\")).Value = false;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_3\")).Value = false;\r\n}"
+				methodName = ValueChange
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
 		}
 	}
 }
@@ -3639,7 +3677,7 @@ entity
 	type = BooleanSwitch
 	uin = 301
 	classPrompt = BooleanSwitch
-	subscriptionsToDeletionEvent = 18
+	subscriptionsToDeletionEvent = 18 662 18
 	value = False
 	healthFactorAtBeginning = 1
 	position = -102.3333 -13.04353 1.886906
@@ -6581,13 +6619,13 @@ entity
 	type = BooleanSwitch
 	uin = 578
 	classPrompt = BooleanSwitch
-	subscriptionsToDeletionEvent = 18
+	subscriptionsToDeletionEvent = 18 663
 	value = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -19.11004 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
 	name = Switch_Ventilator_2
-	logicClass = 18
+	logicClass = 663
 	editorLayer = "Root Layer\\F1\\Ventilator"
 }
 entity
@@ -6595,12 +6633,12 @@ entity
 	type = BooleanSwitch
 	uin = 579
 	classPrompt = BooleanSwitch
-	subscriptionsToDeletionEvent = 18
+	subscriptionsToDeletionEvent = 18 662
 	value = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -7.392529 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
 	name = Switch_Ventilator_3
-	logicClass = 18
+	logicClass = 662
 	editorLayer = "Root Layer\\F1\\Ventilator"
 }
