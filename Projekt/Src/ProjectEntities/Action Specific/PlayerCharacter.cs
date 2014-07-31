@@ -150,6 +150,7 @@ namespace ProjectEntities
             LightStatusToClient,
             FlashLightRotationToClient,
             FlashLightRotationToServer,
+            DropItemToServer,
         }
 
         ///////////////////////////////////////////
@@ -1099,6 +1100,61 @@ namespace ProjectEntities
                 return;
 
             flashLightPitch = pitch;
+        }
+
+
+        protected override void OnDie(MapObject prejudicial)
+        {
+            //Items droppen lassen, wenn Astronaut tot ist
+            dropItem();
+
+            base.OnDie(prejudicial);
+        }
+
+
+        public void Drop(PlayerCharacter player)
+        {
+            foreach(Item item in player.Inventar.getInventarliste())
+            {
+                MapObject itemObj = (MapObject)Entities.Instance.Create(item.Type, Map.Instance);
+
+                //Item wird vor dem Astronauten gedroppt
+                itemObj.Position = player.Position + player.Rotation.GetForward() * 4f + new Vec3(0, 0, 1);
+                itemObj.PostCreate();
+            }
+        }
+
+
+        void Client_SendDropItemToServer(PlayerCharacter player)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Item),
+                (ushort)NetworkMessages.DropItemToServer);
+            writer.Write(player.NetworkUIN);
+            EndNetworkMessage();
+        }
+
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.DropItemToServer)]
+        void Server_ReceiveDropItem(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            uint uin = reader.ReadUInt32();
+
+            if (!reader.Complete())
+                return;
+
+            PlayerCharacter player = Entities.Instance.GetByNetworkUIN(uin) as PlayerCharacter;
+            if (player != null)
+                this.Drop(player);
+
+        }
+
+        public void dropItem()
+        {
+            //Items droppen lassen, wenn Astronaut tot ist
+            if (!EntitySystemWorld.Instance.IsServer())
+                Client_SendDropItemToServer(this);
+            else
+                Drop(this);
         }
 
     }
