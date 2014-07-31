@@ -72,16 +72,10 @@ namespace ProjectEntities
 
         AlienUnitType _type = null; public new AlienUnitType Type { get { return _type; } }
 
-
-
-        //begin patrol
-        protected ArrayList route; //new variable for the route
-        protected int routeIndex = 0; //index for route points
-        //PathController pathController = new PathController();
-        //end patrol
-
-
-        
+           
+        protected ArrayList route; //Variable für die Patrolroute
+        protected int routeIndex = 0; //index für die route points
+               
 
         /*******************/
         /* Getter / Setter */
