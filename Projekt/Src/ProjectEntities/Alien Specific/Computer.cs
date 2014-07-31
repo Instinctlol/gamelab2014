@@ -530,10 +530,10 @@ namespace ProjectEntities
         /// Fügt ein Signal der Minimap für eine gewisse Zeit hinzu
         /// </summary>
         /// <param name="v"></param>
-        public static void AddRadarElement(Vec2 v)
+        public static void AddRadarElement(Vec2 min, Vec2 max)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
-            Signal s = new Signal(v);
+            Signal s = new Signal(min, max);
             signalList.AddLast(s);
 
             Timer radarTimer = new Timer(120000);

@@ -11,17 +11,26 @@ namespace ProjectEntities
     /// </summary>
     public class Signal
     {
-        Vec2 pos;
+        Vec2 min;
+        Vec2 max;
 
-        public Signal(Vec2 pos)
+        public Signal(Vec2 min, Vec2 max)
         {
-            this.pos = pos;
+            this.min = min;
+            this.max = max;
         }
 
-        public Vec2 Pos 
+        public Vec2 Min
         {
-            get { return pos; }
-            set { pos = value; }
+            get { return min; }
+            set { min = value; }
         }
+
+        public Vec2 Max
+        {
+            get { return max; }
+            set { max = value; }
+        }
+
     }
 }

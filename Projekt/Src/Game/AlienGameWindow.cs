@@ -1591,26 +1591,8 @@ namespace Game
             foreach (Signal s in Computer.signalList)
             {
                 // Methode 1:
-                Rect rect = new Rect(s.Pos - new Vec2(2f , 2f), s.Pos + new Vec2(2f , 2f));
+                Rect rect = new Rect(s.Min, s.Max);
                 
-                /*
-                // Methode 2:
-                Terminal unit = null;
-                foreach (Terminal terminal in Map.Instance.Children)
-                {
-                    if (terminal.Position.ToVec2() == s.Min || terminal.Position.ToVec2() == s.Max)
-                    {
-                        unit = terminal;
-                    }
-                }
-
-                if (unit == null)
-                {
-                    continue;
-                }
-
-                Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
-                */
                 rect -= mapRect.Minimum;
                 rect.Minimum *= mapSizeInv;
                 rect.Maximum *= mapSizeInv;

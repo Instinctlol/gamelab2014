@@ -543,7 +543,7 @@ namespace ProjectEntities
                 Server_SendWindowString("Something is broken.");
             }
             if (Active){
-                Computer.AddRadarElement(new Vec2(Position.X, Position.Y));
+                Computer.AddRadarElement(this.MapBounds.Minimum.ToVec2(), this.MapBounds.Maximum.ToVec2());
             }
         }
 
