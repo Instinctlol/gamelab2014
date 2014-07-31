@@ -78,6 +78,9 @@ namespace ProjectEntities
 
         float patrolTickTime;
 
+        //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
+        int counterPatrolCosts = 0;
+
         Vec3 oldMainBodyPosition;
         Vec3 mainBodyVelocity;
         // Channel zum abspielen des Default-Sounds für die kleinen Aliens
@@ -125,60 +128,79 @@ namespace ProjectEntities
 
         }
 
+        
         public void Patrol()
         {
-            patrolEnabled = true;
-            IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
-            Vec3 myPosition = this.Position;
-            MapCurve minCurve = null;
-            float minDistance = 10000f;
-            // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
-            foreach (MapCurve curve in allPossibleCurves)
+            if (Computer.ExperiencePoints > 0)
             {
-                // calculate a value for priority to attack this object
-                Vec3 distance = this.Position - curve.Position;
-                if (distance.Length() < minDistance)
+
+                if (counterPatrolCosts == 5)
                 {
-                    minDistance = distance.Length();
-                    minCurve = curve;
+                    Computer.DecrementExperiencePoints();
+                    EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
+                    counterPatrolCosts = 0;
                 }
-            }
-            EngineConsole.Instance.Print("MincurveNmae: " + minCurve.Name);
-            this.MovementRoute = minCurve;
+                counterPatrolCosts++;
 
-            //try to wander around if there is a Patrol-Task
-
-            MapCurve mapCurve = this.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (GameCharacter on the map)
-
-            if (mapCurve != null) //was there one set for this GameCharacter?
-            {
-                if (route == null) //initialize patrol route, if not already done
+                patrolEnabled = true;
+                IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
+                Vec3 myPosition = this.Position;
+                MapCurve minCurve = null;
+                float minDistance = 10000f;
+                // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
+                foreach (MapCurve curve in allPossibleCurves)
                 {
-                    route = new ArrayList();
-
-                    foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
+                    // calculate a value for priority to attack this object
+                    Vec3 distance = this.Position - curve.Position;
+                    if (distance.Length() < minDistance)
                     {
-                        route.Add(point);
+                        minDistance = distance.Length();
+                        minCurve = curve;
                     }
                 }
+                EngineConsole.Instance.Print("MincurveName: " + minCurve.Name);
+                this.MovementRoute = minCurve;
 
+                //try to wander around if there is a Patrol-Task
 
-                //create a movement task for the next point
-                MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+                MapCurve mapCurve = this.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (GameCharacter on the map)
 
-                //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
-                //move and use current CurvePoint (first MapCurvePoint) as destination  
-                Move(pt.Position);
-                routeIndex++; //next route waypoint
-
-                //reverse the route if we are at the end
-
-                if (routeIndex >= route.Count)
+                if (mapCurve != null) //was there one set for this GameCharacter?
                 {
-                    routeIndex = 0;
-                    route.Reverse();
+                    if (route == null) //initialize patrol route, if not already done
+                    {
+                        route = new ArrayList();
+
+                        foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
+                        {
+                            route.Add(point);
+                        }
+                    }
+
+
+                    //create a movement task for the next point
+                    MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+
+                    //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
+                    //move and use current CurvePoint (first MapCurvePoint) as destination  
+                    Move(pt.Position);
+                    routeIndex++; //next route waypoint
+
+                    //reverse the route if we are at the end
+
+                    if (routeIndex >= route.Count)
+                    {
+                        routeIndex = 0;
+                        route.Reverse();
+                    }
                 }
             }
+            else 
+            {
+                Stop();
+            }
+            
+            
         }
 
         
