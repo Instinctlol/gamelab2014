@@ -90,8 +90,11 @@ namespace ProjectEntities
 
         float timeTilNextSound = 0;
         String currentSoundName;
-        
-               
+
+
+        protected ArrayList route; //Variable für die Patrolroute
+        protected int routeIndex = 0; //index für die route points
+                 
 
         [FieldSerialize]
         private MapObject movRoute; //beinhaltet eine MapCurve, die in der Map als Patrolroute definiert wird 

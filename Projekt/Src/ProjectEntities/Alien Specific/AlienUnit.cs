@@ -71,11 +71,7 @@ namespace ProjectEntities
         Vec3 movePosition;
 
         AlienUnitType _type = null; public new AlienUnitType Type { get { return _type; } }
-
-           
-        protected ArrayList route; //Variable für die Patrolroute
-        protected int routeIndex = 0; //index für die route points
-               
+                
 
         /*******************/
         /* Getter / Setter */
