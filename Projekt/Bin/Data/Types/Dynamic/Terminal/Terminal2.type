@@ -8,7 +8,6 @@ type Terminal2
 		{
 			meshName = "Types\\Dynamic\\Terminal\\TerminalBack.mesh"
 			castDynamicShadows = True
-			collision = True
 			alias = terminalScreen
 			scale = 0.844 0.844 0.844
 			visible = False
