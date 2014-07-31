@@ -689,19 +689,10 @@ namespace Game
             bool isMedicCabinet = false;
             bool isSwitch = false;
 
-            ProjectEntities.Repairable overRepairable = null;
-            ProjectEntities.ServerRack overServerRack = null;
-            ProjectEntities.Item overItem = null;
-            ProjectEntities.Terminal overTerminal = null;
-            ProjectEntities.MedicCabinet overCabinet = null;
-            ProjectEntities.Switch overSwitch = null;
+            MapObject overObject = null;
+
 
             Vec3 origin = PhysicsWorld.Instance.RayCast(ray, (int)ContactGroup.CastOnlyCollision).Position;
-
-            //Map.Instance.GetObjects(ray, delegate(MapObject o, float scale)
-            //{
-            //    if (scale == 0 || o is Sector )
-            //        return true;
 
             if (origin.Length() != 0)
             {
@@ -714,7 +705,7 @@ namespace Game
 
                     if (r != null)
                     {
-                        overRepairable = r;
+                        overObject = r;
                         isRepairable = true;
                         break;
                     }
@@ -726,16 +717,16 @@ namespace Game
                         {
                             Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
 
-                            if (sph.RayIntersection(ray))
+                            if (sph.IsIntersectsSphere(sphere))
                             {
-                                overSwitch = sw;
+                                overObject = sw;
                                 isSwitch = true;
                                 break;
                             }
                         }
                         else
                         {
-                            overSwitch = sw;
+                            overObject = sw;
                             isSwitch = true;
                             break;
                         }
@@ -745,7 +736,7 @@ namespace Game
 
                     if (se != null)
                     {
-                        overServerRack = se;
+                        overObject = se;
                         isServerRack = true;
                         break;
                     }
@@ -754,7 +745,7 @@ namespace Game
 
                     if (i != null)
                     {
-                        overItem = i;
+                        overObject = i;
                         isItem = true;
                         break;
                     }
@@ -764,9 +755,9 @@ namespace Game
                     {
                         Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
 
-                        if (sph.RayIntersection(ray))
+                        if (sph.IsIntersectsSphere(sphere))
                         {
-                            overTerminal = t;
+                            overObject = t;
                             isTerminal = true;
                             break;
                         }
@@ -776,7 +767,7 @@ namespace Game
 
                     if (c != null)
                     {
-                        overCabinet = c;
+                        overObject = c;
                         isMedicCabinet = true;
                         break;
                     }
@@ -785,17 +776,23 @@ namespace Game
             }
 
 
+            string text = "";
 
+            Bounds bounds = new Bounds();
+
+            ColorValue textColor;
+            if ((Time % 2) < 1)
+                textColor = new ColorValue(1, 1, 0);
+            else
+                textColor = new ColorValue(0, 1, 0);
 
             //currentRepairable
             if (isRepairable)
             {
-                //draw selection border
+                ProjectEntities.Repairable overRepairable = overObject as Repairable;
+               
                 if (overRepairable != null && overRepairable.Repaired == false)
-                {
-                    Bounds bounds = overRepairable.MapBounds;
-                    DrawObjectSelectionBorder(bounds);
-                }
+                    bounds = overRepairable.MapBounds;
 
                 if (overRepairable != currentUseObject)
                 {
@@ -808,18 +805,6 @@ namespace Game
 
                 if (currentUseObject != null)
                 {
-                    ColorValue color;
-                    if ((Time % 2) < 1)
-                        color = new ColorValue(1, 1, 0);
-                    else
-                        color = new ColorValue(0, 1, 0);
-
-                    string text = "";
-
-
-
-
-
                     ProgressRepairable pRepair = currentUseObject as ProgressRepairable;
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
@@ -827,30 +812,16 @@ namespace Game
                     text += "Press \"Use\" to repair";
 
                     //get binded keyboard key or mouse button
-                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
-                        GetItemByControlKey(GameControlKeys.Use);
-                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
-                    {
-                        GameControlsManager.SystemKeyboardMouseValue value =
-                            controlItem.DefaultKeyboardMouseValues[0];
-                        text += string.Format(" ({0})", value.ToString());
-                    }
-
-
-                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
-                        VerticalAlign.Center, color);
                 }
             }
 
             //currentServerRack
             if (isServerRack)
             {
-                //draw selection border
+                ProjectEntities.ServerRack overServerRack = overObject as ServerRack;
+                
                 if (overServerRack != null && overServerRack.CanUse())
-                {
-                    Bounds bounds = overServerRack.MapBounds;
-                    DrawObjectSelectionBorder(bounds);
-                }
+                    bounds = overServerRack.MapBounds;
 
                 if (overServerRack != currentUseObject)
                 {
@@ -863,30 +834,7 @@ namespace Game
 
                 if (currentUseObject != null)
                 {
-                    ColorValue color;
-                    if ((Time % 2) < 1)
-                        color = new ColorValue(1, 1, 0);
-                    else
-                        color = new ColorValue(0, 1, 0);
-
-                    string text = "";
-
-
                     text += "Insert USB stick";
-
-                    //get binded keyboard key or mouse button
-                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
-                        GetItemByControlKey(GameControlKeys.Use);
-                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
-                    {
-                        GameControlsManager.SystemKeyboardMouseValue value =
-                            controlItem.DefaultKeyboardMouseValues[0];
-                        text += string.Format(" ({0})", value.ToString());
-                    }
-
-
-                    AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
-                        VerticalAlign.Center, color);
                 }
             }
 
@@ -894,10 +842,10 @@ namespace Game
             //currentSwitch
             if (isSwitch)
             {
-                //draw selection border
+                ProjectEntities.Switch overSwitch = overObject as ProjectEntities.Switch;
+
                 if (overSwitch != null)
                 {
-                    Bounds bounds;
                     if (overSwitch.UseAttachedMesh != null)
                     {
                         Sphere sph = GetUseableUseAttachedMeshWorldSphere(overSwitch.UseAttachedMesh);
@@ -905,67 +853,51 @@ namespace Game
                     }
                     else
                         bounds = overSwitch.MapBounds;
-                    DrawObjectSelectionBorder(bounds);
                 }
 
                 if (overSwitch != currentUseObject)
-                {
-
                     currentUseObject = overSwitch;
-                }
             }
 
 
             //currentItem
             if (isItem)
             {
-                //draw selection border
+                ProjectEntities.Item overItem = overObject as Item;
+
                 if (overItem != null)
-                {
-                    Bounds bounds = overItem.MapBounds;
-                    DrawObjectSelectionBorder(bounds);
-                }
+                    bounds = overItem.MapBounds;
 
                 if (currentUseObject != overItem)
-                {
                     currentUseObject = overItem;
-                }
             }
 
             //Current terminal
             if (isTerminal)
             {
-                //draw selection border
+                ProjectEntities.Terminal overTerminal = overObject as Terminal;
+
                 if (overTerminal != null)
                 {
-                    Bounds bounds;
                     Sphere sph = GetUseableUseAttachedMeshWorldSphere(overTerminal.TerminalProjector);
                     bounds = sph.ToBounds();
-
-                    DrawObjectSelectionBorder(bounds);
                 }
 
 
                 if (overTerminal != currentUseObject)
-                {
                     currentUseObject = overTerminal;
-                }
             }
 
             //Current medic cabinet
             if (isMedicCabinet)
             {
-                //draw selection border
+                ProjectEntities.MedicCabinet overCabinet = overObject as MedicCabinet;
+
                 if (overCabinet != null)
-                {
-                    Bounds bounds = overCabinet.MapBounds;
-                    DrawObjectSelectionBorder(bounds);
-                }
+                    bounds = overCabinet.MapBounds;
 
                 if (currentUseObject != overCabinet)
-                {
                     currentUseObject = overCabinet;
-                }
             }
 
             //Wenn nix, nix setzen
@@ -974,31 +906,21 @@ namespace Game
 
 
             //draw "Press Use" text
-            if (currentUseObject != null && !(currentUseObject is Repairable) && !(currentUseObject is ServerRack))
+            if (currentUseObject != null)
             {
-                ColorValue color;
-                if ((Time % 2) < 1)
-                    color = new ColorValue(1, 1, 0);
-                else
-                    color = new ColorValue(0, 1, 0);
+                DrawObjectSelectionBorder(bounds);
 
-                string text;
+                GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.GetItemByControlKey(GameControlKeys.Use);
+                if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
                 {
-                    text = "Press \"Use\"";
-
-                    //get binded keyboard key or mouse button
-                    GameControlsManager.GameControlItem controlItem = GameControlsManager.Instance.
-                        GetItemByControlKey(GameControlKeys.Use);
-                    if (controlItem != null && controlItem.DefaultKeyboardMouseValues.Length != 0)
-                    {
-                        GameControlsManager.SystemKeyboardMouseValue value =
-                            controlItem.DefaultKeyboardMouseValues[0];
-                        text += string.Format(" ({0})", value.ToString());
-                    }
+                    GameControlsManager.SystemKeyboardMouseValue value =
+                        controlItem.DefaultKeyboardMouseValues[0];
+                    text += string.Format(" ({0})", value.ToString());
                 }
 
+
                 AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
-                    VerticalAlign.Center, color);
+                    VerticalAlign.Center, textColor);
             }
 
         }
