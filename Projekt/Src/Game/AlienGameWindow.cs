@@ -1590,9 +1590,27 @@ namespace Game
             }
             foreach (Signal s in Computer.signalList)
             {
-                // Erste Variante
-                Rect rect = new Rect(s.Min, s.Max);
+                // Methode 1:
+                Rect rect = new Rect(s.Pos - new Vec2(2f , 2f), s.Pos + new Vec2(2f , 2f));
+                
+                /*
+                // Methode 2:
+                Terminal unit = null;
+                foreach (Terminal terminal in Map.Instance.Children)
+                {
+                    if (terminal.Position.ToVec2() == s.Min || terminal.Position.ToVec2() == s.Max)
+                    {
+                        unit = terminal;
+                    }
+                }
 
+                if (unit == null)
+                {
+                    continue;
+                }
+
+                Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
+                */
                 rect -= mapRect.Minimum;
                 rect.Minimum *= mapSizeInv;
                 rect.Maximum *= mapSizeInv;
@@ -1605,7 +1623,9 @@ namespace Game
                 //increase 1 pixel
                 rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
 
-                renderer.AddQuad(rect, new ColorValue(1, 0, 0));
+                //ColorValue color = GetColor(unit);
+                renderer.AddQuad(rect, new ColorValue(1,0,0));
+                
             }
 
             //Draw camera borders

@@ -57,7 +57,7 @@ namespace ProjectEntities
 
         // Verwaltet die Signale für das Radar
         public static LinkedList<Signal> signalList = new LinkedList<Signal>();
-
+        
         // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
         static int maxItemDropGroupNr = 2;
 
@@ -533,18 +533,22 @@ namespace ProjectEntities
         public static void AddRadarElement(Vec2 v)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
-            Signal s = new Signal(v, v);
+            Signal s = new Signal(v);
             signalList.AddLast(s);
+
+            Timer radarTimer = new Timer(120000);
+            radarTimer.Elapsed += new ElapsedEventHandler(RemoveRadarElement);
+            radarTimer.Enabled = true;
         }
 
         /// <summary>
         /// Löscht das erste Signalelement der Signalliste
         /// </summary>
         /// <param name="v"></param>
-        public static void RemoveRadarElement(Signal s)
+        static void RemoveRadarElement(object source, ElapsedEventArgs e)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
-            if (signalList != null) 
+            if (signalList.Count > 0 && signalList != null) 
             {
                 signalList.RemoveFirst();
             }
