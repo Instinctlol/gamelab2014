@@ -71,17 +71,17 @@ type "Corridor-F1"
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = -6.788422 -7.483015 -0.03914863
+			position = -6.788422 -9.138718 -0.01851463
 			rotation = 0 0 -1 -4.371139E-08
-			scale = 1 1.1 1
+			scale = 1 1.277359 1
 		}
 		mesh
 		{
 			meshName = "Models\\DemoCorridors\\WallUp.mesh"
 			collision = True
-			position = -6.860098 6.247334 0
+			position = -6.784001 7.097675 -0.03621054
 			rotation = 0 0 -1 -4.371139E-08
-			scale = 1 1.21 1
+			scale = 1 1.430254 1
 		}
 		mesh
 		{
