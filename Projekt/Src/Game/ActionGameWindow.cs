@@ -18,7 +18,6 @@ using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
 using System.Timers;
-using System.Timers;
 
 namespace Game
 {
@@ -232,89 +231,29 @@ namespace Game
 
             if (e.Key == EKeys.I)
             {
-                if (hudControl.Controls["Item_Leiste"].Visible)
-                {
-                    hudControl.Controls["Item_Leiste"].Visible = false;
-                }
-                else
-                {
-                    zeigeInventar();
-                    hudControl.Controls["Item_Leiste"].Visible = true;
-                }
+                oeffneInventar();
             }
 
             if (e.Key == EKeys.P)
             {
-                if (hudControl.Controls["Item_Leiste"].Visible == true)
-                {
-                    Unit u = GetPlayerUnit();
-                    List<Item> inv = u.Inventar.getInventarliste();
-                    if (u.Inventar.getIndexUseItem() + 1 <= inv.Count - 1)
-                    {
-                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
-                        zeigeInventar();
-                    }
-                    else
-                        //Fehler ausgeben
-                        return false;
-                }
+                rechtsInventar();
             }
 
             if (e.Key == EKeys.O)
             {
-                if (hudControl.Controls["Item_Leiste"].Visible == true)
-                {
-                    Unit u = GetPlayerUnit();
-                    List<Item> inv = u.Inventar.getInventarliste();
-                    if (u.Inventar.getIndexUseItem() - 1 >= 0)
-                    {
-                        u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
-                        zeigeInventar();
-                    }
-                    else
-                        //Fehler ausgeben
-                        return false;
-                }
+                linksInventar();
             }
 
             if (e.Key == EKeys.U)
             {
-                if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
-                {
-                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
-                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
-                    Timer aTimer = new Timer(5000);
-                    aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
-                    aTimer.Enabled = true;
-                }
+                zeigeWaffeninfo();
             }
 
 
 
             if (e.Key == EKeys.L)
             {
-
-
-                PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
-                if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
-                {
-                    player.Setflashlight(!player.Inventar.taschenlampevisible);
-
-                    if (!player.Inventar.taschenlampevisible)
-                    {
-
-                        energieTimer.AutoReset = true;
-                        energieTimer.Enabled = true;
-                    }
-                    else if (player.Inventar.taschenlampevisible)
-                    {
-                        energieTimer.AutoReset = false;
-                        energieTimer.Enabled = false;
-                    }
-                }
-                else
-                    sendMessageToHUD("Taschenlampe noch nicht vorhanden oder die Batterie ist leer");
-
+                switchTaschenlampe();
             }
 
             return base.OnKeyDown(e);
@@ -2035,6 +1974,82 @@ namespace Game
             else
                 sendMessageToHUD("Batterie der Taschenlampe ist leer.");
 
+        }
+
+        public void oeffneInventar()
+        {
+            if (hudControl.Controls["Item_Leiste"].Visible)
+            {
+                hudControl.Controls["Item_Leiste"].Visible = false;
+            }
+            else
+            {
+                zeigeInventar();
+                hudControl.Controls["Item_Leiste"].Visible = true;
+            }
+        }
+
+        public void rechtsInventar()
+        {
+            if (hudControl.Controls["Item_Leiste"].Visible == true)
+            {
+                Unit u = GetPlayerUnit();
+                List<Item> inv = u.Inventar.getInventarliste();
+                if (u.Inventar.getIndexUseItem() + 1 <= inv.Count - 1)
+                {
+                    u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
+                    zeigeInventar();
+                }
+            }
+        }
+
+        public void linksInventar()
+        {
+            if (hudControl.Controls["Item_Leiste"].Visible == true)
+            {
+                Unit u = GetPlayerUnit();
+                List<Item> inv = u.Inventar.getInventarliste();
+                if (u.Inventar.getIndexUseItem() - 1 >= 0)
+                {
+                    u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
+                    zeigeInventar();
+                }
+            }
+        }
+
+        public void zeigeWaffeninfo()
+        {
+            if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
+            {
+                hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                Timer aTimer = new Timer(5000);
+                aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
+                aTimer.Enabled = true;
+            }
+        }
+
+        public void switchTaschenlampe()
+        {
+            PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
+            if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
+            {
+                player.Setflashlight(!player.Inventar.taschenlampevisible);
+
+                if (!player.Inventar.taschenlampevisible)
+                {
+
+                    energieTimer.AutoReset = true;
+                    energieTimer.Enabled = true;
+                }
+                else if (player.Inventar.taschenlampevisible)
+                {
+                    energieTimer.AutoReset = false;
+                    energieTimer.Enabled = false;
+                }
+            }
+            else
+                sendMessageToHUD("Taschenlampe noch nicht vorhanden oder die Batterie ist leer");
         }
     }
 }
