@@ -126,20 +126,20 @@ namespace GestureLib
 
             #region Acceleration State
 
-            if (false)//args.WiimoteState.Extension)
-            {
-                AccelerationGestureState = new AccelerationGestureState(
-               args.WiimoteState.NunchukState.AccelState.Values.X,
-               args.WiimoteState.NunchukState.AccelState.Values.Y,
-               args.WiimoteState.NunchukState.AccelState.Values.Z);
-            }
-            else
-            {
+            //if (false)//args.WiimoteState.Extension)
+            //{
+            //   AccelerationGestureState = new AccelerationGestureState(
+            //   args.WiimoteState.NunchukState.AccelState.Values.X,
+            //   args.WiimoteState.NunchukState.AccelState.Values.Y,
+            //   args.WiimoteState.NunchukState.AccelState.Values.Z);
+            //}
+            //else { }
+          
                 AccelerationGestureState = new AccelerationGestureState(
                     args.WiimoteState.AccelState.Values.X,
                     args.WiimoteState.AccelState.Values.Y,
                     args.WiimoteState.AccelState.Values.Z);
-            }
+            
             
             #endregion
 

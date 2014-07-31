@@ -112,6 +112,11 @@ namespace ProjectCommon
         [DefaultJoystickValue(JoystickButtons.Button8)]
         NextWeapon,
 
+       [DefaultJoystickValue(JoystickButtons.Button11)]
+        OpenInventory,
+
+
+
         [DefaultKeyboardMouseValue(EKeys.D1)]
         Weapon1,
         [DefaultKeyboardMouseValue(EKeys.D2)]

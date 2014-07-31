@@ -10,6 +10,9 @@ using GestureLib;
 using System.Timers;
 using System.Threading;
 
+
+
+
 //using GestureLib.Implementation;
 
 namespace ProjectCommon
@@ -26,6 +29,8 @@ namespace ProjectCommon
         bool useWiiMote = true; // 
         bool nonUse = true;
         private Object Lock = new Object();
+
+        public static bool openInventory = false;
 
         private delegate void UpdateWiimoteStateDelegate(WiimoteChangedEventArgs args);
         private delegate void UpdateExtensionChangedDelegate(WiimoteExtensionChangedEventArgs args);
@@ -296,87 +301,60 @@ namespace ProjectCommon
         {
             //WiimoteState ws = args.WiimoteState;
 
-            InstanceWM.wm.SetReportType(InputReport.ButtonsAccel, false);// gestenerkennung
-            InstanceWM.wm.SetReportType(InputReport.ButtonsExtension, true); // steuerung
+            //InstanceWM.wm.SetReportType(InputReport.ButtonsAccel, false);// gestenerkennung
+            //InstanceWM.wm.SetReportType(InputReport.ButtonsExtension, true); // steuerung
 
 
             if (InstanceWM.wiiMoteInitialized)
             {
-                InstanceWM.wm.SetReportType(InputReport.ButtonsExtension,true);
-                WiimoteState wiiState = InstanceWM.wm.WiimoteState;
-                const float nunchuckThreshold = 0.1f;
-                const float nunchuckScale = 0.01f;
                 
-                float nunchuckX = wiiState.NunchukState.Joystick.X; // [-0.5, 0.5], left negative, right positive
-                float nunchuckY = wiiState.NunchukState.Joystick.Y; // [-0.5, 0.5], bottom negative, top positive
-                Console.WriteLine(nunchuckX + "-" + nunchuckY);
+                WiimoteState wiiState = InstanceWM.wm.WiimoteState;
+                //const float nunchuckThreshold = 0.1f;
+                //const float nunchuckScale = 0.01f;
+                
+                //float nunchuckX = wiiState.NunchukState.Joystick.X; // [-0.5, 0.5], left negative, right positive
+                //float nunchuckY = wiiState.NunchukState.Joystick.Y; // [-0.5, 0.5], bottom negative, top positive
+                //Console.WriteLine(nunchuckX + "-" + nunchuckY);
                 bool buttonUpPressed = wiiState.ButtonState.Up;
                 bool buttonDownPressed = wiiState.ButtonState.Down;
                 bool buttonLeftPressed = wiiState.ButtonState.Left;
                 bool buttonRightPressed = wiiState.ButtonState.Right;
-
-                bool buttonUpPressedOld = InstanceWM.lastState.ButtonState.Up;
-                bool buttonDownPressedOld = InstanceWM.lastState.ButtonState.Down;
-                bool buttonLeftPressedOld = InstanceWM.lastState.ButtonState.Left;
-                bool buttonRightPressedOld = InstanceWM.lastState.ButtonState.Right;
-
                 bool buttonAPressed = wiiState.ButtonState.A;
-                bool buttonAPressedOld = InstanceWM.lastState.ButtonState.A;
+                bool buttonHomePressed = wiiState.ButtonState.Home;
+                bool buttonPlusPressed = wiiState.ButtonState.Plus;
+                bool buttonMinusPressed = wiiState.ButtonState.Minus;
 
-                if (buttonUpPressed /*&& !buttonUpPressedOld*/)
+                
+
+                if (buttonHomePressed /*&& !buttonUpPressedOld*/)
                 {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Up));
+                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.I));
                 }
                 else /*if (!buttonUpPressed && buttonUpPressedOld)*/
                 {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Up));
+                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.I));
                 }
 
-                if (buttonDownPressed)
+                if (buttonPlusPressed && openInventory  /*&& !buttonUpPressedOld*/)
                 {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Down));
+                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.P));
                 }
-                else
+                else if (!buttonPlusPressed && openInventory)
                 {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Down));
-                }
-
-                if (buttonLeftPressed)
-                {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Left));
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Left));
+                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.P));
                 }
 
-                if (buttonRightPressed)
+                if (buttonMinusPressed && openInventory /*&& !buttonUpPressedOld*/)
                 {
-                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.Right));
+                    GameControlsManager.Instance.DoKeyDown(new KeyEvent(EKeys.O));
                 }
-                else
+                else if (!buttonMinusPressed && openInventory)
                 {
-                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.Right));
+                    GameControlsManager.Instance.DoKeyUp(new KeyEvent(EKeys.O));
                 }
+               
 
-                if (buttonAPressed)
-                {
-                    GameControlsManager.Instance.DoMouseDown(EMouseButtons.Left);
-                }
-                else
-                {
-                    GameControlsManager.Instance.DoMouseUp(EMouseButtons.Left);
-                }
-
-                if (Math.Abs(nunchuckX) > nunchuckThreshold)
-                {
-                    GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(nunchuckScale * nunchuckX, 0.0f));
-                }
-
-                if (Math.Abs(nunchuckY) > nunchuckThreshold)
-                {
-                    GameControlsManager.Instance.DoMouseMoveRelative(new Vec2(0.0f, nunchuckScale * -1.0f * nunchuckY));
-                }
+                
 
                 InstanceWM.lastState = wiiState;
             }
