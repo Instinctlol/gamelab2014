@@ -78,8 +78,7 @@ namespace ProjectEntities
 
         float patrolTickTime;
 
-        //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
-        int counterPatrolCosts = 0;
+        int counterPatrolCosts = 0; //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
 
         Vec3 oldMainBodyPosition;
         Vec3 mainBodyVelocity;
@@ -94,26 +93,26 @@ namespace ProjectEntities
         
 
 
-        [FieldSerialize] //save this value
-        [DefaultValue(typeof(MovementPreference), "Patrol")] //this is our default selected value
-        private MovementPreference movPref; //this will hold our preference
+        //[FieldSerialize] //save this value
+        //[DefaultValue(typeof(MovementPreference), "Patrol")] //this is our default selected value
+        //private MovementPreference movPref; //this will hold our preference
 
-        public MovementPreference MovementPref //accessor for the variable. Not necessary, but could have more logic in 'set' and 'get'
-        {
-            get { return movPref; }
-            set { movPref = value; }
-        }
+        //public MovementPreference MovementPref //accessor for the variable. Not necessary, but could have more logic in 'set' and 'get'
+        //{
+        //    get { return movPref; }
+        //    set { movPref = value; }
+        //}
 
         [FieldSerialize]
-        private MapObject movRoute; //will hold a MapCurve that we place on the map as patrol route
+        private MapObject movRoute; //beinhaltet eine MapCurve, die in der Map als Patrolroute definiert wird 
 
         
-        public MapObject MovementRoute //accessor for the MapCurve. Lets create some logic for the 'set'
+        public MapObject MovementRoute //Zugriff auf die MapCurve
         {
             get { return movRoute; }
             set
             {
-                if (value is MapCurve) //accept only certain MapObjects
+                if (value is MapCurve) //akzeptiert nur bestimmte MapObjects 
                 {
                     movRoute = value;
                 }
@@ -121,12 +120,12 @@ namespace ProjectEntities
             }
         }
 
-        public enum MovementPreference //all our movement types
-        {
-            Patrol,
-            Random,
+        //public enum MovementPreference //all our movement types
+        //{
+        //    Patrol,
+        //    Random,
 
-        }
+        //}
 
         
         public void Patrol()
@@ -147,10 +146,10 @@ namespace ProjectEntities
                 Vec3 myPosition = this.Position;
                 MapCurve minCurve = null;
                 float minDistance = 10000f;
-                // Falls tote Spieler trotzdem ausgelesen werden prüfen, ob diese noch Lebenspunkte haben oder schon tod sind
+                
                 foreach (MapCurve curve in allPossibleCurves)
                 {
-                    // calculate a value for priority to attack this object
+                    // suche die am nächsten liegende MapCurve
                     Vec3 distance = this.Position - curve.Position;
                     if (distance.Length() < minDistance)
                     {
@@ -158,36 +157,31 @@ namespace ProjectEntities
                         minCurve = curve;
                     }
                 }
+
                 EngineConsole.Instance.Print("MincurveName: " + minCurve.Name);
                 this.MovementRoute = minCurve;
 
-                //try to wander around if there is a Patrol-Task
+                
+                MapCurve mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
 
-                MapCurve mapCurve = this.MovementRoute as MapCurve; //get the MapCurve from the object this AI controls (GameCharacter on the map)
-
-                if (mapCurve != null) //was there one set for this GameCharacter?
+                if (mapCurve != null) //hat das Alien eine MapCurve?
                 {
-                    if (route == null) //initialize patrol route, if not already done
+                    if (route == null) //initialisiere die Patrolroute
                     {
                         route = new ArrayList();
 
-                        foreach (MapCurvePoint point in mapCurve.Points) //add every MapCurvePoint as a waypoint in our route
+                        foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen waypoint in die route ein 
                         {
                             route.Add(point);
                         }
                     }
-
-
-                    //create a movement task for the next point
+                    
+                    //laufe zum nächsten Punkt
                     MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
-
-                    //this.AutomaticTasks = GameCharacterAI.AutomaticTasksEnum.EnabledOnlyWhenNoTasks; //do this only if there are no other tasks
-                    //move and use current CurvePoint (first MapCurvePoint) as destination  
                     Move(pt.Position);
-                    routeIndex++; //next route waypoint
+                    routeIndex++; //nächster route waypoint
 
-                    //reverse the route if we are at the end
-
+                    //laufe die Route zurück, wenn du am Ende der Route angekommen bist
                     if (routeIndex >= route.Count)
                     {
                         routeIndex = 0;
