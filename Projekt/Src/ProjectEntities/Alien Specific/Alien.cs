@@ -91,17 +91,7 @@ namespace ProjectEntities
         float timeTilNextSound = 0;
         String currentSoundName;
         
-
-
-        //[FieldSerialize] //save this value
-        //[DefaultValue(typeof(MovementPreference), "Patrol")] //this is our default selected value
-        //private MovementPreference movPref; //this will hold our preference
-
-        //public MovementPreference MovementPref //accessor for the variable. Not necessary, but could have more logic in 'set' and 'get'
-        //{
-        //    get { return movPref; }
-        //    set { movPref = value; }
-        //}
+               
 
         [FieldSerialize]
         private MapObject movRoute; //beinhaltet eine MapCurve, die in der Map als Patrolroute definiert wird 
@@ -120,14 +110,7 @@ namespace ProjectEntities
             }
         }
 
-        //public enum MovementPreference //all our movement types
-        //{
-        //    Patrol,
-        //    Random,
 
-        //}
-
-        
         public void Patrol()
         {
             if (Computer.ExperiencePoints > 0)
@@ -146,7 +129,7 @@ namespace ProjectEntities
                 Vec3 myPosition = this.Position;
                 MapCurve minCurve = null;
                 float minDistance = 10000f;
-                
+
                 foreach (MapCurve curve in allPossibleCurves)
                 {
                     // suche die am nächsten liegende MapCurve
@@ -161,7 +144,7 @@ namespace ProjectEntities
                 EngineConsole.Instance.Print("MincurveName: " + minCurve.Name);
                 this.MovementRoute = minCurve;
 
-                
+
                 MapCurve mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
 
                 if (mapCurve != null) //hat das Alien eine MapCurve?
@@ -175,7 +158,7 @@ namespace ProjectEntities
                             route.Add(point);
                         }
                     }
-                    
+
                     //laufe zum nächsten Punkt
                     MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
                     Move(pt.Position);
@@ -189,12 +172,10 @@ namespace ProjectEntities
                     }
                 }
             }
-            else 
+            else
             {
                 Stop();
             }
-            
-            
         }
 
         
