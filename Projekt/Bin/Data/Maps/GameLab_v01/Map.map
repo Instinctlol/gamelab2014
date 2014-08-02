@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 475.7957 15.06957 42.96958
-editorCameraDirection = 1.572696 -1.560796
+editorCameraPosition = -16.7452 -1.522673 95.83083
+editorCameraDirection = 1.51322 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -6729,7 +6729,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 664
+	uin = 586
 	classPrompt = StaticObject
 	position = -34.43485 10.96428 0
 	name = DoppelwandAbschluss_35
@@ -6737,7 +6737,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 665
+	uin = 587
 	classPrompt = StaticObject
 	position = -5.097298 42.35185 0
 	name = DoppelwandAbschluss_36
@@ -6745,7 +6745,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 666
+	uin = 588
 	classPrompt = StaticObject
 	position = 6.041567 39.4893 0
 	rotation = 0 0 1 1.463745E-08
@@ -6754,7 +6754,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 667
+	uin = 589
 	classPrompt = StaticObject
 	position = -5.270587 -39.77846 0
 	name = DoppelwandAbschluss_38
@@ -6762,7 +6762,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 668
+	uin = 590
 	classPrompt = StaticObject
 	position = 5.397243 -41.18631 0
 	rotation = 0 0 1 7.438686E-08
@@ -6771,7 +6771,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 669
+	uin = 591
 	classPrompt = StaticObject
 	position = 29.47625 -19.1059 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6780,7 +6780,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 670
+	uin = 592
 	classPrompt = StaticObject
 	position = 41.34195 -12.24926 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6789,7 +6789,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 671
+	uin = 593
 	classPrompt = StaticObject
 	position = 29.60024 -7.220928 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6798,7 +6798,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 672
+	uin = 594
 	classPrompt = StaticObject
 	position = 40.97857 -2.526813 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6807,7 +6807,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 673
+	uin = 595
 	classPrompt = StaticObject
 	position = 41.55878 5.949986 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6816,7 +6816,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 674
+	uin = 596
 	classPrompt = StaticObject
 	position = 29.37065 12.9929 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6825,7 +6825,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 675
+	uin = 597
 	classPrompt = StaticObject
 	position = 29.37065 16.70877 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6834,7 +6834,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 676
+	uin = 598
 	classPrompt = StaticObject
 	position = 38.69352 -14.81825 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6843,7 +6843,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 677
+	uin = 599
 	classPrompt = StaticObject
 	position = 39.14444 4.251432 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6852,7 +6852,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 678
+	uin = 600
 	classPrompt = StaticObject
 	position = 50.74178 11.70308 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6861,7 +6861,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 679
+	uin = 601
 	classPrompt = StaticObject
 	position = 50.53215 17.4017 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6870,9 +6870,616 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 680
+	uin = 602
 	classPrompt = StaticObject
 	position = 35.31542 11.55518 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_51
+}
+entity
+{
+	type = DoppelWanDoppelAbschluss
+	uin = 681
+	classPrompt = StaticObject
+	position = 490.7925 46.3791 0
+	rotation = 0 0 0.4226183 0.9063078
+	name = DoppelWanDoppelAbschluss_0
+}
+entity
+{
+	type = DoppelWanDoppelAbschluss
+	uin = 682
+	classPrompt = StaticObject
+	position = 478.1277 10.45261 0
+	rotation = 0 0 0.4226183 0.9063078
+	name = DoppelWanDoppelAbschluss_1
+}
+entity
+{
+	type = DoppelWanDoppelAbschluss
+	uin = 683
+	classPrompt = StaticObject
+	position = 489.4893 10.67645 0
+	rotation = 0 0 0.9238796 0.3826835
+	name = DoppelWanDoppelAbschluss_2
+}
+entity
+{
+	type = DoppelWanDoppelAbschluss
+	uin = 684
+	classPrompt = StaticObject
+	position = 476.8893 45.97645 0
+	rotation = 0 0 0.9238796 0.3826835
+	name = DoppelWanDoppelAbschluss_3
+}
+entity
+{
+	type = StaticMesh
+	uin = 685
+	classPrompt = StaticMesh
+	position = -77.55638 59.36434 0.2566535
+	rotation = 0 0 -0.9284949 0.3713453
+	name = StaticMesh_38
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Sofa\\sofa .mesh"
+}
+entity
+{
+	type = Armchair3
+	uin = 686
+	classPrompt = StaticObject
+	position = -65.9571 87.38173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_21
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 687
+	classPrompt = StaticObject
+	position = -67.719 84.85162 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_22
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 688
+	classPrompt = StaticObject
+	position = -66.0772 81.47704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_23
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 689
+	classPrompt = StaticObject
+	position = -62.62198 81.23994 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_24
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 690
+	classPrompt = StaticObject
+	position = -60.74359 84.75871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_25
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 691
+	classPrompt = StaticObject
+	position = -62.68771 87.11169 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_26
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 692
+	classPrompt = StaticObject
+	position = -64.10001 84.4 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_0
+}
+entity
+{
+	type = Armchair3
+	uin = 693
+	classPrompt = StaticObject
+	position = -66.0772 81.47704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_27
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 694
+	classPrompt = StaticObject
+	position = -62.62198 81.23994 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_28
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 695
+	classPrompt = StaticObject
+	position = -67.719 84.85162 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_29
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 696
+	classPrompt = StaticObject
+	position = -65.9571 87.38173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_30
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 697
+	classPrompt = StaticObject
+	position = -62.68771 87.11169 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_31
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 698
+	classPrompt = StaticObject
+	position = -64.10001 84.4 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_1
+}
+entity
+{
+	type = Armchair3
+	uin = 699
+	classPrompt = StaticObject
+	position = -60.74359 84.75871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_32
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 700
+	classPrompt = StaticObject
+	position = -69.0772 10.17704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_33
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 701
+	classPrompt = StaticObject
+	position = -65.62198 9.939946 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_34
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 702
+	classPrompt = StaticObject
+	position = -69.0772 10.17704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_35
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 703
+	classPrompt = StaticObject
+	position = -65.62198 9.939946 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_36
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 704
+	classPrompt = StaticObject
+	position = -70.719 13.55163 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_37
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 705
+	classPrompt = StaticObject
+	position = -68.9571 16.08173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_38
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 706
+	classPrompt = StaticObject
+	position = -65.68771 15.8117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_39
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 707
+	classPrompt = StaticObject
+	position = -67.10001 13.1 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_2
+}
+entity
+{
+	type = Armchair3
+	uin = 708
+	classPrompt = StaticObject
+	position = -70.719 13.55163 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 709
+	classPrompt = StaticObject
+	position = -68.9571 16.08173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 710
+	classPrompt = StaticObject
+	position = -65.68771 15.8117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_42
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 711
+	classPrompt = StaticObject
+	position = -67.10001 13.1 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_3
+}
+entity
+{
+	type = Armchair3
+	uin = 712
+	classPrompt = StaticObject
+	position = -63.74359 13.45871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_43
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 713
+	classPrompt = StaticObject
+	position = -63.74359 13.45871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_44
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 714
+	classPrompt = StaticObject
+	position = -49.3772 10.07704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_45
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 715
+	classPrompt = StaticObject
+	position = -45.92198 9.839946 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_46
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 716
+	classPrompt = StaticObject
+	position = -49.3772 10.07704 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_47
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 717
+	classPrompt = StaticObject
+	position = -45.92198 9.839946 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_48
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 718
+	classPrompt = StaticObject
+	position = -51.019 13.45162 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_49
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 719
+	classPrompt = StaticObject
+	position = -49.2571 15.98173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_50
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 720
+	classPrompt = StaticObject
+	position = -45.98771 15.7117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_51
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 721
+	classPrompt = StaticObject
+	position = -47.40001 13 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_4
+}
+entity
+{
+	type = Armchair3
+	uin = 722
+	classPrompt = StaticObject
+	position = -51.019 13.45162 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_52
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 723
+	classPrompt = StaticObject
+	position = -49.2571 15.98173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_53
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 724
+	classPrompt = StaticObject
+	position = -45.98771 15.7117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_54
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 725
+	classPrompt = StaticObject
+	position = -47.40001 13 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_5
+}
+entity
+{
+	type = Armchair3
+	uin = 726
+	classPrompt = StaticObject
+	position = -44.04359 13.35871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_55
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 727
+	classPrompt = StaticObject
+	position = -44.04359 13.35871 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_56
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 728
+	classPrompt = StaticObject
+	position = 62.0228 -51.82296 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_57
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 729
+	classPrompt = StaticObject
+	position = 65.47803 -52.06005 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_58
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 730
+	classPrompt = StaticObject
+	position = 62.0228 -51.82296 0
+	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
+	name = Armchair3_59
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 731
+	classPrompt = StaticObject
+	position = 65.47803 -52.06005 0.24
+	rotation = 0 0 -0.9786119 0.2057152
+	name = Armchair3_60
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 732
+	classPrompt = StaticObject
+	position = 60.381 -48.44838 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_61
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 733
+	classPrompt = StaticObject
+	position = 62.1429 -45.91827 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_62
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 734
+	classPrompt = StaticObject
+	position = 65.41229 -46.1883 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_63
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 735
+	classPrompt = StaticObject
+	position = 64 -48.9 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_6
+}
+entity
+{
+	type = Armchair3
+	uin = 736
+	classPrompt = StaticObject
+	position = 60.381 -48.44838 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_64
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 737
+	classPrompt = StaticObject
+	position = 62.1429 -45.91827 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_65
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 738
+	classPrompt = StaticObject
+	position = 65.41229 -46.1883 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_66
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 739
+	classPrompt = StaticObject
+	position = 64 -48.9 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_7
+}
+entity
+{
+	type = Armchair3
+	uin = 740
+	classPrompt = StaticObject
+	position = 67.35641 -48.54129 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_67
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 741
+	classPrompt = StaticObject
+	position = 67.35641 -48.54129 0.2419727
+	rotation = 0 0 -0.7386308 0.6741102
+	name = Armchair3_68
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
