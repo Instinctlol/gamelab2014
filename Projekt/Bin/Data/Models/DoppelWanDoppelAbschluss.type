@@ -1,0 +1,36 @@
+type DoppelWanDoppelAbschluss
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
+			collision = True
+		}
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\WallDownOhneBoden.mesh"
+			collision = True
+			position = -2.1 0 0
+			rotation = 0 0 0.9999993 0.001256173
+		}
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\CornerInt.mesh"
+			collision = True
+			position = -1.1 5.6 0.2
+			rotation = 0 0 0.9040886 0.4273452
+			scale = 0.1390775 0.1384858 0.9
+		}
+		mesh
+		{
+			meshName = ".\\DemoCorridors\\CornerInt.mesh"
+			collision = True
+			position = -1 -5.5 0.2
+			rotation = 0 0 0.4428888 -0.8965767
+			scale = 0.1390775 0.1384858 0.9
+		}
+	}
+}
