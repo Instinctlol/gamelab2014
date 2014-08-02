@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -94.46676 -71.97909 15.53973
-editorCameraDirection = 5.806215 -0.7607985
+editorCameraPosition = -69.40125 -105.453 2.828434
+editorCameraDirection = 6.254839 -0.3397441
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -561,6 +561,25 @@ entity
 				type = LogicScriptMethod
 				uin = 670
 				code = "if(Owner.Value)\r\n{\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_2\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_1\")).Throttle = 0;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Abschnitt_1\")).Value = false;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Abschnitt_2\")).Value = false;\r\n}\r\nelse {\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_2\")).Throttle = 1;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_1\")).Throttle = 1;\r\n\t}"
+				methodName = ValueChange
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 672
+			subscriptionsToDeletionEvent = 671
+			entityClassName = BooleanSwitch
+			className = Swich_Feuer_OFF
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 673
+				code = "if(Owner.Value)\r\n{\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_1_2\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_1_1\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_2_1\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_2_2\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_1\")).Throttle = 0;\r\n\t((PhysicalStream)Entities.Instance.GetByName(\"Abschnitt_3_2\")).Throttle = 0;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -6708,5 +6727,19 @@ entity
 	rotation = 0 0 -0.9149801 0.4034989
 	name = Switch_Abschnitt_3
 	logicClass = 667
+	editorLayer = "Root Layer\\F1\\Flammen\\Switches"
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 671
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 672
+	value = False
+	healthFactorAtBeginning = 1
+	position = -66.62733 -107.5262 1.754574
+	rotation = 0 0 0.9206489 0.3903915
+	name = Swich_Feuer_OFF
+	logicClass = 672
 	editorLayer = "Root Layer\\F1\\Flammen\\Switches"
 }
