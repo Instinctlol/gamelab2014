@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -16.7452 -1.522673 95.83083
-editorCameraDirection = 1.51322 -1.560796
+editorCameraPosition = 24.13382 113.4966 40.75735
+editorCameraDirection = 4.813415 -1.557671
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -3482,8 +3482,8 @@ entity
 	type = StaticMesh
 	uin = 287
 	classPrompt = StaticMesh
-	position = -81.95638 54.96434 0.2566535
-	rotation = 0 0 -0.9284949 0.3713453
+	position = -92.75638 85.56435 0.2566535
+	rotation = 0 0 0.3713453 0.928495
 	name = StaticMesh_sofa _2
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 	meshName = "Types\\Items\\Sofa\\sofa .mesh"
@@ -6879,7 +6879,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 681
+	uin = 603
 	classPrompt = StaticObject
 	position = 490.7925 46.3791 0
 	rotation = 0 0 0.4226183 0.9063078
@@ -6888,7 +6888,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 682
+	uin = 604
 	classPrompt = StaticObject
 	position = 478.1277 10.45261 0
 	rotation = 0 0 0.4226183 0.9063078
@@ -6897,7 +6897,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 683
+	uin = 605
 	classPrompt = StaticObject
 	position = 489.4893 10.67645 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6906,7 +6906,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 684
+	uin = 606
 	classPrompt = StaticObject
 	position = 476.8893 45.97645 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6915,7 +6915,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 685
+	uin = 607
 	classPrompt = StaticMesh
 	position = -77.55638 59.36434 0.2566535
 	rotation = 0 0 -0.9284949 0.3713453
@@ -6926,7 +6926,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 686
+	uin = 608
 	classPrompt = StaticObject
 	position = -65.9571 87.38173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -6936,7 +6936,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 687
+	uin = 609
 	classPrompt = StaticObject
 	position = -67.719 84.85162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -6946,7 +6946,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 688
+	uin = 610
 	classPrompt = StaticObject
 	position = -66.0772 81.47704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -6956,7 +6956,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 689
+	uin = 611
 	classPrompt = StaticObject
 	position = -62.62198 81.23994 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -6966,7 +6966,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 690
+	uin = 612
 	classPrompt = StaticObject
 	position = -60.74359 84.75871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -6976,7 +6976,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 691
+	uin = 613
 	classPrompt = StaticObject
 	position = -62.68771 87.11169 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -6986,7 +6986,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 692
+	uin = 614
 	classPrompt = StaticObject
 	position = -64.10001 84.4 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6996,7 +6996,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 693
+	uin = 615
 	classPrompt = StaticObject
 	position = -66.0772 81.47704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7006,7 +7006,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 694
+	uin = 616
 	classPrompt = StaticObject
 	position = -62.62198 81.23994 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7016,7 +7016,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 695
+	uin = 617
 	classPrompt = StaticObject
 	position = -67.719 84.85162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7026,7 +7026,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 696
+	uin = 618
 	classPrompt = StaticObject
 	position = -65.9571 87.38173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7036,7 +7036,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 697
+	uin = 619
 	classPrompt = StaticObject
 	position = -62.68771 87.11169 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7046,7 +7046,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 698
+	uin = 620
 	classPrompt = StaticObject
 	position = -64.10001 84.4 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7056,7 +7056,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 699
+	uin = 621
 	classPrompt = StaticObject
 	position = -60.74359 84.75871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7066,7 +7066,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 700
+	uin = 622
 	classPrompt = StaticObject
 	position = -69.0772 10.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7076,7 +7076,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 701
+	uin = 623
 	classPrompt = StaticObject
 	position = -65.62198 9.939946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7086,7 +7086,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 702
+	uin = 624
 	classPrompt = StaticObject
 	position = -69.0772 10.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7096,7 +7096,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 703
+	uin = 625
 	classPrompt = StaticObject
 	position = -65.62198 9.939946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7106,7 +7106,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 704
+	uin = 626
 	classPrompt = StaticObject
 	position = -70.719 13.55163 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7116,7 +7116,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 705
+	uin = 627
 	classPrompt = StaticObject
 	position = -68.9571 16.08173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7126,7 +7126,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 706
+	uin = 628
 	classPrompt = StaticObject
 	position = -65.68771 15.8117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7136,7 +7136,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 707
+	uin = 629
 	classPrompt = StaticObject
 	position = -67.10001 13.1 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7146,7 +7146,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 708
+	uin = 630
 	classPrompt = StaticObject
 	position = -70.719 13.55163 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7156,7 +7156,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 709
+	uin = 631
 	classPrompt = StaticObject
 	position = -68.9571 16.08173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7166,7 +7166,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 710
+	uin = 632
 	classPrompt = StaticObject
 	position = -65.68771 15.8117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7176,7 +7176,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 711
+	uin = 633
 	classPrompt = StaticObject
 	position = -67.10001 13.1 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7186,7 +7186,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 712
+	uin = 634
 	classPrompt = StaticObject
 	position = -63.74359 13.45871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7196,7 +7196,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 713
+	uin = 635
 	classPrompt = StaticObject
 	position = -63.74359 13.45871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7206,7 +7206,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 714
+	uin = 636
 	classPrompt = StaticObject
 	position = -49.3772 10.07704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7216,7 +7216,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 715
+	uin = 637
 	classPrompt = StaticObject
 	position = -45.92198 9.839946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7226,7 +7226,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 716
+	uin = 638
 	classPrompt = StaticObject
 	position = -49.3772 10.07704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7236,7 +7236,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 717
+	uin = 639
 	classPrompt = StaticObject
 	position = -45.92198 9.839946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7246,7 +7246,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 718
+	uin = 640
 	classPrompt = StaticObject
 	position = -51.019 13.45162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7256,7 +7256,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 719
+	uin = 641
 	classPrompt = StaticObject
 	position = -49.2571 15.98173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7266,7 +7266,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 720
+	uin = 642
 	classPrompt = StaticObject
 	position = -45.98771 15.7117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7276,7 +7276,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 721
+	uin = 643
 	classPrompt = StaticObject
 	position = -47.40001 13 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7286,7 +7286,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 722
+	uin = 644
 	classPrompt = StaticObject
 	position = -51.019 13.45162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7296,7 +7296,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 723
+	uin = 645
 	classPrompt = StaticObject
 	position = -49.2571 15.98173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7306,7 +7306,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 724
+	uin = 646
 	classPrompt = StaticObject
 	position = -45.98771 15.7117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7316,7 +7316,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 725
+	uin = 647
 	classPrompt = StaticObject
 	position = -47.40001 13 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7326,7 +7326,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 726
+	uin = 648
 	classPrompt = StaticObject
 	position = -44.04359 13.35871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7336,7 +7336,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 727
+	uin = 649
 	classPrompt = StaticObject
 	position = -44.04359 13.35871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7346,7 +7346,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 728
+	uin = 650
 	classPrompt = StaticObject
 	position = 62.0228 -51.82296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7356,7 +7356,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 729
+	uin = 651
 	classPrompt = StaticObject
 	position = 65.47803 -52.06005 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7366,7 +7366,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 730
+	uin = 652
 	classPrompt = StaticObject
 	position = 62.0228 -51.82296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7376,7 +7376,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 731
+	uin = 653
 	classPrompt = StaticObject
 	position = 65.47803 -52.06005 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7386,7 +7386,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 732
+	uin = 654
 	classPrompt = StaticObject
 	position = 60.381 -48.44838 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7396,7 +7396,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 733
+	uin = 655
 	classPrompt = StaticObject
 	position = 62.1429 -45.91827 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7406,7 +7406,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 734
+	uin = 656
 	classPrompt = StaticObject
 	position = 65.41229 -46.1883 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7416,7 +7416,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 735
+	uin = 657
 	classPrompt = StaticObject
 	position = 64 -48.9 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7426,7 +7426,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 736
+	uin = 658
 	classPrompt = StaticObject
 	position = 60.381 -48.44838 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7436,7 +7436,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 737
+	uin = 659
 	classPrompt = StaticObject
 	position = 62.1429 -45.91827 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7446,7 +7446,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 738
+	uin = 660
 	classPrompt = StaticObject
 	position = 65.41229 -46.1883 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -7456,7 +7456,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 739
+	uin = 661
 	classPrompt = StaticObject
 	position = 64 -48.9 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7466,7 +7466,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 740
+	uin = 662
 	classPrompt = StaticObject
 	position = 67.35641 -48.54129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7476,10 +7476,472 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 741
+	uin = 663
 	classPrompt = StaticObject
 	position = 67.35641 -48.54129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
 	name = Armchair3_68
 	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 742
+	classPrompt = StaticObject
+	position = -85.73153 78.31794 0.3732204
+	rotation = 0 0 0.9189405 -0.3943963
+	name = Armchair2_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 743
+	classPrompt = StaticObject
+	position = -84.39864 77.1079 1.657189
+	rotation = 0 0 0.3943963 0.9189405
+	name = Desk_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 744
+	classPrompt = StaticObject
+	position = -89.73153 74.11794 0.3732204
+	rotation = 0 0 0.3709088 -0.9286694
+	name = Armchair2_2
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 745
+	classPrompt = StaticObject
+	position = -88.39864 72.90791 1.657189
+	rotation = 0 0 0.3943963 0.9189405
+	name = Desk_39
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 746
+	classPrompt = StaticObject
+	position = -93.83153 70.31794 0.3732204
+	rotation = 0 0 0.9189405 -0.3943963
+	name = Armchair2_39
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 747
+	classPrompt = StaticObject
+	position = -92.49864 69.1079 1.657189
+	rotation = 0 0 0.3943963 0.9189405
+	name = Desk_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 748
+	classPrompt = StaticMesh
+	position = -81.95638 54.96434 0.2566535
+	rotation = 0 0 -0.9284949 0.3713453
+	name = StaticMesh_39
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Sofa\\sofa .mesh"
+}
+entity
+{
+	type = StaticMesh
+	uin = 749
+	classPrompt = StaticMesh
+	position = -84.35638 94.26434 0.2566535
+	rotation = 0 0 0.3713453 0.928495
+	name = StaticMesh_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Sofa\\sofa .mesh"
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 750
+	classPrompt = StaticObject
+	position = -61.05844 -78.66175 0
+	rotation = 0 0 -0.9238797 -0.3826833
+	name = DoppelwandAbschluss_52
+}
+entity
+{
+	type = BettSofa
+	uin = 751
+	classPrompt = StaticObject
+	position = -62.4 -73.6 1.3
+	rotation = 0 0 0.3826834 0.9238796
+	name = BettSofa_0
+}
+entity
+{
+	type = toilet
+	uin = 752
+	classPrompt = StaticObject
+	position = -74.8 -60.2 0.3
+	name = toilet_0
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 753
+	classPrompt = StaticObject
+	position = -71.95844 -62.36175 0
+	rotation = 0 0 -0.9238797 -0.3826833
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_53
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 754
+	classPrompt = StaticObject
+	position = -77.25844 -63.26175 0
+	rotation = 0 0 -0.9238796 0.3826836
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_54
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 755
+	classPrompt = StaticObject
+	position = 20.14929 -64.85755 0
+	rotation = 0 0 -0.7071071 -0.7071068
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_55
+}
+entity
+{
+	type = toilet
+	uin = 756
+	classPrompt = StaticObject
+	position = 19.66859 -61.31968 0.3
+	rotation = 0 0 -0.3826834 0.9238796
+	name = toilet_1
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 757
+	classPrompt = StaticObject
+	position = 15.76523 -61.74629 0
+	rotation = 0 0 -1 1.699266E-07
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_56
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 758
+	classPrompt = StaticObject
+	position = -25.75072 0.24245 0
+	rotation = 0 0 -0.7071071 -0.7071068
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_57
+}
+entity
+{
+	type = toilet
+	uin = 759
+	classPrompt = StaticObject
+	position = -26.23141 3.780326 0.3
+	rotation = 0 0 -0.3826834 0.9238796
+	name = toilet_2
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 760
+	classPrompt = StaticObject
+	position = -30.13477 3.353713 0
+	rotation = 0 0 -1 1.699266E-07
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_58
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 761
+	classPrompt = StaticObject
+	position = -67.55846 106.0383 0
+	rotation = 0 0 -0.9238798 -0.3826833
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_59
+}
+entity
+{
+	type = toilet
+	uin = 762
+	classPrompt = StaticObject
+	position = -70.40002 108.2 0.3
+	name = toilet_3
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 763
+	classPrompt = StaticObject
+	position = -72.85845 105.1383 0
+	rotation = 0 0 -0.9238797 0.3826837
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_60
+}
+entity
+{
+	type = toilet
+	uin = 764
+	classPrompt = StaticObject
+	position = -4.9938 89.59972 0.3
+	rotation = 0 0 0.3826834 0.9238796
+	name = toilet_4
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 765
+	classPrompt = StaticObject
+	position = -4.567191 85.69637 0
+	rotation = 0 0 -0.7071069 0.7071071
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_61
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 766
+	classPrompt = StaticObject
+	position = -1.455925 90.08042 0
+	rotation = 0 0 -1 1.738401E-07
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_62
+}
+entity
+{
+	type = toilet
+	uin = 767
+	classPrompt = StaticObject
+	position = 87.35541 49.61768 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_5
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 768
+	classPrompt = StaticObject
+	position = -55.48615 -63.32056 0
+	rotation = 0 0 -0.3826837 -0.9238797
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_67
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 769
+	classPrompt = StaticObject
+	position = -55.48615 -63.32056 0
+	rotation = 0 0 -0.3826837 -0.9238797
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_68
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 770
+	classPrompt = StaticObject
+	position = -60.78616 -64.22057 0
+	rotation = 0 0 0.3826833 -0.9238799
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_69
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 771
+	classPrompt = StaticObject
+	position = -60.78616 -64.22057 0
+	rotation = 0 0 0.3826833 -0.9238799
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_70
+}
+entity
+{
+	type = toilet
+	uin = 772
+	classPrompt = StaticObject
+	position = -57.9446 -66.38232 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_7
+}
+entity
+{
+	type = toilet
+	uin = 773
+	classPrompt = StaticObject
+	position = -57.9446 -66.38232 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_8
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 774
+	classPrompt = StaticObject
+	position = 46.31384 -75.22057 0
+	rotation = 0 0 0.3826833 -0.9238799
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_71
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 775
+	classPrompt = StaticObject
+	position = 46.31384 -75.22057 0
+	rotation = 0 0 0.3826833 -0.9238799
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_72
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 776
+	classPrompt = StaticObject
+	position = 51.61385 -74.32056 0
+	rotation = 0 0 -0.3826837 -0.9238797
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_73
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 777
+	classPrompt = StaticObject
+	position = 51.61385 -74.32056 0
+	rotation = 0 0 -0.3826837 -0.9238797
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_74
+}
+entity
+{
+	type = toilet
+	uin = 778
+	classPrompt = StaticObject
+	position = 49.1554 -77.38232 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_9
+}
+entity
+{
+	type = toilet
+	uin = 779
+	classPrompt = StaticObject
+	position = 49.1554 -77.38232 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_10
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 780
+	classPrompt = StaticObject
+	position = 90.34929 17.04246 0
+	rotation = 0 0 -0.7071072 -0.7071069
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_75
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 781
+	classPrompt = StaticObject
+	position = 90.34929 17.04246 0
+	rotation = 0 0 -0.7071072 -0.7071069
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_76
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 782
+	classPrompt = StaticObject
+	position = 85.96523 20.15373 0
+	rotation = 0 0 -1 1.057745E-07
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_77
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 783
+	classPrompt = StaticObject
+	position = 85.96523 20.15373 0
+	rotation = 0 0 -1 1.057745E-07
+	scale = 1 0.3573684 1
+	name = DoppelwandAbschluss_78
+}
+entity
+{
+	type = toilet
+	uin = 784
+	classPrompt = StaticObject
+	position = 89.86859 20.58035 0.3
+	rotation = 0 0 -0.3826836 0.9238797
+	name = toilet_11
+}
+entity
+{
+	type = toilet
+	uin = 785
+	classPrompt = StaticObject
+	position = 89.86859 20.58035 0.3
+	rotation = 0 0 -0.3826836 0.9238797
+	name = toilet_12
+}
+entity
+{
+	type = DoppelwandAbschluss
+	uin = 786
+	classPrompt = StaticObject
+	position = 87.94109 54.09861 0
+	rotation = 0 0 -0.3826834 0.9238796
+	name = DoppelwandAbschluss_64
+}
+entity
+{
+	type = toilet
+	uin = 787
+	classPrompt = StaticObject
+	position = 89.5554 51.71767 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_6
+}
+entity
+{
+	type = toilet
+	uin = 788
+	classPrompt = StaticObject
+	position = 91.35541 53.71767 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_13
+}
+entity
+{
+	type = toilet
+	uin = 789
+	classPrompt = StaticObject
+	position = 93.5554 55.81767 0.3
+	rotation = 0 0 -1 -1.636507E-08
+	name = toilet_14
 }
