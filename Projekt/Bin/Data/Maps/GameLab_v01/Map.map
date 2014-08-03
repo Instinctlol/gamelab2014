@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 24.13382 113.4966 40.75735
-editorCameraDirection = 4.813415 -1.557671
+editorCameraPosition = 12.65852 -23.54229 153.048
+editorCameraDirection = 4.880442 -1.554546
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -6144,6 +6144,7 @@ entity
 	position = 95.51722 76.33778 0
 	rotation = 0 0 0.9226092 0.3857362
 	name = DoppelwandAbschluss_0
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6153,6 +6154,7 @@ entity
 	position = 70.46264 88.63217 0
 	rotation = 0 0 0.3837602 0.9234328
 	name = DoppelwandAbschluss_1
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6161,6 +6163,7 @@ entity
 	classPrompt = StaticObject
 	position = 12.31856 99.79991 0
 	name = DoppelwandAbschluss_2
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6170,6 +6173,7 @@ entity
 	position = 10.73503 121.0016 0
 	rotation = 0 0 1 2.934956E-08
 	name = DoppelwandAbschluss_3
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6178,6 +6182,7 @@ entity
 	classPrompt = StaticObject
 	position = -12.60235 111.6679 0
 	name = DoppelwandAbschluss_4
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6187,6 +6192,7 @@ entity
 	position = -74.17822 93.64269 0
 	rotation = 0 0 0.7933534 0.6087615
 	name = DoppelwandAbschluss_5
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6196,6 +6202,7 @@ entity
 	position = -77.28846 80.79086 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_6
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6205,6 +6212,7 @@ entity
 	position = -111.6428 13.00219 0
 	rotation = 0 0 0.7071068 0.7071068
 	name = DoppelwandAbschluss_7
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6214,6 +6222,7 @@ entity
 	position = -99.79622 -11.35881 0
 	rotation = 0 0 0.7071068 0.7071068
 	name = DoppelwandAbschluss_8
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6223,6 +6232,7 @@ entity
 	position = -120.8696 -13.28697 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_9
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6241,6 +6251,7 @@ entity
 	classPrompt = StaticObject
 	position = -9.102201 -108.6377 0
 	name = DoppelwandAbschluss_11
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6250,6 +6261,7 @@ entity
 	position = 7.490952 -110.1901 0
 	rotation = 0 0 1 3.36741E-08
 	name = DoppelwandAbschluss_12
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6258,6 +6270,7 @@ entity
 	classPrompt = StaticObject
 	position = 18.22809 -108.5283 0
 	name = DoppelwandAbschluss_13
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6287,6 +6300,7 @@ entity
 	position = 87.23034 -68.01769 0
 	rotation = 0 0 0.3826835 0.9238796
 	name = DoppelwandAbschluss_16
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6295,6 +6309,7 @@ entity
 	classPrompt = StaticObject
 	position = 106.876 4.336354 0
 	name = DoppelwandAbschluss_17
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6304,6 +6319,7 @@ entity
 	position = 114.506 -4.139952 0
 	rotation = 0 0 1 7.54979E-08
 	name = DoppelwandAbschluss_18
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -6313,6 +6329,7 @@ entity
 	position = 55.31351 47.63442 0
 	rotation = 0 0 0.9238796 0.3826834
 	name = DoppelwandAbschluss_19
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6322,6 +6339,7 @@ entity
 	position = 48.84109 58.09861 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_20
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6330,6 +6348,7 @@ entity
 	classPrompt = StaticObject
 	position = 7.036875 77.60447 0
 	name = DoppelwandAbschluss_21
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6339,6 +6358,7 @@ entity
 	position = -7.313236 74.91512 0
 	rotation = 0 0 1 1.398742E-08
 	name = DoppelwandAbschluss_22
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6348,6 +6368,7 @@ entity
 	position = -42.93675 61.03579 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_23
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6357,6 +6378,7 @@ entity
 	position = -61.06284 45.47041 0
 	rotation = 0 0 0.9238796 0.3826835
 	name = DoppelwandAbschluss_24
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6366,6 +6388,7 @@ entity
 	position = -74.62195 4.339099 0
 	rotation = 0 0 -0.7071068 0.7071069
 	name = DoppelwandAbschluss_25
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6375,6 +6398,7 @@ entity
 	position = -77.33794 -5.272487 0
 	rotation = 0 0 0.7071069 0.7071068
 	name = DoppelwandAbschluss_26
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6384,6 +6408,7 @@ entity
 	position = -39.78839 -49.97813 0
 	rotation = 0 0 0.9238796 0.3826834
 	name = DoppelwandAbschluss_27
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6393,6 +6418,7 @@ entity
 	position = -53.75844 -66.16175 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_28
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6402,6 +6428,7 @@ entity
 	position = -7.170385 -76.69859 0
 	rotation = 0 0 -1 0
 	name = DoppelwandAbschluss_29
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6420,6 +6447,7 @@ entity
 	position = 56.51817 -51.09067 0
 	rotation = 0 0 -0.9238796 0.3826835
 	name = DoppelwandAbschluss_31
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6429,6 +6457,7 @@ entity
 	position = 48.45343 -55.94317 0
 	rotation = 0 0 0.3826834 0.9238796
 	name = DoppelwandAbschluss_32
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6438,6 +6467,7 @@ entity
 	position = 74.82309 10.20036 0
 	rotation = 0 0 0.7071068 0.7071068
 	name = DoppelwandAbschluss_33
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6447,6 +6477,7 @@ entity
 	position = 70.30923 -10.35162 0
 	rotation = 0 0 1 -2.977396E-08
 	name = DoppelwandAbschluss_34
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -6733,6 +6764,7 @@ entity
 	classPrompt = StaticObject
 	position = -34.43485 10.96428 0
 	name = DoppelwandAbschluss_35
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6741,6 +6773,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.097298 42.35185 0
 	name = DoppelwandAbschluss_36
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6750,6 +6783,7 @@ entity
 	position = 6.041567 39.4893 0
 	rotation = 0 0 1 1.463745E-08
 	name = DoppelwandAbschluss_37
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6758,6 +6792,7 @@ entity
 	classPrompt = StaticObject
 	position = -5.270587 -39.77846 0
 	name = DoppelwandAbschluss_38
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6767,6 +6802,7 @@ entity
 	position = 5.397243 -41.18631 0
 	rotation = 0 0 1 7.438686E-08
 	name = DoppelwandAbschluss_39
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6776,6 +6812,7 @@ entity
 	position = 29.47625 -19.1059 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_40
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6785,6 +6822,7 @@ entity
 	position = 41.34195 -12.24926 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_41
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6794,6 +6832,7 @@ entity
 	position = 29.60024 -7.220928 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_42
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6803,6 +6842,7 @@ entity
 	position = 40.97857 -2.526813 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_43
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6812,6 +6852,7 @@ entity
 	position = 41.55878 5.949986 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_44
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6821,6 +6862,7 @@ entity
 	position = 29.37065 12.9929 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_45
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6830,6 +6872,7 @@ entity
 	position = 29.37065 16.70877 0
 	rotation = 0 0 -0.7071068 0.7071068
 	name = DoppelwandAbschluss_46
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6839,6 +6882,7 @@ entity
 	position = 38.69352 -14.81825 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_47
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6848,6 +6892,7 @@ entity
 	position = 39.14444 4.251432 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_48
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6857,6 +6902,7 @@ entity
 	position = 50.74178 11.70308 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_49
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6866,6 +6912,7 @@ entity
 	position = 50.53215 17.4017 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_50
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6875,6 +6922,7 @@ entity
 	position = 35.31542 11.55518 0
 	rotation = 0 0 0.7071068 0.7071069
 	name = DoppelwandAbschluss_51
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -6884,6 +6932,7 @@ entity
 	position = 490.7925 46.3791 0
 	rotation = 0 0 0.4226183 0.9063078
 	name = DoppelWanDoppelAbschluss_0
+	editorLayer = "Root Layer\\Endkampf"
 }
 entity
 {
@@ -6893,6 +6942,7 @@ entity
 	position = 478.1277 10.45261 0
 	rotation = 0 0 0.4226183 0.9063078
 	name = DoppelWanDoppelAbschluss_1
+	editorLayer = "Root Layer\\Endkampf"
 }
 entity
 {
@@ -6902,6 +6952,7 @@ entity
 	position = 489.4893 10.67645 0
 	rotation = 0 0 0.9238796 0.3826835
 	name = DoppelWanDoppelAbschluss_2
+	editorLayer = "Root Layer\\Endkampf"
 }
 entity
 {
@@ -6911,6 +6962,7 @@ entity
 	position = 476.8893 45.97645 0
 	rotation = 0 0 0.9238796 0.3826835
 	name = DoppelWanDoppelAbschluss_3
+	editorLayer = "Root Layer\\Endkampf"
 }
 entity
 {
@@ -6992,6 +7044,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7052,6 +7105,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7142,6 +7196,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_2
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7182,6 +7237,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_3
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7282,6 +7338,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_4
+	editorLayer = "Root Layer\\F3\\Einrichtung"
 }
 entity
 {
@@ -7322,6 +7379,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_5
+	editorLayer = "Root Layer\\F3\\Einrichtung"
 }
 entity
 {
@@ -7422,6 +7480,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_6
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7462,6 +7521,7 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_7
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7573,6 +7633,7 @@ entity
 	position = -61.05844 -78.66175 0
 	rotation = 0 0 -0.9238797 -0.3826833
 	name = DoppelwandAbschluss_52
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -7582,6 +7643,7 @@ entity
 	position = -62.4 -73.6 1.3
 	rotation = 0 0 0.3826834 0.9238796
 	name = BettSofa_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7590,6 +7652,7 @@ entity
 	classPrompt = StaticObject
 	position = -74.8 -60.2 0.3
 	name = toilet_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7600,6 +7663,7 @@ entity
 	rotation = 0 0 -0.9238797 -0.3826833
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_53
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -7610,6 +7674,7 @@ entity
 	rotation = 0 0 -0.9238796 0.3826836
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_54
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -7620,6 +7685,7 @@ entity
 	rotation = 0 0 -0.7071071 -0.7071068
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_55
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7629,6 +7695,7 @@ entity
 	position = 19.66859 -61.31968 0.3
 	rotation = 0 0 -0.3826834 0.9238796
 	name = toilet_1
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7639,6 +7706,7 @@ entity
 	rotation = 0 0 -1 1.699266E-07
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_56
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7649,6 +7717,7 @@ entity
 	rotation = 0 0 -0.7071071 -0.7071068
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_57
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -7658,6 +7727,7 @@ entity
 	position = -26.23141 3.780326 0.3
 	rotation = 0 0 -0.3826834 0.9238796
 	name = toilet_2
+	editorLayer = "Root Layer\\F3\\Einrichtung"
 }
 entity
 {
@@ -7668,6 +7738,7 @@ entity
 	rotation = 0 0 -1 1.699266E-07
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_58
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -7678,6 +7749,7 @@ entity
 	rotation = 0 0 -0.9238798 -0.3826833
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_59
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -7686,6 +7758,7 @@ entity
 	classPrompt = StaticObject
 	position = -70.40002 108.2 0.3
 	name = toilet_3
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7696,6 +7769,7 @@ entity
 	rotation = 0 0 -0.9238797 0.3826837
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_60
+	editorLayer = "Root Layer\\F1\\Waende"
 }
 entity
 {
@@ -7705,6 +7779,7 @@ entity
 	position = -4.9938 89.59972 0.3
 	rotation = 0 0 0.3826834 0.9238796
 	name = toilet_4
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7715,6 +7790,7 @@ entity
 	rotation = 0 0 -0.7071069 0.7071071
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_61
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7725,6 +7801,7 @@ entity
 	rotation = 0 0 -1 1.738401E-07
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_62
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7734,6 +7811,7 @@ entity
 	position = 87.35541 49.61768 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_5
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7744,6 +7822,7 @@ entity
 	rotation = 0 0 -0.3826837 -0.9238797
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_67
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7754,6 +7833,7 @@ entity
 	rotation = 0 0 -0.3826837 -0.9238797
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_68
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7764,6 +7844,7 @@ entity
 	rotation = 0 0 0.3826833 -0.9238799
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_69
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7774,6 +7855,7 @@ entity
 	rotation = 0 0 0.3826833 -0.9238799
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_70
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7783,6 +7865,7 @@ entity
 	position = -57.9446 -66.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_7
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7792,6 +7875,7 @@ entity
 	position = -57.9446 -66.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_8
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7802,6 +7886,7 @@ entity
 	rotation = 0 0 0.3826833 -0.9238799
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_71
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7812,6 +7897,7 @@ entity
 	rotation = 0 0 0.3826833 -0.9238799
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_72
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7822,6 +7908,7 @@ entity
 	rotation = 0 0 -0.3826837 -0.9238797
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_73
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7832,6 +7919,7 @@ entity
 	rotation = 0 0 -0.3826837 -0.9238797
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_74
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7841,6 +7929,7 @@ entity
 	position = 49.1554 -77.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_9
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7850,6 +7939,7 @@ entity
 	position = 49.1554 -77.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_10
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7860,6 +7950,7 @@ entity
 	rotation = 0 0 -0.7071072 -0.7071069
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_75
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7870,6 +7961,7 @@ entity
 	rotation = 0 0 -0.7071072 -0.7071069
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_76
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7880,6 +7972,7 @@ entity
 	rotation = 0 0 -1 1.057745E-07
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_77
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7890,6 +7983,7 @@ entity
 	rotation = 0 0 -1 1.057745E-07
 	scale = 1 0.3573684 1
 	name = DoppelwandAbschluss_78
+	editorLayer = "Root Layer\\F2\\Waende"
 }
 entity
 {
@@ -7899,6 +7993,7 @@ entity
 	position = 89.86859 20.58035 0.3
 	rotation = 0 0 -0.3826836 0.9238797
 	name = toilet_11
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7908,6 +8003,7 @@ entity
 	position = 89.86859 20.58035 0.3
 	rotation = 0 0 -0.3826836 0.9238797
 	name = toilet_12
+	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
@@ -7917,6 +8013,7 @@ entity
 	position = 87.94109 54.09861 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_64
+	editorLayer = "Root Layer\\F3\\Waende"
 }
 entity
 {
@@ -7926,6 +8023,7 @@ entity
 	position = 89.5554 51.71767 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_6
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7935,6 +8033,7 @@ entity
 	position = 91.35541 53.71767 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
 {
@@ -7944,4 +8043,5 @@ entity
 	position = 93.5554 55.81767 0.3
 	rotation = 0 0 -1 -1.636507E-08
 	name = toilet_14
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
