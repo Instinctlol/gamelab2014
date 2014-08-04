@@ -152,7 +152,8 @@ namespace Game
             InitializeEventListener();
 
             //hudControl
-            hudControl = ControlDeclarationManager.Instance.CreateControl("GUI\\AlienHUD.gui");
+            //hudControl = ControlDeclarationManager.Instance.CreateControl("GUI\\AlienHUD.gui");
+            hudControl = ControlDeclarationManager.Instance.CreateControl("GUI\\AlienHUD2.gui");
             Controls.Add(hudControl);
 
             //((Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]).Click += delegate(Button sender)
@@ -160,27 +161,31 @@ namespace Game
             //    hudFunctions("Menu");
             //};
 
+            /*
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["Help"]).Click += delegate(Button sender)
             {
                 hudFunctions("Help");
             };
+             
 
             ((Button)hudControl.Controls["HelpWindow"].Controls["Close"]).Click += delegate(Button sender)
             {
                 hudFunctions("HelpClose");
             };
-
+            
             ((Button)hudControl.Controls["StatusNotificationTop"].Controls["DebugPath"]).Click += delegate(Button sender)
             {
                 hudFunctions("Path");
             };
+             */
 
             ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).Click += delegate(Button sender)
             {
                 EngineConsole.Instance.Print("sherebutton clicked");
             };
             ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).MouseEnter += AlienGameWindow_MouseEnter;
-            InitControlPanelButtons();
+            //InitControlPanelButtons();
+            numPad = hudControl.Controls["rechts"].Controls["NumPad"];
             UpdateControlPanel();
 
             // BigMinimap
@@ -338,7 +343,8 @@ namespace Game
                         Controls.OfType<MenuWindow>().First().workbench_Click(MousePos);
                         #endregion
                     }
-                    else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
+                    //else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
+                    else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["Strahlen"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
                         #region button
                         Console.WriteLine("inbuttonarea");
@@ -379,11 +385,11 @@ namespace Game
                         }
                         #endregion
                     }
-                    else if (hudControl.Controls["ControlPanelControl"].Visible && hudControl.Controls["ControlPanelControl"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    else if (hudControl.Controls["rechts"].Controls["ControlPanelControl"].Visible && hudControl.Controls["rechts"].Controls["ControlPanelControl"].GetScreenRectangle().IsContainsPoint(MousePos))
                     {
                         #region controlbuttons
                         // Alle Buttons für Alien/Spawner durchiterieren
-                        foreach (Control c in hudControl.Controls["ControlPanelControl"].Controls)
+                        foreach (Control c in hudControl.Controls["rechts"].Controls["ControlPanelControl"].Controls)
                         {
                             b = c as Button;
                             if (b != null && b.Visible && b.GetScreenRectangle().IsContainsPoint(MousePos))
@@ -404,8 +410,7 @@ namespace Game
                             EngineApp.Instance.MousePosition);
                         if (!float.IsNaN(ray.Direction.X))
                         {
-                            RayCastResult result = PhysicsWorld.Instance.RayCast(ray,
-                                (int)ContactGroup.CastOnlyContact);
+                            RayCastResult result = PhysicsWorld.Instance.RayCast(ray, (int)ContactGroup.CastOnlyContact);
                             if (result.Shape != null)
                             {
                                 pickingSuccess = true;
@@ -425,7 +430,7 @@ namespace Game
                         #endregion
                     }
 
-                    //hudControl.Controls["ControlPanelControl"].Visible
+                    //hudControl.Controls["rechts"].Controls["ControlPanelControl"].Visible
                     //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
                     //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
@@ -495,7 +500,6 @@ namespace Game
         bool IsMouseInActiveArea()
         {
             if (!hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePosition))
-                
                 return false;
             return true;
         }
@@ -1017,7 +1021,8 @@ namespace Game
             
 
             //gameStatus
-            if (string.IsNullOrEmpty(hudControl.Controls["GameStatus"].Text))
+            //if (string.IsNullOrEmpty(hudControl.Controls["GameStatus"].Text))
+            if (false)
             {
                 timeForUpdateGameStatus -= delta;
                 if (timeForUpdateGameStatus < 0)
@@ -1043,12 +1048,12 @@ namespace Game
                     }
 
                     string gameStatus = "";
-                    //if (!existsAlly)
-                    //    gameStatus = "!!! Victory !!!";
-                    //if (!existsEnemy)
-                    //    gameStatus = "!!! Defeat !!!";
+                    if (!existsAlly)
+                        gameStatus = "!!! Victory !!!";
+                    if (!existsEnemy)
+                        gameStatus = "!!! Defeat !!!";
 
-                    hudControl.Controls["GameStatus"].Text = gameStatus;
+                    //hudControl.Controls["GameStatus"].Text = gameStatus;
                 }
             }
         }
@@ -1082,13 +1087,16 @@ namespace Game
             }
 
             // AlienIcon
+            /*
             {
                 Control alienIcon = hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienIcon"];
                 string fileName = "Gui\\HUD\\Icons\\Alien.png";
                 alienIcon.BackTexture = TextureManager.Instance.Load(fileName, Texture.Type.Type2D, 0);
             }
+            */
 
             // Computer status notifications (top)
+            /*
             {
                 hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountActive"].Text = "" + Computer.UsedAliens;
                 hudControl.Controls["StatusNotificationTop"].Controls["AlienIconBox"].Controls["AlienCount"].Controls["AlienCountPossible"].Text = "" + Computer.AvailableAliens;
@@ -1096,11 +1104,22 @@ namespace Game
                 hudControl.Controls["StatusNotificationTop"].Controls["EnergyIcon"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
                 hudControl.Controls["StatusNotificationTop"].Controls["ExperienceIcon"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
             }
+            */
+            {
+                hudControl.Controls["Strahlen"].Controls["AktuelleAlien"].Controls["AlienCountActive"].Text = "" + Computer.UsedAliens;
+                hudControl.Controls["Strahlen"].Controls["MaximalAlien"].Controls["AlienCountPossible"].Text = "" + Computer.AvailableAliens;
+                hudControl.Controls["Strahlen"].Controls["Rotation"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
+                hudControl.Controls["Strahlen"].Controls["LightSwitch"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
+                hudControl.Controls["Strahlen"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+            }
+
 
             // Astronauten
+            /*
             {
                 hudControl.Controls["StatusNotificationTop"].Controls["AstronautIcon"].Controls["AstronautCount"].Text = "" + Computer.GetNumberOfActiveAstronauts();
             }
+             */
 
             Vec3 mouseMapPos = Vec3.Zero;
             Unit mouseOnObject = null;
@@ -1205,7 +1224,8 @@ namespace Game
                     }
                 }
 
-                hudControl.Controls["SelectedUnitsInfo"].Text = text;
+                //hudControl.Controls["SelectedUnitsInfo"].Text = text;
+                hudControl.Controls["links"].Controls["SelectedUnitsInfo"].Text = text;
 
                 UpdateControlPanel();
             }
@@ -1301,7 +1321,7 @@ namespace Game
 
             return tasks;
         }
-
+        /*
         void InitControlPanelButtons()
         {
             //Button button;
@@ -1315,7 +1335,8 @@ namespace Game
             //}
 
             // AlienNumPad
-            numPad = hudControl.Controls["NumPad"];
+            //numPad = hudControl.Controls["NumPad"];
+            //numPad = hudControl.Controls["rechts"].Controls["NumPad"];
             //if (numPad != null)
             //{
             //    for (int i = 0; i <= 9; i++)
@@ -1330,6 +1351,7 @@ namespace Game
             //    button.Click += NumPadClear_Click;
             //}
         }
+        */
 
         void NumPadClear_Click(Button sender)
         {
@@ -1449,7 +1471,8 @@ namespace Game
             // make all buttons for AlienUnit visible or not
             for (int n = 0; ; n++)
             {
-                Control control = hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
+                //Control control = hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
+                Control control = hudControl.Controls["rechts"].Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
 
                 if (control == null)
                     break;
@@ -1727,7 +1750,8 @@ namespace Game
             string iconName = null;
             if (selectedUnits.Count != 0)
                 iconName = selectedUnits[0].Type.Name;
-
+            /*
+            //Bearbeiten
             Control control = hudControl.Controls["ControlUnitIcon"];
 
             if (!string.IsNullOrEmpty(iconName))
@@ -1757,6 +1781,7 @@ namespace Game
             }
             else
                 control.BackTexture = null;
+            */
         }
 
         void adjustCamera(ref Camera camera, float x, float y, float z, float displayWidth, float displayHeight)

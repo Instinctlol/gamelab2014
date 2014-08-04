@@ -4,10 +4,11 @@ control Control
 {
 	control Control
 	{
-		position = ScaleByResolution 800 0
-		size = ScaleByResolution 220 770
+		position = Parent 0.7 0
+		size = Parent 0.3 1
 		name = rechts
 		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
+		visible = False
 		control Control
 		{
 			position = Parent 0.15 0.2
@@ -58,16 +59,31 @@ control Control
 		}
 		control "GUI\\AlienNumPad.gui"
 		{
-			position = Parent 0.15 0.25
-			size = Parent 0.8 0.4
+			position = Parent 0.15 0.3
+			size = Parent 0.8 0.25
+			name = NumPad
 		}
 	}
 	control Control
 	{
 		position = ScaleByResolution 0 0
-		size = ScaleByResolution 200 770
+		size = Parent 0.25 1
 		name = links
 		backTexture = "GUI\\HUD\\Elemente\\links.png"
+		visible = False
+		control TextBox
+		{
+			textHorizontalAlign = Left
+			textVerticalAlign = Top
+			font = Default 0.02
+			shadow = True
+			shadowOffset = ScaleByResolution 2 2
+			wordWrap = True
+			position = ScaleByResolution 10 130
+			size = ScaleByResolution 160 500
+			name = SelectedUnitsInfo
+			enable = False
+		}
 	}
 	control Control
 	{
@@ -106,8 +122,8 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 620
-		size = ScaleByResolution 150 150
+		position = Parent 0 0.75
+		size = Parent 0.25 0.25
 		name = Minimap
 		backTexture = "GUI\\HUD\\Elemente\\Minimap.png"
 		control Control
@@ -115,6 +131,7 @@ control Control
 			position = Parent 0.05 0.05
 			size = Parent 0.9 0.9
 			backTexture = "GUI\\HUD\\Icons\\MiniMiniMap2.png"
+			enable = False
 		}
 	}
 	control Control
@@ -122,19 +139,6 @@ control Control
 		position = ScaleByResolution 180 610
 		size = ScaleByResolution 110 110
 		name = ControlUnitIcon
-	}
-	control TextBox
-	{
-		textHorizontalAlign = Left
-		textVerticalAlign = Top
-		font = Default 0.02
-		shadow = True
-		shadowOffset = ScaleByResolution 2 2
-		wordWrap = True
-		position = ScaleByResolution 300 610
-		size = ScaleByResolution 500 160
-		name = SelectedUnitsInfo
-		enable = False
 	}
 	control "Gui\\Controls\\DefaultWindow.gui"
 	{
@@ -194,61 +198,92 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 800 550
-		size = ScaleByResolution 220 210
+		position = Parent 0.69 0.65
+		size = Parent 0.3 0.35
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
 		control TextBox
 		{
-			position = ScaleByResolution 105 115
-			size = ScaleByResolution 60 27
+			position = Parent 0.37 0.525
+			size = Parent 0.5 0.1875
 			name = ExperienceCount
 			text = 500
+		}
+		control Control
+		{
+			position = Parent 0.425 0.05
+			size = Parent 0.22 0.26
+			name = AktuelleAlien
+			text = AA
+			backColor = 1 1 1
+			backTexture = "GUI\\HUD\\Icons\\alien_empty.png"
+			control TextBox
+			{
+				textColor = 0 0 0
+				position = Parent 0.18 0.22
+				size = Parent 0.7 0.7
+				name = AlienCountActive
+				text = 20
+			}
+		}
+		control Control
+		{
+			position = Parent 0.16 0.18
+			size = Parent 0.26 0.22
+			name = MaximalAlien
+			text = MA
+			backColor = 1 1 1
+			backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			control TextBox
+			{
+				position = Parent 0.18 0.26
+				size = Parent 0.7 0.7
+				name = AlienCountPossible
+				text = 30
+			}
+		}
+		control Control
+		{
+			position = Parent 0.045 0.415
+			size = Parent 0.215 0.215
+			name = Rotation
+			text = Rotate
+			backTexture = "GUI\\HUD\\Icons\\rotate.png"
+			colorMultiplier = 0 0 0
+			control TextBox
+			{
+				horizontalAlign = Center
+				verticalAlign = Center
+				name = RotationCouponCount
+				text = 5
+			}
+		}
+		control Control
+		{
+			position = Parent 0.04375 0.635
+			size = Parent 0.2775 0.28175
+			name = LightSwitch
+			text = LS
+			backColor = 1 1 1
+			backTexture = "GUI\\HUD\\strom.png"
+			control TextBox
+			{
+				textColor = 0 0 0
+				position = Parent 0.01 -0.085
+				horizontalAlign = Center
+				verticalAlign = Center
+				size = Parent 0.55 0.3
+				name = EnergyCouponCount
+				text = 6
+			}
 		}
 		control Control
 		{
 			position = Parent 0.72 0.0775
 			size = Parent 0.18 0.18
 			name = Menu
-			text = M
 			backColor = 1 1 1
 			backTexture = "GUI\\HUD\\Icons\\menu.png"
-		}
-		control Control
-		{
-			position = Parent 0.45 0.0775
-			size = Parent 0.18 0.18
-			name = AktuelleAlien
-			text = AA
-			backTexture = "GUI\\HUD\\Icons\\Alien.png"
-			colorMultiplier = 0 0 0
-		}
-		control Control
-		{
-			position = Parent 0.2 0.175
-			size = Parent 0.18 0.18
-			name = MaximalAlien
-			text = MA
-			backTexture = "GUI\\HUD\\Icons\\Alien.png"
-			colorMultiplier = 0 0 0
-		}
-		control Control
-		{
-			position = Parent 0.05 0.425
-			size = Parent 0.18 0.18
-			name = Rotation
-			text = Rotate
-			backTexture = "GUI\\HUD\\Icons\\rotate.png"
-			colorMultiplier = 0 0 0
-		}
-		control Control
-		{
-			position = Parent 0.075 0.7
-			size = Parent 0.18 0.18
-			name = LightSwitch
-			text = LS
-			backColor = 1 1 1
-			backTexture = "GUI\\HUD\\strom.png"
 		}
 	}
 }
