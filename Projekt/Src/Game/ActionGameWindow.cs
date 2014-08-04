@@ -688,6 +688,7 @@ namespace Game
             bool isItem = false;
             bool isMedicCabinet = false;
             bool isSwitch = false;
+            bool isDetonationObject = false;
 
             MapObject overObject = null;
 
@@ -701,74 +702,84 @@ namespace Game
                 foreach (MapObject obj in Map.Instance.GetObjects(sphere))
                 {
 
-                    ProjectEntities.Repairable r = obj as ProjectEntities.Repairable;
+                    MapObject temp = null;
+                    temp = obj as ProjectEntities.Repairable;
 
-                    if (r != null)
+                    if (temp != null)
                     {
-                        overObject = r;
+                        overObject = temp;
                         isRepairable = true;
                         break;
                     }
 
-                    ProjectEntities.Switch sw = obj as ProjectEntities.Switch;
-                    if (sw != null)
+                    temp = obj as ProjectEntities.Switch;
+                    if (temp != null)
                     {
-                        if (sw.UseAttachedMesh != null)
+                        if ((temp as ProjectEntities.Switch).UseAttachedMesh != null)
                         {
-                            Sphere sph = GetUseableUseAttachedMeshWorldSphere(sw.UseAttachedMesh);
+                            Sphere sph = GetUseableUseAttachedMeshWorldSphere((temp as ProjectEntities.Switch).UseAttachedMesh);
 
                             if (sph.IsIntersectsSphere(sphere))
                             {
-                                overObject = sw;
+                                overObject = temp;
                                 isSwitch = true;
                                 break;
                             }
                         }
                         else
                         {
-                            overObject = sw;
+                            overObject = temp;
                             isSwitch = true;
                             break;
                         }
                     }
 
-                    ProjectEntities.ServerRack se = obj as ProjectEntities.ServerRack;
+                    temp = obj as ProjectEntities.ServerRack;
 
-                    if (se != null)
+                    if (temp != null)
                     {
-                        overObject = se;
+                        overObject = temp;
                         isServerRack = true;
                         break;
                     }
 
-                    ProjectEntities.Item i = obj as ProjectEntities.Item;
+                    temp = obj as ProjectEntities.Item;
 
-                    if (i != null)
+                    if (temp != null)
                     {
-                        overObject = i;
+                        overObject = temp;
                         isItem = true;
                         break;
                     }
 
-                    ProjectEntities.Terminal t = obj as ProjectEntities.Terminal;
-                    if (t != null)
+                    temp = obj as ProjectEntities.Terminal;
+                    if (temp != null)
                     {
-                        Sphere sph = GetUseableUseAttachedMeshWorldSphere(t.TerminalProjector);
+                        Sphere sph = GetUseableUseAttachedMeshWorldSphere((temp as Terminal).TerminalProjector);
 
                         if (sph.IsIntersectsSphere(sphere))
                         {
-                            overObject = t;
+                            overObject = temp;
                             isTerminal = true;
                             break;
                         }
                     }
 
-                    ProjectEntities.MedicCabinet c = obj as ProjectEntities.MedicCabinet;
+                    temp = obj as ProjectEntities.MedicCabinet;
 
-                    if (c != null)
+                    if (temp != null)
                     {
-                        overObject = c;
+                        overObject = temp;
                         isMedicCabinet = true;
+                        break;
+                    }
+
+                    temp = obj as ProjectEntities.DetonationObject;
+
+                    if(temp != null)
+                    {
+                        overObject = temp;
+                        isDetonationObject = true;
                         break;
                     }
 
@@ -900,8 +911,31 @@ namespace Game
                     currentUseObject = overCabinet;
             }
 
+            //currentDetonationObject
+            if (isDetonationObject)
+            {
+                ProjectEntities.DetonationObject overDetonationObject = overObject as DetonationObject;
+
+                if (overDetonationObject != null)
+                    bounds = overDetonationObject.MapBounds;
+
+                if (overDetonationObject != currentUseObject)
+                {
+                    if (overDetonationObject != null)
+                        currentUseObject = overDetonationObject;
+                    else
+                        currentUseObject = null;
+                }
+
+
+                if (currentUseObject != null)
+                {
+                    text += "Attach Dynamite";
+                }
+            }
+
             //Wenn nix, nix setzen
-            if (!isRepairable && !isItem && !isMedicCabinet && !isServerRack && !isTerminal && !isSwitch)
+            if (!isRepairable && !isItem && !isMedicCabinet && !isServerRack && !isTerminal && !isSwitch && !isDetonationObject)
                 currentUseObject = null;
 
 
@@ -1441,12 +1475,27 @@ namespace Game
                 return true;
             }
 
+            DetonationObject detonationObject = currentUseObject as DetonationObject;
+            if(detonationObject != null)
+            {
+                detonationObject.StartUse(GetPlayerUnit());
+                currentUsing = true;
+                return true;
+            }
+
             currentUsing = true;
             return true;
         }
 
         void ObjectUseEnd()
         {
+            DetonationObject detonationObject = currentUseObject as DetonationObject;
+            if (detonationObject != null)
+            {
+                detonationObject.EndUse(GetPlayerUnit());
+            }
+
+
             currentUsing = false;
         }
 
