@@ -1,0 +1,40 @@
+highLevelMaterial Corridor_WallDownPIN
+{
+	template = ShaderBaseMaterial
+	doubleSided = True
+	useNormals = False
+	diffuseColor = 0.5372549 0.5372549 0.5372549
+	reflectionColor = 1 1 1
+	reflectionSpecificCubemap = ".\\SkyBox\\CorridorSkyBox.jpg"
+	emissionColor = 1 1 1
+	specularColor = 1 1 1
+	diffuse1Map
+	{
+		texture = ".\\CorridorTex1DiffuseMapPIN.dds"
+	}
+	diffuse2Map
+	{
+		texture = ".\\WallDownAO.dds"
+		texCoord = TexCoord1
+	}
+	reflectionMap
+	{
+		texture = ".\\CorridorTex1SpecularMap.dds"
+	}
+	emissionMap
+	{
+		texture = ".\\CorridorTex1GlowMap.dds"
+		transform
+		{
+			dynamicParameters = True
+		}
+	}
+	specularMap
+	{
+		texture = ".\\CorridorTex1SpecularMap.dds"
+	}
+	normalMap
+	{
+		texture = ".\\CorridorTex1NormalsMap.dds"
+	}
+}
