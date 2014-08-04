@@ -1569,21 +1569,25 @@ namespace Game
                 if (unit == null)
                     continue;
 
-                Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
+                if (CheckMapPosition(unit.Position.ToVec2() * 0.9f))
+                {
+                    Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
 
-                rect -= mapRect.Minimum;
-                rect.Minimum *= mapSizeInv;
-                rect.Maximum *= mapSizeInv;
-                rect.Minimum = new Vec2(rect.Minimum.X, 1.0f - rect.Minimum.Y);
-                rect.Maximum = new Vec2(rect.Maximum.X, 1.0f - rect.Maximum.Y);
-                rect.Minimum *= screenMapRect.Size;
-                rect.Maximum *= screenMapRect.Size;
-                rect += screenMapRect.Minimum;
+                    rect -= mapRect.Minimum;
+                    rect.Minimum *= mapSizeInv;
+                    rect.Maximum *= mapSizeInv;
+                    rect.Minimum = new Vec2(rect.Minimum.X, 1.0f - rect.Minimum.Y);
+                    rect.Maximum = new Vec2(rect.Maximum.X, 1.0f - rect.Maximum.Y);
+                    rect.Minimum *= screenMapRect.Size;
+                    rect.Maximum *= screenMapRect.Size;
+                    rect += screenMapRect.Minimum;
 
-                //increase 1 pixel
-                rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
-                ColorValue color = GetColor(unit);
-                renderer.AddQuad(rect, color);
+                    //increase 1 pixel
+                    rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
+                    ColorValue color = GetColor(unit);
+                    renderer.AddQuad(rect, color);
+                }
+
             }
             foreach (Signal s in Computer.signalList)
             {

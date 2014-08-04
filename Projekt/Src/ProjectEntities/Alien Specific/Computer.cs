@@ -536,7 +536,7 @@ namespace ProjectEntities
             Signal s = new Signal(min, max);
             signalList.AddLast(s);
 
-            Timer radarTimer = new Timer(120000);
+            Timer radarTimer = new Timer(30000);
             radarTimer.Elapsed += new ElapsedEventHandler(RemoveRadarElement);
             radarTimer.Enabled = true;
         }
