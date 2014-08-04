@@ -4,6 +4,73 @@ control Control
 {
 	control Control
 	{
+		position = ScaleByResolution 800 0
+		size = ScaleByResolution 220 770
+		name = rechts
+		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
+		control Control
+		{
+			position = Parent 0.15 0.2
+			size = Parent 0.8 0.5
+			name = ControlPanelControl
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 10
+				size = Parent 1 0.075
+				name = ControlPanelButton0
+				text = 0
+			}
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 50
+				size = Parent 1 0.075
+				name = ControlPanelButton1
+				text = 1
+			}
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 90
+				size = Parent 1 0.075
+				name = ControlPanelButton2
+				text = 2
+			}
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 130
+				size = Parent 1 0.075
+				name = ControlPanelButton3
+				text = 3
+			}
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 170
+				size = Parent 1 0.075
+				name = ControlPanelButton4
+				text = 4
+			}
+			control "GUI\\Controls\\DefaultButton.gui"
+			{
+				position = ScaleByResolution 0 210
+				size = Parent 1 0.075
+				name = ControlPanelButton5
+				text = 5
+			}
+		}
+		control "GUI\\AlienNumPad.gui"
+		{
+			position = Parent 0.15 0.25
+			size = Parent 0.8 0.4
+		}
+	}
+	control Control
+	{
+		position = ScaleByResolution 0 0
+		size = ScaleByResolution 200 770
+		name = links
+		backTexture = "GUI\\HUD\\Elemente\\links.png"
+	}
+	control Control
+	{
 		position = ScaleByResolution 0 0
 		size = Screen 1 0.9976042
 		name = ActiveArea
@@ -43,6 +110,12 @@ control Control
 		size = ScaleByResolution 150 150
 		name = Minimap
 		backTexture = "GUI\\HUD\\Elemente\\Minimap.png"
+		control Control
+		{
+			position = Parent 0.05 0.05
+			size = Parent 0.9 0.9
+			backTexture = "GUI\\HUD\\Icons\\MiniMiniMap2.png"
+		}
 	}
 	control Control
 	{
@@ -125,29 +198,57 @@ control Control
 		size = ScaleByResolution 220 210
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
-	}
-	control Control
-	{
-		position = ScaleByResolution 0 0
-		size = ScaleByResolution 200 770
-		name = links
-		backTexture = "GUI\\HUD\\Elemente\\links.png"
-	}
-	control Control
-	{
-		position = ScaleByResolution 830 0
-		size = ScaleByResolution 200 770
-		name = rechts
-		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
+		control TextBox
+		{
+			position = ScaleByResolution 105 115
+			size = ScaleByResolution 60 27
+			name = ExperienceCount
+			text = 500
+		}
 		control Control
 		{
-			position = ScaleByResolution 0 0
-			name = ControlPanelControl
-			control "GUI\\Controls\\DefaultButton.gui"
-			{
-				position = ScaleByResolution 0 190
-				text = 1
-			}
+			position = Parent 0.72 0.0775
+			size = Parent 0.18 0.18
+			name = Menu
+			text = M
+			backColor = 1 1 1
+			backTexture = "GUI\\HUD\\Icons\\menu.png"
+		}
+		control Control
+		{
+			position = Parent 0.45 0.0775
+			size = Parent 0.18 0.18
+			name = AktuelleAlien
+			text = AA
+			backTexture = "GUI\\HUD\\Icons\\Alien.png"
+			colorMultiplier = 0 0 0
+		}
+		control Control
+		{
+			position = Parent 0.2 0.175
+			size = Parent 0.18 0.18
+			name = MaximalAlien
+			text = MA
+			backTexture = "GUI\\HUD\\Icons\\Alien.png"
+			colorMultiplier = 0 0 0
+		}
+		control Control
+		{
+			position = Parent 0.05 0.425
+			size = Parent 0.18 0.18
+			name = Rotation
+			text = Rotate
+			backTexture = "GUI\\HUD\\Icons\\rotate.png"
+			colorMultiplier = 0 0 0
+		}
+		control Control
+		{
+			position = Parent 0.075 0.7
+			size = Parent 0.18 0.18
+			name = LightSwitch
+			text = LS
+			backColor = 1 1 1
+			backTexture = "GUI\\HUD\\strom.png"
 		}
 	}
 }
