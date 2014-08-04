@@ -226,20 +226,7 @@ namespace ProjectEntities
                 //case Task.Types.Repair:
                 //case Task.Types.BreakableRepair:
                 {
-                    /*//healed
-                    if ((CurrentTask.Type == Task.Types.Repair ||
-                        CurrentTask.Type == Task.Types.BreakableRepair)
-                        && CurrentTask.Entity != null)
-                    {
-                        if (CurrentTask.Entity.Health == CurrentTask.Entity.Type.HealthMax)
-                        {
-                            DoNextTask();
-                            break;
-                        }
-                    }
-                    */
-
-                    float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
+                   float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
 
                     Vec3 targetPos;
                     if (CurrentTask.Entity != null)
@@ -335,8 +322,7 @@ namespace ProjectEntities
             if ((CurrentTask.Type == Task.Types.Patrol ||
                 CurrentTask.Type == Task.Types.Stop ||
                 CurrentTask.Type == Task.Types.BreakableMove ||
-                CurrentTask.Type == Task.Types.BreakableAttack //||
-                //CurrentTask.Type == Task.Types.BreakableRepair
+                CurrentTask.Type == Task.Types.BreakableAttack                 
                 ) && Tasks.Count == 0)
             {
                 inactiveFindTaskTimer -= TickDelta;

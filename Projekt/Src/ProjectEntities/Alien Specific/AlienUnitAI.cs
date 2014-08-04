@@ -36,13 +36,6 @@ namespace ProjectEntities
 		List<Task> tasks = new List<Task>();
 
 
-        ////begin patrol
-        //ArrayList route; //new variable for the route
-        //int routeIndex = 0; //index for route points
-        //PathController pathController = new PathController();
-        ////end patrol    
-
-
 
         /*******************/
         /* Getter / Setter */
@@ -185,6 +178,8 @@ namespace ProjectEntities
         /// <param name="toQueue"></param>
 		public void DoTask( Task task, bool toQueue )
 		{
+            
+            
             if (this.ControlledObject == null)
             {
                 return;
@@ -193,10 +188,15 @@ namespace ProjectEntities
 			if( toQueue && currentTask.Type == Task.Types.Stop && tasks.Count == 0 )
 				toQueue = false;
 
-            if (this.ControlledObject.patrolEnabled && task.Type == Task.Types.Move)
+            if (this.ControlledObject.patrolEnabled)
             {
                 DoTaskInternal(new AlienUnitAI.Task(Task.Types.Stop));
             }
+
+            //if (this.ControlledObject.patrolEnabled && task.Type == Task.Types.Move)
+            //{
+            //    DoTaskInternal(new AlienUnitAI.Task(Task.Types.Stop));
+            //}
 
 			if( !toQueue )
 			{
