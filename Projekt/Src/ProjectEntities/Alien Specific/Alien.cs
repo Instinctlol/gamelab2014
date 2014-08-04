@@ -93,7 +93,7 @@ namespace ProjectEntities
 
 
         protected ArrayList route; //Variable für die Patrolroute
-        protected int routeIndex = 0; //index für die route points
+        protected int routeIndex = 0; //Index für die Route-Points
                  
 
         [FieldSerialize]
@@ -156,7 +156,7 @@ namespace ProjectEntities
                     {
                         route = new ArrayList();
 
-                        foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen waypoint in die route ein 
+                        foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen Waypoint in die Route ein 
                         {
                             route.Add(point);
                         }
@@ -165,7 +165,7 @@ namespace ProjectEntities
                     //laufe zum nächsten Punkt
                     MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
                     Move(pt.Position);
-                    routeIndex++; //nächster route waypoint
+                    routeIndex++; //nächster Route-Waypoint
 
                     //laufe die Route zurück, wenn du am Ende der Route angekommen bist
                     if (routeIndex >= route.Count)
@@ -185,7 +185,6 @@ namespace ProjectEntities
 
         private void TickPatrol()
         {
-
             patrolTickTime -= TickDelta;
             if (patrolTickTime <= 0)
             {
