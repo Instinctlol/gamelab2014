@@ -273,8 +273,8 @@ namespace ProjectEntities
                 Move,
                 BreakableMove,//for automatic moves
                 Attack,
-                Repair,
-                BreakableRepair,//for automatic repair
+                //Repair,
+                //BreakableRepair,//for automatic repair
                 ProductUnit,
                 SelfDestroy,//for cancel build building 
                 Patrol

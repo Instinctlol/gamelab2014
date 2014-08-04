@@ -660,8 +660,7 @@ namespace Game
                         case AlienUnitAI.Task.Types.Patrol:
                         case AlienUnitAI.Task.Types.Move:
                         case AlienUnitAI.Task.Types.Attack:
-                        case AlienUnitAI.Task.Types.Repair:
-
+                        //case AlienUnitAI.Task.Types.Repair:
                             if (mouseOnObject != null)
                                 intellect.DoTask(new AlienUnitAI.Task(taskType, mouseOnObject), toQueue);
                             else
@@ -674,11 +673,9 @@ namespace Game
                                 if(taskType == AlienUnitAI.Task.Types.Patrol)
                                     intellect.DoTask(new AlienUnitAI.Task(taskType), toQueue);
 
-                                if (taskType == AlienUnitAI.Task.Types.Attack ||
-                                    taskType == AlienUnitAI.Task.Types.Repair)
+                                if (taskType == AlienUnitAI.Task.Types.Attack )//|| taskType == AlienUnitAI.Task.Types.Repair)
                                 {
-                                    intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.BreakableMove,
-                                        mouseMapPos), toQueue);
+                                    intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.BreakableMove, mouseMapPos), toQueue);
                                 }
                             }
                             break;
@@ -730,15 +727,15 @@ namespace Game
                         tasked = true;
                     }
 
+                    /*
                     if (IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Repair) &&
-                        mouseOnObject.Intellect != null &&
-                        intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
+                        mouseOnObject.Intellect != null && intellect.Faction != null && mouseOnObject.Intellect.Faction != null &&
                         intellect.Faction == mouseOnObject.Intellect.Faction)
                     {
-                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Repair,
-                            mouseOnObject), toQueue);
+                        intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Repair, mouseOnObject), toQueue);
                         tasked = true;
                     }
+                     */
 
                     if (!tasked && IsEnableTaskTypeInTasks(tasks, AlienUnitAI.Task.Types.Move))
                         intellect.DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Move, mouseOnObject), toQueue);
@@ -1412,21 +1409,21 @@ namespace Game
                 //Patrol, Move, Attack, Repair
                 
                 case AlienUnitAI.Task.Types.Patrol:
-                foreach (Unit unit in selectedUnits)
-                {
-                    AlienAI intellect = unit.Intellect as AlienAI;
-                    if (intellect == null)
-                        continue;
-
-                    if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
+                    foreach (Unit unit in selectedUnits)
                     {
-                        intellect.DoTask(new AlienUnitAI.Task(taskType), false);
+                        AlienAI intellect = unit.Intellect as AlienAI;
+                        if (intellect == null)
+                            continue;
+
+                        if (IsEnableTaskTypeInTasks(intellect.GetControlPanelTasks(), taskType))
+                        {
+                            intellect.DoTask(new AlienUnitAI.Task(taskType), false);
+                        }
                     }
-                }
-                break;
+                    break;
                 case AlienUnitAI.Task.Types.Move:
                 case AlienUnitAI.Task.Types.Attack:
-                case AlienUnitAI.Task.Types.Repair:
+                //case AlienUnitAI.Task.Types.Repair:
                     //do taskTargetChoose
                     TaskTargetChooseIndex = index;
                     break;
@@ -1590,7 +1587,6 @@ namespace Game
             }
             foreach (Signal s in Computer.signalList)
             {
-                // Methode 1:
                 Rect rect = new Rect(s.Min, s.Max);
                 
                 rect -= mapRect.Minimum;
@@ -1607,7 +1603,6 @@ namespace Game
 
                 //ColorValue color = GetColor(unit);
                 renderer.AddQuad(rect, new ColorValue(1,0,0));
-                
             }
 
             //Draw camera borders
@@ -1616,7 +1611,6 @@ namespace Game
 
                 if (camera.Position.Z > 0)
                 {
-
                     Plane groundPlane = new Plane(0, 0, 1, 0);
 
                     Vec2[] points = new Vec2[4];

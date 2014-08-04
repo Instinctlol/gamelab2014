@@ -194,10 +194,6 @@ namespace ProjectEntities
             }
          }
                       
-              
-                 
-             
-      
         enum NetworkMessages
         {
             MainBodyVelocityToClient
@@ -282,9 +278,7 @@ namespace ProjectEntities
 
         private void Server_SendMainBodyVelocityToAllClients()
         {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Alien),
-                (ushort)NetworkMessages.MainBodyVelocityToClient);
-
+            SendDataWriter writer = BeginNetworkMessage(typeof(Alien), (ushort) NetworkMessages.MainBodyVelocityToClient);
             writer.Write(mainBodyVelocity);
             EndNetworkMessage();
         }

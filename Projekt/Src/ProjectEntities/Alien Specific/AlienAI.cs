@@ -214,17 +214,17 @@ namespace ProjectEntities
 
                 // Patrollieren
                 case Task.Types.Patrol:
-                if (CurrentTask.Entity != null)
-                {
-                    controlledObj.Patrol();
-                }
-                break;
+                    if (CurrentTask.Entity != null)
+                    {
+                        controlledObj.Patrol();
+                    }
+                    break;
 
                 //Attack, Repair
                 case Task.Types.Attack:
                 case Task.Types.BreakableAttack:
-                case Task.Types.Repair:
-                case Task.Types.BreakableRepair:
+                //case Task.Types.Repair:
+                //case Task.Types.BreakableRepair:
                 {
                     /*//healed
                     if ((CurrentTask.Type == Task.Types.Repair ||
@@ -300,6 +300,8 @@ namespace ProjectEntities
                         //weapons control
                         if (lineVisibility)
                         {
+                            Computer.AddRadarElement(controlledObj.MapBounds.Minimum.ToVec2(), controlledObj.MapBounds.Maximum.ToVec2());
+                            
                             foreach (Weapon weapon in initialWeapons)
                             {
                                 Vec3 pos = targetPos;
