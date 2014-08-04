@@ -297,7 +297,7 @@ namespace ProjectEntities
 				if( GameMap.Instance.PlayerUnitType != null )
 					unitTypeName = GameMap.Instance.PlayerUnitType.Name;
 				else
-					unitTypeName = "Girl";//"Rabbit";
+					unitTypeName = "Astronaut";//"Rabbit";
 			}
 			else
 				unitTypeName = player.Name;
