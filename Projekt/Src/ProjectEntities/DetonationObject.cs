@@ -52,6 +52,7 @@ namespace ProjectEntities
             StartUseToServer,
             EndUseToServer,
             UseableToClient,
+            RemoveUseItemToClient,
         }
 
         public delegate void PreparedDelegate();
@@ -76,11 +77,11 @@ namespace ProjectEntities
             set
             {
                 useable = value;
-                if(!useable)
+                if (!useable)
                     foreach (MapObjectAttachedObject obj in AttachedObjects)
                     {
                         MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
-                        if(mesh != null && mesh.Alias=="dynamesh")
+                        if (mesh != null && mesh.Alias == "dynamesh")
                         {
                             mesh.Visible = true;
                         }
@@ -97,6 +98,7 @@ namespace ProjectEntities
             {
                 if (EntitySystemWorld.Instance.IsClientOnly())
                     Client_SendStartUse();
+
             }
             else if (!HasItem(unit))
                 StatusMessageHandler.sendMessage("You dont have what it takes to make this go boom");
@@ -107,15 +109,17 @@ namespace ProjectEntities
             if (useable && HasItem(unit))
             {
                 if (EntitySystemWorld.Instance.IsClientOnly())
-                    Client_SendEndUse();
+                {
+                    Client_SendEndUse(unit);
+                }
             }
         }
 
         public bool HasItem(Unit unit)
         {
             string useItem = "";
-            if(unit.Inventar.useItem != null )
-             useItem = unit.Inventar.useItem.Type.FullName.ToLower();
+            if (unit.Inventar.useItem != null)
+                useItem = unit.Inventar.useItem.Type.FullName.ToLower();
             return !String.IsNullOrEmpty(Type.DetonationItem) && useItem.Equals(Type.DetonationItem.ToLower());
         }
 
@@ -135,27 +139,34 @@ namespace ProjectEntities
             UseStart = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
 
-        private void Client_SendEndUse()
+        private void Client_SendEndUse(Unit unit)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(DetonationObject),
                (ushort)NetworkMessages.EndUseToServer);
+
+            writer.Write(unit.NetworkUIN);
+
             EndNetworkMessage();
         }
 
         [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.EndUseToServer)]
         private void Server_ReceiveEndUse(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
+            uint uin = reader.ReadUInt32();
+
             if (!reader.Complete())
                 return;
 
             UInt32 now = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
-            if ( (int)(now - useStart - Type.SecondsToUse) >= 0)
+            if ((int)(now - useStart - Type.SecondsToUse) >= 0)
             {
                 Useable = false;
 
                 if (Prepared != null)
                     Prepared();
+
+                Server_SendRemoveUseItem(uin, sender);
             }
         }
 
@@ -169,6 +180,15 @@ namespace ProjectEntities
             EndNetworkMessage();
         }
 
+        private void Server_SendRemoveUseItem(uint uin, RemoteEntityWorld target)
+        {
+            SendDataWriter writer = BeginNetworkMessage(target, typeof(DetonationObject), (ushort)NetworkMessages.RemoveUseItemToClient);
+
+            writer.Write(uin);
+
+            EndNetworkMessage();
+        }
+
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.UseableToClient)]
         private void Client_ReceiveUsuable(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -178,6 +198,19 @@ namespace ProjectEntities
                 return;
 
             Useable = useable;
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.RemoveUseItemToClient)]
+        private void Client_ReceiveRemoveUseItem(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            uint uin = reader.ReadUInt32();
+
+            if (!reader.Complete())
+                return;
+
+            Unit unit = (Unit)Entities.Instance.GetByNetworkUIN(uin);
+
+            unit.Inventar.removeItem(unit.Inventar.useItem);
         }
     }
 }

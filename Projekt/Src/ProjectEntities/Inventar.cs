@@ -65,7 +65,7 @@ namespace ProjectEntities
 
         public void setUseItem(int index)
         {
-            if(index >= 0 || index <= inventar.Count - 1)
+            if(index >= 0 && index < inventar.Count)
                 _useItem = inventar[index];
         }
 
@@ -100,7 +100,10 @@ namespace ProjectEntities
             {
                 //Item komplett entfernen bzw Itemanzahl verringern
                 if (inventar.Find(x => x.Type.Name == i.Type.Name).anzahl == 1)
+                {
                     inventar.RemoveAt(inventar.IndexOf(inventar.Find(x => x.Type.Name == i.Type.Name)));
+                    setUseItem(0);
+                }
                 else
                     inventar.Find(x => x.Type.Name == i.Type.Name).anzahl--;
             }
