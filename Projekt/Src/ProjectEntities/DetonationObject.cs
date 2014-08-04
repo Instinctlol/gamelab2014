@@ -1,6 +1,8 @@
 ﻿using Engine;
 using Engine.EntitySystem;
+using Engine.MapSystem;
 using Engine.Utils;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,7 +68,7 @@ namespace ProjectEntities
             set { useStart = value; }
         }
 
-        bool useable;
+        bool useable = true;
 
         public bool Useable
         {
@@ -74,6 +76,15 @@ namespace ProjectEntities
             set
             {
                 useable = value;
+                if(!useable)
+                    foreach (MapObjectAttachedObject obj in AttachedObjects)
+                    {
+                        MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
+                        if(mesh != null && mesh.Alias=="dynamesh")
+                        {
+                            mesh.Visible = true;
+                        }
+                    }
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendUsable(useable);
             }
@@ -98,14 +109,14 @@ namespace ProjectEntities
                 if (EntitySystemWorld.Instance.IsClientOnly())
                     Client_SendEndUse();
             }
-            else if (!HasItem(unit))
-                StatusMessageHandler.sendMessage("You dont have what it takes to make this go boom");
         }
 
         public bool HasItem(Unit unit)
         {
-            string useItem = unit.Inventar.useItem.Type.FullName.ToLower();
-            return String.IsNullOrEmpty(Type.DetonationItem) && useItem.Equals(Type.DetonationItem.ToLower());
+            string useItem = "";
+            if(unit.Inventar.useItem != null )
+             useItem = unit.Inventar.useItem.Type.FullName.ToLower();
+            return !String.IsNullOrEmpty(Type.DetonationItem) && useItem.Equals(Type.DetonationItem.ToLower());
         }
 
         private void Client_SendStartUse()
@@ -138,7 +149,8 @@ namespace ProjectEntities
                 return;
 
             UInt32 now = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            if (now - useStart - Type.SecondsToUse >= 0)
+
+            if ( (int)(now - useStart - Type.SecondsToUse) >= 0)
             {
                 Useable = false;
 
