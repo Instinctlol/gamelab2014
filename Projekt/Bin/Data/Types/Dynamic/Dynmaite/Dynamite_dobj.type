@@ -1,0 +1,23 @@
+type Dynamite_dobj
+{
+	class = DetonationObject
+	detonationItem = Dynamite
+	substance = Metal
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = "Types\\Dynamic\\ExplosionBarrel\\ExplosionBarrel.mesh"
+			collision = True
+		}
+		mesh
+		{
+			meshName = "Types\\Items\\Dynamite\\Dynamite.mesh"
+			alias = dynamesh
+			position = -0.004298881 0.02823339 0.8873107
+			scale = 0.00443038 0.00443038 0.004474925
+			visible = False
+		}
+	}
+}

@@ -141,7 +141,7 @@ namespace ProjectEntities
                 }
                 else
                 {
-                    if (needOpen && EntitySystemWorld.Instance.IsServer())
+                    if (needOpen)
                     {
                         SoundPlay3D(Type.SoundOpen, .5f, false);
 
@@ -229,11 +229,10 @@ namespace ProjectEntities
         {
             base.OnTick();
 
-            if (needOpen != Repaired || openDoorOffsetCoefficient != 0)
+            if (needOpen || openDoorOffsetCoefficient != 0)
             {
                 float offset = TickDelta / Type.OpenTime;
 
-                bool oldOpened = Repaired;
                 float oldOpenDoorOffsetCoefficient = openDoorOffsetCoefficient;
 
                 if (needOpen)
@@ -254,7 +253,7 @@ namespace ProjectEntities
                     }
                 }
 
-                if (oldOpened != Repaired || oldOpenDoorOffsetCoefficient != openDoorOffsetCoefficient)
+                if ( oldOpenDoorOffsetCoefficient != openDoorOffsetCoefficient)
                 {
                     if (EntitySystemWorld.Instance.IsServer() && Type.NetworkType == EntityNetworkTypes.Synchronized)
                         Server_SendOpenSettingsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);

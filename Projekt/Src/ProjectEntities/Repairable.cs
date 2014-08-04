@@ -120,10 +120,13 @@ namespace ProjectEntities
 
                 this.repaired = value;
 
-                if (repaired)
-                    mesh.SetMaterialNameForAllSubObjects(originalTexture);
-                else
-                    mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
+                if (!String.IsNullOrEmpty(destroyedTexture))
+                {
+                    if (repaired)
+                        mesh.SetMaterialNameForAllSubObjects(originalTexture);
+                    else
+                        mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
+                }
 
                 if (EntitySystemWorld.Instance.IsClientOnly())
                     SoundPlay3D(Type.SoundRepaired, .5f, false);
@@ -156,7 +159,10 @@ namespace ProjectEntities
 
         protected bool CanRepair(Unit unit)
         {
-            string useItem = unit.Inventar.useItem.Type.FullName;
+            string useItem = "";
+
+            if (unit.Inventar.useItem!= null)
+                useItem = unit.Inventar.useItem.Type.FullName;
 
             if (Type.RepairItems.Count == 0)
                 return true;
@@ -183,12 +189,12 @@ namespace ProjectEntities
                     break;
                 }
             }
+
+            destroyedTexture = null;
             if (Type.DestroyedTexture == null || Type.DestroyedTexture.Length == 0)
-                destroyedTexture = originalTexture;
-            else
                 destroyedTexture = Type.DestroyedTexture;
 
-            if (mesh != null)
+            if (mesh != null && !String.IsNullOrEmpty(destroyedTexture))
                 mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
         }
 

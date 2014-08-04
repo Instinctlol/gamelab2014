@@ -916,21 +916,18 @@ namespace Game
             {
                 ProjectEntities.DetonationObject overDetonationObject = overObject as DetonationObject;
 
-                if (overDetonationObject != null)
+                if (overDetonationObject != null && overDetonationObject.Useable)
                     bounds = overDetonationObject.MapBounds;
 
                 if (overDetonationObject != currentUseObject)
                 {
-                    if (overDetonationObject != null)
+                    if (overDetonationObject != null && overDetonationObject.Useable)
+                    {
                         currentUseObject = overDetonationObject;
+                        text += "Attach Dynamite";
+                    }
                     else
                         currentUseObject = null;
-                }
-
-
-                if (currentUseObject != null)
-                {
-                    text += "Attach Dynamite";
                 }
             }
 
