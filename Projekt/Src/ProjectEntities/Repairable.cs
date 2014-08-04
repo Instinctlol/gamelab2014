@@ -110,7 +110,7 @@ namespace ProjectEntities
 
 
         //TODO: Network, updating physical object
-        public bool Repaired
+        public virtual bool Repaired
         {
             get { return repaired; }
             set
