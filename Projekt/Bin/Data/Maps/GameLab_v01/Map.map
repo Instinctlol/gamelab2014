@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 80.55441 76.64191 22.6362
-editorCameraDirection = 3.913338 -1.560796
+editorCameraPosition = -1.715637 103.8334 16.65661
+editorCameraDirection = 4.710092 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -220,7 +220,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 192 198 788 480 472 285 800 801
+			subscriptionsToDeletionEvent = 192 198 787 480 472 285 799 800
 			entityClassName = Terminal
 			className = Ring2Rotation
 			customScriptCodeCreated = False
@@ -287,7 +287,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 12
-			subscriptionsToDeletionEvent = 286 800
+			subscriptionsToDeletionEvent = 286 799
 			entityClassName = Terminal
 			className = Terminal_Rotate_F3
 			customScriptCodeCreated = False
@@ -8814,20 +8814,8 @@ entity
 }
 entity
 {
-	type = Brechstange
-	uin = 780
-	classPrompt = MeleeWeapon
-	readyTimeRemaining = 0
-	currentFireTime = 0
-	fireTimesExecuted = 0
-	healthFactorAtBeginning = 1
-	position = 0.1448522 106.4278 0.3694851
-	name = Brechstange_0
-}
-entity
-{
 	type = Brechstange_Item
-	uin = 781
+	uin = 780
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -8838,7 +8826,7 @@ entity
 entity
 {
 	type = Brechstange_Item
-	uin = 782
+	uin = 781
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -8849,7 +8837,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 783
+	uin = 782
 	classPrompt = StaticObject
 	position = -86.24117 70.86119 0.361656
 	rotation = 0 0 0.3699795 0.9290399
@@ -8859,7 +8847,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 784
+	uin = 783
 	classPrompt = StaticObject
 	position = -91.11579 65.7384 0.6921079
 	rotation = 0 0 0.2311622 0.9729152
@@ -8869,7 +8857,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 785
+	uin = 784
 	classPrompt = StaticObject
 	position = -96.72697 60.71957 0.370087
 	name = leiche2_7
@@ -8878,7 +8866,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 786
+	uin = 785
 	classPrompt = StaticObject
 	position = -64.76228 93.60197 0.3749405
 	rotation = 0 0 -0.3269082 0.9450561
@@ -8888,7 +8876,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 787
+	uin = 786
 	classPrompt = StaticObject
 	position = -57.76048 95.02245 0.3129493
 	rotation = 0 0 0.3892746 0.9211218
@@ -8898,7 +8886,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 788
+	uin = 787
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -8918,7 +8906,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 789
+	uin = 788
 	classPrompt = StaticObject
 	position = -16.62867 -88.80762 0.3114561
 	name = BettOne_0
@@ -8927,7 +8915,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 790
+	uin = 789
 	classPrompt = StaticObject
 	position = -16.48367 -61.02747 0.2555158
 	name = BettOne_1
@@ -8936,7 +8924,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 791
+	uin = 790
 	classPrompt = StaticObject
 	position = 1.124218 -61.29686 0.2553319
 	name = BettOne_2
@@ -8945,7 +8933,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 792
+	uin = 791
 	classPrompt = StaticObject
 	position = 10.47721 -60.77999 0.2703331
 	name = BettOne_3
@@ -8954,7 +8942,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 793
+	uin = 792
 	classPrompt = StaticObject
 	position = -52.2603 -34.43356 0.303979
 	name = leiche2_10
@@ -8963,7 +8951,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 794
+	uin = 793
 	classPrompt = StaticObject
 	position = -74.74512 -47.93776 0.4615936
 	name = leiche2_11
@@ -8972,7 +8960,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 795
+	uin = 794
 	classPrompt = StaticObject
 	position = -73.15632 -46.54344 0.3029843
 	rotation = 0 0 0.6936476 0.7203145
@@ -8982,7 +8970,7 @@ entity
 entity
 {
 	type = Wall-PIN
-	uin = 796
+	uin = 795
 	classPrompt = StaticObject
 	position = -65.40667 -4.723046 0
 	rotation = 0 0 0.7121705 0.7020065
@@ -8992,7 +8980,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 797
+	uin = 796
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -9016,7 +9004,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 798
+	uin = 797
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -9040,7 +9028,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 799
+	uin = 798
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -9064,7 +9052,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 800
+	uin = 799
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9085,7 +9073,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 801
+	uin = 800
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9106,7 +9094,7 @@ entity
 entity
 {
 	type = BrokenDoor
-	uin = 802
+	uin = 801
 	classPrompt = BrokenDoor
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -9120,7 +9108,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 803
+	uin = 802
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 496.7423 2.976936 1.07243
@@ -9130,7 +9118,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 804
+	uin = 803
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 495.8604 51.80941 1.067558
@@ -9140,7 +9128,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 805
+	uin = 804
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 471.0664 51.45832 1.06914
@@ -9150,7 +9138,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 806
+	uin = 805
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 471.6542 3.681352 1.067023
@@ -9160,7 +9148,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 807
+	uin = 806
 	classPrompt = StaticObject
 	position = -80.95398 -5.234161 0.358241
 	rotation = 0 0 -0.7850875 0.6193849
@@ -9170,7 +9158,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 808
+	uin = 807
 	classPrompt = StaticObject
 	position = -89.15398 6.265839 0.358241
 	rotation = 0 0 -0.9623547 0.2717971
@@ -9180,7 +9168,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 809
+	uin = 808
 	classPrompt = StaticObject
 	position = -27.2 10.4 1.7
 	name = BettSofa_1
@@ -9188,7 +9176,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 810
+	uin = 809
 	classPrompt = StaticObject
 	position = 104.3 18.8 0.3
 	rotation = 0 0 -0.3007059 0.9537171
@@ -9199,7 +9187,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 811
+	uin = 810
 	classPrompt = StaticObject
 	position = 85.88387 -51.19152 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9209,7 +9197,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 812
+	uin = 811
 	classPrompt = StaticObject
 	position = 82.44763 -54.5032 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9219,7 +9207,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 813
+	uin = 812
 	classPrompt = StaticObject
 	position = 93.5216 -55.56548 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9229,7 +9217,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 814
+	uin = 813
 	classPrompt = StaticObject
 	position = 90.20991 -52.12924 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9239,7 +9227,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 815
+	uin = 814
 	classPrompt = StaticObject
 	position = 85.5 -54.7 0.3
 	rotation = 0 0 -0.3826835 0.9238796
@@ -9250,7 +9238,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 816
+	uin = 815
 	classPrompt = StaticObject
 	position = 91 -56 0.3
 	rotation = 0 0 -0.9238797 0.3826835
@@ -9261,7 +9249,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 899
+	uin = 898
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9271,7 +9259,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 900
+	uin = 899
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
