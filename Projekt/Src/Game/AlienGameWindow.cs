@@ -939,10 +939,14 @@ namespace Game
             if (selectedUnits.Count != 0)
             {
                 hudControl.Controls["rechts"].Visible = true;
-                if (true){
+                if (selectedUnits.OfType<Alien>().Count() != 0){
                     hudControl.Controls["links"].Visible = true;
                 } else{
                     hudControl.Controls["links"].Visible = false;
+                    //foreach (Control control in hudControl.Controls["links"].Controls)
+                    //{
+                    //    control.Visible = false;
+                    //}
                 }             
             } else
             {
@@ -1230,30 +1234,38 @@ namespace Game
                 //string text = "";
                 if (selectedUnits.Count >= 1)
                 {
-                    for (int n = 0; n < selectedUnits.Count; n++)
+                    if (selectedUnits.OfType<Alien>().Count() != 0)
                     {
-                        if (selectedUnits[n] is Alien)
+                        int zahl = 0;
+                        foreach (Alien alien in selectedUnits.OfType<Alien>())
                         {
-                            Control control = hudControl.Controls["links"].Controls["AlienAnzeige" + n.ToString()];
+                            Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl.ToString()];;
 
                             if (control == null)
                                 break;
 
                             control.Visible = true;
-                            
-                            Control healthBar = control.Controls["StatusAlien"];
-                            float sizeX = selectedUnits[n].Health / selectedUnits[n].Type.HealthMax;
-                            healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
 
-                            //text += unit.ToString();
-                            //if (unit is Alien)
-                            //{
-                            //text += string.Format(": {0:0%}", unit.Health / unit.Type.HealthMax);//.HealthFactorAtBeginning
-                            //}
-                            //text += "\n";
-                        }                        
+                            Control healthBar = control.Controls["StatusAlien"];
+                            float sizeX = alien.Health / alien.Type.HealthMax;
+                            healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
+                            zahl++;
+                        }
                     }
                 }
+                else
+                {
+                    foreach(Control control in hudControl.Controls["links"].Controls)
+                    {
+                        control.Visible = false;
+                    }
+                }
+                //text += unit.ToString();
+                //if (unit is Alien)
+                //{
+                //text += string.Format(": {0:0%}", unit.Health / unit.Type.HealthMax);//.HealthFactorAtBeginning
+                //}
+                //text += "\n";
 
                 //hudControl.Controls["SelectedUnitsInfo"].Text = text;
                 //hudControl.Controls["links"].Controls["SelectedUnitsInfo"].Text = text;
@@ -1752,16 +1764,6 @@ namespace Game
         /// <param name="selected"></param>
         public void SetEntitySelected(Unit entity, bool selected)
         {
-            for (int n = 0; ; n++)
-            {
-                Control control = hudControl.Controls["links"].Controls["AlienAnzeige" + n.ToString()];
-
-                if (control == null)
-                    break;
-
-                control.Visible = false;
-            }
-
             if (entity is AlienUnit)
             {
                 bool modified = false;
