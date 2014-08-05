@@ -328,7 +328,8 @@ namespace ProjectEntities
             dynamics.Remove(obj);
 
             Vec3 source = obj.Position;
-            Vec3 direction = new Vec3(0, 0, -1);
+            source.Z = 100;
+            Vec3 direction = new Vec3(0, 0, -1000);
             Ray ray = new Ray(source, direction);
 
 
