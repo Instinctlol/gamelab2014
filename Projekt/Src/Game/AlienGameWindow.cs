@@ -1130,6 +1130,8 @@ namespace Game
                 hudControl.Controls["Strahlen"].Controls["Rotation"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
                 hudControl.Controls["Strahlen"].Controls["LightSwitch"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
                 hudControl.Controls["Strahlen"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+                
+                //Anpassung der AlienHUD (rechter Bereich) an die Aufloesung
 
                 Vec2I resolution = EngineApp.Instance.VideoMode;
                 float ResSize = resolution.Y;
