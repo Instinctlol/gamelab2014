@@ -79,7 +79,7 @@ namespace ProjectEntities
         private string taskData;
 
         [FieldSerialize]
-        private string sectorStatusData;
+        private string sectorStatusData="";
 
         
         
