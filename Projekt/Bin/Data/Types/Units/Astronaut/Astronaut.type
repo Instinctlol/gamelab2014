@@ -1,6 +1,7 @@
 type Astronaut
 {
 	class = PlayerCharacter
+	height = 2.2
 	walkForce = 420000
 	flyControlForce = 49000
 	jumpSupport = True
@@ -9,6 +10,7 @@ type Astronaut
 	initialAI = DefaultGameCharacterAI
 	viewRadius = 70
 	fpsCameraOffset = 0 0 0.5
+	takeItemsRadius = 3
 	healthMax = 200
 	targetPriority = 1
 	substance = Flesh
@@ -110,6 +112,8 @@ type Astronaut
 			diffusePower = 3
 			attenuationNear = 1
 			attenuationFar = 30
+			spotlightInnerAngle = 40
+			spotlightOuterAngle = 60
 			alias = taschenlampe
 			position = 0.15 0.1 0.4
 			rotation = 0 0.06700827 0 0.9977524
