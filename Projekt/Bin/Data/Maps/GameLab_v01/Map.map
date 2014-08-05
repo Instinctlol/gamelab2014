@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -51.01847 -2.349749 49.96679
-editorCameraDirection = 2.987443 -1.560796
+editorCameraPosition = 1.033394 -3.35589 124.8918
+editorCameraDirection = 2.324699 -1.062359
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -67,20 +67,14 @@ rootEditorLayer
 		layer
 		{
 			name = F1
-			visible = False
-			allowSelect = False
 		}
 		layer
 		{
 			name = F3
-			visible = False
-			allowSelect = False
 		}
 		layer
 		{
 			name = F2
-			visible = False
-			allowSelect = False
 		}
 	}
 	layer
@@ -640,7 +634,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -658,7 +651,6 @@ entity
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
-	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -675,7 +667,6 @@ entity
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
-	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -693,7 +684,6 @@ entity
 	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
-	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -711,7 +701,6 @@ entity
 	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
-	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1009,7 +998,6 @@ entity
 	filter = All
 	position = 76.38126 -0.6724877 3
 	scale = 33.84572 49.58686 10.9482
-	visible = False
 	name = F2R8-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1026,7 +1014,6 @@ entity
 	filter = All
 	position = -75.9137 0 3
 	scale = 33.84572 44.35646 10.9482
-	visible = False
 	name = F2R4-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1044,7 +1031,6 @@ entity
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.13409 49.58686 10.9482
-	visible = False
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1062,7 +1048,6 @@ entity
 	position = 0.6402804 76.1175 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
-	visible = False
 	name = F2R2-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1080,7 +1065,6 @@ entity
 	position = -53.6123 53.84821 3
 	rotation = 0 0 -0.3826834 0.9238795
 	scale = 36.20875 49.58686 10.9482
-	visible = False
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1109,7 +1093,6 @@ entity
 	position = -52.09005 -53.303 3
 	rotation = 0 0 -0.923759 0.3829742
 	scale = 33.19179 46.61387 10.9482
-	visible = False
 	name = F2R5-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1127,7 +1110,6 @@ entity
 	position = 51.67473 -53.51751 3
 	rotation = 0 0 -0.3826835 0.9238795
 	scale = 33.84572 44.9986 10.9482
-	visible = False
 	name = F2R7-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1145,7 +1127,6 @@ entity
 	position = -32.95972 75.2175 3
 	rotation = 0 0 -0.7660444 -0.6427876
 	scale = 9.572958 20.68153 10.9482
-	visible = False
 	name = F2S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1163,7 +1144,6 @@ entity
 	position = 31.94028 72.71751 3
 	rotation = 0 0 -0.5877852 -0.8090171
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S12
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1181,7 +1161,6 @@ entity
 	position = 51.77006 52.6838 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 43.82289 10.9482
-	visible = False
 	name = F2R1-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1199,7 +1178,6 @@ entity
 	position = 71.58986 31.04519 3
 	rotation = 0 0 -0.2204835 -0.9753907
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S18
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1217,7 +1195,6 @@ entity
 	position = -29.85971 -73.1825 3
 	rotation = 0 0 -0.809017 0.5877853
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S56
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1235,7 +1212,6 @@ entity
 	position = -72.36753 -30.13406 3
 	rotation = 0 0 -0.956245 0.2925674
 	scale = 9.572958 25.37091 10.9482
-	visible = False
 	name = F2S45
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1252,7 +1228,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F2_Ring
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1267,7 +1242,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
-	visible = False
 	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1282,7 +1256,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
-	visible = False
 	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1299,7 +1272,6 @@ entity
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R4-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1317,7 +1289,6 @@ entity
 	position = -0.8943577 -110.7355 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 34.97242 58.90884 10.9482
-	visible = False
 	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1334,7 +1305,6 @@ entity
 	filter = All
 	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R8-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1352,7 +1322,6 @@ entity
 	position = -1.542244 110.3673 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R2-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1370,7 +1339,6 @@ entity
 	position = -78.5583 78.36488 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1388,7 +1356,6 @@ entity
 	position = 78.37129 79.25614 3
 	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R1-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1406,7 +1373,6 @@ entity
 	position = 79.70628 -77.65553 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1424,7 +1390,6 @@ entity
 	position = -75.8792 -79.86818 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1442,7 +1407,6 @@ entity
 	position = -104.0742 -43.92505 3
 	rotation = 0 0 -0.9743701 0.224951
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S45
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1460,7 +1424,6 @@ entity
 	position = -41.43666 -104.3344 3
 	rotation = 0 0 -0.8287271 0.5596528
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1478,7 +1441,6 @@ entity
 	position = 44.97606 -104.6201 3
 	rotation = 0 0 -0.5586905 0.829376
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S67
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1496,7 +1458,6 @@ entity
 	position = 43.45355 104.5948 3
 	rotation = 0 0 -0.5828322 -0.8125925
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S12
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1514,7 +1475,6 @@ entity
 	position = -43.49978 104.6491 3
 	rotation = 0 0 -0.8302855 -0.5573382
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1544,7 +1504,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1559,7 +1518,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 42.09188 37.10183 -0.09931804
-	visible = False
 	name = F2SG-D
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1574,7 +1532,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -31.63795 -35.92422 -0.09931804
-	visible = False
 	name = F2SG-E
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1589,7 +1546,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 43.60439 -93.08067 -0.09931804
-	visible = False
 	name = F1SG-C
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1604,7 +1560,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 75.04897 -32.51239 -0.09931804
-	visible = False
 	name = F1SG-A
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1619,7 +1574,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
-	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1662,7 +1616,6 @@ entity
 	position = -32.0114 32.72062 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 33.90364 10.9482
-	visible = False
 	name = F3C23-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1691,7 +1644,6 @@ entity
 	position = 32.56227 -32.53202 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 34.3275 10.9482
-	visible = False
 	name = F3C14-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -2432,6 +2384,7 @@ entity
 	type = Terminal
 	uin = 188
 	classPrompt = Terminal
+	sectorStatusData = f1r3
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -2575,6 +2528,7 @@ entity
 	type = Terminal
 	uin = 199
 	classPrompt = Terminal
+	sectorStatusData = f2r3
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -2785,6 +2739,7 @@ entity
 	type = Terminal
 	uin = 218
 	classPrompt = Terminal
+	sectorStatusData = f2r8
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -5488,6 +5443,7 @@ entity
 	type = Terminal
 	uin = 473
 	classPrompt = Terminal
+	sectorStatusData = f2r6
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -5589,6 +5545,7 @@ entity
 	type = Terminal
 	uin = 481
 	classPrompt = Terminal
+	sectorStatusData = f2r4
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -9272,8 +9229,9 @@ entity
 	uin = 900
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = 96.7 7.9 1.1
+	position = -53.7 19.4 1.1
 	name = ExplosionBarrel_0
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9281,8 +9239,9 @@ entity
 	uin = 901
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = 12.6 104.6 1.1
-	name = ExplosionBarrel_2
+	position = -30.2 -20.3 1.1
+	name = ExplosionBarrel_1
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9290,8 +9249,9 @@ entity
 	uin = 902
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -15.2 95.8 1.1
-	name = ExplosionBarrel_3
+	position = -33.3 15.7 1.1
+	name = ExplosionBarrel_2
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9299,8 +9259,9 @@ entity
 	uin = 903
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -67.9 106.5 1.1
-	name = ExplosionBarrel_4
+	position = 26.5 -11.4 1.1
+	name = ExplosionBarrel_3
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9308,8 +9269,9 @@ entity
 	uin = 904
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -97.8 64.4 1.1
-	name = ExplosionBarrel_5
+	position = 54 13.9 1.1
+	name = ExplosionBarrel_4
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9317,8 +9279,9 @@ entity
 	uin = 905
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -63.6 74.2 1.1
-	name = ExplosionBarrel_7
+	position = 18.7 52.6 1.1
+	name = ExplosionBarrel_5
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9326,8 +9289,9 @@ entity
 	uin = 906
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -105.5 14.2 1.1
-	name = ExplosionBarrel_8
+	position = -3.2 28.8 1.1
+	name = ExplosionBarrel_6
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9335,8 +9299,9 @@ entity
 	uin = 907
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -124 25.5 1.1
-	name = ExplosionBarrel_9
+	position = -19.9 35.8 1.1
+	name = ExplosionBarrel_7
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9344,8 +9309,9 @@ entity
 	uin = 908
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -97 -25.1 1.1
-	name = ExplosionBarrel_11
+	position = 19.4 -55.2 1.1
+	name = ExplosionBarrel_8
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -9353,8 +9319,8 @@ entity
 	uin = 909
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -84.1 -64.2 1.1
-	name = ExplosionBarrel_12
+	position = 4.2 -41.4 1.1
+	name = ExplosionBarrel_9
 }
 entity
 {
@@ -9362,375 +9328,7 @@ entity
 	uin = 910
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
-	position = -70 -64.6 1.1
-	name = ExplosionBarrel_13
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 911
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -62.7 -84.2 1.1
-	name = ExplosionBarrel_14
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 912
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -11.6 -104 1.1
-	name = ExplosionBarrel_15
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 913
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 5.9 -95.9 1.1
-	name = ExplosionBarrel_16
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 914
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 21.2 -123.9 1.1
-	name = ExplosionBarrel_17
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 915
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 79.3 -58.1 1.1
-	name = ExplosionBarrel_18
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 916
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 68.3 -81.9 1.1
-	name = ExplosionBarrel_20
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 917
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 52.3 -86.2 1.1
-	name = ExplosionBarrel_21
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 918
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 107.6 -11.6 1.1
-	name = ExplosionBarrel_22
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 919
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 90.1 11.3 1.1
-	name = ExplosionBarrel_23
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 920
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 62.8 19.2 1.1
-	name = ExplosionBarrel_24
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 921
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 61.9 -2.5 1.1
-	name = ExplosionBarrel_25
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 922
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 72.8 -15.2 1.1
-	name = ExplosionBarrel_26
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 923
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 56.6 -30.1 1.1
-	name = ExplosionBarrel_27
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 924
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 45.9 -52.1 1.1
-	name = ExplosionBarrel_29
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 925
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 43.9 -73.2 1.1
-	name = ExplosionBarrel_30
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 926
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 19.3 -89.8 1.1
-	name = ExplosionBarrel_31
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 927
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -4.8 -81.5 1.1
-	name = ExplosionBarrel_33
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 928
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -19.3 -71.8 1.1
-	name = ExplosionBarrel_35
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 929
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -56.1 -29.5 1.1
-	name = ExplosionBarrel_36
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 930
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -63.1 -61.7 1.1
-	name = ExplosionBarrel_39
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 931
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -62.4 -19.5 1.1
-	name = ExplosionBarrel_40
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 932
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -69.2 3.8 1.4
-	name = ExplosionBarrel_42
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 933
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -90 18.9 1.1
-	name = ExplosionBarrel_43
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 934
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -43.4 65.6 1.1
-	name = ExplosionBarrel_44
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 935
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -55.3 30.5 1.1
-	name = ExplosionBarrel_45
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 936
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -18.8 62.8 1.1
-	name = ExplosionBarrel_48
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 937
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 0.8 90.6 1.1
-	name = ExplosionBarrel_49
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 938
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 20.3 90.2 1.1
-	name = ExplosionBarrel_50
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 939
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 54.3 43.2 1.1
-	name = ExplosionBarrel_52
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 940
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 56.5 30 1.1
-	name = ExplosionBarrel_53
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 941
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 35.6 50.4 1.1
-	name = ExplosionBarrel_54
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 942
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -19.4 54.6 1.1
-	name = ExplosionBarrel_55
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 943
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 9.3 34.5 1.1
-	name = ExplosionBarrel_57
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 944
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 19.7 55.1 1.1
-	name = ExplosionBarrel_58
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 945
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -26.9 -18.9 1.1
-	name = ExplosionBarrel_60
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 946
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -53.6 19.4 1.1
-	name = ExplosionBarrel_62
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 947
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 19.2 -55.3 1.1
-	name = ExplosionBarrel_63
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 948
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = -19.6 -54.9 1.1
-	name = ExplosionBarrel_66
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 949
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 26.2 13.9 1.1
-	name = ExplosionBarrel_67
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 950
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 26 -5.5 1.1
-	name = ExplosionBarrel_69
-}
-entity
-{
-	type = ExplosionBarrel
-	uin = 951
-	classPrompt = Dynamic
-	healthFactorAtBeginning = 1
-	position = 53.3 -12.3 2.5
-	name = ExplosionBarrel_70
+	position = -19.4 -54.9 1.1
+	name = ExplosionBarrel_10
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
