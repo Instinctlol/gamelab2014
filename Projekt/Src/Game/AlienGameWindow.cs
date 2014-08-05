@@ -1248,6 +1248,14 @@ namespace Game
 
                             Control healthBar = control.Controls["StatusAlien"];
                             float sizeX = alien.Health / alien.Type.HealthMax;
+                            if (sizeX < 0.3f)
+                            {
+                                healthBar.BackColor = new ColorValue(255, 0, 0);
+                            }
+                            else
+                            {
+                                healthBar.BackColor = new ColorValue(0, 255, 0);
+                            }
                             healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
                             zahl++;
                         }
@@ -1655,10 +1663,11 @@ namespace Game
                 }
 
             }
+            
             foreach (Signal s in Computer.signalList)
             {
                 Rect rect = new Rect(s.Min, s.Max);
-                
+
                 rect -= mapRect.Minimum;
                 rect.Minimum *= mapSizeInv;
                 rect.Maximum *= mapSizeInv;
@@ -1672,8 +1681,9 @@ namespace Game
                 rect.Maximum += new Vec2(screenPixel.X, -screenPixel.Y);
 
                 //ColorValue color = GetColor(unit);
-                renderer.AddQuad(rect, new ColorValue(1,0,0));
+                renderer.AddQuad(rect, new ColorValue(1, 0, 0));
             }
+            
 
             //Draw camera borders
             {

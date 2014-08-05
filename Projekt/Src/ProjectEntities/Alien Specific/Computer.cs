@@ -534,11 +534,15 @@ namespace ProjectEntities
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
             Signal s = new Signal(min, max);
-            signalList.AddLast(s);
+            if (!signalList.Contains(s))
+            {
+                Console.WriteLine("Vergleich klappt");
+                signalList.AddLast(s);
 
-            Timer radarTimer = new Timer(30000);
-            radarTimer.Elapsed += new ElapsedEventHandler(RemoveRadarElement);
-            radarTimer.Enabled = true;
+                Timer radarTimer = new Timer(30000);
+                radarTimer.Elapsed += new ElapsedEventHandler(RemoveRadarElement);
+                radarTimer.Enabled = true;
+            }
         }
 
         /// <summary>
