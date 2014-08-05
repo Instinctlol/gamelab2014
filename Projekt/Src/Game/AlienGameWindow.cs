@@ -193,7 +193,7 @@ namespace Game
             bigMinimap = hudControl.Controls["BigMinimap"].Controls["BigMinimap"];
 
             //miniminimap
-            minimapControl = hudControl.Controls["Minimap"];
+            minimapControl = hudControl.Controls["Minimap"].Controls["MiniMiniMap"];
             //string textureName = Map.Instance.GetSourceMapVirtualFileDirectory() + "\\Minimap\\Minimap";
             //Texture minimapTexture = TextureManager.Instance.Load(textureName, Texture.Type.Type2D, 0);
             //minimapControl.BackTexture = minimapTexture;
