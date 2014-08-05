@@ -432,7 +432,7 @@ namespace ProjectCommon
                     new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
 
-                    tuioInputData.Clear();
+                    cleardata();
                     detectgestures(false);
                 }
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
@@ -448,40 +448,46 @@ namespace ProjectCommon
 
                         //Gesten erkennen
                         Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
-                        list = Recog.Recognize(data, false);
-                        TuioInputDeviceSpecialEvent customEvent =
-                                    new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
-                        switch (list.Name) {
-                            case "blitz": {
-                                customEvent = new TuioInputDeviceSpecialEvent(this, opType.blitz, 0, 0);
-                                break;
+                        if (data.Count > 0)
+                        {
+                            list = Recog.Recognize(data, false);
+                            TuioInputDeviceSpecialEvent customEvent =
+                                        new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                            switch (list.Name)
+                            {
+                                case "blitz":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.blitz, 0, 0);
+                                        break;
+                                    }
+                                case "term":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.term, 0, 0);
+                                        break;
+                                    }
+                                case "iuhr":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.iuhr, 0, 0);
+                                        break;
+                                    }
+                                case "guhr":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.guhr, 0, 0);
+                                        break;
+                                    }
+                                default:
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                                        break;
+                                    }
+
                             }
-                            case "term":
-                                {
-                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.term, 0, 0);
-                                    break;
-                                }
-                            case "iuhr":
-                                {
-                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.iuhr, 0, 0);
-                                    break;
-                                }
-                            case "guhr":
-                                {
-                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.guhr, 0, 0);
-                                    break;
-                                }
-                            default:
-                                {
-                                    customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
-                                    break;
-                                }
-                            
+                            InputDeviceManager.Instance.SendEvent(customEvent);
+                            Console.WriteLine(list.Name);
+                            cleardata();
+                            detectgestures(false);
                         }
-                        InputDeviceManager.Instance.SendEvent(customEvent);
-                        Console.WriteLine(list.Name);
-                        tuioInputData.Clear();
-                        detectgestures(false);
+
                 }
                 //else if(startb && endb&& end[2]-start[2]>5000){
                 ////abbruch nach 5 sekunden
@@ -500,7 +506,9 @@ namespace ProjectCommon
             Console.WriteLine("Change Gesture State to " + state);
         }
 
-
+        public static void cleardata() {
+            tuioInputData.Clear();
+        }
 		/// <summary>
 		/// Initialize the device and register them in the InputDeviceManager
 		/// </summary>
