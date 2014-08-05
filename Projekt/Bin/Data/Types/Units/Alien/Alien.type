@@ -6,7 +6,7 @@ type Alien
 	initialAI = AlienAI
 	viewRadius = 20
 	takeItemsRadius = 0
-	healthMax = 50
+	healthMax = 15
 	targetPriority = 1
 	soundCollision = "Sounds\\Beep.ogg"
 	substance = Flesh
