@@ -499,7 +499,8 @@ namespace Game
 
         bool IsMouseInActiveArea()
         {
-            if (!hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePosition))
+            if (hudControl.Controls["links"].GetScreenRectangle().IsContainsPoint(MousePosition) || hudControl.Controls["rechts"].GetScreenRectangle().IsContainsPoint(MousePosition)
+                || hudControl.Controls["Minimap"].GetScreenRectangle().IsContainsPoint(MousePosition) || hudControl.Controls["Strahlen"].GetScreenRectangle().IsContainsPoint(MousePosition))
                 return false;
             return true;
         }
