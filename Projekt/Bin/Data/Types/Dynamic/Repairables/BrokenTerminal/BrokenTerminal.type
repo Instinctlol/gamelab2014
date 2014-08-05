@@ -2,6 +2,7 @@ type BrokenTerminal
 {
 	class = Repairable
 	destroyedTexture = TerminalProjector_broken
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
