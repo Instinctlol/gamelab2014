@@ -43,7 +43,7 @@ namespace Game
         static float tpsCameraCenterOffset = 1.6f;
 
         //For management of pressing of the player on switches and management ingame GUI
-        const float playerUseDistance = 1;
+        const float playerUseDistance = 2;
         const float playerUseDistanceTPS = 10;
         //Current ingame GUI which with which the player can cooperate
         MapObjectAttachedGui currentAttachedGuiObject;
