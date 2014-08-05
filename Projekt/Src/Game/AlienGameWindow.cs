@@ -344,7 +344,7 @@ namespace Game
                         #endregion
                     }
                     //else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
-                    else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["Strahlen"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
+                    else if (hudControl.Controls["Strahlen"].Controls["Menu"].GetScreenRectangle().IsContainsPoint(MousePos) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
                         #region button
                         Console.WriteLine("inbuttonarea");
