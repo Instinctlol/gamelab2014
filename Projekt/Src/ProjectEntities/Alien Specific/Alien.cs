@@ -116,18 +116,20 @@ namespace ProjectEntities
 
         public void Patrol()
         {
-            if (Computer.ExperiencePoints > 0)
-            {
+            //if (Computer.ExperiencePoints > 0)
+            //{
 
-                if (counterPatrolCosts == 5)
-                {
-                    Computer.DecrementExperiencePoints();
-                    EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
-                    counterPatrolCosts = 0;
-                }
-                counterPatrolCosts++;
+            //    if (counterPatrolCosts == 5)
+            //    {
+            //        Computer.DecrementExperiencePoints();
+            //        EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
+            //        counterPatrolCosts = 0;
+            //    }
+            //    counterPatrolCosts++;
 
                 patrolEnabled = true;
+                this.MovementRoute = null;
+                MapCurve mapCurve = null;
                 IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
                 Vec3 myPosition = this.Position;
                 MapCurve minCurve = null;
@@ -144,23 +146,63 @@ namespace ProjectEntities
                     }
                 }
 
-                EngineConsole.Instance.Print("MincurveName: " + minCurve.Name);
+                EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
                 this.MovementRoute = minCurve;
 
+                EngineConsole.Instance.Print("MovementRouteName: " + this.MovementRoute.Name);
 
-                MapCurve mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
+                mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
 
                 if (mapCurve != null) //hat das Alien eine MapCurve?
                 {
-                    if (route == null) //initialisiere die Patrolroute
-                    {
+                    //if (route == null) //initialisiere die Patrolroute
+                    //{
                         route = new ArrayList();
 
                         foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen Waypoint in die Route ein 
                         {
                             route.Add(point);
                         }
+                    //}
+
+                    ////laufe zum nächsten Punkt
+                    //MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+                    //Move(pt.Position);
+                    //routeIndex++; //nächster Route-Waypoint
+
+                    //laufe die Route zurück, wenn du am Ende der Route angekommen bist
+                    //if (routeIndex >= route.Count)
+                    //{
+                    //    routeIndex = 0;
+                    //    route.Reverse();
+                    //}
+                }
+            //}
+            //else
+            //{
+            //    Stop();
+            //}
+        }
+
+        
+
+        private void TickPatrol()
+        {
+            patrolTickTime -= TickDelta;
+            if (patrolTickTime <= 0)
+            {
+                //this.Patrol();
+
+                if (Computer.ExperiencePoints > 0)
+                {
+
+                    if (counterPatrolCosts == 5)
+                    {
+                        Computer.DecrementExperiencePoints();
+                        EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
+                        counterPatrolCosts = 0;
                     }
+                    counterPatrolCosts++;
 
                     //laufe zum nächsten Punkt
                     MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
@@ -173,23 +215,15 @@ namespace ProjectEntities
                         routeIndex = 0;
                         route.Reverse();
                     }
+
+                    patrolTickTime = 0.63f;
+
                 }
-            }
-            else
-            {
-                Stop();
-            }
-        }
+                else
+                {
+                    Stop();
+                }
 
-        
-
-        private void TickPatrol()
-        {
-            patrolTickTime -= TickDelta;
-            if (patrolTickTime <= 0)
-            {
-            this.Patrol();
-            patrolTickTime = 0.63f;
             }
          }
                       
