@@ -386,15 +386,15 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.425 0.05
-			size = Parent 0.22 0.26
+			position = Parent 0.434375 0.07738107
+			size = Parent 0.2 0.23
 			name = AktuelleAlien
 			text = AA
 			backColor = 1 1 1
 			backTexture = "GUI\\HUD\\Icons\\alien_full.png"
 			control TextBox
 			{
-				position = Parent 0.18 0.22
+				position = Parent 0.18 0.24
 				size = Parent 0.7 0.7
 				name = AlienCountActive
 				text = 20
@@ -402,8 +402,8 @@ control Control
 		}
 		control Control
 		{
-			position = Parent 0.16 0.18
-			size = Parent 0.26 0.22
+			position = Parent 0.2065105 0.188988
+			size = Parent 0.2 0.221012
 			name = MaximalAlien
 			text = MA
 			backColor = 1 1 1
@@ -411,7 +411,7 @@ control Control
 			control TextBox
 			{
 				textColor = 0 0 0
-				position = Parent 0.18 0.26
+				position = Parent 0.18 0.24
 				size = Parent 0.7 0.7
 				name = AlienCountPossible
 				text = 30
