@@ -288,7 +288,6 @@ namespace Game
                     if (select.X == 0f && select.Y == 0f)
                     {
                         if(selectworkbench){
-                            //meinfehler
                             DoEndSelectModeWorkbench(selectworkbenchcoord);
                             selectworkbench = false;
                         Console.WriteLine("endselection");
@@ -348,7 +347,7 @@ namespace Game
                     //else if (IsMouseInButtonArea(MousePos, (Button)hudControl.Controls["StatusNotificationTop"].Controls["Menu"]) && Controls.OfType<MenuWindow>().Count() == 0)
                     else if (hudControl.Controls["Strahlen"].Controls["Menu"].GetScreenRectangle().IsContainsPoint(MousePos) && Controls.OfType<MenuWindow>().Count() == 0)
                     {
-                        #region button
+                        #region Menue button
                         Console.WriteLine("inbuttonarea");
                         hudFunctions("Menu");
                         #endregion
@@ -428,6 +427,9 @@ namespace Game
                             {
                                 DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
                             }
+                        }
+                        if (TaskTargetChooseIndex == -1) {
+                            ClearEntitySelection();
                         }
                         #endregion
                     }
