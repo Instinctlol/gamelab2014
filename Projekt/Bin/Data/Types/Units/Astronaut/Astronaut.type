@@ -109,7 +109,7 @@ type Astronaut
 		light
 		{
 			lightType = Spot
-			diffusePower = 3
+			diffusePower = 1.5
 			attenuationNear = 1
 			attenuationFar = 30
 			spotlightInnerAngle = 40
