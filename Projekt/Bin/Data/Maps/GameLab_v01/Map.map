@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 13.16655 -37.46378 31.99004
-editorCameraDirection = 0.8791358 0.128823
+editorCameraPosition = 25.08952 46.21139 66.63329
+editorCameraDirection = 3.975934 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -67,14 +67,20 @@ rootEditorLayer
 		layer
 		{
 			name = F1
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
 			name = F3
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
 			name = F2
+			visible = False
+			allowSelect = False
 		}
 	}
 	layer
@@ -214,7 +220,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 192 198 787 480 472 285 799 800
+			subscriptionsToDeletionEvent = 196 202 791 484 476 289 803 804
 			entityClassName = Terminal
 			className = Ring2Rotation
 			customScriptCodeCreated = False
@@ -281,7 +287,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 12
-			subscriptionsToDeletionEvent = 286 799
+			subscriptionsToDeletionEvent = 290 803
 			entityClassName = Terminal
 			className = Terminal_Rotate_F3
 			customScriptCodeCreated = False
@@ -310,7 +316,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 15
-			subscriptionsToDeletionEvent = 289 556 557 289
+			subscriptionsToDeletionEvent = 293 560 561 293
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator
 			customScriptCodeCreated = False
@@ -329,7 +335,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 17
-			subscriptionsToDeletionEvent = 486
+			subscriptionsToDeletionEvent = 490
 			entityClassName = Repairable
 			className = SicherungskastenRepairable_0
 			customScriptCodeCreated = False
@@ -348,7 +354,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 19
-			subscriptionsToDeletionEvent = 489
+			subscriptionsToDeletionEvent = 493
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch2_InnerRing
 			customScriptCodeCreated = False
@@ -367,7 +373,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 21
-			subscriptionsToDeletionEvent = 488
+			subscriptionsToDeletionEvent = 492
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch3_InnerRing
 			customScriptCodeCreated = False
@@ -386,7 +392,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 23
-			subscriptionsToDeletionEvent = 487
+			subscriptionsToDeletionEvent = 491
 			entityClassName = BooleanSwitch
 			className = BooleanSwitch1_InnerRing
 			customScriptCodeCreated = False
@@ -405,7 +411,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 25
-			subscriptionsToDeletionEvent = 492
+			subscriptionsToDeletionEvent = 496
 			entityClassName = Repairable
 			className = BrokenTerminal_0
 			customScriptCodeCreated = False
@@ -424,7 +430,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 27
-			subscriptionsToDeletionEvent = 490
+			subscriptionsToDeletionEvent = 494
 			entityClassName = Repairable
 			className = "Tr\x00fcmmer"
 			customScriptCodeCreated = False
@@ -443,7 +449,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 29
-			subscriptionsToDeletionEvent = 491
+			subscriptionsToDeletionEvent = 495
 			entityClassName = Repairable
 			className = CardReader_0
 			customScriptCodeCreated = False
@@ -452,7 +458,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 30
-			subscriptionsToDeletionEvent = 289 557
+			subscriptionsToDeletionEvent = 293 561
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator_1
 			customScriptCodeCreated = False
@@ -471,7 +477,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 32
-			subscriptionsToDeletionEvent = 556
+			subscriptionsToDeletionEvent = 560
 			entityClassName = BooleanSwitch
 			className = Switch_Ventilator_2
 			customScriptCodeCreated = False
@@ -490,7 +496,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 34
-			subscriptionsToDeletionEvent = 559
+			subscriptionsToDeletionEvent = 563
 			entityClassName = BooleanSwitch
 			className = Switch_Abschnitt_2
 			customScriptCodeCreated = False
@@ -509,7 +515,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 36
-			subscriptionsToDeletionEvent = 558
+			subscriptionsToDeletionEvent = 562
 			entityClassName = BooleanSwitch
 			className = Switch_Abschnitt_1
 			customScriptCodeCreated = False
@@ -528,7 +534,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 38
-			subscriptionsToDeletionEvent = 560
+			subscriptionsToDeletionEvent = 564
 			entityClassName = BooleanSwitch
 			className = Switch_Abschnitt_3
 			customScriptCodeCreated = False
@@ -547,7 +553,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 40
-			subscriptionsToDeletionEvent = 561
+			subscriptionsToDeletionEvent = 565
 			entityClassName = BooleanSwitch
 			className = Swich_Feuer_OFF
 			customScriptCodeCreated = False
@@ -565,24 +571,24 @@ entity
 		entity
 		{
 			type = LogicEntityClass
-			uin = 911
-			subscriptionsToDeletionEvent = 102
+			uin = 42
+			subscriptionsToDeletionEvent = 106
 			entityClassName = Sector
 			className = F1R1S
 			customScriptCodeCreated = False
 			entity
 			{
 				type = LogicScriptMethod
-				uin = 912
+				uin = 43
 				code = "if(obj is PlayerCharacter && !firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n}"
 				methodName = ObjectIn
 				returnType = System.Void
-				parameters = 913
+				parameters = 44
 				isEntityEventMethod = True
 				entity
 				{
 					type = LogicParameter
-					uin = 913
+					uin = 44
 					parameterType = Engine.MapSystem.MapObject
 					parameterName = obj
 				}
@@ -590,7 +596,7 @@ entity
 			entity
 			{
 				type = LogicVariable
-				uin = 914
+				uin = 45
 				variableType = System.Boolean
 				variableName = firstIn
 				supportSerialization = True
@@ -601,7 +607,7 @@ entity
 entity
 {
 	type = MapCompositorManager
-	uin = 42
+	uin = 46
 	classPrompt = MapCompositorManager
 	items
 	{
@@ -610,7 +616,7 @@ entity
 entity
 {
 	type = SkyBox
-	uin = 43
+	uin = 47
 	classPrompt = SkyBox
 	enabled = True
 	textureName = "Base\\Types\\SkyBox\\space.dds"
@@ -620,7 +626,7 @@ entity
 entity
 {
 	type = F3R1
-	uin = 44
+	uin = 48
 	classPrompt = Room
 	position = -34 0 0
 	name = F3R3
@@ -629,7 +635,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 45
+	uin = 49
 	classPrompt = Room
 	position = 0 47 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -639,7 +645,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 46
+	uin = 50
 	classPrompt = Room
 	position = 0 -47 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -649,7 +655,7 @@ entity
 entity
 {
 	type = F3R1
-	uin = 47
+	uin = 51
 	classPrompt = Room
 	position = 34 0 0
 	rotation = 0 0 -1 -4.371139E-08
@@ -659,7 +665,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 48
+	uin = 52
 	classPrompt = Ring
 	rotatable = False
 	corners = 8
@@ -668,6 +674,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -675,16 +682,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 49
+	uin = 53
 	classPrompt = Sector
-	ring = 48
-	group = 96
+	ring = 52
+	group = 100
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
+	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -692,15 +700,16 @@ entity
 entity
 {
 	type = Sector
-	uin = 50
+	uin = 54
 	classPrompt = Sector
-	ring = 48
-	group = 95
+	ring = 52
+	group = 99
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
+	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -708,16 +717,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 51
+	uin = 55
 	classPrompt = Sector
-	ring = 48
-	group = 95
+	ring = 52
+	group = 99
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
+	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -725,16 +735,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 52
+	uin = 56
 	classPrompt = Sector
-	ring = 48
-	group = 96
+	ring = 52
+	group = 100
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -742,7 +753,7 @@ entity
 entity
 {
 	type = DecorativeObjectManager
-	uin = 53
+	uin = 57
 	classPrompt = DecorativeObjectManager
 	enabled = True
 	visible = True
@@ -755,7 +766,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 54
+	uin = 58
 	classPrompt = Room
 	position = 82 0 0
 	name = F2R8
@@ -764,7 +775,7 @@ entity
 entity
 {
 	type = F3R-24
-	uin = 55
+	uin = 59
 	classPrompt = Room
 	position = -82 0 0
 	rotation = 0 0 -1 1.216796E-08
@@ -774,7 +785,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 56
+	uin = 60
 	classPrompt = Room
 	position = 47.72524 48.80709 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -784,7 +795,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 57
+	uin = 61
 	classPrompt = Room
 	position = 72.47604 30.44332 0
 	rotation = 0 0 -0.2739582 -0.9617418
@@ -795,7 +806,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 58
+	uin = 62
 	classPrompt = Room
 	position = 0 70 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -805,7 +816,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 59
+	uin = 63
 	classPrompt = Room
 	position = 29.4335 73.317 0
 	rotation = 0 0 -0.5425553 -0.8400202
@@ -816,7 +827,7 @@ entity
 entity
 {
 	type = BasicL2
-	uin = 60
+	uin = 64
 	classPrompt = Room
 	position = -56.22261 -57.11971 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -826,7 +837,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 61
+	uin = 65
 	classPrompt = Room
 	position = -72.43242 -30.14137 0
 	rotation = 0 0 -0.9563128 0.2923453
@@ -837,7 +848,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 62
+	uin = 66
 	classPrompt = Room
 	position = -47.54507 48.79118 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -847,7 +858,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 63
+	uin = 67
 	classPrompt = Room
 	position = -29.91174 73.29352 0
 	rotation = 0 0 -0.8695799 -0.4937924
@@ -858,7 +869,7 @@ entity
 entity
 {
 	type = BasicX2
-	uin = 64
+	uin = 68
 	classPrompt = Room
 	position = 0 -70 0
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -868,7 +879,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 65
+	uin = 69
 	classPrompt = Room
 	position = -29.4551 -73.25926 0
 	rotation = 0 0 -0.8557401 0.517406
@@ -879,7 +890,7 @@ entity
 entity
 {
 	type = BasicP2
-	uin = 66
+	uin = 70
 	classPrompt = Room
 	position = 56.75548 -57.5299 0
 	rotation = 0 0 -0.3826834 0.9238795
@@ -889,7 +900,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 67
+	uin = 71
 	classPrompt = Room
 	position = -6.467893 104.5 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -899,7 +910,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum12"
-	uin = 68
+	uin = 72
 	classPrompt = Room
 	position = -85.11515 -77.92515 0
 	rotation = 0 0 -0.9238795 0.3826834
@@ -909,7 +920,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 69
+	uin = 73
 	classPrompt = Room
 	position = 70.96076 -77.96041 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -919,7 +930,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraumVentilator"
-	uin = 70
+	uin = 74
 	classPrompt = Room
 	position = -116.4543 -5.95177 0
 	rotation = 0 0 -1 1.216796E-08
@@ -929,7 +940,7 @@ entity
 entity
 {
 	type = Corridor-F1
-	uin = 71
+	uin = 75
 	classPrompt = Room
 	position = -104.3169 -44.32853 0
 	rotation = 0 0 -0.975753 0.2188754
@@ -940,7 +951,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum22"
-	uin = 72
+	uin = 76
 	classPrompt = Room
 	position = 78.85506 86.56708 0
 	rotation = 0 0 -0.3826835 -0.9238795
@@ -950,7 +961,7 @@ entity
 entity
 {
 	type = Corridor-F1
-	uin = 73
+	uin = 77
 	classPrompt = Room
 	position = 42.91476 105.4404 0
 	rotation = -0.0003997276 -0.0006686034 0.5660875 0.824345
@@ -961,7 +972,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum32"
-	uin = 74
+	uin = 78
 	classPrompt = Room
 	position = -6.280982 -115.8718 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -971,7 +982,7 @@ entity
 entity
 {
 	type = Corridor-F1
-	uin = 75
+	uin = 79
 	classPrompt = Room
 	position = -42.49489 -105.0983 0
 	rotation = 0 0 -0.8291815 0.5589795
@@ -982,7 +993,7 @@ entity
 entity
 {
 	type = Corridor-F1
-	uin = 76
+	uin = 80
 	classPrompt = Room
 	position = 44.38988 -104.5305 0
 	rotation = 0 0 -0.5676035 0.8233024
@@ -993,7 +1004,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum42"
-	uin = 77
+	uin = 81
 	classPrompt = Room
 	position = -77.90519 87.95537 0
 	rotation = 0 0 -0.9238796 -0.3826834
@@ -1003,7 +1014,7 @@ entity
 entity
 {
 	type = Corridor-F1
-	uin = 78
+	uin = 82
 	classPrompt = Room
 	position = -43.81427 105.5163 0
 	rotation = 0 0 0.8274676 0.5615137
@@ -1014,7 +1025,7 @@ entity
 entity
 {
 	type = "Gro\x00dfraum52"
-	uin = 79
+	uin = 83
 	classPrompt = Room
 	position = 117.2715 -6.203758 0
 	name = F1R8
@@ -1023,15 +1034,16 @@ entity
 entity
 {
 	type = Sector
-	uin = 80
+	uin = 84
 	classPrompt = Sector
-	ring = 94
-	group = 112
+	ring = 98
+	group = 116
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 76.38126 -0.6724877 3
 	scale = 33.84572 49.58686 10.9482
+	visible = False
 	name = F2R8-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1039,15 +1051,16 @@ entity
 entity
 {
 	type = Sector
-	uin = 81
+	uin = 85
 	classPrompt = Sector
-	ring = 94
-	group = 113
+	ring = 98
+	group = 117
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -75.9137 0 3
 	scale = 33.84572 44.35646 10.9482
+	visible = False
 	name = F2R4-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1055,16 +1068,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 82
+	uin = 86
 	classPrompt = Sector
-	ring = 94
-	group = 113
+	ring = 98
+	group = 117
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.13409 49.58686 10.9482
+	visible = False
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1072,16 +1086,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 83
+	uin = 87
 	classPrompt = Sector
-	ring = 94
-	group = 112
+	ring = 98
+	group = 116
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 0.6402804 76.1175 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F2R2-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1089,16 +1104,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 84
+	uin = 88
 	classPrompt = Sector
-	ring = 94
-	group = 112
+	ring = 98
+	group = 116
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -53.47003 53.71018 3
 	rotation = 0 0 -0.3826834 0.9238795
 	scale = 33.22679 49.58686 10.9482
+	visible = False
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1106,7 +1122,7 @@ entity
 entity
 {
 	type = SpawnPoint
-	uin = 85
+	uin = 89
 	classPrompt = SpawnPoint
 	faction = GoodFaction
 	defaultPoint = True
@@ -1117,85 +1133,18 @@ entity
 entity
 {
 	type = Sector
-	uin = 86
+	uin = 90
 	classPrompt = Sector
-	ring = 94
-	group = 113
+	ring = 98
+	group = 117
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -52.09005 -53.303 3
 	rotation = 0 0 -0.923759 0.3829742
 	scale = 33.19179 46.61387 10.9482
+	visible = False
 	name = F2R5-S
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 87
-	classPrompt = Sector
-	ring = 94
-	group = 115
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 51.67473 -53.51751 3
-	rotation = 0 0 -0.3826835 0.9238795
-	scale = 33.84572 44.9986 10.9482
-	name = F2R7-S
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 88
-	classPrompt = Sector
-	ring = 94
-	group = 112
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -32.95972 75.2175 3
-	rotation = 0 0 -0.7660444 -0.6427876
-	scale = 9.572958 20.68153 10.9482
-	name = F2S23
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 89
-	classPrompt = Sector
-	ring = 94
-	group = 112
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 31.94028 72.71751 3
-	rotation = 0 0 -0.5877852 -0.8090171
-	scale = 9.572958 22.87252 10.9482
-	name = F2S12
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 90
-	classPrompt = Sector
-	ring = 94
-	group = 112
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 51.77006 52.6838 3
-	rotation = 0 0 -0.9238795 0.3826834
-	scale = 33.84572 43.82289 10.9482
-	name = F2R1-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
@@ -1204,15 +1153,16 @@ entity
 	type = Sector
 	uin = 91
 	classPrompt = Sector
-	ring = 94
-	group = 112
+	ring = 98
+	group = 119
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 71.58986 31.04519 3
-	rotation = 0 0 -0.2204835 -0.9753907
-	scale = 9.572958 22.87252 10.9482
-	name = F2S18
+	position = 51.67473 -53.51751 3
+	rotation = 0 0 -0.3826835 0.9238795
+	scale = 33.84572 44.9986 10.9482
+	visible = False
+	name = F2R7-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
@@ -1221,15 +1171,16 @@ entity
 	type = Sector
 	uin = 92
 	classPrompt = Sector
-	ring = 94
-	group = 113
+	ring = 98
+	group = 116
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -29.85971 -73.1825 3
-	rotation = 0 0 -0.809017 0.5877853
-	scale = 9.572958 22.87252 10.9482
-	name = F2S56
+	position = -32.95972 75.2175 3
+	rotation = 0 0 -0.7660444 -0.6427876
+	scale = 9.572958 20.68153 10.9482
+	visible = False
+	name = F2S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
 }
@@ -1238,14 +1189,87 @@ entity
 	type = Sector
 	uin = 93
 	classPrompt = Sector
-	ring = 94
-	group = 113
+	ring = 98
+	group = 116
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 31.94028 72.71751 3
+	rotation = 0 0 -0.5877852 -0.8090171
+	scale = 9.572958 22.87252 10.9482
+	visible = False
+	name = F2S12
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 94
+	classPrompt = Sector
+	ring = 98
+	group = 116
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 51.77006 52.6838 3
+	rotation = 0 0 -0.9238795 0.3826834
+	scale = 33.84572 43.82289 10.9482
+	visible = False
+	name = F2R1-S
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 95
+	classPrompt = Sector
+	ring = 98
+	group = 116
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 71.58986 31.04519 3
+	rotation = 0 0 -0.2204835 -0.9753907
+	scale = 9.572958 22.87252 10.9482
+	visible = False
+	name = F2S18
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 96
+	classPrompt = Sector
+	ring = 98
+	group = 117
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -29.85971 -73.1825 3
+	rotation = 0 0 -0.809017 0.5877853
+	scale = 9.572958 22.87252 10.9482
+	visible = False
+	name = F2S56
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 97
+	classPrompt = Sector
+	ring = 98
+	group = 117
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -72.36753 -30.13406 3
 	rotation = 0 0 -0.956245 0.2925674
 	scale = 9.572958 25.37091 10.9482
+	visible = False
 	name = F2S45
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1253,7 +1277,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 94
+	uin = 98
 	classPrompt = Ring
 	rotatable = True
 	corners = 8
@@ -1262,6 +1286,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F2_Ring
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1269,13 +1294,14 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 95
+	uin = 99
 	classPrompt = SectorGroup
 	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
+	visible = False
 	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1283,13 +1309,14 @@ entity
 entity
 {
 	type = SectorGroup
-	uin = 96
+	uin = 100
 	classPrompt = SectorGroup
 	lightStatus = True
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
+	visible = False
 	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1297,83 +1324,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 97
+	uin = 101
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	ring = 115
+	group = 118
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
+	visible = False
 	name = F1R4-S
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 98
-	classPrompt = Sector
-	ring = 111
-	group = 114
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -0.8943577 -110.7355 3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 34.97242 58.90884 10.9482
-	name = F1R6-S
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 99
-	classPrompt = Sector
-	ring = 111
-	group = 115
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = 110.73 0 3
-	scale = 33.84572 58.90884 10.9482
-	name = F1R8-S
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 100
-	classPrompt = Sector
-	ring = 111
-	group = 116
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -1.542244 110.3673 3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 33.84572 58.90884 10.9482
-	name = F1R2-S
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Center
-}
-entity
-{
-	type = Sector
-	uin = 101
-	classPrompt = Sector
-	ring = 111
-	group = 116
-	enabled = True
-	shapeType = Box
-	filter = All
-	position = -78.5583 78.36488 3
-	rotation = 0 0 -0.9238796 -0.3826834
-	scale = 33.84572 58.90884 10.9482
-	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1382,17 +1343,16 @@ entity
 	type = Sector
 	uin = 102
 	classPrompt = Sector
-	subscriptionsToDeletionEvent = 911
-	ring = 111
-	group = 116
+	ring = 115
+	group = 118
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 78.37129 79.25614 3
-	rotation = 0 0 -0.3826835 -0.9238795
-	scale = 33.84572 58.90884 10.9482
-	name = F1R1-S
-	logicClass = 911
+	position = -0.8943577 -110.7355 3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 34.97242 58.90884 10.9482
+	visible = False
+	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1401,15 +1361,15 @@ entity
 	type = Sector
 	uin = 103
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	ring = 115
+	group = 119
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 79.70628 -77.65553 3
-	rotation = 0 0 -0.9238796 -0.3826834
+	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
-	name = F1R7-S
+	visible = False
+	name = F1R8-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1418,15 +1378,16 @@ entity
 	type = Sector
 	uin = 104
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	ring = 115
+	group = 120
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -75.8792 -79.86818 3
-	rotation = 0 0 -0.9238795 0.3826834
+	position = -1.542244 110.3673 3
+	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	name = F1R5-S
+	visible = False
+	name = F1R2-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1435,15 +1396,16 @@ entity
 	type = Sector
 	uin = 105
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	ring = 115
+	group = 120
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -104.0742 -43.92505 3
-	rotation = 0 0 -0.9743701 0.224951
-	scale = 9.572958 36.35155 10.9482
-	name = F1S45
+	position = -78.5583 78.36488 3
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1452,15 +1414,18 @@ entity
 	type = Sector
 	uin = 106
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	subscriptionsToDeletionEvent = 42
+	ring = 115
+	group = 120
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -41.43666 -104.3344 3
-	rotation = 0 0 -0.8287271 0.5596528
-	scale = 9.572958 36.35155 10.9482
-	name = F1S56
+	position = 78.37129 79.25614 3
+	rotation = 0 0 -0.3826835 -0.9238795
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R1-S
+	logicClass = 42
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1469,15 +1434,16 @@ entity
 	type = Sector
 	uin = 107
 	classPrompt = Sector
-	ring = 111
-	group = 114
+	ring = 115
+	group = 118
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 44.97606 -104.6201 3
-	rotation = 0 0 -0.5586905 0.829376
-	scale = 9.572958 38.91988 10.9482
-	name = F1S67
+	position = 79.70628 -77.65553 3
+	rotation = 0 0 -0.9238796 -0.3826834
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1486,15 +1452,16 @@ entity
 	type = Sector
 	uin = 108
 	classPrompt = Sector
-	ring = 111
-	group = 116
+	ring = 115
+	group = 118
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 43.45355 104.5948 3
-	rotation = 0 0 -0.5828322 -0.8125925
-	scale = 9.572958 38.91988 10.9482
-	name = F1S12
+	position = -75.8792 -79.86818 3
+	rotation = 0 0 -0.9238795 0.3826834
+	scale = 33.84572 58.90884 10.9482
+	visible = False
+	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -1503,14 +1470,87 @@ entity
 	type = Sector
 	uin = 109
 	classPrompt = Sector
-	ring = 111
-	group = 116
+	ring = 115
+	group = 118
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -104.0742 -43.92505 3
+	rotation = 0 0 -0.9743701 0.224951
+	scale = 9.572958 36.35155 10.9482
+	visible = False
+	name = F1S45
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 110
+	classPrompt = Sector
+	ring = 115
+	group = 118
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = -41.43666 -104.3344 3
+	rotation = 0 0 -0.8287271 0.5596528
+	scale = 9.572958 36.35155 10.9482
+	visible = False
+	name = F1S56
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 111
+	classPrompt = Sector
+	ring = 115
+	group = 118
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 44.97606 -104.6201 3
+	rotation = 0 0 -0.5586905 0.829376
+	scale = 9.572958 38.91988 10.9482
+	visible = False
+	name = F1S67
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 112
+	classPrompt = Sector
+	ring = 115
+	group = 120
+	enabled = True
+	shapeType = Box
+	filter = All
+	position = 43.45355 104.5948 3
+	rotation = 0 0 -0.5828322 -0.8125925
+	scale = 9.572958 38.91988 10.9482
+	visible = False
+	name = F1S12
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Center
+}
+entity
+{
+	type = Sector
+	uin = 113
+	classPrompt = Sector
+	ring = 115
+	group = 120
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -43.49978 104.6491 3
 	rotation = 0 0 -0.8302855 -0.5573382
 	scale = 9.572958 38.91988 10.9482
+	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1518,7 +1558,7 @@ entity
 entity
 {
 	type = GridBasedNavigationSystem
-	uin = 110
+	uin = 114
 	classPrompt = GridBasedNavigationSystem
 	gridBounds = -140 -140 512 140
 	gridCellSize = 0.7
@@ -1531,7 +1571,7 @@ entity
 entity
 {
 	type = Ring
-	uin = 111
+	uin = 115
 	classPrompt = Ring
 	rotatable = False
 	corners = 8
@@ -1540,64 +1580,9 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Bounds
-}
-entity
-{
-	type = SectorGroup
-	uin = 112
-	classPrompt = SectorGroup
-	lightStatus = True
-	enabled = True
-	shapeType = Box
-	filter = OnlyDynamicBodies
-	position = 42.09188 37.10183 -0.09931804
-	name = F2SG-D
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Bounds
-}
-entity
-{
-	type = SectorGroup
-	uin = 113
-	classPrompt = SectorGroup
-	lightStatus = True
-	enabled = True
-	shapeType = Box
-	filter = OnlyDynamicBodies
-	position = -31.63795 -35.92422 -0.09931804
-	name = F2SG-E
-	editorLayer = "Root Layer\\Rotation\\F2"
-	checkType = Bounds
-}
-entity
-{
-	type = SectorGroup
-	uin = 114
-	classPrompt = SectorGroup
-	lightStatus = True
-	enabled = True
-	shapeType = Box
-	filter = OnlyDynamicBodies
-	position = 43.60439 -93.08067 -0.09931804
-	name = F1SG-C
-	editorLayer = "Root Layer\\Rotation\\F1"
-	checkType = Bounds
-}
-entity
-{
-	type = SectorGroup
-	uin = 115
-	classPrompt = SectorGroup
-	lightStatus = False
-	enabled = True
-	shapeType = Box
-	filter = OnlyDynamicBodies
-	position = 75.04897 -32.51239 -0.09931804
-	name = F1SG-A
-	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
 }
 entity
@@ -1609,7 +1594,68 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = OnlyDynamicBodies
+	position = 42.09188 37.10183 -0.09931804
+	visible = False
+	name = F2SG-D
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 117
+	classPrompt = SectorGroup
+	lightStatus = True
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = -31.63795 -35.92422 -0.09931804
+	visible = False
+	name = F2SG-E
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 118
+	classPrompt = SectorGroup
+	lightStatus = True
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 43.60439 -93.08067 -0.09931804
+	visible = False
+	name = F1SG-C
+	editorLayer = "Root Layer\\Rotation\\F1"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 119
+	classPrompt = SectorGroup
+	lightStatus = False
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 75.04897 -32.51239 -0.09931804
+	visible = False
+	name = F1SG-A
+	editorLayer = "Root Layer\\Rotation\\F2"
+	checkType = Bounds
+}
+entity
+{
+	type = SectorGroup
+	uin = 120
+	classPrompt = SectorGroup
+	lightStatus = True
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
+	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1617,7 +1663,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 117
+	uin = 121
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1631,7 +1677,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 118
+	uin = 122
 	classPrompt = Room
 	position = -31.59799 32.37312 0
 	rotation = -0.0006829347 -0.001612535 0.9288485 0.3704562
@@ -1642,16 +1688,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 119
+	uin = 123
 	classPrompt = Sector
-	ring = 48
-	group = 96
+	ring = 52
+	group = 100
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = -32.0114 32.72062 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 33.90364 10.9482
+	visible = False
 	name = F3C23-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1659,7 +1706,7 @@ entity
 entity
 {
 	type = Corridor-F3
-	uin = 120
+	uin = 124
 	classPrompt = Room
 	position = 31.89095 -32.23737 0
 	rotation = 0 0 -0.3688734 0.9294797
@@ -1670,16 +1717,17 @@ entity
 entity
 {
 	type = Sector
-	uin = 121
+	uin = 125
 	classPrompt = Sector
-	ring = 48
-	group = 96
+	ring = 52
+	group = 100
 	enabled = True
 	shapeType = Box
 	filter = All
 	position = 32.56227 -32.53202 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 34.3275 10.9482
+	visible = False
 	name = F3C14-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1687,9 +1735,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 122
+	uin = 126
 	classPrompt = AlienSpawner
-	sector = 80
+	sector = 84
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1705,9 +1753,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 123
+	uin = 127
 	classPrompt = AlienSpawner
-	sector = 103
+	sector = 107
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1723,9 +1771,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 124
+	uin = 128
 	classPrompt = AlienSpawner
-	sector = 100
+	sector = 104
 	spawnLimit = 2
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1741,9 +1789,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 125
+	uin = 129
 	classPrompt = AlienSpawner
-	sector = 97
+	sector = 101
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1759,9 +1807,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 126
+	uin = 130
 	classPrompt = AlienSpawner
-	sector = 83
+	sector = 87
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1777,9 +1825,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 127
+	uin = 131
 	classPrompt = AlienSpawner
-	sector = 98
+	sector = 102
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
@@ -1795,7 +1843,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 128
+	uin = 132
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1809,7 +1857,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 129
+	uin = 133
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1823,7 +1871,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 130
+	uin = 134
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1837,7 +1885,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 131
+	uin = 135
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1851,7 +1899,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 132
+	uin = 136
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1864,7 +1912,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 133
+	uin = 137
 	classPrompt = OutDoor
 	opened = True
 	needOpen = True
@@ -1877,7 +1925,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 134
+	uin = 138
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1891,7 +1939,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 135
+	uin = 139
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1905,7 +1953,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 136
+	uin = 140
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1919,7 +1967,7 @@ entity
 entity
 {
 	type = OutDoor
-	uin = 137
+	uin = 141
 	classPrompt = OutDoor
 	opened = False
 	needOpen = False
@@ -1932,7 +1980,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 138
+	uin = 142
 	classPrompt = StaticObject
 	position = 18.33237 -120.3933 0
 	name = DoppelWandOhneBodenFinal_0
@@ -1941,7 +1989,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 139
+	uin = 143
 	classPrompt = StaticObject
 	position = 9.329703 -98.81692 0
 	name = DoppelWandOhneBodenFinal_1
@@ -1950,7 +1998,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 140
+	uin = 144
 	classPrompt = StaticObject
 	position = -8.979295 -120.4469 0
 	name = DoppelWandOhneBodenFinal_2
@@ -1959,7 +2007,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 141
+	uin = 145
 	classPrompt = StaticObject
 	position = 50.25124 -13.18588 1.444286
 	rotation = 0 0 0.7099334 0.7042688
@@ -1969,7 +2017,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 142
+	uin = 146
 	classPrompt = StaticObject
 	position = 29.5003 -8.159073 0
 	rotation = 0 0 0.7099334 0.7042688
@@ -1979,7 +2027,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 143
+	uin = 147
 	classPrompt = StaticObject
 	position = 29.69028 -0.7037907 0
 	rotation = 0 0 0.7099334 0.7042688
@@ -1989,7 +2037,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 144
+	uin = 148
 	classPrompt = StaticObject
 	position = 50.56729 4.436922 0
 	rotation = 0 0 0.7099334 0.7042688
@@ -1999,7 +2047,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 145
+	uin = 149
 	classPrompt = StaticObject
 	position = 29.69901 7.736409 0
 	rotation = 0 0 0.7099334 0.7042688
@@ -2009,7 +2057,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 146
+	uin = 150
 	classPrompt = StaticObject
 	position = -81.09779 -88.39348 0
 	rotation = 0 0 0.3805073 0.924778
@@ -2019,7 +2067,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 147
+	uin = 151
 	classPrompt = StaticObject
 	position = -89.54816 -79.97431 0
 	rotation = 0 0 0.3877047 0.9217837
@@ -2029,7 +2077,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 148
+	uin = 152
 	classPrompt = StaticObject
 	position = -99.80917 10.9988 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2039,7 +2087,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 149
+	uin = 153
 	classPrompt = StaticObject
 	position = -86.50467 4.202077 -0.006078199
 	rotation = 0.0003377298 -0.0003807478 -0.7069719 0.7072415
@@ -2049,7 +2097,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 150
+	uin = 154
 	classPrompt = StaticObject
 	position = -50.46114 -7.291977 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -2059,7 +2107,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 151
+	uin = 155
 	classPrompt = StaticObject
 	position = 65.55367 -5.620771 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2069,7 +2117,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 152
+	uin = 156
 	classPrompt = StaticObject
 	position = -29.72594 6.430483 0
 	rotation = 0 0 0.6986028 0.7155098
@@ -2079,7 +2127,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 153
+	uin = 157
 	classPrompt = StaticObject
 	position = 86.5907 8.234824 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2089,7 +2137,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 154
+	uin = 158
 	classPrompt = StaticObject
 	position = 121.3284 12.03355 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2099,7 +2147,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 155
+	uin = 159
 	classPrompt = StaticObject
 	position = 100.5281 -13.71832 0
 	rotation = 0 0 -0.71536 0.6987562
@@ -2109,7 +2157,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 156
+	uin = 160
 	classPrompt = StaticObject
 	position = 116.2988 7.622689 0
 	rotation = -0.005936021 0.00122507 -0.001338071 0.9999808
@@ -2119,7 +2167,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 157
+	uin = 161
 	classPrompt = StaticObject
 	position = 107.083 -7.371398 0
 	rotation = 0 0 -0.001066481 0.9999995
@@ -2129,7 +2177,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 158
+	uin = 162
 	classPrompt = StaticObject
 	position = -5.356504 -64.94912 0
 	name = DoppelWandOhneBodenFinal_48
@@ -2138,7 +2186,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 159
+	uin = 163
 	classPrompt = StaticObject
 	position = 7.011282 -86.50246 0
 	name = DoppelWandOhneBodenFinal_51
@@ -2147,7 +2195,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 160
+	uin = 164
 	classPrompt = StaticObject
 	position = 7.276335 -29.79623 0
 	name = DoppelWandOhneBodenFinal_52
@@ -2156,7 +2204,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 161
+	uin = 165
 	classPrompt = StaticObject
 	position = -5.098894 -51.4506 0
 	name = DoppelWandOhneBodenFinal_55
@@ -2165,7 +2213,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 162
+	uin = 166
 	classPrompt = StaticObject
 	position = -4.939385 30.41116 0
 	name = DoppelWandOhneBodenFinal_57
@@ -2174,7 +2222,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 163
+	uin = 167
 	classPrompt = StaticObject
 	position = 7.875213 51.40403 0
 	name = DoppelWandOhneBodenFinal_58
@@ -2183,7 +2231,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 164
+	uin = 168
 	classPrompt = StaticObject
 	position = 7.202284 65.63828 0
 	name = DoppelWandOhneBodenFinal_61
@@ -2192,7 +2240,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 165
+	uin = 169
 	classPrompt = StaticObject
 	position = -5.468502 86.69763 0
 	name = DoppelWandOhneBodenFinal_62
@@ -2201,7 +2249,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 166
+	uin = 170
 	classPrompt = StaticObject
 	position = -12.47377 99.74412 0
 	name = DoppelWandOhneBodenFinal_65
@@ -2210,7 +2258,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 167
+	uin = 171
 	classPrompt = StaticObject
 	position = -77.55889 -61.83807 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -2220,7 +2268,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 168
+	uin = 172
 	classPrompt = StaticObject
 	position = -85.66786 -69.76234 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -2230,7 +2278,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 169
+	uin = 173
 	classPrompt = StaticObject
 	position = -62.77613 96.788 0
 	rotation = 0 0 0.7889353 0.6144763
@@ -2240,7 +2288,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 170
+	uin = 174
 	classPrompt = StaticObject
 	position = -93.92104 64.07745 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2250,7 +2298,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 171
+	uin = 175
 	classPrompt = StaticObject
 	position = -85.53457 72.36806 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2260,7 +2308,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 172
+	uin = 176
 	classPrompt = StaticObject
 	position = -51.23117 52.51439 0
 	rotation = 0 0 -0.3861697 0.9224278
@@ -2270,7 +2318,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 173
+	uin = 177
 	classPrompt = StaticObject
 	position = 49.42305 -41.44562 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2280,7 +2328,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 174
+	uin = 178
 	classPrompt = StaticObject
 	position = 56.84018 -64.00275 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2290,7 +2338,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 175
+	uin = 179
 	classPrompt = StaticObject
 	position = 95.74908 -76.29358 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2300,7 +2348,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 176
+	uin = 180
 	classPrompt = StaticObject
 	position = 72.31583 -69.99042 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2310,7 +2358,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 177
+	uin = 181
 	classPrompt = StaticObject
 	position = 79.26353 -93.3661 0
 	rotation = 0 0 0.3840269 0.9233219
@@ -2320,7 +2368,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 178
+	uin = 182
 	classPrompt = StaticObject
 	position = 94.63821 63.51005 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2330,7 +2378,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 179
+	uin = 183
 	classPrompt = StaticObject
 	position = 86.4886 72.05996 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2340,7 +2388,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 180
+	uin = 184
 	classPrompt = StaticObject
 	position = 78.41779 80.716 0
 	rotation = 0 0 0.3708005 0.9287125
@@ -2350,7 +2398,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 181
+	uin = 185
 	classPrompt = StaticObject
 	position = 40.46668 49.60872 0
 	rotation = 0 0 -0.3902213 0.9207211
@@ -2360,7 +2408,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 182
+	uin = 186
 	classPrompt = StaticObject
 	position = 65.12805 54.6503 0
 	rotation = 0 0 -0.3902213 0.9207211
@@ -2370,7 +2418,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 183
+	uin = 187
 	classPrompt = StaticObject
 	position = 49.57011 76.25195 0.3331405
 	name = Leiche1_0
@@ -2379,7 +2427,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 184
+	uin = 188
 	classPrompt = StaticObject
 	position = 22.06517 96.33685 2.051654
 	rotation = 0 0 -1 8.282065E-05
@@ -2389,7 +2437,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 185
+	uin = 189
 	classPrompt = StaticObject
 	position = 28.90552 56.7198 0.3
 	rotation = 0 0 0.4080378 0.9129651
@@ -2399,7 +2447,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 186
+	uin = 190
 	classPrompt = StaticObject
 	position = 9.107282 102.2958 0.3018224
 	name = leiche2_1
@@ -2408,7 +2456,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 187
+	uin = 191
 	classPrompt = StaticObject
 	position = 47.91633 76.57713 0.3
 	rotation = 0 0 0.3010026 0.9536233
@@ -2418,7 +2466,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 188
+	uin = 192
 	classPrompt = Terminal
 	sectorStatusData = f1r3
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2438,7 +2486,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 189
+	uin = 193
 	classPrompt = StaticObject
 	position = -25.69764 106.5927 0.2752736
 	rotation = 0 0 0.7566627 0.6538054
@@ -2448,7 +2496,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 190
+	uin = 194
 	classPrompt = StaticObject
 	position = -21.19793 123.3753 0.3732204
 	name = Armchair2_0
@@ -2457,7 +2505,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 191
+	uin = 195
 	classPrompt = StaticObject
 	position = -21.23907 125.175 1.657189
 	rotation = 0 0 -1 -4.371139E-08
@@ -2467,7 +2515,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 192
+	uin = 196
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2488,7 +2536,7 @@ entity
 entity
 {
 	type = TaschenlampeItem
-	uin = 193
+	uin = 197
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2499,7 +2547,7 @@ entity
 entity
 {
 	type = TaschenlampeItem
-	uin = 194
+	uin = 198
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2510,7 +2558,7 @@ entity
 entity
 {
 	type = AccessCard
-	uin = 195
+	uin = 199
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2521,7 +2569,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 196
+	uin = 200
 	classPrompt = StaticObject
 	position = -101.7571 74.08173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -2531,7 +2579,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 197
+	uin = 201
 	classPrompt = StaticObject
 	position = -104.019 70.35163 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -2541,7 +2589,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 198
+	uin = 202
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2562,7 +2610,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 199
+	uin = 203
 	classPrompt = Terminal
 	sectorStatusData = f2r3
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2582,7 +2630,7 @@ entity
 entity
 {
 	type = GlockItem
-	uin = 200
+	uin = 204
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2592,7 +2640,7 @@ entity
 entity
 {
 	type = GlockItem
-	uin = 201
+	uin = 205
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2602,7 +2650,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 202
+	uin = 206
 	classPrompt = StaticObject
 	position = -47.47464 54.90307 0.2913703
 	name = Leiche1_2
@@ -2611,7 +2659,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 203
+	uin = 207
 	classPrompt = StaticObject
 	position = -41.25398 43.16584 0.358241
 	rotation = 0 0 -0.7573231 0.6530404
@@ -2621,7 +2669,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 204
+	uin = 208
 	classPrompt = StaticObject
 	position = -30.13218 57.09611 0.2666531
 	rotation = 0 0 -0.9236579 0.3832182
@@ -2632,7 +2680,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 205
+	uin = 209
 	classPrompt = StaticObject
 	position = -46.06426 38.96661 2.052581
 	rotation = 0.005636828 0.007852182 -0.9193969 0.3932127
@@ -2642,7 +2690,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 206
+	uin = 210
 	classPrompt = StaticObject
 	position = 3.415375 61.98573 0.302501
 	rotation = 0 0 0.929499 0.3688246
@@ -2652,7 +2700,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 207
+	uin = 211
 	classPrompt = StaticObject
 	position = 2.081081 62.48299 0.2952328
 	rotation = 0 0 0.2120357 0.977262
@@ -2662,7 +2710,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 208
+	uin = 212
 	classPrompt = StaticObject
 	position = 2.999186 63.39927 0.1960419
 	rotation = 0 0 0.2212556 0.9752158
@@ -2672,7 +2720,7 @@ entity
 entity
 {
 	type = battery
-	uin = 209
+	uin = 213
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2682,7 +2730,7 @@ entity
 entity
 {
 	type = battery
-	uin = 210
+	uin = 214
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2692,7 +2740,7 @@ entity
 entity
 {
 	type = battery
-	uin = 211
+	uin = 215
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2702,7 +2750,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 212
+	uin = 216
 	classPrompt = StaticObject
 	position = 17.40244 61.94762 0.2551948
 	name = BunkBed_3
@@ -2711,7 +2759,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 213
+	uin = 217
 	classPrompt = StaticObject
 	position = 10.52904 62.05655 0.2511447
 	name = BunkBed_4
@@ -2720,7 +2768,7 @@ entity
 entity
 {
 	type = sicherung
-	uin = 214
+	uin = 218
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -2730,7 +2778,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 215
+	uin = 219
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2740,7 +2788,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 216
+	uin = 220
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2750,7 +2798,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 217
+	uin = 221
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -2766,14 +2814,14 @@ entity
 	{
 		item
 		{
-			repairable = 491
+			repairable = 495
 		}
 	}
 }
 entity
 {
 	type = Terminal
-	uin = 218
+	uin = 222
 	classPrompt = Terminal
 	sectorStatusData = f2r8
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -2792,7 +2840,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 219
+	uin = 223
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2803,7 +2851,7 @@ entity
 entity
 {
 	type = ShotgunItem
-	uin = 220
+	uin = 224
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -2814,7 +2862,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 221
+	uin = 225
 	classPrompt = StaticObject
 	position = -11.37311 27.47523 0
 	rotation = 0 0 0.2212556 0.9752158
@@ -2824,7 +2872,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 222
+	uin = 226
 	classPrompt = StaticObject
 	position = 89.55993 86.5727 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2834,7 +2882,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 223
+	uin = 227
 	classPrompt = StaticObject
 	position = 86.62569 89.27711 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2844,7 +2892,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 224
+	uin = 228
 	classPrompt = StaticObject
 	position = 81.1179 94.92849 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2854,7 +2902,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 225
+	uin = 229
 	classPrompt = StaticObject
 	position = 84.05213 92.22408 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2864,7 +2912,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 226
+	uin = 230
 	classPrompt = StaticObject
 	position = 75.55471 100.615 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2874,7 +2922,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 227
+	uin = 231
 	classPrompt = StaticObject
 	position = 78.48895 97.91062 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2884,7 +2932,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 228
+	uin = 232
 	classPrompt = StaticObject
 	position = 95.42476 81.12565 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2894,7 +2942,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 229
+	uin = 233
 	classPrompt = StaticObject
 	position = 92.49052 83.83006 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2904,7 +2952,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 230
+	uin = 234
 	classPrompt = StaticObject
 	position = 83.07414 69.78667 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2914,7 +2962,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 231
+	uin = 235
 	classPrompt = StaticObject
 	position = 80.13991 72.49107 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2924,7 +2972,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 232
+	uin = 236
 	classPrompt = StaticObject
 	position = 77.40931 75.53372 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2934,7 +2982,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 233
+	uin = 237
 	classPrompt = StaticObject
 	position = 74.47507 78.23814 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2944,7 +2992,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 234
+	uin = 238
 	classPrompt = StaticObject
 	position = 71.90152 81.1851 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2954,7 +3002,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 235
+	uin = 239
 	classPrompt = StaticObject
 	position = 68.96728 83.88951 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2964,7 +3012,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 236
+	uin = 240
 	classPrompt = StaticObject
 	position = 66.33833 86.87164 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2974,7 +3022,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 237
+	uin = 241
 	classPrompt = StaticObject
 	position = 75.4038 61.92062 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2984,7 +3032,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 238
+	uin = 242
 	classPrompt = StaticObject
 	position = 72.46957 64.62503 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -2994,7 +3042,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 239
+	uin = 243
 	classPrompt = StaticObject
 	position = 69.53897 67.36768 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3004,7 +3052,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 240
+	uin = 244
 	classPrompt = StaticObject
 	position = 66.60474 70.07208 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3014,7 +3062,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 241
+	uin = 245
 	classPrompt = StaticObject
 	position = 64.03117 73.01906 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3024,7 +3072,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 242
+	uin = 246
 	classPrompt = StaticObject
 	position = 61.09694 75.72346 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3034,7 +3082,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 243
+	uin = 247
 	classPrompt = StaticObject
 	position = 58.46799 78.7056 0
 	rotation = 0 0 0.3662154 0.9305301
@@ -3044,7 +3092,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 244
+	uin = 248
 	classPrompt = StaticMesh
 	position = 5.518668 125.9107 0
 	name = StaticMesh_sofa _0
@@ -3054,7 +3102,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 245
+	uin = 249
 	classPrompt = StaticMesh
 	position = 9.544312 122.4278 0
 	rotation = 0 0 -0.7195131 0.694479
@@ -3065,7 +3113,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 246
+	uin = 250
 	classPrompt = StaticObject
 	position = -101.8772 68.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -3075,7 +3123,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 247
+	uin = 251
 	classPrompt = StaticObject
 	position = -50.78985 -86.22603 0
 	rotation = 0 0 -0.9236579 0.3832182
@@ -3086,7 +3134,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 248
+	uin = 252
 	classPrompt = StaticObject
 	position = 38.6927 46.80204 0.3331405
 	rotation = 0 0 0.09189249 0.995769
@@ -3096,7 +3144,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 249
+	uin = 253
 	classPrompt = StaticObject
 	position = 95.5968 -79.23106 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3106,7 +3154,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 250
+	uin = 254
 	classPrompt = StaticObject
 	position = 94.37379 -80.55209 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3116,7 +3164,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 251
+	uin = 255
 	classPrompt = StaticObject
 	position = 95.58311 -78.9995 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3126,7 +3174,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 252
+	uin = 256
 	classPrompt = StaticObject
 	position = 92.92506 -85.93216 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3136,7 +3184,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 253
+	uin = 257
 	classPrompt = StaticObject
 	position = 91.59009 -84.72439 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3146,7 +3194,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 254
+	uin = 258
 	classPrompt = StaticObject
 	position = 93.15645 -85.91582 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3156,7 +3204,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 255
+	uin = 259
 	classPrompt = StaticObject
 	position = 70.97878 -103.8326 0.3
 	rotation = 0 0 -0.9210275 -0.3894977
@@ -3167,7 +3215,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 256
+	uin = 260
 	classPrompt = StaticObject
 	position = 13.51902 101.4386 0.3331405
 	rotation = 0 0 0.7376497 0.6751837
@@ -3177,7 +3225,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 257
+	uin = 261
 	classPrompt = StaticObject
 	position = 6.715263 101.9306 0.3331405
 	rotation = 0 0 0.939854 -0.3415769
@@ -3187,7 +3235,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 258
+	uin = 262
 	classPrompt = StaticMesh
 	position = -101.4483 10.49983 0.2751936
 	name = Sofa_12
@@ -3197,7 +3245,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 259
+	uin = 263
 	classPrompt = StaticMesh
 	position = -95.47076 4.471558 0.2564104
 	rotation = 0 0 -0.7195131 0.694479
@@ -3208,7 +3256,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 260
+	uin = 264
 	classPrompt = StaticObject
 	position = -80.85766 -61.56083 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3218,7 +3266,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 261
+	uin = 265
 	classPrompt = StaticObject
 	position = -82.19263 -60.35305 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3228,7 +3276,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 262
+	uin = 266
 	classPrompt = StaticObject
 	position = -78.18592 -54.85972 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3238,7 +3286,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 263
+	uin = 267
 	classPrompt = StaticObject
 	position = -79.40894 -56.18075 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3248,7 +3296,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 264
+	uin = 268
 	classPrompt = StaticObject
 	position = -80.62627 -61.54448 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3258,7 +3306,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 265
+	uin = 269
 	classPrompt = StaticObject
 	position = -78.19962 -54.62816 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3268,7 +3316,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 266
+	uin = 270
 	classPrompt = StaticObject
 	position = -32.36958 -60.346 0.3732204
 	rotation = 0 0 -0.9186004 0.395188
@@ -3278,7 +3326,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 267
+	uin = 271
 	classPrompt = StaticObject
 	position = -30.80322 -61.53743 1.456624
 	rotation = 0 0 -0.9186004 0.395188
@@ -3288,7 +3336,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 268
+	uin = 272
 	classPrompt = StaticObject
 	position = -31.0346 -61.55378 1.657189
 	rotation = 0 0 -0.395188 -0.9186004
@@ -3298,7 +3346,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 269
+	uin = 273
 	classPrompt = StaticObject
 	position = -28.36287 -54.85267 1.657189
 	rotation = 0 0 -0.92685 -0.3754322
@@ -3308,7 +3356,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 270
+	uin = 274
 	classPrompt = StaticObject
 	position = -28.37656 -54.62111 1.456624
 	rotation = 0 0 -0.3754322 0.92685
@@ -3318,7 +3366,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 271
+	uin = 275
 	classPrompt = StaticObject
 	position = -29.58588 -56.1737 0.3732204
 	rotation = 0 0 -0.3754322 0.92685
@@ -3328,7 +3376,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 272
+	uin = 276
 	classPrompt = StaticObject
 	position = -25.11661 98.05526 0.2666531
 	rotation = 0 0 -0.7046587 -0.7095466
@@ -3339,7 +3387,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 273
+	uin = 277
 	classPrompt = StaticObject
 	position = -10.73005 95.97068 0.2752736
 	rotation = 0 0 0.8672425 0.497886
@@ -3349,7 +3397,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 274
+	uin = 278
 	classPrompt = StaticObject
 	position = 26.19346 118.853 1.456624
 	rotation = 0 0 -0.7113683 0.7028197
@@ -3359,7 +3407,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 275
+	uin = 279
 	classPrompt = StaticObject
 	position = 24.23451 118.6646 0.3732204
 	rotation = 0 0 -0.7113683 0.7028197
@@ -3369,7 +3417,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 276
+	uin = 280
 	classPrompt = StaticObject
 	position = 26.03465 118.6839 1.657189
 	rotation = 0 0 -0.7028197 -0.7113683
@@ -3379,7 +3427,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 277
+	uin = 281
 	classPrompt = StaticObject
 	position = 23.44763 125.4182 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -3389,7 +3437,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 278
+	uin = 282
 	classPrompt = StaticObject
 	position = 23.44632 123.618 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3399,7 +3447,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 279
+	uin = 283
 	classPrompt = StaticObject
 	position = 23.28038 125.5789 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3409,7 +3457,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 280
+	uin = 284
 	classPrompt = StaticObject
 	position = 1.423443 97.56021 0.2198927
 	rotation = 0 0 0.7160259 0.6980738
@@ -3419,7 +3467,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 281
+	uin = 285
 	classPrompt = StaticObject
 	position = 3.803837 95.7542 0.2419727
 	rotation = 0 0 0.9978488 0.06555885
@@ -3429,7 +3477,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 282
+	uin = 286
 	classPrompt = StaticObject
 	position = 6.232563 97.60284 0.24
 	rotation = -0.01515642 -0.0282446 0.818315 -0.5738757
@@ -3439,7 +3487,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 283
+	uin = 287
 	classPrompt = StaticMesh
 	position = -92.75638 85.56435 0.2566535
 	rotation = 0 0 0.3713453 0.928495
@@ -3450,7 +3498,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 284
+	uin = 288
 	classPrompt = StaticMesh
 	position = -90.63953 54.69839 0.2719591
 	rotation = 0 0 0.9250473 0.3798521
@@ -3461,7 +3509,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 285
+	uin = 289
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -3482,7 +3530,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 286
+	uin = 290
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -3503,7 +3551,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 287
+	uin = 291
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -3522,7 +3570,7 @@ entity
 entity
 {
 	type = Fan
-	uin = 288
+	uin = 292
 	classPrompt = Fan
 	forceMaximum = 35000
 	influenceRegionScale = 20 3 3
@@ -3536,7 +3584,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 289
+	uin = 293
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30 15
 	value = False
@@ -3550,7 +3598,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 290
+	uin = 294
 	classPrompt = StaticMesh
 	position = -89.21072 -82.73579 0.5981727
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3561,7 +3609,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 291
+	uin = 295
 	classPrompt = StaticMesh
 	position = -86.39321 -85.54063 0.5945648
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3572,7 +3620,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 292
+	uin = 296
 	classPrompt = StaticMesh
 	position = -80.79059 -91.14296 0.5958894
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3583,7 +3631,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 293
+	uin = 297
 	classPrompt = StaticMesh
 	position = -83.6081 -88.33813 0.5952249
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3594,7 +3642,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 294
+	uin = 298
 	classPrompt = StaticMesh
 	position = -78.03195 -93.8897 0.5965402
 	rotation = -7.964174E-05 -2.614544E-05 0.384843 0.922982
@@ -3605,7 +3653,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 295
+	uin = 299
 	classPrompt = StaticMesh
 	position = -76.24516 -95.60761 0.5633807
 	rotation = 0.2753712 -0.6310276 -0.6719612 0.272843
@@ -3616,7 +3664,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 296
+	uin = 300
 	classPrompt = StaticMesh
 	position = -90.97498 -81.06221 0.5633807
 	rotation = 0.6299204 0.2743941 0.2875097 0.6672682
@@ -3627,7 +3675,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 297
+	uin = 301
 	classPrompt = StaticMesh
 	position = -78.22958 -97.8726 0.5633807
 	rotation = -0.2744414 0.6298998 0.6672466 -0.2875598
@@ -3638,7 +3686,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 298
+	uin = 302
 	classPrompt = StaticMesh
 	position = -79.99408 -96.1993 0.5981727
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3649,7 +3697,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 299
+	uin = 303
 	classPrompt = StaticMesh
 	position = -82.812 -93.39488 0.5945648
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3660,7 +3708,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 300
+	uin = 304
 	classPrompt = StaticMesh
 	position = -85.59753 -90.59779 0.5952249
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3671,7 +3719,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 301
+	uin = 305
 	classPrompt = StaticMesh
 	position = -88.41547 -87.79337 0.5958894
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3682,7 +3730,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 302
+	uin = 306
 	classPrompt = StaticMesh
 	position = -91.17453 -85.0471 0.5965402
 	rotation = 2.615143E-05 -7.963977E-05 0.9229531 -0.3849123
@@ -3693,7 +3741,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 303
+	uin = 307
 	classPrompt = StaticMesh
 	position = -92.96158 -83.32937 0.5633807
 	rotation = 0.6310069 0.2754186 0.2728935 0.6719407
@@ -3704,7 +3752,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 304
+	uin = 308
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3717,7 +3765,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 305
+	uin = 309
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3730,7 +3778,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 306
+	uin = 310
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3743,7 +3791,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 307
+	uin = 311
 	classPrompt = StaticObject
 	position = -89.57403 -73.57431 0
 	rotation = 0 0 -0.3883735 0.9215021
@@ -3753,7 +3801,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 308
+	uin = 312
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3766,7 +3814,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 309
+	uin = 313
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3779,7 +3827,7 @@ entity
 entity
 {
 	type = PipeLeak
-	uin = 310
+	uin = 314
 	classPrompt = PhysicalStream
 	alternativeMode = True
 	throttle = 1
@@ -3792,7 +3840,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 311
+	uin = 315
 	classPrompt = StaticObject
 	position = -122.4082 -7.799945 0.3732204
 	rotation = 0 0 0.8723112 0.4889512
@@ -3802,7 +3850,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 312
+	uin = 316
 	classPrompt = StaticObject
 	position = -123.922 -8.774224 1.657189
 	rotation = 0 0 -0.4889512 0.8723112
@@ -3812,7 +3860,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 313
+	uin = 317
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -3822,7 +3870,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 314
+	uin = 318
 	classPrompt = StaticObject
 	position = 104.5851 -14.30404 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -3832,7 +3880,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 315
+	uin = 319
 	classPrompt = StaticObject
 	position = 104.5837 -16.10424 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3842,7 +3890,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 316
+	uin = 320
 	classPrompt = StaticObject
 	position = 104.4178 -14.14333 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3852,7 +3900,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 317
+	uin = 321
 	classPrompt = StaticObject
 	position = 105.8022 -14.35242 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3862,7 +3910,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 318
+	uin = 322
 	classPrompt = StaticObject
 	position = 103.3098 -14.35242 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3872,7 +3920,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 319
+	uin = 323
 	classPrompt = StaticMesh
 	position = 104.5997 -14.52351 2.122545
 	scale = 0.821943 0.9117532 0.9014972
@@ -3883,7 +3931,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 320
+	uin = 324
 	classPrompt = StaticObject
 	position = 100.1287 -14.06616 1.456624
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3893,7 +3941,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 321
+	uin = 325
 	classPrompt = StaticObject
 	position = 100.296 -14.22687 1.657189
 	rotation = 0 0 -0.9999307 -0.01178183
@@ -3903,7 +3951,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 322
+	uin = 326
 	classPrompt = StaticObject
 	position = 100.2946 -16.02707 0.3732204
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3913,7 +3961,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 323
+	uin = 327
 	classPrompt = StaticObject
 	position = 101.5131 -14.27525 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3923,7 +3971,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 324
+	uin = 328
 	classPrompt = StaticObject
 	position = 99.02074 -14.27525 1.618737
 	rotation = 0 0 -0.0117818 0.9999307
@@ -3933,7 +3981,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 325
+	uin = 329
 	classPrompt = StaticMesh
 	position = 100.3106 -14.44634 2.122545
 	scale = 0.821943 0.9117532 0.9014972
@@ -3944,7 +3992,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 326
+	uin = 330
 	classPrompt = StaticObject
 	position = 96.75645 -16.15771 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -3954,7 +4002,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 327
+	uin = 331
 	classPrompt = StaticObject
 	position = 98.55576 -16.1014 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -3964,7 +4012,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 328
+	uin = 332
 	classPrompt = StaticObject
 	position = 96.84562 -17.43073 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -3974,7 +4022,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 329
+	uin = 333
 	classPrompt = StaticMesh
 	position = 96.97533 -16.13609 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -3986,7 +4034,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 330
+	uin = 334
 	classPrompt = StaticObject
 	position = 96.86491 -22.29096 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -3996,7 +4044,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 331
+	uin = 335
 	classPrompt = StaticMesh
 	position = 96.99462 -20.99632 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4008,7 +4056,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 332
+	uin = 336
 	classPrompt = StaticObject
 	position = 96.77573 -21.01794 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4018,7 +4066,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 333
+	uin = 337
 	classPrompt = StaticObject
 	position = 98.57505 -20.96163 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4028,7 +4076,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 334
+	uin = 338
 	classPrompt = StaticObject
 	position = 96.75316 -27.09961 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4038,7 +4086,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 335
+	uin = 339
 	classPrompt = StaticMesh
 	position = 97.13474 -25.29279 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4050,7 +4098,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 336
+	uin = 340
 	classPrompt = StaticObject
 	position = 96.91585 -25.31442 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4060,7 +4108,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 337
+	uin = 341
 	classPrompt = StaticObject
 	position = 98.71516 -25.2581 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4070,7 +4118,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 338
+	uin = 342
 	classPrompt = StaticObject
 	position = 96.76057 -25.48673 1.456624
 	rotation = 0 0 0.7100888 0.7041124
@@ -4080,7 +4128,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 339
+	uin = 343
 	classPrompt = StaticObject
 	position = 96.75316 -27.09961 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4090,7 +4138,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 340
+	uin = 344
 	classPrompt = StaticMesh
 	position = 97.13474 -25.29279 2.122545
 	rotation = 0 0 0.7183352 0.6956974
@@ -4102,7 +4150,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 341
+	uin = 345
 	classPrompt = StaticObject
 	position = 96.91585 -25.31442 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -4112,7 +4160,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 342
+	uin = 346
 	classPrompt = StaticObject
 	position = 98.71516 -25.2581 0.3732204
 	rotation = 0 0 0.7100888 0.7041124
@@ -4122,7 +4170,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 343
+	uin = 347
 	classPrompt = StaticObject
 	position = 102.4261 -26.89255 1.618737
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4132,7 +4180,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 344
+	uin = 348
 	classPrompt = StaticMesh
 	position = 101.13 -26.77821 2.122545
 	rotation = 0 0 0.9997594 -0.02194172
@@ -4144,7 +4192,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 345
+	uin = 349
 	classPrompt = StaticObject
 	position = 101.1543 -26.99683 1.657189
 	rotation = 0 0 0.01016111 0.9999486
@@ -4154,7 +4202,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 346
+	uin = 350
 	classPrompt = StaticObject
 	position = 101.0766 -25.19831 0.3732204
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4164,7 +4212,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 347
+	uin = 351
 	classPrompt = StaticObject
 	position = 105.4358 -26.98961 1.657189
 	rotation = 0 0 0.01016111 0.9999486
@@ -4174,7 +4222,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 348
+	uin = 352
 	classPrompt = StaticObject
 	position = 104.2607 -26.7812 1.59085
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4184,7 +4232,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 349
+	uin = 353
 	classPrompt = StaticObject
 	position = 106.7077 -26.88533 1.618737
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4194,7 +4242,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 350
+	uin = 354
 	classPrompt = StaticMesh
 	position = 105.4116 -26.77099 2.122545
 	rotation = 0 0 0.9997594 -0.02194172
@@ -4206,7 +4254,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 351
+	uin = 355
 	classPrompt = StaticObject
 	position = 105.3581 -25.19108 0.3732204
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4216,7 +4264,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 352
+	uin = 356
 	classPrompt = StaticObject
 	position = 96.45309 -19.91044 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4226,7 +4274,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 353
+	uin = 357
 	classPrompt = StaticObject
 	position = 126.0392 -1.009204 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4236,7 +4284,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 354
+	uin = 358
 	classPrompt = StaticMesh
 	position = 125.8876 -2.301457 2.122545
 	rotation = 0 0 0.7017637 -0.71241
@@ -4248,7 +4296,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 355
+	uin = 359
 	classPrompt = StaticObject
 	position = 126.1068 -2.283545 1.657189
 	rotation = 0 0 0.7040925 0.7101087
@@ -4258,7 +4306,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 356
+	uin = 360
 	classPrompt = StaticObject
 	position = 126.0767 -3.501298 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4268,7 +4316,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 357
+	uin = 361
 	classPrompt = StaticObject
 	position = 124.3068 -2.309337 0.3732204
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4278,7 +4326,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 358
+	uin = 362
 	classPrompt = StaticObject
 	position = 126.0583 -6.546769 1.657189
 	rotation = 0 0 0.7040925 0.7101087
@@ -4288,7 +4336,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 359
+	uin = 363
 	classPrompt = StaticObject
 	position = 126.0283 -7.764518 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4298,7 +4346,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 360
+	uin = 364
 	classPrompt = StaticMesh
 	position = 125.8391 -6.564679 2.122545
 	rotation = 0 0 0.7017637 -0.71241
@@ -4310,7 +4358,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 361
+	uin = 365
 	classPrompt = StaticObject
 	position = 124.2583 -6.572558 0.3732204
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4320,7 +4368,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 362
+	uin = 366
 	classPrompt = StaticObject
 	position = 125.9907 -5.272418 1.618737
 	rotation = 0 0 0.7101086 -0.7040925
@@ -4330,7 +4378,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 363
+	uin = 367
 	classPrompt = StaticObject
 	position = 115.2592 -26.98528 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4340,7 +4388,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 364
+	uin = 368
 	classPrompt = StaticObject
 	position = 114.0431 -26.91512 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4350,7 +4398,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 365
+	uin = 369
 	classPrompt = StaticMesh
 	position = 115.2485 -26.76558 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4362,7 +4410,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 366
+	uin = 370
 	classPrompt = StaticObject
 	position = 115.2927 -25.18538 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4372,7 +4420,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 367
+	uin = 371
 	classPrompt = StaticObject
 	position = 109.7838 -26.72619 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4382,7 +4430,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 368
+	uin = 372
 	classPrompt = StaticMesh
 	position = 110.9892 -26.57666 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4394,7 +4442,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 369
+	uin = 373
 	classPrompt = StaticObject
 	position = 111.0334 -24.99646 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4404,7 +4452,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 370
+	uin = 374
 	classPrompt = StaticObject
 	position = 110.9999 -26.79635 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4414,7 +4462,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 371
+	uin = 375
 	classPrompt = StaticObject
 	position = 112.2758 -26.7708 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4424,7 +4472,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 372
+	uin = 376
 	classPrompt = StaticObject
 	position = 116.5351 -26.95972 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4434,7 +4482,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 373
+	uin = 377
 	classPrompt = StaticObject
 	position = 123.9958 -27.06361 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4444,7 +4492,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 374
+	uin = 378
 	classPrompt = StaticMesh
 	position = 125.2012 -26.91407 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4456,7 +4504,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 375
+	uin = 379
 	classPrompt = StaticObject
 	position = 126.4878 -27.10821 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4466,7 +4514,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 376
+	uin = 380
 	classPrompt = StaticObject
 	position = 119.7365 -26.87468 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4476,7 +4524,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 377
+	uin = 381
 	classPrompt = StaticMesh
 	position = 120.9419 -26.72515 2.122545
 	rotation = 0 0 0.9999603 0.008947664
@@ -4488,7 +4536,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 378
+	uin = 382
 	classPrompt = StaticObject
 	position = 122.2285 -26.91929 1.618737
 	rotation = 0 0 0.9997855 0.02072844
@@ -4498,7 +4546,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 379
+	uin = 383
 	classPrompt = StaticObject
 	position = 120.9526 -26.94484 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4508,7 +4556,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 380
+	uin = 384
 	classPrompt = StaticObject
 	position = 125.2119 -27.13376 1.657189
 	rotation = 0 0 -0.02072852 0.9997856
@@ -4518,7 +4566,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 381
+	uin = 385
 	classPrompt = StaticObject
 	position = 120.9861 -25.14495 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4528,7 +4576,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 382
+	uin = 386
 	classPrompt = StaticObject
 	position = 125.2455 -25.33387 0.3732204
 	rotation = 0 0 0.9997855 0.02072844
@@ -4538,7 +4586,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 383
+	uin = 387
 	classPrompt = StaticObject
 	position = 123.7933 16.72994 0.3
 	rotation = 0 0 -0.9999909 0.004271859
@@ -4549,7 +4597,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 384
+	uin = 388
 	classPrompt = StaticObject
 	position = 124.0426 23.3263 0.3
 	rotation = 0 0 -0.7100423 0.7041591
@@ -4560,7 +4608,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 385
+	uin = 389
 	classPrompt = StaticObject
 	position = 118.9981 22.63119 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -4570,7 +4618,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 386
+	uin = 390
 	classPrompt = StaticObject
 	position = 116.7362 18.90108 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -4580,7 +4628,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 387
+	uin = 391
 	classPrompt = StaticObject
 	position = 119.3847 16.80569 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -4590,7 +4638,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 388
+	uin = 392
 	classPrompt = StaticObject
 	position = 100.7262 17.24666 0.2198927
 	rotation = 0 0 0.73258 0.680681
@@ -4600,7 +4648,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 389
+	uin = 393
 	classPrompt = StaticObject
 	position = 104.2657 14.69683 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
@@ -4610,7 +4658,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 390
+	uin = 394
 	classPrompt = StaticObject
 	position = 106.6029 16.65992 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
@@ -4620,7 +4668,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 391
+	uin = 395
 	classPrompt = StaticObject
 	position = 100.7262 17.24666 0.2198927
 	rotation = 0 0 0.73258 0.680681
@@ -4630,7 +4678,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 392
+	uin = 396
 	classPrompt = StaticObject
 	position = 104.2657 14.69683 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
@@ -4640,7 +4688,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 393
+	uin = 397
 	classPrompt = StaticObject
 	position = 106.6029 16.65992 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
@@ -4650,7 +4698,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 394
+	uin = 398
 	classPrompt = StaticObject
 	position = 107.6747 19.39466 0.2198927
 	rotation = 0 0 0.7397748 -0.6728547
@@ -4660,7 +4708,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 395
+	uin = 399
 	classPrompt = StaticObject
 	position = 106.5805 22.36151 0.2419727
 	rotation = 0 0 0.397701 -0.9175152
@@ -4670,7 +4718,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 396
+	uin = 400
 	classPrompt = StaticObject
 	position = 103.5303 22.472 0
 	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
@@ -4680,7 +4728,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 397
+	uin = 401
 	classPrompt = StaticObject
 	position = 116.9078 21.46347 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -4690,7 +4738,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 398
+	uin = 402
 	classPrompt = StaticObject
 	position = 121.5209 21.89094 0.2198927
 	rotation = 0 0 -0.2377434 0.971328
@@ -4700,7 +4748,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 399
+	uin = 403
 	classPrompt = StaticObject
 	position = 121.9072 18.89603 0.2198927
 	rotation = 0 0 -0.8573666 0.5147063
@@ -4710,7 +4758,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 400
+	uin = 404
 	classPrompt = StaticObject
 	position = 114.0727 26.46305 2.051654
 	rotation = 0 0 -0.004554355 0.9999896
@@ -4720,7 +4768,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 401
+	uin = 405
 	classPrompt = StaticObject
 	position = 109.3005 26.48323 2.051654
 	rotation = 0 0 -0.004554355 0.9999896
@@ -4730,7 +4778,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 402
+	uin = 406
 	classPrompt = StaticObject
 	position = 125.3906 -21.67308 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4740,7 +4788,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 403
+	uin = 407
 	classPrompt = StaticMesh
 	position = 125.2171 -20.47087 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4752,7 +4800,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 404
+	uin = 408
 	classPrompt = StaticObject
 	position = 125.6103 -19.33439 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4762,7 +4810,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 405
+	uin = 409
 	classPrompt = StaticObject
 	position = 125.4365 -20.45583 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4772,7 +4820,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 406
+	uin = 410
 	classPrompt = StaticObject
 	position = 125.6927 -12.71775 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4782,7 +4830,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 407
+	uin = 411
 	classPrompt = StaticMesh
 	position = 125.5192 -11.51554 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4794,7 +4842,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 408
+	uin = 412
 	classPrompt = StaticObject
 	position = 125.9822 -10.19333 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4804,7 +4852,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 409
+	uin = 413
 	classPrompt = StaticObject
 	position = 125.6345 -15.76272 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4814,7 +4862,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 410
+	uin = 414
 	classPrompt = StaticObject
 	position = 125.5885 -16.97998 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4824,7 +4872,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 411
+	uin = 415
 	classPrompt = StaticMesh
 	position = 125.4151 -15.77776 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4836,7 +4884,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 412
+	uin = 416
 	classPrompt = StaticObject
 	position = 125.5836 -14.48761 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4846,7 +4894,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 413
+	uin = 417
 	classPrompt = StaticObject
 	position = 125.7386 -11.5005 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4856,7 +4904,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 414
+	uin = 418
 	classPrompt = StaticObject
 	position = 123.6363 -20.45812 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4866,7 +4914,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 415
+	uin = 419
 	classPrompt = StaticObject
 	position = 123.8343 -15.76501 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4876,7 +4924,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 416
+	uin = 420
 	classPrompt = StaticObject
 	position = 123.9384 -11.50279 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4886,7 +4934,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 417
+	uin = 421
 	classPrompt = StaticObject
 	position = 96.76583 -14.93962 1.618737
 	rotation = 0 0 0.7100888 0.7041124
@@ -4896,7 +4944,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 418
+	uin = 422
 	classPrompt = StaticObject
 	position = 104.2607 -26.7812 1.59085
 	rotation = 0 0 0.9999486 -0.01016119
@@ -4906,7 +4954,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 419
+	uin = 423
 	classPrompt = StaticMesh
 	position = 125.2171 -20.47087 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -4918,7 +4966,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 420
+	uin = 424
 	classPrompt = StaticObject
 	position = 123.6363 -20.45812 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4928,7 +4976,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 421
+	uin = 425
 	classPrompt = StaticObject
 	position = 125.3906 -21.67308 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4938,7 +4986,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 422
+	uin = 426
 	classPrompt = StaticObject
 	position = 125.4365 -20.45583 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4948,7 +4996,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 423
+	uin = 427
 	classPrompt = StaticObject
 	position = 125.6103 -19.33439 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4958,7 +5006,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 424
+	uin = 428
 	classPrompt = StaticObject
 	position = 125.6345 -15.76272 1.657189
 	rotation = 0 0 0.6994423 0.7146897
@@ -4968,7 +5016,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 425
+	uin = 429
 	classPrompt = StaticObject
 	position = 123.8343 -15.76501 0.3732204
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4978,7 +5026,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 426
+	uin = 430
 	classPrompt = StaticObject
 	position = 125.5885 -16.97998 1.618737
 	rotation = 0 0 0.7146896 -0.6994422
@@ -4988,7 +5036,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 427
+	uin = 431
 	classPrompt = StaticMesh
 	position = 125.4151 -15.77776 2.122545
 	rotation = 0 0 0.7063993 -0.707814
@@ -5000,7 +5048,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 428
+	uin = 432
 	classPrompt = StaticObject
 	position = 116.9342 -1.748109 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5010,7 +5058,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 429
+	uin = 433
 	classPrompt = StaticObject
 	position = 116.7571 -6.007925 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5020,7 +5068,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 430
+	uin = 434
 	classPrompt = StaticMesh
 	position = 116.91 -7.212925 2.122545
 	rotation = 0 0 0.7017429 0.7124307
@@ -5032,7 +5080,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 431
+	uin = 435
 	classPrompt = StaticObject
 	position = 116.7194 -8.500015 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5042,7 +5090,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 432
+	uin = 436
 	classPrompt = StaticMesh
 	position = 117.0871 -2.953117 2.122545
 	rotation = 0 0 0.7017429 0.7124307
@@ -5054,7 +5102,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 433
+	uin = 437
 	classPrompt = StaticObject
 	position = 116.8965 -4.2402 1.618737
 	rotation = 0 0 0.6933005 0.7206491
@@ -5064,7 +5112,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 434
+	uin = 438
 	classPrompt = StaticObject
 	position = 116.8674 -2.964403 1.657189
 	rotation = 0 0 -0.7206492 0.6933005
@@ -5074,7 +5122,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 435
+	uin = 439
 	classPrompt = StaticObject
 	position = 116.6903 -7.224216 1.657189
 	rotation = 0 0 -0.7206492 0.6933005
@@ -5084,7 +5132,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 436
+	uin = 440
 	classPrompt = StaticObject
 	position = 118.6674 -2.992922 0.3732204
 	rotation = 0 0 0.6933005 0.7206491
@@ -5094,7 +5142,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 437
+	uin = 441
 	classPrompt = StaticObject
 	position = 118.4903 -7.252735 0.3732204
 	rotation = 0 0 0.6933005 0.7206491
@@ -5104,7 +5152,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 438
+	uin = 442
 	classPrompt = StaticObject
 	position = 124.0494 2.432932 0.3732204
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5114,7 +5162,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 439
+	uin = 443
 	classPrompt = StaticObject
 	position = 124.0014 6.696135 0.3732204
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5124,7 +5172,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 440
+	uin = 444
 	classPrompt = StaticObject
 	position = 125.6734 1.258018 1.618737
 	rotation = 0 0 0.7202064 -0.6937605
@@ -5134,7 +5182,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 441
+	uin = 445
 	classPrompt = StaticObject
 	position = 125.7979 5.54454 1.618737
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5144,7 +5192,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 442
+	uin = 446
 	classPrompt = StaticMesh
 	position = 125.5816 6.739789 2.122545
 	rotation = 0 0 0.6936585 -0.7203047
@@ -5156,7 +5204,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 443
+	uin = 447
 	classPrompt = StaticObject
 	position = 125.8796 8.010199 1.618737
 	rotation = 0 0 0.7202064 -0.6937605
@@ -5166,7 +5214,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 444
+	uin = 448
 	classPrompt = StaticMesh
 	position = 125.6296 2.476583 2.122545
 	rotation = 0 0 0.6936585 -0.7203047
@@ -5178,7 +5226,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 445
+	uin = 449
 	classPrompt = StaticObject
 	position = 125.752 3.771918 1.618737
 	rotation = 0 0 0.7020969 -0.7120821
@@ -5188,7 +5236,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 446
+	uin = 450
 	classPrompt = StaticObject
 	position = 125.8483 2.499441 1.657189
 	rotation = 0 0 0.7120821 0.702097
@@ -5198,7 +5246,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 447
+	uin = 451
 	classPrompt = StaticObject
 	position = 125.8004 6.762662 1.657189
 	rotation = 0 0 0.7120821 0.702097
@@ -5208,7 +5256,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 448
+	uin = 452
 	classPrompt = StaticObject
 	position = 118.9833 5.775735 0.3732204
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5218,7 +5266,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 449
+	uin = 453
 	classPrompt = StaticObject
 	position = 118.9167 1.512766 0.3732204
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5228,7 +5276,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 450
+	uin = 454
 	classPrompt = StaticObject
 	position = 117.2185 6.975232 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5238,7 +5286,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 451
+	uin = 455
 	classPrompt = StaticObject
 	position = 117.1518 2.712259 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5248,7 +5296,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 452
+	uin = 456
 	classPrompt = StaticMesh
 	position = 117.1742 1.457438 2.122545
 	rotation = 0 0 -0.7109135 -0.70328
@@ -5260,7 +5308,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 453
+	uin = 457
 	classPrompt = StaticObject
 	position = 117.1787 0.2200303 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5270,7 +5318,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 454
+	uin = 458
 	classPrompt = StaticMesh
 	position = 117.4025 5.774596 2.122545
 	rotation = 0 0 -0.7109135 -0.70328
@@ -5282,7 +5330,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 455
+	uin = 459
 	classPrompt = StaticObject
 	position = 117.2454 4.483016 1.618737
 	rotation = 0 0 -0.7025783 -0.7116072
@@ -5292,7 +5340,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 456
+	uin = 460
 	classPrompt = StaticObject
 	position = 117.1832 5.757619 1.657189
 	rotation = 0 0 0.7116073 -0.7025783
@@ -5302,7 +5350,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 457
+	uin = 461
 	classPrompt = StaticObject
 	position = 117.1166 1.494653 1.657189
 	rotation = 0 0 0.7116073 -0.7025783
@@ -5312,7 +5360,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 458
+	uin = 462
 	classPrompt = StaticObject
 	position = 123.8487 9.246616 0.3732204
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5322,7 +5370,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 459
+	uin = 463
 	classPrompt = StaticObject
 	position = 119.5863 9.3416 0.3732204
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5332,7 +5380,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 460
+	uin = 464
 	classPrompt = StaticObject
 	position = 125.0599 11.00348 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5342,7 +5390,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 461
+	uin = 465
 	classPrompt = StaticObject
 	position = 120.7975 11.09846 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5352,7 +5400,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 462
+	uin = 466
 	classPrompt = StaticMesh
 	position = 119.5956 10.92239 2.122545
 	rotation = 0 0 -0.002076378 -0.9999983
@@ -5364,7 +5412,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 463
+	uin = 467
 	classPrompt = StaticObject
 	position = 118.3051 11.08812 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5374,7 +5422,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 464
+	uin = 468
 	classPrompt = StaticMesh
 	position = 123.8581 10.82741 2.122545
 	rotation = 0 0 -0.002076378 -0.9999983
@@ -5386,7 +5434,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 465
+	uin = 469
 	classPrompt = StaticObject
 	position = 122.5676 10.99314 1.618737
 	rotation = 0 0 0.009705653 -0.9999534
@@ -5396,7 +5444,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 466
+	uin = 470
 	classPrompt = StaticObject
 	position = 123.8426 11.04681 1.657189
 	rotation = 0 0 0.9999535 0.009705721
@@ -5406,7 +5454,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 467
+	uin = 471
 	classPrompt = StaticObject
 	position = 119.5801 11.1418 1.657189
 	rotation = 0 0 0.9999535 0.009705721
@@ -5416,7 +5464,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 468
+	uin = 472
 	classPrompt = StaticObject
 	position = 96.67959 19.71797 2.051654
 	rotation = 0 0 -0.7105156 -0.7036815
@@ -5426,7 +5474,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 469
+	uin = 473
 	classPrompt = StaticObject
 	position = 96.74902 14.94616 2.051654
 	rotation = 0 0 -0.7105156 -0.7036815
@@ -5436,7 +5484,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 470
+	uin = 474
 	classPrompt = StaticObject
 	position = 98.48 -10.90332 2.051654
 	rotation = 0 0 -0.9999321 -0.01167015
@@ -5446,7 +5494,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 471
+	uin = 475
 	classPrompt = StaticObject
 	position = 103.2515 -10.9914 2.051654
 	rotation = 0 0 -0.9999321 -0.01167015
@@ -5456,7 +5504,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 472
+	uin = 476
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5477,7 +5525,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 473
+	uin = 477
 	classPrompt = Terminal
 	sectorStatusData = f2r6
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5496,7 +5544,7 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 474
+	uin = 478
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5507,7 +5555,7 @@ entity
 entity
 {
 	type = "Schraubenschl\x00fcssel"
-	uin = 475
+	uin = 479
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5518,7 +5566,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 476
+	uin = 480
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -5528,7 +5576,7 @@ entity
 entity
 {
 	type = Weste
-	uin = 477
+	uin = 481
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5538,7 +5586,7 @@ entity
 entity
 {
 	type = Weste
-	uin = 478
+	uin = 482
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5548,7 +5596,7 @@ entity
 entity
 {
 	type = USB_Stick
-	uin = 479
+	uin = 483
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5558,7 +5606,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 480
+	uin = 484
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskData = 3582
@@ -5579,7 +5627,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 481
+	uin = 485
 	classPrompt = Terminal
 	sectorStatusData = f2r4
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -5599,7 +5647,7 @@ entity
 entity
 {
 	type = cpu
-	uin = 482
+	uin = 486
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -5610,7 +5658,7 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 483
+	uin = 487
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -5621,7 +5669,7 @@ entity
 entity
 {
 	type = ScarItem
-	uin = 484
+	uin = 488
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -5632,7 +5680,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 485
+	uin = 489
 	classPrompt = Terminal
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
@@ -5648,14 +5696,14 @@ entity
 	{
 		item
 		{
-			repairable = 492
+			repairable = 496
 		}
 	}
 }
 entity
 {
 	type = SicherungskastenRepairable
-	uin = 486
+	uin = 490
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 17
 	repaired = False
@@ -5669,7 +5717,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 487
+	uin = 491
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 23
 	value = False
@@ -5683,7 +5731,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 488
+	uin = 492
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 21
 	value = False
@@ -5696,7 +5744,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 489
+	uin = 493
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 19
 	value = False
@@ -5708,7 +5756,7 @@ entity
 entity
 {
 	type = Rubble
-	uin = 490
+	uin = 494
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 27
 	repaired = False
@@ -5723,7 +5771,7 @@ entity
 entity
 {
 	type = CardReader
-	uin = 491
+	uin = 495
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 29
 	repaired = False
@@ -5737,7 +5785,7 @@ entity
 entity
 {
 	type = BrokenTerminal
-	uin = 492
+	uin = 496
 	classPrompt = Repairable
 	subscriptionsToDeletionEvent = 25
 	repaired = False
@@ -5751,12 +5799,12 @@ entity
 entity
 {
 	type = MapCameraCurve
-	uin = 493
+	uin = 497
 	classPrompt = MapCameraCurve
 	fov = 0
 	curveType = UniformCubicSpline
-	points = 493
-	owner = 493
+	points = 497
+	owner = 497
 	time = 0
 	position = 38.7 32 0
 	name = MapCameraCurve_0
@@ -5765,12 +5813,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 494
+	uin = 498
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 495 496 497 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513
+	subscriptionsToDeletionEvent = 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515 516 517
 	curveType = UniformCubicSpline
-	points = 494 495 496 497 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513
-	owner = 494
+	points = 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515 516 517
+	owner = 498
 	time = 0
 	position = 17.9 105.5 0.3
 	name = MapCurve_0
@@ -5779,10 +5827,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 495
+	uin = 499
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 1
 	position = 16.1 108.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5790,10 +5838,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 496
+	uin = 500
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 2
 	position = 13.5 110 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5801,10 +5849,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 497
+	uin = 501
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 3
 	position = 10.4 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5812,10 +5860,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 498
+	uin = 502
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 4
 	position = 7.099999 111 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5823,10 +5871,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 499
+	uin = 503
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 5
 	position = 3.999999 110.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5834,10 +5882,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 500
+	uin = 504
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 6
 	position = 0.7999985 111.1 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5845,10 +5893,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 501
+	uin = 505
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 7
 	position = -2.100001 112.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5856,10 +5904,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 502
+	uin = 506
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 8
 	position = -4.100001 114.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5867,10 +5915,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 503
+	uin = 507
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 9
 	position = -5.700001 117.3 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5878,10 +5926,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 504
+	uin = 508
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 10
 	position = -7.800001 119.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5889,10 +5937,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 505
+	uin = 509
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 11
 	position = -10.7 121.2 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5900,10 +5948,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 506
+	uin = 510
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 12
 	position = -14.2 121.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5911,10 +5959,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 507
+	uin = 511
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 13
 	position = -17.5 120.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5922,10 +5970,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 508
+	uin = 512
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 14
 	position = -19.6 118 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5933,10 +5981,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 509
+	uin = 513
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 15
 	position = -20.2 114.9 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5944,10 +5992,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 510
+	uin = 514
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 16
 	position = -20.2 111.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5955,10 +6003,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 511
+	uin = 515
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 17
 	position = -20.1 108.8 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5966,10 +6014,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 512
+	uin = 516
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 18
 	position = -20.1 105.7 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5977,10 +6025,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 513
+	uin = 517
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 494
-	owner = 494
+	subscriptionsToDeletionEvent = 498
+	owner = 498
 	time = 19
 	position = -20 102.5 0.3
 	editorLayer = "Root Layer\\Patrolien\\F1"
@@ -5988,7 +6036,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 514
+	uin = 518
 	classPrompt = StaticObject
 	position = 100.0275 75.26779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -5998,7 +6046,7 @@ entity
 entity
 {
 	type = Schlafkapsel
-	uin = 515
+	uin = 519
 	classPrompt = StaticObject
 	position = 104.4275 70.86779 0.0666405
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6008,7 +6056,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 516
+	uin = 520
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -52.12039 52.39715 1.172918
@@ -6019,7 +6067,7 @@ entity
 entity
 {
 	type = MedicCabinet
-	uin = 517
+	uin = 521
 	classPrompt = MedicCabinet
 	healthFactorAtBeginning = 1
 	position = -14.93078 24.94877 0.7831602
@@ -6030,7 +6078,7 @@ entity
 entity
 {
 	type = GridFloor
-	uin = 518
+	uin = 522
 	classPrompt = StaticObject
 	position = -116.3991 5.895276 -0.03060913
 	name = GridFloor_0
@@ -6039,7 +6087,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 519
+	uin = 523
 	classPrompt = StaticObject
 	position = -70.13163 -52.3354 1.64531
 	rotation = 0 0 -0.3734877 0.9276351
@@ -6049,7 +6097,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 520
+	uin = 524
 	classPrompt = StaticObject
 	position = 39.84206 16.43058 0
 	rotation = 0 0 -0.9999741 0.007215822
@@ -6059,7 +6107,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 521
+	uin = 525
 	classPrompt = StaticObject
 	position = 95.51722 76.33778 0
 	rotation = 0 0 0.9226092 0.3857362
@@ -6069,7 +6117,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 522
+	uin = 526
 	classPrompt = StaticObject
 	position = 70.46264 88.63217 0
 	rotation = 0 0 0.3837602 0.9234328
@@ -6079,7 +6127,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 523
+	uin = 527
 	classPrompt = StaticObject
 	position = 12.31856 99.79991 0
 	name = DoppelwandAbschluss_2
@@ -6088,7 +6136,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 524
+	uin = 528
 	classPrompt = StaticObject
 	position = 10.73503 121.0016 0
 	rotation = 0 0 1 2.934956E-08
@@ -6098,7 +6146,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 525
+	uin = 529
 	classPrompt = StaticObject
 	position = -12.60235 111.6679 0
 	name = DoppelwandAbschluss_4
@@ -6107,7 +6155,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 526
+	uin = 530
 	classPrompt = StaticObject
 	position = -74.17822 93.64269 0
 	rotation = 0 0 0.7933534 0.6087615
@@ -6117,7 +6165,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 527
+	uin = 531
 	classPrompt = StaticObject
 	position = -77.28846 80.79086 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6127,7 +6175,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 528
+	uin = 532
 	classPrompt = StaticObject
 	position = -111.6428 13.00219 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6137,7 +6185,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 529
+	uin = 533
 	classPrompt = StaticObject
 	position = -99.79622 -11.35881 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6147,7 +6195,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 530
+	uin = 534
 	classPrompt = StaticObject
 	position = -120.8696 -13.28697 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6157,7 +6205,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 531
+	uin = 535
 	classPrompt = StaticObject
 	position = -74.13967 -98.00296 0
 	rotation = 0 0 -0.9238796 0.3826835
@@ -6167,7 +6215,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 532
+	uin = 536
 	classPrompt = StaticObject
 	position = -9.102201 -108.6377 0
 	name = DoppelwandAbschluss_11
@@ -6176,7 +6224,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 533
+	uin = 537
 	classPrompt = StaticObject
 	position = 7.490952 -110.1901 0
 	rotation = 0 0 1 3.36741E-08
@@ -6186,7 +6234,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 534
+	uin = 538
 	classPrompt = StaticObject
 	position = 18.22809 -108.5283 0
 	name = DoppelwandAbschluss_13
@@ -6195,7 +6243,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 535
+	uin = 539
 	classPrompt = StaticObject
 	position = 70.82073 -85.1879 0
 	rotation = 0 0 0.3826834 0.9238796
@@ -6205,7 +6253,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 536
+	uin = 540
 	classPrompt = StaticObject
 	position = 79.33573 -79.62156 0
 	rotation = 0 0 -0.9238797 0.3826835
@@ -6215,7 +6263,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 537
+	uin = 541
 	classPrompt = StaticObject
 	position = 87.23034 -68.01769 0
 	rotation = 0 0 0.3826835 0.9238796
@@ -6225,7 +6273,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 538
+	uin = 542
 	classPrompt = StaticObject
 	position = 106.876 4.336354 0
 	name = DoppelwandAbschluss_17
@@ -6234,7 +6282,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 539
+	uin = 543
 	classPrompt = StaticObject
 	position = 114.506 -4.139952 0
 	rotation = 0 0 1 7.54979E-08
@@ -6244,7 +6292,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 540
+	uin = 544
 	classPrompt = StaticObject
 	position = 55.31351 47.63442 0
 	rotation = 0 0 0.9238796 0.3826834
@@ -6254,7 +6302,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 541
+	uin = 545
 	classPrompt = StaticObject
 	position = 48.84109 58.09861 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6264,7 +6312,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 542
+	uin = 546
 	classPrompt = StaticObject
 	position = 7.036875 77.60447 0
 	name = DoppelwandAbschluss_21
@@ -6273,7 +6321,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 543
+	uin = 547
 	classPrompt = StaticObject
 	position = -7.313236 74.91512 0
 	rotation = 0 0 1 1.398742E-08
@@ -6283,7 +6331,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 544
+	uin = 548
 	classPrompt = StaticObject
 	position = -42.93675 61.03579 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6293,7 +6341,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 545
+	uin = 549
 	classPrompt = StaticObject
 	position = -61.06284 45.47041 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6303,7 +6351,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 546
+	uin = 550
 	classPrompt = StaticObject
 	position = -74.62195 4.339099 0
 	rotation = 0 0 -0.7071068 0.7071069
@@ -6313,7 +6361,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 547
+	uin = 551
 	classPrompt = StaticObject
 	position = -77.33794 -5.272487 0
 	rotation = 0 0 0.7071069 0.7071068
@@ -6323,7 +6371,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 548
+	uin = 552
 	classPrompt = StaticObject
 	position = -39.78839 -49.97813 0
 	rotation = 0 0 0.9238796 0.3826834
@@ -6333,7 +6381,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 549
+	uin = 553
 	classPrompt = StaticObject
 	position = -53.75844 -66.16175 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -6343,7 +6391,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 550
+	uin = 554
 	classPrompt = StaticObject
 	position = -7.170385 -76.69859 0
 	rotation = 0 0 -1 0
@@ -6353,7 +6401,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 551
+	uin = 555
 	classPrompt = StaticObject
 	position = 6.879058 -74.95396 0
 	name = DoppelwandAbschluss_30
@@ -6362,7 +6410,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 552
+	uin = 556
 	classPrompt = StaticObject
 	position = 56.51817 -51.09067 0
 	rotation = 0 0 -0.9238796 0.3826835
@@ -6372,7 +6420,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 553
+	uin = 557
 	classPrompt = StaticObject
 	position = 48.45343 -55.94317 0
 	rotation = 0 0 0.3826834 0.9238796
@@ -6382,7 +6430,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 554
+	uin = 558
 	classPrompt = StaticObject
 	position = 74.82309 10.20036 0
 	rotation = 0 0 0.7071068 0.7071068
@@ -6392,7 +6440,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 555
+	uin = 559
 	classPrompt = StaticObject
 	position = 70.30923 -10.35162 0
 	rotation = 0 0 1 -2.977396E-08
@@ -6402,7 +6450,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 556
+	uin = 560
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 32
 	value = False
@@ -6416,7 +6464,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 557
+	uin = 561
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30
 	value = False
@@ -6430,7 +6478,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 558
+	uin = 562
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 36
 	value = False
@@ -6444,7 +6492,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 559
+	uin = 563
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 34
 	value = False
@@ -6458,7 +6506,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 560
+	uin = 564
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 38
 	value = False
@@ -6472,7 +6520,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 561
+	uin = 565
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 40
 	value = False
@@ -6486,7 +6534,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 562
+	uin = 566
 	classPrompt = StaticObject
 	position = 8.438597 -124.39 0.2928302
 	rotation = 0 0 -0.853944 0.5203649
@@ -6496,7 +6544,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 563
+	uin = 567
 	classPrompt = StaticObject
 	position = 25.04344 -95.73202 0.2927278
 	name = Leiche1_9
@@ -6505,7 +6553,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 564
+	uin = 568
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -6515,7 +6563,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 565
+	uin = 569
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -6526,7 +6574,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 566
+	uin = 570
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -6537,7 +6585,7 @@ entity
 entity
 {
 	type = cable
-	uin = 567
+	uin = 571
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -6547,7 +6595,7 @@ entity
 entity
 {
 	type = Schrauben
-	uin = 568
+	uin = 572
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -6557,7 +6605,7 @@ entity
 entity
 {
 	type = DoppelWandOhneBodenFinal
-	uin = 569
+	uin = 573
 	classPrompt = StaticObject
 	position = -29.6267 -7.291977 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6567,7 +6615,7 @@ entity
 entity
 {
 	type = durchgang
-	uin = 570
+	uin = 574
 	classPrompt = MapObject
 	position = -39.91543 -7.346478 -0.05314207
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6577,11 +6625,11 @@ entity
 entity
 {
 	type = Teleporter
-	uin = 571
+	uin = 575
 	classPrompt = Teleporter
-	subscriptionsToDeletionEvent = 576 576
+	subscriptionsToDeletionEvent = 580 580
 	active = True
-	destination = 576
+	destination = 580
 	healthFactorAtBeginning = 1
 	position = -28.00622 -13.65659 0.5695934
 	name = Teleporter_Station
@@ -6590,7 +6638,7 @@ entity
 entity
 {
 	type = Endkampf-Raum
-	uin = 572
+	uin = 576
 	classPrompt = Room
 	position = 489.6694 21.61951 0
 	name = Endkampf-Raum
@@ -6599,7 +6647,7 @@ entity
 entity
 {
 	type = Sector
-	uin = 573
+	uin = 577
 	classPrompt = Sector
 	enabled = True
 	shapeType = Box
@@ -6614,7 +6662,7 @@ entity
 entity
 {
 	type = AlienSpawnerAI
-	uin = 574
+	uin = 578
 	classPrompt = AlienSpawnerAI
 	allowTakeItems = True
 	name = AlienSpawnerAI_0
@@ -6630,9 +6678,9 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 575
+	uin = 579
 	classPrompt = AlienSpawner
-	sector = 573
+	sector = 577
 	spawnLimit = 0
 	intellectShouldDeleteAfterDetach = False
 	initialFaction = BadFaction
@@ -6648,11 +6696,11 @@ entity
 entity
 {
 	type = Teleporter
-	uin = 576
+	uin = 580
 	classPrompt = Teleporter
-	subscriptionsToDeletionEvent = 571 571
+	subscriptionsToDeletionEvent = 575 575
 	active = True
-	destination = 571
+	destination = 575
 	healthFactorAtBeginning = 1
 	position = 483.8056 4.200388 0.5729324
 	name = Teleporter_Endkampf
@@ -6661,7 +6709,7 @@ entity
 entity
 {
 	type = BooleanSwitch
-	uin = 577
+	uin = 581
 	classPrompt = BooleanSwitch
 	value = False
 	healthFactorAtBeginning = 1
@@ -6672,7 +6720,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 578
+	uin = 582
 	classPrompt = StaticObject
 	position = -34.43485 10.96428 0
 	name = DoppelwandAbschluss_35
@@ -6681,7 +6729,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 579
+	uin = 583
 	classPrompt = StaticObject
 	position = -5.097298 42.35185 0
 	name = DoppelwandAbschluss_36
@@ -6690,7 +6738,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 580
+	uin = 584
 	classPrompt = StaticObject
 	position = 6.041567 39.4893 0
 	rotation = 0 0 1 1.463745E-08
@@ -6700,7 +6748,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 581
+	uin = 585
 	classPrompt = StaticObject
 	position = -5.270587 -39.77846 0
 	name = DoppelwandAbschluss_38
@@ -6709,7 +6757,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 582
+	uin = 586
 	classPrompt = StaticObject
 	position = 5.397243 -41.18631 0
 	rotation = 0 0 1 7.438686E-08
@@ -6719,7 +6767,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 583
+	uin = 587
 	classPrompt = StaticObject
 	position = 29.47625 -19.1059 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6729,7 +6777,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 584
+	uin = 588
 	classPrompt = StaticObject
 	position = 41.29971 -10.04332 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6739,7 +6787,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 585
+	uin = 589
 	classPrompt = StaticObject
 	position = 40.97857 -2.526813 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6749,7 +6797,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 586
+	uin = 590
 	classPrompt = StaticObject
 	position = 41.55878 5.949986 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6759,7 +6807,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 587
+	uin = 591
 	classPrompt = StaticObject
 	position = 29.63954 15.39734 0
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6769,7 +6817,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 588
+	uin = 592
 	classPrompt = StaticObject
 	position = 38.69352 -13.40297 1.444286
 	rotation = 0 0 0.7071068 0.7071069
@@ -6779,7 +6827,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 589
+	uin = 593
 	classPrompt = StaticObject
 	position = 39.14444 4.251432 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6789,7 +6837,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 590
+	uin = 594
 	classPrompt = StaticObject
 	position = 50.74178 11.70308 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6799,7 +6847,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 591
+	uin = 595
 	classPrompt = StaticObject
 	position = 50.53215 17.4017 0
 	rotation = 0 0 0.7071068 0.7071069
@@ -6809,7 +6857,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 592
+	uin = 596
 	classPrompt = StaticObject
 	position = 35.31542 11.65902 -0.02550507
 	rotation = 0 0 0.7071068 0.7071069
@@ -6819,7 +6867,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 593
+	uin = 597
 	classPrompt = StaticObject
 	position = 490.7925 46.3791 0
 	rotation = 0 0 0.4226183 0.9063078
@@ -6829,7 +6877,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 594
+	uin = 598
 	classPrompt = StaticObject
 	position = 478.1277 10.45261 0
 	rotation = 0 0 0.4226183 0.9063078
@@ -6839,7 +6887,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 595
+	uin = 599
 	classPrompt = StaticObject
 	position = 489.4893 10.67645 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6849,7 +6897,7 @@ entity
 entity
 {
 	type = DoppelWanDoppelAbschluss
-	uin = 596
+	uin = 600
 	classPrompt = StaticObject
 	position = 476.8893 45.97645 0
 	rotation = 0 0 0.9238796 0.3826835
@@ -6859,7 +6907,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 597
+	uin = 601
 	classPrompt = StaticMesh
 	position = -77.55638 59.36434 0.2566535
 	rotation = 0 0 -0.9284949 0.3713453
@@ -6870,7 +6918,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 598
+	uin = 602
 	classPrompt = StaticObject
 	position = -65.9571 87.38173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -6880,7 +6928,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 599
+	uin = 603
 	classPrompt = StaticObject
 	position = -67.719 84.85162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -6890,7 +6938,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 600
+	uin = 604
 	classPrompt = StaticObject
 	position = -66.0772 81.47704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -6900,7 +6948,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 601
+	uin = 605
 	classPrompt = StaticObject
 	position = -62.62198 81.23994 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -6910,7 +6958,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 602
+	uin = 606
 	classPrompt = StaticObject
 	position = -60.74359 84.75871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -6920,7 +6968,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 603
+	uin = 607
 	classPrompt = StaticObject
 	position = -62.68771 87.11169 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -6930,7 +6978,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 604
+	uin = 608
 	classPrompt = StaticObject
 	position = -64.10001 84.4 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -6941,7 +6989,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 605
+	uin = 609
 	classPrompt = StaticObject
 	position = -66.0772 81.47704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -6951,7 +6999,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 606
+	uin = 610
 	classPrompt = StaticObject
 	position = -62.62198 81.23994 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -6961,7 +7009,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 607
+	uin = 611
 	classPrompt = StaticObject
 	position = -67.719 84.85162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -6971,7 +7019,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 608
+	uin = 612
 	classPrompt = StaticObject
 	position = -65.9571 87.38173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -6981,7 +7029,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 609
+	uin = 613
 	classPrompt = StaticObject
 	position = -62.68771 87.11169 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -6991,7 +7039,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 610
+	uin = 614
 	classPrompt = StaticObject
 	position = -64.10001 84.4 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -7002,7 +7050,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 611
+	uin = 615
 	classPrompt = StaticObject
 	position = -60.74359 84.75871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7012,7 +7060,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 612
+	uin = 616
 	classPrompt = StaticObject
 	position = -69.0772 10.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7022,7 +7070,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 613
+	uin = 617
 	classPrompt = StaticObject
 	position = -65.62198 9.939946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7032,7 +7080,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 614
+	uin = 618
 	classPrompt = StaticObject
 	position = -69.0772 10.17704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7042,7 +7090,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 615
+	uin = 619
 	classPrompt = StaticObject
 	position = -65.62198 9.939946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7052,7 +7100,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 616
+	uin = 620
 	classPrompt = StaticObject
 	position = -70.719 13.55163 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7062,7 +7110,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 617
+	uin = 621
 	classPrompt = StaticObject
 	position = -68.9571 16.08173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7072,52 +7120,11 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 618
-	classPrompt = StaticObject
-	position = -65.68771 15.8117 0
-	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_39
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = glastisch
-	uin = 619
-	classPrompt = StaticObject
-	position = -67.10001 13.1 0.3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 2.477184 3.442765 1.318584
-	name = glastisch_2
-	editorLayer = "Root Layer\\F2\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 620
-	classPrompt = StaticObject
-	position = -70.719 13.55163 0.2419727
-	rotation = 0 0 0.7056872 0.7085235
-	name = Armchair3_40
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 621
-	classPrompt = StaticObject
-	position = -68.9571 16.08173 0.2198927
-	rotation = 0 0 0.07622074 0.997091
-	name = Armchair3_41
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
 	uin = 622
 	classPrompt = StaticObject
 	position = -65.68771 15.8117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_42
+	name = Armchair3_39
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
@@ -7128,13 +7135,54 @@ entity
 	position = -67.10001 13.1 0.3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
-	name = glastisch_3
+	name = glastisch_2
 	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
 	type = Armchair3
 	uin = 624
+	classPrompt = StaticObject
+	position = -70.719 13.55163 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 625
+	classPrompt = StaticObject
+	position = -68.9571 16.08173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 626
+	classPrompt = StaticObject
+	position = -65.68771 15.8117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_42
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 627
+	classPrompt = StaticObject
+	position = -67.10001 13.1 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_3
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 628
 	classPrompt = StaticObject
 	position = -63.74359 13.45871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7144,7 +7192,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 625
+	uin = 629
 	classPrompt = StaticObject
 	position = -63.74359 13.45871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7154,7 +7202,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 626
+	uin = 630
 	classPrompt = StaticObject
 	position = -49.3772 10.07704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7164,7 +7212,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 627
+	uin = 631
 	classPrompt = StaticObject
 	position = -45.92198 9.839946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7174,7 +7222,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 628
+	uin = 632
 	classPrompt = StaticObject
 	position = -49.3772 10.07704 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7184,7 +7232,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 629
+	uin = 633
 	classPrompt = StaticObject
 	position = -45.92198 9.839946 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7194,7 +7242,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 630
+	uin = 634
 	classPrompt = StaticObject
 	position = -51.019 13.45162 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7204,7 +7252,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 631
+	uin = 635
 	classPrompt = StaticObject
 	position = -49.2571 15.98173 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7214,52 +7262,11 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 632
-	classPrompt = StaticObject
-	position = -45.98771 15.7117 0
-	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_51
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = glastisch
-	uin = 633
-	classPrompt = StaticObject
-	position = -47.40001 13 0.3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 2.477184 3.442765 1.318584
-	name = glastisch_4
-	editorLayer = "Root Layer\\F3\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 634
-	classPrompt = StaticObject
-	position = -51.019 13.45162 0.2419727
-	rotation = 0 0 0.7056872 0.7085235
-	name = Armchair3_52
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 635
-	classPrompt = StaticObject
-	position = -49.2571 15.98173 0.2198927
-	rotation = 0 0 0.07622074 0.997091
-	name = Armchair3_53
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
 	uin = 636
 	classPrompt = StaticObject
 	position = -45.98771 15.7117 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_54
+	name = Armchair3_51
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
@@ -7270,13 +7277,54 @@ entity
 	position = -47.40001 13 0.3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
-	name = glastisch_5
+	name = glastisch_4
 	editorLayer = "Root Layer\\F3\\Einrichtung"
 }
 entity
 {
 	type = Armchair3
 	uin = 638
+	classPrompt = StaticObject
+	position = -51.019 13.45162 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_52
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 639
+	classPrompt = StaticObject
+	position = -49.2571 15.98173 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_53
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 640
+	classPrompt = StaticObject
+	position = -45.98771 15.7117 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_54
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 641
+	classPrompt = StaticObject
+	position = -47.40001 13 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_5
+	editorLayer = "Root Layer\\F3\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 642
 	classPrompt = StaticObject
 	position = -44.04359 13.35871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7286,7 +7334,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 639
+	uin = 643
 	classPrompt = StaticObject
 	position = -44.04359 13.35871 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7296,7 +7344,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 640
+	uin = 644
 	classPrompt = StaticObject
 	position = 62.0228 -51.82296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7306,7 +7354,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 641
+	uin = 645
 	classPrompt = StaticObject
 	position = 65.47803 -52.06005 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7316,7 +7364,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 642
+	uin = 646
 	classPrompt = StaticObject
 	position = 62.0228 -51.82296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -7326,7 +7374,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 643
+	uin = 647
 	classPrompt = StaticObject
 	position = 65.47803 -52.06005 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -7336,7 +7384,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 644
+	uin = 648
 	classPrompt = StaticObject
 	position = 60.381 -48.44838 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -7346,7 +7394,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 645
+	uin = 649
 	classPrompt = StaticObject
 	position = 62.1429 -45.91827 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -7356,52 +7404,11 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 646
-	classPrompt = StaticObject
-	position = 65.41229 -46.1883 0
-	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_63
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = glastisch
-	uin = 647
-	classPrompt = StaticObject
-	position = 64 -48.9 0.3
-	rotation = 0 0 -0.7071068 0.7071068
-	scale = 2.477184 3.442765 1.318584
-	name = glastisch_6
-	editorLayer = "Root Layer\\F2\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 648
-	classPrompt = StaticObject
-	position = 60.381 -48.44838 0.2419727
-	rotation = 0 0 0.7056872 0.7085235
-	name = Armchair3_64
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
-	uin = 649
-	classPrompt = StaticObject
-	position = 62.1429 -45.91827 0.2198927
-	rotation = 0 0 0.07622074 0.997091
-	name = Armchair3_65
-	editorLayer = "Root Layer\\F1\\Einrichtung"
-}
-entity
-{
-	type = Armchair3
 	uin = 650
 	classPrompt = StaticObject
 	position = 65.41229 -46.1883 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
-	name = Armchair3_66
+	name = Armchair3_63
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
 entity
@@ -7412,13 +7419,54 @@ entity
 	position = 64 -48.9 0.3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 2.477184 3.442765 1.318584
-	name = glastisch_7
+	name = glastisch_6
 	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
 entity
 {
 	type = Armchair3
 	uin = 652
+	classPrompt = StaticObject
+	position = 60.381 -48.44838 0.2419727
+	rotation = 0 0 0.7056872 0.7085235
+	name = Armchair3_64
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 653
+	classPrompt = StaticObject
+	position = 62.1429 -45.91827 0.2198927
+	rotation = 0 0 0.07622074 0.997091
+	name = Armchair3_65
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 654
+	classPrompt = StaticObject
+	position = 65.41229 -46.1883 0
+	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
+	name = Armchair3_66
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 655
+	classPrompt = StaticObject
+	position = 64 -48.9 0.3
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_7
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 656
 	classPrompt = StaticObject
 	position = 67.35641 -48.54129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7428,7 +7476,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 653
+	uin = 657
 	classPrompt = StaticObject
 	position = 67.35641 -48.54129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -7438,7 +7486,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 654
+	uin = 658
 	classPrompt = StaticObject
 	position = -85.73153 78.31794 0.3732204
 	rotation = 0 0 0.9189405 -0.3943963
@@ -7448,7 +7496,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 655
+	uin = 659
 	classPrompt = StaticObject
 	position = -84.39864 77.1079 1.657189
 	rotation = 0 0 0.3943963 0.9189405
@@ -7458,7 +7506,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 656
+	uin = 660
 	classPrompt = StaticObject
 	position = -89.73153 74.11794 0.3732204
 	rotation = 0 0 0.3709088 -0.9286694
@@ -7468,7 +7516,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 657
+	uin = 661
 	classPrompt = StaticObject
 	position = -88.39864 72.90791 1.657189
 	rotation = 0 0 0.3943963 0.9189405
@@ -7478,7 +7526,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 658
+	uin = 662
 	classPrompt = StaticObject
 	position = -93.83153 70.31794 0.3732204
 	rotation = 0 0 0.9189405 -0.3943963
@@ -7488,7 +7536,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 659
+	uin = 663
 	classPrompt = StaticObject
 	position = -92.49864 69.1079 1.657189
 	rotation = 0 0 0.3943963 0.9189405
@@ -7498,7 +7546,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 660
+	uin = 664
 	classPrompt = StaticMesh
 	position = -81.95638 54.96434 0.2566535
 	rotation = 0 0 -0.9284949 0.3713453
@@ -7509,7 +7557,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 661
+	uin = 665
 	classPrompt = StaticMesh
 	position = -84.35638 94.26434 0.2566535
 	rotation = 0 0 0.3713453 0.928495
@@ -7520,7 +7568,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 662
+	uin = 666
 	classPrompt = StaticObject
 	position = -61.05844 -78.66175 0
 	rotation = 0 0 -0.9238797 -0.3826833
@@ -7530,7 +7578,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 663
+	uin = 667
 	classPrompt = StaticObject
 	position = -62.4 -73.6 1.3
 	rotation = 0 0 0.3826834 0.9238796
@@ -7540,7 +7588,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 664
+	uin = 668
 	classPrompt = StaticObject
 	position = -74.8 -60.2 0.3
 	name = toilet_0
@@ -7549,7 +7597,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 665
+	uin = 669
 	classPrompt = StaticObject
 	position = -71.95844 -62.36175 0
 	rotation = 0 0 -0.9238797 -0.3826833
@@ -7560,7 +7608,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 666
+	uin = 670
 	classPrompt = StaticObject
 	position = -77.25844 -63.26175 0
 	rotation = 0 0 -0.9238796 0.3826836
@@ -7571,7 +7619,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 667
+	uin = 671
 	classPrompt = StaticObject
 	position = 20.14929 -64.85755 0
 	rotation = 0 0 -0.7071071 -0.7071068
@@ -7582,7 +7630,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 668
+	uin = 672
 	classPrompt = StaticObject
 	position = 19.66859 -61.31968 0.3
 	rotation = 0 0 -0.3826834 0.9238796
@@ -7592,7 +7640,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 669
+	uin = 673
 	classPrompt = StaticObject
 	position = 15.76523 -61.74629 0
 	rotation = 0 0 -1 1.699266E-07
@@ -7603,7 +7651,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 670
+	uin = 674
 	classPrompt = StaticObject
 	position = -25.75072 0.24245 0
 	rotation = 0 0 -0.7071071 -0.7071068
@@ -7614,7 +7662,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 671
+	uin = 675
 	classPrompt = StaticObject
 	position = -26.23141 3.780326 0.3
 	rotation = 0 0 -0.3826834 0.9238796
@@ -7624,7 +7672,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 672
+	uin = 676
 	classPrompt = StaticObject
 	position = -30.13477 3.353713 0
 	rotation = 0 0 -1 1.699266E-07
@@ -7635,7 +7683,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 673
+	uin = 677
 	classPrompt = StaticObject
 	position = -67.55846 106.0383 0
 	rotation = 0 0 -0.9238798 -0.3826833
@@ -7646,7 +7694,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 674
+	uin = 678
 	classPrompt = StaticObject
 	position = -70.40002 108.2 0.3
 	name = toilet_3
@@ -7655,7 +7703,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 675
+	uin = 679
 	classPrompt = StaticObject
 	position = -72.85845 105.1383 0
 	rotation = 0 0 -0.9238797 0.3826837
@@ -7666,7 +7714,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 676
+	uin = 680
 	classPrompt = StaticObject
 	position = -4.9938 89.59972 0.3
 	rotation = 0 0 0.3826834 0.9238796
@@ -7676,7 +7724,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 677
+	uin = 681
 	classPrompt = StaticObject
 	position = -4.567191 85.69637 0
 	rotation = 0 0 -0.7071069 0.7071071
@@ -7687,7 +7735,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 678
+	uin = 682
 	classPrompt = StaticObject
 	position = -1.455925 90.08042 0
 	rotation = 0 0 -1 1.738401E-07
@@ -7698,7 +7746,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 679
+	uin = 683
 	classPrompt = StaticObject
 	position = 87.35541 49.61768 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7708,7 +7756,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 680
+	uin = 684
 	classPrompt = StaticObject
 	position = -55.48615 -63.32056 0
 	rotation = 0 0 -0.3826837 -0.9238797
@@ -7719,7 +7767,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 681
+	uin = 685
 	classPrompt = StaticObject
 	position = -55.48615 -63.32056 0
 	rotation = 0 0 -0.3826837 -0.9238797
@@ -7730,7 +7778,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 682
+	uin = 686
 	classPrompt = StaticObject
 	position = -60.78616 -64.22057 0
 	rotation = 0 0 0.3826833 -0.9238799
@@ -7741,7 +7789,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 683
+	uin = 687
 	classPrompt = StaticObject
 	position = -60.78616 -64.22057 0
 	rotation = 0 0 0.3826833 -0.9238799
@@ -7752,7 +7800,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 684
+	uin = 688
 	classPrompt = StaticObject
 	position = -57.9446 -66.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7762,7 +7810,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 685
+	uin = 689
 	classPrompt = StaticObject
 	position = -57.9446 -66.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7772,7 +7820,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 686
+	uin = 690
 	classPrompt = StaticObject
 	position = 46.31384 -75.22057 0
 	rotation = 0 0 0.3826833 -0.9238799
@@ -7783,7 +7831,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 687
+	uin = 691
 	classPrompt = StaticObject
 	position = 46.31384 -75.22057 0
 	rotation = 0 0 0.3826833 -0.9238799
@@ -7794,7 +7842,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 688
+	uin = 692
 	classPrompt = StaticObject
 	position = 51.61385 -74.32056 0
 	rotation = 0 0 -0.3826837 -0.9238797
@@ -7805,7 +7853,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 689
+	uin = 693
 	classPrompt = StaticObject
 	position = 51.61385 -74.32056 0
 	rotation = 0 0 -0.3826837 -0.9238797
@@ -7816,7 +7864,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 690
+	uin = 694
 	classPrompt = StaticObject
 	position = 49.1554 -77.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7826,7 +7874,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 691
+	uin = 695
 	classPrompt = StaticObject
 	position = 49.1554 -77.38232 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7836,7 +7884,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 692
+	uin = 696
 	classPrompt = StaticObject
 	position = 90.34929 17.04246 0
 	rotation = 0 0 -0.7071072 -0.7071069
@@ -7847,7 +7895,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 693
+	uin = 697
 	classPrompt = StaticObject
 	position = 90.34929 17.04246 0
 	rotation = 0 0 -0.7071072 -0.7071069
@@ -7858,7 +7906,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 694
+	uin = 698
 	classPrompt = StaticObject
 	position = 85.96523 20.15373 0
 	rotation = 0 0 -1 1.057745E-07
@@ -7869,7 +7917,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 695
+	uin = 699
 	classPrompt = StaticObject
 	position = 85.96523 20.15373 0
 	rotation = 0 0 -1 1.057745E-07
@@ -7880,7 +7928,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 696
+	uin = 700
 	classPrompt = StaticObject
 	position = 89.86859 20.58035 0.3
 	rotation = 0 0 -0.3826836 0.9238797
@@ -7890,7 +7938,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 697
+	uin = 701
 	classPrompt = StaticObject
 	position = 89.86859 20.58035 0.3
 	rotation = 0 0 -0.3826836 0.9238797
@@ -7900,7 +7948,7 @@ entity
 entity
 {
 	type = DoppelwandAbschluss
-	uin = 698
+	uin = 702
 	classPrompt = StaticObject
 	position = 88.14109 53.19861 0
 	rotation = 0 0 -0.3826834 0.9238796
@@ -7910,7 +7958,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 699
+	uin = 703
 	classPrompt = StaticObject
 	position = 89.5554 51.71767 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7920,7 +7968,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 700
+	uin = 704
 	classPrompt = StaticObject
 	position = 91.35541 53.71767 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7930,7 +7978,7 @@ entity
 entity
 {
 	type = toilet
-	uin = 701
+	uin = 705
 	classPrompt = StaticObject
 	position = 93.5554 55.81767 0.3
 	rotation = 0 0 -1 -1.636507E-08
@@ -7940,7 +7988,7 @@ entity
 entity
 {
 	type = ServerRack_real
-	uin = 702
+	uin = 706
 	classPrompt = ServerRack
 	healthFactorAtBeginning = 1
 	position = 114.2799 -0.8819641 0.26
@@ -7951,7 +7999,7 @@ entity
 entity
 {
 	type = ServerRack_real
-	uin = 703
+	uin = 707
 	classPrompt = ServerRack
 	healthFactorAtBeginning = 1
 	position = 11.46075 -55.58646 0.2669983
@@ -7962,7 +8010,7 @@ entity
 entity
 {
 	type = ServerRack_real
-	uin = 704
+	uin = 708
 	classPrompt = ServerRack
 	healthFactorAtBeginning = 1
 	position = -90.89518 -13.85011 0.2746098
@@ -7971,12 +8019,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 705
+	uin = 709
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 706 707 708 709 710 711 712 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727
+	subscriptionsToDeletionEvent = 710 711 712 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730 731
 	curveType = UniformCubicSpline
-	points = 705 706 707 708 709 710 711 712 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727
-	owner = 705
+	points = 709 710 711 712 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730 731
+	owner = 709
 	time = 0
 	position = -87.5 60.9 0.3
 	name = MapCurve_1
@@ -7985,10 +8033,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 706
+	uin = 710
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 1
 	position = -85.4 63 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -7996,10 +8044,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 707
+	uin = 711
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 2
 	position = -83.2 65.10001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8007,10 +8055,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 708
+	uin = 712
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 3
 	position = -80.8 67.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8018,10 +8066,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 709
+	uin = 713
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 4
 	position = -78.5 69.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8029,10 +8077,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 710
+	uin = 714
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 5
 	position = -76.1 72.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8040,10 +8088,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 711
+	uin = 715
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 6
 	position = -73.8 74.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8051,10 +8099,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 712
+	uin = 716
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 7
 	position = -72 77.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8062,10 +8110,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 713
+	uin = 717
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 8
 	position = -70.8 80.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8073,10 +8121,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 714
+	uin = 718
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 9
 	position = -70.2 83.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8084,10 +8132,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 715
+	uin = 719
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 10
 	position = -70.09999 87 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8095,10 +8143,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 716
+	uin = 720
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 11
 	position = -71.3 89.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8106,10 +8154,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 717
+	uin = 721
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 12
 	position = -74.2 89.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8117,10 +8165,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 718
+	uin = 722
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 13
 	position = -76.99999 88.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8128,10 +8176,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 719
+	uin = 723
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 14
 	position = -79.99999 87.10001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8139,10 +8187,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 720
+	uin = 724
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 15
 	position = -82.99999 87.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8150,10 +8198,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 721
+	uin = 725
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 16
 	position = -84.19999 89.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8161,10 +8209,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 722
+	uin = 726
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 17
 	position = -83.09999 92.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8172,10 +8220,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 723
+	uin = 727
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 18
 	position = -81.09999 95.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8183,10 +8231,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 724
+	uin = 728
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 19
 	position = -78.49998 97.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8194,10 +8242,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 725
+	uin = 729
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 20
 	position = -75.49998 98.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8205,10 +8253,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 726
+	uin = 730
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 21
 	position = -72.39999 98.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8216,10 +8264,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 727
+	uin = 731
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 705
-	owner = 705
+	subscriptionsToDeletionEvent = 709
+	owner = 709
 	time = 22
 	position = -69.49998 98.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8227,12 +8275,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 728
+	uin = 732
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 729 730 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746
+	subscriptionsToDeletionEvent = 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748 749 750
 	curveType = UniformCubicSpline
-	points = 728 729 730 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746
-	owner = 728
+	points = 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748 749 750
+	owner = 732
 	time = 0
 	position = -109.3 19.8 0.3
 	name = MapCurve_2
@@ -8241,10 +8289,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 729
+	uin = 733
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 1
 	position = -112.2 19.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8252,10 +8300,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 730
+	uin = 734
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 2
 	position = -115.5 20 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8263,10 +8311,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 731
+	uin = 735
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 3
 	position = -118.6 19.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8274,10 +8322,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 732
+	uin = 736
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 4
 	position = -120.9 17.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8285,10 +8333,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 733
+	uin = 737
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 5
 	position = -121.7 14.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8296,10 +8344,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 734
+	uin = 738
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 6
 	position = -121.1 11.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8307,10 +8355,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 735
+	uin = 739
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 7
 	position = -119.4 8.500001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8318,10 +8366,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 736
+	uin = 740
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 8
 	position = -117.4 5.900001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8329,10 +8377,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 737
+	uin = 741
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 9
 	position = -115.4 3.100001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8340,10 +8388,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 738
+	uin = 742
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 10
 	position = -113.5 0.3000006 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8351,10 +8399,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 739
+	uin = 743
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 11
 	position = -111.9 -2.899999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8362,10 +8410,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 740
+	uin = 744
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 12
 	position = -111 -6.199999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8373,10 +8421,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 741
+	uin = 745
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 13
 	position = -110.5 -9.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8384,10 +8432,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 742
+	uin = 746
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 14
 	position = -109.7 -13.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8395,10 +8443,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 743
+	uin = 747
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 15
 	position = -108 -16.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8406,10 +8454,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 744
+	uin = 748
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 16
 	position = -105.4 -18 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8417,10 +8465,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 745
+	uin = 749
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 17
 	position = -102.5 -19.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8428,10 +8476,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 746
+	uin = 750
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 728
-	owner = 728
+	subscriptionsToDeletionEvent = 732
+	owner = 732
 	time = 18
 	position = -99.39998 -20 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8439,12 +8487,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 747
+	uin = 751
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 748 749 750 751 752 753 754 755 756
+	subscriptionsToDeletionEvent = 752 753 754 755 756 757 758 759 760
 	curveType = UniformCubicSpline
-	points = 747 748 749 750 751 752 753 754 755 756
-	owner = 747
+	points = 751 752 753 754 755 756 757 758 759 760
+	owner = 751
 	time = 0
 	position = -69.6 -71.2 0.3
 	name = MapCurve_3
@@ -8453,10 +8501,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 748
+	uin = 752
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 1
 	position = -72.3 -73.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8464,10 +8512,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 749
+	uin = 753
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 2
 	position = -74.2 -76.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8475,10 +8523,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 750
+	uin = 754
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 3
 	position = -74.99999 -80.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8486,10 +8534,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 751
+	uin = 755
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 4
 	position = -73.69999 -84.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8497,10 +8545,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 752
+	uin = 756
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 5
 	position = -70.99999 -87.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8508,10 +8556,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 753
+	uin = 757
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 6
 	position = -67.59999 -89.49999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8519,10 +8567,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 754
+	uin = 758
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 7
 	position = -63.69999 -90.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8530,10 +8578,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 755
+	uin = 759
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 8
 	position = -59.89999 -88.99999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8541,10 +8589,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 756
+	uin = 760
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 747
-	owner = 747
+	subscriptionsToDeletionEvent = 751
+	owner = 751
 	time = 9
 	position = -56.69999 -86.39999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8552,12 +8600,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 757
+	uin = 761
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 758 759 760 761 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779
+	subscriptionsToDeletionEvent = 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782 783
 	curveType = UniformCubicSpline
-	points = 757 758 759 760 761 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779
-	owner = 757
+	points = 761 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782 783
+	owner = 761
 	time = 0
 	position = -19 -111.9 0.3
 	name = MapCurve_4
@@ -8566,10 +8614,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 758
+	uin = 762
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 1
 	position = -19 -108 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8577,10 +8625,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 759
+	uin = 763
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 2
 	position = -18.8 -103.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8588,10 +8636,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 760
+	uin = 764
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 3
 	position = -17.2 -100.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8599,10 +8647,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 761
+	uin = 765
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 4
 	position = -13.3 -98.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8610,10 +8658,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 762
+	uin = 766
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 5
 	position = -8.7 -98.20001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8621,10 +8669,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 763
+	uin = 767
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 6
 	position = -4.8 -100.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8632,10 +8680,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 764
+	uin = 768
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 7
 	position = -2.7 -103.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8643,10 +8691,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 765
+	uin = 769
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 8
 	position = -2.2 -107.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8654,10 +8702,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 766
+	uin = 770
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 9
 	position = -2 -111.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8665,10 +8713,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 767
+	uin = 771
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 10
 	position = -1.6 -115.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8676,10 +8724,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 768
+	uin = 772
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 11
 	position = 0.1000001 -118.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8687,10 +8735,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 769
+	uin = 773
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 12
 	position = 4.1 -120.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8698,10 +8746,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 770
+	uin = 774
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 13
 	position = 8.400001 -120.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8709,10 +8757,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 771
+	uin = 775
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 14
 	position = 12.2 -118.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8720,10 +8768,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 772
+	uin = 776
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 15
 	position = 13.5 -114 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8731,10 +8779,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 773
+	uin = 777
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 16
 	position = 13.5 -109.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8742,10 +8790,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 774
+	uin = 778
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 17
 	position = 13.5 -105.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8753,10 +8801,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 775
+	uin = 779
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 18
 	position = 14 -100.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8764,10 +8812,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 776
+	uin = 780
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 19
 	position = 17.2 -97.90001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8775,10 +8823,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 777
+	uin = 781
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 20
 	position = 21.5 -98.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8786,10 +8834,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 778
+	uin = 782
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 21
 	position = 23.4 -101.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8797,10 +8845,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 779
+	uin = 783
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 757
-	owner = 757
+	subscriptionsToDeletionEvent = 761
+	owner = 761
 	time = 22
 	position = 23.4 -106 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -8808,7 +8856,7 @@ entity
 entity
 {
 	type = Brechstange_Item
-	uin = 780
+	uin = 784
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -8819,7 +8867,7 @@ entity
 entity
 {
 	type = Brechstange_Item
-	uin = 781
+	uin = 785
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -8830,7 +8878,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 782
+	uin = 786
 	classPrompt = StaticObject
 	position = -86.24117 70.86119 0.361656
 	rotation = 0 0 0.3699795 0.9290399
@@ -8840,7 +8888,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 783
+	uin = 787
 	classPrompt = StaticObject
 	position = -91.11579 65.7384 0.6921079
 	rotation = 0 0 0.2311622 0.9729152
@@ -8850,7 +8898,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 784
+	uin = 788
 	classPrompt = StaticObject
 	position = -96.72697 60.71957 0.370087
 	name = leiche2_7
@@ -8859,7 +8907,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 785
+	uin = 789
 	classPrompt = StaticObject
 	position = -64.76228 93.60197 0.3749405
 	rotation = 0 0 -0.3269082 0.9450561
@@ -8869,7 +8917,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 786
+	uin = 790
 	classPrompt = StaticObject
 	position = -57.76048 95.02245 0.3129493
 	rotation = 0 0 0.3892746 0.9211218
@@ -8879,7 +8927,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 787
+	uin = 791
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -8899,7 +8947,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 788
+	uin = 792
 	classPrompt = StaticObject
 	position = -16.62867 -88.80762 0.3114561
 	name = BettOne_0
@@ -8908,7 +8956,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 789
+	uin = 793
 	classPrompt = StaticObject
 	position = -16.48367 -61.02747 0.2555158
 	name = BettOne_1
@@ -8917,7 +8965,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 790
+	uin = 794
 	classPrompt = StaticObject
 	position = 1.124218 -61.29686 0.2553319
 	name = BettOne_2
@@ -8926,7 +8974,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 791
+	uin = 795
 	classPrompt = StaticObject
 	position = 10.47721 -60.77999 0.2703331
 	name = BettOne_3
@@ -8935,7 +8983,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 792
+	uin = 796
 	classPrompt = StaticObject
 	position = -52.2603 -34.43356 0.303979
 	name = leiche2_10
@@ -8944,7 +8992,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 793
+	uin = 797
 	classPrompt = StaticObject
 	position = -74.74512 -47.93776 0.4615936
 	name = leiche2_11
@@ -8953,7 +9001,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 794
+	uin = 798
 	classPrompt = StaticObject
 	position = -73.15632 -46.54344 0.3029843
 	rotation = 0 0 0.6936476 0.7203145
@@ -8963,7 +9011,7 @@ entity
 entity
 {
 	type = Wall-PIN
-	uin = 795
+	uin = 799
 	classPrompt = StaticObject
 	position = -65.40667 -4.723046 0
 	rotation = 0 0 0.7121705 0.7020065
@@ -8973,7 +9021,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 796
+	uin = 800
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -8997,7 +9045,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 797
+	uin = 801
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -9021,7 +9069,7 @@ entity
 entity
 {
 	type = SubmachineGun
-	uin = 798
+	uin = 802
 	classPrompt = Gun
 	needReload = False
 	readyTimeRemaining = 0
@@ -9045,7 +9093,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 799
+	uin = 803
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9066,7 +9114,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 800
+	uin = 804
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9087,7 +9135,7 @@ entity
 entity
 {
 	type = BrokenDoor
-	uin = 801
+	uin = 805
 	classPrompt = BrokenDoor
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -9101,7 +9149,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 802
+	uin = 806
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 496.7423 2.976936 1.07243
@@ -9111,7 +9159,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 803
+	uin = 807
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 495.8604 51.80941 1.067558
@@ -9121,7 +9169,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 804
+	uin = 808
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 471.0664 51.45832 1.06914
@@ -9131,7 +9179,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 805
+	uin = 809
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 471.6542 3.681352 1.067023
@@ -9141,7 +9189,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 806
+	uin = 810
 	classPrompt = StaticObject
 	position = -80.95398 -5.234161 0.358241
 	rotation = 0 0 -0.7850875 0.6193849
@@ -9151,7 +9199,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 807
+	uin = 811
 	classPrompt = StaticObject
 	position = -89.15398 6.265839 0.358241
 	rotation = 0 0 -0.9623547 0.2717971
@@ -9161,7 +9209,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 808
+	uin = 812
 	classPrompt = StaticObject
 	position = -27.2 10.4 1.7
 	name = BettSofa_1
@@ -9169,7 +9217,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 809
+	uin = 813
 	classPrompt = StaticObject
 	position = 104.3 18.8 0.3
 	rotation = 0 0 -0.3007059 0.9537171
@@ -9180,7 +9228,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 810
+	uin = 814
 	classPrompt = StaticObject
 	position = 85.88387 -51.19152 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9190,7 +9238,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 811
+	uin = 815
 	classPrompt = StaticObject
 	position = 82.44763 -54.5032 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9200,7 +9248,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 812
+	uin = 816
 	classPrompt = StaticObject
 	position = 93.5216 -55.56548 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9210,7 +9258,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 813
+	uin = 817
 	classPrompt = StaticObject
 	position = 90.20991 -52.12924 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9220,7 +9268,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 814
+	uin = 818
 	classPrompt = StaticObject
 	position = 85.5 -54.7 0.3
 	rotation = 0 0 -0.3826835 0.9238796
@@ -9231,7 +9279,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 815
+	uin = 819
 	classPrompt = StaticObject
 	position = 91 -56 0.3
 	rotation = 0 0 -0.9238797 0.3826835
@@ -9242,7 +9290,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 816
+	uin = 820
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9252,7 +9300,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 817
+	uin = 821
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9262,7 +9310,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 818
+	uin = 822
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -53.7 19.4 1.1
@@ -9272,7 +9320,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 819
+	uin = 823
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -30.2 -20.3 1.1
@@ -9282,7 +9330,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 820
+	uin = 824
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -33.3 15.7 1.1
@@ -9292,7 +9340,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 821
+	uin = 825
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 26.5 -11.4 1.1
@@ -9302,7 +9350,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 822
+	uin = 826
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 54 13.9 1.1
@@ -9312,7 +9360,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 823
+	uin = 827
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 18.7 52.6 1.1
@@ -9322,7 +9370,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 824
+	uin = 828
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -3.2 28.8 1.1
@@ -9332,7 +9380,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 825
+	uin = 829
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.9 35.8 1.1
@@ -9342,7 +9390,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 826
+	uin = 830
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 19.4 -55.2 1.1
@@ -9352,7 +9400,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 827
+	uin = 831
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 4.2 -41.4 1.1
@@ -9361,10 +9409,680 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 828
+	uin = 832
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.4 -54.9 1.1
 	name = ExplosionBarrel_10
 	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = battery
+	uin = 917
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -20.8 95.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 916
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 14.1 102.6 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 915
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 8.7 125.8 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 918
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -105.1 72.4 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 919
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -82.3 79 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 920
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -85.8 50.9 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 921
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -55.5 94.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 922
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -95.7 -25.8 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 923
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -95.5 9.3 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 924
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -117 26.8 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 925
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -125.7 -6.3 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 926
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -78.6 -57.2 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 927
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -72.5 -61.2 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 928
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -64.4 -68.3 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 929
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -51.7 -81.6 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 930
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -92.6 -76.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 931
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 25.2 -124.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 932
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 10.6 -95 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 933
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -12.9 -103.4 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 934
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -13.6 -122.6 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 935
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 82.8 -56.3 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 936
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 94.5 -83.3 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 937
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 93.7 -77 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 938
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 82.8 -96.4 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 939
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 76 -103.4 0.2
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 940
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 122.9 7.7 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 941
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 99.3 -23.7 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 942
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 104.8 24.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 943
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 64.6 90.5 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 944
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 52.8 89.4 0.3
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = battery
+	uin = 945
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 13.5 90.5 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 946
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 14.7 61.8 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 947
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -43.4 40.9 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 948
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -31.5 61.8 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 949
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -76.7 49.4 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 950
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -63.4 15.9 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 951
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -83.5 -5.1 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 952
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -88.4 7.8 0.6
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 953
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -74.6 -49.3 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 954
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -28.9 -58.3 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 955
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -39 -52.4 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 956
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 20.4 -64 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 957
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 6.9 -61.4 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 958
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -18.5 -61.6 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 959
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -11.6 -90.6 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 960
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 46.9 -77.8 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 961
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 67.8 -50.6 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 962
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 56.7 -28.3 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 963
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 91 18.9 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 964
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 91.3 -20.4 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 965
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 61 -3.3 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 966
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 26.6 57.3 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 967
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 39.3 44.7 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 968
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 68.9 56.8 0.3
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = battery
+	uin = 969
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -20.6 26.9 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 970
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 20.3 26.5 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 971
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 8.8 55.9 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 972
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -25.6 1.1 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 973
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -26.1 7.1 1.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 974
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -25.3 -20.8 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 975
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -51.9 16 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 976
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 13.8 -56.1 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 977
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -18.1 -55.9 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 978
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 4.8 -26.5 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 979
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 54.7 20.2 0.3
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 980
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 54.3 -13 1.7
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = battery
+	uin = 981
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = 24.8 -0.4 0.3
+	editorLayer = "Root Layer\\F3\\Items"
 }
