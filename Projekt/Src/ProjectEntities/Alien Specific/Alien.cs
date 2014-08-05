@@ -188,41 +188,50 @@ namespace ProjectEntities
 
         private void TickPatrol()
         {
+            
             patrolTickTime -= TickDelta;
             if (patrolTickTime <= 0)
             {
-                //this.Patrol();
-
-                if (Computer.ExperiencePoints > 0)
-                {
-
-                    if (counterPatrolCosts == 5)
+               
+                    if (Computer.ExperiencePoints > 0)
                     {
-                        Computer.DecrementExperiencePoints();
-                        EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
-                        counterPatrolCosts = 0;
+
+                        if (counterPatrolCosts == 5)
+                        {
+                            Computer.DecrementExperiencePoints();
+                            EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
+                            counterPatrolCosts = 0;
+                        }
+                        counterPatrolCosts++;
+
+
+                       
+                        //laufe zum nächsten Punkt
+                        MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
+                        Move(pt.Position);
+                        routeIndex++; //nächster Route-Waypoint
+
+                        
+                                            
+
+                        //das Alien läuft die Route zurück, wenn es am Ende der Route angekommen ist.
+                        if (routeIndex >= route.Count)
+                        {
+                            routeIndex = 0;
+                            route.Reverse();
+                        }
+
+                            
+                        patrolTickTime = 0.63f;
+                        //patrolTickTime = 1.0f;
+                      
+
                     }
-                    counterPatrolCosts++;
-
-                    //laufe zum nächsten Punkt
-                    MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
-                    Move(pt.Position);
-                    routeIndex++; //nächster Route-Waypoint
-
-                    //das Alien läuft die Route zurück, wenn es am Ende der Route angekommen ist.
-                    if (routeIndex >= route.Count)
+                    else
                     {
-                        routeIndex = 0;
-                        route.Reverse();
+                        Stop();
                     }
-
-                    patrolTickTime = 0.63f;
-
-                }
-                else
-                {
-                    Stop();
-                }
+                
 
             }
          }
@@ -399,6 +408,7 @@ namespace ProjectEntities
 
         void TickMove()
         {
+           
             //path find control
             {
                 if (pathFindWaitTime != 0)
@@ -481,6 +491,7 @@ namespace ProjectEntities
                 else
                     path.Clear();
             }
+            
         }
 
         protected override void OnRenderFrame()
