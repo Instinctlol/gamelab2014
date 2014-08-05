@@ -1,7 +1,7 @@
 highLevelMaterial "01 - Default"
 {
 	template = ShaderBaseMaterial
-	blending = AlphaAdd
+	blending = AlphaBlend
 	diffuse1Map
 	{
 		texture = ".\\Blut.png"

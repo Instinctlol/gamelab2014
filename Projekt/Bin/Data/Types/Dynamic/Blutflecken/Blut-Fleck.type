@@ -1,0 +1,11 @@
+type "Blut-Fleck"
+{
+	class = StaticObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Blut-Fleck.mesh"
+		}
+	}
+}
