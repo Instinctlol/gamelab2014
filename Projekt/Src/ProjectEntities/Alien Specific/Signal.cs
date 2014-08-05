@@ -32,5 +32,13 @@ namespace ProjectEntities
             set { max = value; }
         }
 
+        public override bool Equals(Object obj){
+            
+            Signal other = obj as Signal;
+            if (other != null){
+                return min == other.min && max == other.max;
+            }
+            return false;
+        }
     }
 }
