@@ -58,9 +58,9 @@ control Control
 		name = Game
 		control Control
 		{
-			position = Screen -0.3141694 0.4427083
+			position = Screen -0.421875 0.4166667
 			horizontalAlign = Right
-			size = ScaleByResolution 162.2905 99.09412
+			size = Screen 0.1484375 0.2005208
 			name = WeaponCircle
 			backTexture = "GUI\\HUD\\Ironman 2.png"
 		}
@@ -192,9 +192,9 @@ control Control
 		}
 		control Control
 		{
-			position = Screen -0.328125 0.4557292
+			position = Screen -0.4355469 0.4296875
 			horizontalAlign = Right
-			size = Screen 0.125 0.1145834
+			size = Screen 0.1347656 0.1666667
 			name = WeaponIcon
 		}
 		control Control
@@ -210,7 +210,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen -0.3843483 0.3255208
+			position = Screen -0.3355202 0.2734375
 			horizontalAlign = Right
 			size = ScaleByResolution 100.4274 18.00002
 			name = WeaponBulletCountAlternative
@@ -239,12 +239,11 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -404.9402 270
+			position = ScaleByResolution -464.9402 490
 			horizontalAlign = Right
 			size = Screen 0.07720687 0.02343748
 			name = WeaponBulletCountNormal
 			text = "50/100"
-			visible = False
 		}
 		control TextBox
 		{
@@ -252,12 +251,11 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen 0.06594718 0.3385417
+			position = Screen 0.007353432 0.6119791
 			horizontalAlign = Center
 			size = ScaleByResolution 79.05984 18.00003
 			name = WeaponMagazineCountNormal
 			text = "10/30"
-			visible = False
 		}
 	}
 	control Control

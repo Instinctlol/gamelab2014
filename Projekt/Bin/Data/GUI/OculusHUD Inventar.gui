@@ -43,10 +43,10 @@ control Control
 	control TextBox
 	{
 		textVerticalAlign = Top
-		font = German 0.025
+		font = German 0.02
 		textColor = 0.007843138 1 0.8509805
-		position = ScaleByResolution 270 300
-		size = Screen 0.4824219 0.07552084
+		position = ScaleByResolution 300 300
+		size = Screen 0.4142306 0.08510417
 		name = MessageBox
 	}
 	control Control
@@ -58,7 +58,7 @@ control Control
 		name = Game
 		control Control
 		{
-			position = Screen -0.3141694 0.4427083
+			position = Screen -0.4215913 0.4427083
 			horizontalAlign = Right
 			size = ScaleByResolution 162.2905 99.09412
 			name = WeaponCircle
@@ -188,7 +188,7 @@ control Control
 		}
 		control Control
 		{
-			position = Screen -0.328125 0.4557292
+			position = Screen -0.4355469 0.4427083
 			horizontalAlign = Right
 			size = Screen 0.125 0.1145834
 			name = WeaponIcon
@@ -206,7 +206,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen -0.3843483 0.3255208
+			position = Screen -0.1304421 0.1953125
 			horizontalAlign = Right
 			size = ScaleByResolution 100.4274 18.00002
 			name = WeaponBulletCountAlternative
@@ -221,8 +221,8 @@ control Control
 			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
 			control Control
 			{
-				position = Parent 0.4146919 0.2020202
-				size = Screen 0.1406247 0.02555716
+				position = Screen 0.4199219 0.2994792
+				size = Screen 0.160156 0.02555716
 				name = HealthBar
 				backTexture = "GUI\\HUD\\HealthBar4.png"
 				colorMultiplier = 1 0.7333333 0.6392157
@@ -234,7 +234,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -404.9402 270
+			position = ScaleByResolution -474.9402 450
 			horizontalAlign = Right
 			size = Screen 0.07720687 0.02343748
 			name = WeaponBulletCountNormal
@@ -246,7 +246,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen 0.06594718 0.3385417
+			position = Screen -0.002412193 0.5598958
 			horizontalAlign = Center
 			size = ScaleByResolution 79.05984 18.00003
 			name = WeaponMagazineCountNormal
@@ -255,51 +255,51 @@ control Control
 	}
 	control Control
 	{
-		position = Screen 0.2246094 0.46875
-		size = Screen 0.55 0.1
+		position = Screen 0.2539063 0.46875
+		size = Screen 0.4914062 0.08697917
 		name = Item_Leiste
 		backTexture = "GUI\\Inventar\\item_leiste.png"
 		control Control
 		{
-			position = Screen 0.4199219 0.4296875
-			size = Screen 0.16 0.16
+			position = Screen 0.4296875 0.4296875
+			size = Screen 0.1404688 0.1469792
 			name = Item_mitte
 			backTexture = "GUI\\Inventar\\item_mitte.png"
 		}
 		control TextBox
 		{
-			position = ScaleByResolution 180 100
+			position = ScaleByResolution 160 90
 			size = Parent 0.35 0.28
 			name = item_name
 		}
 		control Control
 		{
-			position = Screen 0.2539063 0.4817708
-			size = Screen 0.075 0.075
+			position = Screen 0.2734375 0.4817708
+			size = Screen 0.06523438 0.06197917
 			name = item1
 		}
 		control Control
 		{
-			position = Screen 0.3417969 0.4817708
-			size = Screen 0.075 0.075
+			position = Screen 0.3515625 0.4817708
+			size = Screen 0.06523438 0.06197917
 			name = item2
 		}
 		control Control
 		{
-			position = Screen 0.5859375 0.4817708
-			size = Screen 0.075 0.075
+			position = Screen 0.5761719 0.4817708
+			size = Screen 0.06523438 0.06197917
 			name = item4
 		}
 		control Control
 		{
-			position = Screen 0.6738281 0.4817708
-			size = Screen 0.075 0.075
+			position = Screen 0.6542969 0.4817708
+			size = Screen 0.06523438 0.06197917
 			name = item5
 		}
 		control Control
 		{
-			position = Screen 0.4394531 0.4557292
-			size = Screen 0.12 0.12
+			position = Screen 0.4492188 0.4557292
+			size = Screen 0.1004688 0.1069791
 			name = item3
 		}
 	}
