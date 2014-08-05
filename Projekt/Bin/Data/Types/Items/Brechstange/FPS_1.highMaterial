@@ -1,0 +1,8 @@
+highLevelMaterial FPS_12
+{
+	template = FPSWeaponMaterial
+	diffuse1Map
+	{
+		texture = ".\\metal02.jpg"
+	}
+}

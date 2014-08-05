@@ -136,7 +136,6 @@
     <Compile Include="Action Specific\GameCharacter.cs" />
     <Compile Include="Action Specific\GameCharacterAI.cs" />
     <Compile Include="Action Specific\JumpPad.cs" />
-    <Compile Include="Action Specific\KleineAlienAI.cs" />
     <Compile Include="Action Specific\MapChangeRegion.cs" />
     <Compile Include="Action Specific\PlayerCharacter.cs" />
     <Compile Include="Action Specific\PlayerIntellect.cs" />

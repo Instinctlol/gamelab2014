@@ -55,9 +55,9 @@ namespace ProjectEntities
 
         //KANN GEAENDERT WERDEN:
         private static float initialTime = 200; //Zeit zwischen jeweiligem highlighten der Buttons, 1000=1sek
-        private int solvedMax = 8; //Wie oft der Spieler abgefragt werden soll
+        private int solvedMax = 6; //Wie oft der Spieler abgefragt werden soll
         private int colorsToAdd = 1; // Wie viele Farben hinzukommen sollen
-        private int solutionStartColors = 1; //Mit wie vielen Farben gestartet wird
+        private int solutionStartColors = 3; //Mit wie vielen Farben gestartet wird
         
 
 

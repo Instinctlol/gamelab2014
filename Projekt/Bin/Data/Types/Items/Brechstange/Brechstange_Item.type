@@ -1,0 +1,12 @@
+type Brechstange_Item
+{
+	class = Item
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\brechstange.mesh"
+			position = 0 0 0.05410957
+		}
+	}
+}
