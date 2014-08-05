@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = -1.715637 103.8334 16.65661
-editorCameraDirection = 4.710092 -1.560796
+editorCameraPosition = -62.539 37.79721 33.79588
+editorCameraDirection = 5.373259 -1.557671
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -9249,7 +9249,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 898
+	uin = 816
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9259,7 +9259,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 899
+	uin = 817
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055

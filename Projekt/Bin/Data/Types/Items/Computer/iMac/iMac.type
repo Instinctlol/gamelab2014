@@ -8,6 +8,7 @@ type iMac
 		mesh
 		{
 			meshName = ".\\imac.mesh"
+			position = 0 0 -0.2
 		}
 	}
 }
