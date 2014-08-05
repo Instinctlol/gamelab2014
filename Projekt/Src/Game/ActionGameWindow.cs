@@ -709,7 +709,7 @@ namespace Game
 
             if (origin.Length() != 0)
             {
-                Sphere sphere = new Sphere(origin, 0.33f);
+                Sphere sphere = new Sphere(origin, 0.5f);
 
                 foreach (MapObject obj in Map.Instance.GetObjects(sphere))
                 {

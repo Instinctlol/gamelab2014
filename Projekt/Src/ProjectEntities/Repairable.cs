@@ -109,7 +109,6 @@ namespace ProjectEntities
         }
 
 
-        //TODO: Network, updating physical object
         public virtual bool Repaired
         {
             get { return repaired; }
@@ -194,7 +193,7 @@ namespace ProjectEntities
             }
 
             destroyedTexture = null;
-            if (Type.DestroyedTexture == null || Type.DestroyedTexture.Length == 0)
+            if (!String.IsNullOrEmpty(Type.DestroyedTexture))
                 destroyedTexture = Type.DestroyedTexture;
 
             if (mesh != null && !String.IsNullOrEmpty(destroyedTexture))
