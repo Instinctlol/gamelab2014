@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 16.61881 -88.33521 39.21057
-editorCameraDirection = 2.972717 -0.7232964
+editorCameraPosition = 80.55441 76.64191 22.6362
+editorCameraDirection = 3.913338 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -138,7 +138,6 @@ rootEditorLayer
 		layer
 		{
 			name = Waende
-			allowSelect = False
 		}
 		layer
 		{
@@ -1739,7 +1738,7 @@ entity
 	uin = 124
 	classPrompt = AlienSpawner
 	sector = 100
-	spawnLimit = 0
+	spawnLimit = 2
 	intellectShouldDeleteAfterDetach = False
 	initialAI = AlienSpawnerAI
 	initialFaction = BadFaction
@@ -2936,7 +2935,7 @@ entity
 	type = BunkBed
 	uin = 232
 	classPrompt = StaticObject
-	position = 77.20931 75.23372 0
+	position = 77.40931 75.53372 0
 	rotation = 0 0 0.3662154 0.9305301
 	name = BunkBed_2
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -2946,7 +2945,7 @@ entity
 	type = BunkBed
 	uin = 233
 	classPrompt = StaticObject
-	position = 74.27508 77.93813 0
+	position = 74.47507 78.23814 0
 	rotation = 0 0 0.3662154 0.9305301
 	name = BunkBed_5
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -2956,7 +2955,7 @@ entity
 	type = BunkBed
 	uin = 234
 	classPrompt = StaticObject
-	position = 71.70152 80.8851 0
+	position = 71.90152 81.1851 0
 	rotation = 0 0 0.3662154 0.9305301
 	name = BunkBed_6
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -2966,7 +2965,7 @@ entity
 	type = BunkBed
 	uin = 235
 	classPrompt = StaticObject
-	position = 68.76728 83.58951 0
+	position = 68.96728 83.88951 0
 	rotation = 0 0 0.3662154 0.9305301
 	name = BunkBed_15
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -2976,7 +2975,7 @@ entity
 	type = BunkBed
 	uin = 236
 	classPrompt = StaticObject
-	position = 66.13833 86.57164 0
+	position = 66.33833 86.87164 0
 	rotation = 0 0 0.3662154 0.9305301
 	name = BunkBed_16
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -7910,7 +7909,7 @@ entity
 	type = DoppelwandAbschluss
 	uin = 698
 	classPrompt = StaticObject
-	position = 87.94109 54.09861 0
+	position = 88.14109 53.19861 0
 	rotation = 0 0 -0.3826834 0.9238796
 	name = DoppelwandAbschluss_64
 	editorLayer = "Root Layer\\F3\\Waende"
@@ -8852,7 +8851,7 @@ entity
 	type = Leiche1
 	uin = 783
 	classPrompt = StaticObject
-	position = -85.74117 70.36119 0.361656
+	position = -86.24117 70.86119 0.361656
 	rotation = 0 0 0.3699795 0.9290399
 	name = Leiche1_10
 	editorLayer = "Root Layer\\F1\\Leichen"
@@ -8862,7 +8861,7 @@ entity
 	type = Leiche1
 	uin = 784
 	classPrompt = StaticObject
-	position = -90.71579 65.53841 0.6921079
+	position = -91.11579 65.7384 0.6921079
 	rotation = 0 0 0.2311622 0.9729152
 	name = Leiche1_11
 	editorLayer = "Root Layer\\F1\\Leichen"
@@ -8872,7 +8871,7 @@ entity
 	type = leiche2
 	uin = 785
 	classPrompt = StaticObject
-	position = -93.32697 62.51957 0.370087
+	position = -96.72697 60.71957 0.370087
 	name = leiche2_7
 	editorLayer = "Root Layer\\F1\\Leichen"
 }
@@ -8881,7 +8880,7 @@ entity
 	type = leiche2
 	uin = 786
 	classPrompt = StaticObject
-	position = -65.26228 92.50197 0.3749405
+	position = -64.76228 93.60197 0.3749405
 	rotation = 0 0 -0.3269082 0.9450561
 	name = leiche2_8
 	editorLayer = "Root Layer\\F1\\Leichen"
@@ -8891,7 +8890,7 @@ entity
 	type = leiche2
 	uin = 787
 	classPrompt = StaticObject
-	position = -57.76048 94.12245 0.3129493
+	position = -57.76048 95.02245 0.3129493
 	rotation = 0 0 0.3892746 0.9211218
 	name = leiche2_9
 	editorLayer = "Root Layer\\F1\\Leichen"
@@ -9161,7 +9160,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 889
+	uin = 807
 	classPrompt = StaticObject
 	position = -80.95398 -5.234161 0.358241
 	rotation = 0 0 -0.7850875 0.6193849
@@ -9171,7 +9170,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 890
+	uin = 808
 	classPrompt = StaticObject
 	position = -89.15398 6.265839 0.358241
 	rotation = 0 0 -0.9623547 0.2717971
@@ -9181,7 +9180,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 891
+	uin = 809
 	classPrompt = StaticObject
 	position = -27.2 10.4 1.7
 	name = BettSofa_1
@@ -9189,7 +9188,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 892
+	uin = 810
 	classPrompt = StaticObject
 	position = 104.3 18.8 0.3
 	rotation = 0 0 -0.3007059 0.9537171
@@ -9200,7 +9199,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 893
+	uin = 811
 	classPrompt = StaticObject
 	position = 85.88387 -51.19152 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9210,7 +9209,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 894
+	uin = 812
 	classPrompt = StaticObject
 	position = 82.44763 -54.5032 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9220,7 +9219,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 895
+	uin = 813
 	classPrompt = StaticObject
 	position = 93.5216 -55.56548 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9230,7 +9229,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 896
+	uin = 814
 	classPrompt = StaticObject
 	position = 90.20991 -52.12924 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9240,7 +9239,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 897
+	uin = 815
 	classPrompt = StaticObject
 	position = 85.5 -54.7 0.3
 	rotation = 0 0 -0.3826835 0.9238796
@@ -9251,11 +9250,31 @@ entity
 entity
 {
 	type = glastisch
-	uin = 898
+	uin = 816
 	classPrompt = StaticObject
 	position = 91 -56 0.3
 	rotation = 0 0 -0.9238797 0.3826835
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_10
 	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 899
+	classPrompt = StaticObject
+	position = 101.5262 20.14666 0.2198927
+	rotation = 0 0 0.5678886 0.8231055
+	name = Armchair3_69
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 900
+	classPrompt = StaticObject
+	position = 101.5262 20.14666 0.2198927
+	rotation = 0 0 0.5678886 0.8231055
+	name = Armchair3_70
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
