@@ -1210,23 +1210,47 @@ namespace Game
 
             //Selected units HUD
             {
-                string text = "";
+                //string text = "";
+                int zahl = 0;
 
                 if (selectedUnits.Count >= 1)
                 {
                     foreach (Unit unit in selectedUnits)
                     {
-                        text += unit.ToString();
                         if (unit is Alien)
                         {
-                            text += string.Format(": {0:0%}", unit.Health / unit.Type.HealthMax);//.HealthFactorAtBeginning
-                        }
-                        text += "\n";
+                            Control control = hudControl.Controls["links"].Controls["AlienAnzeige" + zahl];
+
+                            if (control == null)
+                                break;
+
+                            control.Visible = zahl < 10 && zahl < selectedUnits.Count;
+
+                            if (control.Visible)
+                                if (zahl > 10 && zahl < selectedUnits.Count)
+                                    control.Visible = false;
+
+                            if (control.Visible)
+                            {
+                                Control healthBar = control.Controls["StatusAlien"];
+                                float sizeX = unit.Health / unit.Type.HealthMax;
+                                healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
+                            }
+
+
+                            //text += unit.ToString();
+                            //if (unit is Alien)
+                            //{
+                            //text += string.Format(": {0:0%}", unit.Health / unit.Type.HealthMax);//.HealthFactorAtBeginning
+                            //}
+                            //text += "\n";
+                            zahl++;
+                        }                        
                     }
                 }
 
                 //hudControl.Controls["SelectedUnitsInfo"].Text = text;
-                hudControl.Controls["links"].Controls["SelectedUnitsInfo"].Text = text;
+                //hudControl.Controls["links"].Controls["SelectedUnitsInfo"].Text = text;
 
                 UpdateControlPanel();
             }

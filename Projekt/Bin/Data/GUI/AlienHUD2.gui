@@ -8,11 +8,10 @@ control Control
 		size = Parent 0.3 1
 		name = rechts
 		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
-		visible = False
 		control Control
 		{
 			position = Parent 0.15 0.2
-			size = Parent 0.8 0.5
+			size = Parent 0.8 0.375
 			name = ControlPanelControl
 			control "GUI\\Controls\\DefaultButton.gui"
 			{
@@ -70,19 +69,195 @@ control Control
 		size = Parent 0.25 1
 		name = links
 		backTexture = "GUI\\HUD\\Elemente\\links.png"
-		visible = False
-		control TextBox
+		control Control
 		{
-			textHorizontalAlign = Left
-			textVerticalAlign = Top
-			font = Default 0.02
-			shadow = True
-			shadowOffset = ScaleByResolution 2 2
-			wordWrap = True
-			position = ScaleByResolution 10 130
-			size = ScaleByResolution 160 500
-			name = SelectedUnitsInfo
-			enable = False
+			position = Parent 0.15 0.15
+			size = Parent 0.2 0.075
+			name = Alienanzeige0
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5 0.15
+			size = Parent 0.2 0.075
+			name = Alienanzeige1
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.15 0.25
+			size = Parent 0.2 0.075
+			name = Alienanzeige2
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5 0.25
+			size = Parent 0.2 0.075
+			name = Alienanzeige3
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.15 0.35
+			size = Parent 0.2 0.075
+			name = Alienanzeige4
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5 0.35
+			size = Parent 0.2 0.075
+			name = Alienanzeige5
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.15 0.45
+			size = Parent 0.2 0.075
+			name = Alienanzeige6
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5 0.45
+			size = Parent 0.2 0.075
+			name = Alienanzeige7
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.15 0.55
+			size = Parent 0.2 0.075
+			name = Alienanzeige8
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
+		}
+		control Control
+		{
+			position = Parent 0.5 0.55
+			size = Parent 0.2 0.075
+			name = Alienanzeige9
+			control Control
+			{
+				size = Parent 1 0.8
+				name = Alien
+				backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			}
+			control Control
+			{
+				position = Parent 0 0.8
+				size = Parent 1 0.2
+				name = StatusAlien
+				backTexture = "GUI\\HUD\\HealthBar5.png"
+			}
 		}
 	}
 	control Control
@@ -216,10 +391,9 @@ control Control
 			name = AktuelleAlien
 			text = AA
 			backColor = 1 1 1
-			backTexture = "GUI\\HUD\\Icons\\alien_empty.png"
+			backTexture = "GUI\\HUD\\Icons\\alien_full.png"
 			control TextBox
 			{
-				textColor = 0 0 0
 				position = Parent 0.18 0.22
 				size = Parent 0.7 0.7
 				name = AlienCountActive
@@ -233,9 +407,10 @@ control Control
 			name = MaximalAlien
 			text = MA
 			backColor = 1 1 1
-			backTexture = "GUI\\HUD\\Icons\\alien_full.png"
+			backTexture = "GUI\\HUD\\Icons\\alien_empty.png"
 			control TextBox
 			{
+				textColor = 0 0 0
 				position = Parent 0.18 0.26
 				size = Parent 0.7 0.7
 				name = AlienCountPossible
