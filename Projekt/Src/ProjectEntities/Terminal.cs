@@ -43,6 +43,7 @@ namespace ProjectEntities
             PressToServer,
             ActiveValueToClient,
             TaskMessage,
+            SectorStatusDataToClient
         };
 
 
@@ -337,6 +338,7 @@ namespace ProjectEntities
             Server_SendButtonType(windowType);
             Server_SendTaskType(taskType);
             Server_SendActiveValueToAllClients();
+            Server_SendSectorStatusDataToAllClients();
         }
 
 
@@ -407,6 +409,7 @@ namespace ProjectEntities
                 Server_SendButtonType(windowType);
                 Server_SendTaskType(taskType);
                 Server_SendActiveValueToAllClients();
+                Server_SendSectorStatusDataToAllClients();
             }
 
             SubscribeToTickEvent();
@@ -575,6 +578,23 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
             Active = act;
+        }
+
+        void Server_SendSectorStatusDataToAllClients()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Terminal),
+                (ushort)NetworkMessages.SectorStatusDataToClient);
+            writer.Write(this.sectorStatusData);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.SectorStatusDataToClient)]
+        void Client_ReceiveSectorStatusData(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string ssd = reader.ReadString();
+            if (!reader.Complete())
+                return;
+            SectorStatusData = ssd;
         }
 
         private void Server_SendWindowString(string message)
