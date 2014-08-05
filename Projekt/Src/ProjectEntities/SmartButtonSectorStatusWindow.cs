@@ -17,6 +17,9 @@ namespace ProjectEntities
         private RotControl secgrpAR7Cntrl, secgrpAR8Cntrl, secgrpBCntrl, secgrpCCntrl, secgrpDCntrl, secgrpECntrl, secgrpFCntrl, secgrpGCntrl;
         Control ringFullCntrl;
         private SectorGroup secgrpA, secgrpB, secgrpC, secgrpD, secgrpE, secgrpF, secgrpG;
+        private List<RotControl> highlightedMiddleRingControls = new List<RotControl>();
+        private List<RotControl> highlightedInnerRingControls = new List<RotControl>();
+        private List<RotControl> highlightedOuterRingControls = new List<RotControl>();
         GameNetworkClient client = GameNetworkClient.Instance;
         // ringRotations[0] is Ring F1, ringRotations[1] is Ring F2 and ringRotations[2] is Ring F3 (inner Ring)
         private int[] currRingRotations = new int[3];   //saves the current ring positions currently shown
@@ -99,6 +102,94 @@ namespace ProjectEntities
             button.Client_WindowDataReceived += Client_WindowDataReceived;
             button.Client_WindowStringReceived += Client_StringReceived;
             button.Server_WindowDataReceived += Server_WindowDataReceived;
+
+            switch(button.Terminal.SectorStatusData.ToLower())
+            {
+                case "f1r1":
+                    highlight("f1r1", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r1_highlighted"]);
+                    return;
+                case "f1r2":
+                    highlight("f1r2", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r2_highlighted"]);
+                    return;
+                case "f1r3":
+                    highlight("f1r3", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r3_highlighted"]);
+                    return;
+                case "f1r4":
+                    highlight("f1r4", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r4_highlighted"]);
+                    return;
+                case "f1r5":
+                    highlight("f1r5", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r5_highlighted"]);
+                    return;
+                case "f1r6":
+                    highlight("f1r6", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r6_highlighted"]);
+                    return;
+                case "f1r7":
+                    highlight("f1r7", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r7_highlighted"]);
+                    return;
+                case "f1r8":
+                    highlight("f1r8", true);
+                    highlightedOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r8_highlighted"]);
+                    return;
+                case "f2r1":
+                    highlight("f2r1", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r1_highlighted"]);
+                    return;
+                case "f2r2":
+                    highlight("f2r2", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r2_highlighted"]);
+                    return;
+                case "f2r3":
+                    highlight("f2r3", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r3_highlighted"]);
+                    return;
+                case "f2r4":
+                    highlight("f2r4", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r4_highlighted"]);
+                    return;
+                case "f2r5":
+                    highlight("f2r5", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r5_highlighted"]);
+                    return;
+                case "f2r6":
+                    highlight("f2r6", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r6_highlighted"]);
+                    return;
+                case "f2r7":
+                    highlight("f2r7", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r7_highlighted"]);
+                    return;
+                case "f2r8":
+                    highlight("f2r8", true);
+                    highlightedMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r8_highlighted"]);
+                    return;
+                case "f3r1":
+                    highlight("f3r1", true);
+                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r1_highlighted"]);
+                    return;
+                case "f3r2":
+                    highlight("f3r2", true);
+                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r2_highlighted"]);
+                    return;
+                case "f3r3":
+                    highlight("f3r3", true);
+                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r3_highlighted"]);
+                    return;
+                case "f3r4":
+                    highlight("f3r4", true);
+                    highlightedInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r4_highlighted"]);
+                    return;
+                default:
+                    return;
+            }
+
+
 
             //center window
             CurWindow.HorizontalAlign = HorizontalAlign.Center;
@@ -281,6 +372,12 @@ namespace ProjectEntities
 
 
             }
+        }
+
+        //Zeigt oder versteckt das highlight Control fuer einen bestimmten Raum (z.B. "f1r3", true), case-sensitive
+        private void highlight(String s, bool b)
+        {
+            ringFullCntrl.Controls["Highlight_Overlay"].Controls[s + "_highlighted"].Visible = b;
         }
 
         //used for client initialization
@@ -503,6 +600,10 @@ namespace ProjectEntities
                     ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                     secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                     secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedInnerRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
                 }
                 else
@@ -512,6 +613,10 @@ namespace ProjectEntities
                     ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                     secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
                     secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedInnerRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
                 }
             }
@@ -529,6 +634,10 @@ namespace ProjectEntities
                     secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
                     secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
                     secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedMiddleRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
                 }
 
@@ -540,6 +649,10 @@ namespace ProjectEntities
                     secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
                     secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
                     secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedMiddleRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
                 }
             }
@@ -558,6 +671,10 @@ namespace ProjectEntities
                     secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
                     secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                     secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedOuterRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[0] = (currRingRotations[0] + 1) % 8;
                 }
                 else
@@ -569,6 +686,10 @@ namespace ProjectEntities
                     secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
                     secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
                     secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedOuterRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     mod(currRingRotations[0] - 1, 8);
                 }
             }
@@ -785,6 +906,10 @@ namespace ProjectEntities
                     ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
                     secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
                     secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedInnerRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
                 }
                 else
@@ -792,6 +917,10 @@ namespace ProjectEntities
                     ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
                     secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
                     secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedInnerRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
                 }
             }
@@ -807,6 +936,10 @@ namespace ProjectEntities
                     secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
                     secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
                     secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedMiddleRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
                 }
 
@@ -816,6 +949,10 @@ namespace ProjectEntities
                     secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
                     secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
                     secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedMiddleRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
                 }
             }
@@ -832,6 +969,10 @@ namespace ProjectEntities
                     secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
                     secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
                     secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    foreach (RotControl r in highlightedOuterRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                    }
                     currRingRotations[0] = (currRingRotations[0] + 1) % 8;
                 }
                 else
@@ -841,6 +982,10 @@ namespace ProjectEntities
                     secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
                     secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
                     secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    foreach (RotControl r in highlightedOuterRingControls)
+                    {
+                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                    }
                     mod(currRingRotations[0] - 1, 8);
                 }
             }

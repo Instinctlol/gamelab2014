@@ -78,6 +78,12 @@ namespace ProjectEntities
         [FieldSerialize]
         private string taskData;
 
+        [FieldSerialize]
+        private string sectorStatusData;
+
+        
+        
+
 
         //Das gehört in TYPE
         //Sound der abgespielt wird, falls ein Task nicht erfolgreich beendet wurde
@@ -148,6 +154,13 @@ namespace ProjectEntities
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendActiveValueToAllClients();
             }
+        }
+
+        [LocalizedDescription("String which describes the position of this Terminal", "SectorStatusData")]
+        public string SectorStatusData
+        {
+            get { return sectorStatusData; }
+            set { sectorStatusData = value; }
         }
 
 
