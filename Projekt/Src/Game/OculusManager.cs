@@ -315,8 +315,9 @@ namespace Game
             //temp.X = value.Z;
 
             ////Test
+            
             temp.Y = value.Y * walkingScale * (-1);
-            temp.Z = value.Z;
+            temp.Z = value.Z * walkingScale;
             temp.X = value.X * walkingScale;
 
             value = temp;
