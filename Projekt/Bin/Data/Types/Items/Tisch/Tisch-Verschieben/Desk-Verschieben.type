@@ -1,0 +1,12 @@
+type "Desk-Verschieben"
+{
+	class = StaticObject
+	physicsModel = ".\\Desk.physics"
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Desk_schieben.mesh"
+		}
+	}
+}
