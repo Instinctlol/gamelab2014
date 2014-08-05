@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 1.033394 -3.35589 124.8918
-editorCameraDirection = 2.324699 -1.062359
+editorCameraPosition = 13.16655 -37.46378 31.99004
+editorCameraDirection = 0.8791358 0.128823
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -222,7 +222,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 6
-				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -232,7 +232,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 7
-				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -260,7 +260,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 10
-				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateLeft();"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -270,7 +270,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 11
-				code = "((Ring)Entities.Instance.GetByName(\"F2_Ring\")).RotateRight();"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -289,7 +289,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 13
-				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -299,7 +299,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 14
-				code = "Computer.RotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
+				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -318,7 +318,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 16
-				code = "if(Owner.Value)\r\n\t((Fan)Entities.Instance.GetByName(\"Fan_0\")).Throttle = 1;\r\nelse\r\n\t((Fan)Entities.Instance.GetByName(\"Fan_0\")).Throttle = 0;"
+				code = "if(Owner.Value)\r\n{\r\n\t((Fan)Entities.Instance.GetByName(\"Fan_0\")).Throttle = 1;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_2\")).Value = false;\r\n\t((BooleanSwitch)Entities.Instance.GetByName(\"Switch_Ventilator_3\")).Value = false;\r\n}\r\nelse\r\n\t((Fan)Entities.Instance.GetByName(\"Fan_0\")).Throttle = 0;"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -560,6 +560,40 @@ entity
 				returnType = System.Void
 				parameters = 
 				isEntityEventMethod = True
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 911
+			subscriptionsToDeletionEvent = 102
+			entityClassName = Sector
+			className = F1R1S
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 912
+				code = "if(obj is PlayerCharacter && !firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n}"
+				methodName = ObjectIn
+				returnType = System.Void
+				parameters = 913
+				isEntityEventMethod = True
+				entity
+				{
+					type = LogicParameter
+					uin = 913
+					parameterType = Engine.MapSystem.MapObject
+					parameterName = obj
+				}
+			}
+			entity
+			{
+				type = LogicVariable
+				uin = 914
+				variableType = System.Boolean
+				variableName = firstIn
+				supportSerialization = True
 			}
 		}
 	}
@@ -1062,9 +1096,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -53.6123 53.84821 3
+	position = -53.47003 53.71018 3
 	rotation = 0 0 -0.3826834 0.9238795
-	scale = 36.20875 49.58686 10.9482
+	scale = 33.22679 49.58686 10.9482
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1348,6 +1382,7 @@ entity
 	type = Sector
 	uin = 102
 	classPrompt = Sector
+	subscriptionsToDeletionEvent = 911
 	ring = 111
 	group = 116
 	enabled = True
@@ -1357,6 +1392,7 @@ entity
 	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
 	name = F1R1-S
+	logicClass = 911
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
 }
@@ -9226,7 +9262,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 900
+	uin = 818
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -53.7 19.4 1.1
@@ -9236,7 +9272,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 901
+	uin = 819
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -30.2 -20.3 1.1
@@ -9246,7 +9282,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 902
+	uin = 820
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -33.3 15.7 1.1
@@ -9256,7 +9292,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 903
+	uin = 821
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 26.5 -11.4 1.1
@@ -9266,7 +9302,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 904
+	uin = 822
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 54 13.9 1.1
@@ -9276,7 +9312,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 905
+	uin = 823
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 18.7 52.6 1.1
@@ -9286,7 +9322,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 906
+	uin = 824
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -3.2 28.8 1.1
@@ -9296,7 +9332,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 907
+	uin = 825
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.9 35.8 1.1
@@ -9306,7 +9342,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 908
+	uin = 826
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 19.4 -55.2 1.1
@@ -9316,7 +9352,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 909
+	uin = 827
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 4.2 -41.4 1.1
@@ -9325,7 +9361,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 910
+	uin = 828
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.4 -54.9 1.1
