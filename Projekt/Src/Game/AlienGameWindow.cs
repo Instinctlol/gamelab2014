@@ -1130,6 +1130,19 @@ namespace Game
                 hudControl.Controls["Strahlen"].Controls["Rotation"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
                 hudControl.Controls["Strahlen"].Controls["LightSwitch"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
                 hudControl.Controls["Strahlen"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+
+                Vec2I resolution = EngineApp.Instance.VideoMode;
+                float ResSize = resolution.Y;
+
+                hudControl.Controls["Strahlen"].Size = new ScaleValue(Control.ScaleType.Pixel, new Vec2(ResSize * 0.35f, ResSize * 0.3f));
+                hudControl.Controls["Strahlen"].Position = new ScaleValue(Control.ScaleType.Pixel, new Vec2(resolution.X -
+                    hudControl.Controls["Strahlen"].Size.Value.X, resolution.Y - hudControl.Controls["Strahlen"].Size.Value.Y));
+
+                hudControl.Controls["rechts"].Size = new ScaleValue(Control.ScaleType.Pixel, new Vec2(ResSize * 0.35f, ResSize));
+                hudControl.Controls["rechts"].Position = new ScaleValue(Control.ScaleType.Pixel, new Vec2(resolution.X -
+                    hudControl.Controls["rechts"].Size.Value.X,0));
+
+               
             }
 
 

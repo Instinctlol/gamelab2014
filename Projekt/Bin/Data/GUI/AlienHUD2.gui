@@ -5,7 +5,7 @@ control Control
 	control Control
 	{
 		position = Parent 0.7 0
-		size = Parent 0.3 1
+		size = ScaleByResolution 307.2 768
 		name = rechts
 		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
 		control Control
@@ -65,8 +65,7 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 0
-		size = Parent 0.25 1
+		size = ScaleByResolution 256 768
 		name = links
 		backTexture = "GUI\\HUD\\Elemente\\links.png"
 		control Control
@@ -298,7 +297,7 @@ control Control
 	control Control
 	{
 		position = Parent 0 0.75
-		size = Parent 0.25 0.25
+		size = ScaleByResolution 256 192
 		name = Minimap
 		backTexture = "GUI\\HUD\\Elemente\\Minimap.png"
 		control Control
@@ -360,7 +359,7 @@ control Control
 	control Control
 	{
 		position = Parent 0.7 0.65
-		size = Parent 0.3 0.35
+		size = Pixel 319.5 333.9
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
 		control TextBox
