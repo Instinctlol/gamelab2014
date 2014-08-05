@@ -1,6 +1,7 @@
 type Brechstange_Item
 {
 	class = Item
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
