@@ -513,10 +513,10 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
-            if(GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeBesitz == true)
-            {
-                switchTaschenlampe();
-            }
+            //if(GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeBesitz == true)
+            //{
+            //    switchTaschenlampe();
+            //}
 
         }
 
