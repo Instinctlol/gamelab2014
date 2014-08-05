@@ -138,7 +138,7 @@ namespace Game
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
             hudControl.Controls["Game/WeaponCircle"].Visible = false; 
             hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
-            hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
+            hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
 
             //CutSceneManager specific
             if (CutSceneManager.Instance != null)
@@ -2022,7 +2022,7 @@ namespace Game
                 hudControl.Controls["Game/WeaponIcon"].Visible = true;
                 hudControl.Controls["Game/WeaponCircle"].Visible = true; 
                 hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
-                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
+                hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
                 Timer aTimer = new Timer(5000);
                 aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
                 aTimer.Enabled = true;
