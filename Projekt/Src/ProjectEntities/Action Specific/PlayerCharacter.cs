@@ -693,7 +693,8 @@ namespace ProjectEntities
                     {
                         if (Inventar != null)
                         {
-                            attachedObject.Visible = Inventar.taschenlampevisible && Inventar.taschenlampeBesitz && Inventar.taschenlampeEnergie > 0;
+                            //NUR ZUM TESTEN. 
+                            attachedObject.Visible = true;// Inventar.taschenlampevisible && Inventar.taschenlampeBesitz && Inventar.taschenlampeEnergie > 0;
 
                             if (fpsCamera)
                             {
