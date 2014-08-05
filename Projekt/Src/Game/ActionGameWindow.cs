@@ -1911,12 +1911,16 @@ namespace Game
 
                     if (evt.ControlKey == GameControlKeys.PreviousWeapon )
                     {
-                        linksInventar();
+                        rechtsInventar();
                     }
 
                     if (evt.ControlKey == GameControlKeys.NextWeapon )
                     {
-                        rechtsInventar();
+                        linksInventar();
+                    }
+                    if (evt.ControlKey == GameControlKeys.Fire2)
+                    {
+                        switchTaschenlampe();
                     }
 
                     
