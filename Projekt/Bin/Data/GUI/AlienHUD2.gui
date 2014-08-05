@@ -373,7 +373,7 @@ control Control
 	}
 	control Control
 	{
-		position = Parent 0.69 0.65
+		position = Parent 0.7 0.65
 		size = Parent 0.3 0.35
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
