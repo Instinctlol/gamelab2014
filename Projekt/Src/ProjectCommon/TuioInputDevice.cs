@@ -416,6 +416,7 @@ namespace ProjectCommon
                         failsafebool = true;
                         endb = true;
                         end = elemt;
+                        Console.WriteLine("End Detected");
                     }
 
                 }

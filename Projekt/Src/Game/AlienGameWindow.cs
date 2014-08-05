@@ -59,6 +59,7 @@ namespace Game
         bool selectDraggedMouse;
         bool selectworkbench;
         Vec2 selectworkbenchcoord;
+
         
         // Task Attribute
         int taskTargetChooseIndex = -1;
@@ -287,7 +288,8 @@ namespace Game
                     if (select.X == 0f && select.Y == 0f)
                     {
                         if(selectworkbench){
-                            DoEndSelectModeWorkbench(select);
+                            //meinfehler
+                            DoEndSelectModeWorkbench(selectworkbenchcoord);
                             selectworkbench = false;
                         Console.WriteLine("endselection");
                         }
