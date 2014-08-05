@@ -8,7 +8,6 @@ type laptop
 		mesh
 		{
 			meshName = ".\\Laptop.mesh"
-			position = 0 0 0.2
 		}
 	}
 }
