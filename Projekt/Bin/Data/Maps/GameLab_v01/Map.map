@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 25.08952 46.21139 66.63329
-editorCameraDirection = 3.975934 -1.560796
+editorCameraPosition = 38.08121 31.08525 105.7184
+editorCameraDirection = 4.360895 -1.098296
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -9405,6 +9405,7 @@ entity
 	healthFactorAtBeginning = 1
 	position = 4.2 -41.4 1.1
 	name = ExplosionBarrel_9
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -10085,4 +10086,434 @@ entity
 	healthFactorAtBeginning = 1
 	position = 24.8 -0.4 0.3
 	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 982
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 25.3 106.3 1.1
+	name = ExplosionBarrel_11
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 983
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 10.1 116.2 1.1
+	name = ExplosionBarrel_12
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 984
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -16.4 96.5 1.1
+	name = ExplosionBarrel_13
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 985
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -98.1 63.8 1.1
+	name = ExplosionBarrel_14
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 986
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -93.3 57.8 1.1
+	name = ExplosionBarrel_15
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 987
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -50.7 87.3 1.1
+	name = ExplosionBarrel_16
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 988
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -97.3 10.2 1.1
+	name = ExplosionBarrel_17
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 989
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -104.5 26 1.1
+	name = ExplosionBarrel_18
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 990
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -124.9 -15.2 1.1
+	name = ExplosionBarrel_19
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 991
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -70.7 -98.2 1.1
+	name = ExplosionBarrel_20
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 992
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -56 -78.6 1.1
+	name = ExplosionBarrel_21
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 993
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -78.5 -63.1 1.1
+	name = ExplosionBarrel_22
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 994
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 10.7 -97.4 1.1
+	name = ExplosionBarrel_23
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 995
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -8 -103.7 1.1
+	name = ExplosionBarrel_24
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 996
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -26.4 -124 1.1
+	name = ExplosionBarrel_25
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 997
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 99.4 -77.6 1.1
+	name = ExplosionBarrel_26
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 998
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 82.2 -84.1 1.1
+	name = ExplosionBarrel_27
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 999
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 77.1 -101.3 1.1
+	name = ExplosionBarrel_28
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1000
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 107.8 -11.2 1.1
+	name = ExplosionBarrel_29
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1001
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 97.7 24.9 1.1
+	name = ExplosionBarrel_30
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1002
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 56.2 29.9 1.1
+	name = ExplosionBarrel_31
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1003
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 29.8 59.3 1.1
+	name = ExplosionBarrel_32
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1004
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 65.6 60.1 1.1
+	name = ExplosionBarrel_33
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1005
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 1.3 90.4 1.1
+	name = ExplosionBarrel_34
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1006
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 8.6 64.3 1.1
+	name = ExplosionBarrel_35
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1007
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -19.2 62.4 1.1
+	name = ExplosionBarrel_36
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1008
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -55.6 29.8 1.1
+	name = ExplosionBarrel_37
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1009
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -47.9 76.1 1.1
+	name = ExplosionBarrel_38
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1010
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -61.8 -19.9 1.1
+	name = ExplosionBarrel_39
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1011
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -61.5 -4.3 1.1
+	name = ExplosionBarrel_40
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1012
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -73.9 20.5 1.1
+	name = ExplosionBarrel_41
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1013
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -48.5 -76.2 1.1
+	name = ExplosionBarrel_42
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1014
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -38.4 -47 1.1
+	name = ExplosionBarrel_43
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1015
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -74.3 -50.8 1.1
+	name = ExplosionBarrel_44
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1016
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 8.6 -62.4 1.1
+	name = ExplosionBarrel_45
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1017
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 19.6 -90.4 1.1
+	name = ExplosionBarrel_46
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1018
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -19.1 -90 1.1
+	name = ExplosionBarrel_47
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1019
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 76.4 -49.7 1.1
+	name = ExplosionBarrel_48
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1020
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 45.5 -52.4 1.1
+	name = ExplosionBarrel_49
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1021
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 52.4 -74.1 1.1
+	name = ExplosionBarrel_50
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1022
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 90.4 12.3 1.1
+	name = ExplosionBarrel_51
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1023
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 72.7 -16.3 1.3
+	name = ExplosionBarrel_52
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 1024
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 62.2 19.6 1.1
+	name = ExplosionBarrel_53
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
