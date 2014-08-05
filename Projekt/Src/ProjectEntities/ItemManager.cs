@@ -122,7 +122,7 @@ namespace ProjectEntities
                     currentItem.TakeItem(unit);
                     break;
 
-                case "BrechstangeItem":
+                case "Brechstange_Item":
                     currentItem.Name = "Brechstange";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {

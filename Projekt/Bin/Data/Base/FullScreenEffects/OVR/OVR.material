@@ -1,9 +1,10 @@
 
-fragment_program Compositor/OVR_fp_cg cg
+fragment_program Compositor/OVR_fp_cg hlsl
 {
 	source Base\FullScreenEffects\OVR\OVR.cg_hlsl
 	entry_point main_fp
-	profiles arbfp1
+	//profiles arbfp1
+	target ps_3_0
 }
 
 material Compositor/OVR

@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionTest.cs" />
     <Compile Include="AlienDollar\Category.cs" />
     <Compile Include="AlienDollar\NBestList.cs" />
     <Compile Include="AlienDollar\PointR.cs" />
@@ -139,7 +140,6 @@
     <Compile Include="AlienDollar\SizeR.cs" />
     <Compile Include="AlienDollar\Unistroke.cs" />
     <Compile Include="AlienDollar\Utils.cs" />
-    <Compile Include="ActionTest.cs" />
     <Compile Include="DynamicMeshManagerImpl.cs" />
     <Compile Include="ExampleCustomInputDevice.cs">
       <SubType>Code</SubType>

@@ -513,6 +513,11 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
+            if(GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeBesitz == true)
+            {
+                switchTaschenlampe();
+            }
+
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
