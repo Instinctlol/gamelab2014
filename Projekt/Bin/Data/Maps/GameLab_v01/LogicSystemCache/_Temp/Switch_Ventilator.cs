@@ -36,7 +36,11 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		public void ValueChange()
 		{
 			if(Owner.Value)
+			{
 				((Fan)Entities.Instance.GetByName("Fan_0")).Throttle = 1;
+				((BooleanSwitch)Entities.Instance.GetByName("Switch_Ventilator_2")).Value = false;
+				((BooleanSwitch)Entities.Instance.GetByName("Switch_Ventilator_3")).Value = false;
+			}
 			else
 				((Fan)Entities.Instance.GetByName("Fan_0")).Throttle = 0;
 		}

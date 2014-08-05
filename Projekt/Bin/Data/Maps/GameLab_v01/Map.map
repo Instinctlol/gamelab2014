@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 38.08121 31.08525 105.7184
-editorCameraDirection = 4.360895 -1.098296
+editorCameraPosition = 107.0317 -12.17851 17.82052
+editorCameraDirection = 2.10006 -0.508275
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -62,25 +62,19 @@ rootEditorLayer
 	layer
 	{
 		name = Rotation
-		visible = False
 		allowSelect = False
 		layer
 		{
 			name = F1
-			visible = False
-			allowSelect = False
 		}
 		layer
 		{
 			name = F3
-			visible = False
 			allowSelect = False
 		}
 		layer
 		{
 			name = F2
-			visible = False
-			allowSelect = False
 		}
 	}
 	layer
@@ -674,7 +668,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -692,7 +685,6 @@ entity
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
-	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -709,7 +701,6 @@ entity
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 49.58686 10.9482
-	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -727,7 +718,6 @@ entity
 	position = 0 40 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 49.58686 10.9482
-	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -745,7 +735,6 @@ entity
 	position = 0 -40 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
-	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1043,7 +1032,6 @@ entity
 	filter = All
 	position = 76.38126 -0.6724877 3
 	scale = 33.84572 49.58686 10.9482
-	visible = False
 	name = F2R8-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1060,7 +1048,6 @@ entity
 	filter = All
 	position = -75.9137 0 3
 	scale = 33.84572 44.35646 10.9482
-	visible = False
 	name = F2R4-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1078,7 +1065,6 @@ entity
 	position = 0 -76.63119 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.13409 49.58686 10.9482
-	visible = False
 	name = F2R6-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1096,7 +1082,6 @@ entity
 	position = 0.6402804 76.1175 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
-	visible = False
 	name = F2R2-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1114,7 +1099,6 @@ entity
 	position = -53.47003 53.71018 3
 	rotation = 0 0 -0.3826834 0.9238795
 	scale = 33.22679 49.58686 10.9482
-	visible = False
 	name = F2R3-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1143,7 +1127,6 @@ entity
 	position = -52.09005 -53.303 3
 	rotation = 0 0 -0.923759 0.3829742
 	scale = 33.19179 46.61387 10.9482
-	visible = False
 	name = F2R5-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1158,10 +1141,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 51.67473 -53.51751 3
+	position = 52.21391 -53.67228 3
 	rotation = 0 0 -0.3826835 0.9238795
-	scale = 33.84572 44.9986 10.9482
-	visible = False
+	scale = 34.19146 44.9986 10.9482
 	name = F2R7-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1179,7 +1161,6 @@ entity
 	position = -32.95972 75.2175 3
 	rotation = 0 0 -0.7660444 -0.6427876
 	scale = 9.572958 20.68153 10.9482
-	visible = False
 	name = F2S23
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1197,7 +1178,6 @@ entity
 	position = 31.94028 72.71751 3
 	rotation = 0 0 -0.5877852 -0.8090171
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S12
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1215,7 +1195,6 @@ entity
 	position = 51.77006 52.6838 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 43.82289 10.9482
-	visible = False
 	name = F2R1-S
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1233,7 +1212,6 @@ entity
 	position = 71.58986 31.04519 3
 	rotation = 0 0 -0.2204835 -0.9753907
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S18
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1251,7 +1229,6 @@ entity
 	position = -29.85971 -73.1825 3
 	rotation = 0 0 -0.809017 0.5877853
 	scale = 9.572958 22.87252 10.9482
-	visible = False
 	name = F2S56
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1269,7 +1246,6 @@ entity
 	position = -72.36753 -30.13406 3
 	rotation = 0 0 -0.956245 0.2925674
 	scale = 9.572958 25.37091 10.9482
-	visible = False
 	name = F2S45
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Center
@@ -1286,7 +1262,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F2_Ring
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1301,7 +1276,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
-	visible = False
 	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1316,7 +1290,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
-	visible = False
 	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1333,7 +1306,6 @@ entity
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R4-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1351,7 +1323,6 @@ entity
 	position = -0.8943577 -110.7355 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 34.97242 58.90884 10.9482
-	visible = False
 	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1368,7 +1339,6 @@ entity
 	filter = All
 	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R8-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1386,7 +1356,6 @@ entity
 	position = -1.542244 110.3673 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R2-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1404,7 +1373,6 @@ entity
 	position = -78.5583 78.36488 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1423,7 +1391,6 @@ entity
 	position = 78.37129 79.25614 3
 	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R1-S
 	logicClass = 42
 	editorLayer = "Root Layer\\Rotation\\F1"
@@ -1442,7 +1409,6 @@ entity
 	position = 79.70628 -77.65553 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1460,7 +1426,6 @@ entity
 	position = -75.8792 -79.86818 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1478,7 +1443,6 @@ entity
 	position = -104.0742 -43.92505 3
 	rotation = 0 0 -0.9743701 0.224951
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S45
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1496,7 +1460,6 @@ entity
 	position = -41.43666 -104.3344 3
 	rotation = 0 0 -0.8287271 0.5596528
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1514,7 +1477,6 @@ entity
 	position = 44.97606 -104.6201 3
 	rotation = 0 0 -0.5586905 0.829376
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S67
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1532,7 +1494,6 @@ entity
 	position = 43.45355 104.5948 3
 	rotation = 0 0 -0.5828322 -0.8125925
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S12
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1550,7 +1511,6 @@ entity
 	position = -43.49978 104.6491 3
 	rotation = 0 0 -0.8302855 -0.5573382
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1580,7 +1540,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1595,7 +1554,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 42.09188 37.10183 -0.09931804
-	visible = False
 	name = F2SG-D
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1610,7 +1568,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -31.63795 -35.92422 -0.09931804
-	visible = False
 	name = F2SG-E
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1625,7 +1582,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 43.60439 -93.08067 -0.09931804
-	visible = False
 	name = F1SG-C
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1640,7 +1596,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 75.04897 -32.51239 -0.09931804
-	visible = False
 	name = F1SG-A
 	editorLayer = "Root Layer\\Rotation\\F2"
 	checkType = Bounds
@@ -1655,7 +1610,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
-	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1698,7 +1652,6 @@ entity
 	position = -32.0114 32.72062 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 33.90364 10.9482
-	visible = False
 	name = F3C23-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1727,7 +1680,6 @@ entity
 	position = 32.56227 -32.53202 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 34.3275 10.9482
-	visible = False
 	name = F3C14-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -9420,7 +9372,7 @@ entity
 entity
 {
 	type = battery
-	uin = 917
+	uin = 833
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9430,7 +9382,7 @@ entity
 entity
 {
 	type = battery
-	uin = 916
+	uin = 834
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9440,7 +9392,7 @@ entity
 entity
 {
 	type = battery
-	uin = 915
+	uin = 835
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9450,7 +9402,7 @@ entity
 entity
 {
 	type = battery
-	uin = 918
+	uin = 836
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9460,7 +9412,7 @@ entity
 entity
 {
 	type = battery
-	uin = 919
+	uin = 837
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9470,7 +9422,7 @@ entity
 entity
 {
 	type = battery
-	uin = 920
+	uin = 838
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9480,7 +9432,7 @@ entity
 entity
 {
 	type = battery
-	uin = 921
+	uin = 839
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9490,7 +9442,7 @@ entity
 entity
 {
 	type = battery
-	uin = 922
+	uin = 840
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9500,7 +9452,7 @@ entity
 entity
 {
 	type = battery
-	uin = 923
+	uin = 841
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9510,7 +9462,7 @@ entity
 entity
 {
 	type = battery
-	uin = 924
+	uin = 842
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9520,7 +9472,7 @@ entity
 entity
 {
 	type = battery
-	uin = 925
+	uin = 843
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9530,7 +9482,7 @@ entity
 entity
 {
 	type = battery
-	uin = 926
+	uin = 844
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9540,7 +9492,7 @@ entity
 entity
 {
 	type = battery
-	uin = 927
+	uin = 845
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9550,7 +9502,7 @@ entity
 entity
 {
 	type = battery
-	uin = 928
+	uin = 846
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9560,7 +9512,7 @@ entity
 entity
 {
 	type = battery
-	uin = 929
+	uin = 847
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9570,7 +9522,7 @@ entity
 entity
 {
 	type = battery
-	uin = 930
+	uin = 848
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9580,7 +9532,7 @@ entity
 entity
 {
 	type = battery
-	uin = 931
+	uin = 849
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9590,7 +9542,7 @@ entity
 entity
 {
 	type = battery
-	uin = 932
+	uin = 850
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9600,7 +9552,7 @@ entity
 entity
 {
 	type = battery
-	uin = 933
+	uin = 851
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9610,7 +9562,7 @@ entity
 entity
 {
 	type = battery
-	uin = 934
+	uin = 852
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9620,7 +9572,7 @@ entity
 entity
 {
 	type = battery
-	uin = 935
+	uin = 853
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9630,7 +9582,7 @@ entity
 entity
 {
 	type = battery
-	uin = 936
+	uin = 854
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9640,7 +9592,7 @@ entity
 entity
 {
 	type = battery
-	uin = 937
+	uin = 855
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9650,7 +9602,7 @@ entity
 entity
 {
 	type = battery
-	uin = 938
+	uin = 856
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9660,7 +9612,7 @@ entity
 entity
 {
 	type = battery
-	uin = 939
+	uin = 857
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9670,7 +9622,7 @@ entity
 entity
 {
 	type = battery
-	uin = 940
+	uin = 858
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9680,7 +9632,7 @@ entity
 entity
 {
 	type = battery
-	uin = 941
+	uin = 859
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9690,7 +9642,7 @@ entity
 entity
 {
 	type = battery
-	uin = 942
+	uin = 860
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9700,7 +9652,7 @@ entity
 entity
 {
 	type = battery
-	uin = 943
+	uin = 861
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9710,7 +9662,7 @@ entity
 entity
 {
 	type = battery
-	uin = 944
+	uin = 862
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9720,7 +9672,7 @@ entity
 entity
 {
 	type = battery
-	uin = 945
+	uin = 863
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9730,7 +9682,7 @@ entity
 entity
 {
 	type = battery
-	uin = 946
+	uin = 864
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9740,7 +9692,7 @@ entity
 entity
 {
 	type = battery
-	uin = 947
+	uin = 865
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9750,7 +9702,7 @@ entity
 entity
 {
 	type = battery
-	uin = 948
+	uin = 866
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9760,7 +9712,7 @@ entity
 entity
 {
 	type = battery
-	uin = 949
+	uin = 867
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9770,7 +9722,7 @@ entity
 entity
 {
 	type = battery
-	uin = 950
+	uin = 868
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9780,7 +9732,7 @@ entity
 entity
 {
 	type = battery
-	uin = 951
+	uin = 869
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9790,7 +9742,7 @@ entity
 entity
 {
 	type = battery
-	uin = 952
+	uin = 870
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9800,7 +9752,7 @@ entity
 entity
 {
 	type = battery
-	uin = 953
+	uin = 871
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9810,7 +9762,7 @@ entity
 entity
 {
 	type = battery
-	uin = 954
+	uin = 872
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9820,7 +9772,7 @@ entity
 entity
 {
 	type = battery
-	uin = 955
+	uin = 873
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9830,7 +9782,7 @@ entity
 entity
 {
 	type = battery
-	uin = 956
+	uin = 874
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9840,7 +9792,7 @@ entity
 entity
 {
 	type = battery
-	uin = 957
+	uin = 875
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9850,7 +9802,7 @@ entity
 entity
 {
 	type = battery
-	uin = 958
+	uin = 876
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9860,7 +9812,7 @@ entity
 entity
 {
 	type = battery
-	uin = 959
+	uin = 877
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9870,7 +9822,7 @@ entity
 entity
 {
 	type = battery
-	uin = 960
+	uin = 878
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9880,7 +9832,7 @@ entity
 entity
 {
 	type = battery
-	uin = 961
+	uin = 879
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9890,7 +9842,7 @@ entity
 entity
 {
 	type = battery
-	uin = 962
+	uin = 880
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9900,7 +9852,7 @@ entity
 entity
 {
 	type = battery
-	uin = 963
+	uin = 881
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9910,7 +9862,7 @@ entity
 entity
 {
 	type = battery
-	uin = 964
+	uin = 882
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9920,7 +9872,7 @@ entity
 entity
 {
 	type = battery
-	uin = 965
+	uin = 883
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9930,7 +9882,7 @@ entity
 entity
 {
 	type = battery
-	uin = 966
+	uin = 884
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9940,7 +9892,7 @@ entity
 entity
 {
 	type = battery
-	uin = 967
+	uin = 885
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9950,7 +9902,7 @@ entity
 entity
 {
 	type = battery
-	uin = 968
+	uin = 886
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9960,7 +9912,7 @@ entity
 entity
 {
 	type = battery
-	uin = 969
+	uin = 887
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9970,7 +9922,7 @@ entity
 entity
 {
 	type = battery
-	uin = 970
+	uin = 888
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9980,7 +9932,7 @@ entity
 entity
 {
 	type = battery
-	uin = 971
+	uin = 889
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9990,7 +9942,7 @@ entity
 entity
 {
 	type = battery
-	uin = 972
+	uin = 890
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10000,7 +9952,7 @@ entity
 entity
 {
 	type = battery
-	uin = 973
+	uin = 891
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10010,7 +9962,7 @@ entity
 entity
 {
 	type = battery
-	uin = 974
+	uin = 892
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10020,7 +9972,7 @@ entity
 entity
 {
 	type = battery
-	uin = 975
+	uin = 893
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10030,7 +9982,7 @@ entity
 entity
 {
 	type = battery
-	uin = 976
+	uin = 894
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10040,7 +9992,7 @@ entity
 entity
 {
 	type = battery
-	uin = 977
+	uin = 895
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10050,7 +10002,7 @@ entity
 entity
 {
 	type = battery
-	uin = 978
+	uin = 896
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10060,7 +10012,7 @@ entity
 entity
 {
 	type = battery
-	uin = 979
+	uin = 897
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10070,7 +10022,7 @@ entity
 entity
 {
 	type = battery
-	uin = 980
+	uin = 898
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10080,7 +10032,7 @@ entity
 entity
 {
 	type = battery
-	uin = 981
+	uin = 899
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -10090,7 +10042,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 982
+	uin = 900
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 25.3 106.3 1.1
@@ -10100,7 +10052,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 983
+	uin = 901
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 10.1 116.2 1.1
@@ -10110,7 +10062,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 984
+	uin = 902
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -16.4 96.5 1.1
@@ -10120,7 +10072,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 985
+	uin = 903
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -98.1 63.8 1.1
@@ -10130,7 +10082,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 986
+	uin = 904
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -93.3 57.8 1.1
@@ -10140,7 +10092,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 987
+	uin = 905
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -50.7 87.3 1.1
@@ -10150,7 +10102,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 988
+	uin = 906
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -97.3 10.2 1.1
@@ -10160,7 +10112,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 989
+	uin = 907
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -104.5 26 1.1
@@ -10170,7 +10122,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 990
+	uin = 908
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -124.9 -15.2 1.1
@@ -10180,7 +10132,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 991
+	uin = 909
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -70.7 -98.2 1.1
@@ -10190,7 +10142,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 992
+	uin = 910
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -56 -78.6 1.1
@@ -10200,7 +10152,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 993
+	uin = 911
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -78.5 -63.1 1.1
@@ -10210,7 +10162,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 994
+	uin = 912
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 10.7 -97.4 1.1
@@ -10220,7 +10172,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 995
+	uin = 913
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -8 -103.7 1.1
@@ -10230,7 +10182,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 996
+	uin = 914
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -26.4 -124 1.1
@@ -10240,7 +10192,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 997
+	uin = 915
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 99.4 -77.6 1.1
@@ -10250,7 +10202,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 998
+	uin = 916
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 82.2 -84.1 1.1
@@ -10260,7 +10212,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 999
+	uin = 917
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 77.1 -101.3 1.1
@@ -10270,7 +10222,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1000
+	uin = 918
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 107.8 -11.2 1.1
@@ -10280,7 +10232,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1001
+	uin = 919
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 97.7 24.9 1.1
@@ -10290,7 +10242,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1002
+	uin = 920
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 56.2 29.9 1.1
@@ -10300,7 +10252,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1003
+	uin = 921
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 29.8 59.3 1.1
@@ -10310,7 +10262,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1004
+	uin = 922
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 65.6 60.1 1.1
@@ -10320,7 +10272,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1005
+	uin = 923
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 1.3 90.4 1.1
@@ -10330,7 +10282,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1006
+	uin = 924
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 8.6 64.3 1.1
@@ -10340,7 +10292,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1007
+	uin = 925
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.2 62.4 1.1
@@ -10350,7 +10302,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1008
+	uin = 926
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -55.6 29.8 1.1
@@ -10360,7 +10312,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1009
+	uin = 927
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -47.9 76.1 1.1
@@ -10370,7 +10322,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1010
+	uin = 928
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -61.8 -19.9 1.1
@@ -10380,7 +10332,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1011
+	uin = 929
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -61.5 -4.3 1.1
@@ -10390,7 +10342,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1012
+	uin = 930
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -73.9 20.5 1.1
@@ -10400,7 +10352,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1013
+	uin = 931
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -48.5 -76.2 1.1
@@ -10410,7 +10362,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1014
+	uin = 932
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -38.4 -47 1.1
@@ -10420,7 +10372,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1015
+	uin = 933
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -74.3 -50.8 1.1
@@ -10430,7 +10382,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1016
+	uin = 934
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 8.6 -62.4 1.1
@@ -10440,7 +10392,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1017
+	uin = 935
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 19.6 -90.4 1.1
@@ -10450,7 +10402,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1018
+	uin = 936
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.1 -90 1.1
@@ -10460,7 +10412,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1019
+	uin = 937
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 76.4 -49.7 1.1
@@ -10470,7 +10422,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1020
+	uin = 938
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 45.5 -52.4 1.1
@@ -10480,7 +10432,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1021
+	uin = 939
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 52.4 -74.1 1.1
@@ -10490,7 +10442,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1022
+	uin = 940
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 90.4 12.3 1.1
@@ -10500,7 +10452,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1023
+	uin = 941
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 72.7 -16.3 1.3
@@ -10510,7 +10462,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 1024
+	uin = 942
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 62.2 19.6 1.1
