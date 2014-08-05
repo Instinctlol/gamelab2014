@@ -309,10 +309,10 @@ namespace Game
 		{
 			GameNetworkServer server = GameNetworkServer.Instance;
             
-            //TuDo
+            //ToDo
 			//AllowToConnectDuringGame
 			//server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
-            server.AllowToConnectNewClients = false;
+            //server.AllowToConnectNewClients = false;
 
             GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
 		}
