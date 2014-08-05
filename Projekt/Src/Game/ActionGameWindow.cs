@@ -134,9 +134,11 @@ namespace Game
             //Inventar ausblenden
             hudControl.Controls["Item_Leiste"].Visible = false;
 
-            //Waffenicon ausblenden
+            //Waffeninfos ausblenden
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
-            hudControl.Controls["Game/WeaponCircle"].Visible = false;
+            hudControl.Controls["Game/WeaponCircle"].Visible = false; 
+            hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
+            hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
 
             //CutSceneManager specific
             if (CutSceneManager.Instance != null)
@@ -406,7 +408,8 @@ namespace Game
                         
                         return true;
                 }
-            }
+
+             }
 
             return base.OnJoystickEvent(e);
         }
@@ -2017,7 +2020,9 @@ namespace Game
             if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
             {
                 hudControl.Controls["Game/WeaponIcon"].Visible = true;
-                hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                hudControl.Controls["Game/WeaponCircle"].Visible = true; 
+                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
+                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
                 Timer aTimer = new Timer(5000);
                 aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
                 aTimer.Enabled = true;
@@ -2044,7 +2049,7 @@ namespace Game
                 }
             }
             else
-                sendMessageToHUD("Taschenlampe noch nicht vorhanden oder die Batterie ist leer");
+                sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
         }
     }
 }
