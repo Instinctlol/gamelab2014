@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg5598"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Neues Dokument 9">
+  <defs
+     id="defs5600" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="119.17744"
+     inkscape:cy="329.73592"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="988"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5603">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 249.19409,572.34446 1.28623,23.58185 c 0,0 91.95572,-2.44019 99.48347,69.16428 7.50192,71.35866 -47.92925,63.56487 -47.92925,63.56487 l -1.72839,-26.79901 -35.96327,41.92919 42.43296,36.82472 -2.43278,-26.65826 c 0,0 72.75193,3.50541 63.27115,-89.96508 -9.60709,-94.71567 -118.42012,-91.64256 -118.42012,-91.64256 z"
+       id="path5606"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccscccccsc"
+       inkscape:export-filename="C:\Daten\Dropbox\Gamelab\Projekt\Bin\Data\GUI\HUD\Icons\rotate.png"
+       inkscape:export-xdpi="77.097206"
+       inkscape:export-ydpi="77.097206" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 248.55857,762.31254 -1.28623,-23.58185 c 0,0 -91.95572,2.44019 -99.48347,-69.16428 -7.50192,-71.35866 47.92925,-63.56487 47.92925,-63.56487 l 1.72839,26.79901 35.96327,-41.92919 -42.43296,-36.82472 2.43278,26.65826 c 0,0 -72.75193,-3.50541 -63.27115,89.96508 9.60709,94.71567 118.42012,91.64256 118.42012,91.64256 z"
+       id="path5606-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccscccccsc"
+       inkscape:export-filename="C:\Daten\Dropbox\Gamelab\Projekt\Bin\Data\GUI\HUD\Icons\rotate.png"
+       inkscape:export-xdpi="77.097206"
+       inkscape:export-ydpi="77.097206" />
+  </g>
+</svg>
