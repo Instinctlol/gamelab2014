@@ -9,7 +9,8 @@ type AlienDead
 			meshName = "Types\\Units\\Alien\\Alien.mesh"
 			collisionSpecialMeshName = "Types\\Units\\Alien\\Alien.mesh"
 			animationTree = ".\\AlienDead.animationTree"
-			rotation = 0 0 -0.7071068 -0.7071068
+			position = 0 0 -0.5294022
+			rotation = 0.09037392 0.08265026 -0.7012485 -0.7023194
 		}
 	}
 }

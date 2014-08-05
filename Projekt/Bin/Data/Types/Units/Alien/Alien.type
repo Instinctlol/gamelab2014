@@ -64,12 +64,14 @@ type Alien
 			type = SmallHealthItem
 			alias = smallhealthitem
 			group = 1
+			position = 0 0 -1
 		}
 		mapObject
 		{
 			type = medipack
 			alias = medipack
 			group = 2
+			position = 0 0 -1
 		}
 		mapObject
 		{
