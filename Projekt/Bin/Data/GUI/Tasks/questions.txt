@@ -6,7 +6,7 @@ Vervollstaendigen Sie folgende Zahlenreihe: -2 5 -4 3 -6;1;0;-3;-4
 Vervollstaendigen Sie folgende Zahlenreihe: 1 4 9 16 25;36;29;33;42
 Vervollstaendigen Sie folgende Zahlenreihe: 75 15 25 5 15;3;7;5,2
 Vervollstaendigen Sie folgende Zahlenreihe: 1 2 6 24 120;720;240;540;740 
-Vervollstaendigen Sie folgende Sprachanalogie:Telefon/Kommunikation=Waffen/…;Kämpfen;Fernseher;Waffe;Messer
+Vervollstaendigen Sie folgende Sprachanalogie:Telefon/Kommunikation=Waffen/…;Kaempfen;Fernseher;Waffe;Messer
 Vervollstaendigen Sie folgende Sprachanalogie:Gramm/Kilogramm=.../Meter;Millimeter;Zentimeter;Dezimeter;Nanometer
 Vervollstaendigen Sie folgende Sprachanalogie:Wo/Überall=Wann/…;Immer;Meistens;Oft;Nie
 Vervollstaendigen Sie folgende Sprachanalogie:Schreiber/Buch=Maler/…;Bild;Rembrandt;Goethe;Pinsel
@@ -15,11 +15,11 @@ Welche Infektionskrankheit wurde auch als der »Schwarze Tod« bezeichnet?;Pest;Ch
 6,2:1000=?;0,0062;0,062;0,00062;0,62
 978-14-87-2=?875;865;873;878
 1010?:?10?:?4=?25,25;10,25;10,5;11,25
-Welches dieser Worte ist richtig geschrieben?;Pubertät;Pupertät;Pubertet;Puberthät
+Welches dieser Worte ist richtig geschrieben?;Pubertaet;Pupertaet;Pubertet;Puberthaet
 Welches dieser Worte ist richtig geschrieben?;Kaffeeernte;Kafeernte;Kaffeernte;Kafeeernte
 Welcher Tag war vorgestern, wenn morgen Montag ist?;Freitag;Donnerstag;Samstag;Mittwoch
 Welcher Tag war zwei Tage vor gestern, wenn übermorgen Mittwoch ist?;Freitag;Samstag;Montag;Sonntag
 Welcher Buchstabenmix ist ein weiblicher Vorname?;D E K P A;E L H E N E;A N S I O;K A D N R I
-Welche Länder bilden Skandinavien?; Island, Norwegen, Schweden, Finnland, Dänemark; Schottland, Norwegen, Schweden, Finnland, Dänemark; Island, Grönland, Schweden, Finnland, Dänemark; Irland, Norwegen, Schweden, Finnland, Dänemark
+Welche Laender bilden Skandinavien?; Island, Norwegen, Schweden, Finnland, Daenemark; Schottland, Norwegen, Schweden, Finnland, Daenemark; Island, Grönland, Schweden, Finnland, Daenemark; Irland, Norwegen, Schweden, Finnland, Daenemark
 Wie nennt man eine flache Insel im Wattenmeer vor der Westküste Schleswig-Holsteins?;Hallig;Eiland;Polje;Rundling
 Welches dieser Werke ist nicht von Leonardo Da Vinci?; Sternennacht;Der vitruvianische Mensch;Das Abendmahl;Mona Lisa
