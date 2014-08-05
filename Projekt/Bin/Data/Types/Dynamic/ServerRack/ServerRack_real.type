@@ -3,6 +3,7 @@ type ServerRack_real
 	class = ServerRack
 	secondsBetweenUse = 10
 	soundOnUse = "Sounds\\Beep.ogg"
+	requiredToUse = USB_Stick
 	networkType = Synchronized
 	attachedObjects
 	{
