@@ -146,7 +146,9 @@
     <Compile Include="Alien Specific\AlienSpawner.cs" />
     <Compile Include="Alien Specific\AlienSpawnerAI.cs" />
     <Compile Include="Alien Specific\AlienUnit.cs" />
-    <Compile Include="Alien Specific\AlienUnitAI.cs" />
+    <Compile Include="Alien Specific\AlienUnitAI.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Alien Specific\Computer.cs" />
     <Compile Include="Alien Specific\Signal.cs" />
     <Compile Include="BooleanSwitch.cs" />
