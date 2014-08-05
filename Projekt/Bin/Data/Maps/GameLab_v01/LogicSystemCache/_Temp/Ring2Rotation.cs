@@ -36,12 +36,12 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void TerminalRotateLeftAction()
 		{
-			Computer.RotateRing((Ring)Entities.Instance.GetByName("F2_Ring"),true);
+			((Ring)Entities.Instance.GetByName("F2_Ring")).RotateLeft();
 		}
 
 		public void TerminalRotateRightAction()
 		{
-			Computer.RotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),false);
+			((Ring)Entities.Instance.GetByName("F2_Ring")).RotateRight();
 		}
 
 	}
