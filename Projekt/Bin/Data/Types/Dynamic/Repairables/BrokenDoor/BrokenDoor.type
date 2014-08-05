@@ -6,6 +6,21 @@ type BrokenDoor
 	openTime = 1.3
 	physicsModel = "Types\\Dynamic\\Door\\Door.physics"
 	networkType = Synchronized
+	repairItems
+	{
+		item
+		{
+			itemType = Schrauben
+		}
+		item
+		{
+			itemType = "Schraubenschl\x00fcssel"
+		}
+		item
+		{
+			itemType = cable
+		}
+	}
 	attachedObjects
 	{
 		mesh
