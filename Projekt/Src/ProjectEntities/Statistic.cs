@@ -14,6 +14,7 @@ namespace ProjectEntities
         int killedAliens = 0;
         int killedAstronouts = 0;
         int spawnedAliens = 0;
+        int reanimations = 0;
 
 
 
@@ -41,6 +42,11 @@ namespace ProjectEntities
             get { return spawnedAliens; }
         }
 
+        public int Reanimations
+        {
+            get { return reanimations; }
+        }
+
 
 
 
@@ -65,6 +71,24 @@ namespace ProjectEntities
         public void IncrementSpawnedAliens()
         {
             spawnedAliens++;
+        }
+
+        public void IncrementReanimations()
+        {
+            reanimations++;
+        }
+
+        public String GetAlienData()
+        {
+            return "Astronautenschaden: " + DamageAstronouts + "\n"
+                + "Getötete Astronauten: " + KilledAstronouts + "\n"
+                + "Gespawnte Aliens: " + SpawnedAliens;
+        }
+
+        public String GetAstronoutData()
+        {
+            return "Getötete Aliens: " + KilledAliens + "\n"
+                + "Wiederbelebungen: " + Reanimations;
         }
     }
 }

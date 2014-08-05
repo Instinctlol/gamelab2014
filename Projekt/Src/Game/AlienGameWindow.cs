@@ -191,7 +191,6 @@ namespace Game
 
             // BigMinimap
             bigMinimap = hudControl.Controls["BigMinimap"].Controls["BigMinimap"];
-            bigMinimap.MouseDoubleClick += BigMinimapClick;
 
             //miniminimap
             minimapControl = hudControl.Controls["Minimap"];
@@ -453,14 +452,7 @@ namespace Game
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnKeyDown(e);
-
-            //increment computer station status
-            if (e.Key == EKeys.F3)
-            {
-                Computer.IncrementSolvedRepairables();
-                return true;
-            }
-
+            
             // Alles auf Maximum (Rotation, Strom, Aliens)
             if (e.Key == EKeys.F4)
             {
@@ -483,6 +475,11 @@ namespace Game
             //{
             //    Computer.SetAlienControlPaused();
             //}
+
+            if (e.Key == EKeys.F8)
+            {
+                ShowStatistic();
+            }
 
             if (e.Key == EKeys.F10)
             {
@@ -1097,16 +1094,16 @@ namespace Game
             hudControl.Visible = EngineDebugSettings.DrawGui;
 
             //Computer station status notification (bottom)
-            {
-                float stationStatus = Computer.GetStationStatus();
+            //{
+            //    float stationStatus = Computer.GetStationStatus();
 
-                Control healthBar = hudControl.Controls["StationStatusBar"];
-                Vec2 originalSize = new Vec2(256, 32);
-                Vec2 interval = new Vec2(117, 304);
-                float sizeX = (117 - 82) + stationStatus * (interval[1] - interval[0]);
-                healthBar.Size = new ScaleValue(ScaleType.ScaleByResolution, new Vec2(sizeX, originalSize.Y));
-                healthBar.BackTextureCoord = new Rect(0, 0, sizeX / originalSize.X, 1);
-            }
+            //    Control healthBar = hudControl.Controls["StationStatusBar"];
+            //    Vec2 originalSize = new Vec2(256, 32);
+            //    Vec2 interval = new Vec2(117, 304);
+            //    float sizeX = (117 - 82) + stationStatus * (interval[1] - interval[0]);
+            //    healthBar.Size = new ScaleValue(ScaleType.ScaleByResolution, new Vec2(sizeX, originalSize.Y));
+            //    healthBar.BackTextureCoord = new Rect(0, 0, sizeX / originalSize.X, 1);
+            //}
 
             // AlienIcon
             /*
@@ -1664,8 +1661,13 @@ namespace Game
 
             }
             
-            foreach (Signal s in Computer.signalList)
+            for (int i = 0; i < Computer.signalList.Count(); i++)
             {
+                Signal s;
+                bool peek = Computer.signalList.TryGet(i, out s);
+                if (!peek)
+                    continue;
+
                 Rect rect = new Rect(s.Min, s.Max);
 
                 rect -= mapRect.Minimum;
@@ -1985,6 +1987,19 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Öffnet die Statistik
+        /// </summary>
+        void ShowStatistic()
+        {
+            // Text anpassen
+            hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
+            hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
+
+            // Statistik anzeigen
+            hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+        }
+
         
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////
@@ -2005,15 +2020,6 @@ namespace Game
                 hudControl.Controls["BigMinimap"].Visible = true;
             }
 
-        }
-
-        /// Sector finden anhand eines Klicks auf das Bild in der BigMinimap.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="button"></param>
-        public void BigMinimapClick(Control sender, EMouseButtons button)
-        {
-            //bigMinimapObj.BigMinimapClick(MousePosition);
         }
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////

@@ -120,6 +120,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="UISystem, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bin\UISystem.dll</HintPath>
@@ -217,6 +218,7 @@
     <Compile Include="GameWorld.cs" />
     <Compile Include="General.cs" />
     <Compile Include="Gun.cs" />
+    <Compile Include="ThreadSafeList.cs" />
     <Compile Include="WaterPlane.cs">
       <SubType>Code</SubType>
     </Compile>

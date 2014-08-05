@@ -344,21 +344,6 @@ control Control
 			text = Close
 		}
 	}
-	control Control
-	{
-		position = ScaleByResolution 310 730
-		size = ScaleByResolution 370 30
-		name = StationStatusBar
-		backTexture = "GUI\\HUD\\EnergyBar.png"
-	}
-	control TextBox
-	{
-		textHorizontalAlign = Left
-		position = ScaleByResolution 240 730
-		size = Parent 0.08203122 0.03645831
-		name = StationStatusText
-		text = "Status:"
-	}
 	control "GUI\\Tasks\\Server_SchereSteinPapier.gui"
 	{
 		position = ScaleByResolution 190 110
@@ -460,5 +445,12 @@ control Control
 			backColor = 1 1 1
 			backTexture = "GUI\\HUD\\Icons\\menu.png"
 		}
+	}
+	control "GUI\\GameStatistic.gui"
+	{
+		position = ScaleByResolution 0 0
+		name = Statistic
+		visible = False
+		enable = False
 	}
 }

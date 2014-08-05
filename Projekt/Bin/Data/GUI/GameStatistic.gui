@@ -34,8 +34,13 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		}
 		control TextBox
 		{
-			position = Parent 0.2 0
-			size = Parent 0.8 1
+			textHorizontalAlign = Left
+			font = German 0.025
+			textColor = 0 0 0
+			wordWrap = True
+			verticalTextIndention = 0.01
+			horizontalAlign = Right
+			size = Parent 0.78 1
 			name = StatisticDataAlien
 		}
 	}
@@ -55,8 +60,13 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		}
 		control TextBox
 		{
-			position = Parent 0.2 0
-			size = Parent 0.8 1
+			textHorizontalAlign = Left
+			font = German 0.025
+			textColor = 0 0 0
+			wordWrap = True
+			verticalTextIndention = 0.01
+			horizontalAlign = Right
+			size = Parent 0.78 1
 			name = StatisticDataAstronaut
 		}
 	}

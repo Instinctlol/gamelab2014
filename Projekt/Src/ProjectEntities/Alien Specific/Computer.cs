@@ -25,13 +25,11 @@ namespace ProjectEntities
         /* Attribute */
         /*************/
         ComputerType _type = null; public new ComputerType Type { get { return _type; } }
-        const float maxSolvableRepairablesNeeded = 20;
         const int maxAliens = 20;
         const int maxPowerCoupons = 10;
         const int maxRotationCoupons = 10;
 
         [FieldSerialize]
-        static int solvedRepairables = 10;
         static int experiencePoints = 100;
         static int rotationCoupons = 3;
         static int powerCoupons = 2;
@@ -56,8 +54,8 @@ namespace ProjectEntities
         const int maxAlienCorpses = 10;
 
         // Verwaltet die Signale für das Radar
-        public static LinkedList<Signal> signalList = new LinkedList<Signal>();
-        
+        public static ThreadSafeList<Signal> signalList = new ThreadSafeList<Signal>();
+
         // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
         static int maxItemDropGroupNr = 2;
 
@@ -251,26 +249,6 @@ namespace ProjectEntities
                 usedAliens--;
                 statistic.IncrementKilledAliens();
             }
-        }
-
-        /// <summary>
-        /// Die gelösten Repairables um Eins erhöhen
-        /// </summary>
-        public static void IncrementSolvedRepairables()
-        {
-            if (solvedRepairables < maxSolvableRepairablesNeeded)
-            {
-                solvedRepairables++;
-            }
-        }
-
-        /// <summary>
-        /// Liefert den Status der Raumstation in Form des Anteils gelöster Repairables
-        /// </summary>
-        /// <returns></returns>
-        public static float GetStationStatus()
-        {
-            return solvedRepairables / maxSolvableRepairablesNeeded;
         }
 
         /// <summary>
@@ -536,7 +514,6 @@ namespace ProjectEntities
             Signal s = new Signal(min, max);
             if (!signalList.Contains(s))
             {
-                Console.WriteLine("Vergleich klappt");
                 signalList.AddLast(s);
 
                 Timer radarTimer = new Timer(30000);
@@ -552,9 +529,9 @@ namespace ProjectEntities
         static void RemoveRadarElement(object source, ElapsedEventArgs e)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
-            if (signalList.Count > 0 && signalList != null) 
+            if (signalList.Count() > 0 && signalList != null) 
             {
-                signalList.RemoveFirst();
+                signalList.TryRemoveFirst();
             }
         }
 
