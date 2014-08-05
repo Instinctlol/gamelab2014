@@ -243,12 +243,12 @@ namespace ProjectCommon
                 bool pressed = wiiState.ButtonState.Plus;
                 if (Buttons[6].Pressed != pressed)
                 {
-                    if (pressed)
+                    if (pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[6]));
                     }
-                    else
+                    else if (!pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonUpEvent(this, Buttons[6]));
@@ -262,12 +262,12 @@ namespace ProjectCommon
                 bool pressed = wiiState.ButtonState.Minus;
                 if (Buttons[7].Pressed != pressed)
                 {
-                    if (pressed)
+                    if (pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[7]));
                     }
-                    else
+                    else if (!pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonUpEvent(this, Buttons[7]));

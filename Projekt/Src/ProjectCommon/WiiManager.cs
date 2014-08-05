@@ -102,41 +102,13 @@ namespace ProjectCommon
             //string applicationPath = GetApplicationPath();
             //System.IO.TextWriter debugWriter = new System.IO.StreamWriter(System.IO.Path.Combine(applicationPath, "debug.txt"));
 
-
-
-            //IGestureAction debugStream = new DebugStreamGestureAction()
+            IGestureAction ExecuteOpenInventory = new ActionTest();
+            
             //{
-            //    DebugMessage = "My Debug-Test",
-            //    WriteNewLine = true,
-            //    Output = debugWriter,
-            //    AutoFlush = true
+            //   // StartInfo = new System.Diagnostics.ProcessStartInfo("calc.exe");
             //};
 
-            //IGestureAction fileExecuteCalc = new FileExecuteGestureAction()
-            //{
-            //    StartInfo = new System.Diagnostics.ProcessStartInfo("calc.exe")
-            //};
-
-            //IGestureAction fileExecuteNotepad = new FileExecuteGestureAction()
-            //{
-            //    StartInfo = new System.Diagnostics.ProcessStartInfo("notepad.exe")
-            //};
-
-            //IGestureAction shakeWindowHorizontal = new ShakeWindowAnimatedAction()
-            //{
-            //    MaxLoops = 15,
-            //    Window = this,
-            //    VerticalDifference = 5,
-            //    Direction = ShakeWindowAnimatedAction.ShakeDirection.Horizontal
-            //};
-
-            //IGestureAction shakeWindowVertical = new ShakeWindowAnimatedAction()
-            //{
-            //    MaxLoops = 15,
-            //    Window = this,
-            //    VerticalDifference = 5,
-            //    Direction = ShakeWindowAnimatedAction.ShakeDirection.Vertical
-            //};
+            
             #endregion
 
             //instanciate GestureLib
@@ -156,7 +128,7 @@ namespace ProjectCommon
             gl.AvailableGestureAlgorithms.Add(pitch);
 
             //gl.AvailableGestureActions.Add(debugStream);
-            //gl.AvailableGestureActions.Add(fileExecuteCalc);
+            gl.AvailableGestureActions.Add(ExecuteOpenInventory);
             //gl.AvailableGestureActions.Add(fileExecuteNotepad);
             //gl.AvailableGestureActions.Add(shakeWindowHorizontal);
             //gl.AvailableGestureActions.Add(shakeWindowVertical);
@@ -165,12 +137,12 @@ namespace ProjectCommon
 
             #region Add trained Gestures
 
-            //TrainedGesture leftRightGesture = new TrainedGesture();
-            //leftRightGesture.GestureActions.Add(debugStream);
-            //leftRightGesture.GestureAlgorithms.Add(shakingLeftRight);
-            //leftRightGesture.Name = "LeftRightGesture";
+            TrainedGesture pitchGesture = new TrainedGesture();
+            pitchGesture.GestureActions.Add(ExecuteOpenInventory);
+            pitchGesture.GestureAlgorithms.Add(pitch);
+            pitchGesture.Name = "PitchGesture";
 
-            //gl.TrainedGestures.Add(leftRightGesture);
+            gl.TrainedGestures.Add(pitchGesture);
 
 
 
@@ -233,10 +205,10 @@ namespace ProjectCommon
                     GestureAlgorithmCollection matchedPointerAlgorithmes = pointTendenceAnalyzer.MatchedGestureAlgorithms;
                     TrainedGesture trainedGesture = gl.TrainedGestures.GetTrainedGestureByMatchedAlgorithms(matchedPointerAlgorithmes);
 
-                    if (trainedGesture != null)
-                    {
-                        trainedGesture.GestureActions.ForEach(ga => ga.Execute());
-                    }
+                    //if (trainedGesture != null)
+                    //{
+                    //    trainedGesture.GestureActions.ForEach(ga => ga.Execute());
+                    //}
 
                     ////////////////////////////////////////////////////////////////////////
 
@@ -258,6 +230,8 @@ namespace ProjectCommon
 
                     if (trainedGesture != null)
                     {
+                        System.Console.WriteLine(trainedGesture.GestureAlgorithms.ElementAt(0).Name);
+                        
                         trainedGesture.GestureActions.ForEach(ga => ga.Execute());
                     }
                     InstanceWM.nonUse = true;
@@ -301,8 +275,8 @@ namespace ProjectCommon
         {
             //WiimoteState ws = args.WiimoteState;
 
-            //InstanceWM.wm.SetReportType(InputReport.ButtonsAccel, false);// gestenerkennung
-            //InstanceWM.wm.SetReportType(InputReport.ButtonsExtension, true); // steuerung
+            InstanceWM.wm.SetReportType(InputReport.ButtonsAccel, false);// gestenerkennung
+            InstanceWM.wm.SetReportType(InputReport.ButtonsExtension, true); // steuerung
 
 
             if (InstanceWM.wiiMoteInitialized)

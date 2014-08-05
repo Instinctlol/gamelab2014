@@ -126,7 +126,7 @@ namespace GestureLib
 
             #region Acceleration State
 
-            //if (false)//args.WiimoteState.Extension)
+            //if (args.WiimoteState.Extension)
             //{
             //   AccelerationGestureState = new AccelerationGestureState(
             //   args.WiimoteState.NunchukState.AccelState.Values.X,

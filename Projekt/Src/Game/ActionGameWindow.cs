@@ -51,7 +51,7 @@ namespace Game
         MapObject currentUseObject;
 
         bool currentUsing;
-
+       
         ItemManager iManager = ItemManager.Instance;
 
         //HUD screen
@@ -201,6 +201,7 @@ namespace Game
                     return true;
             }
 
+            
             //change camera type
             if (e.Key == EKeys.F7)
             {
@@ -267,7 +268,7 @@ namespace Game
                 currentAttachedGuiObject.ControlManager.DoKeyPress(e);
                 return true;
             }
-
+            
             return base.OnKeyPress(e);
         }
 
@@ -394,13 +395,15 @@ namespace Game
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnJoystickEvent(e);
-
+            
+            
             //GameControlsManager
             if (EntitySystemWorld.Instance.Simulation)
             {
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                 {
                     if (GameControlsManager.Instance.DoJoystickEvent(e))
+                        
                         return true;
                 }
             }
@@ -506,6 +509,7 @@ namespace Game
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                     GameControlsManager.Instance.DoTick(delta);
             }
+
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
@@ -1891,6 +1895,24 @@ namespace Game
                             return;
                     }
 
+                    //InventarKey
+                    if (evt.ControlKey == GameControlKeys.Inventory)
+                    {
+                        oeffneInventar();
+                    }
+
+                    if (evt.ControlKey == GameControlKeys.PreviousWeapon )
+                    {
+                        linksInventar();
+                    }
+
+                    if (evt.ControlKey == GameControlKeys.NextWeapon )
+                    {
+                        rechtsInventar();
+                    }
+
+                    
+
                     return;
                 }
             }
@@ -1951,11 +1973,14 @@ namespace Game
             if (hudControl.Controls["Item_Leiste"].Visible)
             {
                 hudControl.Controls["Item_Leiste"].Visible = false;
+                GetPlayerUnit().Inventar.IsOpen = false;
             }
             else
             {
                 zeigeInventar();
                 hudControl.Controls["Item_Leiste"].Visible = true;
+                GetPlayerUnit().Inventar.IsOpen = true;
+                
             }
         }
 

@@ -20,6 +20,13 @@ namespace ProjectEntities
         private bool _taschenlampeBesitz = false;
         private bool _taschenlampevisible = false;
 
+        private bool isOpen;
+
+        public bool IsOpen
+        {
+            get { return isOpen; }
+            set { isOpen = value; }
+        }
         public int taschenlampeEnergieMax
         {
             get { return _taschenlampeEnergieMax; }

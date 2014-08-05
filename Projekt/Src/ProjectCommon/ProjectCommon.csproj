@@ -63,11 +63,13 @@
       <HintPath>..\..\Bin\FileSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="GestureLib">
-      <HintPath>..\..\Lib\GestureLib.dll</HintPath>
+    <Reference Include="GestureLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.dll</HintPath>
     </Reference>
-    <Reference Include="GestureLib.Implementation">
-      <HintPath>..\..\Lib\GestureLib.Implementation.dll</HintPath>
+    <Reference Include="GestureLib.Implementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>GestureLib.Implementation\GestureLib.Implementation\bin\Debug\GestureLib.Implementation.dll</HintPath>
     </Reference>
     <Reference Include="Log, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -137,6 +139,7 @@
     <Compile Include="AlienDollar\SizeR.cs" />
     <Compile Include="AlienDollar\Unistroke.cs" />
     <Compile Include="AlienDollar\Utils.cs" />
+    <Compile Include="ActionTest.cs" />
     <Compile Include="DynamicMeshManagerImpl.cs" />
     <Compile Include="ExampleCustomInputDevice.cs">
       <SubType>Code</SubType>

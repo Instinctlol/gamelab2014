@@ -81,6 +81,8 @@ namespace ProjectEntities
 
         double flashLightPitch;
 
+
+
         ///////////////////////////////////////////
 
         String s = "";
@@ -453,6 +455,7 @@ namespace ProjectEntities
 
                 if (Intellect.IsControlKeyPressed(GameControlKeys.Fire2))
                     WeaponTryFire(true);
+               
             }
 
             TickContusionTime();
@@ -729,7 +732,7 @@ namespace ProjectEntities
             {
                 if (command.KeyPressed)
                 {
-                    if (command.Key >= GameControlKeys.Weapon1 && command.Key <= GameControlKeys.Weapon9)
+                    if (command.Key >= GameControlKeys.Weapon1 && command.Key <= GameControlKeys.Weapon9 && this.Inventar.IsOpen == false)
                     {
                         int index = (int)command.Key - (int)GameControlKeys.Weapon1;
                         if (GetActiveWeapon() != index)
@@ -738,16 +741,17 @@ namespace ProjectEntities
                             SetActiveWeapon(-1);
                     }
 
-                    if (command.Key == GameControlKeys.PreviousWeapon)
+                    if (command.Key == GameControlKeys.PreviousWeapon && this.Inventar.IsOpen == false)
                         SetActivePreviousWeapon();
-                    if (command.Key == GameControlKeys.NextWeapon)
+                    if (command.Key == GameControlKeys.NextWeapon && this.Inventar.IsOpen == false)
                         SetActiveNextWeapon();
-                    if (command.Key == GameControlKeys.Fire1)
+                    if (command.Key == GameControlKeys.Fire1 )
                         WeaponTryFire(false);
                     if (command.Key == GameControlKeys.Fire2)
                         WeaponTryFire(true);
                     if (command.Key == GameControlKeys.Reload)
                         WeaponTryReload();
+
                 }
             }
         }

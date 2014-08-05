@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EngineApp">
+      <HintPath>..\..\..\..\Bin\EngineApp.dll</HintPath>
+    </Reference>
     <Reference Include="Kennedy.ManagedHooks">
       <HintPath>..\..\..\..\Lib\dependencies\SystemHooks\Kennedy.ManagedHooks.dll</HintPath>
     </Reference>
@@ -94,9 +97,21 @@
     <CodeAnalysisDictionary Include="CustomDicionary.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Game\Game.csproj">
+      <Project>{5d197770-2cef-48b2-abab-c5c0152b0151}</Project>
+      <Name>Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ProjectEntities\ProjectEntities.csproj">
+      <Project>{3f0c9ce6-824f-4b8f-a4f3-68a70f7cf63a}</Project>
+      <Name>ProjectEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\GestureLib\GestureLib\GestureLib.csproj">
       <Project>{AA478CEB-84FE-4953-A147-721484E17DCE}</Project>
       <Name>GestureLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProjectCommon.csproj">
+      <Project>{e4c09433-ecc3-404c-a303-e9a93f241b91}</Project>
+      <Name>ProjectCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

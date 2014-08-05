@@ -527,11 +527,11 @@ namespace Game
 				EngineConsole.Instance.AddCommand( "showProfilingTool", ConsoleCommand_ShowProfilingTool );
 
 			//example of custom input device
-            bool workbench = false;
-            if (!workbench)
-            {
-                ExampleCustomInputDevice.InitDevice();
-            }
+            //bool workbench = false;
+            //if (!workbench)
+            //{
+            //    ExampleCustomInputDevice.InitDevice();
+            //}
             
 
 			return true;
@@ -969,11 +969,13 @@ namespace Game
                     {
                         gameWindow = new OculusGameWindow();
                         GameMap.Instance.IsAlien = false;
+                        ExampleCustomInputDevice.InitDevice();
                     }
                     else
                     {
                         gameWindow = new ActionGameWindow();
                         GameMap.Instance.IsAlien = false;
+                        ExampleCustomInputDevice.InitDevice();
                     }
                 }
             }
