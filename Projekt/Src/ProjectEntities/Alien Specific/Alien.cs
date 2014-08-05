@@ -209,7 +209,7 @@ namespace ProjectEntities
                     Move(pt.Position);
                     routeIndex++; //nächster Route-Waypoint
 
-                    //laufe die Route zurück, wenn du am Ende der Route angekommen bist
+                    //das Alien läuft die Route zurück, wenn es am Ende der Route angekommen ist.
                     if (routeIndex >= route.Count)
                     {
                         routeIndex = 0;
