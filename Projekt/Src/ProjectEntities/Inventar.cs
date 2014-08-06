@@ -16,7 +16,7 @@ namespace ProjectEntities
         //Taschenlampe
         private int _taschenlampeEnergie;
         private int _taschenlampeEnergieMax = 100;
-
+        private bool _taschenlampeOn = false;
         private bool _taschenlampeBesitz = false;
         private bool _taschenlampevisible = false;
 
@@ -49,6 +49,12 @@ namespace ProjectEntities
         {
             get { return _taschenlampeEnergie; }
             set { _taschenlampeEnergie = value; }
+        }
+
+        public bool taschenlampeOn
+        {
+            get { return _taschenlampeOn; }
+            set { _taschenlampeOn = value; }
         }
 
         /// <summary>
