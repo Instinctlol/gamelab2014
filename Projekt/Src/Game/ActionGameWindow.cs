@@ -512,7 +512,7 @@ namespace Game
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                     GameControlsManager.Instance.DoTick(delta);
             }
-			if(GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeOn)
+            if (GetPlayerUnit() != null && GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeOn)
             {
                 switchTaschenlampe();
             }
