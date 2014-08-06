@@ -307,8 +307,10 @@ namespace Game
 
 		void Start_Click( Button sender )
 		{
-			GameNetworkServer server = GameNetworkServer.Instance;
-            
+            GameNetworkServer server = GameNetworkServer.Instance;
+            if (server != null)
+                server.ChatService.SayToAll("Das Spiel wird jetzt gestartet!");
+
             //ToDo
 			//AllowToConnectDuringGame
 			//server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
