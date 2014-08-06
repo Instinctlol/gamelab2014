@@ -138,7 +138,7 @@ namespace ProjectEntities
                 foreach (MapCurve curve in allPossibleCurves)
                 {
                     // suche die am nächsten liegende MapCurve
-                    Vec3 distance = this.Position - curve.Position;
+                    Vec3 distance = myPosition - curve.Position;
                     if (distance.Length() < minDistance)
                     {
                         minDistance = distance.Length();
@@ -204,15 +204,14 @@ namespace ProjectEntities
                         }
                         counterPatrolCosts++;
 
-
+                           
                        
                         //laufe zum nächsten Punkt
                         MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
                         Move(pt.Position);
                         routeIndex++; //nächster Route-Waypoint
-
                         
-                                            
+                                   
 
                         //das Alien läuft die Route zurück, wenn es am Ende der Route angekommen ist.
                         if (routeIndex >= route.Count)
@@ -223,8 +222,9 @@ namespace ProjectEntities
 
                             
                         patrolTickTime = 0.63f;
-                        //patrolTickTime = 1.0f;
-                      
+                        //patrolTickTime = 0.68f;
+
+
 
                     }
                     else
