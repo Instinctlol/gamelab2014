@@ -270,5 +270,46 @@ control Window
 				backTextureCoord = 0 0 0 0
 			}
 		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			name = Trigger+TP
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = f1r4_trigger
+				backTexture = "GUI\\Textures\\Minimap_f1r4_trigger.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = f2r5_trigger
+				backTexture = "GUI\\Textures\\Minimap_f2r5_trigger.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = f3r1_trigger
+				backTexture = "GUI\\Textures\\Minimap_f3r1_trigger.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+			control RotControl
+			{
+				position = ScaleByResolution 0 0
+				size = ScaleByResolution 650 650
+				name = f3r3_tp
+				backTexture = "GUI\\Textures\\Minimap_f3r3_tp.png"
+				backTextureCoord = 0 0 0 0
+				visible = False
+			}
+		}
 	}
 }

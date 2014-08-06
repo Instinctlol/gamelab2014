@@ -10,6 +10,7 @@ control Control
 		size = ScaleByResolution 250 100
 		name = One
 		text = 1
+		enable = False
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
@@ -17,6 +18,7 @@ control Control
 		size = ScaleByResolution 250 100
 		name = Two
 		text = 2
+		enable = False
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
@@ -24,6 +26,7 @@ control Control
 		size = ScaleByResolution 250 100
 		name = Three
 		text = 3
+		enable = False
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
@@ -31,6 +34,7 @@ control Control
 		size = ScaleByResolution 250 100
 		name = Four
 		text = 4
+		enable = False
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
@@ -42,8 +46,10 @@ control Control
 	control TextBox
 	{
 		textColor = 0 0 0
-		position = ScaleByResolution -140 -80
-		size = Parent 2.237062 0.2067118
+		wordWrap = True
+		alignByWidth = True
+		position = ScaleByResolution -260 -160
+		size = Parent 3.177233 0.4582842
 		name = Question
 		backColor = 1 1 1
 	}

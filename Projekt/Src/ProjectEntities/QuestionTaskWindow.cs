@@ -22,6 +22,7 @@ namespace ProjectEntities
             FourChangedText,
             QuestionChangedText,
             PlayClicked,
+            EnableAnswerButtons,
         }
 
         private string loesung;
@@ -76,7 +77,11 @@ namespace ProjectEntities
             if(task.IsServer)
                 task.Server_WindowDataReceived += Server_DataReceived;
             else
+            {
                 task.Client_WindowStringReceived += Client_StringReceived;
+                task.Client_WindowDataReceived += Client_ReceiveData;
+            }
+                
         }
 
 
@@ -168,6 +173,20 @@ namespace ProjectEntities
 
         }
 
+        void Client_ReceiveData(UInt16 status)
+        {
+            NetworkMessages msg = (NetworkMessages)status;
+
+            switch(msg)
+            {
+                case NetworkMessages.EnableAnswerButtons:
+                    enableAllButtons(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         void One_Click(Button b)
         {
             task.Client_SendWindowData((UInt16)NetworkMessages.OneClicked);
@@ -216,10 +235,19 @@ namespace ProjectEntities
                     {
                         statusPlay = true;
                         updateQuestion();
+                        task.Server_SendWindowData((UInt16)NetworkMessages.EnableAnswerButtons);
                     }
                     break;
             }
            
+        }
+
+        void enableAllButtons(bool status)
+        {
+            ((Button)CurWindow.Controls["One"]).Enable = status;
+            ((Button)CurWindow.Controls["Two"]).Enable = status;
+            ((Button)CurWindow.Controls["Three"]).Enable = status;
+            ((Button)CurWindow.Controls["Four"]).Enable = status;
         }
 
     }
