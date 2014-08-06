@@ -299,23 +299,10 @@ namespace ProjectEntities
 
         public static void AstronautRotateRing(Ring ring, bool left)
         {
-            if (alienControlPaused)
-            {
-                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
-            }
-            else if (ring == null)
+            if (ring == null)
             {
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
-            }
-            else if (rotationCoupons <= 0)
-            {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Keine Rotationen möglich");
-            }
-            else if (ring.CanRotate() == false)
-            {
-                StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar");
             }
             else
             {
