@@ -2,6 +2,7 @@ type "Desk-Verschieben"
 {
 	class = StaticObject
 	physicsModel = ".\\Desk.physics"
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
