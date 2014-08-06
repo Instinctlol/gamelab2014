@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7843138 0.7843138 0.7843138
-editorCameraPosition = 50.869 59.39178 28.53364
-editorCameraDirection = 0.7941661 -1.560796
+editorCameraPosition = 1.863092 74.37711 25.49686
+editorCameraDirection = 4.621315 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -11152,4 +11152,237 @@ entity
 	owner = 1066
 	time = 21
 	position = 66.7 48.6 0.3
+}
+entity
+{
+	type = MapCurve
+	uin = 1088
+	classPrompt = MapCurve
+	subscriptionsToDeletionEvent = 1089 1090 1091 1092 1093 1094 1095 1096 1097 1098 1099 1100 1101 1102 1103 1104 1105 1106 1107 1108 1109 1110
+	curveType = UniformCubicSpline
+	points = 1088 1089 1090 1091 1092 1093 1094 1095 1096 1097 1098 1099 1100 1101 1102 1103 1104 1105 1106 1107 1108 1109 1110
+	owner = 1088
+	time = 0
+	position = 13.9 69.9 0.3
+	name = MapCurve_8
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1089
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 1
+	position = 13.8 72.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1090
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 2
+	position = 13.7 75.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1091
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 3
+	position = 13.4 78.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1092
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 4
+	position = 12.8 81.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1093
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 5
+	position = 11.5 84 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1094
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 6
+	position = 9 86.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1095
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 7
+	position = 5.9 87.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1096
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 8
+	position = 2.6 86.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1097
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 9
+	position = 0.9999998 84 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1098
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 10
+	position = 0.2999998 80.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1099
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 11
+	position = -0.2000003 77.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1100
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 12
+	position = -0.6000004 74.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1101
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 13
+	position = -1.1 71.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1102
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 14
+	position = -2 68 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1103
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 15
+	position = -4.2 65.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1104
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 16
+	position = -7.700001 65 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1105
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 17
+	position = -10.7 66.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1106
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 18
+	position = -12.1 69.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1107
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 19
+	position = -12.2 72.9 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1108
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 20
+	position = -12.2 76.10001 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1109
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 21
+	position = -12.2 79.60001 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1110
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1088
+	owner = 1088
+	time = 22
+	position = -12.3 83.20001 0.3
 }
