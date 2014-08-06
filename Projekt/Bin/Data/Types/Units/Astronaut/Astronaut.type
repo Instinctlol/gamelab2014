@@ -3,6 +3,10 @@ type Astronaut
 	class = PlayerCharacter
 	height = 2.2
 	walkForce = 420000
+	runForwardMaxSpeed = 6
+	runBackwardMaxSpeed = 6
+	runSideMaxSpeed = 6
+	flyControlMaxSpeed = 4
 	flyControlForce = 49000
 	jumpSupport = True
 	soundJump = ".\\Jump.ogg"
