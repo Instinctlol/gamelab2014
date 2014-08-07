@@ -310,6 +310,11 @@ control Window
 				backTextureCoord = 0 0 0 0
 				visible = False
 			}
+			control Control
+			{
+				position = ScaleByResolution 0 0
+				visible = False
+			}
 		}
 	}
 }
