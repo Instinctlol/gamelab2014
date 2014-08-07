@@ -58,9 +58,6 @@ type Scar
 		{
 			meshName = ".\\scar.mesh"
 			castDynamicShadows = True
-			position = 0.163581 0 0.03831495
-			rotation = 0 0 0.1318848 0.9912651
-			scale = 0.4255319 0.4255319 0.4255319
 		}
 	}
 }
