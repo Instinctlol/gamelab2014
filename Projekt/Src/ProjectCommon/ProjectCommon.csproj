@@ -128,7 +128,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionTest.cs" />
+    <Compile Include="GestureActionInventoryRight.cs" />
+    <Compile Include="GestureActionInventoryLeft.cs" />
+    <Compile Include="GestureActionOpenInventory.cs" />
     <Compile Include="AlienDollar\Category.cs" />
     <Compile Include="AlienDollar\NBestList.cs" />
     <Compile Include="AlienDollar\PointR.cs" />

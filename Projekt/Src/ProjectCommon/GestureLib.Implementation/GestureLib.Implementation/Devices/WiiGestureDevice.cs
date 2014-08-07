@@ -58,7 +58,7 @@ namespace GestureLib
         private void WiimoteChanged(WiimoteChangedEventArgs args)
         {
             #region Recording Button
-            if (args.WiimoteState.ButtonState.B)
+            if (args.WiimoteState.ButtonState.A)
             {   
                 if (!IsActionButtonPressed)
                 {

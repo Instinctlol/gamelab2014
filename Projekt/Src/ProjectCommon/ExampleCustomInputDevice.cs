@@ -22,6 +22,11 @@ namespace ProjectCommon
 
     public class ExampleCustomInputDevice : JoystickInputDevice
     {
+        public static bool _globalInventoryTrigger = false;
+        public static bool _globalInventoryLeft = false;
+        public static bool _globalInventoryRight = false;
+
+
         public ExampleCustomInputDevice(string name)
             : base(name)
         {
@@ -118,6 +123,7 @@ namespace ProjectCommon
             bool buttonTwoPressed = wiiState.ButtonState.Two;
             bool buttonCPressed = wiiState.NunchukState.C;
             bool buttoZAPressed = wiiState.NunchukState.Z;
+            
 
 
             # region BTNs
@@ -240,13 +246,14 @@ namespace ProjectCommon
 
             //button7 PLUS
             {
-                bool pressed = wiiState.ButtonState.Plus;
+                bool pressed = wiiState.ButtonState.Plus||_globalInventoryRight;
                 if (Buttons[6].Pressed != pressed)
                 {
                     if (pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[6]));
+                        _globalInventoryRight = false;
                     }
                     else if (!pressed && !WiiManager.openInventory)
                     {
@@ -259,13 +266,14 @@ namespace ProjectCommon
 
             //button8 MINUS
             {
-                bool pressed = wiiState.ButtonState.Minus;
+                bool pressed = wiiState.ButtonState.Minus|| _globalInventoryLeft;
                 if (Buttons[7].Pressed != pressed)
                 {
                     if (pressed && !WiiManager.openInventory)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[7]));
+                        _globalInventoryLeft = false;
                     }
                     else if (!pressed && !WiiManager.openInventory)
                     {
@@ -317,13 +325,14 @@ namespace ProjectCommon
 
             //button11 HOME
             {
-                bool pressed = wiiState.ButtonState.Home;
+                bool pressed = wiiState.ButtonState.Home||_globalInventoryTrigger;
                 if (Buttons[10].Pressed != pressed)
                 {
                     if (pressed)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[10]));
+                        _globalInventoryTrigger = false;
                     }
                     else
                     {

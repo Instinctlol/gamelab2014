@@ -12,7 +12,6 @@ using System.Threading;
 
 
 
-
 //using GestureLib.Implementation;
 
 namespace ProjectCommon
@@ -102,7 +101,9 @@ namespace ProjectCommon
             //string applicationPath = GetApplicationPath();
             //System.IO.TextWriter debugWriter = new System.IO.StreamWriter(System.IO.Path.Combine(applicationPath, "debug.txt"));
 
-            IGestureAction ExecuteOpenInventory = new ActionTest();
+            IGestureAction ExecuteOpenInventory = new GestureActionOpenInventory();
+            IGestureAction ExecuteLeftInventory = new GestureActionInventoryLeft();
+            IGestureAction ExecuteRightInventory = new GestureActionInventoryRight();
             
             //{
             //   // StartInfo = new System.Diagnostics.ProcessStartInfo("calc.exe");
@@ -127,11 +128,11 @@ namespace ProjectCommon
             gl.AvailableGestureAlgorithms.Add(jab);
             gl.AvailableGestureAlgorithms.Add(pitch);
 
-            //gl.AvailableGestureActions.Add(debugStream);
+            
             gl.AvailableGestureActions.Add(ExecuteOpenInventory);
-            //gl.AvailableGestureActions.Add(fileExecuteNotepad);
-            //gl.AvailableGestureActions.Add(shakeWindowHorizontal);
-            //gl.AvailableGestureActions.Add(shakeWindowVertical);
+            gl.AvailableGestureActions.Add(ExecuteLeftInventory);
+            gl.AvailableGestureActions.Add(ExecuteRightInventory);
+            
             #endregion
 
 
@@ -144,37 +145,21 @@ namespace ProjectCommon
 
             gl.TrainedGestures.Add(pitchGesture);
 
+            TrainedGesture moveLeftRightGesture = new TrainedGesture();
+            moveLeftRightGesture.GestureActions.Add(ExecuteRightInventory);
+            moveLeftRightGesture.GestureAlgorithms.Add(leftRight);
+            moveLeftRightGesture.Name = "MoveLeftRightGesture";
+
+            gl.TrainedGestures.Add(moveLeftRightGesture);
+
+            TrainedGesture moveRightLeftGesture = new TrainedGesture();
+            moveRightLeftGesture.GestureActions.Add(ExecuteLeftInventory);
+            moveRightLeftGesture.GestureAlgorithms.Add(rightLeft);
+            moveRightLeftGesture.Name = "MoveRightLeftGesture";
+
+            gl.TrainedGestures.Add(moveRightLeftGesture);
 
 
-            //TrainedGesture topDownGesture = new TrainedGesture();
-            //topDownGesture.GestureActions.Add(shakeWindowVertical);
-            //topDownGesture.GestureAlgorithms.Add(shakingTopBottom);
-            //topDownGesture.Name = "TopDownGesture";
-
-            //gl.TrainedGestures.Add(topDownGesture);
-
-            //TrainedGesture leftRightGesture = new TrainedGesture();
-            //leftRightGesture.GestureActions.Add(shakeWindowHorizontal);
-            //leftRightGesture.GestureAlgorithms.Add(shakingLeftRight);
-            //leftRightGesture.Name = "LeftRightGesture";
-
-            //gl.TrainedGestures.Add(leftRightGesture);
-            /*
-            TrainedGesture leftRightGesture = new TrainedGesture();
-            leftRightGesture.GestureActions.Add(fileExecuteNotepad);
-            leftRightGesture.GestureActions.Add(fileExecuteCalc);
-            leftRightGesture.GestureAlgorithms.Add(shakingLeftRight);
-            leftRightGesture.Name = "LeftRightTest";
-
-            _gl.TrainedGestures.Add(leftRightGesture);*/
-
-            /*TrainedGesture topDownPointerGesture = new TrainedGesture();
-            topDownPointerGesture.GestureActions.Add(shakeWindow);
-            topDownPointerGesture.GestureAlgorithms.Add(pointerTopBottom);
-            topDownPointerGesture.GestureAlgorithms.Add(pointerBottomTop);
-            topDownPointerGesture.Name = "TopBottomBottomTop";
-
-            _gl.TrainedGestures.Add(topDownPointerGesture);*/
             #endregion
 
 

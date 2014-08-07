@@ -91,15 +91,30 @@ namespace Game
                 MessageList.Add(message);
             }
 
-
-            hudControl.Controls["MessageBox"].Visible = true;
+            if (hudControl.Controls["MessageBox"] != null)
+            {
+                hudControl.Controls["MessageBox"].Visible = true;
+            }
+            else
+            {
+                Console.WriteLine("MessageBox not found (Visible)");
+            }
 
             foreach (string element in MessageList)
             {
                 output += (element + "\r\n");
             }
 
-            hudControl.Controls["MessageBox"].Text = output;
+
+            if (hudControl.Controls["MessageBox"] != null)
+            {
+                hudControl.Controls["MessageBox"].Text = output;
+            }
+            else
+            {
+                Console.WriteLine("MessageBox not found (Text)");
+            }
+
             //hudControl.Controls["MessageBox"].Text = hudControl.Controls["MessageBox"].Text + message + "\r\n";
             BoxTimer.Interval = 5000;
             BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
@@ -1917,9 +1932,13 @@ namespace Game
                     {
                         linksInventar();
                     }
-                    if (evt.ControlKey == GameControlKeys.Fire2)
+                    if (evt.ControlKey == GameControlKeys.Light)
                     {
                         switchTaschenlampe();
+                    }
+                    if (evt.ControlKey == GameControlKeys.WeaponStatus)
+                    {
+                        zeigeWaffeninfo();
                     }
 
                     
@@ -1968,6 +1987,8 @@ namespace Game
         {
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
             hudControl.Controls["Game/WeaponCircle"].Visible = false;
+            hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
+            hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
         }
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
@@ -2025,16 +2046,16 @@ namespace Game
 
         public void zeigeWaffeninfo()
         {
-            if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
-            {
-                hudControl.Controls["Game/WeaponIcon"].Visible = true;
-                hudControl.Controls["Game/WeaponCircle"].Visible = true; 
-                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
-                hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
-                Timer aTimer = new Timer(5000);
-                aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
-                aTimer.Enabled = true;
-            }
+                if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
+                {
+                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                    hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
+                    hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
+                    Timer aTimer = new Timer(5000);
+                    aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
+                    aTimer.Enabled = true;
+                }
         }
 
         public void switchTaschenlampe()
