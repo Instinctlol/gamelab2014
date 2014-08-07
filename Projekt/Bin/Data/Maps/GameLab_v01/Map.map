@@ -584,7 +584,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 43
-				code = "if(obj is PlayerCharacter && !firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n}"
+				code = "if(!firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n\tfirstIn = true;\r\n}"
 				methodName = ObjectIn
 				returnType = System.Void
 				parameters = 44
@@ -11501,12 +11501,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 1116
+	uin = 1028
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1117 1118 1119 1120 1121 1122 1123 1124 1125 1126 1127 1128 1129 1130 1131 1132 1133 1134 1135
+	subscriptionsToDeletionEvent = 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044 1045 1046 1047
 	curveType = UniformCubicSpline
-	points = 1116 1117 1118 1119 1120 1121 1122 1123 1124 1125 1126 1127 1128 1129 1130 1131 1132 1133 1134 1135
-	owner = 1116
+	points = 1028 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044 1045 1046 1047
+	owner = 1028
 	time = 0
 	position = 66 -11.2 0.3
 	name = MapCurve_9
@@ -11514,202 +11514,202 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1117
+	uin = 1029
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 1
 	position = 66.5 -14.6 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1118
+	uin = 1030
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 2
 	position = 68.2 -17.5 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1119
+	uin = 1031
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 3
 	position = 71.1 -19.1 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1120
+	uin = 1032
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 4
 	position = 74.2 -18.8 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1121
+	uin = 1033
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 5
 	position = 76.39999 -15.9 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1122
+	uin = 1034
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 6
 	position = 77.2 -11.9 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1123
+	uin = 1035
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 7
 	position = 77.39999 -7.900002 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1124
+	uin = 1036
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 8
 	position = 76.79999 -4.100001 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1125
+	uin = 1037
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 9
 	position = 75.09999 -0.8000013 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1126
+	uin = 1038
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 10
 	position = 72.19999 1.599999 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1127
+	uin = 1039
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 11
 	position = 68.89999 3.099999 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1128
+	uin = 1040
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 12
 	position = 66.19999 5.199999 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1129
+	uin = 1041
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 13
 	position = 64.59999 8.599999 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1130
+	uin = 1042
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 14
 	position = 64.59999 12.4 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1131
+	uin = 1043
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 15
 	position = 66.59999 15.4 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1132
+	uin = 1044
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 16
 	position = 69.99999 16.6 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1133
+	uin = 1045
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 17
 	position = 73.39999 16.9 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1134
+	uin = 1046
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 18
 	position = 77.09999 16.7 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1135
+	uin = 1047
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1116
-	owner = 1116
+	subscriptionsToDeletionEvent = 1028
+	owner = 1028
 	time = 19
 	position = 81.09999 16.5 0.3
 }
 entity
 {
 	type = MapCurve
-	uin = 1136
+	uin = 1048
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1137 1138 1139 1140 1141 1142 1143 1144 1145 1146 1147 1148 1149 1150 1151 1152 1153 1154 1155
+	subscriptionsToDeletionEvent = 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062 1063 1064 1065 1066 1067
 	curveType = UniformCubicSpline
-	points = 1136 1137 1138 1139 1140 1141 1142 1143 1144 1145 1146 1147 1148 1149 1150 1151 1152 1153 1154 1155
-	owner = 1136
+	points = 1048 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062 1063 1064 1065 1066 1067
+	owner = 1048
 	time = 0
 	position = -49.6 66.1 0.3
 	name = MapCurve_10
@@ -11717,190 +11717,190 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1137
+	uin = 1049
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 1
 	position = -52.10001 63.8 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1138
+	uin = 1050
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 2
 	position = -54.70001 61.2 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1139
+	uin = 1051
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 3
 	position = -57.30001 58.5 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1140
+	uin = 1052
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 4
 	position = -59.90001 55.8 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1141
+	uin = 1053
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 5
 	position = -62.3 53.1 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1142
+	uin = 1054
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 6
 	position = -64.60001 50.2 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1143
+	uin = 1055
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 7
 	position = -66.4 46.8 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1144
+	uin = 1056
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 8
 	position = -67.1 43.60001 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1145
+	uin = 1057
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 9
 	position = -66.4 40.50001 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1146
+	uin = 1058
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 10
 	position = -64.00001 38 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1147
+	uin = 1059
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 11
 	position = -60.90001 37.3 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1148
+	uin = 1060
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 12
 	position = -57.60001 38.3 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1149
+	uin = 1061
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 13
 	position = -54.50002 40.5 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1150
+	uin = 1062
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 14
 	position = -51.60001 43.1 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1151
+	uin = 1063
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 15
 	position = -48.90001 45.7 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1152
+	uin = 1064
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 16
 	position = -46.10001 48.60001 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1153
+	uin = 1065
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 17
 	position = -43.70001 51 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1154
+	uin = 1066
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 18
 	position = -41.40001 53.3 0.3
 }
 entity
 {
 	type = MapCurvePoint
-	uin = 1155
+	uin = 1067
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1136
-	owner = 1136
+	subscriptionsToDeletionEvent = 1048
+	owner = 1048
 	time = 19
 	position = -38.90001 55.8 0.3
 }
