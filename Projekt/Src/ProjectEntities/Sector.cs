@@ -142,6 +142,10 @@ namespace ProjectEntities
 
             if(obj is PlayerCharacter)
             {
+                if (((PlayerCharacter)obj).Owner != null)
+                    EngineConsole.Instance.Print(((PlayerCharacter)obj).Owner.ToString());
+                else
+                    EngineConsole.Instance.Print("Shit is null");
                 Server_SendLightToClient(lightStatus, ((PlayerCharacter)obj).Owner);
             }
 
@@ -209,7 +213,6 @@ namespace ProjectEntities
             }
 
             loaded = true;
-
         }
 
 
@@ -256,7 +259,7 @@ namespace ProjectEntities
             foreach(Dynamic d in dynamics)
             {
                 PlayerCharacter unit = d as PlayerCharacter;
-                if (d != null)
+                if (unit != null)
                     Server_SendLightToClient(status, unit.Owner);
             }
         }

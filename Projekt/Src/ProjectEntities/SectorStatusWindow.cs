@@ -107,7 +107,7 @@ namespace ProjectEntities
 
             //optimized rotation
             for (int i = 0; i < Computer.RingRotations.Length; i++)
-            {
+            {   
                 int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
                 if (dist == 4)                                                              //If distance is in the 'middle', it doesnt matter if you rotate left or right
                 {

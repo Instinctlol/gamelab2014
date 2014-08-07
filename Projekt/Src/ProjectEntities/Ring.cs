@@ -36,14 +36,26 @@ namespace ProjectEntities
         private byte corners = 8;
 
         //Aktuelle Position des Ringes
-        [FieldSerialize]
         private byte ringPosition;
+
+        [FieldSerialize]
+        private int initialPosition = 0;
+
+
+
+
 
 
 
         //***************************
         //*******Getter-Setter*******
         //*************************** 
+        public int InitialPosition
+        {
+            get { return initialPosition; }
+            set { initialPosition = value; }
+        }
+
         public bool Rotatable
         {
             get { return rotatable; }
@@ -73,12 +85,11 @@ namespace ProjectEntities
         //*****************************
 
 
-
         //Rotiert "links" herum
-        [LogicSystemBrowsable(true)]
-        public void RotateLeft()
+        [LogicSystemBrowsable(false)]
+        public void RotateLeft(bool force = false)
         {
-           if (!CanRotate())
+           if (!CanRotate() && !force)
                return;
 
            lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
@@ -87,7 +98,7 @@ namespace ProjectEntities
            SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
                    0.5f);
 
-           ringPosition = (byte)( ringPosition + corners - 1);
+           ringPosition = mod(ringPosition - 1, corners);
 
            double angle = ringPosition * (Math.PI / corners);
 
@@ -105,10 +116,10 @@ namespace ProjectEntities
         }
 
         //Rotiert "rechts" herum
-        [LogicSystemBrowsable(true)]
-        public void RotateRight()
+        [LogicSystemBrowsable(false)]
+        public void RotateRight(bool force = false)
         {
-            if (!CanRotate())
+            if (!CanRotate() && !force)
                 return;
 
             lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
@@ -117,7 +128,7 @@ namespace ProjectEntities
             SoundWorld.Instance.SoundPlay(sound, EngineApp.Instance.DefaultSoundChannelGroup,
                     0.5f);
 
-            ringPosition = (byte)((ringPosition + 1) % corners);
+            ringPosition = mod(ringPosition + 1, corners);
 
             double angle = ringPosition * (Math.PI / corners);
 
@@ -130,7 +141,7 @@ namespace ProjectEntities
 
             if (RotateRing != null)
             {
-                RotateRing(this.Position, newRot, true);
+                RotateRing(this.Position, newRot, false);
             } 
         }
 
@@ -147,6 +158,11 @@ namespace ProjectEntities
         public bool CanRotate()
         {
             return rotatable && ( (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds > lastRotate );
+        }
+
+        private byte mod(int x, int m)
+        {
+            return (byte)((x % m + m) % m);
         }
     }
 }

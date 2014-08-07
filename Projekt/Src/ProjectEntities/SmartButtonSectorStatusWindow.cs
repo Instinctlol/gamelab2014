@@ -119,85 +119,85 @@ namespace ProjectEntities
                 case "f1r1":
                     highlight("f1r1", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r1_highlighted"]);
-                    return;
+                    break;
                 case "f1r2":
                     highlight("f1r2", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r2_highlighted"]);
-                    return;
+                    break;
                 case "f1r3":
                     highlight("f1r3", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r3_highlighted"]);
-                    return;
+                    break;
                 case "f1r4":
                     highlight("f1r4", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r4_highlighted"]);
-                    return;
+                    break;
                 case "f1r5":
                     highlight("f1r5", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r5_highlighted"]);
-                    return;
+                    break;
                 case "f1r6":
                     highlight("f1r6", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r6_highlighted"]);
-                    return;
+                    break;
                 case "f1r7":
                     highlight("f1r7", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r7_highlighted"]);
-                    return;
+                    break;
                 case "f1r8":
                     highlight("f1r8", true);
                     extraOuterRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f1r8_highlighted"]);
-                    return;
+                    break;
                 case "f2r1":
                     highlight("f2r1", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r1_highlighted"]);
-                    return;
+                    break;
                 case "f2r2":
                     highlight("f2r2", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r2_highlighted"]);
-                    return;
+                    break;
                 case "f2r3":
                     highlight("f2r3", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r3_highlighted"]);
-                    return;
+                    break;
                 case "f2r4":
                     highlight("f2r4", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r4_highlighted"]);
-                    return;
+                    break;
                 case "f2r5":
                     highlight("f2r5", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r5_highlighted"]);
-                    return;
+                    break;
                 case "f2r6":
                     highlight("f2r6", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r6_highlighted"]);
-                    return;
+                    break;
                 case "f2r7":
                     highlight("f2r7", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r7_highlighted"]);
-                    return;
+                    break;
                 case "f2r8":
                     highlight("f2r8", true);
                     extraMiddleRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f2r8_highlighted"]);
-                    return;
+                    break;
                 case "f3r1":
                     highlight("f3r1", true);
                     extraInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r1_highlighted"]);
-                    return;
+                    break;
                 case "f3r2":
                     highlight("f3r2", true);
                     extraInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r2_highlighted"]);
-                    return;
+                    break;
                 case "f3r3":
                     highlight("f3r3", true);
                     extraInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r3_highlighted"]);
-                    return;
+                    break;
                 case "f3r4":
                     highlight("f3r4", true);
                     extraInnerRingControls.Add((RotControl)ringFullCntrl.Controls["Highlight_Overlay"].Controls["f3r4_highlighted"]);
-                    return;
+                    break;
                 default:
-                    return;
+                    break;
             }
 
 
@@ -608,12 +608,12 @@ namespace ProjectEntities
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateInnerRingRight);
 
-                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
-                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
-                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    ringInnerCntrl.RotateDegree = mod(ringInnerCntrl.RotateDegree + 45, 360);
+                    secgrpFCntrl.RotateDegree = mod(secgrpFCntrl.RotateDegree + 45, 360);
+                    secgrpGCntrl.RotateDegree = mod(secgrpGCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraInnerRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
                     currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
                 }
@@ -621,12 +621,12 @@ namespace ProjectEntities
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateInnerRingLeft);
 
-                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
-                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
-                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    ringInnerCntrl.RotateDegree = mod(ringInnerCntrl.RotateDegree - 45, 360);
+                    secgrpFCntrl.RotateDegree = mod(secgrpFCntrl.RotateDegree - 45, 360);
+                    secgrpGCntrl.RotateDegree = mod(secgrpGCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraInnerRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
                     currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
                 }
@@ -641,13 +641,13 @@ namespace ProjectEntities
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateMiddleRingRight);
 
-                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
-                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
-                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
-                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    ringMiddleCntrl.RotateDegree = mod(ringMiddleCntrl.RotateDegree + 45, 360);
+                    secgrpAR7Cntrl.RotateDegree = mod(secgrpAR7Cntrl.RotateDegree + 45, 360);
+                    secgrpECntrl.RotateDegree = mod(secgrpECntrl.RotateDegree + 45, 360);
+                    secgrpDCntrl.RotateDegree = mod(secgrpDCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraMiddleRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
                     currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
                 }
@@ -656,13 +656,13 @@ namespace ProjectEntities
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateMiddleRingLeft);
 
-                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
-                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
-                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
-                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    ringMiddleCntrl.RotateDegree = mod(ringMiddleCntrl.RotateDegree - 45, 360);
+                    secgrpAR7Cntrl.RotateDegree = mod(secgrpAR7Cntrl.RotateDegree - 45, 360);
+                    secgrpECntrl.RotateDegree = mod(secgrpECntrl.RotateDegree - 45, 360);
+                    secgrpDCntrl.RotateDegree = mod(secgrpDCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraMiddleRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
                     currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
                 }
@@ -677,31 +677,31 @@ namespace ProjectEntities
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateOuterRingRight);
 
-                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
+                    ringOuterCntrl.RotateDegree = mod(ringOuterCntrl.RotateDegree + 45, 360);
 
-                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
-                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
-                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = mod(secgrpAR8Cntrl.RotateDegree + 45, 360);
+                    secgrpBCntrl.RotateDegree = mod(secgrpBCntrl.RotateDegree + 45, 360);
+                    secgrpCCntrl.RotateDegree = mod(secgrpCCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraOuterRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
-                    currRingRotations[0] = (currRingRotations[0] + 1) % 8;
+                    currRingRotations[0] = mod(currRingRotations[0] + 1, 8);
                 }
                 else
                 {
                     button.Server_SendWindowData((UInt16)NetworkMessages.Client_RotateOuterRingLeft);
 
-                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
+                    ringOuterCntrl.RotateDegree = mod(ringOuterCntrl.RotateDegree - 45, 360);
 
-                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
-                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
-                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = mod(secgrpAR8Cntrl.RotateDegree - 45, 360);
+                    secgrpBCntrl.RotateDegree = mod(secgrpBCntrl.RotateDegree - 45, 360);
+                    secgrpCCntrl.RotateDegree = mod(secgrpCCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraOuterRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
-                    mod(currRingRotations[0] - 1, 8);
+                    currRingRotations[0] = mod(currRingRotations[0] - 1, 8);
                 }
             }
         }
@@ -914,23 +914,23 @@ namespace ProjectEntities
             {
                 if (!left)
                 {
-                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree + 45) % 360;
-                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree + 45) % 360;
-                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree + 45) % 360;
+                    ringInnerCntrl.RotateDegree = mod(ringInnerCntrl.RotateDegree + 45, 360);
+                    secgrpFCntrl.RotateDegree = mod(secgrpFCntrl.RotateDegree + 45, 360);
+                    secgrpGCntrl.RotateDegree = mod(secgrpGCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraInnerRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
                     currRingRotations[2] = mod(currRingRotations[2] + 1, 8);
                 }
                 else
                 {
-                    ringInnerCntrl.RotateDegree = (ringInnerCntrl.RotateDegree - 45) % 360;
-                    secgrpFCntrl.RotateDegree = (secgrpFCntrl.RotateDegree - 45) % 360;
-                    secgrpGCntrl.RotateDegree = (secgrpGCntrl.RotateDegree - 45) % 360;
+                    ringInnerCntrl.RotateDegree = mod(ringInnerCntrl.RotateDegree - 45, 360);
+                    secgrpFCntrl.RotateDegree = mod(secgrpFCntrl.RotateDegree - 45, 360);
+                    secgrpGCntrl.RotateDegree = mod(secgrpGCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraInnerRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
                     currRingRotations[2] = mod(currRingRotations[2] - 1, 8);
                 }
@@ -943,26 +943,26 @@ namespace ProjectEntities
             {
                 if (!left)
                 {
-                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree + 45) % 360;
-                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree + 45) % 360;
-                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree + 45) % 360;
-                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree + 45) % 360;
+                    ringMiddleCntrl.RotateDegree = mod(ringMiddleCntrl.RotateDegree + 45, 360);
+                    secgrpAR7Cntrl.RotateDegree = mod(secgrpAR7Cntrl.RotateDegree + 45, 360);
+                    secgrpECntrl.RotateDegree = mod(secgrpECntrl.RotateDegree + 45, 360);
+                    secgrpDCntrl.RotateDegree = mod(secgrpDCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraMiddleRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
                     currRingRotations[1] = mod(currRingRotations[1] + 1, 8);
                 }
 
                 else
                 {
-                    ringMiddleCntrl.RotateDegree = (ringMiddleCntrl.RotateDegree - 45) % 360;
-                    secgrpAR7Cntrl.RotateDegree = (secgrpAR7Cntrl.RotateDegree - 45) % 360;
-                    secgrpECntrl.RotateDegree = (secgrpECntrl.RotateDegree - 45) % 360;
-                    secgrpDCntrl.RotateDegree = (secgrpDCntrl.RotateDegree - 45) % 360;
+                    ringMiddleCntrl.RotateDegree = mod(ringMiddleCntrl.RotateDegree - 45, 360);
+                    secgrpAR7Cntrl.RotateDegree = mod(secgrpAR7Cntrl.RotateDegree - 45, 360);
+                    secgrpECntrl.RotateDegree = mod(secgrpECntrl.RotateDegree - 45, 360);
+                    secgrpDCntrl.RotateDegree = mod(secgrpDCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraMiddleRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
                     currRingRotations[1] = mod(currRingRotations[1] - 1, 8);
                 }
@@ -975,34 +975,39 @@ namespace ProjectEntities
             {
                 if (!left)
                 {
-                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
+                    ringOuterCntrl.RotateDegree = mod(ringOuterCntrl.RotateDegree + 45, 360);
 
-                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
-                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree + 45) % 360;
-                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree + 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = mod(secgrpAR8Cntrl.RotateDegree + 45, 360);
+                    secgrpBCntrl.RotateDegree = mod(secgrpBCntrl.RotateDegree + 45, 360);
+                    secgrpCCntrl.RotateDegree = mod(secgrpCCntrl.RotateDegree + 45, 360);
                     foreach (RotControl r in extraOuterRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree + 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree + 45, 360);
                     }
-                    currRingRotations[0] = (currRingRotations[0] + 1) % 8;
+                    currRingRotations[0] = mod(currRingRotations[0] + 1, 8);
                 }
                 else
                 {
-                    ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
+                    ringOuterCntrl.RotateDegree = mod(ringOuterCntrl.RotateDegree - 45, 360);
 
-                    secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;
-                    secgrpBCntrl.RotateDegree = (secgrpBCntrl.RotateDegree - 45) % 360;
-                    secgrpCCntrl.RotateDegree = (secgrpCCntrl.RotateDegree - 45) % 360;
+                    secgrpAR8Cntrl.RotateDegree = mod(secgrpAR8Cntrl.RotateDegree - 45, 360);
+                    secgrpBCntrl.RotateDegree = mod(secgrpBCntrl.RotateDegree - 45, 360);
+                    secgrpCCntrl.RotateDegree = mod(secgrpCCntrl.RotateDegree - 45, 360);
                     foreach (RotControl r in extraOuterRingControls)
                     {
-                        r.RotateDegree = (r.RotateDegree - 45) % 360;
+                        r.RotateDegree = mod(r.RotateDegree - 45, 360);
                     }
-                    mod(currRingRotations[0] - 1, 8);
+                    currRingRotations[0] = mod(currRingRotations[0] - 1, 8);
                 }
             }
         }
 
         private int mod(int x, int m)
+        {
+            return (x % m + m) % m;
+        }
+
+        private float mod(float x, float m)
         {
             return (x % m + m) % m;
         }

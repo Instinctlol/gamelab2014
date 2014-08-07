@@ -39,6 +39,8 @@ namespace Game
             ((Button)window.Controls["RotateRight"]).Click += rotateRightButton_Click;
             ((Button)window.Controls["Power"]).Click += powerButton_Click; */
 
+
+
             MouseCover = true;
             BackColor = new ColorValue(0, 0, 0, .5f);
         }

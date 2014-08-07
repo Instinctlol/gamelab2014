@@ -157,6 +157,7 @@ namespace ProjectEntities
             FlashLightRotationToClient,
             FlashLightRotationToServer,
             DropItemToServer,
+            IPToServer,
         }
 
         ///////////////////////////////////////////
@@ -421,6 +422,7 @@ namespace ProjectEntities
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
+
 
             if (!loaded)
             {
@@ -915,7 +917,12 @@ namespace ProjectEntities
             Server_SendLightStatus(Inventar.taschenlampevisible);
 
             Owner = remoteEntityWorld;
-            
+        }
+
+        protected override void Server_OnClientConnectedBeforePostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedBeforePostCreate(remoteEntityWorld);
+            Owner = remoteEntityWorld;
         }
 
         void Server_SendSetActiveWeaponToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
@@ -1175,7 +1182,6 @@ namespace ProjectEntities
                     Drop(i.Type.ToString(), p);
             }
         }
-
     }
 
 }
