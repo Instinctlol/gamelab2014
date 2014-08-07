@@ -152,8 +152,7 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
-                    if(currentItem.Name == "")
-                    currentItem.Name = "Batterie";
+                    
                     if (!unit.Inventar.taschenlampeBesitz)
                         s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
                     else
@@ -164,6 +163,9 @@ namespace ProjectEntities
                         }
                         else
                         {
+                            if (currentItem.Name == "")
+                                currentItem.Name = "Batterie";
+                            
                             currentItem.TakeItem(unit);
                             if (unit.Inventar.taschenlampeEnergie + 50 < unit.Inventar.taschenlampeEnergieMax)
                                 unit.Inventar.taschenlampeEnergie += 50;
