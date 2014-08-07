@@ -99,6 +99,19 @@ namespace Game
             timeForDeleteNotificationMessage = 5;
         }
 
+        public void AddControlMessage(String message)
+        {
+            if (message != "")
+            {
+                hudControl.Controls["ControlMessage"].Controls["Message"].Text = message;
+                hudControl.Controls["ControlMessage"].Visible = true;
+            }
+            else
+            {
+                hudControl.Controls["ControlMessage"].Visible = false;
+            }
+        }
+
         /// <summary>
         /// Event Listener initialisieren
         /// </summary>
@@ -106,6 +119,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddNotificationMessage);
+            StatusMessageHandler.showControlMessage += new StatusMessageHandler.StatusMessageEventDelegate(AddControlMessage);
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
@@ -499,10 +513,10 @@ namespace Game
                 SelectAllAliens();
             }
 
-            //if (e.Key == EKeys.F7)
-            //{
-            //    Computer.SetAlienControlPaused();
-            //}
+            if (e.Key == EKeys.F7)
+            {
+                Computer.SetAlienControlPaused();
+            }
 
             if (e.Key == EKeys.F8)
             {

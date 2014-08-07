@@ -101,6 +101,11 @@
             <param name="unit"></param>
             <returns></returns>
         </member>
+        <member name="M:Game.AlienGameWindow.changeCameraPosition">
+            <summary>
+            Ändert die CameraPosition von Map zu Endraum und umgekehrt
+            </summary>
+        </member>
         <member name="M:Game.AlienGameWindow.ClearEntitySelection">
             <summary>
             removes all small aliens from selectedUnits

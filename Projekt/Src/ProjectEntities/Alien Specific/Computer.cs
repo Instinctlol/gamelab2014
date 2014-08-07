@@ -459,6 +459,7 @@ namespace ProjectEntities
         public static void SetAlienControlPaused()
         {
             alienControlPaused = true;
+            StatusMessageHandler.sendControlMessage("Astronauten haben die Kontrolle!");
             alienControlTimer = new Timer(120000); // 2 Min
             alienControlTimer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
             alienControlTimer.Enabled = true; // Enable it
@@ -472,6 +473,7 @@ namespace ProjectEntities
         static void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             alienControlPaused = false;
+            StatusMessageHandler.sendControlMessage("");
         }
 
         /// <summary>

@@ -270,9 +270,9 @@ control Control
 			textColor = 1 0.04705883 0.1921569
 			wordWrap = True
 			topMost = True
-			position = ScaleByResolution 0 0
+			position = Parent 0 0.3
 			horizontalAlign = Center
-			verticalAlign = Bottom
+			verticalAlign = Center
 			size = Parent 0.5 0.2
 			name = StatusMessage
 		}
@@ -466,5 +466,28 @@ control Control
 		name = Statistic
 		visible = False
 		enable = False
+	}
+	control Control
+	{
+		horizontalAlign = Center
+		size = Parent 0.8 0.1
+		name = ControlMessage
+		visible = False
+		control TextBox
+		{
+			textHorizontalAlign = Left
+			font = German 0.05
+			textColor = 1 0.04705883 0.1921569
+			horizontalAlign = Right
+			size = Parent 0.9 1
+			name = Message
+			text = Astronauten haben die Kontrolle
+		}
+		control Control
+		{
+			verticalAlign = Center
+			size = ScaleByResolution 70 60
+			backTexture = "GUI\\HUD\\Icons\\attention.png"
+		}
 	}
 }
