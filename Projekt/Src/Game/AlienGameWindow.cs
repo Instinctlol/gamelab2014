@@ -38,6 +38,8 @@ namespace Game
         SphereDir cameraDirection = new SphereDir((float)Math.PI / 2 - 0.01f, (float)Math.PI / 2 - 0.01f);
         //SphereDir cameraDirection = new SphereDir(1.5f, 0.85f);
         Vec2 cameraPosition;
+        bool endkampfraum = false;
+        Vec2 oldCameraPosition;
 
         // Pathfinding Attribute
         [Config("Map", "drawPathMotionMap")]
@@ -1787,21 +1789,41 @@ namespace Game
         //Begrenzung der Mapansicht
         bool CheckMapPositionStation(Vec2 cameraPosition)
         {
-            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            Bounds initialBounds;
+            Vec2 vec2;
+            if (!endkampfraum)
+            {
+                initialBounds = Map.Instance.InitialCollisionBounds;
+                vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            }
+            else
+            {
+                Sector s = Entities.Instance.GetByName("Sector_Endkampf") as Sector;
+                initialBounds = s.MapBounds;
+                vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            }
             Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
 
             return mapRect.IsContainsPoint(cameraPosition);
         }
 
-        bool CheckMapPositionEndkampf(Vec2 cameraPosition)
+        /// <summary>
+        /// Ändert die CameraPosition von Map zu Endraum und umgekehrt
+        /// </summary>
+        void changeCameraPosition()
         {
-            Sector Sector_Endkampf;
-            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
-            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
-            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
+            endkampfraum = !endkampfraum;
+            if (endkampfraum)
+            {
+                oldCameraPosition = cameraPosition;
+                Room r = Entities.Instance.GetByName("Endkampf-Raum") as Room;
+                cameraPosition = r.Position.ToVec2();
+            }
+            else
+            {
+                cameraPosition = oldCameraPosition;
+            }
 
-            return mapRect.IsContainsPoint(cameraPosition);
         }
 
         CameraType GetRealCameraType()
@@ -1947,8 +1969,6 @@ namespace Game
 
         protected override void OnGetCameraTransform(out Vec3 position, out Vec3 forward, out Vec3 up, ref Degree cameraFov)
         {
-            
-
             //Vec3 offset;
             //{
             //    Quat rot = new Angles(0, 0, MathFunctions.RadToDeg(cameraDirection.Horizontal)).ToQuat();
@@ -1986,21 +2006,23 @@ namespace Game
                 todoRotate = 0;
 
             }
-                Quat rot = new Angles(0, 0, cameraDirection.Horizontal / (2 * MathFunctions.PI)*360-90).ToQuat();
-                Vec3 translate;
-                translate = new Vec3(todoTranslate.X, todoTranslate.Y, 0);
-                translate *= rot;
-                todoTranslate.X = translate.X;
-                todoTranslate.Y = translate.Y;
-                Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
-                if (CheckMapPositionStation(cameraPosition + todoTranslate * 15))
-                {
-                    lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
-                }
-                position = lookAt2;
-                forward = new Vec3(0, 0, -1);
-                up = new Vec3(0, 1, 0);
-                up *= rot;
+            Quat rot = new Angles(0, 0, cameraDirection.Horizontal / (2 * MathFunctions.PI)*360-90).ToQuat();
+            Vec3 translate;
+            translate = new Vec3(todoTranslate.X, todoTranslate.Y, 0);
+            translate *= rot;
+            todoTranslate.X = translate.X;
+            todoTranslate.Y = translate.Y;
+            Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
+
+            if (CheckMapPositionStation(cameraPosition + todoTranslate * 15))
+            {
+                lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
+            }
+
+            position = lookAt2;
+            forward = new Vec3(0, 0, -1);
+            up = new Vec3(0, 1, 0);
+            up *= rot;
 
             todoTranslate = Vec2.Zero;
             //// Headtracking Daten
@@ -2036,13 +2058,6 @@ namespace Game
                 Unit unit = selectedUnits[n];
                 World.Instance.SetCustomSerializationValue("selectedUnit" + n.ToString(), unit);
             }
-        }
-
-        /// <summary>
-        /// Ändert die CameraPosition von Map zu Endraum und umgekehrt
-        /// </summary>
-        void changeCameraPosition(){
-
         }
 
         /// <summary>
