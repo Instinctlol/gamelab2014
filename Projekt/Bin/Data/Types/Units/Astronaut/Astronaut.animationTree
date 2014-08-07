@@ -95,7 +95,7 @@ blocks
 	block Animation
 	{
 		uin = 100
-		animationName = "jump"
+		animationName = "Jump"
 		speed = 1.0
 	}
 	
