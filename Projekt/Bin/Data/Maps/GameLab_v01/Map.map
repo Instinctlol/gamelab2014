@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.7058824 0.7058824 0.7058824
-editorCameraPosition = -90.37254 86.15181 30.29801
-editorCameraDirection = 5.607207 -1.493664
+editorCameraPosition = -81.61591 89.74371 30.29801
+editorCameraDirection = 5.444151 -1.493664
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -8068,7 +8068,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 4
-	position = -78.6 69.89999 0.3
+	position = -78.2 70.39999 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8079,7 +8079,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 5
-	position = -76.2 72.8 0.3
+	position = -75.6 73.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8090,7 +8090,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 6
-	position = -73.79999 75.90002 0.3
+	position = -73.19998 76.60002 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8101,7 +8101,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 7
-	position = -71.50002 79.60001 0.3
+	position = -71.20001 79.90001 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8123,7 +8123,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 9
-	position = -70.29998 87.6 0.3
+	position = -70.49998 87.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8134,7 +8134,7 @@ entity
 	subscriptionsToDeletionEvent = 708
 	owner = 708
 	time = 10
-	position = -73.29999 89.1 0.3
+	position = -73.39999 88.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
