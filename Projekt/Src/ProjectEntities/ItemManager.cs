@@ -152,6 +152,7 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
+                    if(currentItem.Name == "")
                     currentItem.Name = "Batterie";
                     if (!unit.Inventar.taschenlampeBesitz)
                         s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
