@@ -66,8 +66,6 @@ type SubmachineGun
 			meshName = "Types\\Weapons\\SubmachineGun\\ScarRifle_FPSCamera\\ScarRifle_FPSCamera.mesh"
 			renderQueueGroup = Queue1
 			alias = fpsCamera
-			position = 0 -0.0002486389 0
-			scale = 0.65 1 1
 		}
 	}
 }
