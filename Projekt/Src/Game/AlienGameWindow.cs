@@ -1950,7 +1950,7 @@ namespace Game
                 todoRotate = 0;
 
             }
-                Quat rot = new Angles(0, 0, cameraDirection.Horizontal / (2 * MathFunctions.PI)*360).ToQuat();
+                Quat rot = new Angles(0, 0, cameraDirection.Horizontal / (2 * MathFunctions.PI)*360-90).ToQuat();
                 Vec3 translate;
                 translate = new Vec3(todoTranslate.X, todoTranslate.Y, 0);
                 translate *= rot;
