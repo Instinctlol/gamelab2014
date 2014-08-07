@@ -61,8 +61,8 @@ namespace ProjectCommon
         public static bool wastranslating = false, wasrotating = false, wasselecting = false;
         public static bool detectgesturesState = false;
         public static Recognizer.Dollar.Recognizer Recog;
-        private float[] failsafe;
-        private bool failsafebool = false;
+        private static float[] failsafe;
+        private static bool failsafebool = false;
 		public TuioInputDevice( string name )
 			: base( name )
 		{
@@ -504,6 +504,8 @@ namespace ProjectCommon
 
         public static void detectgestures(bool state) {
             detectgesturesState = state;
+            failsafe = null;
+            failsafebool = false;
             Console.WriteLine("Change Gesture State to " + state);
         }
 
