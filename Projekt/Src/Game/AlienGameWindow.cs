@@ -198,15 +198,30 @@ namespace Game
             //Texture minimapTexture = TextureManager.Instance.Load(textureName, Texture.Type.Type2D, 0);
             //minimapControl.BackTexture = minimapTexture;
             minimapControl.RenderUI += new RenderUIDelegate(Minimap_RenderUI);
-            
+
             //set camera position
+            //foreach (Entity entity in Map.Instance.Children)
+            //{
+            //    SpawnPoint spawnPoint = entity as SpawnPoint;
+            //    if (spawnPoint == null)
+            //        continue;
+            //    cameraPosition = spawnPoint.Position.ToVec2();
+            //    break;
+            //}
+            
             foreach (Entity entity in Map.Instance.Children)
             {
-                SpawnPoint spawnPoint = entity as SpawnPoint;
-                if (spawnPoint == null)
+                AlienSpawner aSp = entity as AlienSpawner;
+                int zahl = new Random().Next(0, 2);
+                Console.WriteLine("Variable: " + (zahl == 0) + ", Zahl: " + zahl);
+                if (aSp == null || zahl == 0)
                     continue;
-                cameraPosition = spawnPoint.Position.ToVec2();
+                cameraPosition = aSp.Position.ToVec2();
                 break;
+            }
+            if (cameraPosition == null)
+            {
+                cameraPosition = new Vec2(80.0f, 80.0f);
             }
 
             //World serialized data
@@ -351,6 +366,11 @@ namespace Game
                         hudFunctions("Menu");
                         #endregion
                     }
+                    else if (hudControl.Controls["Strahlen"].Controls["ButtonArea"].Controls["ChangeRoom"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    {
+                        //veraendert die Position der Camera in den Endkampfraum
+                        changeCameraPosition();
+                    }
                     else if (hudControl.Controls["BigMinimap"].Visible)
                     {
                         #region bigminimap
@@ -399,7 +419,7 @@ namespace Game
                         }
                         #endregion
                     }
-                    else if(hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    else if (hudControl.Controls["ActiveArea"].GetScreenRectangle().IsContainsPoint(MousePos))
                     {
                         #region ActiveAreaClick
                         bool pickingSuccess = false;
@@ -427,7 +447,8 @@ namespace Game
                                 DoTaskTargetChooseTasks(mouseMapPos, mouseOnObject);
                             }
                         }
-                        if (TaskTargetChooseIndex == -1) {
+                        if (TaskTargetChooseIndex == -1)
+                        {
                             ClearEntitySelection();
                         }
                         #endregion
@@ -452,7 +473,12 @@ namespace Game
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnKeyDown(e);
-            
+
+            if (e.Key == EKeys.P)
+            {
+                mapDrawPathMotionMap = !mapDrawPathMotionMap;
+            }
+
             // Alles auf Maximum (Rotation, Strom, Aliens)
             if (e.Key == EKeys.F4)
             {
@@ -1655,7 +1681,7 @@ namespace Game
                 if (unit == null)
                     continue;
 
-                if (CheckMapPosition(unit.Position.ToVec2() * 0.9f))
+                if (CheckMapPositionStation(unit.Position.ToVec2() * 0.9f))
                 {
                     Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
 
@@ -1759,8 +1785,18 @@ namespace Game
         }
 
         //Begrenzung der Mapansicht
-        bool CheckMapPosition(Vec2 cameraPosition)
+        bool CheckMapPositionStation(Vec2 cameraPosition)
         {
+            Bounds initialBounds = Map.Instance.InitialCollisionBounds;
+            Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
+
+            return mapRect.IsContainsPoint(cameraPosition);
+        }
+
+        bool CheckMapPositionEndkampf(Vec2 cameraPosition)
+        {
+            Sector Sector_Endkampf;
             Bounds initialBounds = Map.Instance.InitialCollisionBounds;
             Vec2 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
             Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
@@ -1957,7 +1993,7 @@ namespace Game
                 todoTranslate.X = translate.X;
                 todoTranslate.Y = translate.Y;
                 Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
-                if (CheckMapPosition(cameraPosition + todoTranslate * 15))
+                if (CheckMapPositionStation(cameraPosition + todoTranslate * 15))
                 {
                     lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
                 }
@@ -2000,6 +2036,13 @@ namespace Game
                 Unit unit = selectedUnits[n];
                 World.Instance.SetCustomSerializationValue("selectedUnit" + n.ToString(), unit);
             }
+        }
+
+        /// <summary>
+        /// Ändert die CameraPosition von Map zu Endraum und umgekehrt
+        /// </summary>
+        void changeCameraPosition(){
+
         }
 
         /// <summary>
