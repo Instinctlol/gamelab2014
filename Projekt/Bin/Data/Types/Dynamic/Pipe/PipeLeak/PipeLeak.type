@@ -3,7 +3,6 @@ type PipeLeak
 	class = PhysicalStream
 	length = 4
 	thickness = 0.2
-	allowEditorCreate = True
 	networkType = Synchronized
 	normalMode
 	{
@@ -11,7 +10,7 @@ type PipeLeak
 	}
 	alternativeMode
 	{
-		damagePerSecond = 10
+		damagePerSecond = 30
 		influenceType = FireInfluence
 		influenceTimePerSecond = 8
 		particleName = PipeLeakFlameParticle
