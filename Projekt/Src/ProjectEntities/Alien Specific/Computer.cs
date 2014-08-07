@@ -62,6 +62,8 @@ namespace ProjectEntities
         // Statistik
         static Statistic statistic = new Statistic();
 
+        static bool astronautwin = false;
+        static bool alienwin = false;
 
 
         /*******************/
