@@ -65,10 +65,21 @@ namespace ProjectEntities
         static bool astronautwin = false;
         static bool alienwin = false;
 
-
         /*******************/
         /* Getter / Setter */
         /*******************/
+        public static bool Alienwin
+        {
+            get { return Computer.alienwin; }
+            set { Computer.alienwin = value; }
+        }
+
+        public static bool Astronautwin
+        {
+            get { return Computer.astronautwin; }
+            set { Computer.astronautwin = value; }
+        }
+
         public static int ExperiencePoints
         {
             get { return experiencePoints; }
