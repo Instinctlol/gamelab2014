@@ -22,9 +22,6 @@ namespace ProjectEntities
 
         private bool loaded = false;
 
-        //Liste der Lichter wird automatisch generiert
-        private List<Light> lights = new List<Light>();
-
         //Aktueller status der Lichter
         //[FieldSerialize]
         private bool lightStatus = true;
@@ -50,6 +47,11 @@ namespace ProjectEntities
         [FieldSerialize]
         private SectorGroup group;
 
+
+        enum NetworkMessages
+        {
+            LightToClient,
+        }
 
         //***************************
         //*******Getter-Setter*******
@@ -138,15 +140,17 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
+            if(obj is PlayerCharacter)
+            {
+                Server_SendLightToClient(lightStatus, ((PlayerCharacter)obj).Owner);
+            }
 
             if (obj is AlienUnit)
                 OnAlienIn();
             else if (obj is OutDoor && ring != null)
                 ring.RotateRing += ((OutDoor)obj).OnRotate;
 
-            if (obj is Light)
-                OnLightIn((Light)obj);
-            else if (obj is Dynamic)
+            if (obj is Dynamic)
                 OnDynamicIn((Dynamic)obj);
             else if (obj is Room)
                 OnRoomIn((Room)obj);
@@ -164,9 +168,8 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
-            if (obj is Light)
-                OnLightOut((Light)obj);
-            else if (obj is Dynamic)
+
+            if (obj is Dynamic)
                 OnDynamicOut((Dynamic)obj);
 
             if (obj is AlienUnit)
@@ -233,11 +236,6 @@ namespace ProjectEntities
 
         private void SetLights(bool status, bool sync = true)
         {
-
-            foreach (Light l in lights)
-            {
-                l.Visible = status;
-            }
             foreach (Room r in rooms)
             {
                 if (sync)
@@ -253,6 +251,14 @@ namespace ProjectEntities
                 else
                     s.SetLights(status);
             }
+
+            if(sync)
+            foreach(Dynamic d in dynamics)
+            {
+                PlayerCharacter unit = d as PlayerCharacter;
+                if (d != null)
+                    Server_SendLightToClient(status, unit.Owner);
+            }
         }
 
 
@@ -266,13 +272,6 @@ namespace ProjectEntities
 
             Quat newRot = Rotation * OldRotation.GetInverse();
             newRot.Normalize();
-
-            foreach (MapObject m in lights)
-            {
-                m.Rotation = newRot * m.Rotation;
-                offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
-            }
 
             foreach (MapObject m in dynamics)
             {
@@ -360,22 +359,6 @@ namespace ProjectEntities
             dynamics.Remove(obj);
         }
 
-        private void OnLightIn(Light obj)
-        {
-            lights.Add(obj);
-
-            if (isHidden)
-                obj.Visible = false;
-            else
-                obj.Visible = true;
-
-        }
-
-        private void OnLightOut(Light obj)
-        {
-            lights.Remove(obj);
-        }
-
         private void OnAlienIn()
         {
             if (GameMap.Instance.IsAlien)
@@ -396,6 +379,30 @@ namespace ProjectEntities
                     IsHidden = true;
                 }
             }
+        }
+
+        private void Server_SendLightToClient(bool status, RemoteEntityWorld target)
+        {
+            if (target != null)
+            {
+                SendDataWriter writer = BeginNetworkMessage(target, typeof(Unit), (ushort)NetworkMessages.LightToClient);
+                writer.Write(status);
+                EndNetworkMessage();
+            }
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.LightToClient)]
+        private void Client_ReceiveLightToClient(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            if (status)
+                Map.Instance.AmbientLight = new ColorValue(150f / 255f, 150f / 255f, 150f / 255f);
+            else
+                Map.Instance.AmbientLight = new ColorValue(30f / 255f, 30f / 255f, 30f / 255f);
         }
     }
 }

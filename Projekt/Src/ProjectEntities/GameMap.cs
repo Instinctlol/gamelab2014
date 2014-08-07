@@ -38,7 +38,7 @@ namespace ProjectEntities
                 if (isAlien)
                     Map.Instance.AmbientLight = new ColorValue(1,1,1);
                 else
-                    Map.Instance.AmbientLight = new ColorValue(30f / 255f, 30f / 255f, 30f / 255f);
+                    Map.Instance.AmbientLight = new ColorValue(150f / 255f, 150f / 255f, 150f / 255f);
             }
         }
 

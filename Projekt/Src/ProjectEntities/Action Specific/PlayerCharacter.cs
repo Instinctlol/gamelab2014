@@ -81,6 +81,10 @@ namespace ProjectEntities
 
         double flashLightPitch;
 
+        [FieldSerialize]
+        RemoteEntityWorld owner = null;
+
+        
 
 
         ///////////////////////////////////////////
@@ -174,6 +178,13 @@ namespace ProjectEntities
         }
 
         [Browsable(false)]
+        public RemoteEntityWorld Owner
+        {
+            get { return owner; }
+            set { owner = value; }
+        }
+
+        [Browsable(false)]
         public List<WeaponItem> Weapons
         {
             get { return weapons; }
@@ -187,6 +198,7 @@ namespace ProjectEntities
                     return n;
             return -1;
         }
+
 
         public bool TakeWeapon(WeaponType weaponType)
         {
@@ -901,6 +913,9 @@ namespace ProjectEntities
             Server_SendSetActiveWeaponToClients(worlds);
             Server_SendContusionTimeRemainingToClients(worlds);
             Server_SendLightStatus(Inventar.taschenlampevisible);
+
+            Owner = remoteEntityWorld;
+            
         }
 
         void Server_SendSetActiveWeaponToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
