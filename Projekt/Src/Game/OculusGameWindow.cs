@@ -43,7 +43,7 @@ namespace Game
         static float tpsCameraCenterOffset = 1.6f;
 
         //For management of pressing of the player on switches and management ingame GUI
-        const float playerUseDistance = 3;
+        const float playerUseDistance = 2;
         const float playerUseDistanceTPS = 10;
         //Current ingame GUI which with which the player can cooperate
         MapObjectAttachedGui currentAttachedGuiObject;
@@ -176,22 +176,22 @@ namespace Game
             //Timerintervall und Event, um Taschenlampenenergie zu verringern
             energieTimer.Interval = 5000;
             energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
-			
+
 			//Oculus initialisieren
 			if (OculusManager.Instance == null)
                 OculusManager.Init(true);
-
+			
         }
 
         protected override void OnDetach()
         {
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent -= GameControlsManager_GameControlsEvent;
+
+            base.OnDetach();
 			
 			if (OculusManager.Instance != null)
                 OculusManager.Shutdown();
-
-            base.OnDetach();
         }
 
 
@@ -520,6 +520,10 @@ namespace Game
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                     GameControlsManager.Instance.DoTick(delta);
             }
+            if (GetPlayerUnit() != null && GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeOn)
+            {
+                switchTaschenlampe();
+            }
 
         }
 
@@ -712,7 +716,7 @@ namespace Game
 
             if (origin.Length() != 0)
             {
-                Sphere sphere = new Sphere(origin, 0.33f);
+                Sphere sphere = new Sphere(origin, 0.5f);
 
                 foreach (MapObject obj in Map.Instance.GetObjects(sphere))
                 {
@@ -1914,12 +1918,16 @@ namespace Game
 
                     if (evt.ControlKey == GameControlKeys.PreviousWeapon )
                     {
-                        linksInventar();
+                        rechtsInventar();
                     }
 
                     if (evt.ControlKey == GameControlKeys.NextWeapon )
                     {
-                        rechtsInventar();
+                        linksInventar();
+                    }
+                    if (evt.ControlKey == GameControlKeys.Fire2)
+                    {
+                        switchTaschenlampe();
                     }
 
                     
@@ -1945,6 +1953,33 @@ namespace Game
                     }
 
                     return;
+                }
+            }
+
+            //GameControlsJoystickAxisEventData
+            {
+                GameControlsTickEventData evt = e as GameControlsTickEventData;
+                if (evt != null && OculusManager.Instance != null)
+                {
+                    //Looking
+                    PlayerIntellect intellect = (PlayerIntellect)GetPlayerUnit().Intellect as PlayerIntellect;
+                    Vec2 sensitivity = GameControlsManager.Instance.JoystickAxesSensitivity * 0.8f;
+
+                    Vec2 offset = Vec2.Zero;
+
+                    offset.X -= intellect.GetControlKeyStrength(GameControlKeys.LookLeft);
+                    offset.X += intellect.GetControlKeyStrength(GameControlKeys.LookRight);
+                    offset.Y += intellect.GetControlKeyStrength(GameControlKeys.LookUp);
+                    offset.Y -= intellect.GetControlKeyStrength(GameControlKeys.LookDown);
+
+                    offset *= evt.Delta * sensitivity;
+
+                    ////Test
+                    //lookDirection.Horizontal -= offset.X;
+                    //lookDirection.Vertical += offset.Y;
+                    ////Test
+
+                    OculusManager.Instance.OnMouseMove(offset);
                 }
             }
         }
@@ -2043,6 +2078,7 @@ namespace Game
             if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
             {
                 player.Setflashlight(!player.Inventar.taschenlampevisible);
+                player.Inventar.taschenlampeOn = !player.Inventar.taschenlampeOn;
 
                 if (!player.Inventar.taschenlampevisible)
                 {
@@ -2056,6 +2092,26 @@ namespace Game
                     energieTimer.Enabled = false;
                 }
             }
+
+			else if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie == 0 && player.Inventar.taschenlampeOn)
+            {
+                player.Setflashlight(!player.Inventar.taschenlampevisible);
+                player.Inventar.taschenlampeOn = !player.Inventar.taschenlampeOn;
+
+                if (!player.Inventar.taschenlampevisible)
+                {
+
+                    energieTimer.AutoReset = true;
+                    energieTimer.Enabled = true;
+                }
+                else if (player.Inventar.taschenlampevisible)
+                {
+                    energieTimer.AutoReset = false;
+                    energieTimer.Enabled = false;
+                }
+                sendMessageToHUD("Taschenlampe hat keine Energie mehr");
+            }
+			
             else
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
         }
