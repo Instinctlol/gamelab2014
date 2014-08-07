@@ -74,6 +74,7 @@ namespace ProjectEntities
         [FieldSerialize(FieldSerializeSerializationTypes.World)]
         List<Vec2> path = new List<Vec2>();
 
+        
         float pathFindWaitTime;
 
         float patrolTickTime;
@@ -92,6 +93,7 @@ namespace ProjectEntities
         String currentSoundName;
 
 
+      
         protected ArrayList route; //Variable für die Patrolroute
         protected int routeIndex = 0; //Index für die Route-Points
                  
@@ -116,72 +118,113 @@ namespace ProjectEntities
 
         public void Patrol()
         {
-            //if (Computer.ExperiencePoints > 0)
-            //{
 
-            //    if (counterPatrolCosts == 5)
-            //    {
-            //        Computer.DecrementExperiencePoints();
-            //        EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
-            //        counterPatrolCosts = 0;
-            //    }
-            //    counterPatrolCosts++;
+            patrolEnabled = true;
+            this.MovementRoute = null;
+            MapCurve mapCurve = null;
+            IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
+            IEnumerable<Sector> allPossibleSectors = Entities.Instance.EntitiesCollection.OfType<Sector>();
+            Vec3 myPosition = this.Position;
+            MapCurve minCurve = null;
+            Sector minSector = null;
+            float minDistance = 10000f;
+            float minDist = 10000f;
+            //MapCurve curve = null;
 
-                patrolEnabled = true;
-                this.MovementRoute = null;
-                MapCurve mapCurve = null;
-                IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
-                Vec3 myPosition = this.Position;
-                MapCurve minCurve = null;
-                float minDistance = 10000f;
+            //////////////////////////////////////////
 
-                foreach (MapCurve curve in allPossibleCurves)
+            Vec3 source = this.Position;
+            source.Z = 100;
+            Vec3 direction = new Vec3(0, 0, -1000);
+            Ray ray = new Ray(source, direction);
+
+
+            Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
+            {
+                Sector sec = mObj as Sector;
+
+                if (sec != null)
                 {
-                    // suche die am nächsten liegende MapCurve
-                    Vec3 distance = myPosition - curve.Position;
-                    if (distance.Length() < minDistance)
+                    foreach (MapCurve curve in allPossibleCurves)
                     {
-                        minDistance = distance.Length();
-                        minCurve = curve;
+                        // suche die am nächsten liegende MapCurve
+                        Vec3 distance = sec.Position - curve.Position;
+                        if (distance.Length() < minDistance)
+                        {
+                            minDistance = distance.Length();
+                            minCurve = curve;
+                            EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
+                        }
                     }
                 }
+                //else
+                //{
+                //    foreach (Sector sector in allPossibleSectors)
+                //    {
+                //        // suche die am nächsten liegende MapCurve
+                //        Vec3 distance = myPosition - sector.Position;
+                //        if (distance.Length() < minDistance)
+                //        {
+                //            minDistance = distance.Length();
+                //            minSector = sector;
+                            
+                //        }
+                    
+   
+                //        foreach (MapCurve curve in allPossibleCurves)
+                //        {
+                //            Vec3 dist = sector.Position - curve.Position;
+                //            if (dist.Length() < minDist)
+                //            {
+                //                minDist = dist.Length();
+                //                minCurve = curve;
+                //            }
+                //        }
 
-                EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
-                this.MovementRoute = minCurve;
+                //    } 
+                        
+                //}
+                
 
-                EngineConsole.Instance.Print("MovementRouteName: " + this.MovementRoute.Name);
+                return false;
+            });
 
-                mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
 
-                if (mapCurve != null) //hat das Alien eine MapCurve?
+
+
+            //foreach (MapCurve curve in allPossibleCurves)
+            //        {
+            //            // suche die am nächsten liegende MapCurve
+            //            Vec3 distance = myPosition - curve.Position;
+            //            if (distance.Length() < minDistance)
+            //            {
+            //                minDistance = distance.Length();
+            //                minCurve = curve;
+                        
+            //            }
+            ////////////////////////////////////////////////////////
+
+            
+            //EngineConsole.Instance.Print("MovementRouteName: " + this.MovementRoute.Name);
+            
+            this.MovementRoute = minCurve;
+                       
+
+            mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
+
+            if (mapCurve != null) //hat das Alien eine MapCurve?
+            {
+                    
+                route = new ArrayList();
+
+                foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen Waypoint in die Route ein 
                 {
-                    //if (route == null) //initialisiere die Patrolroute
-                    //{
-                        route = new ArrayList();
-
-                        foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen Waypoint in die Route ein 
-                        {
-                            route.Add(point);
-                        }
-                    //}
-
-                    ////laufe zum nächsten Punkt
-                    //MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
-                    //Move(pt.Position);
-                    //routeIndex++; //nächster Route-Waypoint
-
-                    //laufe die Route zurück, wenn du am Ende der Route angekommen bist
-                    //if (routeIndex >= route.Count)
-                    //{
-                    //    routeIndex = 0;
-                    //    route.Reverse();
-                    //}
+                    route.Add(point);
                 }
-            //}
-            //else
-            //{
-            //    Stop();
-            //}
+                       
+            }
+
+                       
         }
 
         
@@ -195,7 +238,7 @@ namespace ProjectEntities
                
                     if (Computer.ExperiencePoints > 0)
                     {
-
+                        //this._type.
                         if (counterPatrolCosts == 5)
                         {
                             Computer.DecrementExperiencePoints();
@@ -222,7 +265,7 @@ namespace ProjectEntities
 
                             
                         patrolTickTime = 0.63f;
-                        //patrolTickTime = 0.68f;
+                        
 
 
 

@@ -280,11 +280,11 @@ namespace ProjectEntities
                         }
                         else
                         {
-                            if (CurrentTask.Type == Task.Types.Attack)
-                            {
+                            //if (CurrentTask.Type == Task.Types.Attack)
+                            //{
                                 //move to target
                                 controlledObj.Move(targetPos);
-                            }
+                            //}
                         }
 
                         //weapons control
