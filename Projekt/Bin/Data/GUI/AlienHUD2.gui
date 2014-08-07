@@ -15,45 +15,45 @@ control Control
 			name = ControlPanelControl
 			control "GUI\\Controls\\DefaultButton.gui"
 			{
-				position = ScaleByResolution 0 10
+				position = Parent -0.01171877 -0.01250001
 				size = Parent 1 0.075
 				name = ControlPanelButton0
 				text = 0
 			}
-			control "GUI\\Controls\\DefaultButton.gui"
+			control Control
 			{
-				position = ScaleByResolution 0 50
-				size = Parent 1 0.075
+				position = ScaleByResolution 127.12 256.4
+				size = Parent 0.5 0.4
+				name = ControlPanelButton0
+				backTexture = "GUI\\HUD\\Icons\\stop.png"
+			}
+			control Control
+			{
+				position = ScaleByResolution -12.88 56.40002
+				size = Parent 0.5 0.4
 				name = ControlPanelButton1
-				text = 1
+				backTexture = "GUI\\HUD\\Icons\\move.png"
 			}
-			control "GUI\\Controls\\DefaultButton.gui"
+			control Control
 			{
-				position = ScaleByResolution 0 90
-				size = Parent 1 0.075
+				position = ScaleByResolution -12.88 196.4
+				size = Parent 0.5 0.4
 				name = ControlPanelButton2
-				text = 2
+				backTexture = "GUI\\HUD\\Icons\\attack.png"
 			}
-			control "GUI\\Controls\\DefaultButton.gui"
+			control Control
 			{
-				position = ScaleByResolution 0 130
-				size = Parent 1 0.075
+				position = ScaleByResolution 127.12 -3.600006
+				size = Parent 0.5 0.4
 				name = ControlPanelButton3
-				text = 3
+				backTexture = "GUI\\HUD\\Icons\\search.png"
 			}
-			control "GUI\\Controls\\DefaultButton.gui"
+			control Control
 			{
-				position = ScaleByResolution 0 170
-				size = Parent 1 0.075
+				position = ScaleByResolution 127.12 126.4
+				size = Parent 0.5 0.4
 				name = ControlPanelButton4
-				text = 4
-			}
-			control "GUI\\Controls\\DefaultButton.gui"
-			{
-				position = ScaleByResolution 0 210
-				size = Parent 1 0.075
-				name = ControlPanelButton5
-				text = 5
+				backTexture = "GUI\\HUD\\Icons\\suicide.png"
 			}
 		}
 		control "GUI\\AlienNumPad.gui"
@@ -61,6 +61,7 @@ control Control
 			position = Parent 0.15 0.3
 			size = Parent 0.8 0.25
 			name = NumPad
+			visible = False
 		}
 	}
 	control Control
@@ -261,7 +262,7 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 10
+		position = ScaleByResolution 0 0
 		size = Screen 1 0.9976042
 		name = ActiveArea
 		control TextBox
@@ -362,6 +363,7 @@ control Control
 		size = Pixel 319.5 333.9
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
+		visible = False
 		control TextBox
 		{
 			position = Parent 0.37 0.525

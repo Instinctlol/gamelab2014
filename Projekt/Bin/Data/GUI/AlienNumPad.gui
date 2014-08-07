@@ -87,7 +87,7 @@ control Control
 	{
 		topMost = True
 		position = Parent 0.3395062 0.8029196
-		size = Parent 0.6481482 0.1824818
+		size = Parent 0.308642 0.1824818
 		name = Clear
 		text = C
 	}
@@ -98,5 +98,13 @@ control Control
 		size = Parent 0.9876543 0.1824818
 		name = Output
 		backColor = 1 1 1
+	}
+	control "GUI\\Controls\\DefaultButton.gui"
+	{
+		topMost = True
+		position = Parent 0.6790124 0.8029197
+		size = Parent 0.308642 0.1824818
+		name = Enter
+		text = E
 	}
 }
