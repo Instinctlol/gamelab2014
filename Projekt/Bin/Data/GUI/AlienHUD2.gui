@@ -363,7 +363,6 @@ control Control
 		size = Pixel 319.5 333.9
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
-		visible = False
 		control TextBox
 		{
 			position = Parent 0.37 0.525
