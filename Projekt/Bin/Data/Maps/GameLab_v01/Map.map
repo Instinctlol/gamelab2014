@@ -616,7 +616,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 47
-				code = "if(!((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).useable && \r\n\t(DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).useable &&\r\n\t\t(DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).useable &&\r\n\t\t\t(DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).useable)) \r\n\t\t\t{\r\n\t\t\t\tComputer.Astronautwin = true;\r\n\t\t\t}"
+				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Astronautwin = true;\r\n\t\t\t}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
