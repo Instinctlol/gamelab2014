@@ -520,10 +520,6 @@ namespace Game
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                     GameControlsManager.Instance.DoTick(delta);
             }
-            if (GetPlayerUnit() != null && GetPlayerUnit().Inventar.taschenlampeEnergie == 0 && GetPlayerUnit().Inventar.taschenlampeOn)
-            {
-                switchTaschenlampe();
-            }
 
         }
 
@@ -2078,7 +2074,6 @@ namespace Game
             if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
             {
                 player.Setflashlight(!player.Inventar.taschenlampevisible);
-                player.Inventar.taschenlampeOn = !player.Inventar.taschenlampeOn;
 
                 if (!player.Inventar.taschenlampevisible)
                 {
@@ -2091,25 +2086,6 @@ namespace Game
                     energieTimer.AutoReset = false;
                     energieTimer.Enabled = false;
                 }
-            }
-
-			else if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie == 0 && player.Inventar.taschenlampeOn)
-            {
-                player.Setflashlight(!player.Inventar.taschenlampevisible);
-                player.Inventar.taschenlampeOn = !player.Inventar.taschenlampeOn;
-
-                if (!player.Inventar.taschenlampevisible)
-                {
-
-                    energieTimer.AutoReset = true;
-                    energieTimer.Enabled = true;
-                }
-                else if (player.Inventar.taschenlampevisible)
-                {
-                    energieTimer.AutoReset = false;
-                    energieTimer.Enabled = false;
-                }
-                sendMessageToHUD("Taschenlampe hat keine Energie mehr");
             }
 			
             else
