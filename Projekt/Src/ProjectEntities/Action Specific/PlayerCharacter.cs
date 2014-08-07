@@ -1117,24 +1117,20 @@ namespace ProjectEntities
         }
 
 
-        public void Drop(PlayerCharacter player)
+        public void Drop(String itemtype, Vec3 p)
         {
-            foreach(Item item in player.Inventar.getInventarliste())
-            {
-                MapObject itemObj = (MapObject)Entities.Instance.Create(item.Type, Map.Instance);
-
-                //Item wird vor dem Astronauten gedroppt
-                itemObj.Position = player.Position + player.Rotation.GetForward() * 4f + new Vec3(0, 0, 1);
-                itemObj.PostCreate();
-            }
+            Item i = (Item)Entities.Instance.Create(itemtype, Map.Instance);
+            i.Position = p;
+            i.PostCreate();
         }
 
 
-        void Client_SendDropItemToServer(PlayerCharacter player)
+        void Client_SendDropItemToServer(Item i, Vec3 position)
         {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Item),
-                (ushort)NetworkMessages.DropItemToServer);
-            writer.Write(player.NetworkUIN);
+            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
+               (ushort)NetworkMessages.DropItemToServer);
+            writer.Write(i.Type.Name);
+            writer.Write(position);
             EndNetworkMessage();
         }
 
@@ -1142,24 +1138,27 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.DropItemToServer)]
         void Server_ReceiveDropItem(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
-            uint uin = reader.ReadUInt32();
+            String itemtype = reader.ReadString();
+            Vec3 pos = reader.ReadVec3();
 
             if (!reader.Complete())
                 return;
 
-            PlayerCharacter player = Entities.Instance.GetByNetworkUIN(uin) as PlayerCharacter;
-            if (player != null)
-                this.Drop(player);
-
+            if (itemtype != null && pos != null)
+                Drop(itemtype, pos);
         }
 
         public void dropItem()
         {
-            //Items droppen lassen, wenn Astronaut tot ist
-            if (!EntitySystemWorld.Instance.IsServer())
-                Client_SendDropItemToServer(this);
-            else
-                Drop(this);
+            Vec3 p = this.Position + this.Rotation.GetForward();
+            p = p * 4f + new Vec3(0, 0, -1);
+            foreach (Item i in Inventar.getInventarliste())
+            {
+                if (!EntitySystemWorld.Instance.IsServer())
+                    Client_SendDropItemToServer(i, p);
+                else
+                    Drop(i.Type.ToString(), p);
+            }
         }
 
     }
