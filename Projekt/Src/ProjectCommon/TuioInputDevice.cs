@@ -393,8 +393,9 @@ namespace ProjectCommon
                 //Console.WriteLine("Gesture Detection Started");
                 int threshold = 100;
                 bool startb = false, endb = false;
-                float[] start = new float[8], end = new float[8];
+                float[] start = new float[8], lastpoint = null;
                 List<float[]> used = new List<float[]>();
+                
 
                 foreach (float[] elemt in tuioInputData)
                 {
@@ -410,12 +411,15 @@ namespace ProjectCommon
                         startb = true;
                         start = elemt;
                     }
+                    if (elemt[0] == 0 && elemt[3] == 2)
+                    {
+                        lastpoint = elemt;
+                    }
                     if (elemt[0] == 0 && elemt[3] == 3)
                     {
                         failsafe = elemt;
                         failsafebool = true;
                         endb = true;
-                        end = elemt;
                         Console.WriteLine("End Detected");
                     }
 
@@ -426,25 +430,29 @@ namespace ProjectCommon
                         tuioInputData.Remove(usedelemt);
                     }
                 }
+                bool lastexeption = false;
+                if (lastpoint == null && startb && endb) lastexeption = true;
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
-                if (startb && endb && Math.Abs(start[4] - end[4]) <= 0.01f && Math.Abs(start[5] - end[5]) <= 0.01f)
+                if (lastexeption || (startb && endb && Math.Abs(start[4] - lastpoint[4]) <= 0.01f && Math.Abs(start[5] - lastpoint[5]) <= 0.01f))
                 {
                     TuioInputDeviceSpecialEvent customEvent =
-                    new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                    new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
 
                     cleardata();
                     detectgestures(false);
                 }
+
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
- 
+                    
                         //Daten konvertieren
                         List<TimePointF> data = new List<TimePointF>();
                         foreach (float[] elemt in tuioInputData)
                         {
                             if (elemt[0] == 0 && elemt[3] != 3)
-                                data.Add(new TimePointF(elemt[4], elemt[5], elemt[2]));
+                                data.Add(new TimePointF(elemt[4]*1000, elemt[5]*1000, elemt[2]));
+                            Console.WriteLine(elemt[4]);
                         }
 
                         //Gesten erkennen
@@ -453,7 +461,7 @@ namespace ProjectCommon
                         {
                             list = Recog.Recognize(data, false);
                             TuioInputDeviceSpecialEvent customEvent =
-                                        new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                                        new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                             switch (list.Name)
                             {
                                 case "blitz":
@@ -478,7 +486,7 @@ namespace ProjectCommon
                                     }
                                 default:
                                     {
-                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, end[4], end[5]);
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                                         break;
                                     }
 
@@ -486,6 +494,8 @@ namespace ProjectCommon
                             InputDeviceManager.Instance.SendEvent(customEvent);
                             Console.WriteLine(list.Name);
                             cleardata();
+                            failsafebool = false;
+                            failsafe = new float[8];
                             detectgestures(false);
                         }
 
