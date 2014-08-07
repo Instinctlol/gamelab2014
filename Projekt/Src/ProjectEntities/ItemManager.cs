@@ -89,12 +89,10 @@ namespace ProjectEntities
                     break;
 
                 case "Schraubenschlüssel":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Schraubenschlüssel";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
-                        if(currentItem.Name == "")
-                            currentItem.Name = "Schraubenschlüssel";
                         currentItem.TakeItem(unit);
                         unit.Inventar.addItem(currentItem);
                         s = "Schraubenschlüssel";
@@ -106,19 +104,19 @@ namespace ProjectEntities
                     break;
 
                 case "Kabel":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Kabel";
-                    currentItem.Name = "Kabel";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
                     s = "Kabel";
                     break;
 
-                case "TaschenlampeItem":
-                    if (currentItem.Name == null)
-                        currentItem.Name = "Taschenlampe";
+                case "TaschenlampeItem": 
+                    if (currentItem.Name == "")
+                    currentItem.Name = "Taschenlampe";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
+                        
                         currentItem.TakeItem(unit);
                         unit.Inventar.addItem(currentItem);
                         unit.Inventar.taschenlampeBesitz = true;
@@ -142,7 +140,7 @@ namespace ProjectEntities
                     break;
 
                 case "Brechstange_Item":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Brechstange";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
@@ -190,7 +188,7 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Batterie";
                     if (!unit.Inventar.taschenlampeBesitz)
                         s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
@@ -215,7 +213,7 @@ namespace ProjectEntities
                     break;
 
                 case "cpu":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "CPU";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
@@ -223,7 +221,7 @@ namespace ProjectEntities
                     break;
 
                 case "Schrauben":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Schrauben";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
@@ -231,7 +229,7 @@ namespace ProjectEntities
                     break;
 
                 case "USB_Stick":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "USB-Stick";
                     if(!unit.Inventar.inBesitz(currentItem))
                     {
@@ -246,7 +244,7 @@ namespace ProjectEntities
                     break;
 
                 case "sicherung":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Sicherung";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
@@ -254,7 +252,7 @@ namespace ProjectEntities
                     break;
 
                 case "Dynamite":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Dynamit";
                     currentItem.TakeItem(unit);
                     unit.Inventar.addItem(currentItem);
@@ -262,7 +260,7 @@ namespace ProjectEntities
                     break;
 
                 case "AccessCard":
-                    if (currentItem.Name == null)
+                    if (currentItem.Name == "")
                         currentItem.Name = "Zugangskarte";
                     if(!unit.Inventar.inBesitz(currentItem))
                     { 
