@@ -261,7 +261,7 @@ control Control
 	}
 	control Control
 	{
-		position = ScaleByResolution 0 0
+		position = ScaleByResolution 0 10
 		size = Screen 1 0.9976042
 		name = ActiveArea
 		control TextBox
@@ -358,7 +358,7 @@ control Control
 	}
 	control Control
 	{
-		position = Parent 0.7 0.65
+		position = Parent 0.5761719 0.4817708
 		size = Pixel 319.5 333.9
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
@@ -444,6 +444,20 @@ control Control
 			name = Menu
 			backColor = 1 1 1
 			backTexture = "GUI\\HUD\\Icons\\menu.png"
+		}
+		control Control
+		{
+			position = Parent 0.76 0.76
+			size = Parent 0.24 0.24
+			name = ButtonArea
+			backTexture = "GUI\\HUD\\Elemente\\Button.png"
+			control Control
+			{
+				position = Parent 0.15 0.15
+				size = Parent 0.7 0.7
+				name = ChangeRoom
+				backTexture = "GUI\\HUD\\Icons\\endfight.png"
+			}
 		}
 	}
 	control "GUI\\GameStatistic.gui"
