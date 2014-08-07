@@ -181,6 +181,16 @@ namespace ProjectEntities
 				destination = null;
 		}
 
+        protected override void OnCreate()
+        {
+            base.OnCreate();
+
+            if(!(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor) && GameMap.Instance.IsAlien)
+            {
+                this.Visible = false;
+            }
+        }
+
 		protected override void OnTick()
 		{
 			base.OnTick();
