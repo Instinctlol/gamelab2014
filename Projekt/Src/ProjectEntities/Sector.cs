@@ -2,6 +2,7 @@
 using Engine.MapSystem;
 using Engine.MathEx;
 using Engine.Utils;
+using ProjectCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,8 +57,9 @@ namespace ProjectEntities
         public Ring Ring
         {
             get { return ring; }
-            set {
-                ring = value; 
+            set
+            {
+                ring = value;
             }
         }
 
@@ -70,19 +72,20 @@ namespace ProjectEntities
         public bool LightStatus
         {
             get { return lightStatus; }
-            set { 
-                    lightStatus = value;
+            set
+            {
+                lightStatus = value;
 
 
-                    /*if (group != null && group.LightStatus != value)
-                    {
-                       // if()
-                            group.LightStatus = value;
-                    }
-                    else*/
-                        SetLights(lightStatus);
+                /*if (group != null && group.LightStatus != value)
+                {
+                   // if()
+                        group.LightStatus = value;
                 }
-            
+                else*/
+                SetLights(lightStatus);
+            }
+
         }
 
         //Sets the room to be hidden for the alien
@@ -103,15 +106,16 @@ namespace ProjectEntities
         //***************************
 
 
-        public Sector() : base()
+        public Sector()
+            : base()
         {
             base.ShapeType = ShapeTypes.Box;
             base.Filter = Filters.All;
             base.CheckType = CheckTypes.Center;
         }
 
-        
-        
+
+
         //Setzt die Lichter zu bestimmten status
         public void SwitchLights(bool status)
         {
@@ -147,7 +151,7 @@ namespace ProjectEntities
             else if (obj is Room)
                 OnRoomIn((Room)obj);
             else if (obj is StaticObject)
-                OnStaticIn((StaticObject) obj);
+                OnStaticIn((StaticObject)obj);
 
 
         }
@@ -160,7 +164,7 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
-            if(obj is Light)
+            if (obj is Light)
                 OnLightOut((Light)obj);
             else if (obj is Dynamic)
                 OnDynamicOut((Dynamic)obj);
@@ -208,7 +212,7 @@ namespace ProjectEntities
 
         private void SetFoWEnabled(bool status)
         {
-            if( GameMap.Instance.IsAlien )
+            if (GameMap.Instance.IsAlien)
             {
 
                 if (status)
@@ -230,25 +234,25 @@ namespace ProjectEntities
         private void SetLights(bool status, bool sync = true)
         {
 
-                foreach (Light l in lights)
-                {
-                    l.Visible = status;
-                }
-                foreach (Room r in rooms)
-                {
-                    if (sync)
-                        r.LightStatus = status;
-                    else
-                        r.SetLights(status);
-                }
+            foreach (Light l in lights)
+            {
+                l.Visible = status;
+            }
+            foreach (Room r in rooms)
+            {
+                if (sync)
+                    r.LightStatus = status;
+                else
+                    r.SetLights(status);
+            }
 
-                foreach (StaticObject s in statics)
-                {
-                    if (sync)
-                        s.LightStatus = status;
-                    else
-                        s.SetLights(status);
-                }
+            foreach (StaticObject s in statics)
+            {
+                if (sync)
+                    s.LightStatus = status;
+                else
+                    s.SetLights(status);
+            }
         }
 
 
@@ -284,7 +288,7 @@ namespace ProjectEntities
                 m.Position = newRot * offset + Position;
             }
 
-            foreach(MapObject m in statics)
+            foreach (MapObject m in statics)
             {
                 m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
@@ -302,7 +306,7 @@ namespace ProjectEntities
 
             if (isHidden)
                 obj.SetLights(false);
-                
+
         }
 
         private void OnStaticIn(StaticObject obj)
@@ -313,38 +317,47 @@ namespace ProjectEntities
 
             if (isHidden)
                 obj.SetLights(false);
-                
+
         }
 
         private void OnDynamicIn(Dynamic obj)
         {
             dynamics.Add(obj);
 
-            obj.Visible = !IsHidden;
-        }
-
-        private void OnDynamicOut(Dynamic obj)
-        {
-            dynamics.Remove(obj);
-
             Vec3 source = obj.Position;
             source.Z = 100;
             Vec3 direction = new Vec3(0, 0, -1000);
             Ray ray = new Ray(source, direction);
+
+            bool twoSectors = false;
 
 
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
                 Sector sec = mObj as Sector;
 
-                if (sec != null)
+                if (sec != null && sec != this)
                 {
-                    obj.Visible = !sec.IsHidden;
+                    obj.Visible = !(sec.IsHidden && IsHidden);
+                    twoSectors = true;
+
+
                     return false;
                 }
 
                 return true;
             });
+
+
+            if (!twoSectors)
+                obj.Visible = !IsHidden;
+
+
+        }
+
+        private void OnDynamicOut(Dynamic obj)
+        {
+            dynamics.Remove(obj);
         }
 
         private void OnLightIn(Light obj)

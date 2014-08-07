@@ -584,7 +584,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 43
-				code = "if(!firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n\tfirstIn = true;\r\n}"
+				code = "if(!firstIn)\r\n{\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\tfirstIn = true;\r\n}"
 				methodName = ObjectIn
 				returnType = System.Void
 				parameters = 44
