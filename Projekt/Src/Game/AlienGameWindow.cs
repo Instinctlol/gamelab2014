@@ -301,7 +301,6 @@ namespace Game
             TuioInputDeviceSpecialEvent test = (TuioInputDeviceSpecialEvent)e;
             if (test != null)
             {
-                Console.WriteLine(test.getOPType());
                 // HIER Desoxyribonukleinsaeure
                 if (test.getOPType() == opType.translation)
                 {
@@ -396,7 +395,6 @@ namespace Game
                     else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
                         #region openminimap
-                        Console.WriteLine("tuio minimap click open");
                         DoOpenMinimap();
                         #endregion
                     }
@@ -413,6 +411,10 @@ namespace Game
                                 {
                                     NumPadClear_Click(b);
                                 }
+                                else if (b.Name == "Enter")
+                                {
+                                    NumPadEnter_Click(b);
+                                }
                                 else
                                 {
                                     NumPadButton_Click(b);
@@ -427,10 +429,9 @@ namespace Game
                         // Alle Buttons für Alien/Spawner durchiterieren
                         foreach (Control c in hudControl.Controls["rechts"].Controls["ControlPanelControl"].Controls)
                         {
-                            b = c as Button;
-                            if (b != null && b.Visible && b.GetScreenRectangle().IsContainsPoint(MousePos))
+                            if (c != null && c.Visible && c.GetScreenRectangle().IsContainsPoint(MousePos))
                             {
-                                ControlPanelButton_Click(b);
+                                ControlPanelButton_Click(int.Parse(c.Name.Substring("ControlPanelButton".Length)));
                             }
                         }
                         #endregion
@@ -471,7 +472,6 @@ namespace Game
                     }
 
                     //hudControl.Controls["rechts"].Controls["ControlPanelControl"].Visible
-                    //Console.WriteLine(Controls.OfType<MenuWindow>().GetType());
                     //EngineApp.Instance.DoMouseDown(EMouseButtons.Left);
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
                     #endregion
@@ -521,7 +521,7 @@ namespace Game
             if (e.Key == EKeys.F8)
             {
                 ShowStatistic();
-            }
+            }            
 
             if (e.Key == EKeys.F10)
             {
@@ -1384,7 +1384,6 @@ namespace Game
         List<AlienUnitAI.UserControlPanelTask> GetControlTasks()
         {
             List<AlienUnitAI.UserControlPanelTask> tasks = null;
-
             if (selectedUnits.Count != 0)
             {
                 foreach (Unit unit in selectedUnits)
@@ -1423,45 +1422,18 @@ namespace Game
                     }
                 }
             }
-
             return tasks;
         }
-        /*
-        void InitControlPanelButtons()
-        {
-            //Button button;
-            // ControlPanelButtons vorbereiten mit Click-Event-Funktionen
-            //for (int n = 0; ; n++)
-            //{
-            //    button = (Button)hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
-            //    if (button == null)
-            //        break;
-            //    button.Click += new Button.ClickDelegate(ControlPanelButton_Click);
-            //}
-
-            // AlienNumPad
-            //numPad = hudControl.Controls["NumPad"];
-            //numPad = hudControl.Controls["rechts"].Controls["NumPad"];
-            //if (numPad != null)
-            //{
-            //    for (int i = 0; i <= 9; i++)
-            //    {
-            //        button = (Button)numPad.Controls["num_" + i.ToString()];
-            //        if (button != null)
-            //        {
-            //            button.Click += NumPadButton_Click;
-            //        }
-            //    }
-            //    button = (Button)numPad.Controls["Clear"];
-            //    button.Click += NumPadClear_Click;
-            //}
-        }
-        */
 
         void NumPadClear_Click(Button sender)
         {
-            EngineConsole.Instance.Print("clear");
             numPad.Controls["Output"].Text = "";
+        }
+
+        void NumPadEnter_Click(Button sender)
+        {
+            // 1. Task des AlienSpawners 
+            ControlPanelButton_Click(0);
         }
 
         void NumPadButton_Click(Button sender)
@@ -1478,10 +1450,8 @@ namespace Game
         }
 
         // Wenn ein Button zum Navigieren der Aliens/Spawnpoints geklickt wurde
-        void ControlPanelButton_Click(Button sender)
+        void ControlPanelButton_Click(int index)
         {
-            int index = int.Parse(sender.Name.Substring("ControlPanelButton".Length));
-
             TaskTargetChooseIndex = -1;
 
             List<AlienUnitAI.UserControlPanelTask> tasks = GetControlTasks();
@@ -1492,7 +1462,6 @@ namespace Game
                 return;
 
             AlienUnitAI.Task.Types taskType = tasks[index].Task.Type;
-
             switch (taskType)
             {
                 //Stop, SelfDestroy
@@ -1523,7 +1492,6 @@ namespace Game
                             {
                                 spawnNumber = int.Parse(numPad.Controls["Output"].Text);
                                 intellect.DoTask(new AlienUnitAI.Task(taskType, tasks[index].Task.EntityType, spawnNumber), false);
-                                EngineConsole.Instance.Print("spawnnumber:" + spawnNumber);
                             }
                             catch (FormatException e)
                             {
@@ -1533,9 +1501,9 @@ namespace Game
                     }
                     break;
 
-                //Patrol, Move, Attack, Repair
-                
+                //Patrol, Suicide
                 case AlienUnitAI.Task.Types.Patrol:
+                case AlienUnitAI.Task.Types.Suicide:
                     foreach (Unit unit in selectedUnits)
                     {
                         AlienAI intellect = unit.Intellect as AlienAI;
@@ -1548,9 +1516,10 @@ namespace Game
                         }
                     }
                     break;
+
+                // Move, Attack
                 case AlienUnitAI.Task.Types.Move:
                 case AlienUnitAI.Task.Types.Attack:
-                //case AlienUnitAI.Task.Types.Repair:
                     //do taskTargetChoose
                     TaskTargetChooseIndex = index;
                     break;
@@ -1574,9 +1543,14 @@ namespace Game
             numPad.Visible = false;
 
             // make all buttons for AlienUnit visible or not
+            // Für Spawner:
+            if (tasks != null && tasks.Count >= 0 && tasks[0].Task.EntityType != null && tasks[0].Task.EntityType.FullName == "Alien")
+            {
+                numPad.Visible = true;
+            }
+            // Für Alien: 
             for (int n = 0; ; n++)
             {
-                //Control control = hudControl.Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
                 Control control = hudControl.Controls["rechts"].Controls["ControlPanelControl"].Controls["ControlPanelButton" + n.ToString()];
 
                 if (control == null)
@@ -1585,28 +1559,16 @@ namespace Game
                 control.Visible = tasks != null && n < tasks.Count;
 
                 if (control.Visible)
-                    if (tasks[n].Task.Type == AlienUnitAI.Task.Types.None)
+                {
+                    // Wenn Kein Task vorhanden oder wenn Spawner-Task, dann Button verstecken
+                    if (tasks[n].Task.Type == AlienUnitAI.Task.Types.None || (tasks[n].Task.EntityType != null && tasks[0].Task.EntityType.FullName == "Alien"))
+                    {
                         control.Visible = false;
+                    }
+                }
 
                 if (control.Visible)
                 {
-                    string text = null;
-
-                    if (tasks[n].Task.EntityType != null)
-                    {
-                        text += tasks[n].Task.EntityType.FullName;
-                        // if task is to spawn aliens we have to show the listbox so that the player can choose the number of aliens to be spawned
-                        if (tasks[n].Task.EntityType.FullName == "Alien")
-                        {
-                            numPad.Visible = true;
-                        }
-                    }
-                    if (text == null)
-                    {
-                        text = tasks[n].Task.ToString();
-                    }
-
-                    control.Text = text;
                     control.Enable = tasks[n].Enable;
 
                     if (n == TaskTargetChooseIndex)
@@ -1616,7 +1578,7 @@ namespace Game
                     else
                         control.ColorMultiplier = new ColorValue(1, 1, 1);
                 }
-            }
+            }        
         }
 
         // Rechtecke zeichnen für ausgewählte Elemente
@@ -1936,7 +1898,6 @@ namespace Game
             float mapWidth = (displayWidth / 2.0f) * (z + cameraDistance) / z;
             // ist nur die halbe map-Breite
             float mapHeight = (displayHeight / 2.0f) * (z + cameraDistance) / z;
-            Console.WriteLine("Mapbreite: " + mapWidth * 2.0f + ", Maphoehe: " + mapHeight * 2.0f);
 
             //float aspect = displayWidth / displayHeight;
             float aspect = mapWidth / mapHeight;
@@ -2046,7 +2007,6 @@ namespace Game
             Vec2 workbenchDimension = new Vec2(1.02f, 0.5f);
             Camera camera = RendererWorld.Instance.DefaultCamera;
             //camera.NearClipDistance = .1f;
-            //Console.WriteLine(headtrackingOffset.X +", "+ headtrackingOffset.Y +", "+ headtrackingOffset.Z);
 
             if (isHeadtrackingActive)
             {

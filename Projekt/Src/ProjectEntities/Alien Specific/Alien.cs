@@ -637,6 +637,28 @@ namespace ProjectEntities
                 obj.Position.ToVec2() + new Vec2(Type.Radius, Type.Radius)));
         }
 
+        /// <summary>
+        /// Selbstmord behen, d.h. Explosion erstellen und Die.
+        /// </summary>
+        public void DoSuicide()
+        {
+            Console.WriteLine("Dosuicide");
+
+
+            // Alien soll sterben
+            this.Die();
+
+            // ExplosionBarrel2 erstellen
+            Dynamic explosionBarrel = Entities.Instance.Create("ExplosionBarrel2", Map.Instance) as Dynamic;
+
+
+            Vec3 p = this.Position + this.Rotation.GetForward();
+
+            explosionBarrel.Position = p;
+            explosionBarrel.PostCreate();
+
+        }
+
         
     }
 }

@@ -10,55 +10,49 @@ control Control
 		backTexture = "GUI\\HUD\\Elemente\\rechts.png"
 		control Control
 		{
-			position = Parent 0.15 0.2
-			size = Parent 0.8 0.375
+			position = Parent 0 0.1953125
+			horizontalAlign = Right
+			size = Parent 0.93 0.5046875
 			name = ControlPanelControl
-			control "GUI\\Controls\\DefaultButton.gui"
-			{
-				position = Parent -0.01171877 -0.01250001
-				size = Parent 1 0.075
-				name = ControlPanelButton0
-				text = 0
-			}
 			control Control
 			{
-				position = ScaleByResolution 127.12 256.4
-				size = Parent 0.5 0.4
+				position = ScaleByResolution 131.696 260.0001
+				size = ScaleByResolution 122.88 115.2
 				name = ControlPanelButton0
 				backTexture = "GUI\\HUD\\Icons\\stop.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution -12.88 56.40002
-				size = Parent 0.5 0.4
-				name = ControlPanelButton1
+				position = ScaleByResolution 1.69605 59.99999
+				size = ScaleByResolution 122.88 115.2
+				name = ControlPanelButton4
 				backTexture = "GUI\\HUD\\Icons\\move.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution -12.88 196.4
-				size = Parent 0.5 0.4
-				name = ControlPanelButton2
+				position = ScaleByResolution 1.69605 200
+				size = ScaleByResolution 122.88 115.2
+				name = ControlPanelButton1
 				backTexture = "GUI\\HUD\\Icons\\attack.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 127.12 -3.600006
-				size = Parent 0.5 0.4
-				name = ControlPanelButton3
+				position = ScaleByResolution 131.696 -3.814697E-06
+				size = ScaleByResolution 122.88 115.2
+				name = ControlPanelButton2
 				backTexture = "GUI\\HUD\\Icons\\search.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 127.12 126.4
-				size = Parent 0.5 0.4
-				name = ControlPanelButton4
+				position = ScaleByResolution 131.696 130
+				size = ScaleByResolution 122.88 115.2
+				name = ControlPanelButton3
 				backTexture = "GUI\\HUD\\Icons\\suicide.png"
 			}
 		}
 		control "GUI\\AlienNumPad.gui"
 		{
-			position = Parent 0.15 0.3
+			position = Parent 0.1731771 0.2604167
 			size = Parent 0.8 0.25
 			name = NumPad
 			visible = False

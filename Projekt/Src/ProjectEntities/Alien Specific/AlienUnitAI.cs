@@ -168,6 +168,12 @@ namespace ProjectEntities
                     ((Alien)ControlledObject).Patrol();
             }
 
+            // Selbstmord
+            if (task.Type == Task.Types.Suicide)
+            {
+                if (ControlledObject != null)
+                    ((Alien)ControlledObject).DoSuicide();
+            }
 
         }
 
@@ -177,21 +183,15 @@ namespace ProjectEntities
         /// <param name="task"></param>
         /// <param name="toQueue"></param>
 		public void DoTask( Task task, bool toQueue )
-		{
-            
-            
+		{            
             if (this.ControlledObject == null)
-            {
                 return;
-            }
 
 			if( toQueue && currentTask.Type == Task.Types.Stop && tasks.Count == 0 )
 				toQueue = false;
 
             if (this.ControlledObject.patrolEnabled)
-            {
                 DoTaskInternal(new AlienUnitAI.Task(Task.Types.Stop));
-            }
 
             //if (this.ControlledObject.patrolEnabled && task.Type == Task.Types.Move)
             //{
@@ -268,6 +268,7 @@ namespace ProjectEntities
             {
                 None,
                 Stop,
+                Suicide,
                 BreakableAttack,//for automatic attacks
                 Hold,
                 Move,
@@ -278,7 +279,6 @@ namespace ProjectEntities
                 ProductUnit,
                 SelfDestroy,//for cancel build building 
                 Patrol
-                
             }
 
             public Task(Types type)

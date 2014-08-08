@@ -1624,36 +1624,39 @@ namespace ProjectEntities
 			//create objects
             MapObjectCreateObjectCollection.CreateObjectsResultItem[] result;
             if (this is Alien)
-            {                
+            {
                 result = new MapObjectCreateObjectCollection.CreateObjectsResultItem[2];
-                try
+                if (EntitySystemWorld.Instance.IsServer())
                 {
-                    Console.WriteLine("die_objects_create");
-                    // Corpse muss immer erstellt werden
-                    MapObjectCreateObjectCollection.CreateObjectsResultItem[] temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 0);
-                    foreach (MapObjectCreateObjectCollection.CreateObjectsResultItem i in temp)
+                    try
                     {
-                        Console.WriteLine(i.Source.Alias);
+                        Console.WriteLine("die_objects_create");
+                        // Corpse muss immer erstellt werden
+                        MapObjectCreateObjectCollection.CreateObjectsResultItem[] temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 0);
+                        foreach (MapObjectCreateObjectCollection.CreateObjectsResultItem i in temp)
+                        {
+                            Console.WriteLine(i.Source.Alias);
+                        }
+                        result[0] = temp[0];
+                        // Per Zufall ein Item aus Liste auswählen
+                        Random index = new Random();
+                        int group = index.Next(Computer.MaxItemDropGroupNr + (int)(Computer.MaxItemDropGroupNr * 3 / 4)); // etwas erhöhen, wenn nicht gültig, dann wird halt nichts gedroppt
+                        int[] groups = Type.DieObjects.GetGroups();
+                        Console.WriteLine("group-nr1: " + group);
+                        // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
+                        // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
+                        if (InArray(group + 1, groups) && group + 1 <= Computer.MaxItemDropGroupNr)
+                        {
+                            Console.WriteLine("group-nr2: " + group);
+                            temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
+                            result[1] = temp[0];
+                        }
                     }
-                    result[0] = temp[0];
-                    // Per Zufall ein Item aus Liste auswählen
-                    Random index = new Random();
-                    int group = index.Next(Computer.MaxItemDropGroupNr + (int)(Computer.MaxItemDropGroupNr * 3 / 4)); // etwas erhöhen, wenn nicht gültig, dann wird halt nichts gedroppt
-                    int[] groups = Type.DieObjects.GetGroups();
-                    Console.WriteLine("group-nr1: " + group);
-                    // Eine gültige Zahl bestimmen, die es auch als Gruppennummer gibt
-                    // Da 0 schon für die Leiche vorgesehen ist, muss +1 gemacht werden, damit wir nicht auf 0 prüfen
-                    if (InArray(group + 1, groups) && group + 1 <= Computer.MaxItemDropGroupNr)
+                    catch (IndexOutOfRangeException e)
                     {
-                        Console.WriteLine("group-nr2: " + group);
-                        temp = Type.DieObjects.CreateObjectsOfSpecifiedGroup(this, 1 + group);
-                        result[1] = temp[0];
+                        Console.WriteLine("create_die_objects indexoutofboundsexception!");
+                        return result;
                     }
-                }
-                catch (IndexOutOfRangeException e)
-                {
-                    Console.WriteLine("create_die_objects indexoutofboundsexception!");
-                    return result;
                 }
             }
             else
@@ -1661,42 +1664,41 @@ namespace ProjectEntities
                 result = Type.DieObjects.CreateObjectsOfOneRandomSelectedGroup(this);
             }
 
-			//modify created objects:
-			//- Random rotate objects with Alias = "randomRotation"
-			//- Apply CopyVelocitiesFromParent property
-			foreach( MapObjectCreateObjectCollection.CreateObjectsResultItem item in result )
-			{
-				MapObjectCreateMapObject createMapObject = item.Source as MapObjectCreateMapObject;
-				if( createMapObject != null )
-				{
-					foreach( MapObject mapObject in item.CreatedObjects )
-					{
-						//Copy information to dead object
-						if( createMapObject.CopyVelocitiesFromParent )
-						{
-							Dynamic dynamic = mapObject as Dynamic;
-							if( dynamic != null )
-								CopyInfluencesToObject( dynamic );
-						}
+            //modify created objects:
+            //- Random rotate objects with Alias = "randomRotation"
+            //- Apply CopyVelocitiesFromParent property
+            foreach (MapObjectCreateObjectCollection.CreateObjectsResultItem item in result)
+            {
+                MapObjectCreateMapObject createMapObject = item.Source as MapObjectCreateMapObject;
+                if (createMapObject != null)
+                {
+                    foreach (MapObject mapObject in item.CreatedObjects)
+                    {
+                        //Copy information to dead object
+                        if (createMapObject.CopyVelocitiesFromParent)
+                        {
+                            Dynamic dynamic = mapObject as Dynamic;
+                            if (dynamic != null)
+                                CopyInfluencesToObject(dynamic);
+                        }
 
-						//random rotation
-						if( createMapObject.Alias == "randomRotation" )
-						{
-							Bullet bullet = mapObject as Bullet;
-							if( bullet != null )
-							{
-								bullet.Rotation = new Angles(
-									World.Instance.Random.NextFloat() * 180.0f,
-									World.Instance.Random.NextFloat() * 180.0f,
-									World.Instance.Random.NextFloat() * 180.0f ).ToQuat();
-								bullet.Velocity = bullet.Rotation.GetForward() * bullet.Type.Velocity;
-							}
-						}
-					}
-				}
-			}
-
-			return result;
+                        //random rotation
+                        if (createMapObject.Alias == "randomRotation")
+                        {
+                            Bullet bullet = mapObject as Bullet;
+                            if (bullet != null)
+                            {
+                                bullet.Rotation = new Angles(
+                                    World.Instance.Random.NextFloat() * 180.0f,
+                                    World.Instance.Random.NextFloat() * 180.0f,
+                                    World.Instance.Random.NextFloat() * 180.0f).ToQuat();
+                                bullet.Velocity = bullet.Rotation.GetForward() * bullet.Type.Velocity;
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
 		}
 
 		void Server_SendDieCallToAllClients( MapObject prejudicial, bool allowLatencyTime )

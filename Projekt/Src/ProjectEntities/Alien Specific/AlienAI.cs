@@ -59,16 +59,15 @@ namespace ProjectEntities
 
             list.Add(new UserControlPanelTask(new Task(Task.Types.Stop), CurrentTask.Type == Task.Types.Stop));
 
-            list.Add(new UserControlPanelTask(new Task(Task.Types.Move),
-                CurrentTask.Type == Task.Types.Move || CurrentTask.Type == Task.Types.BreakableMove));
-
             list.Add(new UserControlPanelTask(new Task(Task.Types.Attack),
                 CurrentTask.Type == Task.Types.Attack || CurrentTask.Type == Task.Types.BreakableAttack));
 
-            list.Add(new UserControlPanelTask(new Task(Task.Types.Patrol),
-                CurrentTask.Type == Task.Types.Patrol));
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Patrol), CurrentTask.Type == Task.Types.Patrol));
 
-           
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Suicide), CurrentTask.Type == Task.Types.Suicide));
+                        
+            list.Add(new UserControlPanelTask(new Task(Task.Types.Move),
+                CurrentTask.Type == Task.Types.Move || CurrentTask.Type == Task.Types.BreakableMove));
 
             return list;
         }

@@ -1,0 +1,11 @@
+type ExplosionBarrelExplosion2
+{
+	class = Explosion
+	latency = 0.1
+	radius = 10
+	damage = 10
+	impulse = 175000
+	influenceType = FireInfluence
+	influenceMaxTime = 5
+	creatableInMapEditor = False
+}
