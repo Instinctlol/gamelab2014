@@ -16,36 +16,36 @@ control Control
 			name = ControlPanelControl
 			control Control
 			{
-				position = ScaleByResolution 131.696 260.0001
-				size = ScaleByResolution 122.88 115.2
+				position = Parent 0.4609655 0.6707949
+				size = Parent 0.4301075 0.2972136
 				name = ControlPanelButton0
 				backTexture = "GUI\\HUD\\Icons\\stop.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 1.69605 59.99999
-				size = ScaleByResolution 122.88 115.2
+				position = Parent 0.005936555 0.1547987
+				size = Parent 0.4301075 0.2972136
 				name = ControlPanelButton4
 				backTexture = "GUI\\HUD\\Icons\\move.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 1.69605 200
-				size = ScaleByResolution 122.88 115.2
+				position = Parent 0.005936555 0.5159959
+				size = Parent 0.4301075 0.2972136
 				name = ControlPanelButton1
 				backTexture = "GUI\\HUD\\Icons\\attack.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 131.696 -3.814697E-06
-				size = ScaleByResolution 122.88 115.2
+				position = Parent 0.4609656 -9.841839E-09
+				size = Parent 0.4301075 0.2972136
 				name = ControlPanelButton2
 				backTexture = "GUI\\HUD\\Icons\\search.png"
 			}
 			control Control
 			{
-				position = ScaleByResolution 131.696 130
-				size = ScaleByResolution 122.88 115.2
+				position = Parent 0.4609655 0.3353973
+				size = Parent 0.4301075 0.2972136
 				name = ControlPanelButton3
 				backTexture = "GUI\\HUD\\Icons\\suicide.png"
 			}
@@ -353,7 +353,7 @@ control Control
 	}
 	control Control
 	{
-		position = Parent 0.5761719 0.4817708
+		position = Parent 0.3125 0.6380209
 		size = Pixel 319.5 333.9
 		name = Strahlen
 		backTexture = "GUI\\HUD\\Elemente\\Strahlen.png"
