@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -18.41833 32.52944 70.34414
-editorCameraDirection = 1.706988 -1.460797
+editorCameraPosition = 26.07138 11.36083 99.85209
+editorCameraDirection = 1.371107 -1.560796
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -8783,7 +8783,7 @@ entity
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
-	position = 7.329602 105.863 0.3129588
+	position = 7.329602 106.363 0.3129588
 	name = Brechstange-Item_2
 	editorLayer = "Root Layer\\F1\\Items"
 }
@@ -11897,4 +11897,1179 @@ entity
 	healthFactorAtBeginning = 1
 	position = -73.5612 49.09559 0.2743811
 	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1156
+	classPrompt = StaticObject
+	position = 13.8 100.4 0.3
+	name = Blut-Fleck_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1157
+	classPrompt = StaticObject
+	position = 14.2 123.5 0.3
+	name = Blut-Fleck_1
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1158
+	classPrompt = StaticObject
+	position = 23.2 120.6 0.3
+	name = Blut-Fleck_2
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1159
+	classPrompt = StaticObject
+	position = 7.7 105.3 0.3
+	scale = 1.97 1.97 1.97
+	name = Blut-Fleck_3
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1160
+	classPrompt = StaticObject
+	position = 4.3 123.6 0.3
+	name = Blut-Fleck_4
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1161
+	classPrompt = StaticObject
+	position = -10.8 97.6 0.3
+	name = Blut-Fleck_5
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1162
+	classPrompt = StaticObject
+	position = -25.6 104.9 0.3
+	name = Blut-Fleck_6
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1163
+	classPrompt = StaticObject
+	position = -24.5 124.1 0.3
+	name = Blut-Fleck_7
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1164
+	classPrompt = StaticObject
+	position = -56.4 95.9 0.5
+	name = Blut-Fleck_8
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1165
+	classPrompt = StaticObject
+	position = -66.1 94 0.7
+	name = Blut-Fleck_9
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1166
+	classPrompt = StaticObject
+	position = -85 73 0.7
+	name = Blut-Fleck_10
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1167
+	classPrompt = StaticObject
+	position = -93 65.1 0.7
+	name = Blut-Fleck_11
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1168
+	classPrompt = StaticObject
+	position = -95.6 59.9 0.3
+	name = Blut-Fleck_12
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1169
+	classPrompt = StaticObject
+	position = -100.2 76.2 0.3
+	name = Blut-Fleck_13
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1170
+	classPrompt = StaticObject
+	position = -122.3 22 0.3
+	name = Blut-Fleck_14
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1171
+	classPrompt = StaticObject
+	position = -97.2 -8.1 0.3
+	name = Blut-Fleck_15
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1172
+	classPrompt = StaticObject
+	position = -97 -23.7 0.2
+	name = Blut-Fleck_16
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1173
+	classPrompt = StaticObject
+	position = -100.4 -23.9 0.3
+	name = Blut-Fleck_17
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1174
+	classPrompt = StaticObject
+	position = -122.3 -16.7 0.3
+	name = Blut-Fleck_18
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1175
+	classPrompt = StaticObject
+	position = -81.6 -51.6 0.3
+	name = Blut-Fleck_19
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1176
+	classPrompt = StaticObject
+	position = -104.2 -69.9 0.3
+	name = Blut-Fleck_20
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1177
+	classPrompt = StaticObject
+	position = -77.6 -85.1 0.3
+	name = Blut-Fleck_21
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1178
+	classPrompt = StaticObject
+	position = -51.9 -89 0.3
+	name = Blut-Fleck_22
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1179
+	classPrompt = StaticObject
+	position = 6.3 -124.2 0.3
+	name = Blut-Fleck_23
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1180
+	classPrompt = StaticObject
+	position = 23.7 -95.8 0.3
+	name = Blut-Fleck_24
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1181
+	classPrompt = StaticObject
+	position = 7 -96 0.3
+	name = Blut-Fleck_25
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1182
+	classPrompt = StaticObject
+	position = -18.6 -123.7 0.3
+	name = Blut-Fleck_26
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1183
+	classPrompt = StaticObject
+	position = -13.1 -106.3 0.3
+	name = Blut-Fleck_27
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1184
+	classPrompt = StaticObject
+	position = -4 -109.9 0.3
+	name = Blut-Fleck_28
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1185
+	classPrompt = StaticObject
+	position = 74 -101.9 0.3
+	name = Blut-Fleck_29
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1186
+	classPrompt = StaticObject
+	position = 88.9 -87.1 0.3
+	name = Blut-Fleck_30
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1187
+	classPrompt = StaticObject
+	position = 70.7 -66.9 0.3
+	name = Blut-Fleck_31
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1188
+	classPrompt = StaticObject
+	position = 106.6 -69.9 0.3
+	name = Blut-Fleck_32
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1189
+	classPrompt = StaticObject
+	position = 123.2 -18.2 0.3
+	name = Blut-Fleck_33
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1190
+	classPrompt = StaticObject
+	position = 123.4 0.2 0.3
+	name = Blut-Fleck_34
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1191
+	classPrompt = StaticObject
+	position = 124.3 24.2 0.3
+	name = Blut-Fleck_35
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1192
+	classPrompt = StaticObject
+	position = 99.1 22.3 0.3
+	name = Blut-Fleck_36
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1193
+	classPrompt = StaticObject
+	position = 103.8 -6.8 0.3
+	name = Blut-Fleck_37
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1194
+	classPrompt = StaticObject
+	position = 47 75.5 0.3
+	name = Blut-Fleck_38
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1195
+	classPrompt = StaticObject
+	position = 30.5 56.6 0.3
+	name = Blut-Fleck_39
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1196
+	classPrompt = StaticObject
+	position = 40.3 46 0.3
+	name = Blut-Fleck_40
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1197
+	classPrompt = StaticObject
+	position = 62 36.1 0.3
+	name = Blut-Fleck_41
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1198
+	classPrompt = StaticObject
+	position = 72.9 46.3 0.3
+	name = Blut-Fleck_42
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1199
+	classPrompt = StaticObject
+	position = 62.9 61.8 0.3
+	name = Blut-Fleck_43
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1200
+	classPrompt = StaticObject
+	position = 67.5 55.5 0.3
+	name = Blut-Fleck_44
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1201
+	classPrompt = StaticObject
+	position = 19.5 86.3 0.3
+	name = Blut-Fleck_45
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1202
+	classPrompt = StaticObject
+	position = -0.4 62.5 0.3
+	name = Blut-Fleck_46
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1203
+	classPrompt = StaticObject
+	position = -19.4 66.4 0.3
+	name = Blut-Fleck_47
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1204
+	classPrompt = StaticObject
+	position = -10.2 89.5 0.3
+	name = Blut-Fleck_48
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1205
+	classPrompt = StaticObject
+	position = -18.3 81.9 0.2
+	name = Blut-Fleck_49
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1206
+	classPrompt = StaticObject
+	position = -13.7 75.1 0.3
+	name = Blut-Fleck_50
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1207
+	classPrompt = StaticObject
+	position = -46 56.4 0.9
+	name = Blut-Fleck_51
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1208
+	classPrompt = StaticObject
+	position = -39.5 44.9 0.2
+	name = Blut-Fleck_52
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1209
+	classPrompt = StaticObject
+	position = -40.8 45 0.3
+	name = Blut-Fleck_53
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1210
+	classPrompt = StaticObject
+	position = -53.4 50.1 0.3
+	name = Blut-Fleck_54
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1211
+	classPrompt = StaticObject
+	position = -53.4 31.3 0.2
+	name = Blut-Fleck_55
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1212
+	classPrompt = StaticObject
+	position = -53.5 31.3 0.2
+	name = Blut-Fleck_56
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1213
+	classPrompt = StaticObject
+	position = -54.3 32 0.3
+	name = Blut-Fleck_57
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1214
+	classPrompt = StaticObject
+	position = -72 51.7 0.3
+	name = Blut-Fleck_58
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1215
+	classPrompt = StaticObject
+	position = -44.6 64.1 0.3
+	name = Blut-Fleck_59
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1216
+	classPrompt = StaticObject
+	position = -44.1 74.1 0.3
+	name = Blut-Fleck_60
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1217
+	classPrompt = StaticObject
+	position = -62.7 18.7 0.3
+	name = Blut-Fleck_61
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1218
+	classPrompt = StaticObject
+	position = -90.1 9 0.3
+	name = Blut-Fleck_62
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1219
+	classPrompt = StaticObject
+	position = -80.7 -3.3 0.3
+	name = Blut-Fleck_63
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1220
+	classPrompt = StaticObject
+	position = -89.2 -17.7 0.2
+	name = Blut-Fleck_64
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1221
+	classPrompt = StaticObject
+	position = -87.6 -18.2 0.3
+	name = Blut-Fleck_65
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1222
+	classPrompt = StaticObject
+	position = -63.3 -16 0.3
+	name = Blut-Fleck_66
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1223
+	classPrompt = StaticObject
+	position = -73 -48.5 0.3
+	name = Blut-Fleck_67
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1224
+	classPrompt = StaticObject
+	position = -53.2 -32.2 0.3
+	name = Blut-Fleck_68
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1225
+	classPrompt = StaticObject
+	position = -34 -50.2 0.3
+	name = Blut-Fleck_69
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1226
+	classPrompt = StaticObject
+	position = -46.8 -75.5 0.3
+	name = Blut-Fleck_70
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1227
+	classPrompt = StaticObject
+	position = -59.8 -65 0.3
+	name = Blut-Fleck_71
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1228
+	classPrompt = StaticObject
+	position = -14.2 -62.2 1.2
+	name = Blut-Fleck_72
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1229
+	classPrompt = StaticObject
+	position = -0.8 -62.1 0.3
+	name = Blut-Fleck_73
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1230
+	classPrompt = StaticObject
+	position = -8 -89.6 0.3
+	name = Blut-Fleck_74
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1231
+	classPrompt = StaticObject
+	position = 11.4 -89.9 0.3
+	name = Blut-Fleck_75
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1232
+	classPrompt = StaticObject
+	position = 20.7 -82.5 0.3
+	name = Blut-Fleck_76
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1233
+	classPrompt = StaticObject
+	position = 56.8 -47.6 0.3
+	name = Blut-Fleck_77
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1234
+	classPrompt = StaticObject
+	position = 74.7 -48.4 0.3
+	name = Blut-Fleck_78
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1235
+	classPrompt = StaticObject
+	position = 60.4 -64.7 0.3
+	name = Blut-Fleck_79
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1236
+	classPrompt = StaticObject
+	position = 44.5 -72.4 0.3
+	name = Blut-Fleck_80
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1237
+	classPrompt = StaticObject
+	position = 38.8 -46.7 0.3
+	name = Blut-Fleck_81
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1238
+	classPrompt = StaticObject
+	position = 54.1 -31.9 0.3
+	name = Blut-Fleck_82
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1239
+	classPrompt = StaticObject
+	position = 88 -19.4 0.3
+	name = Blut-Fleck_83
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1240
+	classPrompt = StaticObject
+	position = 65.7 -19.1 0.3
+	name = Blut-Fleck_84
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1241
+	classPrompt = StaticObject
+	position = 62.4 5.4 0.3
+	name = Blut-Fleck_85
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1242
+	classPrompt = StaticObject
+	position = 67.3 20.6 0.3
+	name = Blut-Fleck_86
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1243
+	classPrompt = StaticObject
+	position = 83 16.6 0.2
+	name = Blut-Fleck_87
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1244
+	classPrompt = StaticObject
+	position = 85.9 5.5 0.3
+	name = Blut-Fleck_88
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1245
+	classPrompt = StaticObject
+	position = 82.8 16.7 0.2
+	name = Blut-Fleck_89
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1246
+	classPrompt = StaticObject
+	position = 81.8 14.9 0.3
+	name = Blut-Fleck_90
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1247
+	classPrompt = StaticObject
+	position = 51.4 -17.5 0.3
+	name = Blut-Fleck_91
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1248
+	classPrompt = StaticObject
+	position = 26.2 -15.2 0.2
+	name = Blut-Fleck_92
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1249
+	classPrompt = StaticObject
+	position = 51.4 -4.3 0.3
+	name = Blut-Fleck_93
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1250
+	classPrompt = StaticObject
+	position = 36.8 -6.4 0.3
+	name = Blut-Fleck_94
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1251
+	classPrompt = StaticObject
+	position = 29.5 -6.7 0.3
+	name = Blut-Fleck_95
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1252
+	classPrompt = StaticObject
+	position = 28.1 4.3 0.3
+	name = Blut-Fleck_96
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1253
+	classPrompt = StaticObject
+	position = 52.6 8.900001 0.3
+	name = Blut-Fleck_97
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1254
+	classPrompt = StaticObject
+	position = 49.2 15 0.3
+	name = Blut-Fleck_98
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1255
+	classPrompt = StaticObject
+	position = 43.2 20.2 0.3
+	name = Blut-Fleck_99
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1256
+	classPrompt = StaticObject
+	position = 33 14.5 0.3
+	name = Blut-Fleck_100
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1257
+	classPrompt = StaticObject
+	position = -17.8 -53.1 0.3
+	name = Blut-Fleck_101
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1258
+	classPrompt = StaticObject
+	position = -8.3 -30 0.3
+	name = Blut-Fleck_102
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1259
+	classPrompt = StaticObject
+	position = 3.8 -29.5 0.3
+	name = Blut-Fleck_103
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1260
+	classPrompt = StaticObject
+	position = 5 -46.5 0.6
+	name = Blut-Fleck_104
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1261
+	classPrompt = StaticObject
+	position = 10.7 -44.7 0.3
+	name = Blut-Fleck_105
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1262
+	classPrompt = StaticObject
+	position = 20.3 -51.8 0.3
+	name = Blut-Fleck_106
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1263
+	classPrompt = StaticObject
+	position = 17.2 -27.2 0.3
+	name = Blut-Fleck_107
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1264
+	classPrompt = StaticObject
+	position = -49.2 18.3 0.3
+	name = Blut-Fleck_108
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1265
+	classPrompt = StaticObject
+	position = -28.8 14.7 0.3
+	name = Blut-Fleck_109
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1266
+	classPrompt = StaticObject
+	position = -31.1 6.6 0.3
+	name = Blut-Fleck_110
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1267
+	classPrompt = StaticObject
+	position = -28.4 -4.2 0.3
+	name = Blut-Fleck_111
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1268
+	classPrompt = StaticObject
+	position = -27.7 -11.3 0.2
+	name = Blut-Fleck_112
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1269
+	classPrompt = StaticObject
+	position = -30.6 -16.9 0.3
+	name = Blut-Fleck_113
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1270
+	classPrompt = StaticObject
+	position = -43.9 -15.2 0.3
+	name = Blut-Fleck_114
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1271
+	classPrompt = StaticObject
+	position = -48.9 -14.7 0.3
+	name = Blut-Fleck_115
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1272
+	classPrompt = StaticObject
+	position = -51.3 -11.6 0.3
+	name = Blut-Fleck_116
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1273
+	classPrompt = StaticObject
+	position = -44.6 -10.3 0.3
+	name = Blut-Fleck_117
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1274
+	classPrompt = StaticObject
+	position = -12.5 29.5 0.2
+	name = Blut-Fleck_118
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1275
+	classPrompt = StaticObject
+	position = -12 29.4 0.2
+	name = Blut-Fleck_119
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1276
+	classPrompt = StaticObject
+	position = -12.1 29.9 0.3
+	name = Blut-Fleck_120
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1277
+	classPrompt = StaticObject
+	position = -16.9 26.7 0.3
+	name = Blut-Fleck_121
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1278
+	classPrompt = StaticObject
+	position = -16.1 29.6 0.2
+	name = Blut-Fleck_122
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1279
+	classPrompt = StaticObject
+	position = -10.9 38.1 0.3
+	name = Blut-Fleck_123
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1280
+	classPrompt = StaticObject
+	position = 0.9 51.3 0.2
+	name = Blut-Fleck_124
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1281
+	classPrompt = StaticObject
+	position = 19.1 46.4 0.2
+	name = Blut-Fleck_125
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1282
+	classPrompt = StaticObject
+	position = 13.9 51.7 0.3
+	name = Blut-Fleck_126
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1283
+	classPrompt = StaticObject
+	position = 16.9 39.8 0.3
+	name = Blut-Fleck_127
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1284
+	classPrompt = StaticObject
+	position = 17.7 33.6 0.3
+	name = Blut-Fleck_128
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1285
+	classPrompt = StaticObject
+	position = 10.2 30 0.3
+	name = Blut-Fleck_129
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1286
+	classPrompt = StaticObject
+	position = -13.7 53 0.2
+	name = Blut-Fleck_130
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1287
+	classPrompt = StaticObject
+	position = -12.2 52.5 0.2
+	name = Blut-Fleck_131
+	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1288
+	classPrompt = StaticObject
+	position = -12.3 49.1 0.3
+	name = Blut-Fleck_132
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
