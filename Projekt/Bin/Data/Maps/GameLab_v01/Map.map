@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 26.07138 11.36083 99.85209
-editorCameraDirection = 1.398779 -1.560796
+editorCameraPosition = 45.10777 5.785451 123.9478
+editorCameraDirection = 3.365275 -1.532671
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -2849,7 +2849,7 @@ entity
 	type = leiche2
 	uin = 223
 	classPrompt = StaticObject
-	position = -11.37311 27.47523 0
+	position = -11.37311 27.47523 0.3
 	rotation = 0 0 0.2212556 0.9752158
 	name = leiche2_6
 	editorLayer = "Root Layer\\F2\\Einrichtung"
@@ -12358,7 +12358,8 @@ entity
 	type = Blut-Fleck
 	uin = 1114
 	classPrompt = StaticObject
-	position = -0.4 62.5 0.3
+	position = 0.3 62.7 0.3
+	scale = 1.505801 1.505801 0.3
 	name = Blut-Fleck_46
 	editorLayer = "Root Layer\\F2\\Dynamics"
 }
@@ -13135,4 +13136,344 @@ entity
 	position = -12.3 49.1 0.3
 	name = Blut-Fleck_132
 	editorLayer = "Root Layer\\F3\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1289
+	classPrompt = StaticObject
+	position = -61.9 -7.1 0.3
+	name = Blut-Fleck_133
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1290
+	classPrompt = StaticObject
+	position = -67.3 -7.2 0.3
+	scale = 1.753393 1.753393 1
+	name = Blut-Fleck_134
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Blut-Fleck
+	uin = 1291
+	classPrompt = StaticObject
+	position = -69.7 -7.2 0.3
+	name = Blut-Fleck_135
+	editorLayer = "Root Layer\\F2\\Dynamics"
+}
+entity
+{
+	type = Leiche1
+	uin = 1295
+	classPrompt = StaticObject
+	position = -65.6 -7.7 0.3
+	name = Leiche1_14
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1296
+	classPrompt = StaticObject
+	position = -124.5 25.8 0.3
+	name = Leiche1_15
+}
+entity
+{
+	type = Leiche1
+	uin = 1297
+	classPrompt = StaticObject
+	position = -106.1 26.2 0.3
+	name = Leiche1_16
+}
+entity
+{
+	type = Leiche1
+	uin = 1298
+	classPrompt = StaticObject
+	position = -124.5 -25.6 0.3
+	rotation = 0 0 -0.9914449 0.1305262
+	name = Leiche1_17
+}
+entity
+{
+	type = Leiche1
+	uin = 1300
+	classPrompt = StaticObject
+	position = -83.2 -90.2 0.3
+	name = Leiche1_18
+}
+entity
+{
+	type = leiche2
+	uin = 1299
+	classPrompt = StaticObject
+	position = -70.5 -64.5 0.3
+	name = leiche2_13
+}
+entity
+{
+	type = leiche2
+	uin = 1301
+	classPrompt = StaticObject
+	position = -90.6 -55.7 0.4
+	name = leiche2_14
+}
+entity
+{
+	type = leiche2
+	uin = 1302
+	classPrompt = StaticObject
+	position = -11.2 -95.9 0.4
+	name = leiche2_15
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1303
+	classPrompt = StaticObject
+	position = 80.3 -56.7 0.3
+	name = Leiche1_19
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1304
+	classPrompt = StaticObject
+	position = 67.3 -69.4 0.3
+	name = Leiche1_20
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1305
+	classPrompt = StaticObject
+	position = 70 -88.1 0.3
+	name = leiche2_16
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1306
+	classPrompt = StaticObject
+	position = 96.60001 11.6 0.3
+	rotation = 0 0 0.4226182 0.9063078
+	name = Leiche1_21
+	editorLayer = "Root Layer\\F1\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1308
+	classPrompt = StaticObject
+	position = -33.2 -51.1 0.3
+	name = Leiche1_22
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1307
+	classPrompt = StaticObject
+	position = -3.9 -62 0.3
+	name = Leiche1_23
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1309
+	classPrompt = StaticObject
+	position = 21.1 -67.3 0.3
+	name = Leiche1_24
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1310
+	classPrompt = StaticObject
+	position = -20.3 -87.4 0.3
+	name = leiche2_17
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1311
+	classPrompt = StaticObject
+	position = 8.6 -89.5 0.3
+	name = leiche2_18
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1312
+	classPrompt = StaticObject
+	position = 48.8 -36.2 0.3
+	name = Leiche1_25
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1313
+	classPrompt = StaticObject
+	position = 48.5 -59.9 0.3
+	name = Leiche1_26
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1314
+	classPrompt = StaticObject
+	position = 64.5 19.9 0.3
+	name = Leiche1_27
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1315
+	classPrompt = StaticObject
+	position = 91.3 7.2 0.3
+	name = Leiche1_28
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1316
+	classPrompt = StaticObject
+	position = 72.8 -13.7 0.3
+	rotation = 0 0 0.3826834 0.9238796
+	name = leiche2_19
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1317
+	classPrompt = StaticObject
+	position = 20 -27.2 0.3
+	name = Leiche1_29
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1318
+	classPrompt = StaticObject
+	position = -19.7 -26.6 0.3
+	name = Leiche1_30
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1319
+	classPrompt = StaticObject
+	position = 4.9 -44.6 0.3
+	name = leiche2_20
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1320
+	classPrompt = StaticObject
+	position = 39.1 20 0.3
+	name = Leiche1_31
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1321
+	classPrompt = StaticObject
+	position = 25.8 -3.5 0.3
+	name = Leiche1_32
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1322
+	classPrompt = StaticObject
+	position = 54.7 -17.1 0.3
+	name = Leiche1_33
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1323
+	classPrompt = StaticObject
+	position = 49.4 1.4 0.2
+	name = leiche2_21
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1294
+	classPrompt = StaticObject
+	position = 5.5 54.4 0.3
+	name = Leiche1_34
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1292
+	classPrompt = StaticObject
+	position = 6.7 31.7 0.3
+	name = Leiche1_35
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1293
+	classPrompt = StaticObject
+	position = -25.3 -8.5 0.3
+	name = Leiche1_36
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1324
+	classPrompt = StaticObject
+	position = -25.4 20.4 0.3
+	name = Leiche1_37
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = Leiche1
+	uin = 1325
+	classPrompt = StaticObject
+	position = -48.3 -8.900001 0.3
+	name = Leiche1_38
+	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = leiche2
+	uin = 1326
+	classPrompt = StaticObject
+	position = -27.3 -3.9 0.3
+	name = leiche2_22
+	editorLayer = "Root Layer\\F3\\Items"
 }
