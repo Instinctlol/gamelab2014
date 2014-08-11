@@ -92,6 +92,10 @@ namespace ProjectEntities
         float timeTilNextSound = 0;
         String currentSoundName;
 
+        // Waffe stärker machen
+        float timeForStrongerWeapon = 300;
+        int weaponStrength = 3;
+
 
       
         protected ArrayList route; //Variable für die Patrolroute
@@ -328,7 +332,32 @@ namespace ProjectEntities
 
             if (mainBody != null)
                 oldMainBodyPosition = mainBody.Position;
+            
+            foreach(MapObjectAttachedObject attachedObject in this.AttachedObjects)
+            {
+                MapObjectAttachedMapObject mapObject = attachedObject as MapObjectAttachedMapObject;
+                if (mapObject != null && mapObject.Alias == "weapon")
+                {
+                    Gun g = mapObject.MapObject as Gun;
+                    if (g != null)
+                    {
+                        g.PreFire += ChangeBullet;
+                    }
+                }
+            }
         }
+
+        /// <summary>
+        /// Vor dem Abfeuern der Bullet, die Stärke aktualisieren, da wir diese alle fünf Min um Eins erhöhen.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="alternative"></param>
+        private void ChangeBullet(Weapon entity, bool alternative)
+        {
+            Gun g = entity as Gun;
+            g.NormalMode.typeMode.BulletType.Damage = this.weaponStrength;
+        }
+
 
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
         protected override void OnTick()
@@ -351,6 +380,13 @@ namespace ProjectEntities
             CalculateMainBodyVelocity();
 
             oldMainBodyPosition = mainBody.Position;
+
+            timeForStrongerWeapon -= TickDelta;
+            if (timeForStrongerWeapon < 0)
+            {
+                this.weaponStrength++;
+                timeForStrongerWeapon = 300;
+            }
         }
 
         private void CalculateMainBodyVelocity()

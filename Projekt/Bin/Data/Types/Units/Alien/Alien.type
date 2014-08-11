@@ -17,6 +17,7 @@ type Alien
 		mapObject
 		{
 			type = Shotgun2
+			alias = weapon
 			position = 0.5680642 0.0368256 0.7932961
 		}
 		mesh
