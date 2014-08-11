@@ -1659,7 +1659,7 @@ namespace Game
                 if (unit == null)
                     continue;
 
-                if (CheckMapPositionStation(unit.Position.ToVec2() * 0.9f))
+                if (CheckMapPosition(unit.Position.ToVec2() * 0.9f))
                 {
                     Rect rect = new Rect(unit.MapBounds.Minimum.ToVec2(), unit.MapBounds.Maximum.ToVec2());
 
@@ -1763,7 +1763,7 @@ namespace Game
         }
 
         //Begrenzung der Mapansicht
-        bool CheckMapPositionStation(Vec2 cameraPosition)
+        bool CheckMapPosition(Vec2 cameraPosition)
         {
             Bounds initialBounds;
             Vec2 vec2;
@@ -1791,7 +1791,14 @@ namespace Game
             endkampfraum = !endkampfraum;
             if (endkampfraum)
             {
-                oldCameraPosition = cameraPosition;
+                if (CheckMapPosition(cameraPosition))
+                {
+                    oldCameraPosition = cameraPosition;
+                }
+                else
+                {
+                    oldCameraPosition = Map.Instance.Children.OfType<AlienSpawner>().First().Position.ToVec2();
+                }
                 Room r = Entities.Instance.GetByName("Endkampf-Raum") as Room;
                 cameraPosition = r.Position.ToVec2();
             }
@@ -1989,7 +1996,7 @@ namespace Game
             todoTranslate.Y = translate.Y;
             Vec3 lookAt2 = new Vec3(cameraPosition.X, cameraPosition.Y, cameraDistance);
 
-            if (CheckMapPositionStation(cameraPosition + todoTranslate * 15))
+            if (CheckMapPosition(cameraPosition + todoTranslate * 15))
             {
                 lookAt2 = new Vec3(cameraPosition.X += todoTranslate.X * 15, cameraPosition.Y += todoTranslate.Y * 15, cameraDistance);
             }
