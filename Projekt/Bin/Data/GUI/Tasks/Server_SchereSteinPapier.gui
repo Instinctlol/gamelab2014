@@ -38,45 +38,41 @@ control Window
 		soundClick = "Sounds\\ButtonClick.ogg"
 		soundMouseOver = "Sounds\\ButtonMouseIntoArea.ogg"
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution 70 250
-		size = Parent 0.2535282 0.1118845
+		position = ScaleByResolution 100 240
+		size = Parent 0.2 0.2
 		name = SchereButton
-		text = Schere
+		backTexture = "GUI\\HUD\\Icons\\ssp_schere.png"
 		defaultControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Schere
-			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
+			backColor = 0.2901961 0.6039216 0.8666667 0
 		}
 		overControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Schere
-			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
+			backColor = 0.5254902 0.7058824 0.9215687 0
 			visible = False
 		}
 		pushControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Schere
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		disableControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Schere
-			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
+			backColor = 0.3921569 0.3921569 0.4705883 0
 			visible = False
 		}
 	}
@@ -85,45 +81,41 @@ control Window
 		soundClick = "Sounds\\ButtonClick.ogg"
 		soundMouseOver = "Sounds\\ButtonMouseIntoArea.ogg"
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution 390 250
-		size = Parent 0.2535282 0.1118845
+		position = ScaleByResolution 260 240
+		size = Parent 0.2 0.2
 		name = SteinButton
-		text = Stein
+		backTexture = "GUI\\HUD\\Icons\\ssp_stein.png"
 		defaultControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Stein
-			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
+			backColor = 0.2901961 0.6039216 0.8666667 0
 		}
 		overControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Stein
-			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
+			backColor = 0.5254902 0.7058824 0.9215687 0
 			visible = False
 		}
 		pushControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Stein
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		disableControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Stein
-			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
+			backColor = 0.3921569 0.3921569 0.4705883 0
 			visible = False
 		}
 	}
@@ -132,45 +124,42 @@ control Window
 		soundClick = "Sounds\\ButtonClick.ogg"
 		soundMouseOver = "Sounds\\ButtonMouseIntoArea.ogg"
 		soundMouseOut = "Sounds\\ButtonMouseIntoArea.ogg"
-		position = ScaleByResolution 230 350
-		size = Parent 0.2535282 0.1118845
+		position = ScaleByResolution 420 240
+		size = Parent 0.2 0.2
 		name = PapierButton
 		text = Papier
+		backTexture = "GUI\\HUD\\Icons\\ssp_papier.png"
 		defaultControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Papier
-			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
+			backColor = 0.2901961 0.6039216 0.8666667 0
 		}
 		overControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Papier
-			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
+			backColor = 0.5254902 0.7058824 0.9215687 0
 			visible = False
 		}
 		pushControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Papier
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
-			backColor = 0.7098039 0.8431373 1 0.7843138
+			backColor = 0.7058824 0.8431373 1 0
 			visible = False
 		}
 		disableControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Papier
-			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
+			backColor = 0.3921569 0.3921569 0.4705883 0
 			visible = False
 		}
 	}
