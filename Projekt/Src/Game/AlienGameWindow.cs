@@ -217,6 +217,8 @@ namespace Game
                                              select asp;
             int izahl = new Random().Next(0, aliensp.Count());
             cameraPosition = aliensp.ElementAt(izahl).Position.ToVec2();
+            cameraPosition.X = cameraPosition.X * 0.9f;
+            cameraPosition.Y = cameraPosition.Y * 0.9f;
 
             //World serialized data
             if (World.Instance.GetCustomSerializationValue("cameraDistance") != null)
@@ -981,10 +983,6 @@ namespace Game
                     hudControl.Controls["links"].Visible = true;
                 } else{
                     hudControl.Controls["links"].Visible = false;
-                    //foreach (Control control in hudControl.Controls["links"].Controls)
-                    //{
-                    //    control.Visible = false;
-                    //}
                 }             
             } else
             {
@@ -1031,7 +1029,6 @@ namespace Game
                     //if (cameraDirection.Horizontal < 0)
                     //    cameraDirection.Horizontal += MathFunctions.PI * 2;
                 }
-
 
                 //change cameraPosition
                 if (!selectMode && Time > 2)
@@ -1776,19 +1773,20 @@ namespace Game
         {
             Bounds initialBounds;
             Vec2 vec2;
+            Rect mapRect;
             if (!endkampfraum)
             {
                 initialBounds = Map.Instance.InitialCollisionBounds;
                 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+                mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
             }
             else
             {
                 Sector s = Entities.Instance.GetByName("Sector_Endkampf") as Sector;
                 initialBounds = s.MapBounds;
                 vec2 = new Vec2(Math.Abs(initialBounds.Minimum.ToVec2().X), Math.Abs(initialBounds.Minimum.ToVec2().Y));
+                mapRect = new Rect(initialBounds.Minimum.ToVec2(), initialBounds.Maximum.ToVec2());
             }
-            Rect mapRect = new Rect(initialBounds.Minimum.ToVec2() * 0.9f, vec2 * 0.9f);
-
             return mapRect.IsContainsPoint(cameraPosition);
         }
 
