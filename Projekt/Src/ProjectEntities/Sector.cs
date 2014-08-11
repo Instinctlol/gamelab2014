@@ -140,12 +140,8 @@ namespace ProjectEntities
             if (obj is Sector || obj is Ring)
                 return;
 
-            if(obj is PlayerCharacter)
+            if (obj is PlayerCharacter)
             {
-                if (((PlayerCharacter)obj).Owner != null)
-                    EngineConsole.Instance.Print(((PlayerCharacter)obj).Owner.ToString());
-                else
-                    EngineConsole.Instance.Print("Shit is null");
                 Server_SendLightToClient(lightStatus, ((PlayerCharacter)obj).Owner);
             }
 
@@ -255,13 +251,13 @@ namespace ProjectEntities
                     s.SetLights(status);
             }
 
-            if(sync)
-            foreach(Dynamic d in dynamics)
-            {
-                PlayerCharacter unit = d as PlayerCharacter;
-                if (unit != null)
-                    Server_SendLightToClient(status, unit.Owner);
-            }
+            if (sync)
+                foreach (Dynamic d in dynamics)
+                {
+                    PlayerCharacter unit = d as PlayerCharacter;
+                    if (unit != null)
+                        Server_SendLightToClient(status, unit.Owner);
+                }
         }
 
 
@@ -388,7 +384,7 @@ namespace ProjectEntities
         {
             if (target != null)
             {
-                SendDataWriter writer = BeginNetworkMessage(target, typeof(Unit), (ushort)NetworkMessages.LightToClient);
+                SendDataWriter writer = BeginNetworkMessage(target, typeof(PlayerCharacter), (ushort)NetworkMessages.LightToClient);
                 writer.Write(status);
                 EndNetworkMessage();
             }

@@ -307,7 +307,21 @@ namespace ProjectEntities
 			Vec3 posOffset = new Vec3( 0, 0, 1.5f );
 			unit.Position = spawnPoint.Position + posOffset;
 			unit.Rotation = spawnPoint.Rotation;
+            
+            if(unit is PlayerCharacter)
+            {
+                foreach (var item in EntitySystemWorld.Instance.RemoteEntityWorlds)
+                {
+                    if (item.Description.Contains(player.Name))
+                    {
+                        ((PlayerCharacter)unit).Owner = item;
+                        break;
+                    }
+                }
+            }
+
 			unit.PostCreate();
+            
 
 			if( player.Intellect != null )
 			{
