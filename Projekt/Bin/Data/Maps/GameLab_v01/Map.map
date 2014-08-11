@@ -9,7 +9,7 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 45.10777 5.785451 123.9478
+editorCameraPosition = 487.9778 -5.459889 62.56969
 editorCameraDirection = 3.365275 -1.532671
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
@@ -11912,7 +11912,7 @@ entity
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
 	position = 490.6297 0.1074394 0.5735672
-	name = AlienSporner_Endkampf_2
+	name = AlienSpawner_Endkampf_2
 	editorLayer = "Root Layer\\Endkampf\\Sporner"
 	inventar
 	{
@@ -13140,7 +13140,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1289
+	uin = 1201
 	classPrompt = StaticObject
 	position = -61.9 -7.1 0.3
 	name = Blut-Fleck_133
@@ -13149,7 +13149,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1290
+	uin = 1202
 	classPrompt = StaticObject
 	position = -67.3 -7.2 0.3
 	scale = 1.753393 1.753393 1
@@ -13159,7 +13159,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1291
+	uin = 1203
 	classPrompt = StaticObject
 	position = -69.7 -7.2 0.3
 	name = Blut-Fleck_135
@@ -13168,7 +13168,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1295
+	uin = 1204
 	classPrompt = StaticObject
 	position = -65.6 -7.7 0.3
 	name = Leiche1_14
@@ -13177,7 +13177,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1296
+	uin = 1205
 	classPrompt = StaticObject
 	position = -124.5 25.8 0.3
 	name = Leiche1_15
@@ -13185,7 +13185,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1297
+	uin = 1206
 	classPrompt = StaticObject
 	position = -106.1 26.2 0.3
 	name = Leiche1_16
@@ -13193,7 +13193,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1298
+	uin = 1207
 	classPrompt = StaticObject
 	position = -124.5 -25.6 0.3
 	rotation = 0 0 -0.9914449 0.1305262
@@ -13202,7 +13202,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1300
+	uin = 1208
 	classPrompt = StaticObject
 	position = -83.2 -90.2 0.3
 	name = Leiche1_18
@@ -13210,7 +13210,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1299
+	uin = 1209
 	classPrompt = StaticObject
 	position = -70.5 -64.5 0.3
 	name = leiche2_13
@@ -13218,7 +13218,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1301
+	uin = 1210
 	classPrompt = StaticObject
 	position = -90.6 -55.7 0.4
 	name = leiche2_14
@@ -13226,7 +13226,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1302
+	uin = 1211
 	classPrompt = StaticObject
 	position = -11.2 -95.9 0.4
 	name = leiche2_15
@@ -13235,7 +13235,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1303
+	uin = 1212
 	classPrompt = StaticObject
 	position = 80.3 -56.7 0.3
 	name = Leiche1_19
@@ -13244,7 +13244,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1304
+	uin = 1213
 	classPrompt = StaticObject
 	position = 67.3 -69.4 0.3
 	name = Leiche1_20
@@ -13253,7 +13253,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1305
+	uin = 1214
 	classPrompt = StaticObject
 	position = 70 -88.1 0.3
 	name = leiche2_16
@@ -13262,7 +13262,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1306
+	uin = 1215
 	classPrompt = StaticObject
 	position = 96.60001 11.6 0.3
 	rotation = 0 0 0.4226182 0.9063078
@@ -13272,7 +13272,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1308
+	uin = 1216
 	classPrompt = StaticObject
 	position = -33.2 -51.1 0.3
 	name = Leiche1_22
@@ -13281,7 +13281,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1307
+	uin = 1217
 	classPrompt = StaticObject
 	position = -3.9 -62 0.3
 	name = Leiche1_23
@@ -13290,7 +13290,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1309
+	uin = 1218
 	classPrompt = StaticObject
 	position = 21.1 -67.3 0.3
 	name = Leiche1_24
@@ -13299,7 +13299,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1310
+	uin = 1219
 	classPrompt = StaticObject
 	position = -20.3 -87.4 0.3
 	name = leiche2_17
@@ -13308,7 +13308,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1311
+	uin = 1220
 	classPrompt = StaticObject
 	position = 8.6 -89.5 0.3
 	name = leiche2_18
@@ -13317,7 +13317,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1312
+	uin = 1221
 	classPrompt = StaticObject
 	position = 48.8 -36.2 0.3
 	name = Leiche1_25
@@ -13326,7 +13326,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1313
+	uin = 1222
 	classPrompt = StaticObject
 	position = 48.5 -59.9 0.3
 	name = Leiche1_26
@@ -13335,7 +13335,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1314
+	uin = 1223
 	classPrompt = StaticObject
 	position = 64.5 19.9 0.3
 	name = Leiche1_27
@@ -13344,7 +13344,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1315
+	uin = 1224
 	classPrompt = StaticObject
 	position = 91.3 7.2 0.3
 	name = Leiche1_28
@@ -13353,7 +13353,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1316
+	uin = 1225
 	classPrompt = StaticObject
 	position = 72.8 -13.7 0.3
 	rotation = 0 0 0.3826834 0.9238796
@@ -13363,7 +13363,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1317
+	uin = 1226
 	classPrompt = StaticObject
 	position = 20 -27.2 0.3
 	name = Leiche1_29
@@ -13372,7 +13372,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1318
+	uin = 1227
 	classPrompt = StaticObject
 	position = -19.7 -26.6 0.3
 	name = Leiche1_30
@@ -13381,7 +13381,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1319
+	uin = 1228
 	classPrompt = StaticObject
 	position = 4.9 -44.6 0.3
 	name = leiche2_20
@@ -13390,7 +13390,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1320
+	uin = 1229
 	classPrompt = StaticObject
 	position = 39.1 20 0.3
 	name = Leiche1_31
@@ -13399,7 +13399,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1321
+	uin = 1230
 	classPrompt = StaticObject
 	position = 25.8 -3.5 0.3
 	name = Leiche1_32
@@ -13408,7 +13408,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1322
+	uin = 1231
 	classPrompt = StaticObject
 	position = 54.7 -17.1 0.3
 	name = Leiche1_33
@@ -13417,7 +13417,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1323
+	uin = 1232
 	classPrompt = StaticObject
 	position = 49.4 1.4 0.2
 	name = leiche2_21
@@ -13426,7 +13426,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1294
+	uin = 1233
 	classPrompt = StaticObject
 	position = 5.5 54.4 0.3
 	name = Leiche1_34
@@ -13435,7 +13435,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1292
+	uin = 1234
 	classPrompt = StaticObject
 	position = 6.7 31.7 0.3
 	name = Leiche1_35
@@ -13444,7 +13444,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1293
+	uin = 1235
 	classPrompt = StaticObject
 	position = -25.3 -8.5 0.3
 	name = Leiche1_36
@@ -13453,7 +13453,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1324
+	uin = 1236
 	classPrompt = StaticObject
 	position = -25.4 20.4 0.3
 	name = Leiche1_37
@@ -13462,7 +13462,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1325
+	uin = 1237
 	classPrompt = StaticObject
 	position = -48.3 -8.900001 0.3
 	name = Leiche1_38
@@ -13471,7 +13471,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1326
+	uin = 1238
 	classPrompt = StaticObject
 	position = -27.3 -3.9 0.3
 	name = leiche2_22
