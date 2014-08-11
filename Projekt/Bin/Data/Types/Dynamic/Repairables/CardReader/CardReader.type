@@ -1,6 +1,7 @@
 type CardReader
 {
 	class = Repairable
+	soundRepaired = "Sounds\\Feedback\\access_granted.ogg"
 	destroyedTexture = CardReader_broken
 	networkType = Synchronized
 	repairItems

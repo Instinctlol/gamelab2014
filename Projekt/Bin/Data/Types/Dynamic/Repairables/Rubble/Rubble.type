@@ -1,6 +1,7 @@
 type Rubble
 {
 	class = Repairable
+	soundRepaired = "Sounds\\Feedback\\rubble_removing.ogg"
 	networkType = Synchronized
 	repairItems
 	{

@@ -77,7 +77,12 @@ namespace ProjectEntities
             {
                 Server_SendPositionToAllClients(Position, Rotation, Scale);
                 Server_SendLightStatusToAllClients(lightStatus);
+
+                //HACK
+                if(Type.FullName.Equals("Blut-Fleck"))
+                    Visible = false;
             }
+
 
         }
 
