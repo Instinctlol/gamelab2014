@@ -7,7 +7,7 @@ control Window
 		position = ScaleByResolution 130 220
 		size = ScaleByResolution 370 140
 		name = LeftButton
-		text = Rotate Left
+		text = Rotate Clockwise
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
@@ -21,7 +21,7 @@ control Window
 		position = ScaleByResolution 530 220
 		size = ScaleByResolution 370 140
 		name = RightButton
-		text = Rotate Right
+		text = Rotate Counterclockwise
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{

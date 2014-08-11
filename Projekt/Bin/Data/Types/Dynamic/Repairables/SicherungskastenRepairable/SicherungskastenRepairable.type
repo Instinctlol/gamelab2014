@@ -1,6 +1,8 @@
 type SicherungskastenRepairable
 {
 	class = Repairable
+	soundRepaired = "Sounds\\Feedback\\computer_boot.ogg"
+	soundUsing = "Sounds\\hammer.ogg"
 	networkType = Synchronized
 	repairItems
 	{
