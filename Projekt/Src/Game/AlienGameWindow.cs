@@ -947,6 +947,16 @@ namespace Game
             if (Controls.Count != 1)
                 return;
 
+            //Endkampfraum-Minimap ausblenden/ Map-Minimap einblenden
+            if (endkampfraum)
+            {
+                hudControl.Controls["Minimap"].Visible = false;
+            }
+            else
+            {
+                hudControl.Controls["Minimap"].Visible = true;
+            }
+
             //Remove deleted selected objects
             for (int n = 0; n < selectedUnits.Count; n++)
             {
