@@ -45,6 +45,11 @@ namespace Game
             BackColor = new ColorValue(0, 0, 0, .5f);
         }
 
+        public void optimizedRotation()
+        {
+            ((SectorStatusWindow)bigMinimapControl).optimizedRotation();
+        }
+
         // löschen
         protected override bool OnMouseDown(EMouseButtons button)
         {

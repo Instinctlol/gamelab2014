@@ -101,73 +101,10 @@ namespace ProjectEntities
             ringInner.RotateRing += OnInnerRotation;
             ringMiddle.RotateRing += OnMiddleRotation;
 
-            //dummies..
-            Vec3 pos = new Vec3();
-            Quat rotation = new Quat();
+            
 
             //optimized rotation
-            for (int i = 0; i < Computer.RingRotations.Length; i++)
-            {   
-                int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
-                if (dist == 4)                                                              //If distance is in the 'middle', it doesnt matter if you rotate left or right
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = 0; x < 4; x++)
-                                OnOuterRotation(pos, rotation, true);    //also sends to clients
-                            break;
-                        case 1:
-                            for (int x = 0; x < 4; x++)
-                                OnMiddleRotation(pos, rotation, true);   //also sends to clients
-                            break;
-                        case 2:
-                            for (int x = 0; x < 4; x++)
-                                OnInnerRotation(pos, rotation, true);    //also sends to clients
-                            break;
-                    }
-                }
-                if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //if this applies, rotate right: e.g.
-                    (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rotate right
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnOuterRotation(pos, rotation, false);   //also sends to clients
-                            break;
-                        case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnMiddleRotation(pos, rotation, false);  //also sends to clients
-                            break;
-                        case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
-                                OnInnerRotation(pos, rotation, false);   //also sends to clients
-                            break;
-                    }
-                }
-                if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //if this applies, rotate left: e.g.
-                    (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: rotate left
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnOuterRotation(pos, rotation, true);    //also sends to clients
-                            break;
-                        case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnMiddleRotation(pos, rotation, true);   //also sends to clients
-                            break;
-                        case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
-                                OnInnerRotation(pos, rotation, true);    //also sends to clients
-                            break;
-                    }
-                }
-
-
-            }
+            optimizedRotation();
 
             // Ringe drehen entsprechend der Computer-Konfig
             //Vec3 pos = new Vec3();
@@ -258,6 +195,76 @@ namespace ProjectEntities
             secgrpE.SwitchLight += OnSwitchLightsE;
             secgrpF.SwitchLight += OnSwitchLightsF;
             secgrpG.SwitchLight += OnSwitchLightsG;
+        }
+
+        public void optimizedRotation()
+        {
+            //dummies..
+            Vec3 pos = new Vec3();
+            Quat rotation = new Quat();
+
+            for (int i = 0; i < Computer.RingRotations.Length; i++)
+            {
+                int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
+                if (dist == 4)                                                              //If distance is in the 'middle', it doesnt matter if you rotate left or right
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            for (int x = 0; x < 4; x++)
+                                OnOuterRotation(pos, rotation, true);    //also sends to clients
+                            break;
+                        case 1:
+                            for (int x = 0; x < 4; x++)
+                                OnMiddleRotation(pos, rotation, true);   //also sends to clients
+                            break;
+                        case 2:
+                            for (int x = 0; x < 4; x++)
+                                OnInnerRotation(pos, rotation, true);    //also sends to clients
+                            break;
+                    }
+                }
+                if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //if this applies, rotate right: e.g.
+                    (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rotate right
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnOuterRotation(pos, rotation, false);   //also sends to clients
+                            break;
+                        case 1:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnMiddleRotation(pos, rotation, false);  //also sends to clients
+                            break;
+                        case 2:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                                OnInnerRotation(pos, rotation, false);   //also sends to clients
+                            break;
+                    }
+                }
+                if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //if this applies, rotate left: e.g.
+                    (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: rotate left
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnOuterRotation(pos, rotation, true);    //also sends to clients
+                            break;
+                        case 1:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnMiddleRotation(pos, rotation, true);   //also sends to clients
+                            break;
+                        case 2:
+                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                                OnInnerRotation(pos, rotation, true);    //also sends to clients
+                            break;
+                    }
+                }
+
+
+            }
         }
 
         private void OnSwitchLightsG(bool status)

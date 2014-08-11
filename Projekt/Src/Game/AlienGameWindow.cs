@@ -2079,6 +2079,7 @@ namespace Game
             else
             {
                 hudControl.Controls["BigMinimap"].Visible = true;
+                bigMinimapObj.optimizedRotation();
             }
 
         }

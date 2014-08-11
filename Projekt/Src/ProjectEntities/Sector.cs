@@ -384,7 +384,7 @@ namespace ProjectEntities
         {
             if (target != null)
             {
-                SendDataWriter writer = BeginNetworkMessage(target, typeof(PlayerCharacter), (ushort)NetworkMessages.LightToClient);
+                SendDataWriter writer = BeginNetworkMessage(target, typeof(Sector), (ushort)NetworkMessages.LightToClient);
                 writer.Write(status);
                 EndNetworkMessage();
             }
