@@ -142,9 +142,8 @@ namespace ProjectEntities
         /// </summary>
         public static void IncrementMaxItemDropGroupNr()
         {
-            Console.WriteLine("ItemDropNr increment");
-            AlienType a = new AlienType();
-            if (maxItemDropGroupNr < a.DieObjects.Count)
+            Alien a = Entities.Instance.Create("Alien", Map.Instance) as Alien;
+            if (maxItemDropGroupNr < a.Type.DieObjects.Count)
             {
                 maxItemDropGroupNr++;
             }

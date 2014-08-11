@@ -74,6 +74,7 @@ namespace Game
         float timeForUpdateGameStatus;
         float timeForUpdateNotificationStatus;
         float timeForDeleteNotificationMessage;
+        float timeForDropItemIncrementation = 300;
 
         // Headtracking
         Vec3 headtrackingOffset;
@@ -123,21 +124,6 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
-
-            // Auf die Terminals lauschen, um neue Drop-Items für das Alien freizuschalten
-            IEnumerable<Terminal> terminalList = Entities.Instance.EntitiesCollection.OfType<Terminal>();
-            IEnumerable<Terminal> terminal = from Terminal t in terminalList
-                                             where t.Name == "Terminal_1_Door" || t.Name == "Terminal_Door_1" || t.Name == "Terminal_Door_10" //(F1R3 , F2R8 , F2R4 ) TODO
-                                             select t;
-            foreach (Terminal t in terminal)
-            {
-                t.TerminalDoorAction += DoTerminalDoorAction;
-            }
-        }
-
-        private void DoTerminalDoorAction(Terminal t)
-        {
-            Computer.IncrementMaxItemDropGroupNr();
         }
 
         //hudFunktionen
@@ -962,6 +948,9 @@ namespace Game
             // Status Nachrichten löschen
             UpdateStatusMessage(delta);
 
+            // Drop-Items aktualisieren
+            UpdateDropItems(delta);
+
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return;
@@ -1356,6 +1345,16 @@ namespace Game
             if (timeForDeleteNotificationMessage < 0)
             {
                 hudControl.Controls["ActiveArea"].Controls["StatusMessage"].Text = "";
+            }
+        }
+
+        void UpdateDropItems(float delta)
+        {
+            timeForDropItemIncrementation -= delta;
+            if (timeForDropItemIncrementation < 0)
+            {
+                Computer.IncrementMaxItemDropGroupNr();
+                timeForDropItemIncrementation = 300;
             }
         }
 
