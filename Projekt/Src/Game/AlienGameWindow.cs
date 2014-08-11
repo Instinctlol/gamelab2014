@@ -1079,39 +1079,18 @@ namespace Game
 
             //gameStatus
             //if (string.IsNullOrEmpty(hudControl.Controls["GameStatus"].Text))
-            if (false)
+            if (Computer.Alienwin != Computer.Astronautwin)
             {
-                timeForUpdateGameStatus -= delta;
-                if (timeForUpdateGameStatus < 0)
+                if (Computer.Alienwin)
                 {
-                    timeForUpdateGameStatus += 1;
-
-                    bool existsAlly = false;
-                    bool existsEnemy = false;
-
-                    foreach (Entity entity in Map.Instance.Children)
-                    {
-                        Unit unit = entity as Unit;
-                        if (unit == null)
-                            continue;
-                        if (unit is Alien)
-                        {
-                            existsEnemy = true;
-                        }
-                        else if (unit is GameCharacter)
-                        {
-                            existsAlly = true;
-                        }
-                    }
-
-                    string gameStatus = "";
-                    if (!existsAlly)
-                        gameStatus = "!!! Victory !!!";
-                    if (!existsEnemy)
-                        gameStatus = "!!! Defeat !!!";
-
-                    //hudControl.Controls["GameStatus"].Text = gameStatus;
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                } else {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
                 }
+            }
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
             }
         }
 
@@ -1392,41 +1371,81 @@ namespace Game
             List<AlienUnitAI.UserControlPanelTask> tasks = null;
             if (selectedUnits.Count != 0)
             {
-                foreach (Unit unit in selectedUnits)
+                IEnumerable<Alien> alienList = selectedUnits.OfType<Alien>();
+                IEnumerable<AlienSpawner> alienSpawnerList = selectedUnits.OfType<AlienSpawner>();
+                if (alienList.Count() != 0)
                 {
-                    AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
-                    if (intellect != null)
+                    foreach (Alien a in alienList)
                     {
-                        List<AlienUnitAI.UserControlPanelTask> t = intellect.GetControlPanelTasks();
-                        if (tasks == null)
-                        {
-                            tasks = t;
-                        }
-                        else
-                        {
-                            for (int n = 0; n < tasks.Count; n++)
-                            {
-                                if (n >= t.Count)
-                                    continue;// break??
-
-                                if (tasks[n].Task.Type != t[n].Task.Type)
-                                    continue;
-                                if (t[n].Active)
-                                {
-                                    tasks[n] = new AlienUnitAI.UserControlPanelTask(
-                                        tasks[n].Task, true, tasks[n].Enable);
-                                }
-
-                                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
-                                {
-                                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
-                                        tasks[n] = new AlienUnitAI.UserControlPanelTask(
-                                            new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
-                                }
-                            }
-                        }
+                        ;
                     }
+                //    for (int n = 0; n < tasks.Count; n++)
+                //            {
+                //                if (n >= t.Count)
+                //                    continue;// break??
+
+                //                if (tasks[n].Task.Type != t[n].Task.Type)
+                //                    continue;
+                //                if (t[n].Active)
+                //                {
+                //                    tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                //                        tasks[n].Task, true, tasks[n].Enable);
+                //                }
+
+                //                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
+                //                {
+                //                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
+                //                        tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                //                            new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
+                //                }
+                //            }
+                    AlienAI aai = alienList.ElementAt(0).Intellect as AlienAI;
+                    tasks = aai.GetControlPanelTasks();
                 }
+                else if (alienSpawnerList.Count() != 0)
+                {
+                    AlienSpawnerAI aai = alienSpawnerList.ElementAt(0).Intellect as AlienSpawnerAI;
+                    tasks = aai.GetControlPanelTasks();
+                }
+
+                
+
+
+                //foreach (Unit unit in selectedUnits)
+                //{
+                //    AlienUnitAI intellect = unit.Intellect as AlienUnitAI;
+                //    if (intellect != null)
+                //    {
+                //        List<AlienUnitAI.UserControlPanelTask> t = intellect.GetControlPanelTasks();
+                //        if (tasks == null)
+                //        {
+                //            tasks = t;
+                //        }
+                //        else
+                //        {
+                //            for (int n = 0; n < tasks.Count; n++)
+                //            {
+                //                if (n >= t.Count)
+                //                    continue;// break??
+
+                //                if (tasks[n].Task.Type != t[n].Task.Type)
+                //                    continue;
+                //                if (t[n].Active)
+                //                {
+                //                    tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                //                        tasks[n].Task, true, tasks[n].Enable);
+                //                }
+
+                //                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
+                //                {
+                //                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
+                //                        tasks[n] = new AlienUnitAI.UserControlPanelTask(
+                //                            new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
             }
             return tasks;
         }
@@ -1584,7 +1603,7 @@ namespace Game
                     else
                         control.ColorMultiplier = new ColorValue(1, 1, 1);
                 }
-            }        
+            }
         }
 
         // Rechtecke zeichnen für ausgewählte Elemente
