@@ -2,26 +2,27 @@
 
 control "Gui\\Controls\\DefaultWindow.gui"
 {
+	position = Parent 0.004760742 -0.01817884
 	horizontalAlign = Center
 	verticalAlign = Center
-	size = ScaleByResolution 553.75 392.1546
+	size = ScaleByResolution 553.75 460.0773
 	text = Multiplayer Login
 	mouseCover = True
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 44.875 292.0773
+		position = ScaleByResolution 44.875 373.9613
 		name = Exit
 		text = Exit
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 174.875 52.07736
+		position = ScaleByResolution 180 170
 		name = CreateServer
 		text = Alien
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 304.875 112.0773
+		position = ScaleByResolution 310 218.116
 		name = Connect2
 		text = Cavenaut
 	}
@@ -30,14 +31,14 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = Pixel 1 1
 		shadowColor = 0 0 0 0.5019608
 		autoSize = True
-		position = ScaleByResolution 44.875 182.0773
+		position = ScaleByResolution 44.875 263.9613
 		size = Screen 0.09913043 0.025
 		text = Connect to
 	}
 	control "Gui\\Controls\\DefaultEditBox.gui"
 	{
 		maxCharacterCount = 10000
-		position = ScaleByResolution 44.875 222.0773
+		position = ScaleByResolution 44.875 303.9613
 		size = ScaleByResolution 470 30
 		name = ConnectTo
 	}
@@ -46,15 +47,30 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = Pixel 1 1
 		shadowColor = 0 0 0 0.5019608
 		wordWrap = True
-		position = ScaleByResolution 254.875 272.0773
+		position = ScaleByResolution 254.875 353.9613
 		size = ScaleByResolution 257.1101 59.2
 		name = Info
 		text = [Info]
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 44.875 112.0773
+		position = ScaleByResolution 50 218.116
 		name = Connect
 		text = Ocunaut
+	}
+	control "GUI\\Controls\\DefaultEditBox.gui"
+	{
+		position = ScaleByResolution 190 100
+		size = ScaleByResolution 320 30
+		name = UserNameEditBox
+	}
+	control TextBox
+	{
+		shadowOffset = Pixel 1 1
+		shadowColor = 0 0 0 0.5019608
+		wordWrap = True
+		position = ScaleByResolution 80 100
+		size = ScaleByResolution 77.11011 29.2
+		text = "Nick:"
 	}
 }

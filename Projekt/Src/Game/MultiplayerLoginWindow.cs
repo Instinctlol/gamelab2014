@@ -65,8 +65,15 @@ namespace Game
 			//generate user name
 			if( string.IsNullOrEmpty( userName ) )
 			{
-				EngineRandom random = new EngineRandom();
-				userName = "Player" + random.Next( 1000 ).ToString( "D03" );
+                if(((EditBox)window.Controls["UserNameEditBox"]).Text.Equals(""))
+                {
+                    EngineRandom random = new EngineRandom();
+                    userName = "Player" + random.Next(1000).ToString("D03");
+                }
+                else
+                {
+                    userName = ((EditBox)window.Controls["UserNameEditBox"]).Text;
+                }
 			}
 
 			editBoxConnectTo = (EditBox)window.Controls[ "ConnectTo" ];
@@ -108,6 +115,16 @@ namespace Game
 
 		void CreateServer_Click( Button sender )
 		{
+            if (((EditBox)window.Controls["UserNameEditBox"]).Text.Equals(""))
+            {
+                EngineRandom random = new EngineRandom();
+                userName = "Player" + random.Next(1000).ToString("D03");
+            }
+            else
+            {
+                userName = ((EditBox)window.Controls["UserNameEditBox"]).Text;
+            }
+
 			if( string.IsNullOrEmpty( userName ) )
 			{
 				SetInfo( "Invalid user name.", true );
@@ -141,6 +158,16 @@ namespace Game
 
 		void Connect_Click( Button sender )
 		{
+            if (((EditBox)window.Controls["UserNameEditBox"]).Text.Equals(""))
+            {
+                EngineRandom random = new EngineRandom();
+                userName = "Player" + random.Next(1000).ToString("D03");
+            }
+            else
+            {
+                userName = ((EditBox)window.Controls["UserNameEditBox"]).Text;
+            }
+
 			if( string.IsNullOrEmpty( userName ) )
 			{
 				SetInfo( "Invalid user name.", true );
