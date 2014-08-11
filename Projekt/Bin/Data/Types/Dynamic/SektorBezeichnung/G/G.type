@@ -1,0 +1,12 @@
+type G
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\G.mesh"
+		}
+	}
+}
