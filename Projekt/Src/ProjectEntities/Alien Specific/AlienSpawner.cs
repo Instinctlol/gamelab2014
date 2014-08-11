@@ -214,7 +214,7 @@ namespace ProjectEntities
                 spawnNumber = Computer.AvailableAliens;
             }
             // Limit prüfen
-            if (spawningAllowed && spawnLimit > 0 && false)
+            if (spawningAllowed && spawnLimit > 0)
             {
                 if (spawnCounter >= spawnLimit)
                 {
