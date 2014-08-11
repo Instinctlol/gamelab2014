@@ -1,7 +1,6 @@
 type Desk
 {
 	class = StaticObject
-	physicsModel = ".\\Desk.physics"
 	networkType = Synchronized
 	attachedObjects
 	{

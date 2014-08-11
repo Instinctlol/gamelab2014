@@ -1,7 +1,7 @@
 type "Desk-Verschieben"
 {
 	class = StaticObject
-	physicsModel = ".\\Desk.physics"
+	physicsModel = ".\\tisch-verschieben.physics"
 	networkType = Synchronized
 	attachedObjects
 	{
