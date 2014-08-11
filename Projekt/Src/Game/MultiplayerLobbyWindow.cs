@@ -10,6 +10,7 @@ using Engine.Utils;
 using Engine.Networking;
 using Engine.FileSystem;
 using ProjectCommon;
+using System.Timers;
 
 namespace Game
 {
@@ -20,6 +21,7 @@ namespace Game
 		Button buttonStart;
 		ListBox listBoxUsers;
 		EditBox editBoxChatMessage;
+        int timesPerSec = 5;
 
 		///////////////////////////////////////////
 
@@ -52,6 +54,8 @@ namespace Game
 
 			editBoxChatMessage = (EditBox)window.Controls[ "ChatMessage" ];
 			editBoxChatMessage.PreKeyDown += editBoxChatMessage_PreKeyDown;
+
+            
 
             /*
             //checkBoxAllowToConnectDuringGame
@@ -307,17 +311,46 @@ namespace Game
 
 		void Start_Click( Button sender )
 		{
+           
+
             GameNetworkServer server = GameNetworkServer.Instance;
             if (server != null)
-                server.ChatService.SayToAll("Das Spiel wird jetzt gestartet!");
+            {
+                Timer aTimer = new System.Timers.Timer( 1000);
+                
+                aTimer.Elapsed += CountDownmessage;
+                server.ChatService.SayToAll(".." + timesPerSec-- + "!");
+                aTimer.Enabled = true;
+
+            }
+                
 
             //ToDo
 			//AllowToConnectDuringGame
 			//server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
             //server.AllowToConnectNewClients = false;
 
-            GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
+            //GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
 		}
+
+        private void CountDownmessage(object sender, ElapsedEventArgs e)
+        {
+            GameNetworkServer server = GameNetworkServer.Instance;
+            if (server != null)
+            {
+                if(timesPerSec>0)
+                    server.ChatService.SayToAll(".."+timesPerSec-- +"!");
+                else if(timesPerSec==0)
+                {
+                    
+                    server.ChatService.SayToAll("Das Spiel wird jetzt gestartet!");
+                    GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
+                    ((Timer)sender).Enabled = false;
+                } 
+            }
+        }
+
+        
 
 	}
 }
