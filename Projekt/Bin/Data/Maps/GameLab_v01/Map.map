@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -85.29048 -7.71284 7.545264
-editorCameraDirection = 2.846092 -0.7491111
+editorCameraPosition = 61.90235 88.35561 10.2061
+editorCameraDirection = 2.086148 -0.7971603
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -585,6 +585,25 @@ entity
 				type = LogicScriptMethod
 				uin = 43
 				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Astronautwin = true;\r\n\t\t\t}"
+				methodName = ValueChange
+				returnType = System.Void
+				parameters = 
+				isEntityEventMethod = True
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 1328
+			subscriptionsToDeletionEvent = 1329
+			entityClassName = BooleanSwitch
+			className = Switch_Anfangsrotation_Door
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 1330
+				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -13439,4 +13458,33 @@ entity
 	classPrompt = StaticObject
 	position = -61.60213 -48.66861 0.5490702
 	name = Desk-Verschieben_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Door
+	uin = 1326
+	classPrompt = AutomaticOpenDoor
+	noAutomaticOpen = False
+	opened = False
+	needOpen = False
+	openDoorOffsetCoefficient = 0
+	healthFactorAtBeginning = 1
+	position = 58.39871 98.50172 1.839017
+	rotation = 0 0 -0.3836421 0.9234819
+	name = Door_Anfangsrotation_Aufwachraum
+	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = BooleanSwitch
+	uin = 1329
+	classPrompt = BooleanSwitch
+	subscriptionsToDeletionEvent = 1328
+	value = False
+	healthFactorAtBeginning = 1
+	position = 52.41108 91.59892 1.583001
+	rotation = -0.01603187 -0.04649427 -0.3924718 0.9184482
+	name = Switch_Anfangsrotation_Door
+	logicClass = 1328
 }
