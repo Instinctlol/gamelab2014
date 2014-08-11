@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 56.03224 -38.21093 11.34294
-editorCameraDirection = 0.5360111 -1.130074
+editorCameraPosition = 119.0734 -49.24161 21.11158
+editorCameraDirection = 1.791995 -0.49631
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -2453,7 +2453,7 @@ entity
 	type = Terminal
 	uin = 190
 	classPrompt = Terminal
-	sectorStatusData = F1R3-S
+	sectorStatusData = f1r3
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -2597,7 +2597,7 @@ entity
 	type = Terminal
 	uin = 201
 	classPrompt = Terminal
-	sectorStatusData = F2R3-S
+	sectorStatusData = f2r3
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -2808,7 +2808,7 @@ entity
 	type = Terminal
 	uin = 220
 	classPrompt = Terminal
-	sectorStatusData = F2R8-S
+	sectorStatusData = f2r8
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -2829,7 +2829,7 @@ entity
 	classPrompt = WeaponItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = 101.57 -22.42146 1
+	position = 101.57 -22.42146 0.4241513
 	name = Shutgun_1
 	editorLayer = "Root Layer\\F1\\Items"
 }
@@ -3538,7 +3538,7 @@ entity
 	type = Terminal
 	uin = 289
 	classPrompt = Terminal
-	sectorStatusData = F2R7-S
+	sectorStatusData = f2r7
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -5513,7 +5513,7 @@ entity
 	type = Terminal
 	uin = 475
 	classPrompt = Terminal
-	sectorStatusData = F2R6-S
+	sectorStatusData = f2r6
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -5615,7 +5615,7 @@ entity
 	type = Terminal
 	uin = 483
 	classPrompt = Terminal
-	sectorStatusData = F2R4-S
+	sectorStatusData = f2r4
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -11353,7 +11353,7 @@ entity
 	type = Terminal
 	uin = 1020
 	classPrompt = Terminal
-	sectorStatusData = F1R8-S
+	sectorStatusData = f1r8
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -11373,7 +11373,7 @@ entity
 	type = Terminal
 	uin = 1021
 	classPrompt = Terminal
-	taskData = F3R4-S
+	taskData = f3r4
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
@@ -11392,7 +11392,7 @@ entity
 	type = Terminal
 	uin = 1022
 	classPrompt = Terminal
-	sectorStatusData = F1R7-S
+	sectorStatusData = f1r7
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
