@@ -1,6 +1,7 @@
 type "Blut-Fleck"
 {
 	class = StaticObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
