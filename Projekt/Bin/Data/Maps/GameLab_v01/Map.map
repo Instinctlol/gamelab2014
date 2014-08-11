@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 487.9778 -5.459889 62.56969
-editorCameraDirection = 3.365275 -1.532671
+editorCameraPosition = 56.03224 -38.21093 11.34294
+editorCameraDirection = 0.5360111 -1.130074
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -222,7 +222,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 5
-			subscriptionsToDeletionEvent = 194 200 782 482 474 287 793 794
+			subscriptionsToDeletionEvent = 194 200 782 482 474 287 791 792
 			entityClassName = Terminal
 			className = Ring2Rotation
 			customScriptCodeCreated = False
@@ -289,7 +289,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 12
-			subscriptionsToDeletionEvent = 288 793
+			subscriptionsToDeletionEvent = 288 791
 			entityClassName = Terminal
 			className = Terminal_Rotate_F3
 			customScriptCodeCreated = False
@@ -8932,56 +8932,8 @@ entity
 }
 entity
 {
-	type = SubmachineGun
-	uin = 791
-	classPrompt = Gun
-	needReload = False
-	readyTimeRemaining = 0
-	currentFireTime = 0
-	fireTimesExecuted = 0
-	healthFactorAtBeginning = 1
-	position = 44.25171 -70.12311 0.4212055
-	name = SubmachineGun_0
-	editorLayer = "Root Layer\\F2\\Items"
-	normalMode
-	{
-		bulletCount = 0
-		bulletMagazineCount = 0
-	}
-	alternativeMode
-	{
-		bulletCount = 0
-		bulletMagazineCount = 0
-	}
-}
-entity
-{
-	type = SubmachineGun
-	uin = 792
-	classPrompt = Gun
-	needReload = False
-	readyTimeRemaining = 0
-	currentFireTime = 0
-	fireTimesExecuted = 0
-	healthFactorAtBeginning = 1
-	position = 61.49662 -35.62997 0.4223256
-	name = SubmachineGun_1
-	editorLayer = "Root Layer\\F2\\Items"
-	normalMode
-	{
-		bulletCount = 0
-		bulletMagazineCount = 0
-	}
-	alternativeMode
-	{
-		bulletCount = 0
-		bulletMagazineCount = 0
-	}
-}
-entity
-{
 	type = Terminal
-	uin = 793
+	uin = 791
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5 12
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9002,7 +8954,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 794
+	uin = 792
 	classPrompt = Terminal
 	subscriptionsToDeletionEvent = 5
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -9023,7 +8975,7 @@ entity
 entity
 {
 	type = BrokenDoor
-	uin = 795
+	uin = 793
 	classPrompt = BrokenDoor
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -9037,7 +8989,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 796
+	uin = 794
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 507.0294 -18.69767 1.07243
@@ -9047,7 +8999,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 797
+	uin = 795
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 506.4991 51.26947 1.067558
@@ -9057,7 +9009,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 798
+	uin = 796
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 471.0664 51.45832 1.06914
@@ -9067,7 +9019,7 @@ entity
 entity
 {
 	type = Dynamite_dobj
-	uin = 799
+	uin = 797
 	classPrompt = DetonationObject
 	healthFactorAtBeginning = 1
 	position = 473.1446 -19.20285 1.067023
@@ -9077,7 +9029,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 800
+	uin = 798
 	classPrompt = StaticObject
 	position = -80.95398 -5.234161 0.358241
 	rotation = 0 0 -0.7850875 0.6193849
@@ -9087,7 +9039,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 801
+	uin = 799
 	classPrompt = StaticObject
 	position = -89.15398 6.265839 0.358241
 	rotation = 0 0 -0.9623547 0.2717971
@@ -9097,7 +9049,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 802
+	uin = 800
 	classPrompt = StaticObject
 	position = -27.2 10.4 1.7
 	name = BettSofa_1
@@ -9106,7 +9058,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 803
+	uin = 801
 	classPrompt = StaticObject
 	position = 104.3 18.8 0.3
 	rotation = 0 0 -0.3007059 0.9537171
@@ -9117,7 +9069,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 804
+	uin = 802
 	classPrompt = StaticObject
 	position = 85.88387 -51.19152 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9127,7 +9079,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 805
+	uin = 803
 	classPrompt = StaticObject
 	position = 82.44763 -54.5032 2.051654
 	rotation = 0 0 -0.3718757 -0.9282828
@@ -9137,7 +9089,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 806
+	uin = 804
 	classPrompt = StaticObject
 	position = 93.5216 -55.56548 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9147,7 +9099,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 807
+	uin = 805
 	classPrompt = StaticObject
 	position = 90.20991 -52.12924 2.051654
 	rotation = 0 0 0.3934392 -0.919351
@@ -9157,7 +9109,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 808
+	uin = 806
 	classPrompt = StaticObject
 	position = 85.5 -54.7 0.3
 	rotation = 0 0 -0.3826835 0.9238796
@@ -9168,7 +9120,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 809
+	uin = 807
 	classPrompt = StaticObject
 	position = 91 -56 0.3
 	rotation = 0 0 -0.9238797 0.3826835
@@ -9179,7 +9131,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 810
+	uin = 808
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9189,7 +9141,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 811
+	uin = 809
 	classPrompt = StaticObject
 	position = 101.5262 20.14666 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
@@ -9199,7 +9151,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 812
+	uin = 810
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -53.7 19.4 1.1
@@ -9209,7 +9161,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 813
+	uin = 811
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -30.2 -20.3 1.1
@@ -9219,7 +9171,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 814
+	uin = 812
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -33.3 15.7 1.1
@@ -9229,7 +9181,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 815
+	uin = 813
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 26.5 -11.4 1.1
@@ -9239,7 +9191,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 816
+	uin = 814
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 54 13.9 1.1
@@ -9249,7 +9201,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 817
+	uin = 815
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 18.7 52.6 1.1
@@ -9259,7 +9211,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 818
+	uin = 816
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -3.2 28.8 1.1
@@ -9269,7 +9221,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 819
+	uin = 817
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.9 35.8 1.1
@@ -9279,7 +9231,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 820
+	uin = 818
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 19.4 -55.2 1.1
@@ -9289,7 +9241,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 821
+	uin = 819
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 4.2 -41.4 1.1
@@ -9299,7 +9251,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 822
+	uin = 820
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.4 -54.9 1.1
@@ -9309,7 +9261,7 @@ entity
 entity
 {
 	type = battery
-	uin = 823
+	uin = 821
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9319,7 +9271,7 @@ entity
 entity
 {
 	type = battery
-	uin = 824
+	uin = 822
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9329,7 +9281,7 @@ entity
 entity
 {
 	type = battery
-	uin = 825
+	uin = 823
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9339,7 +9291,7 @@ entity
 entity
 {
 	type = battery
-	uin = 826
+	uin = 824
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9349,7 +9301,7 @@ entity
 entity
 {
 	type = battery
-	uin = 827
+	uin = 825
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9359,7 +9311,7 @@ entity
 entity
 {
 	type = battery
-	uin = 828
+	uin = 826
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9369,7 +9321,7 @@ entity
 entity
 {
 	type = battery
-	uin = 829
+	uin = 827
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9379,7 +9331,7 @@ entity
 entity
 {
 	type = battery
-	uin = 830
+	uin = 828
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9389,7 +9341,7 @@ entity
 entity
 {
 	type = battery
-	uin = 831
+	uin = 829
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9399,7 +9351,7 @@ entity
 entity
 {
 	type = battery
-	uin = 832
+	uin = 830
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9409,7 +9361,7 @@ entity
 entity
 {
 	type = battery
-	uin = 833
+	uin = 831
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9419,7 +9371,7 @@ entity
 entity
 {
 	type = battery
-	uin = 834
+	uin = 832
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9429,7 +9381,7 @@ entity
 entity
 {
 	type = battery
-	uin = 835
+	uin = 833
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9439,7 +9391,7 @@ entity
 entity
 {
 	type = battery
-	uin = 836
+	uin = 834
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9449,7 +9401,7 @@ entity
 entity
 {
 	type = battery
-	uin = 837
+	uin = 835
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9459,7 +9411,7 @@ entity
 entity
 {
 	type = battery
-	uin = 838
+	uin = 836
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9469,7 +9421,7 @@ entity
 entity
 {
 	type = battery
-	uin = 839
+	uin = 837
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9479,7 +9431,7 @@ entity
 entity
 {
 	type = battery
-	uin = 840
+	uin = 838
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9489,7 +9441,7 @@ entity
 entity
 {
 	type = battery
-	uin = 841
+	uin = 839
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9499,7 +9451,7 @@ entity
 entity
 {
 	type = battery
-	uin = 842
+	uin = 840
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9509,7 +9461,7 @@ entity
 entity
 {
 	type = battery
-	uin = 843
+	uin = 841
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9519,7 +9471,7 @@ entity
 entity
 {
 	type = battery
-	uin = 844
+	uin = 842
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9529,7 +9481,7 @@ entity
 entity
 {
 	type = battery
-	uin = 845
+	uin = 843
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9539,7 +9491,7 @@ entity
 entity
 {
 	type = battery
-	uin = 846
+	uin = 844
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9549,7 +9501,7 @@ entity
 entity
 {
 	type = battery
-	uin = 847
+	uin = 845
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9559,7 +9511,7 @@ entity
 entity
 {
 	type = battery
-	uin = 848
+	uin = 846
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9569,7 +9521,7 @@ entity
 entity
 {
 	type = battery
-	uin = 849
+	uin = 847
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9579,7 +9531,7 @@ entity
 entity
 {
 	type = battery
-	uin = 850
+	uin = 848
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9589,7 +9541,7 @@ entity
 entity
 {
 	type = battery
-	uin = 851
+	uin = 849
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9599,7 +9551,7 @@ entity
 entity
 {
 	type = battery
-	uin = 852
+	uin = 850
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9609,7 +9561,7 @@ entity
 entity
 {
 	type = battery
-	uin = 853
+	uin = 851
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9619,7 +9571,7 @@ entity
 entity
 {
 	type = battery
-	uin = 854
+	uin = 852
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9629,7 +9581,7 @@ entity
 entity
 {
 	type = battery
-	uin = 855
+	uin = 853
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9639,7 +9591,7 @@ entity
 entity
 {
 	type = battery
-	uin = 856
+	uin = 854
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9649,7 +9601,7 @@ entity
 entity
 {
 	type = battery
-	uin = 857
+	uin = 855
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9659,7 +9611,7 @@ entity
 entity
 {
 	type = battery
-	uin = 858
+	uin = 856
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9669,7 +9621,7 @@ entity
 entity
 {
 	type = battery
-	uin = 859
+	uin = 857
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9679,7 +9631,7 @@ entity
 entity
 {
 	type = battery
-	uin = 860
+	uin = 858
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9689,7 +9641,7 @@ entity
 entity
 {
 	type = battery
-	uin = 861
+	uin = 859
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9699,7 +9651,7 @@ entity
 entity
 {
 	type = battery
-	uin = 862
+	uin = 860
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9709,7 +9661,7 @@ entity
 entity
 {
 	type = battery
-	uin = 863
+	uin = 861
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9719,7 +9671,7 @@ entity
 entity
 {
 	type = battery
-	uin = 864
+	uin = 862
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9729,7 +9681,7 @@ entity
 entity
 {
 	type = battery
-	uin = 865
+	uin = 863
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9739,7 +9691,7 @@ entity
 entity
 {
 	type = battery
-	uin = 866
+	uin = 864
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9749,7 +9701,7 @@ entity
 entity
 {
 	type = battery
-	uin = 867
+	uin = 865
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9759,7 +9711,7 @@ entity
 entity
 {
 	type = battery
-	uin = 868
+	uin = 866
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9769,7 +9721,7 @@ entity
 entity
 {
 	type = battery
-	uin = 869
+	uin = 867
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9779,7 +9731,7 @@ entity
 entity
 {
 	type = battery
-	uin = 870
+	uin = 868
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9789,7 +9741,7 @@ entity
 entity
 {
 	type = battery
-	uin = 871
+	uin = 869
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9799,7 +9751,7 @@ entity
 entity
 {
 	type = battery
-	uin = 872
+	uin = 870
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9809,7 +9761,7 @@ entity
 entity
 {
 	type = battery
-	uin = 873
+	uin = 871
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9819,7 +9771,7 @@ entity
 entity
 {
 	type = battery
-	uin = 874
+	uin = 872
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9829,7 +9781,7 @@ entity
 entity
 {
 	type = battery
-	uin = 875
+	uin = 873
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9839,7 +9791,7 @@ entity
 entity
 {
 	type = battery
-	uin = 876
+	uin = 874
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9849,7 +9801,7 @@ entity
 entity
 {
 	type = battery
-	uin = 877
+	uin = 875
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9859,7 +9811,7 @@ entity
 entity
 {
 	type = battery
-	uin = 878
+	uin = 876
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9869,7 +9821,7 @@ entity
 entity
 {
 	type = battery
-	uin = 879
+	uin = 877
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9879,7 +9831,7 @@ entity
 entity
 {
 	type = battery
-	uin = 880
+	uin = 878
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9889,7 +9841,7 @@ entity
 entity
 {
 	type = battery
-	uin = 881
+	uin = 879
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9899,7 +9851,7 @@ entity
 entity
 {
 	type = battery
-	uin = 882
+	uin = 880
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9909,7 +9861,7 @@ entity
 entity
 {
 	type = battery
-	uin = 883
+	uin = 881
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9919,7 +9871,7 @@ entity
 entity
 {
 	type = battery
-	uin = 884
+	uin = 882
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9929,7 +9881,7 @@ entity
 entity
 {
 	type = battery
-	uin = 885
+	uin = 883
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9939,7 +9891,7 @@ entity
 entity
 {
 	type = battery
-	uin = 886
+	uin = 884
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9949,7 +9901,7 @@ entity
 entity
 {
 	type = battery
-	uin = 887
+	uin = 885
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9959,7 +9911,7 @@ entity
 entity
 {
 	type = battery
-	uin = 888
+	uin = 886
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9969,7 +9921,7 @@ entity
 entity
 {
 	type = battery
-	uin = 889
+	uin = 887
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -9979,7 +9931,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 890
+	uin = 888
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 25.3 106.3 1.1
@@ -9989,7 +9941,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 891
+	uin = 889
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 10.1 116.2 1.1
@@ -9999,7 +9951,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 892
+	uin = 890
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -16.4 96.5 1.1
@@ -10009,7 +9961,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 893
+	uin = 891
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -98.1 63.8 1.1
@@ -10019,7 +9971,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 894
+	uin = 892
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -93.3 57.8 1.1
@@ -10029,7 +9981,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 895
+	uin = 893
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -50.7 87.3 1.1
@@ -10039,7 +9991,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 896
+	uin = 894
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -97.3 10.2 1.1
@@ -10049,7 +10001,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 897
+	uin = 895
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -104.5 26 1.1
@@ -10059,7 +10011,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 898
+	uin = 896
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -124.9 -15.2 1.1
@@ -10069,7 +10021,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 899
+	uin = 897
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -70.7 -98.2 1.1
@@ -10079,7 +10031,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 900
+	uin = 898
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -56 -78.6 1.1
@@ -10089,7 +10041,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 901
+	uin = 899
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -78.5 -63.1 1.1
@@ -10099,7 +10051,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 902
+	uin = 900
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 10.7 -97.4 1.1
@@ -10109,7 +10061,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 903
+	uin = 901
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -8 -103.7 1.1
@@ -10119,7 +10071,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 904
+	uin = 902
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -26.4 -124 1.1
@@ -10129,7 +10081,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 905
+	uin = 903
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 99.4 -77.6 1.1
@@ -10139,7 +10091,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 906
+	uin = 904
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 82.2 -84.1 1.1
@@ -10149,7 +10101,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 907
+	uin = 905
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 77.1 -101.3 1.1
@@ -10159,7 +10111,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 908
+	uin = 906
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 107.8 -11.2 1.1
@@ -10169,7 +10121,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 909
+	uin = 907
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 97.7 24.9 1.1
@@ -10179,7 +10131,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 910
+	uin = 908
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 56.2 29.9 1.1
@@ -10189,7 +10141,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 911
+	uin = 909
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 29.8 59.3 1.1
@@ -10199,7 +10151,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 912
+	uin = 910
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 65.6 60.1 1.1
@@ -10209,7 +10161,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 913
+	uin = 911
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 1.3 90.4 1.1
@@ -10219,7 +10171,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 914
+	uin = 912
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 8.6 64.3 1.1
@@ -10229,7 +10181,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 915
+	uin = 913
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.2 62.4 1.1
@@ -10239,7 +10191,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 916
+	uin = 914
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -55.6 29.8 1.1
@@ -10249,7 +10201,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 917
+	uin = 915
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -47.9 76.1 1.1
@@ -10259,7 +10211,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 918
+	uin = 916
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -61.8 -19.9 1.1
@@ -10269,7 +10221,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 919
+	uin = 917
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -61.5 -4.3 1.1
@@ -10279,7 +10231,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 920
+	uin = 918
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -73.9 20.5 1.1
@@ -10289,7 +10241,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 921
+	uin = 919
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -48.5 -76.2 1.1
@@ -10299,7 +10251,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 922
+	uin = 920
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -38.4 -47 1.1
@@ -10309,7 +10261,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 923
+	uin = 921
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -74.3 -50.8 1.1
@@ -10319,7 +10271,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 924
+	uin = 922
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 8.6 -62.4 1.1
@@ -10329,7 +10281,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 925
+	uin = 923
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 19.6 -90.4 1.1
@@ -10339,7 +10291,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 926
+	uin = 924
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = -19.1 -90 1.1
@@ -10349,7 +10301,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 927
+	uin = 925
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 76.4 -49.7 1.1
@@ -10359,7 +10311,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 928
+	uin = 926
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 45.5 -52.4 1.1
@@ -10369,7 +10321,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 929
+	uin = 927
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 52.4 -74.1 1.1
@@ -10379,7 +10331,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 930
+	uin = 928
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 90.4 12.3 1.1
@@ -10389,7 +10341,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 931
+	uin = 929
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 72.7 -16.3 1.3
@@ -10399,7 +10351,7 @@ entity
 entity
 {
 	type = ExplosionBarrel
-	uin = 932
+	uin = 930
 	classPrompt = Dynamic
 	healthFactorAtBeginning = 1
 	position = 62.2 19.6 1.1
@@ -10409,7 +10361,7 @@ entity
 entity
 {
 	type = Desk-Verschieben
-	uin = 933
+	uin = 931
 	classPrompt = StaticObject
 	position = -70.6 -44.1 0.6
 	rotation = 0 0 -0.9238796 0.3826835
@@ -10419,12 +10371,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 934
+	uin = 932
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 935 936 937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954 955 956 957 958 959 960
+	subscriptionsToDeletionEvent = 933 934 935 936 937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954 955 956 957 958
 	curveType = UniformCubicSpline
-	points = 934 935 936 937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954 955 956 957 958 959 960
-	owner = 934
+	points = 932 933 934 935 936 937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954 955 956 957 958
+	owner = 932
 	time = 0
 	position = 91.5 -63.7 0.3
 	name = MapCurve_5
@@ -10433,10 +10385,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 935
+	uin = 933
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 1
 	position = 88.8 -61.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10444,10 +10396,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 936
+	uin = 934
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 2
 	position = 85.6 -59.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10455,10 +10407,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 937
+	uin = 935
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 3
 	position = 82.2 -59.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10466,10 +10418,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 938
+	uin = 936
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 4
 	position = 79.7 -61.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10477,10 +10429,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 939
+	uin = 937
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 5
 	position = 78.49999 -64.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10488,10 +10440,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 940
+	uin = 938
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 6
 	position = 79.39999 -68.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10499,10 +10451,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 941
+	uin = 939
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 7
 	position = 81.49999 -70.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10510,10 +10462,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 942
+	uin = 940
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 8
 	position = 83.89999 -73.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10521,10 +10473,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 943
+	uin = 941
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 9
 	position = 86.49999 -76 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10532,10 +10484,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 944
+	uin = 942
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 10
 	position = 88.49999 -78.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10543,10 +10495,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 945
+	uin = 943
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 11
 	position = 88.89999 -81.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10554,10 +10506,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 946
+	uin = 944
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 12
 	position = 87.99999 -84.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10565,10 +10517,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 947
+	uin = 945
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 13
 	position = 85.89999 -87.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10576,10 +10528,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 948
+	uin = 946
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 14
 	position = 82.79999 -88.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10587,10 +10539,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 949
+	uin = 947
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 15
 	position = 79.79999 -86.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10598,10 +10550,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 950
+	uin = 948
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 16
 	position = 77.29999 -84.39999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10609,10 +10561,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 951
+	uin = 949
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 17
 	position = 74.99998 -81.89999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10620,10 +10572,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 952
+	uin = 950
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 18
 	position = 72.59998 -79.49999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10631,10 +10583,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 953
+	uin = 951
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 19
 	position = 70.09998 -77.69999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10642,10 +10594,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 954
+	uin = 952
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 20
 	position = 67.09998 -76.89999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10653,10 +10605,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 955
+	uin = 953
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 21
 	position = 64.09998 -77.79999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10664,10 +10616,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 956
+	uin = 954
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 22
 	position = 61.89998 -79.69999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10675,10 +10627,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 957
+	uin = 955
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 23
 	position = 60.59998 -82.99998 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10686,10 +10638,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 958
+	uin = 956
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 24
 	position = 61.29998 -86.39999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10697,10 +10649,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 959
+	uin = 957
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 25
 	position = 63.09998 -88.79999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10708,10 +10660,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 960
+	uin = 958
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 934
-	owner = 934
+	subscriptionsToDeletionEvent = 932
+	owner = 932
 	time = 26
 	position = 65.39999 -91.19999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10719,12 +10671,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 961
+	uin = 959
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 962 963 964 965 966 967 968 969 970 971 972 973 974 975 976
+	subscriptionsToDeletionEvent = 960 961 962 963 964 965 966 967 968 969 970 971 972 973 974
 	curveType = UniformCubicSpline
-	points = 961 962 963 964 965 966 967 968 969 970 971 972 973 974 975 976
-	owner = 961
+	points = 959 960 961 962 963 964 965 966 967 968 969 970 971 972 973 974
+	owner = 959
 	time = 0
 	position = 118.4 -19.4 0.3
 	name = MapCurve_6
@@ -10733,10 +10685,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 962
+	uin = 960
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 1
 	position = 115.7 -17.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10744,10 +10696,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 963
+	uin = 961
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 2
 	position = 113.3 -16 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10755,10 +10707,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 964
+	uin = 962
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 3
 	position = 111.8 -12.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10766,10 +10718,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 965
+	uin = 963
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 4
 	position = 111.4 -8.900001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10777,10 +10729,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 966
+	uin = 964
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 5
 	position = 111.4 -5.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10788,10 +10740,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 967
+	uin = 965
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 6
 	position = 111.4 -1.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10799,10 +10751,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 968
+	uin = 966
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 7
 	position = 111.3 1.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10810,10 +10762,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 969
+	uin = 967
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 8
 	position = 111 5.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10821,10 +10773,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 970
+	uin = 968
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 9
 	position = 110.1 9.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10832,10 +10784,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 971
+	uin = 969
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 10
 	position = 108.3 12 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10843,10 +10795,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 972
+	uin = 970
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 11
 	position = 105.5 13 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10854,10 +10806,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 973
+	uin = 971
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 12
 	position = 102.8 11.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10865,10 +10817,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 974
+	uin = 972
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 13
 	position = 101.4 8.800001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10876,10 +10828,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 975
+	uin = 973
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 14
 	position = 101.2 5.300001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10887,10 +10839,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 976
+	uin = 974
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 961
-	owner = 961
+	subscriptionsToDeletionEvent = 959
+	owner = 959
 	time = 15
 	position = 101.3 1.400001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10898,12 +10850,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 977
+	uin = 975
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 978 979 980 981 982 983 984 985 986 987 988 989 990 991 992 993 994 995 996 997 998
+	subscriptionsToDeletionEvent = 976 977 978 979 980 981 982 983 984 985 986 987 988 989 990 991 992 993 994 995 996
 	curveType = UniformCubicSpline
-	points = 977 978 979 980 981 982 983 984 985 986 987 988 989 990 991 992 993 994 995 996 997 998
-	owner = 977
+	points = 975 976 977 978 979 980 981 982 983 984 985 986 987 988 989 990 991 992 993 994 995 996
+	owner = 975
 	time = 0
 	position = 37.9 59 0.3
 	name = MapCurve_7
@@ -10912,10 +10864,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 978
+	uin = 976
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 1
 	position = 40.2 61.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10923,10 +10875,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 979
+	uin = 977
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 2
 	position = 42.7 63.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10934,10 +10886,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 980
+	uin = 978
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 3
 	position = 45.4 66.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10945,10 +10897,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 981
+	uin = 979
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 4
 	position = 48.5 68.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10956,10 +10908,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 982
+	uin = 980
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 5
 	position = 51.8 68.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10967,10 +10919,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 983
+	uin = 981
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 6
 	position = 55 66.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10978,10 +10930,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 984
+	uin = 982
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 7
 	position = 56.9 63.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -10989,10 +10941,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 985
+	uin = 983
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 8
 	position = 57 59.90001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11000,10 +10952,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 986
+	uin = 984
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 9
 	position = 55.6 56.40001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11011,10 +10963,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 987
+	uin = 985
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 10
 	position = 53.3 53.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11022,10 +10974,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 988
+	uin = 986
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 11
 	position = 50.7 51.10001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11033,10 +10985,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 989
+	uin = 987
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 12
 	position = 48.4 48.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11044,10 +10996,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 990
+	uin = 988
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 13
 	position = 46.9 45.90001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11055,10 +11007,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 991
+	uin = 989
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 14
 	position = 46.8 42.40001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11066,10 +11018,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 992
+	uin = 990
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 15
 	position = 49 39.30001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11077,10 +11029,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 993
+	uin = 991
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 16
 	position = 52.3 37.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11088,10 +11040,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 994
+	uin = 992
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 17
 	position = 55.9 38.40001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11099,10 +11051,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 995
+	uin = 993
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 18
 	position = 58.7 40.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11110,10 +11062,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 996
+	uin = 994
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 19
 	position = 61.4 43.40001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11121,10 +11073,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 997
+	uin = 995
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 20
 	position = 64 46 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11132,10 +11084,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 998
+	uin = 996
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 977
-	owner = 977
+	subscriptionsToDeletionEvent = 975
+	owner = 975
 	time = 21
 	position = 66.7 48.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11143,12 +11095,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 999
+	uin = 997
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019 1020 1021
+	subscriptionsToDeletionEvent = 998 999 1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019
 	curveType = UniformCubicSpline
-	points = 999 1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019 1020 1021
-	owner = 999
+	points = 997 998 999 1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019
+	owner = 997
 	time = 0
 	position = 13.9 69.9 0.3
 	name = MapCurve_8
@@ -11157,10 +11109,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1000
+	uin = 998
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 1
 	position = 13.8 72.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11168,10 +11120,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1001
+	uin = 999
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 2
 	position = 13.7 75.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11179,10 +11131,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1002
+	uin = 1000
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 3
 	position = 13.4 78.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11190,10 +11142,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1003
+	uin = 1001
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 4
 	position = 12.8 81.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11201,10 +11153,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1004
+	uin = 1002
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 5
 	position = 11.5 84 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11212,10 +11164,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1005
+	uin = 1003
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 6
 	position = 9 86.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11223,10 +11175,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1006
+	uin = 1004
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 7
 	position = 5.9 87.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11234,10 +11186,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1007
+	uin = 1005
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 8
 	position = 2.6 86.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11245,10 +11197,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1008
+	uin = 1006
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 9
 	position = 0.9999998 84 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11256,10 +11208,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1009
+	uin = 1007
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 10
 	position = 0.2999998 80.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11267,10 +11219,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1010
+	uin = 1008
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 11
 	position = -0.2000003 77.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11278,10 +11230,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1011
+	uin = 1009
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 12
 	position = -0.6000004 74.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11289,10 +11241,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1012
+	uin = 1010
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 13
 	position = -1.1 71.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11300,10 +11252,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1013
+	uin = 1011
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 14
 	position = -2 68 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11311,10 +11263,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1014
+	uin = 1012
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 15
 	position = -4.2 65.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11322,10 +11274,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1015
+	uin = 1013
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 16
 	position = -7.700001 65 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11333,10 +11285,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1016
+	uin = 1014
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 17
 	position = -10.7 66.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11344,10 +11296,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1017
+	uin = 1015
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 18
 	position = -12.1 69.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11355,10 +11307,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1018
+	uin = 1016
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 19
 	position = -12.2 72.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11366,10 +11318,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1019
+	uin = 1017
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 20
 	position = -12.2 76.10001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11377,10 +11329,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1020
+	uin = 1018
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 21
 	position = -12.2 79.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11388,10 +11340,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1021
+	uin = 1019
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 999
-	owner = 999
+	subscriptionsToDeletionEvent = 997
+	owner = 997
 	time = 22
 	position = -12.3 83.20001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11399,7 +11351,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 1022
+	uin = 1020
 	classPrompt = Terminal
 	sectorStatusData = F1R8-S
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -11419,7 +11371,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 1023
+	uin = 1021
 	classPrompt = Terminal
 	taskData = F3R4-S
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -11438,7 +11390,7 @@ entity
 entity
 {
 	type = Terminal
-	uin = 1024
+	uin = 1022
 	classPrompt = Terminal
 	sectorStatusData = F1R7-S
 	taskFailSound = "Sounds\\taskFail.ogg"
@@ -11458,12 +11410,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 1025
+	uin = 1023
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1026 1027 1028 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044
+	subscriptionsToDeletionEvent = 1024 1025 1026 1027 1028 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042
 	curveType = UniformCubicSpline
-	points = 1025 1026 1027 1028 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044
-	owner = 1025
+	points = 1023 1024 1025 1026 1027 1028 1029 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041 1042
+	owner = 1023
 	time = 0
 	position = 66 -11.2 0.3
 	name = MapCurve_9
@@ -11472,10 +11424,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1026
+	uin = 1024
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 1
 	position = 66.5 -14.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11483,10 +11435,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1027
+	uin = 1025
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 2
 	position = 68.2 -17.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11494,10 +11446,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1028
+	uin = 1026
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 3
 	position = 71.1 -19.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11505,10 +11457,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1029
+	uin = 1027
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 4
 	position = 74.2 -18.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11516,10 +11468,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1030
+	uin = 1028
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 5
 	position = 76.39999 -15.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11527,10 +11479,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1031
+	uin = 1029
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 6
 	position = 77.2 -11.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11538,10 +11490,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1032
+	uin = 1030
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 7
 	position = 77.39999 -7.900002 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11549,10 +11501,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1033
+	uin = 1031
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 8
 	position = 76.79999 -4.100001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11560,10 +11512,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1034
+	uin = 1032
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 9
 	position = 75.09999 -0.8000013 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11571,10 +11523,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1035
+	uin = 1033
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 10
 	position = 72.19999 1.599999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11582,10 +11534,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1036
+	uin = 1034
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 11
 	position = 68.89999 3.099999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11593,10 +11545,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1037
+	uin = 1035
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 12
 	position = 66.19999 5.199999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11604,10 +11556,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1038
+	uin = 1036
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 13
 	position = 64.59999 8.599999 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11615,10 +11567,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1039
+	uin = 1037
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 14
 	position = 64.59999 12.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11626,10 +11578,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1040
+	uin = 1038
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 15
 	position = 66.59999 15.4 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11637,10 +11589,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1041
+	uin = 1039
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 16
 	position = 69.99999 16.6 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11648,10 +11600,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1042
+	uin = 1040
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 17
 	position = 73.39999 16.9 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11659,10 +11611,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1043
+	uin = 1041
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 18
 	position = 77.09999 16.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11670,10 +11622,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1044
+	uin = 1042
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1025
-	owner = 1025
+	subscriptionsToDeletionEvent = 1023
+	owner = 1023
 	time = 19
 	position = 81.09999 16.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11681,12 +11633,12 @@ entity
 entity
 {
 	type = MapCurve
-	uin = 1045
+	uin = 1043
 	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1046 1047 1048 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062 1063 1064
+	subscriptionsToDeletionEvent = 1044 1045 1046 1047 1048 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062
 	curveType = UniformCubicSpline
-	points = 1045 1046 1047 1048 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062 1063 1064
-	owner = 1045
+	points = 1043 1044 1045 1046 1047 1048 1049 1050 1051 1052 1053 1054 1055 1056 1057 1058 1059 1060 1061 1062
+	owner = 1043
 	time = 0
 	position = -49.6 66.1 0.3
 	name = MapCurve_10
@@ -11695,10 +11647,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1046
+	uin = 1044
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 1
 	position = -52.10001 63.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11706,10 +11658,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1047
+	uin = 1045
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 2
 	position = -54.70001 61.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11717,10 +11669,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1048
+	uin = 1046
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 3
 	position = -57.30001 58.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11728,10 +11680,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1049
+	uin = 1047
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 4
 	position = -59.90001 55.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11739,10 +11691,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1050
+	uin = 1048
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 5
 	position = -62.3 53.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11750,10 +11702,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1051
+	uin = 1049
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 6
 	position = -64.60001 50.2 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11761,10 +11713,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1052
+	uin = 1050
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 7
 	position = -66.4 46.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11772,10 +11724,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1053
+	uin = 1051
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 8
 	position = -67.1 43.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11783,10 +11735,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1054
+	uin = 1052
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 9
 	position = -66.4 40.50001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11794,10 +11746,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1055
+	uin = 1053
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 10
 	position = -64.00001 38 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11805,10 +11757,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1056
+	uin = 1054
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 11
 	position = -60.90001 37.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11816,10 +11768,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1057
+	uin = 1055
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 12
 	position = -57.60001 38.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11827,10 +11779,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1058
+	uin = 1056
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 13
 	position = -54.50002 40.5 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11838,10 +11790,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1059
+	uin = 1057
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 14
 	position = -51.60001 43.1 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11849,10 +11801,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1060
+	uin = 1058
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 15
 	position = -48.90001 45.7 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11860,10 +11812,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1061
+	uin = 1059
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 16
 	position = -46.10001 48.60001 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11871,10 +11823,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1062
+	uin = 1060
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 17
 	position = -43.70001 51 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11882,10 +11834,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1063
+	uin = 1061
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 18
 	position = -41.40001 53.3 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11893,10 +11845,10 @@ entity
 entity
 {
 	type = MapCurvePoint
-	uin = 1064
+	uin = 1062
 	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1045
-	owner = 1045
+	subscriptionsToDeletionEvent = 1043
+	owner = 1043
 	time = 19
 	position = -38.90001 55.8 0.3
 	editorLayer = "Root Layer\\Patrolien"
@@ -11904,7 +11856,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1065
+	uin = 1063
 	classPrompt = AlienSpawner
 	sector = 574
 	spawnLimit = 0
@@ -11921,7 +11873,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1066
+	uin = 1064
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -11931,7 +11883,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1067
+	uin = 1065
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -11941,7 +11893,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1068
+	uin = 1066
 	classPrompt = StaticObject
 	position = 13.8 100.4 0.3
 	name = Blut-Fleck_0
@@ -11950,7 +11902,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1069
+	uin = 1067
 	classPrompt = StaticObject
 	position = 14.2 123.5 0.3
 	name = Blut-Fleck_1
@@ -11959,7 +11911,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1070
+	uin = 1068
 	classPrompt = StaticObject
 	position = 23.2 120.6 0.3
 	name = Blut-Fleck_2
@@ -11968,7 +11920,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1071
+	uin = 1069
 	classPrompt = StaticObject
 	position = 7.7 105.3 0.3
 	scale = 1.97 1.97 1.97
@@ -11978,7 +11930,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1072
+	uin = 1070
 	classPrompt = StaticObject
 	position = 4.3 123.6 0.3
 	name = Blut-Fleck_4
@@ -11987,7 +11939,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1073
+	uin = 1071
 	classPrompt = StaticObject
 	position = -10.8 97.6 0.3
 	name = Blut-Fleck_5
@@ -11996,7 +11948,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1074
+	uin = 1072
 	classPrompt = StaticObject
 	position = -25.6 104.9 0.3
 	name = Blut-Fleck_6
@@ -12005,7 +11957,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1075
+	uin = 1073
 	classPrompt = StaticObject
 	position = -24.5 124.1 0.3
 	name = Blut-Fleck_7
@@ -12014,7 +11966,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1076
+	uin = 1074
 	classPrompt = StaticObject
 	position = -56.4 95.9 0.5
 	name = Blut-Fleck_8
@@ -12023,7 +11975,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1077
+	uin = 1075
 	classPrompt = StaticObject
 	position = -66.1 94 0.7
 	name = Blut-Fleck_9
@@ -12032,7 +11984,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1078
+	uin = 1076
 	classPrompt = StaticObject
 	position = -85 73 0.7
 	name = Blut-Fleck_10
@@ -12041,7 +11993,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1079
+	uin = 1077
 	classPrompt = StaticObject
 	position = -93 65.1 0.7
 	name = Blut-Fleck_11
@@ -12050,7 +12002,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1080
+	uin = 1078
 	classPrompt = StaticObject
 	position = -95.6 59.9 0.3
 	name = Blut-Fleck_12
@@ -12059,7 +12011,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1081
+	uin = 1079
 	classPrompt = StaticObject
 	position = -100.2 76.2 0.3
 	name = Blut-Fleck_13
@@ -12068,7 +12020,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1082
+	uin = 1080
 	classPrompt = StaticObject
 	position = -122.3 22 0.3
 	name = Blut-Fleck_14
@@ -12077,7 +12029,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1083
+	uin = 1081
 	classPrompt = StaticObject
 	position = -97.2 -8.1 0.3
 	name = Blut-Fleck_15
@@ -12086,7 +12038,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1084
+	uin = 1082
 	classPrompt = StaticObject
 	position = -97 -23.7 0.2
 	name = Blut-Fleck_16
@@ -12095,7 +12047,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1085
+	uin = 1083
 	classPrompt = StaticObject
 	position = -100.4 -23.9 0.3
 	name = Blut-Fleck_17
@@ -12104,7 +12056,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1086
+	uin = 1084
 	classPrompt = StaticObject
 	position = -122.3 -16.7 0.3
 	name = Blut-Fleck_18
@@ -12113,7 +12065,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1087
+	uin = 1085
 	classPrompt = StaticObject
 	position = -81.6 -51.6 0.3
 	name = Blut-Fleck_19
@@ -12122,7 +12074,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1088
+	uin = 1086
 	classPrompt = StaticObject
 	position = -104.2 -69.9 0.3
 	name = Blut-Fleck_20
@@ -12131,7 +12083,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1089
+	uin = 1087
 	classPrompt = StaticObject
 	position = -77.6 -85.1 0.3
 	name = Blut-Fleck_21
@@ -12140,7 +12092,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1090
+	uin = 1088
 	classPrompt = StaticObject
 	position = -51.9 -89 0.3
 	name = Blut-Fleck_22
@@ -12149,7 +12101,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1091
+	uin = 1089
 	classPrompt = StaticObject
 	position = 6.3 -124.2 0.3
 	name = Blut-Fleck_23
@@ -12158,7 +12110,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1092
+	uin = 1090
 	classPrompt = StaticObject
 	position = 23.7 -95.8 0.3
 	name = Blut-Fleck_24
@@ -12167,7 +12119,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1093
+	uin = 1091
 	classPrompt = StaticObject
 	position = 7 -96 0.3
 	name = Blut-Fleck_25
@@ -12176,7 +12128,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1094
+	uin = 1092
 	classPrompt = StaticObject
 	position = -18.6 -123.7 0.3
 	name = Blut-Fleck_26
@@ -12185,7 +12137,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1095
+	uin = 1093
 	classPrompt = StaticObject
 	position = -13.1 -106.3 0.3
 	name = Blut-Fleck_27
@@ -12194,7 +12146,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1096
+	uin = 1094
 	classPrompt = StaticObject
 	position = -4 -109.9 0.3
 	name = Blut-Fleck_28
@@ -12203,7 +12155,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1097
+	uin = 1095
 	classPrompt = StaticObject
 	position = 74 -101.9 0.3
 	name = Blut-Fleck_29
@@ -12212,7 +12164,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1098
+	uin = 1096
 	classPrompt = StaticObject
 	position = 88.9 -87.1 0.3
 	name = Blut-Fleck_30
@@ -12221,7 +12173,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1099
+	uin = 1097
 	classPrompt = StaticObject
 	position = 70.7 -66.9 0.3
 	name = Blut-Fleck_31
@@ -12230,7 +12182,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1100
+	uin = 1098
 	classPrompt = StaticObject
 	position = 106.6 -69.9 0.3
 	name = Blut-Fleck_32
@@ -12239,7 +12191,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1101
+	uin = 1099
 	classPrompt = StaticObject
 	position = 123.2 -18.2 0.3
 	name = Blut-Fleck_33
@@ -12248,7 +12200,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1102
+	uin = 1100
 	classPrompt = StaticObject
 	position = 123.4 0.2 0.3
 	name = Blut-Fleck_34
@@ -12257,7 +12209,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1103
+	uin = 1101
 	classPrompt = StaticObject
 	position = 124.3 24.2 0.3
 	name = Blut-Fleck_35
@@ -12266,7 +12218,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1104
+	uin = 1102
 	classPrompt = StaticObject
 	position = 99.1 22.3 0.3
 	name = Blut-Fleck_36
@@ -12275,7 +12227,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1105
+	uin = 1103
 	classPrompt = StaticObject
 	position = 103.8 -6.8 0.3
 	name = Blut-Fleck_37
@@ -12284,7 +12236,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1106
+	uin = 1104
 	classPrompt = StaticObject
 	position = 47 75.5 0.3
 	name = Blut-Fleck_38
@@ -12293,7 +12245,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1107
+	uin = 1105
 	classPrompt = StaticObject
 	position = 30.5 56.6 0.3
 	name = Blut-Fleck_39
@@ -12302,7 +12254,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1108
+	uin = 1106
 	classPrompt = StaticObject
 	position = 40.3 46 0.3
 	name = Blut-Fleck_40
@@ -12311,7 +12263,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1109
+	uin = 1107
 	classPrompt = StaticObject
 	position = 62 36.1 0.3
 	name = Blut-Fleck_41
@@ -12320,7 +12272,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1110
+	uin = 1108
 	classPrompt = StaticObject
 	position = 72.9 46.3 0.3
 	name = Blut-Fleck_42
@@ -12329,7 +12281,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1111
+	uin = 1109
 	classPrompt = StaticObject
 	position = 62.9 61.8 0.3
 	name = Blut-Fleck_43
@@ -12338,7 +12290,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1112
+	uin = 1110
 	classPrompt = StaticObject
 	position = 67.5 55.5 0.3
 	name = Blut-Fleck_44
@@ -12347,7 +12299,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1113
+	uin = 1111
 	classPrompt = StaticObject
 	position = 19.5 86.3 0.3
 	name = Blut-Fleck_45
@@ -12356,7 +12308,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1114
+	uin = 1112
 	classPrompt = StaticObject
 	position = 0.3 62.7 0.3
 	scale = 1.505801 1.505801 0.3
@@ -12366,7 +12318,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1115
+	uin = 1113
 	classPrompt = StaticObject
 	position = -19.4 66.4 0.3
 	name = Blut-Fleck_47
@@ -12375,7 +12327,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1116
+	uin = 1114
 	classPrompt = StaticObject
 	position = -10.2 89.5 0.3
 	name = Blut-Fleck_48
@@ -12384,7 +12336,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1117
+	uin = 1115
 	classPrompt = StaticObject
 	position = -18.3 81.9 0.2
 	name = Blut-Fleck_49
@@ -12393,7 +12345,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1118
+	uin = 1116
 	classPrompt = StaticObject
 	position = -13.7 75.1 0.3
 	name = Blut-Fleck_50
@@ -12402,7 +12354,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1119
+	uin = 1117
 	classPrompt = StaticObject
 	position = -46 56.4 0.9
 	name = Blut-Fleck_51
@@ -12411,7 +12363,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1120
+	uin = 1118
 	classPrompt = StaticObject
 	position = -39.5 44.9 0.2
 	name = Blut-Fleck_52
@@ -12420,7 +12372,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1121
+	uin = 1119
 	classPrompt = StaticObject
 	position = -40.8 45 0.3
 	name = Blut-Fleck_53
@@ -12429,7 +12381,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1122
+	uin = 1120
 	classPrompt = StaticObject
 	position = -53.4 50.1 0.3
 	name = Blut-Fleck_54
@@ -12438,7 +12390,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1123
+	uin = 1121
 	classPrompt = StaticObject
 	position = -53.4 31.3 0.2
 	name = Blut-Fleck_55
@@ -12447,7 +12399,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1124
+	uin = 1122
 	classPrompt = StaticObject
 	position = -53.5 31.3 0.2
 	name = Blut-Fleck_56
@@ -12456,7 +12408,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1125
+	uin = 1123
 	classPrompt = StaticObject
 	position = -54.3 32 0.3
 	name = Blut-Fleck_57
@@ -12465,7 +12417,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1126
+	uin = 1124
 	classPrompt = StaticObject
 	position = -72 51.7 0.3
 	name = Blut-Fleck_58
@@ -12474,7 +12426,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1127
+	uin = 1125
 	classPrompt = StaticObject
 	position = -44.6 64.1 0.3
 	name = Blut-Fleck_59
@@ -12483,7 +12435,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1128
+	uin = 1126
 	classPrompt = StaticObject
 	position = -44.1 74.1 0.3
 	name = Blut-Fleck_60
@@ -12492,7 +12444,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1129
+	uin = 1127
 	classPrompt = StaticObject
 	position = -62.7 18.7 0.3
 	name = Blut-Fleck_61
@@ -12501,7 +12453,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1130
+	uin = 1128
 	classPrompt = StaticObject
 	position = -90.1 9 0.3
 	name = Blut-Fleck_62
@@ -12510,7 +12462,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1131
+	uin = 1129
 	classPrompt = StaticObject
 	position = -80.7 -3.3 0.3
 	name = Blut-Fleck_63
@@ -12519,7 +12471,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1132
+	uin = 1130
 	classPrompt = StaticObject
 	position = -89.2 -17.7 0.2
 	name = Blut-Fleck_64
@@ -12528,7 +12480,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1133
+	uin = 1131
 	classPrompt = StaticObject
 	position = -87.6 -18.2 0.3
 	name = Blut-Fleck_65
@@ -12537,7 +12489,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1134
+	uin = 1132
 	classPrompt = StaticObject
 	position = -63.3 -16 0.3
 	name = Blut-Fleck_66
@@ -12546,7 +12498,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1135
+	uin = 1133
 	classPrompt = StaticObject
 	position = -73 -48.5 0.3
 	name = Blut-Fleck_67
@@ -12555,7 +12507,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1136
+	uin = 1134
 	classPrompt = StaticObject
 	position = -53.2 -32.2 0.3
 	name = Blut-Fleck_68
@@ -12564,7 +12516,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1137
+	uin = 1135
 	classPrompt = StaticObject
 	position = -34 -50.2 0.3
 	name = Blut-Fleck_69
@@ -12573,7 +12525,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1138
+	uin = 1136
 	classPrompt = StaticObject
 	position = -46.8 -75.5 0.3
 	name = Blut-Fleck_70
@@ -12582,7 +12534,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1139
+	uin = 1137
 	classPrompt = StaticObject
 	position = -59.8 -65 0.3
 	name = Blut-Fleck_71
@@ -12591,7 +12543,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1140
+	uin = 1138
 	classPrompt = StaticObject
 	position = -14.2 -62.2 1.2
 	name = Blut-Fleck_72
@@ -12600,7 +12552,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1141
+	uin = 1139
 	classPrompt = StaticObject
 	position = -0.8 -62.1 0.3
 	name = Blut-Fleck_73
@@ -12609,7 +12561,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1142
+	uin = 1140
 	classPrompt = StaticObject
 	position = -8 -89.6 0.3
 	name = Blut-Fleck_74
@@ -12618,7 +12570,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1143
+	uin = 1141
 	classPrompt = StaticObject
 	position = 11.4 -89.9 0.3
 	name = Blut-Fleck_75
@@ -12627,7 +12579,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1144
+	uin = 1142
 	classPrompt = StaticObject
 	position = 20.7 -82.5 0.3
 	name = Blut-Fleck_76
@@ -12636,7 +12588,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1145
+	uin = 1143
 	classPrompt = StaticObject
 	position = 56.8 -47.6 0.3
 	name = Blut-Fleck_77
@@ -12645,7 +12597,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1146
+	uin = 1144
 	classPrompt = StaticObject
 	position = 74.7 -48.4 0.3
 	name = Blut-Fleck_78
@@ -12654,7 +12606,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1147
+	uin = 1145
 	classPrompt = StaticObject
 	position = 60.4 -64.7 0.3
 	name = Blut-Fleck_79
@@ -12663,7 +12615,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1148
+	uin = 1146
 	classPrompt = StaticObject
 	position = 44.5 -72.4 0.3
 	name = Blut-Fleck_80
@@ -12672,7 +12624,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1149
+	uin = 1147
 	classPrompt = StaticObject
 	position = 38.8 -46.7 0.3
 	name = Blut-Fleck_81
@@ -12681,7 +12633,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1150
+	uin = 1148
 	classPrompt = StaticObject
 	position = 54.1 -31.9 0.3
 	name = Blut-Fleck_82
@@ -12690,7 +12642,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1151
+	uin = 1149
 	classPrompt = StaticObject
 	position = 88 -19.4 0.3
 	name = Blut-Fleck_83
@@ -12699,7 +12651,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1152
+	uin = 1150
 	classPrompt = StaticObject
 	position = 65.7 -19.1 0.3
 	name = Blut-Fleck_84
@@ -12708,7 +12660,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1153
+	uin = 1151
 	classPrompt = StaticObject
 	position = 62.4 5.4 0.3
 	name = Blut-Fleck_85
@@ -12717,7 +12669,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1154
+	uin = 1152
 	classPrompt = StaticObject
 	position = 67.3 20.6 0.3
 	name = Blut-Fleck_86
@@ -12726,7 +12678,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1155
+	uin = 1153
 	classPrompt = StaticObject
 	position = 83 16.6 0.2
 	name = Blut-Fleck_87
@@ -12735,7 +12687,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1156
+	uin = 1154
 	classPrompt = StaticObject
 	position = 85.9 5.5 0.3
 	name = Blut-Fleck_88
@@ -12744,7 +12696,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1157
+	uin = 1155
 	classPrompt = StaticObject
 	position = 82.8 16.7 0.2
 	name = Blut-Fleck_89
@@ -12753,7 +12705,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1158
+	uin = 1156
 	classPrompt = StaticObject
 	position = 81.8 14.9 0.3
 	name = Blut-Fleck_90
@@ -12762,7 +12714,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1159
+	uin = 1157
 	classPrompt = StaticObject
 	position = 51.4 -17.5 0.3
 	name = Blut-Fleck_91
@@ -12771,7 +12723,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1160
+	uin = 1158
 	classPrompt = StaticObject
 	position = 26.2 -15.2 0.2
 	name = Blut-Fleck_92
@@ -12780,7 +12732,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1161
+	uin = 1159
 	classPrompt = StaticObject
 	position = 51.4 -4.3 0.3
 	name = Blut-Fleck_93
@@ -12789,7 +12741,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1162
+	uin = 1160
 	classPrompt = StaticObject
 	position = 36.8 -6.4 0.3
 	name = Blut-Fleck_94
@@ -12798,7 +12750,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1163
+	uin = 1161
 	classPrompt = StaticObject
 	position = 29.5 -6.7 0.3
 	name = Blut-Fleck_95
@@ -12807,7 +12759,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1164
+	uin = 1162
 	classPrompt = StaticObject
 	position = 28.1 4.3 0.3
 	name = Blut-Fleck_96
@@ -12816,7 +12768,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1165
+	uin = 1163
 	classPrompt = StaticObject
 	position = 52.6 8.900001 0.3
 	name = Blut-Fleck_97
@@ -12825,7 +12777,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1166
+	uin = 1164
 	classPrompt = StaticObject
 	position = 49.2 15 0.3
 	name = Blut-Fleck_98
@@ -12834,7 +12786,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1167
+	uin = 1165
 	classPrompt = StaticObject
 	position = 43.2 20.2 0.3
 	name = Blut-Fleck_99
@@ -12843,7 +12795,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1168
+	uin = 1166
 	classPrompt = StaticObject
 	position = 33 14.5 0.3
 	name = Blut-Fleck_100
@@ -12852,7 +12804,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1169
+	uin = 1167
 	classPrompt = StaticObject
 	position = -17.8 -53.1 0.3
 	name = Blut-Fleck_101
@@ -12861,7 +12813,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1170
+	uin = 1168
 	classPrompt = StaticObject
 	position = -8.3 -30 0.3
 	name = Blut-Fleck_102
@@ -12870,7 +12822,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1171
+	uin = 1169
 	classPrompt = StaticObject
 	position = 3.8 -29.5 0.3
 	name = Blut-Fleck_103
@@ -12879,7 +12831,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1172
+	uin = 1170
 	classPrompt = StaticObject
 	position = 5 -46.5 0.6
 	name = Blut-Fleck_104
@@ -12888,7 +12840,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1173
+	uin = 1171
 	classPrompt = StaticObject
 	position = 10.7 -44.7 0.3
 	name = Blut-Fleck_105
@@ -12897,7 +12849,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1174
+	uin = 1172
 	classPrompt = StaticObject
 	position = 20.3 -51.8 0.3
 	name = Blut-Fleck_106
@@ -12906,7 +12858,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1175
+	uin = 1173
 	classPrompt = StaticObject
 	position = 17.2 -27.2 0.3
 	name = Blut-Fleck_107
@@ -12915,7 +12867,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1176
+	uin = 1174
 	classPrompt = StaticObject
 	position = -49.2 18.3 0.3
 	name = Blut-Fleck_108
@@ -12924,7 +12876,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1177
+	uin = 1175
 	classPrompt = StaticObject
 	position = -28.8 14.7 0.3
 	name = Blut-Fleck_109
@@ -12933,7 +12885,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1178
+	uin = 1176
 	classPrompt = StaticObject
 	position = -31.1 6.6 0.3
 	name = Blut-Fleck_110
@@ -12942,7 +12894,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1179
+	uin = 1177
 	classPrompt = StaticObject
 	position = -28.4 -4.2 0.3
 	name = Blut-Fleck_111
@@ -12951,7 +12903,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1180
+	uin = 1178
 	classPrompt = StaticObject
 	position = -27.7 -11.3 0.2
 	name = Blut-Fleck_112
@@ -12960,7 +12912,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1181
+	uin = 1179
 	classPrompt = StaticObject
 	position = -30.6 -16.9 0.3
 	name = Blut-Fleck_113
@@ -12969,7 +12921,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1182
+	uin = 1180
 	classPrompt = StaticObject
 	position = -43.9 -15.2 0.3
 	name = Blut-Fleck_114
@@ -12978,7 +12930,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1183
+	uin = 1181
 	classPrompt = StaticObject
 	position = -48.9 -14.7 0.3
 	name = Blut-Fleck_115
@@ -12987,7 +12939,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1184
+	uin = 1182
 	classPrompt = StaticObject
 	position = -51.3 -11.6 0.3
 	name = Blut-Fleck_116
@@ -12996,7 +12948,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1185
+	uin = 1183
 	classPrompt = StaticObject
 	position = -44.6 -10.3 0.3
 	name = Blut-Fleck_117
@@ -13005,7 +12957,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1186
+	uin = 1184
 	classPrompt = StaticObject
 	position = -12.5 29.5 0.2
 	name = Blut-Fleck_118
@@ -13014,7 +12966,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1187
+	uin = 1185
 	classPrompt = StaticObject
 	position = -12 29.4 0.2
 	name = Blut-Fleck_119
@@ -13023,7 +12975,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1188
+	uin = 1186
 	classPrompt = StaticObject
 	position = -12.1 29.9 0.3
 	name = Blut-Fleck_120
@@ -13032,7 +12984,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1189
+	uin = 1187
 	classPrompt = StaticObject
 	position = -16.9 26.7 0.3
 	name = Blut-Fleck_121
@@ -13041,7 +12993,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1190
+	uin = 1188
 	classPrompt = StaticObject
 	position = -16.1 29.6 0.2
 	name = Blut-Fleck_122
@@ -13050,7 +13002,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1191
+	uin = 1189
 	classPrompt = StaticObject
 	position = -10.9 38.1 0.3
 	name = Blut-Fleck_123
@@ -13059,7 +13011,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1192
+	uin = 1190
 	classPrompt = StaticObject
 	position = 0.9 51.3 0.2
 	name = Blut-Fleck_124
@@ -13068,7 +13020,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1193
+	uin = 1191
 	classPrompt = StaticObject
 	position = 19.1 46.4 0.2
 	name = Blut-Fleck_125
@@ -13077,7 +13029,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1194
+	uin = 1192
 	classPrompt = StaticObject
 	position = 13.9 51.7 0.3
 	name = Blut-Fleck_126
@@ -13086,7 +13038,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1195
+	uin = 1193
 	classPrompt = StaticObject
 	position = 16.9 39.8 0.3
 	name = Blut-Fleck_127
@@ -13095,7 +13047,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1196
+	uin = 1194
 	classPrompt = StaticObject
 	position = 17.7 33.6 0.3
 	name = Blut-Fleck_128
@@ -13104,7 +13056,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1197
+	uin = 1195
 	classPrompt = StaticObject
 	position = 10.2 30 0.3
 	name = Blut-Fleck_129
@@ -13113,7 +13065,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1198
+	uin = 1196
 	classPrompt = StaticObject
 	position = -13.7 53 0.2
 	name = Blut-Fleck_130
@@ -13122,7 +13074,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1199
+	uin = 1197
 	classPrompt = StaticObject
 	position = -12.2 52.5 0.2
 	name = Blut-Fleck_131
@@ -13131,7 +13083,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1200
+	uin = 1198
 	classPrompt = StaticObject
 	position = -12.3 49.1 0.3
 	name = Blut-Fleck_132
@@ -13140,7 +13092,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1201
+	uin = 1199
 	classPrompt = StaticObject
 	position = -61.9 -7.1 0.3
 	name = Blut-Fleck_133
@@ -13149,7 +13101,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1202
+	uin = 1200
 	classPrompt = StaticObject
 	position = -67.3 -7.2 0.3
 	scale = 1.753393 1.753393 1
@@ -13159,7 +13111,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1203
+	uin = 1201
 	classPrompt = StaticObject
 	position = -69.7 -7.2 0.3
 	name = Blut-Fleck_135
@@ -13168,7 +13120,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1204
+	uin = 1202
 	classPrompt = StaticObject
 	position = -65.6 -7.7 0.3
 	name = Leiche1_14
@@ -13177,7 +13129,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1205
+	uin = 1203
 	classPrompt = StaticObject
 	position = -124.5 25.8 0.3
 	name = Leiche1_15
@@ -13185,7 +13137,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1206
+	uin = 1204
 	classPrompt = StaticObject
 	position = -106.1 26.2 0.3
 	name = Leiche1_16
@@ -13193,7 +13145,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1207
+	uin = 1205
 	classPrompt = StaticObject
 	position = -124.5 -25.6 0.3
 	rotation = 0 0 -0.9914449 0.1305262
@@ -13202,7 +13154,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1208
+	uin = 1206
 	classPrompt = StaticObject
 	position = -83.2 -90.2 0.3
 	name = Leiche1_18
@@ -13210,7 +13162,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1209
+	uin = 1207
 	classPrompt = StaticObject
 	position = -70.5 -64.5 0.3
 	name = leiche2_13
@@ -13218,7 +13170,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1210
+	uin = 1208
 	classPrompt = StaticObject
 	position = -90.6 -55.7 0.4
 	name = leiche2_14
@@ -13226,7 +13178,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1211
+	uin = 1209
 	classPrompt = StaticObject
 	position = -11.2 -95.9 0.4
 	name = leiche2_15
@@ -13235,7 +13187,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1212
+	uin = 1210
 	classPrompt = StaticObject
 	position = 80.3 -56.7 0.3
 	name = Leiche1_19
@@ -13244,7 +13196,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1213
+	uin = 1211
 	classPrompt = StaticObject
 	position = 67.3 -69.4 0.3
 	name = Leiche1_20
@@ -13253,7 +13205,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1214
+	uin = 1212
 	classPrompt = StaticObject
 	position = 70 -88.1 0.3
 	name = leiche2_16
@@ -13262,7 +13214,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1215
+	uin = 1213
 	classPrompt = StaticObject
 	position = 96.60001 11.6 0.3
 	rotation = 0 0 0.4226182 0.9063078
@@ -13272,7 +13224,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1216
+	uin = 1214
 	classPrompt = StaticObject
 	position = -33.2 -51.1 0.3
 	name = Leiche1_22
@@ -13281,7 +13233,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1217
+	uin = 1215
 	classPrompt = StaticObject
 	position = -3.9 -62 0.3
 	name = Leiche1_23
@@ -13290,7 +13242,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1218
+	uin = 1216
 	classPrompt = StaticObject
 	position = 21.1 -67.3 0.3
 	name = Leiche1_24
@@ -13299,7 +13251,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1219
+	uin = 1217
 	classPrompt = StaticObject
 	position = -20.3 -87.4 0.3
 	name = leiche2_17
@@ -13308,7 +13260,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1220
+	uin = 1218
 	classPrompt = StaticObject
 	position = 8.6 -89.5 0.3
 	name = leiche2_18
@@ -13317,7 +13269,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1221
+	uin = 1219
 	classPrompt = StaticObject
 	position = 48.8 -36.2 0.3
 	name = Leiche1_25
@@ -13326,7 +13278,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1222
+	uin = 1220
 	classPrompt = StaticObject
 	position = 48.5 -59.9 0.3
 	name = Leiche1_26
@@ -13335,7 +13287,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1223
+	uin = 1221
 	classPrompt = StaticObject
 	position = 64.5 19.9 0.3
 	name = Leiche1_27
@@ -13344,7 +13296,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1224
+	uin = 1222
 	classPrompt = StaticObject
 	position = 91.3 7.2 0.3
 	name = Leiche1_28
@@ -13353,7 +13305,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1225
+	uin = 1223
 	classPrompt = StaticObject
 	position = 72.8 -13.7 0.3
 	rotation = 0 0 0.3826834 0.9238796
@@ -13363,7 +13315,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1226
+	uin = 1224
 	classPrompt = StaticObject
 	position = 20 -27.2 0.3
 	name = Leiche1_29
@@ -13372,7 +13324,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1227
+	uin = 1225
 	classPrompt = StaticObject
 	position = -19.7 -26.6 0.3
 	name = Leiche1_30
@@ -13381,7 +13333,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1228
+	uin = 1226
 	classPrompt = StaticObject
 	position = 4.9 -44.6 0.3
 	name = leiche2_20
@@ -13390,7 +13342,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1229
+	uin = 1227
 	classPrompt = StaticObject
 	position = 39.1 20 0.3
 	name = Leiche1_31
@@ -13399,7 +13351,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1230
+	uin = 1228
 	classPrompt = StaticObject
 	position = 25.8 -3.5 0.3
 	name = Leiche1_32
@@ -13408,7 +13360,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1231
+	uin = 1229
 	classPrompt = StaticObject
 	position = 54.7 -17.1 0.3
 	name = Leiche1_33
@@ -13417,7 +13369,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1232
+	uin = 1230
 	classPrompt = StaticObject
 	position = 49.4 1.4 0.2
 	name = leiche2_21
@@ -13426,7 +13378,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1233
+	uin = 1231
 	classPrompt = StaticObject
 	position = 5.5 54.4 0.3
 	name = Leiche1_34
@@ -13435,7 +13387,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1234
+	uin = 1232
 	classPrompt = StaticObject
 	position = 6.7 31.7 0.3
 	name = Leiche1_35
@@ -13444,7 +13396,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1235
+	uin = 1233
 	classPrompt = StaticObject
 	position = -25.3 -8.5 0.3
 	name = Leiche1_36
@@ -13453,7 +13405,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1236
+	uin = 1234
 	classPrompt = StaticObject
 	position = -25.4 20.4 0.3
 	name = Leiche1_37
@@ -13462,7 +13414,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1237
+	uin = 1235
 	classPrompt = StaticObject
 	position = -48.3 -8.900001 0.3
 	name = Leiche1_38
@@ -13471,9 +13423,31 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1238
+	uin = 1236
 	classPrompt = StaticObject
 	position = -27.3 -3.9 0.3
 	name = leiche2_22
 	editorLayer = "Root Layer\\F3\\Items"
+}
+entity
+{
+	type = SubmachineGunItem
+	uin = 1325
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 44.25346 -69.82124 0.451588
+	name = Maschinegun_1
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = SubmachineGunItem
+	uin = 1326
+	classPrompt = WeaponItem
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = 61.44485 -37.77358 0.4549229
+	name = Maschinegun_2
+	editorLayer = "Root Layer\\F2\\Items"
 }
