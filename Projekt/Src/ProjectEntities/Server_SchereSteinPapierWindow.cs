@@ -70,6 +70,9 @@ namespace ProjectEntities
             }
         }
 
+        public void close() {
+            this.Close_clicked(new Button());
+        }
         private void countdown(object sender, ElapsedEventArgs e)
         {
             countdownBox.Text = ""+(int.Parse(countdownBox.Text) -1);

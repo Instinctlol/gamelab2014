@@ -359,10 +359,18 @@ namespace Game
                         hudFunctions("Menu");
                         #endregion
                     }
+                    else if(hudControl.Controls["SchereSteinPapier"].Visible && hudControl.Controls["SchereSteinPapier"].Controls["CloseButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    {
+                        #region SchereSteinPapierClose
+                        if (sspw != null) sspw.close();
+                        #endregion
+                    }
                     else if (hudControl.Controls["Strahlen"].Controls["ButtonArea"].Controls["ChangeRoom"].GetScreenRectangle().IsContainsPoint(MousePos))
                     {
+                        #region SwitchButton
                         //veraendert die Position der Camera in den Endkampfraum
                         changeCameraPosition();
+                        #endregion
                     }
                     else if (hudControl.Controls["BigMinimap"].Visible)
                     {
