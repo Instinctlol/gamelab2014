@@ -311,7 +311,8 @@ namespace Game
 
 		void Start_Click( Button sender )
 		{
-           
+
+            ((Button)window.Controls["Start"]).Enable = false;
 
             GameNetworkServer server = GameNetworkServer.Instance;
             if (server != null)
@@ -321,7 +322,6 @@ namespace Game
                 aTimer.Elapsed += CountDownmessage;
                 server.ChatService.SayToAll(".." + timesPerSec-- + "!");
                 aTimer.Enabled = true;
-
             }
 
                 

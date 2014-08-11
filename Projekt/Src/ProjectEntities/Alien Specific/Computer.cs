@@ -41,8 +41,12 @@ namespace ProjectEntities
         static bool alienControlPaused = false;
         static Timer alienControlTimer;
 
+        //Schere Stein PapierWindow
         private static Task csspwTask;
+        //Ob Licht geändert werden darf oder nicht
         private static bool allowedToChangeLight;
+
+        
 
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)

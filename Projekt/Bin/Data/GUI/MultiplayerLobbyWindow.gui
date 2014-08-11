@@ -36,7 +36,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
 		position = ScaleByResolution 33 353
-		size = Screen 0.0403125 0.025
+		size = Screen 0.04082032 0.025
 		text = Chat
 	}
 	control "Gui\\Controls\\DefaultListBox.gui"
@@ -50,7 +50,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
 		position = ScaleByResolution 33 93
-		size = Screen 0.046875 0.025
+		size = Screen 0.04824219 0.025
 		text = Users
 	}
 	control "Gui\\Controls\\DefaultCheckBox.gui"

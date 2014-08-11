@@ -47,6 +47,12 @@ namespace ProjectEntities
 		[FieldSerialize]
 		bool value;
 
+        [FieldSerialize]
+        bool oneTimeUse = false;
+
+        
+        private bool switched = false;
+
 		BooleanSwitchType _type = null; public new BooleanSwitchType Type { get { return _type; } }
 
 		///////////////////////////////////////////
@@ -73,21 +79,50 @@ namespace ProjectEntities
 			get { return this.value; }
 			set
 			{
-				if( this.value == value )
-					return;
+				    if(oneTimeUse && !switched)
+                    {
+                        if (this.value == value)
+                            return;
 
-				this.value = value;
+                        this.value = value;
 
-				OnValueChange();
-				UpdateAttachedObjects();
+                        OnValueChange();
+                        UpdateAttachedObjects();
 
-				if( EntitySystemWorld.Instance.IsServer() )
-				{
-					if( Type.NetworkType == EntityNetworkTypes.Synchronized )
-						Server_SendValueToClients( EntitySystemWorld.Instance.RemoteEntityWorlds );
-				}
+                        if (EntitySystemWorld.Instance.IsServer())
+                        {
+                            if (Type.NetworkType == EntityNetworkTypes.Synchronized)
+                                Server_SendValueToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+                        }
+                        switched = true;
+                    }
+                    else if(!oneTimeUse)
+                    {
+                        if (this.value == value)
+                            return;
+
+                        this.value = value;
+
+                        OnValueChange();
+                        UpdateAttachedObjects();
+
+                        if (EntitySystemWorld.Instance.IsServer())
+                        {
+                            if (Type.NetworkType == EntityNetworkTypes.Synchronized)
+                                Server_SendValueToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+                        }
+                    }
+                    
 			}
 		}
+
+        [DefaultValue(false)]
+        [LogicSystemBrowsable(true)]
+        public bool OneTimeUse
+        {
+            get { return oneTimeUse; }
+            set { oneTimeUse = value; }
+        }
 
 		void UpdateAttachedObjects()
 		{

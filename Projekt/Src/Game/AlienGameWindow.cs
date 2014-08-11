@@ -241,6 +241,8 @@ namespace Game
             EngineApp.Instance.RenderScene();
 
             EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
+
+            bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
         }
 
         private void AlienGameWindow_MouseEnter(Control sender)
@@ -2089,18 +2091,8 @@ namespace Game
         /// </summary>
         void DoOpenMinimap()
         {
-            // BigMinimap öffnen
-            if (bigMinimapObj == null)
-            {
-                bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
-                hudControl.Controls["BigMinimap"].Visible = true;
-            }
-            else
-            {
-                hudControl.Controls["BigMinimap"].Visible = true;
-                bigMinimapObj.optimizedRotation();
-            }
-
+            hudControl.Controls["BigMinimap"].Visible = true;
+            bigMinimapObj.optimizedRotation();
         }
         //////////////////////////////////////////////////////////////////
         ////                   Ende BigMinimap                        ////

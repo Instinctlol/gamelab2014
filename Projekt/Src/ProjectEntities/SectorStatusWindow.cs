@@ -104,7 +104,7 @@ namespace ProjectEntities
             
 
             //optimized rotation
-            optimizedRotation();
+            updateRotations();
 
             // Ringe drehen entsprechend der Computer-Konfig
             //Vec3 pos = new Vec3();
@@ -197,7 +197,7 @@ namespace ProjectEntities
             secgrpG.SwitchLight += OnSwitchLightsG;
         }
 
-        public void optimizedRotation()
+        public void updateRotations()
         {
             //dummies..
             Vec3 pos = new Vec3();

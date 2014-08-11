@@ -47,7 +47,7 @@ namespace Game
 
         public void optimizedRotation()
         {
-            ((SectorStatusWindow)bigMinimapControl).optimizedRotation();
+            ((SectorStatusWindow)bigMinimapControl).updateRotations();
         }
 
         // löschen
