@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -54.54089 -54.31314 2.341868
-editorCameraDirection = 2.724137 -0.02962777
+editorCameraPosition = -85.29048 -7.71284 7.545264
+editorCameraDirection = 2.846092 -0.7491111
 shadowColor = 1 1 1
 shadowPSSMSplitFactors = 0.1 0.4
 logicSystemManager = 3
@@ -5584,7 +5584,7 @@ entity
 	taskType = PIN
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -91.38953 -4.085155 1.392283
+	position = -91.38953 -4.085155 1.622124
 	name = Terminal_Door_10
 	logicClass = 5
 	editorLayer = "Root Layer\\F2\\Terminal"
@@ -13435,7 +13435,7 @@ entity
 entity
 {
 	type = Desk-Verschieben
-	uin = 1325
+	uin = 1237
 	classPrompt = StaticObject
 	position = -61.60213 -48.66861 0.5490702
 	name = Desk-Verschieben_0
