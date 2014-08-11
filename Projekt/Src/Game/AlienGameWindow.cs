@@ -210,21 +210,13 @@ namespace Game
             //    cameraPosition = spawnPoint.Position.ToVec2();
             //    break;
             //}
-            
-            foreach (Entity entity in Map.Instance.Children)
-            {
-                AlienSpawner aSp = entity as AlienSpawner;
-                int zahl = new Random().Next(0, 2);
-                Console.WriteLine("Variable: " + (zahl == 0) + ", Zahl: " + zahl);
-                if (aSp == null || zahl == 0)
-                    continue;
-                cameraPosition = aSp.Position.ToVec2();
-                break;
-            }
-            if (cameraPosition == null)
-            {
-                cameraPosition = new Vec2(80.0f, 80.0f);
-            }
+
+            IEnumerable<AlienSpawner> spawnerList = Entities.Instance.EntitiesCollection.OfType<AlienSpawner>();
+            IEnumerable<AlienSpawner> aliensp = from AlienSpawner asp in spawnerList
+                                                where CheckMapPosition(asp.Position.ToVec2() * 0.9f)
+                                             select asp;
+            int izahl = new Random().Next(0, aliensp.Count());
+            cameraPosition = aliensp.ElementAt(izahl).Position.ToVec2();
 
             //World serialized data
             if (World.Instance.GetCustomSerializationValue("cameraDistance") != null)
