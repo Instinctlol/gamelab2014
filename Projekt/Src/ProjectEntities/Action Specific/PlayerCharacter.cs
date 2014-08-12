@@ -84,13 +84,16 @@ namespace ProjectEntities
         [FieldSerialize]
         RemoteEntityWorld owner = null;
 
+        public Vec3 pos; 
+
         
 
 
         ///////////////////////////////////////////
 
         String s = "";
-
+        
+        
         public class WeaponItem
         {
             [FieldSerialize]
@@ -1134,8 +1137,11 @@ namespace ProjectEntities
         {
             //Items droppen lassen, wenn Astronaut tot ist
             dropItem();
+             
 
             base.OnDie(prejudicial);
+
+            
         }
 
 
@@ -1174,6 +1180,8 @@ namespace ProjectEntities
         {
             Vec3 p = this.Position + this.Rotation.GetForward();
             p = p * 4f + new Vec3(0, 0, -1);
+           
+
             foreach (Item i in Inventar.getInventarliste())
             {
                 if (!EntitySystemWorld.Instance.IsServer())
