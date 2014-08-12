@@ -1379,35 +1379,67 @@ namespace Game
                 {
                     foreach (Alien a in alienList)
                     {
-                        ;
+                        List<AlienUnitAI.UserControlPanelTask> t = (a.Intellect as AlienUnitAI).GetControlPanelTasks();
+                        if (tasks == null)
+                        {
+                            tasks = t;
+                        }
+                        else
+                        {
+                            for (int n = 0; n < tasks.Count; n++)
+                            {
+                                if (n >= t.Count)
+                                    continue;// break??
+
+                                if (tasks[n].Task.Type != t[n].Task.Type)
+                                    continue;
+
+                                if (t[n].Active)
+                                {
+                                    tasks[n] = new AlienUnitAI.UserControlPanelTask(tasks[n].Task, true, tasks[n].Enable);
+                                }
+                            }
+                        }
                     }
-                //    for (int n = 0; n < tasks.Count; n++)
-                //            {
-                //                if (n >= t.Count)
-                //                    continue;// break??
 
-                //                if (tasks[n].Task.Type != t[n].Task.Type)
-                //                    continue;
-                //                if (t[n].Active)
-                //                {
-                //                    tasks[n] = new AlienUnitAI.UserControlPanelTask(
-                //                        tasks[n].Task, true, tasks[n].Enable);
-                //                }
 
-                //                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
-                //                {
-                //                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
-                //                        tasks[n] = new AlienUnitAI.UserControlPanelTask(
-                //                            new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
-                //                }
-                //            }
-                    AlienAI aai = alienList.ElementAt(0).Intellect as AlienAI;
-                    tasks = aai.GetControlPanelTasks();
+                    //AlienAI aai = alienList.ElementAt(0).Intellect as AlienAI;
+                    //tasks = aai.GetControlPanelTasks();
                 }
                 else if (alienSpawnerList.Count() != 0)
                 {
-                    AlienSpawnerAI aai = alienSpawnerList.ElementAt(0).Intellect as AlienSpawnerAI;
-                    tasks = aai.GetControlPanelTasks();
+                    foreach (AlienSpawner a in alienSpawnerList)
+                    {
+                        List<AlienUnitAI.UserControlPanelTask> t = (a.Intellect as AlienUnitAI).GetControlPanelTasks();
+                        if (tasks == null)
+                        {
+                            tasks = t;
+                        }
+                        else
+                        {
+                            for (int n = 0; n < tasks.Count; n++)
+                            {
+                                if (n >= t.Count)
+                                    continue;// break??
+
+                                if (tasks[n].Task.Type != t[n].Task.Type)
+                                    continue;
+
+                                if (t[n].Active)
+                                {
+                                    tasks[n] = new AlienUnitAI.UserControlPanelTask(tasks[n].Task, true, tasks[n].Enable);
+                                }
+
+                                if (tasks[n].Task.Type == AlienUnitAI.Task.Types.ProductUnit)
+                                {
+                                    if (tasks[n].Task.EntityType != t[n].Task.EntityType)
+                                        tasks[n] = new AlienUnitAI.UserControlPanelTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.None));
+                                }
+                            }
+                        }
+                    }
+                    //AlienSpawnerAI aai = alienSpawnerList.ElementAt(0).Intellect as AlienSpawnerAI;
+                    //tasks = aai.GetControlPanelTasks();
                 }
 
                 
