@@ -77,6 +77,7 @@ namespace ProjectEntities
         
         float pathFindWaitTime;
 
+        
         float patrolTickTime;
 
         int counterPatrolCosts = 0; //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
@@ -119,124 +120,110 @@ namespace ProjectEntities
             }
         }
 
-
         public void Patrol()
         {
-            EngineConsole.Instance.Print("Ich patrolliere ");
+            EngineConsole.Instance.Print("Ich patroulliere");
             patrolEnabled = true;
             this.MovementRoute = null;
             MapCurve mapCurve = null;
             IEnumerable<MapCurve> allPossibleCurves = Entities.Instance.EntitiesCollection.OfType<MapCurve>();
-            IEnumerable<MapCurvePoint> allPossibleCurvePoints = Entities.Instance.EntitiesCollection.OfType<MapCurvePoint>();
             IEnumerable<Sector> allPossibleSectors = Entities.Instance.EntitiesCollection.OfType<Sector>();
+            IEnumerable<MapCurvePoint> allPossibleCurvePoints = Entities.Instance.EntitiesCollection.OfType<MapCurvePoint>();
             Vec3 myPosition = this.Position;
             MapCurve minCurve = null;
-            //Sector minSector = null;
-            float minDistance = 10000f;
-            //float minDist = 10000f;
+            //float minDistance = 10000f;
             
-
             //////////////////////////////////////////
 
             Vec3 source = this.Position;
             source.Z = 100;
-            Vec3 direction = new Vec3(0, 0, -100000);
+            Vec3 direction = new Vec3(0, 0, -1000);
             Ray ray = new Ray(source, direction);
-            
-
-
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
-                //Sektor, in dem sich das Alien befindet
                 Sector sec = mObj as Sector;
-                EngineConsole.Instance.Print("Sektor" + sec.Name);
+                EngineConsole.Instance.Print("Sektor:" + sec.Name);
                 EngineConsole.Instance.Print("strahl");
+
                 if (sec != null)
                 {
-                    EngineConsole.Instance.Print("Sektor ungleich null");
                     foreach (MapCurve curve in allPossibleCurves)
                     {
-                        //befindet sich das Alien in einem Sektor, der eine MapCurve enthält, wählt es diese MapCurve
                         if (curve.Name.Substring(5, 4) == sec.Name.Substring(0, 4))
                         {
-                            if (curve != null)
+                            if(sec.Name == "F1R1" && curve.Name == "CurveF1R2")
                             {
                                 minCurve = curve;
-                                EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
-                                return true;
                             }
-                            else if (curve.Name == "CurveF1R2")
-                            {
-                                minCurve = curve;
-                                EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
-                                return true;
-                            }
-                            else
-                            {
-                                EngineConsole.Instance.Print("1");
-                            }
+                            
+                            minCurve = curve;
                         }
-                        //Befindet sich das Alien in einem Gang, wählt es die MapCurve der benachbarten Räume, die am nächsten liegt
                         else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)))
                         {
-                            // suche die am nächsten liegende MapCurve
-                            foreach (MapCurvePoint curvePoint in allPossibleCurvePoints)
-                            {
-                                if (curvePoint.Owner == curve)
-                                {
-                                    Vec3 distance = curvePoint.Position - this.Position;
-                                    if (distance.Length() < minDistance)
-                                    {
-                                        minDistance = distance.Length();
-                                        minCurve = curve;
-                                        EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
-                                        return true;
-
-                                    }
-                                    else
-                                    {
-                                        EngineConsole.Instance.Print("2");
-                                    }
-                                }
-                                else
-                                {
-                                    EngineConsole.Instance.Print("3");
-                                }
-                            }
+                            EngineConsole.Instance.Print("Ich stehe im Gang");
+                            minCurve = curve;
                         }
                         else
                         {
-                            EngineConsole.Instance.Print("4");
+                            EngineConsole.Instance.Print("Kurvenname != Sektorname ");
                         }
                     }
                 }
-                //Stop();
+                else
+                {
+                    EngineConsole.Instance.Print("Kein Sektor gefunden");
+                }
+
                 return false;
-                   
             });
 
-             
+
+            //Vec3 source = this.Position;
+            //source.Z = 100;
+            //Vec3 direction = new Vec3(0, 0, -1000);
+            //Ray ray = new Ray(source, direction);
+            //Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
+            //{
+            //    Sector sec = mObj as Sector;
+
+            //    if (sec != null)
+            //    {
+            //        foreach (MapCurve curve in allPossibleCurves)
+            //        {
+            //            // suche die am nächsten liegende MapCurve
+            //            Vec3 distance = sec.Position - curve.Position;
+            //            if (distance.Length() < minDistance)
+            //            {
+            //                minDistance = distance.Length();
+            //                minCurve = curve;
+            //                EngineConsole.Instance.Print("MinCurveName: " + minCurve.Name);
+            //            }
+            //        }
+            //    }
+
+            //    return false;
+            //});
+                    
+            ////////////////////////////////////////////////////////
             
             this.MovementRoute = minCurve;
-                       
+
 
             mapCurve = this.MovementRoute as MapCurve; //nehme die MapCurve des ausgewählten Aliens in der Map
 
             if (mapCurve != null) //hat das Alien eine MapCurve?
             {
-                    
+
                 route = new ArrayList();
 
                 foreach (MapCurvePoint point in mapCurve.Points) //füge jeden MapCurvePoint als einen Waypoint in die Route ein 
                 {
                     route.Add(point);
                 }
-                       
-            }
-     
-        }
 
-        
+            }
+        }
+       
 
         private void TickPatrol()
         {
@@ -247,6 +234,7 @@ namespace ProjectEntities
                
                     if (Computer.ExperiencePoints > 0)
                     {
+                        //this._type.
                         if (counterPatrolCosts == 5)
                         {
                             Computer.DecrementExperiencePoints();
