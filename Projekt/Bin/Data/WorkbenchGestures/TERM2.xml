@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Gesture Name="term" NumPts="286" Millseconds="3232" AppName="Recognizer.Dollar" AppVer="5.0.2.0" Date="Dienstag, 12. August 2014" TimeOfDay="13:40:58">
+<Gesture Name="term2" NumPts="286" Millseconds="3232" AppName="Recognizer.Dollar" AppVer="5.0.2.0" Date="Dienstag, 12. August 2014" TimeOfDay="13:40:58">
   <Point X="211" Y="57" T="63543447651425" />
   <Point X="209" Y="57" T="63543447651432" />
   <Point X="208" Y="57" T="63543447651440" />

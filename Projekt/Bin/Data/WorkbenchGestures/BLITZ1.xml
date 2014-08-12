@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Gesture Name="blitz" NumPts="240" Millseconds="2976" AppName="Recognizer.Dollar" AppVer="5.0.2.0" Date="Dienstag, 12. August 2014" TimeOfDay="13:41:09">
+<Gesture Name="blitz1" NumPts="240" Millseconds="2976" AppName="Recognizer.Dollar" AppVer="5.0.2.0" Date="Dienstag, 12. August 2014" TimeOfDay="13:41:09">
   <Point X="169" Y="56" T="63543447661601" />
   <Point X="169" Y="57" T="63543447661649" />
   <Point X="169" Y="59" T="63543447661665" />

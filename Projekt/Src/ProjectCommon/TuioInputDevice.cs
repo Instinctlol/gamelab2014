@@ -20,10 +20,9 @@ namespace ProjectCommon
         blitz,
         iuhr,
         guhr,
-        term
+        term,
+        unselect
     };
-	//For enabling this example device you need uncomment "ExampleCustomInputDevice.InitDevice();"
-	//in the GameEngineApp.cs. After it you will see this device in the Game Options window.
 
 	public class TuioInputDeviceSpecialEvent : InputEvent
 	{
@@ -403,7 +402,7 @@ namespace ProjectCommon
                 List<float[]> used = new List<float[]>();
                 #endregion
 
-                #region ConvertData
+                #region analyzeData
                 foreach (float[] elemt in tuioInputData)
                 {
                     if (elemt[0] == 0 && elemt[3] == 1)
@@ -427,7 +426,6 @@ namespace ProjectCommon
                         failsafe = elemt;
                         failsafebool = true;
                         endb = true;
-                        Console.WriteLine("End Detected");
                     }
 
                 }
@@ -442,6 +440,8 @@ namespace ProjectCommon
                 }
                 #endregion
 
+                
+
                 #region vardef
                 bool lastexeption = false;
                 if (lastpoint == null && startb && endb) lastexeption = true;
@@ -451,12 +451,15 @@ namespace ProjectCommon
                 if (lastexeption || (startb && endb && Math.Abs(start[4] - lastpoint[4]) <= 0.01f && Math.Abs(start[5] - lastpoint[5]) <= 0.01f))
                 {
                     #region click
-                    TuioInputDeviceSpecialEvent customEvent =
-                    new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
-                    InputDeviceManager.Instance.SendEvent(customEvent);
-
                     cleardata();
                     detectgestures(false);
+
+                    TuioInputDeviceSpecialEvent customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
+                    InputDeviceManager.Instance.SendEvent(customEvent);
+
+                    customEvent =
+                    new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
+                    InputDeviceManager.Instance.SendEvent(customEvent);
                     #endregion
                 }
 
@@ -470,6 +473,7 @@ namespace ProjectCommon
                         {
                             if (elemt[0] == 0 && elemt[3] != 3)
                                 data.Add(new TimePointF(elemt[4]*1500, elemt[5]*1500, elemt[2]));
+
                         }
                     #endregion
                         //Gesten erkennen
@@ -482,12 +486,22 @@ namespace ProjectCommon
                                         new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                             switch (list.Name)
                             {
-                                case "blitz":
+                                case "blitz1":
                                     {
                                         customEvent = new TuioInputDeviceSpecialEvent(this, opType.blitz, 0, 0);
                                         break;
                                     }
-                                case "term":
+                                case "blitz2":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.blitz, 0, 0);
+                                        break;
+                                    }
+                                case "term1":
+                                    {
+                                        customEvent = new TuioInputDeviceSpecialEvent(this, opType.term, 0, 0);
+                                        break;
+                                    }
+                                case "term2":
                                     {
                                         customEvent = new TuioInputDeviceSpecialEvent(this, opType.term, 0, 0);
                                         break;
@@ -511,12 +525,15 @@ namespace ProjectCommon
 
                             }
                             #region senddata
-                            InputDeviceManager.Instance.SendEvent(customEvent);
-                            Console.WriteLine(list.Name);
+                            if((float)list.Score > 0.75f)
+                                InputDeviceManager.Instance.SendEvent(customEvent);
+                            Console.WriteLine(list.Name + " @ " + list.Score);
                             cleardata();
                             failsafebool = false;
                             failsafe = new float[8];
                             detectgestures(false);
+                            customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
+                            InputDeviceManager.Instance.SendEvent(customEvent);
                             #endregion
                         }
                     #endregion

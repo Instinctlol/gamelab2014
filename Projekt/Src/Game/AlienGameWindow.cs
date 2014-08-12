@@ -466,7 +466,7 @@ namespace Game
                     //EngineApp.Instance.DoMouseUp(EMouseButtons.Left);
                     #endregion
                 }
-                else if (test.getOPType() == opType.iuhr || test.getOPType() == opType.guhr || test.getOPType() == opType.blitz)
+                else if (test.getOPType() == opType.iuhr || test.getOPType() == opType.guhr || test.getOPType() == opType.blitz || test.getOPType() == opType.unselect)
                 {
                     bigMinimapObj.workbench_gestures(test.getOPType());
                 }
@@ -532,10 +532,12 @@ namespace Game
 
         bool IsMouseInActiveArea()
         {
-            if (hudControl.Controls["links"].GetScreenRectangle().IsContainsPoint(MousePosition) || hudControl.Controls["rechts"].GetScreenRectangle().IsContainsPoint(MousePosition)
-                || hudControl.Controls["Minimap"].GetScreenRectangle().IsContainsPoint(MousePosition) || hudControl.Controls["Strahlen"].GetScreenRectangle().IsContainsPoint(MousePosition))
-                return false;
-            return true;
+            if (!hudControl.Controls["Strahlen"].GetScreenRectangle().IsContainsPoint(MousePosition))
+                if (!hudControl.Controls["Minimap"].Visible || !hudControl.Controls["Minimap"].GetScreenRectangle().IsContainsPoint(MousePosition))
+                    if (!hudControl.Controls["rechts"].Visible || !hudControl.Controls["rechts"].GetScreenRectangle().IsContainsPoint(MousePosition))
+                        if (!hudControl.Controls["links"].Visible || !hudControl.Controls["links"].GetScreenRectangle().IsContainsPoint(MousePosition))
+                            return true;
+            return false;
         }
 
         //Pommes
@@ -1585,6 +1587,7 @@ namespace Game
 
             }
         }
+
 
         // Buttons zum Durchführen der Alien/AlienSpawner/Computer Logik
         void UpdateControlPanel()

@@ -219,6 +219,20 @@ namespace Game
             {
                 powerButton_Click(window.Controls["Power"]); 
             }
+            if (evnt == opType.unselect)
+            {
+                unselect();
+            }
+
+
+        }
+        public void unselect() {
+            if (selectedSector != null)
+            {
+                lastSelectedSector = selectedSector.Name;
+                ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector
+                selectedSector = null;
+            }
         }
         bool isinarea(Button button, Vec2 pos)
         {
