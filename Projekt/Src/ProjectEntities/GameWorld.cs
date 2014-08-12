@@ -35,6 +35,8 @@ namespace ProjectEntities
 		bool needWorldDestroy;
         Vec3 pos;
         Quat rot;
+        float revival;
+        float buildTime = 10;
 
 		//
 
@@ -61,6 +63,19 @@ namespace ProjectEntities
         public void setpos(Vec3 pos) 
         {
             this.pos = pos;
+        }
+
+
+        public float timeelapsed
+        {
+            get { return revival; }
+        }
+
+        
+        public float BuildTime
+        {
+            get { return buildTime; }
+            set { buildTime = value; }
         }
 
 
@@ -140,7 +155,10 @@ namespace ProjectEntities
 
                             if (player.Intellect.ControlledObject != null) {
 
+                            //aktuelle position 
+                                
                                 player.pos = player.Intellect.ControlledObject.Position;
+                            
                             }
 
 							if( player.User != null && player.User != userManagementService.ServerUser )
@@ -213,12 +231,22 @@ namespace ProjectEntities
 						foreach( PlayerManager.ServerOrSingle_Player player in
 							PlayerManager.Instance.ServerOrSingle_Players )
 						{
-							if( player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
-							{
+                            if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
+                            {
                                 //spawner Position ändern 
                                 //Unit type erstellen 
-                                ServerOrSingle_CreatePlayerUnit( player);
-							}
+                                if (player.started)
+                                {
+                                    revival += TickDelta / BuildTime;
+
+                                    if (timeelapsed >= 1)
+                                    {
+                                        ServerOrSingle_CreatePlayerUnit(player);
+                                        revival = 0f;
+                                    }
+                                }
+                                else ServerOrSingle_CreatePlayerUnit(player);
+                            }
 						}
 					}
 				}
@@ -312,53 +340,7 @@ namespace ProjectEntities
 			needChangeMapPlayerCharacterInformation = null;
 		}
 
-        Unit ServerOrSingle_CreatePlayerUnit(PlayerManager.ServerOrSingle_Player player, Vec3 position, Quat rotation = new Quat())
-        {
-            string unitTypeName;
-            if (!player.Bot)
-            {
-
-                if (GameMap.Instance.PlayerUnitType != null)
-                    unitTypeName = GameMap.Instance.PlayerUnitType.Name;
-                else
-                    unitTypeName = "Astronaut";//"Rabbit";
-            }
-            else
-                unitTypeName = player.Name;
-
-            Unit unit = (Unit)Entities.Instance.Create(unitTypeName, Map.Instance);
-
-            Vec3 posOffset = new Vec3(0, 0, 1.5f);
-            unit.Position = position + posOffset;
-            unit.Rotation = rotation;//spawnPoint.Rotation;
-
-            if (unit is PlayerCharacter)
-            {
-                foreach (var item in EntitySystemWorld.Instance.RemoteEntityWorlds)
-                {
-                    if (item.Description.Contains(player.Name))
-                    {
-                        ((PlayerCharacter)unit).Owner = item;
-                        break;
-                    }
-                }
-            }
-
-            unit.PostCreate();
-
-
-            if (player.Intellect != null)
-            {
-                player.Intellect.ControlledObject = unit;
-                unit.SetIntellect(player.Intellect, false);
-            }
-
-            //Teleporter teleporter = spawnPoint as Teleporter;
-            //if (teleporter != null)
-            //    teleporter.ReceiveObject(unit, null);
-
-            return unit;
-        }
+        
 
 		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player, MapObject spawnPoint )
 		{
@@ -379,8 +361,8 @@ namespace ProjectEntities
             Unit unit = (Unit)Entities.Instance.Create(unitTypeName, Map.Instance);
             
             
-            //  prüft ob der spieler schonmal erstellt/gestarted wurde   
-            // nicht 
+            //  prüft ob ein spieler schonmal erstellt/gestarted wurde   
+            //  falls nicht
             if (!player.started)
             {
                 Vec3 posOffset = new Vec3(0, 0, 1.5f);
@@ -389,9 +371,10 @@ namespace ProjectEntities
             }
             
                 
-            //  doch  
+            //  falls Ja
             else 
             {
+                
                 Vec3 posOffset = new Vec3(0, 0, 1.5f);
                 unit.Position = player.pos;
              
