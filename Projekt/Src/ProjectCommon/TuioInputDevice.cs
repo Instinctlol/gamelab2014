@@ -269,8 +269,8 @@ namespace ProjectCommon
                     #region Selection
                     if (!end1 && !end2)
                     {
-                        float dx = line1changed[4] + (line2changed[4] - line1changed[4]);
-                        float dy = line1changed[5] + (line2changed[5] - line1changed[5]);
+                        float dx = line1changed[4] + (line2changed[4] - line1changed[4]) / 2;
+                        float dy = line1changed[5] + (line2changed[5] - line1changed[5]) / 2;
                         used.Remove(line1changed);
                         used.Remove(line2changed);
                         used.Remove(workelement1);
