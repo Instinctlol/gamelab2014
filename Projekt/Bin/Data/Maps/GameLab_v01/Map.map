@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -35.40247 -0.7377484 38.31012
-editorCameraDirection = 3.068799 -1.458402
+editorCameraPosition = -1.552845 35.14776 38.31012
+editorCameraDirection = 1.615935 -1.458402
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -15063,4 +15063,16 @@ entity
 	owner = 1476
 	time = 8
 	position = -38.10001 12.7 0.3
+}
+entity
+{
+	type = MapCurve
+	uin = 1485
+	classPrompt = MapCurve
+	curveType = UniformCubicSpline
+	points = 1485
+	owner = 1485
+	time = 0
+	position = 13.4 49.1 0.3
+	name = CurveF3R2
 }
