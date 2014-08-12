@@ -381,7 +381,7 @@ namespace Game
                         bigMinimapObj.workbench_Click(MousePos);
                         #endregion
                     }
-                    else if (minimapControl.GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
+                    else if (hudControl.Controls["Minimap"].Visible && hudControl.Controls["Minimap"].GetScreenRectangle().IsContainsPoint(MousePos) && !hudControl.Controls["BigMinimap"].Visible)
                     {
                         #region openminimap
                         DoOpenMinimap();
