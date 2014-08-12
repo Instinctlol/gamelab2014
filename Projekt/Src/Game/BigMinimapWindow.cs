@@ -208,12 +208,12 @@ namespace Game
 
         public void workbench_gestures(opType evnt) {
             if (evnt == opType.iuhr) {
-                rotateRightButton_Click(window.Controls["RotateRight"]);
+                rotateLeftButton_Click(window.Controls["RotateLeft"]);
             }
 
             if (evnt == opType.guhr)
             {
-                rotateLeftButton_Click(window.Controls["RotateLeft"]);
+                rotateRightButton_Click(window.Controls["RotateRight"]);
             }
             if (evnt == opType.blitz)
             {

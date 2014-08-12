@@ -121,11 +121,14 @@ namespace ProjectCommon
 		{
 
             //Importiere Daten aus Tuio
+            #region getData
             List<float[]> tuioInputDataTemp = TuioDump.getData();
             for (int i = 0; i < tuioInputDataTemp.Count; i++)
             {
                 tuioInputData.Add(tuioInputDataTemp[i]);
             }
+            #endregion
+
             if (!detectgesturesState)
             {
                 #region Navigation
@@ -389,14 +392,18 @@ namespace ProjectCommon
                 //InputDeviceManager.Instance.SendEvent(customEvent);
                 #endregion
             }
-            else {
-                //Console.WriteLine("Gesture Detection Started");
+            else
+            {
+                #region Gestures
+
+                #region vardef
                 int threshold = 100;
                 bool startb = false, endb = false;
                 float[] start = new float[8], lastpoint = null;
                 List<float[]> used = new List<float[]>();
-                
+                #endregion
 
+                #region ConvertData
                 foreach (float[] elemt in tuioInputData)
                 {
                     if (elemt[0] == 0 && elemt[3] == 1)
@@ -424,41 +431,52 @@ namespace ProjectCommon
                     }
 
                 }
+                #endregion
+                
+                #region removeUsed
                 if (used.Count > 0) {
                     foreach (float[] usedelemt in used)
                     {
                         tuioInputData.Remove(usedelemt);
                     }
                 }
+                #endregion
+
+                #region vardef
                 bool lastexeption = false;
                 if (lastpoint == null && startb && endb) lastexeption = true;
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
+                #endregion
+
                 if (lastexeption || (startb && endb && Math.Abs(start[4] - lastpoint[4]) <= 0.01f && Math.Abs(start[5] - lastpoint[5]) <= 0.01f))
                 {
+                    #region click
                     TuioInputDeviceSpecialEvent customEvent =
                     new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
 
                     cleardata();
                     detectgestures(false);
+                    #endregion
                 }
 
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
-                    
+                    #region gesture
+                        #region convert
                         //Daten konvertieren
                         List<TimePointF> data = new List<TimePointF>();
                         foreach (float[] elemt in tuioInputData)
                         {
                             if (elemt[0] == 0 && elemt[3] != 3)
-                                data.Add(new TimePointF(elemt[4]*1000, elemt[5]*1000, elemt[2]));
-                            Console.WriteLine(elemt[4]);
+                                data.Add(new TimePointF(elemt[4]*1500, elemt[5]*1500, elemt[2]));
                         }
-
+                    #endregion
                         //Gesten erkennen
                         Recognizer.Dollar.NBestList list = new Recognizer.Dollar.NBestList();
                         if (data.Count > 0)
                         {
+                            #region regognize
                             list = Recog.Recognize(data, false);
                             TuioInputDeviceSpecialEvent customEvent =
                                         new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
@@ -489,39 +507,43 @@ namespace ProjectCommon
                                         customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                                         break;
                                     }
+                            #endregion
 
                             }
+                            #region senddata
                             InputDeviceManager.Instance.SendEvent(customEvent);
                             Console.WriteLine(list.Name);
                             cleardata();
                             failsafebool = false;
                             failsafe = new float[8];
                             detectgestures(false);
+                            #endregion
                         }
-
+                    #endregion
                 }
-                //else if(startb && endb&& end[2]-start[2]>5000){
-                ////abbruch nach 5 sekunden
-                //    Console.WriteLine("no Gesture");
-                //    tuioInputData.Clear();
-                //    detectgestures(false);
-                //}
+
+
+                #endregion
             }
 
 
         }
 
 
-        public static void detectgestures(bool state) {
+        public static void detectgestures(bool state)
+        {
+            #region change
             detectgesturesState = state;
             failsafe = null;
             failsafebool = false;
             Console.WriteLine("Change Gesture State to " + state);
+            #endregion
         }
 
         public static void cleardata() {
             tuioInputData.Clear();
         }
+
 		/// <summary>
 		/// Initialize the device and register them in the InputDeviceManager
 		/// </summary>
