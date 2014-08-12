@@ -7,6 +7,7 @@ using System.Diagnostics;
 using Engine;
 using Engine.EntitySystem;
 using Engine.Utils;
+using Engine.MathEx;
 using ProjectCommon;
 
 namespace ProjectEntities
@@ -57,9 +58,16 @@ namespace ProjectEntities
 			[FieldSerialize]
 			Intellect intellect;
 
+            public Boolean started;
+            public Vec3 pos;
+
+            
+
+
 			//for serialization
 			public ServerOrSingle_Player()
 			{
+                started = false;
 			}
 
 			public ServerOrSingle_Player( uint identifier, string name, bool bot,
