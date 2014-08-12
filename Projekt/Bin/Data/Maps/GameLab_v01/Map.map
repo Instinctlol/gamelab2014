@@ -13844,10 +13844,221 @@ entity
 	type = MapCurve
 	uin = 1364
 	classPrompt = MapCurve
+	subscriptionsToDeletionEvent = 1365 1366 1367 1368 1369 1370 1371 1372 1373 1374 1375 1376 1377 1378 1379 1380 1381 1382 1383 1384 1385
 	curveType = UniformCubicSpline
-	points = 1364
+	points = 1364 1365 1366 1367 1368 1369 1370 1371 1373 1374 1372 1375 1376 1377 1378 1379 1380 1381 1382 1383 1384 1385
 	owner = 1364
 	time = 0
 	position = 13.7 -84.1 0.3
 	name = CurveF2R6
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1365
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 1
+	position = 13.7 -80.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1366
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 2
+	position = 13.7 -77.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1367
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 3
+	position = 13.4 -73.99999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1368
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 4
+	position = 12.6 -70.99999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1369
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 5
+	position = 10.8 -68.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1370
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 6
+	position = 8 -66.39999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1371
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 7
+	position = 4.5 -66.49999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1372
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 10
+	position = 0.1999999 -75.39999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1373
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 8
+	position = 1.599999 -68.69999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1374
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 9
+	position = 0.4999993 -71.89999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1375
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 11
+	position = 0.1999997 -78.49999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1376
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 12
+	position = -0.2000004 -81.89999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1377
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 13
+	position = -1.6 -84.99999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1378
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 14
+	position = -4.3 -86.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1379
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 15
+	position = -7.8 -86.89999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1380
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 16
+	position = -11 -85.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1381
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 17
+	position = -12.5 -82.2 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1382
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 18
+	position = -12.7 -78.59999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1383
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 19
+	position = -12.7 -75.49999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1384
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 20
+	position = -12.6 -72.2 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1385
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1364
+	owner = 1364
+	time = 21
+	position = -12.6 -68.89999 0.3
 }
