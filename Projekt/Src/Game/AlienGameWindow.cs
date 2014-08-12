@@ -240,7 +240,7 @@ namespace Game
             //render scene for loading resources
             EngineApp.Instance.RenderScene();
 
-            EngineApp.Instance.MousePosition = new Vec2(.5f, .5f);
+            EngineApp.Instance.MousePosition = new Vec2(1f, 1f);
 
             bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
         }
@@ -341,13 +341,12 @@ namespace Game
                 else if (test.getOPType() == opType.click)
                 {
                     #region click
-                    #region Mousepos
-                    Console.WriteLine("tuioclick");
+                    #region vardef
                     Vec2 MousePos = Vec2.Zero;
                     MousePos.X = test.getx();
                     MousePos.Y = test.gety();
+                    Console.WriteLine("tuioclick");
                     Button b;
-                    EngineApp.Instance.MousePosition = MousePos;
                     #endregion
                     if (Controls.OfType<MenuWindow>().Count() == 1)
                     {
@@ -1044,22 +1043,22 @@ namespace Game
                     //    todoTranslate = Vec2.Zero;
                     //}
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Left) ||
-                        EngineApp.Instance.IsKeyPressed(EKeys.A) || MousePosition.X < .005f)
+                        EngineApp.Instance.IsKeyPressed(EKeys.A))
                     {
                         vector.X--;
                     }
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Right) ||
-                        EngineApp.Instance.IsKeyPressed(EKeys.D) || MousePosition.X > 1.0f - .005f)
+                        EngineApp.Instance.IsKeyPressed(EKeys.D))
                     {
                         vector.X++;
                     }
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Up) ||
-                        EngineApp.Instance.IsKeyPressed(EKeys.W) || MousePosition.Y < .005f)
+                        EngineApp.Instance.IsKeyPressed(EKeys.W))
                     {
                         vector.Y++;
                     }
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Down) ||
-                        EngineApp.Instance.IsKeyPressed(EKeys.S) || MousePosition.Y > 1.0f - .005f)
+                        EngineApp.Instance.IsKeyPressed(EKeys.S))
                     {
                         vector.Y--;
                     }
