@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -47.66977 76.05375 56.53442
-editorCameraDirection = 2.217145 -1.275201
+editorCameraPosition = -16.05656 99.90461 56.53442
+editorCameraDirection = 1.883904 -1.275201
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -74,8 +74,6 @@ rootEditorLayer
 		layer
 		{
 			name = F1
-			visible = False
-			allowSelect = False
 		}
 		layer
 		{
@@ -1344,7 +1342,6 @@ entity
 	filter = All
 	position = -110.2594 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R4-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1362,7 +1359,6 @@ entity
 	position = -0.8943577 -110.5634 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 34.97242 58.90884 10.9482
-	visible = False
 	name = F1R6-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1379,7 +1375,6 @@ entity
 	filter = All
 	position = 110.73 0 3
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R8-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1397,7 +1392,6 @@ entity
 	position = -1.542244 110.3673 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R2-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1415,7 +1409,6 @@ entity
 	position = -78.5583 78.36488 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R3-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1433,7 +1426,6 @@ entity
 	position = 78.37129 79.25614 3
 	rotation = 0 0 -0.3826835 -0.9238795
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R1-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1451,7 +1443,6 @@ entity
 	position = 79.70628 -77.65553 3
 	rotation = 0 0 -0.9238796 -0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R7-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1469,7 +1460,6 @@ entity
 	position = -75.8792 -79.86818 3
 	rotation = 0 0 -0.9238795 0.3826834
 	scale = 33.84572 58.90884 10.9482
-	visible = False
 	name = F1R5-S
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1487,7 +1477,6 @@ entity
 	position = -104.0742 -43.92505 3
 	rotation = 0 0 -0.9743701 0.224951
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S45
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1505,7 +1494,6 @@ entity
 	position = -41.43666 -104.3344 3
 	rotation = 0 0 -0.8287271 0.5596528
 	scale = 9.572958 36.35155 10.9482
-	visible = False
 	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1523,7 +1511,6 @@ entity
 	position = 44.97606 -104.6201 3
 	rotation = 0 0 -0.5586905 0.829376
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S67
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1541,7 +1528,6 @@ entity
 	position = 43.45355 104.5948 3
 	rotation = 0 0 -0.5828322 -0.8125925
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S12
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1559,7 +1545,6 @@ entity
 	position = -43.49978 104.6491 3
 	rotation = 0 0 -0.8302855 -0.5573382
 	scale = 9.572958 38.91988 10.9482
-	visible = False
 	name = F1S23
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Center
@@ -1589,7 +1574,6 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
-	visible = False
 	name = F1_Ring
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1634,7 +1618,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 43.60439 -93.08067 -0.09931804
-	visible = False
 	name = F1SG-C
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -1664,7 +1647,6 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -40.03176 91.02027 -0.09931804
-	visible = False
 	name = F1SG-B
 	editorLayer = "Root Layer\\Rotation\\F1"
 	checkType = Bounds
@@ -3598,6 +3580,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30 15
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -102.3333 -13.04353 1.886906
 	rotation = 0 0 -0.7232569 0.6905791
@@ -5712,6 +5695,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 23
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -115.4908 6.436861 4.40293
 	rotation = 0.5018983 0.5042838 -0.4977406 0.4960346
@@ -5726,6 +5710,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 21
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -66.0098 -55.13934 4.472118
 	rotation = -0.2285435 0.6511384 0.3047784 0.6564277
@@ -5739,6 +5724,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 19
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = 23.75287 19.40019 1.89934
 	name = BooleanSwitch2_InnerRing
@@ -6435,6 +6421,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 32
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -19.11004 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
@@ -6449,6 +6436,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -7.392529 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
@@ -6463,6 +6451,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 36
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -72.49342 -98.9874 1.26481
 	rotation = 0 0 -0.9149801 0.403499
@@ -6477,6 +6466,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 34
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -73.66443 -97.8242 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
@@ -6491,6 +6481,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 38
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -71.32153 -100.017 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
@@ -6505,6 +6496,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 40
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -101.182 -64.50414 1.754574
 	rotation = 0 0 0.3715538 -0.9284115
@@ -6694,6 +6686,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 42
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -56.19521 -14.05724 1.278098
 	name = BooleanSwitch_WIN
@@ -13485,6 +13478,7 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 44
 	value = False
+	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = 52.41108 91.59892 1.583001
 	rotation = -0.01603187 -0.04649427 -0.3924718 0.9184482
