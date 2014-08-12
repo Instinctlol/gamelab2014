@@ -131,7 +131,7 @@ namespace ProjectEntities
             IEnumerable<MapCurvePoint> allPossibleCurvePoints = Entities.Instance.EntitiesCollection.OfType<MapCurvePoint>();
             Vec3 myPosition = this.Position;
             MapCurve minCurve = null;
-            //float minDistance = 10000f;
+            float minDistance = 10000f;
             
             //////////////////////////////////////////
 
@@ -161,7 +161,21 @@ namespace ProjectEntities
                         else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)))
                         {
                             EngineConsole.Instance.Print("Ich stehe im Gang");
-                            minCurve = curve;
+
+                            foreach (MapCurvePoint curvePoint in allPossibleCurvePoints)
+                            {
+                                if (curvePoint.Owner == curve)
+                                {
+                                    Vec3 distance = curvePoint.Position - this.Position;
+                                    if (distance.Length() < minDistance)
+                                    {
+                                        minDistance = distance.Length();
+                                        minCurve = curve;
+                                        EngineConsole.Instance.Print("Minimale Kurve " + minCurve.Name);
+                                    }
+                                }
+                            }
+                            //minCurve = curve;
                         }
                         else
                         {
@@ -171,7 +185,7 @@ namespace ProjectEntities
                 }
                 else
                 {
-                    EngineConsole.Instance.Print("Kein Sektor gefunden");
+                    EngineConsole.Instance.Print("Keinen Sektor gefunden");
                 }
 
                 return false;
