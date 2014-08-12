@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 60.05615 91.65417 3.023299
-editorCameraDirection = 2.973644 -0.3086826
+editorCameraPosition = -47.66977 76.05375 56.53442
+editorCameraDirection = 2.217145 -1.275201
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -3598,7 +3598,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30 15
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -102.3333 -13.04353 1.886906
 	rotation = 0 0 -0.7232569 0.6905791
@@ -5713,7 +5712,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 23
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -115.4908 6.436861 4.40293
 	rotation = 0.5018983 0.5042838 -0.4977406 0.4960346
@@ -5728,7 +5726,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 21
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -66.0098 -55.13934 4.472118
 	rotation = -0.2285435 0.6511384 0.3047784 0.6564277
@@ -5742,7 +5739,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 19
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = 23.75287 19.40019 1.89934
 	name = BooleanSwitch2_InnerRing
@@ -5816,7 +5812,7 @@ entity
 	owner = 496
 	time = 0
 	position = 17.9 105.5 0.3
-	name = MapCurve_0
+	name = CurveF1R2
 	editorLayer = "Root Layer\\Patrolien\\F1"
 }
 entity
@@ -6439,7 +6435,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 32
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -19.11004 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
@@ -6454,7 +6449,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 15 30
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -94.74127 -7.392529 1.886906
 	rotation = 0 0 -0.9996876 -0.02499592
@@ -6469,7 +6463,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 36
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -72.49342 -98.9874 1.26481
 	rotation = 0 0 -0.9149801 0.403499
@@ -6484,7 +6477,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 34
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -73.66443 -97.8242 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
@@ -6499,7 +6491,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 38
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -71.32153 -100.017 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
@@ -6514,7 +6505,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 40
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -101.182 -64.50414 1.754574
 	rotation = 0 0 0.3715538 -0.9284115
@@ -6704,7 +6694,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 42
 	value = False
-	oneTimeUse = False
 	healthFactorAtBeginning = 1
 	position = -56.19521 -14.05724 1.278098
 	name = BooleanSwitch_WIN
@@ -8022,7 +8011,7 @@ entity
 	owner = 706
 	time = 0
 	position = -87.2 61.3 0.3
-	name = MapCurve_1
+	name = CurveF1R3
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8212,7 +8201,7 @@ entity
 	owner = 723
 	time = 0
 	position = -109.3 19.8 0.3
-	name = MapCurve_2
+	name = CurveF1R4
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8424,7 +8413,7 @@ entity
 	owner = 742
 	time = 0
 	position = -69.6 -71.2 0.3
-	name = MapCurve_3
+	name = CurveF1R5
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8537,7 +8526,7 @@ entity
 	owner = 752
 	time = 0
 	position = -19 -111.9 0.3
-	name = MapCurve_4
+	name = CurveF1R6
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10386,7 +10375,7 @@ entity
 	owner = 931
 	time = 0
 	position = 91.5 -63.7 0.3
-	name = MapCurve_5
+	name = CurveF1R7
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10686,7 +10675,7 @@ entity
 	owner = 958
 	time = 0
 	position = 118.4 -19.4 0.3
-	name = MapCurve_6
+	name = CurveF1R8
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13496,7 +13485,6 @@ entity
 	classPrompt = BooleanSwitch
 	subscriptionsToDeletionEvent = 44
 	value = False
-	oneTimeUse = True
 	healthFactorAtBeginning = 1
 	position = 52.41108 91.59892 1.583001
 	rotation = -0.01603187 -0.04649427 -0.3924718 0.9184482
