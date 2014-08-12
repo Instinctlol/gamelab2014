@@ -15069,10 +15069,261 @@ entity
 	type = MapCurve
 	uin = 1485
 	classPrompt = MapCurve
+	subscriptionsToDeletionEvent = 1486 1487 1488 1489 1490 1491 1492 1493 1494 1495 1496 1497 1498 1499 1500 1501 1502 1503 1504 1505 1506 1507 1508 1509 1510
 	curveType = UniformCubicSpline
-	points = 1485
+	points = 1485 1486 1487 1488 1489 1490 1491 1492 1493 1494 1495 1496 1497 1498 1499 1500 1501 1502 1503 1504 1505 1506 1507 1508 1509 1510
 	owner = 1485
 	time = 0
 	position = 13.4 49.1 0.3
 	name = CurveF3R2
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1486
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 1
+	position = 13.6 45.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1487
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 2
+	position = 13.6 42.5 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1488
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 3
+	position = 13.6 39.2 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1489
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 4
+	position = 13.8 35.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1490
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 5
+	position = 13.8 32.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1491
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 6
+	position = 12.8 29.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1492
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 7
+	position = 10.2 27.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1493
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 8
+	position = 6.800001 26.9 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1494
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 9
+	position = 3.300001 28 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1495
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 10
+	position = 1.000001 30.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1496
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 11
+	position = 9.536743E-07 34.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1497
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 12
+	position = -0.1999992 37.6 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1498
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 13
+	position = -0.1999993 41.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1499
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 14
+	position = -0.3999994 45.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1500
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 15
+	position = -0.8999994 49 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1501
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 16
+	position = -2.799999 52 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1502
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 17
+	position = -6.2 53.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1503
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 18
+	position = -10.1 53.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1504
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 19
+	position = -13.9 51.9 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1505
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 20
+	position = -16.2 49.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1506
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 21
+	position = -16.6 45.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1507
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 22
+	position = -16.5 41.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1508
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 23
+	position = -16.3 38.39999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1509
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 24
+	position = -16 34.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1510
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1485
+	owner = 1485
+	time = 25
+	position = -15.6 31.4 0.3
 }
