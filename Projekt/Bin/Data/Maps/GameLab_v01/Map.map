@@ -14320,10 +14320,221 @@ entity
 	type = MapCurve
 	uin = 1411
 	classPrompt = MapCurve
+	subscriptionsToDeletionEvent = 1412 1413 1414 1415 1416 1417 1418 1419 1420 1421 1422 1423 1424 1425 1426 1427 1428 1429 1430 1431 1432
 	curveType = UniformCubicSpline
-	points = 1411
+	points = 1411 1412 1413 1414 1415 1416 1417 1418 1419 1420 1421 1422 1423 1424 1425 1426 1427 1428 1429 1430 1431 1432
 	owner = 1411
 	time = 0
 	position = -13.7 -48.3 0.3
 	name = CurveF3R4
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1412
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 1
+	position = -13.7 -44.9 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1413
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 2
+	position = -13.6 -41.3 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1414
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 3
+	position = -13.5 -37.39999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1415
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 4
+	position = -13 -33.39999 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1416
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 5
+	position = -11.4 -29.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1417
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 6
+	position = -8.1 -27.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1418
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 7
+	position = -4 -28.2 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1419
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 8
+	position = -1.4 -31.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1420
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 9
+	position = -0.5 -35 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1421
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 10
+	position = -0.4000001 -39.2 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1422
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 11
+	position = -0.3000001 -43 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1423
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 12
+	position = 0.09999995 -46.6 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1424
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 13
+	position = 1.5 -49.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1425
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 14
+	position = 4.2 -51.5 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1426
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 15
+	position = 7.9 -51.6 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1427
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 16
+	position = 11.5 -49.9 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1428
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 17
+	position = 13.5 -47.1 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1429
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 18
+	position = 14.5 -43.4 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1430
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 19
+	position = 14.7 -39.7 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1431
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 20
+	position = 14.1 -35.8 0.3
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 1432
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 1411
+	owner = 1411
+	time = 21
+	position = 12.5 -32.1 0.3
 }
