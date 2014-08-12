@@ -30,10 +30,10 @@ namespace ProjectEntities
         const int maxRotationCoupons = 10;
 
         [FieldSerialize]
-        static int experiencePoints = 100;
-        static int rotationCoupons = 3;
-        static int powerCoupons = 2;
-        static int availableAliens = 5;
+        static int experiencePoints = 50;
+        static int rotationCoupons = 0;
+        static int powerCoupons = 0;
+        static int availableAliens = 0;
         static int usedAliens = 0;
         public static bool noSpawnTime = false;
 
@@ -540,5 +540,18 @@ namespace ProjectEntities
             }
         }
 
+        /// <summary>
+        /// Reset aller Attribute, die mit der Zeit erhöht werden, damit bei einem Neustart (ohne Beenden der exe) die alten Werte nicht
+        /// einfach weiter hochgezählt werden. Wird beim OnAttach im AlienGameWindow ausgeführt.
+        /// </summary>
+        public static void Reset()
+        {
+            experiencePoints = 50;
+            rotationCoupons = 0;
+            powerCoupons = 0;
+            availableAliens = 0;
+            usedAliens = 0;
+            maxItemDropGroupNr = 2;
+        }
     }
 }

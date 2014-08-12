@@ -67,11 +67,9 @@ namespace Game
         int taskTargetChooseIndex = -1;
 
         // Minimap
-        bool minimapClick;
         Control minimapControl;
 
         // Time Counter
-        float timeForUpdateGameStatus;
         float timeForUpdateNotificationStatus;
         float timeForDeleteNotificationMessage;
         float timeForDropItemIncrementation = 300;
@@ -150,6 +148,9 @@ namespace Game
         protected override void OnAttach()
         {
             base.OnAttach();
+
+            // Computer resetten
+            Computer.Reset();
 
             EngineApp.Instance.KeysAndMouseButtonUpAll();
             InitializeEventListener();
