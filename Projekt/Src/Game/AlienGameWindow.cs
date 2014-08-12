@@ -433,7 +433,7 @@ namespace Game
                         Unit mouseOnObject = null;
                         //get pick information
                         Ray ray = RendererWorld.Instance.DefaultCamera.GetCameraToViewportRay(
-                            EngineApp.Instance.MousePosition);
+                            MousePos);
                         if (!float.IsNaN(ray.Direction.X))
                         {
                             RayCastResult result = PhysicsWorld.Instance.RayCast(ray, (int)ContactGroup.CastOnlyContact);
