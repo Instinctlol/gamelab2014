@@ -33,6 +33,8 @@ namespace ProjectEntities
 		string needChangeMapPreviousMapName;
 
 		bool needWorldDestroy;
+        Vec3 pos;
+        Quat rot;
 
 		//
 
@@ -51,6 +53,16 @@ namespace ProjectEntities
 		{
 			get { return instance; }
 		}
+        public Vec3 getpos()
+        {
+
+            return pos;
+        }
+        public void setpos(Vec3 pos) 
+        {
+            this.pos = pos;
+        }
+
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
 		protected override void OnPostCreate( bool loaded )
@@ -107,6 +119,8 @@ namespace ProjectEntities
 				}
 			}
 
+
+
 			//networking mode
 			if( EntitySystemWorld.Instance.IsServer() )
 			{
@@ -116,12 +130,19 @@ namespace ProjectEntities
 					{
 						UserManagementServerNetworkService userManagementService =
 							GameNetworkServer.Instance.UserManagementService;
-
+                        
 						//remove users
 						again:
 						foreach( PlayerManager.ServerOrSingle_Player player in
 							PlayerManager.Instance.ServerOrSingle_Players )
 						{
+                            
+
+                            if (player.Intellect.ControlledObject != null) {
+
+                                player.pos = player.Intellect.ControlledObject.Position;
+                            }
+
 							if( player.User != null && player.User != userManagementService.ServerUser )
 							{
 								NetworkNode.ConnectedNode connectedNode = player.User.ConnectedNode;
@@ -136,6 +157,7 @@ namespace ProjectEntities
 
 										if( player.Intellect.ControlledObject != null )
 											player.Intellect.ControlledObject.Die();
+                                           
 										player.Intellect.SetForDeletion( true );
 										player.Intellect = null;
 									}
@@ -193,7 +215,9 @@ namespace ProjectEntities
 						{
 							if( player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
 							{
-								ServerOrSingle_CreatePlayerUnit( player );
+                                //spawner Position ändern 
+                                //Unit type erstellen 
+                                ServerOrSingle_CreatePlayerUnit( player);
 							}
 						}
 					}
@@ -264,7 +288,7 @@ namespace ProjectEntities
 							unit = ServerOrSingle_CreatePlayerUnit( player, spawnPoint );
 						else
 							unit = ServerOrSingle_CreatePlayerUnit( player );
-
+                       
 						if( needChangeMapPlayerCharacterInformation != null )
 						{
 							PlayerCharacter playerCharacter = (PlayerCharacter)unit;
@@ -288,27 +312,27 @@ namespace ProjectEntities
 			needChangeMapPlayerCharacterInformation = null;
 		}
 
-		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player,
-			MapObject spawnPoint )
-		{
-			string unitTypeName;
-			if( !player.Bot )
-			{
-				if( GameMap.Instance.PlayerUnitType != null )
-					unitTypeName = GameMap.Instance.PlayerUnitType.Name;
-				else
-					unitTypeName = "Astronaut";//"Rabbit";
-			}
-			else
-				unitTypeName = player.Name;
+        Unit ServerOrSingle_CreatePlayerUnit(PlayerManager.ServerOrSingle_Player player, Vec3 position, Quat rotation = new Quat())
+        {
+            string unitTypeName;
+            if (!player.Bot)
+            {
 
-			Unit unit = (Unit)Entities.Instance.Create( unitTypeName, Map.Instance );
+                if (GameMap.Instance.PlayerUnitType != null)
+                    unitTypeName = GameMap.Instance.PlayerUnitType.Name;
+                else
+                    unitTypeName = "Astronaut";//"Rabbit";
+            }
+            else
+                unitTypeName = player.Name;
 
-			Vec3 posOffset = new Vec3( 0, 0, 1.5f );
-			unit.Position = spawnPoint.Position + posOffset;
-			unit.Rotation = spawnPoint.Rotation;
-            
-            if(unit is PlayerCharacter)
+            Unit unit = (Unit)Entities.Instance.Create(unitTypeName, Map.Instance);
+
+            Vec3 posOffset = new Vec3(0, 0, 1.5f);
+            unit.Position = position + posOffset;
+            unit.Rotation = rotation;//spawnPoint.Rotation;
+
+            if (unit is PlayerCharacter)
             {
                 foreach (var item in EntitySystemWorld.Instance.RemoteEntityWorlds)
                 {
@@ -320,25 +344,94 @@ namespace ProjectEntities
                 }
             }
 
-			unit.PostCreate();
-            
+            unit.PostCreate();
 
-			if( player.Intellect != null )
-			{
-				player.Intellect.ControlledObject = unit;
-				unit.SetIntellect( player.Intellect, false );
-			}
+
+            if (player.Intellect != null)
+            {
+                player.Intellect.ControlledObject = unit;
+                unit.SetIntellect(player.Intellect, false);
+            }
+
+            //Teleporter teleporter = spawnPoint as Teleporter;
+            //if (teleporter != null)
+            //    teleporter.ReceiveObject(unit, null);
+
+            return unit;
+        }
+
+		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player, MapObject spawnPoint )
+		{
+            //ServerOrSingle_CreatePlayerUnit(player, spawnPoint.Position, spawnPoint.Rotation);
+            
+            string unitTypeName;
+            if (!player.Bot)
+            {
+
+                if (GameMap.Instance.PlayerUnitType != null)
+                    unitTypeName = GameMap.Instance.PlayerUnitType.Name;
+                else
+                    unitTypeName = "Astronaut";//"Rabbit";
+            }
+            else
+                unitTypeName = player.Name;
+
+            Unit unit = (Unit)Entities.Instance.Create(unitTypeName, Map.Instance);
+            
+            
+            //  prüft ob der spieler schonmal erstellt/gestarted wurde   
+            // nicht 
+            if (!player.started)
+            {
+                Vec3 posOffset = new Vec3(0, 0, 1.5f);
+                unit.Position = spawnPoint.Position + posOffset;
+                unit.Rotation = spawnPoint.Rotation;
+            }
+            
+                
+            //  doch  
+            else 
+            {
+                Vec3 posOffset = new Vec3(0, 0, 1.5f);
+                unit.Position = player.pos;
+             
+            }
+
+            if (unit is PlayerCharacter)
+            {
+                foreach (var item in EntitySystemWorld.Instance.RemoteEntityWorlds)
+                {
+                    if (item.Description.Contains(player.Name))
+                    {
+                        ((PlayerCharacter)unit).Owner = item;
+                        break;
+                    }
+                }
+            }
+
+            unit.PostCreate();
+
+
+            if (player.Intellect != null)
+            {
+                player.Intellect.ControlledObject = unit;
+                unit.SetIntellect(player.Intellect, false);
+            }
 
 			Teleporter teleporter = spawnPoint as Teleporter;
 			if( teleporter != null )
 				teleporter.ReceiveObject( unit, null );
 
+
+            player.started = true;
 			return unit;
 		}
 
 		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player )
-		{         
-            SpawnPoint spawnPoint = SpawnPoint.GetDefaultSpawnPoint();
+		{
+            SpawnPoint spawnPoint = null; // SpawnPoint.GetDefaultSpawnPoint();
+            
+
 
 			if( spawnPoint == null )
 				spawnPoint = SpawnPoint.GetFreeRandomSpawnPoint();
