@@ -25,10 +25,6 @@ type ShotgunGravityBullet
 				}
 			}
 		}
-		particle
-		{
-			particleName = ShotgunBulletParticle
-		}
 		billboard
 		{
 			color = 1 1 0

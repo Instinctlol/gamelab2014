@@ -104,10 +104,7 @@ namespace ProjectCommon
             IGestureAction ExecuteOpenInventory = new GestureActionOpenInventory();
             IGestureAction ExecuteLeftInventory = new GestureActionInventoryLeft();
             IGestureAction ExecuteRightInventory = new GestureActionInventoryRight();
-            
-            //{
-            //   // StartInfo = new System.Diagnostics.ProcessStartInfo("calc.exe");
-            //};
+            IGestureAction ExecuteShowWeaponInfo = new GestureActionShowWeaponInfo();
 
             
             #endregion
@@ -132,7 +129,7 @@ namespace ProjectCommon
             gl.AvailableGestureActions.Add(ExecuteOpenInventory);
             gl.AvailableGestureActions.Add(ExecuteLeftInventory);
             gl.AvailableGestureActions.Add(ExecuteRightInventory);
-            
+            gl.AvailableGestureActions.Add(ExecuteShowWeaponInfo);
             #endregion
 
 
@@ -159,6 +156,12 @@ namespace ProjectCommon
 
             gl.TrainedGestures.Add(moveRightLeftGesture);
 
+            TrainedGesture showWeaponInfo = new TrainedGesture();
+            showWeaponInfo.GestureActions.Add(ExecuteShowWeaponInfo);
+            showWeaponInfo.GestureAlgorithms.Add(roll);
+            showWeaponInfo.Name = "ShowWeaponInfo";
+
+            gl.TrainedGestures.Add(showWeaponInfo);
 
             #endregion
 

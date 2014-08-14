@@ -15,10 +15,6 @@ type ShotgunBullet
 			materialName = DefaultFlare
 			size = 0.7 0.7
 		}
-		particle
-		{
-			particleName = ShotgunBulletParticle
-		}
 	}
 	hitObjects
 	{

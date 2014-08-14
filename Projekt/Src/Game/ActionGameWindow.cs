@@ -54,6 +54,10 @@ namespace Game
        
         ItemManager iManager = ItemManager.Instance;
 
+        //Timer für WaffenInfo
+        Timer aTimer = new Timer(5000);
+
+
         //HUD screen
         Control hudControl;
 
@@ -140,6 +144,9 @@ namespace Game
 
             InitializeEventListener();
 
+            // Timer für WaffenInfo
+            aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
+            
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
             hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\CaveHUD Inventar.gui");
@@ -183,6 +190,8 @@ namespace Game
             if (EngineConsole.Instance != null)
             {
                 EngineConsole.Instance.AddCommand("movePlayerUnitToCamera", ConsoleCommand_MovePlayerUnitToCamera);
+                
+
             }
 
             //accept commands of the player
@@ -305,8 +314,7 @@ namespace Game
             return base.OnKeyUp(e);
         }
 
-        //testzwecke
-        int i = 0;
+        
         protected override bool OnMouseDown(EMouseButtons button)
         {
 
@@ -1985,6 +1993,8 @@ namespace Game
             hudControl.Controls["Game/WeaponCircle"].Visible = false;
             hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
             hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
+            
+            aTimer.Enabled = false;
         }
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
@@ -2042,14 +2052,13 @@ namespace Game
 
         public void zeigeWaffeninfo()
         {
-                if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
+                if (aTimer.Enabled == false)
                 {
                     hudControl.Controls["Game/WeaponIcon"].Visible = true;
                     hudControl.Controls["Game/WeaponCircle"].Visible = true;
                     hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
                     hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
-                    Timer aTimer = new Timer(5000);
-                    aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
+                    
                     aTimer.Enabled = true;
                 }
         }

@@ -25,6 +25,7 @@ namespace ProjectCommon
         public static bool _globalInventoryTrigger = false;
         public static bool _globalInventoryLeft = false;
         public static bool _globalInventoryRight = false;
+        public static bool _globalWeaponStatusInfo = false;
 
 
         public ExampleCustomInputDevice(string name)
@@ -306,13 +307,14 @@ namespace ProjectCommon
 
             //button10 TWO
             {
-                bool pressed = wiiState.ButtonState.Two;
+                bool pressed = wiiState.ButtonState.Two || _globalWeaponStatusInfo;
                 if (Buttons[9].Pressed != pressed)
                 {
                     if (pressed)
                     {
                         InputDeviceManager.Instance.SendEvent(
                             new JoystickButtonDownEvent(this, Buttons[9]));
+                        _globalWeaponStatusInfo = false;
                     }
                     else
                     {
