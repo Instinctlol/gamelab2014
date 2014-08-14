@@ -79,24 +79,28 @@ type Alien
 			type = GlockBulletItem
 			alias = glockbullet
 			group = 3
+			position = 0 0 -1
 		}
 		mapObject
 		{
 			type = ShotgunBulletsItem
 			alias = shotgunbullet
 			group = 4
+			position = 0 0 -1
 		}
 		mapObject
 		{
 			type = ScarBulletItem
 			alias = scarbullet
 			group = 5
+			position = 0 0 -1
 		}
 		mapObject
 		{
 			type = SubmachineGunBulletsItem
 			alias = submachinebullet
 			group = 6
+			position = 0 0 -1
 		}
 	}
 }
