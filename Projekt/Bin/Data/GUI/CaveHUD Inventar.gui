@@ -18,7 +18,7 @@ control Control
 		}
 		control Control
 		{
-			position = ScaleByResolution 10 770
+			position = ScaleByResolution 0 770
 			horizontalAlign = Center
 			size = Screen 1 1
 			backColor = 0 0 0 0.5019608
@@ -309,5 +309,12 @@ control Control
 			size = Screen 0.12 0.12
 			name = item3
 		}
+	}
+	control "GUI\\GameStatistic.gui"
+	{
+		position = ScaleByResolution 0 0
+		name = Statistic
+		visible = False
+		enable = False
 	}
 }
