@@ -10,8 +10,9 @@ type Shotgun
 	normalMode
 	{
 		bulletType = ShotgunBullet
-		bulletCapacity = 1000
+		bulletCapacity = 100
 		bulletExpense = 0
+		dispersionAngle = 2
 		betweenFireTime = 2.1
 		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
 		useDistanceRange = 0 40

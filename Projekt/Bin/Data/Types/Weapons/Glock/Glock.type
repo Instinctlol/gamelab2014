@@ -1,7 +1,7 @@
 type Glock
 {
 	class = Gun
-	reloadTime = 0.8
+	reloadTime = 1
 	soundReload = ".\\pistole_nachladen.ogg"
 	soundEmpty = ".\\pistole_magazin_leer.ogg"
 	characterBoneSlot = glockHolderThirdPersonCamera
@@ -13,8 +13,8 @@ type Glock
 		bulletType = GlockBullet
 		bulletCapacity = 120
 		magazineCapacity = 12
-		dispersionAngle = 3
-		betweenFireTime = 0.5
+		dispersionAngle = 2
+		betweenFireTime = 0.9
 		soundFire = ".\\pistole_schuss.ogg"
 		startOffsetPosition = 1 0 0
 		fireTimes = 

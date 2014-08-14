@@ -3,9 +3,9 @@ type SubmachineGunItem
 	class = WeaponItem
 	weaponType = SubmachineGun
 	bulletType = SubmachineGunBullet
-	bulletCount = 1500
+	bulletCount = 300
 	bulletType2 = SubmachineGunGrenade
-	bulletCount2 = 500
+	bulletCount2 = 10
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized

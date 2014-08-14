@@ -3,9 +3,8 @@ type ShotgunItem
 	class = WeaponItem
 	weaponType = Shotgun
 	bulletType = ShotgunBullet
-	bulletCount = 1000
+	bulletCount = 100
 	bulletType2 = ShotgunGravityBullet
-	bulletCount2 = 1000
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized

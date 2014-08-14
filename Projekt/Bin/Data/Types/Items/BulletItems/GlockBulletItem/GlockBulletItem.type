@@ -2,7 +2,7 @@ type GlockBulletItem
 {
 	class = BulletItem
 	bulletType = GlockBullet
-	bulletCount = 30
+	bulletCount = 60
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized

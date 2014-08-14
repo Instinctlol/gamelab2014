@@ -1,7 +1,7 @@
 type SubmachineGunBullet
 {
 	class = Bullet
-	damage = 5
+	damage = 13
 	impulse = 7000
 	creatableInMapEditor = False
 	networkType = Synchronized

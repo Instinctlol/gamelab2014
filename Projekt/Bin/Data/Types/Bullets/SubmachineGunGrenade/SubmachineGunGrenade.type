@@ -2,7 +2,7 @@ type SubmachineGunGrenade
 {
 	class = Bullet
 	velocity = 40
-	damage = 60
+	damage = 40
 	impulse = 140000
 	gravity = 9.81
 	creatableInMapEditor = False

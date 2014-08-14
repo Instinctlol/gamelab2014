@@ -11,9 +11,9 @@ type SubmachineGun
 	normalMode
 	{
 		bulletType = SubmachineGunBullet
-		bulletCapacity = 3000
+		bulletCapacity = 300
 		magazineCapacity = 30
-		dispersionAngle = 3
+		dispersionAngle = 2
 		betweenFireTime = 0.1
 		soundFire = "Types\\Weapons\\SubmachineGun\\Fire.ogg"
 		startOffsetPosition = 1 0 0
@@ -46,7 +46,7 @@ type SubmachineGun
 	alternativeMode
 	{
 		bulletType = SubmachineGunGrenade
-		bulletCapacity = 1000
+		bulletCapacity = 10
 		betweenFireTime = 0.7
 		soundFire = "Types\\Weapons\\SubmachineGun\\AlternativeFire.ogg"
 		startOffsetPosition = 1 0 0

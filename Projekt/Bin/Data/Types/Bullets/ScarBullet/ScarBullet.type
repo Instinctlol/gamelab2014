@@ -1,7 +1,7 @@
 type ScarBullet
 {
 	class = Bullet
-	damage = 7
+	damage = 15
 	impulse = 7000
 	creatableInMapEditor = False
 	networkType = Synchronized

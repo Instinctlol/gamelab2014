@@ -2,7 +2,7 @@ type SubmachineGunGrenadeHitExplosion
 {
 	class = Explosion
 	radius = 10
-	damage = 60
+	damage = 40
 	impulse = 70000
 	ignoreReasonObject = True
 	influenceType = FireInfluence

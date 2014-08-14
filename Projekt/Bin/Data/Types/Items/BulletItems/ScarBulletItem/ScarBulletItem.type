@@ -2,7 +2,7 @@ type ScarBulletItem
 {
 	class = BulletItem
 	bulletType = ScarBullet
-	bulletCount = 60
+	bulletCount = 150
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized

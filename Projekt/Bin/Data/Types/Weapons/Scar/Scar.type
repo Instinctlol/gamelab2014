@@ -13,7 +13,7 @@ type Scar
 		bulletType = ScarBullet
 		bulletCapacity = 300
 		magazineCapacity = 30
-		dispersionAngle = 3
+		dispersionAngle = 2
 		betweenFireTime = 0.1
 		soundFire = ".\\scar_schuss.ogg"
 		startOffsetPosition = 1 0 0

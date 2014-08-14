@@ -2,7 +2,7 @@ type ShotgunBulletsItem
 {
 	class = BulletItem
 	bulletType = ShotgunBullet
-	bulletCount = 1000
+	bulletCount = 50
 	defaultRespawnTime = 10
 	soundTake = "Types/Items/DefaultItemTake.ogg"
 	networkType = Synchronized

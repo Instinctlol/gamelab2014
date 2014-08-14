@@ -2,7 +2,7 @@ type ShotgunBullet
 {
 	class = Bullet
 	velocity = 70
-	damage = 5
+	damage = 13
 	impulse = 7000
 	lifeTime = 0.3
 	creatableInMapEditor = False
