@@ -46,10 +46,10 @@ namespace ProjectEntities
         InventarType _type = null; public new InventarType Type { get { return _type; } }
 
         //Taschenlampe
-        private int _taschenlampeEnergie;
-        private int _taschenlampeEnergieMax = 100;
-        private bool _taschenlampeBesitz = false;
-        private bool _taschenlampeVisible = false;
+        private int flashlightEnergy;
+        private int flashlightEnergyMax = 100;
+        private bool flashlightOwned = false;
+        private bool flashlightVisible = false;
 
         private bool isOpen;
 
@@ -60,19 +60,19 @@ namespace ProjectEntities
         }
         public int FlashlightEnergyMax
         {
-            get { return _taschenlampeEnergieMax; }
+            get { return flashlightEnergyMax; }
         }
 
         public bool FlashlightVisible
         {
-            get { return _taschenlampeVisible; }
+            get { return flashlightVisible; }
             set
             {
-                _taschenlampeVisible = value;
+                flashlightVisible = value;
                 if (EntitySystemWorld.Instance.IsServer())
-                    Server_SendFlashlightStatusToClient(_taschenlampeVisible);
+                    Server_SendFlashlightStatusToClient(flashlightVisible);
                 else
-                    Client_SendFlashlightVisibleToServer(_taschenlampeVisible);
+                    Client_SendFlashlightVisibleToServer(flashlightVisible);
             }
         }
 
@@ -82,14 +82,14 @@ namespace ProjectEntities
 
         public bool FlashlightOwned
         {
-            get { return _taschenlampeBesitz; }
+            get { return flashlightOwned; }
             set
             {
-                _taschenlampeBesitz = value;
+                flashlightOwned = value;
                 if (EntitySystemWorld.Instance.IsServer())
-                    Server_SendFlashlightOwnedToClient(_taschenlampeBesitz);
+                    Server_SendFlashlightOwnedToClient(flashlightOwned);
                 else
-                    Client_SendFlashlightOwnedToServer(_taschenlampeBesitz);
+                    Client_SendFlashlightOwnedToServer(flashlightOwned);
             }
         }
 
@@ -99,14 +99,14 @@ namespace ProjectEntities
 
         public int FlashlightEnergy
         {
-            get { return _taschenlampeEnergie; }
+            get { return flashlightEnergy; }
             set
             {
-                _taschenlampeEnergie = value;
+                flashlightEnergy = value;
                 if (EntitySystemWorld.Instance.IsServer())
-                    Server_SendFlashlightEnergyToClient(_taschenlampeEnergie);
+                    Server_SendFlashlightEnergyToClient(flashlightEnergy);
                 else
-                    Client_SendFlashlightEnergyToServer(_taschenlampeEnergie);
+                    Client_SendFlashlightEnergyToServer(flashlightEnergy);
             }
         }
 
@@ -295,7 +295,7 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
-            _taschenlampeVisible = status;
+            flashlightVisible = status;
         }
 
         private void Server_SendFlashlightOwnedToClient(bool _taschenlampeBesitz)
@@ -313,7 +313,7 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
-            _taschenlampeBesitz = status;
+            flashlightOwned = status;
         }
 
         private void Server_SendFlashlightEnergyToClient(int _taschenlampeEnergie)
@@ -331,7 +331,7 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
-            _taschenlampeEnergie = energy;
+            flashlightEnergy = energy;
         }
 
         private void Client_SendFlashlightEnergyToServer(int _taschenlampeEnergie)
