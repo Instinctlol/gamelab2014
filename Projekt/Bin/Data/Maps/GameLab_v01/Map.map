@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 49.33937 97.45564 48.61246
-editorCameraDirection = 4.271595 -1.560796
+editorCameraPosition = 11.16571 -94.92561 44.61145
+editorCameraDirection = 3.055206 -1.488921
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -15645,6 +15645,7 @@ entity
 	position = 94.89999 -2.8 2.8
 	rotation = 0 0 -0.7071068 0.7071068
 	name = A_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15654,6 +15655,7 @@ entity
 	position = 43 -39.6 2.7
 	rotation = 0 0 0.3826835 0.9238796
 	name = A_1
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15663,6 +15665,7 @@ entity
 	position = 61.6 -67.2 2.7
 	rotation = 0 0 0.3826835 0.9238796
 	name = A_2
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15672,6 +15675,7 @@ entity
 	position = 92.3 -3.3 2
 	rotation = 0 0 -0.7071068 0.7071068
 	name = D_0
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15681,6 +15685,7 @@ entity
 	position = 73 22.3 1.9
 	rotation = 0 0 3.721745E-09 1
 	name = D_1
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15690,6 +15695,7 @@ entity
 	position = 64.6 34.1 1.9
 	rotation = 0.02741003 -0.06838597 -0.927201 0.3672476
 	name = D_2
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15699,6 +15705,7 @@ entity
 	position = 34.2 66.7 2.1
 	rotation = 0 0 0.3826834 0.9238796
 	name = D_3
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15708,6 +15715,7 @@ entity
 	position = 22.3 71.50001 1.9
 	rotation = 0 0 -0.7071069 0.7071068
 	name = D_4
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15717,6 +15725,7 @@ entity
 	position = -22.2 79.8 1.9
 	rotation = 0 0 0.7372774 0.6755902
 	name = D_5
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15726,6 +15735,7 @@ entity
 	position = -39.1 71.4 1.9
 	rotation = 0 0 -0.3826835 0.9238796
 	name = D_6
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15735,6 +15745,7 @@ entity
 	position = -65.4 62.5 1.9
 	rotation = 0 0 0.3826835 0.9238796
 	name = D_7
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15744,6 +15755,7 @@ entity
 	position = -92.2 3.7 2.6
 	rotation = 0 0 0.7071068 0.7071068
 	name = E_0
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15753,6 +15765,7 @@ entity
 	position = -72.9 -22.3 2.8
 	rotation = 0 0 -1 1.477368E-08
 	name = E_1
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15762,6 +15775,7 @@ entity
 	position = -64.4 -34.1 2.8
 	rotation = 0 0 0.3826834 0.9238796
 	name = E_2
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15771,6 +15785,7 @@ entity
 	position = -33.9 -66.40001 2.7
 	rotation = 0 0 -0.9238796 0.3826835
 	name = E_3
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15780,6 +15795,7 @@ entity
 	position = -21.9 -78.8 2.8
 	rotation = 0 0 0.7071068 0.7071068
 	name = E_4
+	editorLayer = "Root Layer\\F2\\Dynamics"
 }
 entity
 {
@@ -15788,6 +15804,7 @@ entity
 	classPrompt = StaticObject
 	position = -42.3 22.2 2.6
 	name = G_0
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15797,6 +15814,7 @@ entity
 	position = -22.1 44.7 2.7
 	rotation = 0 0 0.7071068 0.7071068
 	name = G_1
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15805,6 +15823,7 @@ entity
 	classPrompt = StaticObject
 	position = 3.4 57.3 2.7
 	name = G_2
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15814,6 +15833,7 @@ entity
 	position = 42.5 -22.2 2.6
 	rotation = 0 0 1 6.69914E-08
 	name = F_0
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15823,6 +15843,7 @@ entity
 	position = -3.3 -57.3 2.7
 	rotation = 0 0 1 7.54979E-08
 	name = F_1
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15832,6 +15853,7 @@ entity
 	position = 22.3 -45.1 2.7
 	rotation = 0 0 -0.6755902 0.7372774
 	name = F_2
+	editorLayer = "Root Layer\\F3\\Dynamics"
 }
 entity
 {
@@ -15866,6 +15888,7 @@ entity
 	position = 56.9 96.00001 2.8
 	rotation = 0.9010159 0.4242815 -0.06009497 -0.06741244
 	name = B_1
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15875,6 +15898,7 @@ entity
 	position = 27.3 106.4 2.8
 	rotation = 0.6769583 -0.734418 0.01670889 -0.04559345
 	name = B_2
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15884,6 +15908,7 @@ entity
 	position = -28.4 113.8 2.8
 	rotation = -0.7041904 -0.7083489 0.04627889 0.01470422
 	name = B_3
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15893,6 +15918,7 @@ entity
 	position = -60.1 101.5 2.8
 	rotation = -0.9239112 0.3795137 0.004125233 0.04838318
 	name = B_4
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15902,6 +15928,7 @@ entity
 	position = -107.2 -28.1 1.9
 	rotation = 0 0 -1 4.093919E-08
 	name = C_0
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
@@ -15911,66 +15938,54 @@ entity
 	position = -93.8 -55.4 2.1
 	rotation = 0 0 0.3826834 0.9238796
 	name = C_1
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
-	type = Terminal
+	type = C
 	uin = 1470
-	classPrompt = Terminal
-	taskFailSound = "Sounds\\taskFail.ogg"
-	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	windowType = Rotate
-	taskType = Duel_SchereSteinPapier
-	isBroken = False
-	healthFactorAtBeginning = 1
-	position = 104.5 65.5 1.8
-	rotation = 0 0 0.9238796 0.3826835
-	name = Terminal_0
-	repairables
-	{
-	}
+	classPrompt = StaticObject
+	position = -59.5 -100.3 2
+	rotation = 0 0 -0.9063078 0.4226183
+	name = C_2
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
 	type = C
 	uin = 1471
 	classPrompt = StaticObject
-	position = -59.5 -100.3 2
-	rotation = 0 0 -0.9063078 0.4226183
-	name = C_2
+	position = -28.4 -112.2 2
+	rotation = 0 0 0.6755902 0.7372774
+	name = C_3
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
 	type = C
 	uin = 1472
 	classPrompt = StaticObject
-	position = -28.4 -112.2 2
-	rotation = 0 0 0.6755902 0.7372774
-	name = C_3
+	position = 3.9 -94.7 2
+	name = C_4
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
 	type = C
 	uin = 1473
 	classPrompt = StaticObject
-	position = 3.9 -94.7 2
-	name = C_4
+	position = 27.8 -106.4 2.2
+	rotation = 0 0 -0.7071069 0.7071068
+	name = C_5
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
 entity
 {
 	type = C
 	uin = 1474
 	classPrompt = StaticObject
-	position = 27.8 -106.4 2.2
-	rotation = 0 0 -0.7071069 0.7071068
-	name = C_5
-}
-entity
-{
-	type = C
-	uin = 1475
-	classPrompt = StaticObject
 	position = 56.5 -95.00001 2
 	rotation = 0 0 -0.9238796 -0.3826835
 	name = C_6
+	editorLayer = "Root Layer\\F1\\Dynamics"
 }
