@@ -16,16 +16,17 @@ using ProjectEntities;
 
 namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 {
-	public class Terminal_Rotate_F3 : Engine.EntitySystem.LogicSystem.LogicEntityObject
+	public class Terminal_G_DoorF3 : Engine.EntitySystem.LogicSystem.LogicEntityObject
 	{
 		ProjectEntities.Terminal __ownerEntity;
 		
-		public Terminal_Rotate_F3( ProjectEntities.Terminal ownerEntity )
+		public Terminal_G_DoorF3( ProjectEntities.Terminal ownerEntity )
 			: base( ownerEntity )
 		{
 			this.__ownerEntity = ownerEntity;
 			ownerEntity.TerminalRotateLeftAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalRotateLeftAction(  ); };
 			ownerEntity.TerminalRotateRightAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalRotateRightAction(  ); };
+			ownerEntity.TerminalSwitchAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalSwitchAction(  ); };
 		}
 		
 		public ProjectEntities.Terminal Owner
@@ -36,12 +37,17 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void TerminalRotateLeftAction()
 		{
-			Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),true);
+			Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F1SG-G"),true);
 		}
 
 		public void TerminalRotateRightAction()
 		{
 			Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),false);
+		}
+
+		public void TerminalSwitchAction()
+		{
+			Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),true);
 		}
 
 	}

@@ -16,17 +16,17 @@ using ProjectEntities;
 
 namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 {
-	public class Ring2RotationAndF1R6LightSwitcher : Engine.EntitySystem.LogicSystem.LogicEntityObject
+	public class Terminal_E_Door : Engine.EntitySystem.LogicSystem.LogicEntityObject
 	{
 		ProjectEntities.Terminal __ownerEntity;
 		
-		public Ring2RotationAndF1R6LightSwitcher( ProjectEntities.Terminal ownerEntity )
+		public Terminal_E_Door( ProjectEntities.Terminal ownerEntity )
 			: base( ownerEntity )
 		{
 			this.__ownerEntity = ownerEntity;
-			ownerEntity.TerminalSwitchAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalSwitchAction(  ); };
 			ownerEntity.TerminalRotateLeftAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalRotateLeftAction(  ); };
 			ownerEntity.TerminalRotateRightAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalRotateRightAction(  ); };
+			ownerEntity.TerminalSwitchAction += delegate( ProjectEntities.Terminal __entity ) { if( Engine.EntitySystem.LogicSystemManager.Instance != null )TerminalSwitchAction(  ); };
 		}
 		
 		public ProjectEntities.Terminal Owner
@@ -35,12 +35,6 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		}
 		
 		
-		public void TerminalSwitchAction()
-		{
-			Sector s = ((Sector)Entities.Instance.GetByName("F1R6-S"));
-			s.LightStatus = !s.LightStatus;
-		}
-
 		public void TerminalRotateLeftAction()
 		{
 			Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName("F2_Ring"),true);
@@ -49,6 +43,11 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		public void TerminalRotateRightAction()
 		{
 			Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName("F2_Ring"),false);
+		}
+
+		public void TerminalSwitchAction()
+		{
+			Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F1SG-E"),true);
 		}
 
 	}
