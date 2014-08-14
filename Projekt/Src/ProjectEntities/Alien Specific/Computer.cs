@@ -604,13 +604,13 @@ namespace ProjectEntities
             astronautwin = !alienWin;
 
             // Clients bescheid geben
-            Computer c = new Computer();
-            c.Server_SendStatisticToClients();
+            //Computer c = new Computer();
+            //c.Server_SendStatisticToClients();
             // Event feuern, damit die Statistik angezeigt wird
-            if(showStatistic != null)
-            {
-                showStatistic();
-            }
+            //if(showStatistic != null)
+            //{
+            //    showStatistic();
+            //}
         }
 
         private void Server_SendStatisticToClients()
