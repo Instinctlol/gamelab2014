@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -73.15789 3.491787 41.40656
-editorCameraDirection = 3.213915 -1.318609
+editorCameraPosition = 52.28278 -64.38587 64.89228
+editorCameraDirection = 2.435181 -1.271734
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -2266,7 +2266,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 172
 	classPrompt = StaticObject
-	position = -81.09779 -88.39348 0
+	position = -80.69779 -88.09348 0
 	rotation = 0 0 0.3805073 0.924778
 	name = DoppelWandOhneBodenFinal_24
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -2276,7 +2276,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 173
 	classPrompt = StaticObject
-	position = -89.54816 -79.97431 0
+	position = -89.14816 -79.67431 0
 	rotation = 0 0 0.3877047 0.9217837
 	name = DoppelWandOhneBodenFinal_25
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -2467,7 +2467,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 193
 	classPrompt = StaticObject
-	position = -77.55889 -61.83807 0
+	position = -77.15889 -61.73807 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_68
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -2477,7 +2477,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 194
 	classPrompt = StaticObject
-	position = -85.66786 -69.76234 0
+	position = -85.26786 -69.66234 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_69
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -3598,7 +3598,7 @@ entity
 	type = laptop
 	uin = 299
 	classPrompt = StaticObject
-	position = 26.19346 118.853 1.456624
+	position = 26.19346 118.853 1.656624
 	rotation = 0 0 -0.7113683 0.7028197
 	name = laptop_7
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3648,7 +3648,7 @@ entity
 	type = laptop
 	uin = 304
 	classPrompt = StaticObject
-	position = 23.28038 125.5789 1.456624
+	position = 23.28038 125.5789 1.656624
 	rotation = 0 0 -0.0117818 0.9999307
 	name = laptop_8
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3994,7 +3994,7 @@ entity
 	type = DoppelWandOhneBodenFinal
 	uin = 332
 	classPrompt = StaticObject
-	position = -89.57403 -73.57431 0
+	position = -89.17403 -73.47431 0
 	rotation = 0 0 -0.3883735 0.9215021
 	name = DoppelWandOhneBodenFinal_101
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -6374,7 +6374,7 @@ entity
 	type = DoppelwandAbschluss
 	uin = 552
 	classPrompt = StaticObject
-	position = -74.13967 -98.00296 0
+	position = -73.73967 -97.70296 0
 	rotation = 0 0 -0.9238796 0.3826835
 	name = DoppelwandAbschluss_10
 	editorLayer = "Root Layer\\F1\\Waende"
@@ -6653,7 +6653,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -72.49342 -98.9874 1.26481
+	position = -73.09342 -97.58739 1.26481
 	rotation = 0 0 -0.9149801 0.403499
 	name = Switch_Abschnitt_1
 	logicClass = 26
@@ -6668,7 +6668,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -73.66443 -97.8242 1.26481
+	position = -74.26443 -96.5242 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
 	name = Switch_Abschnitt_2
 	logicClass = 24
@@ -6683,7 +6683,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -71.32153 -100.017 1.26481
+	position = -72.02153 -98.717 1.26481
 	rotation = 0 0 -0.9149801 0.4034989
 	name = Switch_Abschnitt_3
 	logicClass = 28
@@ -15554,53 +15554,8 @@ entity
 }
 entity
 {
-	type = C
-	uin = 1450
-	classPrompt = StaticObject
-	position = -69.00001 65.3 2
-	rotation = 0 0 -0.9238796 0.3826835
-	name = C_0
-}
-entity
-{
-	type = C
-	uin = 1451
-	classPrompt = StaticObject
-	position = -60.3 101.7 1.9
-	rotation = 0 0 -0.3420201 0.9396926
-	name = C_1
-}
-entity
-{
-	type = C
-	uin = 1452
-	classPrompt = StaticObject
-	position = -28.6 107 1.9
-	rotation = 0 0 0.7071068 0.7071068
-	name = C_2
-}
-entity
-{
-	type = C
-	uin = 1453
-	classPrompt = StaticObject
-	position = 27.5 106.4 1.9
-	rotation = 0 0 -0.7071068 0.7071068
-	name = C_3
-}
-entity
-{
-	type = C
-	uin = 1454
-	classPrompt = StaticObject
-	position = 56.7 96 2
-	rotation = 0 0 0.4226182 0.9063078
-	name = C_4
-}
-entity
-{
 	type = D
-	uin = 1544
+	uin = 1540
 	classPrompt = StaticObject
 	position = 92.3 -3.3 2
 	rotation = 0 0 -0.7071068 0.7071068
@@ -15609,16 +15564,16 @@ entity
 entity
 {
 	type = D
-	uin = 1545
+	uin = 1541
 	classPrompt = StaticObject
-	position = 73 22.2 1.9
-	rotation = 0 0 0.08715574 0.9961947
+	position = 73 22.3 1.9
+	rotation = 0 0 3.721745E-09 1
 	name = D_1
 }
 entity
 {
 	type = D
-	uin = 1546
+	uin = 1542
 	classPrompt = StaticObject
 	position = 64.6 34.1 1.9
 	rotation = 0.02741003 -0.06838597 -0.927201 0.3672476
@@ -15627,7 +15582,7 @@ entity
 entity
 {
 	type = D
-	uin = 1547
+	uin = 1543
 	classPrompt = StaticObject
 	position = 34.2 66.7 2.1
 	rotation = 0 0 0.3826834 0.9238796
@@ -15636,7 +15591,7 @@ entity
 entity
 {
 	type = D
-	uin = 1548
+	uin = 1544
 	classPrompt = StaticObject
 	position = 22.3 71.50001 1.9
 	rotation = 0 0 -0.7071069 0.7071068
@@ -15645,7 +15600,7 @@ entity
 entity
 {
 	type = D
-	uin = 1549
+	uin = 1545
 	classPrompt = StaticObject
 	position = -22.2 79.8 1.9
 	rotation = 0 0 0.7372774 0.6755902
@@ -15654,7 +15609,7 @@ entity
 entity
 {
 	type = D
-	uin = 1550
+	uin = 1546
 	classPrompt = StaticObject
 	position = -39.1 71.4 1.9
 	rotation = 0 0 -0.3826835 0.9238796
@@ -15663,7 +15618,7 @@ entity
 entity
 {
 	type = D
-	uin = 1551
+	uin = 1547
 	classPrompt = StaticObject
 	position = -65.4 62.5 1.9
 	rotation = 0 0 0.3826835 0.9238796
@@ -15672,7 +15627,7 @@ entity
 entity
 {
 	type = E
-	uin = 1552
+	uin = 1548
 	classPrompt = StaticObject
 	position = -92.2 3.7 2.6
 	rotation = 0 0 0.7071068 0.7071068
@@ -15681,7 +15636,7 @@ entity
 entity
 {
 	type = E
-	uin = 1553
+	uin = 1549
 	classPrompt = StaticObject
 	position = -72.9 -22.3 2.8
 	rotation = 0 0 -1 1.477368E-08
@@ -15690,7 +15645,7 @@ entity
 entity
 {
 	type = E
-	uin = 1554
+	uin = 1550
 	classPrompt = StaticObject
 	position = -64.4 -34.1 2.8
 	rotation = 0 0 0.3826834 0.9238796
@@ -15699,7 +15654,7 @@ entity
 entity
 {
 	type = E
-	uin = 1555
+	uin = 1551
 	classPrompt = StaticObject
 	position = -33.9 -66.40001 2.7
 	rotation = 0 0 -0.9238796 0.3826835
@@ -15708,7 +15663,7 @@ entity
 entity
 {
 	type = E
-	uin = 1556
+	uin = 1552
 	classPrompt = StaticObject
 	position = -21.9 -78.8 2.8
 	rotation = 0 0 0.7071068 0.7071068
@@ -15717,7 +15672,7 @@ entity
 entity
 {
 	type = G
-	uin = 1557
+	uin = 1553
 	classPrompt = StaticObject
 	position = -42.3 22.2 2.6
 	name = G_0
@@ -15725,7 +15680,7 @@ entity
 entity
 {
 	type = G
-	uin = 1558
+	uin = 1554
 	classPrompt = StaticObject
 	position = -22.1 44.7 2.7
 	rotation = 0 0 0.7071068 0.7071068
@@ -15734,7 +15689,7 @@ entity
 entity
 {
 	type = G
-	uin = 1559
+	uin = 1555
 	classPrompt = StaticObject
 	position = 3.4 57.3 2.7
 	name = G_2
@@ -15742,7 +15697,7 @@ entity
 entity
 {
 	type = F
-	uin = 1560
+	uin = 1556
 	classPrompt = StaticObject
 	position = 42.5 -22.2 2.6
 	rotation = 0 0 1 6.69914E-08
@@ -15751,7 +15706,7 @@ entity
 entity
 {
 	type = F
-	uin = 1561
+	uin = 1557
 	classPrompt = StaticObject
 	position = -3.3 -57.3 2.7
 	rotation = 0 0 1 7.54979E-08
@@ -15760,7 +15715,7 @@ entity
 entity
 {
 	type = F
-	uin = 1562
+	uin = 1558
 	classPrompt = StaticObject
 	position = 22.3 -45.1 2.7
 	rotation = 0 0 -0.6755902 0.7372774
@@ -15769,7 +15724,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1563
+	uin = 1559
 	classPrompt = AlienSpawner
 	sector = 107
 	spawnLimit = 0
@@ -15780,4 +15735,68 @@ entity
 	position = -88.08127 17.74467 0.5730705
 	name = AlienSpawner_9
 	editorLayer = "Root Layer\\F2\\Sporner"
+}
+entity
+{
+	type = B
+	uin = 1560
+	classPrompt = StaticObject
+	position = -69 65.4 2.7
+	rotation = -0.3747888 0.9237322 0.0650287 -0.04498374
+	name = B_0
+	editorLayer = "Root Layer\\F2\\Waende"
+}
+entity
+{
+	type = B
+	uin = 1561
+	classPrompt = StaticObject
+	position = 56.9 96.00001 2.8
+	rotation = 0.8816514 0.4631794 -0.06297827 -0.06472698
+	name = B_1
+}
+entity
+{
+	type = B
+	uin = 1562
+	classPrompt = StaticObject
+	position = 27.3 106.4 2.8
+	rotation = 0.6769583 -0.734418 0.01670889 -0.04559345
+	name = B_2
+}
+entity
+{
+	type = B
+	uin = 1563
+	classPrompt = StaticObject
+	position = -28.4 113.8 2.8
+	rotation = -0.7041904 -0.7083489 0.04627889 0.01470422
+	name = B_3
+}
+entity
+{
+	type = B
+	uin = 1564
+	classPrompt = StaticObject
+	position = -60.1 101.5 2.8
+	rotation = -0.9239112 0.3795137 0.004125233 0.04838318
+	name = B_4
+}
+entity
+{
+	type = C
+	uin = 1565
+	classPrompt = StaticObject
+	position = -107.2 -28.1 1.9
+	rotation = 0 0 -1 4.093919E-08
+	name = C_0
+}
+entity
+{
+	type = C
+	uin = 1450
+	classPrompt = StaticObject
+	position = -93.8 -55.4 2.1
+	rotation = 0 0 0.3826834 0.9238796
+	name = C_1
 }
