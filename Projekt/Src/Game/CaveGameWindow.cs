@@ -475,6 +475,23 @@ namespace Game
         protected override void OnTick(float delta)
         {
             base.OnTick(delta);
+            
+            //Status für Astronaut setzen (Sieger/Verlierer)
+            if (Computer.Alienwin != Computer.Astronautwin)
+            {
+                if (Computer.Astronautwin)
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                }
+                else
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
+                }
+            }
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+            }
 
             //NeedWorldDestroy
             if (GameWorld.Instance.NeedWorldDestroy)
