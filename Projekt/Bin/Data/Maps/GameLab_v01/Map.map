@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 97.26805 -8.108521 12.73411
-editorCameraDirection = 2.011889 0.2184208
+editorCameraPosition = 103.2858 67.36698 3.25702
+editorCameraDirection = 5.268782 -0.6842339
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -8931,7 +8931,7 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 96.14679 4.10839 1.623558
+	position = 96.14679 4.10839 1.923558
 	name = Terminal_A_Door
 	logicClass = 40
 	editorLayer = "Root Layer\\F1\\Terminal"
@@ -11433,7 +11433,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 104.7187 2.378227 1.127282
+	position = 104.7187 2.378227 1.827282
 	rotation = 0 0 0.9997633 -0.0217556
 	name = Terminal_Status_15
 	editorLayer = "Root Layer\\F1\\Terminal"
@@ -15971,4 +15971,22 @@ entity
 	position = -93.8 -55.4 2.1
 	rotation = 0 0 0.3826834 0.9238796
 	name = C_1
+}
+entity
+{
+	type = Terminal
+	uin = 1568
+	classPrompt = Terminal
+	taskFailSound = "Sounds\\taskFail.ogg"
+	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	windowType = Rotate
+	taskType = Duel_SchereSteinPapier
+	isBroken = False
+	healthFactorAtBeginning = 1
+	position = 104.5 65.5 1.8
+	rotation = 0 0 0.9238796 0.3826835
+	name = Terminal_0
+	repairables
+	{
+	}
 }
