@@ -249,6 +249,9 @@ namespace ProjectEntities
 
             if (minCurve == null)
             {
+                EngineConsole.Instance.Print("Patroullieren ist hier nicht möglich!");
+                StatusMessageHandler.sendMessage("Patrouillieren ist hier nicht möglich!");
+                patrolEnabled = false;
                 Stop();
             }
             
