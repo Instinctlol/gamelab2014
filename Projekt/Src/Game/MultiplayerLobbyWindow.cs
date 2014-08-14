@@ -343,7 +343,7 @@ namespace Game
             {
                 if(timesPerSec>0)
                     server.ChatService.SayToAll(".."+timesPerSec-- +"!");
-                else if(timesPerSec==0)
+                else if(timesPerSec<=0)
                 {
                     
                     server.ChatService.SayToAll("Das Spiel wird jetzt gestartet!");
