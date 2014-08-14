@@ -1005,10 +1005,22 @@ namespace Game
 			if( !noChangeWindows )
 			{
 				string mapDirectory = Path.GetDirectoryName( fileName );
-				string guiPath = Path.Combine( mapDirectory, "Description\\MapLoadingWindow.gui" );
-				if( !VirtualFile.Exists( guiPath ) )
-					guiPath = "Gui\\MapLoadingWindow.gui";
-				mapLoadingWindow = ControlDeclarationManager.Instance.CreateControl( guiPath );
+				string guiPath;
+
+                if (GameNetworkServer.Instance != null)
+                {
+                    guiPath = Path.Combine(mapDirectory, "Description\\MapLoadingWindow2.gui");
+                    if (!VirtualFile.Exists(guiPath))
+                        guiPath = "Gui\\MapLoadingWindow2.gui";
+                }
+                else
+                {
+                    guiPath = Path.Combine(mapDirectory, "Description\\MapLoadingWindow.gui");
+                    if (!VirtualFile.Exists(guiPath))
+                        guiPath = "Gui\\MapLoadingWindow.gui";
+                }
+
+                mapLoadingWindow = ControlDeclarationManager.Instance.CreateControl( guiPath );
 				if( mapLoadingWindow != null )
 				{
 					mapLoadingWindow.Text = fileName;
