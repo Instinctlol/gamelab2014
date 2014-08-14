@@ -59,6 +59,14 @@ namespace ProjectEntities
             get { return maxVelocity; }
             set { maxVelocity = value; }
         }
+
+        //Link to the Spawner which this Alien belongs to.
+        [LocalizedDescription("Link to the Spawner which this Alien belongs to.", "Alien")]
+        public AlienSpawner Owner 
+        { 
+            get; 
+            set; 
+        }
 	}
 
     /// <summary>
@@ -73,6 +81,15 @@ namespace ProjectEntities
 
         [FieldSerialize(FieldSerializeSerializationTypes.World)]
         List<Vec2> path = new List<Vec2>();
+
+
+        [Description("The AlienSpawner of the spawned Alien")]
+        [Browsable(false)]
+        public AlienSpawner spawner
+        {
+            get { return spawner; }
+            set { spawner = value; }
+        }
 
         
         float pathFindWaitTime;
@@ -137,25 +154,35 @@ namespace ProjectEntities
 
             Vec3 source = this.Position;
             source.Z = 100;
-            Vec3 direction = new Vec3(0, 0, -1000);
+            Vec3 direction = new Vec3(0, 0, -1000000);
             Ray ray = new Ray(source, direction);
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
                 Sector sec = mObj as Sector;
                 EngineConsole.Instance.Print("Sektor:" + sec.Name);
-                EngineConsole.Instance.Print("strahl");
+                EngineConsole.Instance.Print("Strahl");
 
                 if (sec != null)
                 {
+                    
                     foreach (MapCurve curve in allPossibleCurves)
                     {
+                        if (sec.Name == "F1R1-S" && curve.Name == "CurveF1R2")
+                        {
+                            EngineConsole.Instance.Print("Ich bin im Sektor F1R1");
+                            minCurve = curve;
+                        }
+                        if (sec.Name == "F1S45" && curve.Name == "CurveF1R4")
+                        {
+                            minCurve = curve;
+                            EngineConsole.Instance.Print("Ich bin im Sektor F1S45");
+                        }
+                       
+                        //Probleme mit Raum F1R5 !!!!!!!!!!!!!!!
+                           
+                        
                         if (curve.Name.Substring(5, 4) == sec.Name.Substring(0, 4))
                         {
-                            if(sec.Name == "F1R1" && curve.Name == "CurveF1R2")
-                            {
-                                minCurve = curve;
-                            }
-                            
                             minCurve = curve;
                         }
                         else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)))
@@ -219,6 +246,11 @@ namespace ProjectEntities
             //});
                     
             ////////////////////////////////////////////////////////
+
+            if (minCurve == null)
+            {
+                Stop();
+            }
             
             this.MovementRoute = minCurve;
 
