@@ -211,6 +211,9 @@ namespace ProjectEntities
                         break;
                 }
             }
+            window.Controls["PapierButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+            window.Controls["SchereButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+            window.Controls["SteinButton"].ColorMultiplier = new ColorValue(1, 1, 1);
 
             
                 
