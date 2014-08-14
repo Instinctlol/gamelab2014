@@ -153,7 +153,7 @@ namespace ProjectEntities
             }
         }
 
-        /// <summary>
+        /// <summary>Light
         /// ExperiencePoints hinzufügen
         /// </summary>
         /// <param name="value"></param>
@@ -373,6 +373,41 @@ namespace ProjectEntities
                 StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
             }
             
+        }
+
+        /// <summary>
+        /// Switches on the light of one sectorgroup
+        /// </summary>
+        /// <param name="sectorGroup"></param>
+        /// <param name="b"</param>
+        public static void SetSectorGroupPowerAstronaut(SectorGroup sectorGroup, bool b)
+        {
+            if (alienControlPaused)
+            {
+                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
+            }
+            else if (allowedToChangeLight)
+            {
+                if (sectorGroup == null)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+                }
+                else if (powerCoupons <= 0)
+                {
+                    // Nachricht ausgeben
+                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                }
+                else
+                {
+                    sectorGroup.LightStatus = b;
+                }
+            }
+            else
+            {
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+            }
+
         }
 
         /// <summary>
