@@ -343,6 +343,15 @@ namespace ProjectEntities
             base.OnDie(prejudicial);
         }
 
+        protected override void OnDamage(MapObject prejudicial, Vec3 pos, Shape shape, float damage, bool allowMoveDamageToParent)
+        {
+            // Aliens sollen sich nicht mehr gegenseitig töten können. Aliens benutzen ShotgunBullet2
+            if (prejudicial.Type.ToString() != "ShotgunBullet2 (Bullet)")
+            {
+                base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
+            }
+        }
+
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
         protected override void OnPostCreate(bool loaded)
         {
