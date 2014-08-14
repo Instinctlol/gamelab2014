@@ -275,13 +275,13 @@ namespace ProjectEntities
                 switch(msg)
                 {
                     case Client_SchereSteinPapierWindow.NetworkMessages.Client_PapierButtonClicked:
-                        enemyLastSelected = papierButton.Text;
+                        enemyLastSelected = "Papier";
                         break;
                     case Client_SchereSteinPapierWindow.NetworkMessages.Client_SchereButtonClicked:
-                        enemyLastSelected = schereButton.Text;
+                        enemyLastSelected = "Schere";
                         break;
                     case Client_SchereSteinPapierWindow.NetworkMessages.Client_SteinButtonClicked:
-                        enemyLastSelected = steinButton.Text;
+                        enemyLastSelected = "Stein";
                         break;
                 }
             }
