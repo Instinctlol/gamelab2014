@@ -62,6 +62,8 @@ namespace Game
         void closeButton_Click(object sender)
         {
             window.Visible = false;
+            TuioInputDevice.detectgestures(false);
+            TuioInputDevice.cleardata();
             EngineConsole.Instance.Print("minimap clos");
             //SetShouldDetach();
             
@@ -144,7 +146,7 @@ namespace Game
                     lastSelectedSector = selectedSector.Name;
 
                     ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
-                    TuioInputDevice.detectgestures(true);
+                    
                     TuioInputDevice.cleardata();
                     
                 }

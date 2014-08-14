@@ -386,6 +386,7 @@ namespace Game
                     {
                         #region openminimap
                         DoOpenMinimap();
+                        TuioInputDevice.detectgestures(true);
                         #endregion
                     }
                     else if (numPad.Visible && numPad.GetScreenRectangle().IsContainsPoint(MousePos))

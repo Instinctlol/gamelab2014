@@ -452,10 +452,9 @@ namespace ProjectCommon
                 {
                     #region click
                     cleardata();
-                    detectgestures(false);
 
                     TuioInputDeviceSpecialEvent customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
-                    InputDeviceManager.Instance.SendEvent(customEvent);
+                    //InputDeviceManager.Instance.SendEvent(customEvent);
 
                     customEvent =
                     new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
@@ -531,9 +530,8 @@ namespace ProjectCommon
                             cleardata();
                             failsafebool = false;
                             failsafe = new float[8];
-                            detectgestures(false);
-                            customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
-                            InputDeviceManager.Instance.SendEvent(customEvent);
+                            //customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
+                            //InputDeviceManager.Instance.SendEvent(customEvent);
                             #endregion
                         }
                     #endregion
