@@ -101,7 +101,13 @@ namespace ProjectEntities
         {
             if(!(countdownBox.Text.Equals("0")))
             {
+                
                 lastSelected = steinButton.Text;
+                if (tempButton != steinButton) {
+                    window.Controls["PapierButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                    window.Controls["SchereButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                    window.Controls["SteinButton"].ColorMultiplier = new ColorValue(0, 1, 0);
+                }
                 if (!(tempButton == null))
                 {
                     tempButton.Enable = true;
@@ -117,6 +123,13 @@ namespace ProjectEntities
             if (!(countdownBox.Text.Equals("0")))
             {
                 lastSelected = papierButton.Text;
+
+                if (tempButton != papierButton)
+                {
+                    window.Controls["PapierButton"].ColorMultiplier = new ColorValue(0, 1, 0);
+                    window.Controls["SchereButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                    window.Controls["SteinButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                }
                 if (!(tempButton == null))
                 {
                     tempButton.Enable = true;
@@ -132,6 +145,13 @@ namespace ProjectEntities
             if (!(countdownBox.Text.Equals("0")))
             {
                 lastSelected = schereButton.Text;
+
+                if (tempButton != schereButton)
+                {
+                    window.Controls["PapierButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                    window.Controls["SchereButton"].ColorMultiplier = new ColorValue(0, 1, 0);
+                    window.Controls["SteinButton"].ColorMultiplier = new ColorValue(1, 1, 1);
+                }
                 if (!(tempButton == null))
                 {
                     tempButton.Enable = true;
