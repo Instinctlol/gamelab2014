@@ -1,0 +1,13 @@
+MAP
+- Aufbau
+- Rotation
+- Tasksystem
+- Rätzel
+- Minimap
+- Fog of War
+- 
+- Lichter
+- Repairabels
+	- Terminal
+	- Sektorstatus
+	

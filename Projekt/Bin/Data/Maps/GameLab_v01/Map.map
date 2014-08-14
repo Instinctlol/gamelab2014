@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 11.16571 -94.92561 44.61145
-editorCameraDirection = 3.055206 -1.488921
+editorCameraPosition = 93.65598 75.09351 26.48937
+editorCameraDirection = 4.161859 -1.560796
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -218,6 +218,10 @@ rootEditorLayer
 		{
 			name = F3
 		}
+	}
+	layer
+	{
+		name = CutScene
 	}
 }
 entity
@@ -5980,20 +5984,6 @@ entity
 	name = BrokenTerminal_0
 	logicClass = 15
 	editorLayer = "Root Layer\\F1\\Items"
-}
-entity
-{
-	type = MapCameraCurve
-	uin = 515
-	classPrompt = MapCameraCurve
-	fov = 0
-	curveType = UniformCubicSpline
-	points = 515
-	owner = 515
-	time = 0
-	position = 38.7 32 0
-	name = MapCameraCurve_0
-	editorLayer = "Root Layer\\Patrolien\\F1"
 }
 entity
 {
@@ -13143,6 +13133,7 @@ entity
 	classPrompt = StaticObject
 	position = -124.5 25.8 0.3
 	name = Leiche1_15
+	editorLayer = "Root Layer\\F1\\Leichen"
 }
 entity
 {
@@ -13151,6 +13142,7 @@ entity
 	classPrompt = StaticObject
 	position = -106.1 26.2 0.3
 	name = Leiche1_16
+	editorLayer = "Root Layer\\F1\\Leichen"
 }
 entity
 {
@@ -13160,6 +13152,7 @@ entity
 	position = -124.5 -25.6 0.3
 	rotation = 0 0 -0.9914449 0.1305262
 	name = Leiche1_17
+	editorLayer = "Root Layer\\F1\\Leichen"
 }
 entity
 {
@@ -13168,6 +13161,7 @@ entity
 	classPrompt = StaticObject
 	position = -70.5 -64.5 0.3
 	name = leiche2_13
+	editorLayer = "Root Layer\\F1\\Leichen"
 }
 entity
 {
@@ -13176,6 +13170,7 @@ entity
 	classPrompt = StaticObject
 	position = -90.6 -55.7 0.4
 	name = leiche2_14
+	editorLayer = "Root Layer\\F1\\Leichen"
 }
 entity
 {
@@ -13509,6 +13504,7 @@ entity
 	time = 0
 	position = -85.1 12.8 0.3
 	name = CurveF2R4
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13753,6 +13749,7 @@ entity
 	time = 0
 	position = -47.8 -69.3 0.3
 	name = CurveF2R5
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13876,6 +13873,7 @@ entity
 	time = 0
 	position = 13.7 -84.1 0.3
 	name = CurveF2R6
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14120,6 +14118,7 @@ entity
 	time = 0
 	position = 56.5 -38.6 0.3
 	name = CurveF2R7
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14397,6 +14396,7 @@ entity
 	time = 0
 	position = -13.7 -48.3 0.3
 	name = CurveF3R4
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14641,6 +14641,7 @@ entity
 	time = 0
 	position = 29.5 19.6 0.3
 	name = CurveF3R1
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15116,6 +15117,7 @@ entity
 	time = 0
 	position = -31.9 3.1 0.3
 	name = CurveF3R3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15217,6 +15219,7 @@ entity
 	time = 0
 	position = 13.4 49.1 0.3
 	name = CurveF3R2
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15988,4 +15991,177 @@ entity
 	rotation = 0 0 -0.9238796 -0.3826835
 	name = C_6
 	editorLayer = "Root Layer\\F1\\Dynamics"
+}
+entity
+{
+	type = MapCameraCurve
+	uin = 1565
+	classPrompt = MapCameraCurve
+	subscriptionsToDeletionEvent = 1566 1567 1568 1569 1570 1571 515 1564 1572 1573 1574 1575
+	fov = 0
+	curveType = UniformCubicSpline
+	points = 1565 1566 1567 1568 1569 1570 1571 515 1564 1572 1573 1574 1575
+	automaticTimeStep = 2
+	owner = 1565
+	time = 0
+	position = 0 10.87214 48.34142
+	rotation = 0 0.6285775 0 0.777747
+	name = MapCameraCurve_0
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1566
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 2
+	position = 0 10.87214 34.67023
+	rotation = 0 -0.4347773 0 -0.900538
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1567
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 4
+	position = 1.744454 38.4765 30.42215
+	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1568
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 6
+	position = 5.13466 59.54222 11.91998
+	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1569
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 8
+	position = 5.13466 83.519 12.82866
+	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1570
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 10
+	position = 5.13466 100.0583 16.13514
+	rotation = 0.1785188 -0.1582662 -0.3345147 -0.9116922
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1571
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 12
+	position = 15.83209 100.0583 7.851943
+	rotation = 0.1950135 -0.1125057 -0.3251751 -0.9184625
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 515
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 14
+	position = 54.51519 94.44654 7.530905
+	rotation = 0.1950135 -0.1125057 -0.3251751 -0.9184625
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1564
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 16
+	position = 67.95351 96.13575 3.270762
+	rotation = 0.105268 -0.0680095 0.1557988 -0.9798062
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1572
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 18
+	position = 77.04156 91.31927 3.130527
+	rotation = 0 0 -0.4025608 0.9153933
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1573
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 20
+	position = 86.54374 77.38165 3.130527
+	rotation = 0 0 -0.4025608 0.9153933
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1574
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 22
+	position = 91.79404 68.26581 3.130527
+	rotation = 0 0 0.03670057 0.9993263
+	editorLayer = "Root Layer\\CutScene"
+}
+entity
+{
+	type = MapCameraCurvePoint
+	uin = 1575
+	classPrompt = MapCameraCurvePoint
+	subscriptionsToDeletionEvent = 1565
+	fov = 0
+	owner = 1565
+	time = 24
+	position = 97.64034 63.02386 3.130527
+	rotation = 0 0 0.656794 0.7540702
+	editorLayer = "Root Layer\\CutScene"
 }
