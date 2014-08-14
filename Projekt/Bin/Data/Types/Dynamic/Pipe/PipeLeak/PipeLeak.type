@@ -10,7 +10,7 @@ type PipeLeak
 	}
 	alternativeMode
 	{
-		damagePerSecond = 30
+		damagePerSecond = 60
 		influenceType = FireInfluence
 		influenceTimePerSecond = 8
 		particleName = PipeLeakFlameParticle

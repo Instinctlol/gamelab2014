@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 52.28278 -64.38587 64.89228
-editorCameraDirection = 2.435181 -1.271734
+editorCameraPosition = 97.26805 -8.108521 12.73411
+editorCameraDirection = 2.011889 0.2184208
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -3759,7 +3759,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 54.94205 -45.76305 1.817784
+	position = 54.72514 -46.21204 1.763844
 	rotation = 0 0 0.3662475 0.9305175
 	name = Terminal_Status_52
 	editorLayer = "Root Layer\\F2\\Terminal"
@@ -5725,7 +5725,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -21.41708 -66.28014 1.871373
+	position = -21.41708 -66.28014 1.707199
 	name = Terminal_Status
 	editorLayer = "Root Layer\\F2\\Terminal"
 	repairables
@@ -5807,7 +5807,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -74.16271 -4.814986 1.930505
+	position = -74.16271 -4.814986 1.756391
 	rotation = 0 0 0.7010012 0.7131601
 	name = Terminal_Status_10
 	editorLayer = "Root Layer\\F2\\Terminal"
@@ -5860,7 +5860,7 @@ entity
 	taskType = Duel_SchereSteinPapier
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 74.67414 -76.20769 2.62771
+	position = 74.67414 -76.20769 1.904089
 	rotation = 0 0 -0.9225185 0.3859527
 	name = Terminal_C_Door
 	logicClass = 44
@@ -5967,7 +5967,7 @@ entity
 	subscriptionsToDeletionEvent = 15
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = 75.30729 -75.53508 1.567252
+	position = 75.33804 -75.50452 1.606234
 	rotation = 0 0 -0.9225186 0.3859528
 	name = BrokenTerminal_0
 	logicClass = 15
@@ -11472,7 +11472,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 87.23451 -72.91302 2.533738
+	position = 87.10487 -71.20471 1.780289
 	rotation = 0 0 -0.9189035 0.3944827
 	name = Terminal_Status_16
 	editorLayer = "Root Layer\\F1\\Terminal"
@@ -13538,7 +13538,7 @@ entity
 	needOpen = False
 	openDoorOffsetCoefficient = 0
 	healthFactorAtBeginning = 1
-	position = 58.39871 98.50172 1.839017
+	position = 58.59977 98.28538 1.839017
 	rotation = 0 0 -0.3836421 0.9234819
 	name = Door_Anfangsrotation_Aufwachraum
 	editorLayer = "Root Layer\\F1\\Dynamics"
@@ -13579,6 +13579,7 @@ entity
 	owner = 1251
 	time = 1
 	position = -81.9 12.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13589,6 +13590,7 @@ entity
 	owner = 1251
 	time = 2
 	position = -78.6 11.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13599,6 +13601,7 @@ entity
 	owner = 1251
 	time = 3
 	position = -75.4 11.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13609,6 +13612,7 @@ entity
 	owner = 1251
 	time = 4
 	position = -72.3 9.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13619,6 +13623,7 @@ entity
 	owner = 1251
 	time = 5
 	position = -69.00001 8.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13629,6 +13634,7 @@ entity
 	owner = 1251
 	time = 6
 	position = -66.8 6.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13639,6 +13645,7 @@ entity
 	owner = 1251
 	time = 7
 	position = -66.8 2.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13649,6 +13656,7 @@ entity
 	owner = 1251
 	time = 8
 	position = -69 0.5999996 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13659,6 +13667,7 @@ entity
 	owner = 1251
 	time = 9
 	position = -71.99999 -0.2000004 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13669,6 +13678,7 @@ entity
 	owner = 1251
 	time = 10
 	position = -75.1 -0.3000004 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13679,6 +13689,7 @@ entity
 	owner = 1251
 	time = 11
 	position = -78.1 -0.4000004 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13689,6 +13700,7 @@ entity
 	owner = 1251
 	time = 12
 	position = -81.3 -0.5000004 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13699,6 +13711,7 @@ entity
 	owner = 1251
 	time = 13
 	position = -84.49999 -1.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13709,6 +13722,7 @@ entity
 	owner = 1251
 	time = 14
 	position = -86.99999 -4.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13719,6 +13733,7 @@ entity
 	owner = 1251
 	time = 15
 	position = -87.4 -7.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13729,6 +13744,7 @@ entity
 	owner = 1251
 	time = 16
 	position = -85.7 -10.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13739,6 +13755,7 @@ entity
 	owner = 1251
 	time = 17
 	position = -82.7 -12.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13749,6 +13766,7 @@ entity
 	owner = 1251
 	time = 18
 	position = -79.3 -12.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13759,6 +13777,7 @@ entity
 	owner = 1251
 	time = 19
 	position = -75.89999 -12.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13769,6 +13788,7 @@ entity
 	owner = 1251
 	time = 20
 	position = -72.8 -12.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13779,6 +13799,7 @@ entity
 	owner = 1251
 	time = 21
 	position = -69.39999 -12.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13802,6 +13823,7 @@ entity
 	owner = 1273
 	time = 1
 	position = -45.8 -66.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13812,6 +13834,7 @@ entity
 	owner = 1273
 	time = 2
 	position = -44.9 -63.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13822,6 +13845,7 @@ entity
 	owner = 1273
 	time = 3
 	position = -45.2 -60.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13832,6 +13856,7 @@ entity
 	owner = 1273
 	time = 4
 	position = -46 -56.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13842,6 +13867,7 @@ entity
 	owner = 1273
 	time = 5
 	position = -47.3 -53.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13852,6 +13878,7 @@ entity
 	owner = 1273
 	time = 6
 	position = -48.9 -49.79999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13862,6 +13889,7 @@ entity
 	owner = 1273
 	time = 7
 	position = -50.7 -46.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13872,6 +13900,7 @@ entity
 	owner = 1273
 	time = 8
 	position = -52.7 -44.09999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13882,6 +13911,7 @@ entity
 	owner = 1273
 	time = 9
 	position = -55.3 -40.99999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13892,6 +13922,7 @@ entity
 	owner = 1273
 	time = 10
 	position = -57.9 -38.49999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13915,6 +13946,7 @@ entity
 	owner = 1284
 	time = 1
 	position = 13.7 -80.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13925,6 +13957,7 @@ entity
 	owner = 1284
 	time = 2
 	position = 13.7 -77.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13935,6 +13968,7 @@ entity
 	owner = 1284
 	time = 3
 	position = 13.4 -73.99999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13945,6 +13979,7 @@ entity
 	owner = 1284
 	time = 4
 	position = 12.6 -70.99999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13955,6 +13990,7 @@ entity
 	owner = 1284
 	time = 5
 	position = 10.8 -68.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13965,6 +14001,7 @@ entity
 	owner = 1284
 	time = 6
 	position = 8 -66.39999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13975,6 +14012,7 @@ entity
 	owner = 1284
 	time = 7
 	position = 4.5 -66.49999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13985,6 +14023,7 @@ entity
 	owner = 1284
 	time = 10
 	position = 0.1999999 -75.39999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -13995,6 +14034,7 @@ entity
 	owner = 1284
 	time = 8
 	position = 1.599999 -68.69999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14005,6 +14045,7 @@ entity
 	owner = 1284
 	time = 9
 	position = 0.4999993 -71.89999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14015,6 +14056,7 @@ entity
 	owner = 1284
 	time = 11
 	position = 0.1999997 -78.49999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14025,6 +14067,7 @@ entity
 	owner = 1284
 	time = 12
 	position = -0.2000004 -81.89999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14035,6 +14078,7 @@ entity
 	owner = 1284
 	time = 13
 	position = -1.6 -84.99999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14045,6 +14089,7 @@ entity
 	owner = 1284
 	time = 14
 	position = -4.3 -86.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14055,6 +14100,7 @@ entity
 	owner = 1284
 	time = 15
 	position = -7.8 -86.89999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14065,6 +14111,7 @@ entity
 	owner = 1284
 	time = 16
 	position = -11 -85.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14075,6 +14122,7 @@ entity
 	owner = 1284
 	time = 17
 	position = -12.5 -82.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14085,6 +14133,7 @@ entity
 	owner = 1284
 	time = 18
 	position = -12.7 -78.59999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14095,6 +14144,7 @@ entity
 	owner = 1284
 	time = 19
 	position = -12.7 -75.49999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14105,6 +14155,7 @@ entity
 	owner = 1284
 	time = 20
 	position = -12.6 -72.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14115,6 +14166,7 @@ entity
 	owner = 1284
 	time = 21
 	position = -12.6 -68.89999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14138,6 +14190,7 @@ entity
 	owner = 1306
 	time = 1
 	position = 59.4 -39.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14148,6 +14201,7 @@ entity
 	owner = 1306
 	time = 2
 	position = 62.4 -40.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14158,6 +14212,7 @@ entity
 	owner = 1306
 	time = 3
 	position = 65.59999 -41.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14168,6 +14223,7 @@ entity
 	owner = 1306
 	time = 4
 	position = 68.59999 -43.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14178,6 +14234,7 @@ entity
 	owner = 1306
 	time = 5
 	position = 70.79999 -46 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14188,6 +14245,7 @@ entity
 	owner = 1306
 	time = 6
 	position = 71.29999 -49.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14198,6 +14256,7 @@ entity
 	owner = 1306
 	time = 7
 	position = 70.09998 -52.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14208,6 +14267,7 @@ entity
 	owner = 1306
 	time = 8
 	position = 67.49998 -55.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14218,6 +14278,7 @@ entity
 	owner = 1306
 	time = 9
 	position = 64.09998 -57.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14228,6 +14289,7 @@ entity
 	owner = 1306
 	time = 10
 	position = 60.49998 -57.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14238,6 +14300,7 @@ entity
 	owner = 1306
 	time = 11
 	position = 56.99998 -56.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14248,6 +14311,7 @@ entity
 	owner = 1306
 	time = 12
 	position = 54.09998 -55.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14258,6 +14322,7 @@ entity
 	owner = 1306
 	time = 13
 	position = 51.49998 -52.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14268,6 +14333,7 @@ entity
 	owner = 1306
 	time = 14
 	position = 49.49998 -50.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14278,6 +14344,7 @@ entity
 	owner = 1306
 	time = 15
 	position = 46.69998 -48.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14288,6 +14355,7 @@ entity
 	owner = 1306
 	time = 16
 	position = 43.49998 -48.10001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14298,6 +14366,7 @@ entity
 	owner = 1306
 	time = 17
 	position = 40.39998 -49.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14308,6 +14377,7 @@ entity
 	owner = 1306
 	time = 18
 	position = 38.79998 -52.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14318,6 +14388,7 @@ entity
 	owner = 1306
 	time = 19
 	position = 38.89998 -55.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14328,6 +14399,7 @@ entity
 	owner = 1306
 	time = 20
 	position = 40.59998 -58.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14338,6 +14410,7 @@ entity
 	owner = 1306
 	time = 21
 	position = 43.09998 -61.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14348,6 +14421,7 @@ entity
 	owner = 1306
 	time = 22
 	position = 45.49998 -63.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14358,6 +14432,7 @@ entity
 	owner = 1306
 	time = 23
 	position = 47.99998 -66.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14368,6 +14443,7 @@ entity
 	owner = 1306
 	time = 24
 	position = 50.59998 -68.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14391,6 +14467,7 @@ entity
 	owner = 1331
 	time = 1
 	position = -13.7 -44.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14401,6 +14478,7 @@ entity
 	owner = 1331
 	time = 2
 	position = -13.6 -41.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14411,6 +14489,7 @@ entity
 	owner = 1331
 	time = 3
 	position = -13.5 -37.39999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14421,6 +14500,7 @@ entity
 	owner = 1331
 	time = 4
 	position = -13 -33.39999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14431,6 +14511,7 @@ entity
 	owner = 1331
 	time = 5
 	position = -11.4 -29.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14441,6 +14522,7 @@ entity
 	owner = 1331
 	time = 6
 	position = -8.1 -27.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14451,6 +14533,7 @@ entity
 	owner = 1331
 	time = 7
 	position = -4 -28.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14461,6 +14544,7 @@ entity
 	owner = 1331
 	time = 8
 	position = -1.4 -31.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14471,6 +14555,7 @@ entity
 	owner = 1331
 	time = 9
 	position = -0.5 -35 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14481,6 +14566,7 @@ entity
 	owner = 1331
 	time = 10
 	position = -0.4000001 -39.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14491,6 +14577,7 @@ entity
 	owner = 1331
 	time = 11
 	position = -0.3000001 -43 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14501,6 +14588,7 @@ entity
 	owner = 1331
 	time = 12
 	position = 0.09999995 -46.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14511,6 +14599,7 @@ entity
 	owner = 1331
 	time = 13
 	position = 1.5 -49.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14521,6 +14610,7 @@ entity
 	owner = 1331
 	time = 14
 	position = 4.2 -51.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14531,6 +14621,7 @@ entity
 	owner = 1331
 	time = 15
 	position = 7.9 -51.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14541,6 +14632,7 @@ entity
 	owner = 1331
 	time = 16
 	position = 11.5 -49.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14551,6 +14643,7 @@ entity
 	owner = 1331
 	time = 17
 	position = 13.5 -47.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14561,6 +14654,7 @@ entity
 	owner = 1331
 	time = 18
 	position = 14.5 -43.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14571,6 +14665,7 @@ entity
 	owner = 1331
 	time = 19
 	position = 14.7 -39.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14581,6 +14676,7 @@ entity
 	owner = 1331
 	time = 20
 	position = 14.1 -35.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14591,6 +14687,7 @@ entity
 	owner = 1331
 	time = 21
 	position = 12.5 -32.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14614,6 +14711,7 @@ entity
 	owner = 1353
 	time = 1
 	position = 32.7 19.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14624,6 +14722,7 @@ entity
 	owner = 1353
 	time = 2
 	position = 35.7 19.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14634,6 +14733,7 @@ entity
 	owner = 1353
 	time = 3
 	position = 37.40001 16.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14644,6 +14744,7 @@ entity
 	owner = 1353
 	time = 4
 	position = 36.2 14.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14654,6 +14755,7 @@ entity
 	owner = 1353
 	time = 5
 	position = 33.4 13.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14664,6 +14766,7 @@ entity
 	owner = 1353
 	time = 6
 	position = 30.2 13.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14674,6 +14777,7 @@ entity
 	owner = 1353
 	time = 7
 	position = 27.4 13.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14684,6 +14788,7 @@ entity
 	owner = 1353
 	time = 8
 	position = 27.2 10.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14694,6 +14799,7 @@ entity
 	owner = 1353
 	time = 9
 	position = 30 9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14704,6 +14810,7 @@ entity
 	owner = 1353
 	time = 10
 	position = 33.5 8.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14714,6 +14821,7 @@ entity
 	owner = 1353
 	time = 11
 	position = 37.8 9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14724,6 +14832,7 @@ entity
 	owner = 1353
 	time = 12
 	position = 41.4 9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14734,6 +14843,7 @@ entity
 	owner = 1353
 	time = 13
 	position = 45 9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14744,6 +14854,7 @@ entity
 	owner = 1353
 	time = 14
 	position = 49 9.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14754,6 +14865,7 @@ entity
 	owner = 1353
 	time = 15
 	position = 50.4 6.400001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14764,6 +14876,7 @@ entity
 	owner = 1353
 	time = 16
 	position = 47.7 5.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14774,6 +14887,7 @@ entity
 	owner = 1353
 	time = 17
 	position = 43.8 4.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14784,6 +14898,7 @@ entity
 	owner = 1353
 	time = 18
 	position = 40.60001 4.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14794,6 +14909,7 @@ entity
 	owner = 1353
 	time = 19
 	position = 37.40001 4.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14804,6 +14920,7 @@ entity
 	owner = 1353
 	time = 20
 	position = 34.2 4.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14814,6 +14931,7 @@ entity
 	owner = 1353
 	time = 21
 	position = 31.1 4.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14824,6 +14942,7 @@ entity
 	owner = 1353
 	time = 22
 	position = 31.1 1.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14834,6 +14953,7 @@ entity
 	owner = 1353
 	time = 23
 	position = 33.7 0.7000001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14844,6 +14964,7 @@ entity
 	owner = 1353
 	time = 24
 	position = 37.3 0.7000001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14854,6 +14975,7 @@ entity
 	owner = 1353
 	time = 25
 	position = 41 0.7000001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14864,6 +14986,7 @@ entity
 	owner = 1353
 	time = 26
 	position = 44.8 0.7000001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14874,6 +14997,7 @@ entity
 	owner = 1353
 	time = 27
 	position = 47.9 0.1000001 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14884,6 +15008,7 @@ entity
 	owner = 1353
 	time = 28
 	position = 49.9 -2.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14894,6 +15019,7 @@ entity
 	owner = 1353
 	time = 29
 	position = 50.6 -6.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14904,6 +15030,7 @@ entity
 	owner = 1353
 	time = 30
 	position = 49.8 -9.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14914,6 +15041,7 @@ entity
 	owner = 1353
 	time = 31
 	position = 47.4 -11.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14924,6 +15052,7 @@ entity
 	owner = 1353
 	time = 32
 	position = 44.1 -12.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14934,6 +15063,7 @@ entity
 	owner = 1353
 	time = 33
 	position = 40.6 -12.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14944,6 +15074,7 @@ entity
 	owner = 1353
 	time = 34
 	position = 37.3 -12.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14954,6 +15085,7 @@ entity
 	owner = 1353
 	time = 35
 	position = 33.7 -12.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14964,6 +15096,7 @@ entity
 	owner = 1353
 	time = 36
 	position = 31 -13.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14974,6 +15107,7 @@ entity
 	owner = 1353
 	time = 37
 	position = 30.9 -16.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14984,6 +15118,7 @@ entity
 	owner = 1353
 	time = 38
 	position = 33.8 -17.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -14994,6 +15129,7 @@ entity
 	owner = 1353
 	time = 39
 	position = 37.3 -17.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15004,6 +15140,7 @@ entity
 	owner = 1353
 	time = 40
 	position = 40.7 -17.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15014,6 +15151,7 @@ entity
 	owner = 1353
 	time = 41
 	position = 43.7 -17.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15024,6 +15162,7 @@ entity
 	owner = 1353
 	time = 42
 	position = 47 -17.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15047,6 +15186,7 @@ entity
 	owner = 1396
 	time = 1
 	position = -34.2 0.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15057,6 +15197,7 @@ entity
 	owner = 1396
 	time = 2
 	position = -36.7 -1.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15067,6 +15208,7 @@ entity
 	owner = 1396
 	time = 3
 	position = -40.5 -2.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15077,6 +15219,7 @@ entity
 	owner = 1396
 	time = 4
 	position = -43.30001 -0.1999999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15087,6 +15230,7 @@ entity
 	owner = 1396
 	time = 5
 	position = -44.00001 3.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15097,6 +15241,7 @@ entity
 	owner = 1396
 	time = 6
 	position = -42.80001 7.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15107,6 +15252,7 @@ entity
 	owner = 1396
 	time = 7
 	position = -40.80001 10.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15117,6 +15263,7 @@ entity
 	owner = 1396
 	time = 8
 	position = -38.10001 12.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15140,6 +15287,7 @@ entity
 	owner = 1405
 	time = 1
 	position = 13.6 45.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15150,6 +15298,7 @@ entity
 	owner = 1405
 	time = 2
 	position = 13.6 42.5 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15160,6 +15309,7 @@ entity
 	owner = 1405
 	time = 3
 	position = 13.6 39.2 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15170,6 +15320,7 @@ entity
 	owner = 1405
 	time = 4
 	position = 13.8 35.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15180,6 +15331,7 @@ entity
 	owner = 1405
 	time = 5
 	position = 13.8 32.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15190,6 +15342,7 @@ entity
 	owner = 1405
 	time = 6
 	position = 12.8 29.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15200,6 +15353,7 @@ entity
 	owner = 1405
 	time = 7
 	position = 10.2 27.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15210,6 +15364,7 @@ entity
 	owner = 1405
 	time = 8
 	position = 6.800001 26.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15220,6 +15375,7 @@ entity
 	owner = 1405
 	time = 9
 	position = 3.300001 28 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15230,6 +15386,7 @@ entity
 	owner = 1405
 	time = 10
 	position = 1.000001 30.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15240,6 +15397,7 @@ entity
 	owner = 1405
 	time = 11
 	position = 9.536743E-07 34.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15250,6 +15408,7 @@ entity
 	owner = 1405
 	time = 12
 	position = -0.1999992 37.6 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15260,6 +15419,7 @@ entity
 	owner = 1405
 	time = 13
 	position = -0.1999993 41.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15270,6 +15430,7 @@ entity
 	owner = 1405
 	time = 14
 	position = -0.3999994 45.3 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15280,6 +15441,7 @@ entity
 	owner = 1405
 	time = 15
 	position = -0.8999994 49 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15290,6 +15452,7 @@ entity
 	owner = 1405
 	time = 16
 	position = -2.799999 52 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15300,6 +15463,7 @@ entity
 	owner = 1405
 	time = 17
 	position = -6.2 53.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15310,6 +15474,7 @@ entity
 	owner = 1405
 	time = 18
 	position = -10.1 53.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15320,6 +15485,7 @@ entity
 	owner = 1405
 	time = 19
 	position = -13.9 51.9 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15330,6 +15496,7 @@ entity
 	owner = 1405
 	time = 20
 	position = -16.2 49.1 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15340,6 +15507,7 @@ entity
 	owner = 1405
 	time = 21
 	position = -16.6 45.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15350,6 +15518,7 @@ entity
 	owner = 1405
 	time = 22
 	position = -16.5 41.8 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15360,6 +15529,7 @@ entity
 	owner = 1405
 	time = 23
 	position = -16.3 38.39999 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15370,6 +15540,7 @@ entity
 	owner = 1405
 	time = 24
 	position = -16 34.7 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15380,6 +15551,7 @@ entity
 	owner = 1405
 	time = 25
 	position = -15.6 31.4 0.3
+	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
@@ -15555,7 +15727,7 @@ entity
 entity
 {
 	type = D
-	uin = 1540
+	uin = 1450
 	classPrompt = StaticObject
 	position = 92.3 -3.3 2
 	rotation = 0 0 -0.7071068 0.7071068
@@ -15564,7 +15736,7 @@ entity
 entity
 {
 	type = D
-	uin = 1541
+	uin = 1451
 	classPrompt = StaticObject
 	position = 73 22.3 1.9
 	rotation = 0 0 3.721745E-09 1
@@ -15573,7 +15745,7 @@ entity
 entity
 {
 	type = D
-	uin = 1542
+	uin = 1452
 	classPrompt = StaticObject
 	position = 64.6 34.1 1.9
 	rotation = 0.02741003 -0.06838597 -0.927201 0.3672476
@@ -15582,7 +15754,7 @@ entity
 entity
 {
 	type = D
-	uin = 1543
+	uin = 1453
 	classPrompt = StaticObject
 	position = 34.2 66.7 2.1
 	rotation = 0 0 0.3826834 0.9238796
@@ -15591,7 +15763,7 @@ entity
 entity
 {
 	type = D
-	uin = 1544
+	uin = 1454
 	classPrompt = StaticObject
 	position = 22.3 71.50001 1.9
 	rotation = 0 0 -0.7071069 0.7071068
@@ -15600,7 +15772,7 @@ entity
 entity
 {
 	type = D
-	uin = 1545
+	uin = 1455
 	classPrompt = StaticObject
 	position = -22.2 79.8 1.9
 	rotation = 0 0 0.7372774 0.6755902
@@ -15609,7 +15781,7 @@ entity
 entity
 {
 	type = D
-	uin = 1546
+	uin = 1456
 	classPrompt = StaticObject
 	position = -39.1 71.4 1.9
 	rotation = 0 0 -0.3826835 0.9238796
@@ -15618,7 +15790,7 @@ entity
 entity
 {
 	type = D
-	uin = 1547
+	uin = 1457
 	classPrompt = StaticObject
 	position = -65.4 62.5 1.9
 	rotation = 0 0 0.3826835 0.9238796
@@ -15627,7 +15799,7 @@ entity
 entity
 {
 	type = E
-	uin = 1548
+	uin = 1458
 	classPrompt = StaticObject
 	position = -92.2 3.7 2.6
 	rotation = 0 0 0.7071068 0.7071068
@@ -15636,7 +15808,7 @@ entity
 entity
 {
 	type = E
-	uin = 1549
+	uin = 1459
 	classPrompt = StaticObject
 	position = -72.9 -22.3 2.8
 	rotation = 0 0 -1 1.477368E-08
@@ -15645,7 +15817,7 @@ entity
 entity
 {
 	type = E
-	uin = 1550
+	uin = 1460
 	classPrompt = StaticObject
 	position = -64.4 -34.1 2.8
 	rotation = 0 0 0.3826834 0.9238796
@@ -15654,7 +15826,7 @@ entity
 entity
 {
 	type = E
-	uin = 1551
+	uin = 1461
 	classPrompt = StaticObject
 	position = -33.9 -66.40001 2.7
 	rotation = 0 0 -0.9238796 0.3826835
@@ -15663,7 +15835,7 @@ entity
 entity
 {
 	type = E
-	uin = 1552
+	uin = 1462
 	classPrompt = StaticObject
 	position = -21.9 -78.8 2.8
 	rotation = 0 0 0.7071068 0.7071068
@@ -15672,7 +15844,7 @@ entity
 entity
 {
 	type = G
-	uin = 1553
+	uin = 1463
 	classPrompt = StaticObject
 	position = -42.3 22.2 2.6
 	name = G_0
@@ -15680,7 +15852,7 @@ entity
 entity
 {
 	type = G
-	uin = 1554
+	uin = 1464
 	classPrompt = StaticObject
 	position = -22.1 44.7 2.7
 	rotation = 0 0 0.7071068 0.7071068
@@ -15689,7 +15861,7 @@ entity
 entity
 {
 	type = G
-	uin = 1555
+	uin = 1465
 	classPrompt = StaticObject
 	position = 3.4 57.3 2.7
 	name = G_2
@@ -15697,7 +15869,7 @@ entity
 entity
 {
 	type = F
-	uin = 1556
+	uin = 1466
 	classPrompt = StaticObject
 	position = 42.5 -22.2 2.6
 	rotation = 0 0 1 6.69914E-08
@@ -15706,7 +15878,7 @@ entity
 entity
 {
 	type = F
-	uin = 1557
+	uin = 1467
 	classPrompt = StaticObject
 	position = -3.3 -57.3 2.7
 	rotation = 0 0 1 7.54979E-08
@@ -15715,7 +15887,7 @@ entity
 entity
 {
 	type = F
-	uin = 1558
+	uin = 1468
 	classPrompt = StaticObject
 	position = 22.3 -45.1 2.7
 	rotation = 0 0 -0.6755902 0.7372774
@@ -15724,7 +15896,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1559
+	uin = 1469
 	classPrompt = AlienSpawner
 	sector = 107
 	spawnLimit = 0
@@ -15739,7 +15911,7 @@ entity
 entity
 {
 	type = B
-	uin = 1560
+	uin = 1470
 	classPrompt = StaticObject
 	position = -69 65.4 2.7
 	rotation = -0.3747888 0.9237322 0.0650287 -0.04498374
@@ -15749,7 +15921,7 @@ entity
 entity
 {
 	type = B
-	uin = 1561
+	uin = 1471
 	classPrompt = StaticObject
 	position = 56.9 96.00001 2.8
 	rotation = 0.8816514 0.4631794 -0.06297827 -0.06472698
@@ -15758,7 +15930,7 @@ entity
 entity
 {
 	type = B
-	uin = 1562
+	uin = 1472
 	classPrompt = StaticObject
 	position = 27.3 106.4 2.8
 	rotation = 0.6769583 -0.734418 0.01670889 -0.04559345
@@ -15767,7 +15939,7 @@ entity
 entity
 {
 	type = B
-	uin = 1563
+	uin = 1473
 	classPrompt = StaticObject
 	position = -28.4 113.8 2.8
 	rotation = -0.7041904 -0.7083489 0.04627889 0.01470422
@@ -15776,7 +15948,7 @@ entity
 entity
 {
 	type = B
-	uin = 1564
+	uin = 1474
 	classPrompt = StaticObject
 	position = -60.1 101.5 2.8
 	rotation = -0.9239112 0.3795137 0.004125233 0.04838318
@@ -15785,7 +15957,7 @@ entity
 entity
 {
 	type = C
-	uin = 1565
+	uin = 1475
 	classPrompt = StaticObject
 	position = -107.2 -28.1 1.9
 	rotation = 0 0 -1 4.093919E-08
@@ -15794,7 +15966,7 @@ entity
 entity
 {
 	type = C
-	uin = 1450
+	uin = 1476
 	classPrompt = StaticObject
 	position = -93.8 -55.4 2.1
 	rotation = 0 0 0.3826834 0.9238796
