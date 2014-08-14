@@ -100,8 +100,8 @@ namespace ProjectEntities
 		[FieldSerialize]
 		FactionType initialFaction;
 
-		[FieldSerialize]
-        private Inventar inventar = new Inventar();
+        [FieldSerialize]
+        private Inventar inventar;
 
 		float takeItemsTimer;
 
@@ -130,6 +130,7 @@ namespace ProjectEntities
 		{
 			takeItemsTimer = World.Instance.Random.NextFloat();
 			SceneGraphGroup = MapObjectSceneGraphGroups.UnitGroup;
+
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnLoad(TextBlock)"/>.</summary>
@@ -158,6 +159,15 @@ namespace ProjectEntities
 			SubscribeToTickEvent();
 
 			viewRadius = Type.ViewRadius;
+
+            foreach (var i in AttachedObjects)
+            {
+                MapObjectAttachedMapObject obj = i as MapObjectAttachedMapObject;
+                if(obj != null && obj.Alias == "InventarObj")
+                {
+                    inventar = (Inventar)obj.MapObject;
+                }
+            }
 		}
 
 		protected override void OnRenderFrame()

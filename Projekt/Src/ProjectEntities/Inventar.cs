@@ -2,16 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Design;
+using Engine;
+using Engine.EntitySystem;
+using Engine.MathEx;
+using Engine.MapSystem;
+using Engine.PhysicsSystem;
+using Engine.Renderer;
+using Engine.Utils;
+using ProjectCommon;
 
 namespace ProjectEntities
 {
-    public class Inventar
+
+    public class InventarType : MapObjectType
+    {
+
+    }
+
+    public class Inventar : MapObject
     {
         //Inventarliste
         List<Item> inventar;
 
         //aktuell ausgwähltes Item, welches benutzt werden kann
         private Item _useItem;
+
+        enum NetworkMessages
+        {
+            AddItem,
+            RemoveItem,
+        }
+
+        InventarType _type = null; public new InventarType Type { get { return _type; } }
 
         //Taschenlampe
         private int _taschenlampeEnergie;
@@ -93,9 +119,7 @@ namespace ProjectEntities
                     //Das erste useItem setzen
                     if (useItem == null)
                         setUseItem(0);
-                }
-                    
-                
+                }    
             }
         }
 
@@ -156,6 +180,66 @@ namespace ProjectEntities
                 return true;
             else
                 return false;
+        }
+
+        public void add(Item item)
+        {
+            if (EntitySystemWorld.Instance.IsServer())
+                addItem(item);
+            else
+            {
+                Client_AddItem(item);
+                addItem(item);
+            }
+        }
+
+        void Client_AddItem(Item item)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.AddItem);
+            writer.Write(item.Type.Name);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.AddItem)]
+        void Server_AddItem(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            String itemtype = reader.ReadString();
+
+            if (!reader.Complete())
+                return;
+
+            Item i = (Item)Entities.Instance.Create(itemtype, Map.Instance);
+            addItem(i);
+        }
+
+        public void remove(Item i)
+        {
+            if (EntitySystemWorld.Instance.IsServer())
+                removeItem(i);
+            else
+            {
+                Client_RemoveItem(i);
+                removeItem(i);
+            }
+        }
+
+        void Client_RemoveItem(Item i)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.RemoveItem);
+            writer.Write(i.Type.Name);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.RemoveItem)]
+        void Server_RemoveItem(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            String itemtype = reader.ReadString();
+
+            if (!reader.Complete())
+                return;
+
+            Item i = (Item)Entities.Instance.Create(itemtype, Map.Instance);
+            removeItem(i);
         }
     }
 }

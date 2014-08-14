@@ -297,8 +297,6 @@ namespace Game
             return base.OnKeyUp(e);
         }
 
-        //testzwecke
-        int i = 0;
         protected override bool OnMouseDown(EMouseButtons button)
         {
 

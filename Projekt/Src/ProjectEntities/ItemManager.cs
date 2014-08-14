@@ -11,12 +11,6 @@ namespace ProjectEntities
     {
         private static readonly ItemManager _instance = new ItemManager();
 
-        //Waffen schon in Besitz
-        bool glockInBesitz = false;
-        bool scarInBesitz = false;
-        bool shotgunInBesitz = false;
-        bool submachinegunInBesitz = false;
-
 
         Item currentItem;
         PlayerCharacter character;
@@ -58,20 +52,6 @@ namespace ProjectEntities
                     currentItem.TakeItem(unit);
                     break;
 
-                case "Defkit":
-                    currentItem.Name = "Werkzeuggürtel";
-                    if(!unit.Inventar.inBesitz(currentItem))
-                    {
-                        currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
-                        s = "Werkzeuggürtel";
-                    }
-                    else
-                    {
-                        s = "Item schon vorhanden. Nicht";
-                    }
-                    break;
-
                 case "SmallHealthItem":
                     if (unit.Health == unit.Type.HealthMax)
                         s = "Gesundheit Voll";
@@ -89,12 +69,11 @@ namespace ProjectEntities
                     break;
 
                 case "Schraubenschlüssel":
-                    if (currentItem.Name == "")
-                        currentItem.Name = "Schraubenschlüssel";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
+                        currentItem.Name = "Schraubenschlüssel";
                         currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.add(currentItem);
                         s = "Schraubenschlüssel";
                     }
                     else
@@ -104,21 +83,19 @@ namespace ProjectEntities
                     break;
 
                 case "Kabel":
-                    if (currentItem.Name == "")
+                    if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "Kabel";
                     currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.add(currentItem);
                     s = "Kabel";
                     break;
 
-                case "TaschenlampeItem": 
-                    if (currentItem.Name == "")
-                    currentItem.Name = "Taschenlampe";
+                case "TaschenlampeItem":
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
-                        
+                        currentItem.Name = "Taschenlampe";
                         currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.add(currentItem);
                         unit.Inventar.taschenlampeBesitz = true;
                         unit.Inventar.taschenlampeEnergie = unit.Inventar.taschenlampeEnergieMax;
                         s = "Taschenlampe";
@@ -130,22 +107,21 @@ namespace ProjectEntities
                     break;
 
                 case "ScarItem":
-                    if (scarInBesitz)
+                    if (character.ScarInBesitz)
                         s = "Scar schon vorhanden. Nicht";
                     else
                     {
                         currentItem.TakeItem(unit);
-                        scarInBesitz = true;
+                        character.ScarInBesitz = true;
                     }
                     break;
 
                 case "Brechstange_Item":
-                    if (currentItem.Name == "")
-                        currentItem.Name = "Brechstange";
                     if (!unit.Inventar.inBesitz(currentItem))
                     {
+                        currentItem.Name = "Brechstange";
                         currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.add(currentItem);
                     }
                     else
                     {
@@ -154,32 +130,32 @@ namespace ProjectEntities
                     break;
 
                 case "GlockItem":
-                    if (glockInBesitz)
+                    if (character.GlockInBesitz)
                         s = "Glock schon vorhanden. Nicht";
                     else
                     {
                         currentItem.TakeItem(unit);
-                        glockInBesitz = true;
+                        character.GlockInBesitz = true;
                     }
                     break;
 
                 case "ShotgunItem":
-                    if (shotgunInBesitz)
+                    if (character.ShotgunInBesitz)
                         s = "Shotgun schon vorhanden. Nicht";
                     else
                     {
                         currentItem.TakeItem(unit);
-                        shotgunInBesitz = true;
+                        character.ShotgunInBesitz = true;
                     }
                     break;
 
                 case "SubmachineGunItem":
-                    if (submachinegunInBesitz)
+                    if (character.SubmachinegunInBesitz)
                         s = "Submachinegun schon vorhanden. Nicht";
                     else
                     {
                         currentItem.TakeItem(unit);
-                        submachinegunInBesitz = true;
+                        character.SubmachinegunInBesitz = true;
                     }
                     break;
 
@@ -188,8 +164,6 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
-                    if (currentItem.Name == "")
-                        currentItem.Name = "Batterie";
                     if (!unit.Inventar.taschenlampeBesitz)
                         s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
                     else
@@ -199,9 +173,7 @@ namespace ProjectEntities
                             s = "Taschenlampebatterie ist voll. Nicht";
                         }
                         else
-                        {
-                            
-                            
+                        {   
                             currentItem.TakeItem(unit);
                             if (unit.Inventar.taschenlampeEnergie + 50 < unit.Inventar.taschenlampeEnergieMax)
                                 unit.Inventar.taschenlampeEnergie += 50;
@@ -213,28 +185,27 @@ namespace ProjectEntities
                     break;
 
                 case "cpu":
-                    if (currentItem.Name == "")
+                    if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "CPU";
                     currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.add(currentItem);
                     s = "CPU";
                     break;
 
                 case "Schrauben":
-                    if (currentItem.Name == "")
+                    if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "Schrauben";
                     currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.add(currentItem);
                     s = "Schrauben";
                     break;
 
                 case "USB_Stick":
-                    if (currentItem.Name == "")
-                        currentItem.Name = "USB-Stick";
                     if(!unit.Inventar.inBesitz(currentItem))
                     {
+                        currentItem.Name = "USB-Stick";
                         currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.add(currentItem);
                         s = "USB Stick";
                     }
                     else
@@ -244,28 +215,27 @@ namespace ProjectEntities
                     break;
 
                 case "sicherung":
-                    if (currentItem.Name == "")
+                    if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "Sicherung";
                     currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.add(currentItem);
                     s = "Sicherung";
                     break;
 
                 case "Dynamite":
-                    if (currentItem.Name == "")
+                    if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "Dynamit";
                     currentItem.TakeItem(unit);
-                    unit.Inventar.addItem(currentItem);
+                    unit.Inventar.add(currentItem);
                     s = "Dynamit";
                     break;
 
                 case "AccessCard":
-                    if (currentItem.Name == "")
-                        currentItem.Name = "Zugangskarte";
                     if(!unit.Inventar.inBesitz(currentItem))
-                    { 
+                    {
+                        currentItem.Name = "Zugangskarte";
                         currentItem.TakeItem(unit);
-                        unit.Inventar.addItem(currentItem);
+                        unit.Inventar.add(currentItem);
                         s = "AccessCard";
                     }
                     else
@@ -288,7 +258,7 @@ namespace ProjectEntities
         }
 
 
-        protected bool isAstronaut()
+        private bool isAstronaut()
         {
             if (EntitySystemWorld.Instance.IsServer())
                 return false;

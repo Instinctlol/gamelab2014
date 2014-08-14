@@ -85,10 +85,39 @@ namespace ProjectEntities
         RemoteEntityWorld owner = null;
 
         public Vec3 pos; 
+		//Waffen schon in Besitz
+        bool glockInBesitz = false;
 
-        
 
+        public bool GlockInBesitz
+        {
+            get { return glockInBesitz; }
+            set { glockInBesitz = value; }
+        }
 
+        bool scarInBesitz = false;
+
+        public bool ScarInBesitz
+        {
+            get { return scarInBesitz; }
+            set { scarInBesitz = value; }
+        }
+
+        bool shotgunInBesitz = false;
+
+        public bool ShotgunInBesitz
+        {
+            get { return shotgunInBesitz; }
+            set { shotgunInBesitz = value; }
+        }
+
+        bool submachinegunInBesitz = false;
+
+        public bool SubmachinegunInBesitz
+        {
+            get { return submachinegunInBesitz; }
+            set { submachinegunInBesitz = value; }
+        }
         ///////////////////////////////////////////
 
         String s = "";
@@ -159,7 +188,6 @@ namespace ProjectEntities
             LightStatusToClient,
             FlashLightRotationToClient,
             FlashLightRotationToServer,
-            DropItemToServer,
             IPToServer,
         }
 
@@ -1135,13 +1163,12 @@ namespace ProjectEntities
 
         protected override void OnDie(MapObject prejudicial)
         {
-            //Items droppen lassen, wenn Astronaut tot ist
-            dropItem();
-             
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                droppen();
+            }
 
-            base.OnDie(prejudicial);
-
-            
+            base.OnDie(prejudicial); 
         }
 
 
@@ -1153,41 +1180,28 @@ namespace ProjectEntities
         }
 
 
-        void Client_SendDropItemToServer(Item i, Vec3 position)
+        public void droppen()
         {
-            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
-               (ushort)NetworkMessages.DropItemToServer);
-            writer.Write(i.Type.Name);
-            writer.Write(position);
-            EndNetworkMessage();
-        }
-
-
-        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.DropItemToServer)]
-        void Server_ReceiveDropItem(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            String itemtype = reader.ReadString();
-            Vec3 pos = reader.ReadVec3();
-
-            if (!reader.Complete())
-                return;
-
-            if (itemtype != null && pos != null)
-                Drop(itemtype, pos);
-        }
-
-        public void dropItem()
-        {
-            Vec3 p = this.Position + this.Rotation.GetForward();
-            p = p * 4f + new Vec3(0, 0, -1);
-           
-
-            foreach (Item i in Inventar.getInventarliste())
+            Vec3 pos = this.Position;
+            Vec3 dir = this.Rotation.GetForward();
+            Vec3 p;
+            float winkel = 0;
+            foreach (Item item in new List<Item>(Inventar.getInventarliste()))
             {
-                if (!EntitySystemWorld.Instance.IsServer())
-                    Client_SendDropItemToServer(i, p);
-                else
-                    Drop(i.Type.ToString(), p);
+
+                int count = item.anzahl;
+                for (int j = 1; j <= count; j++)
+                {
+                    //Position des Items festlegen
+                    p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.5f) + new Vec3(0, 0, -1);
+                    p.Z = 0.3f;
+                    Drop(item.Type.Name, p);
+
+                    //Item aus Inventar entfernen
+                    this.Inventar.remove(item);
+                    //Winkel für das nächste Item ändern
+                    winkel += 5;
+                }
             }
         }
     }

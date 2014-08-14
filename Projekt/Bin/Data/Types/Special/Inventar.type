@@ -1,0 +1,6 @@
+type Inventar
+{
+	class = Inventar
+	creatableInMapEditor = False
+	networkType = Synchronized
+}
