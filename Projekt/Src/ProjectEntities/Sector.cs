@@ -145,7 +145,7 @@ namespace ProjectEntities
                 Server_SendLightToClient(lightStatus, ((PlayerCharacter)obj).Owner);
             }
 
-            if (obj is AlienUnit)
+            if (obj is AlienUnit && !(obj is AlienSpawner))
                 OnAlienIn();
             else if (obj is OutDoor && ring != null)
                 ring.RotateRing += ((OutDoor)obj).OnRotate;
@@ -172,7 +172,7 @@ namespace ProjectEntities
             if (obj is Dynamic)
                 OnDynamicOut((Dynamic)obj);
 
-            if (obj is AlienUnit)
+            if (obj is AlienUnit && !(obj is AlienSpawner))
                 OnAlienOut();
 
         }

@@ -312,11 +312,13 @@ namespace Game
 		void Start_Click( Button sender )
 		{
 
-            ((Button)window.Controls["Start"]).Enable = false;
+            
 
             GameNetworkServer server = GameNetworkServer.Instance;
             if (server != null)
             {
+                ((Button)window.Controls["Start"]).Enable = false;
+
                 Timer aTimer = new System.Timers.Timer( 1000);
                 
                 aTimer.Elapsed += CountDownmessage;
