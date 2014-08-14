@@ -107,152 +107,206 @@ namespace ProjectEntities
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
-		protected override void OnTick()
-		{
-			base.OnTick();
+        protected override void OnTick()
+        {
+            base.OnTick();
 
-			//single mode. recreate player units if need
-			if( EntitySystemWorld.Instance.IsSingle() )
-			{
-				if( GameMap.Instance.GameType == GameMap.GameTypes.Action ||
-					GameMap.Instance.GameType == GameMap.GameTypes.TPSArcade ||
-					GameMap.Instance.GameType == GameMap.GameTypes.TurretDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.VillageDemo ||
-					GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo )
-				{
-					if( PlayerManager.Instance != null )
-					{
-						foreach( PlayerManager.ServerOrSingle_Player player in
-							PlayerManager.Instance.ServerOrSingle_Players )
-						{
-							if( player.Intellect == null || player.Intellect.ControlledObject == null )
-							{
-								ServerOrSingle_CreatePlayerUnit( player );
-							}
-						}
-					}
-				}
-			}
+            //single mode. recreate player units if need
+            if (EntitySystemWorld.Instance.IsSingle())
+            {
+                if (GameMap.Instance.GameType == GameMap.GameTypes.Action ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.TPSArcade ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.TurretDemo ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.VillageDemo ||
+                    GameMap.Instance.GameType == GameMap.GameTypes.PlatformerDemo)
+                {
+                    if (PlayerManager.Instance != null)
+                    {
+                        foreach (PlayerManager.ServerOrSingle_Player player in
+                            PlayerManager.Instance.ServerOrSingle_Players)
+                        {
+                            if (player.Intellect == null || player.Intellect.ControlledObject == null)
+                            {
+                                ServerOrSingle_CreatePlayerUnit(player);
+                            }
+                        }
+                    }
+                }
+            }
 
 
 
-			//networking mode
-			if( EntitySystemWorld.Instance.IsServer() )
-			{
-				if( GameMap.Instance.GameType == GameMap.GameTypes.AVA)
-				{
-					if( PlayerManager.Instance != null )
-					{
-						UserManagementServerNetworkService userManagementService =
-							GameNetworkServer.Instance.UserManagementService;
-                        
-						//remove users
-						again:
-						foreach( PlayerManager.ServerOrSingle_Player player in
-							PlayerManager.Instance.ServerOrSingle_Players )
-						{
-                            
+            //networking mode
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                if (GameMap.Instance.GameType == GameMap.GameTypes.AVA)
+                {
+                    if (PlayerManager.Instance != null)
+                    {
+                        UserManagementServerNetworkService userManagementService =
+                            GameNetworkServer.Instance.UserManagementService;
 
-                            if (player.Intellect.ControlledObject != null) {
+                        //remove users
+                    again:
+                        foreach (PlayerManager.ServerOrSingle_Player player in
+                            PlayerManager.Instance.ServerOrSingle_Players)
+                        {
 
-                            //aktuelle position 
-                                
+
+                            if (player.Intellect.ControlledObject != null)
+                            {
+
+                                //aktuelle position 
+
                                 player.pos = player.Intellect.ControlledObject.Position;
-                            
+
                             }
 
-							if( player.User != null && player.User != userManagementService.ServerUser )
-							{
-								NetworkNode.ConnectedNode connectedNode = player.User.ConnectedNode;
-								if( connectedNode == null ||
-									connectedNode.Status != NetworkConnectionStatuses.Connected )
-								{
-									if( player.Intellect != null )
-									{
-										PlayerIntellect playerIntellect = player.Intellect as PlayerIntellect;
-										if( playerIntellect != null )
-											playerIntellect.TryToRestoreMainControlledUnit();
-
-										if( player.Intellect.ControlledObject != null )
-											player.Intellect.ControlledObject.Die();
-                                           
-										player.Intellect.SetForDeletion( true );
-										player.Intellect = null;
-									}
-
-									PlayerManager.Instance.ServerOrSingle_RemovePlayer( player );
-
-									goto again;
-								}
-							}
-						}
-
-						//add users
-						foreach( UserManagementServerNetworkService.UserInfo user in
-							userManagementService.Users )
-						{
-							//check whether "EntitySystem" service on the client
-							if( user.ConnectedNode != null )
-							{
-								if( !user.ConnectedNode.RemoteServices.Contains( "EntitySystem" ) )
-									continue;
-							}
-
-							PlayerManager.ServerOrSingle_Player player = PlayerManager.Instance.
-								ServerOrSingle_GetPlayer( user );
-
-							if( player == null )
-							{
-								player = PlayerManager.Instance.Server_AddClientPlayer( user );
-
-								PlayerIntellect intellect = (PlayerIntellect)Entities.Instance.
-									Create( "PlayerIntellect", World.Instance );
-								intellect.PostCreate();
-
-								player.Intellect = intellect;
-
-								if( GameNetworkServer.Instance.UserManagementService.ServerUser != user )
-								{
-									//player on client
-									RemoteEntityWorld remoteEntityWorld = GameNetworkServer.Instance.
-										EntitySystemService.GetRemoteEntityWorld( user );
-									intellect.Server_SendSetInstanceToClient( remoteEntityWorld );
-								}
-								else
-								{
-									//player on this server
-									PlayerIntellect.SetInstance( intellect );
-								}
-
-							}
-						}
-
-						//create units
-						foreach( PlayerManager.ServerOrSingle_Player player in
-							PlayerManager.Instance.ServerOrSingle_Players )
-						{
-                            if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
+                            if (player.User != null && player.User != userManagementService.ServerUser)
                             {
-                                //spawner Position ändern 
-                                //Unit type erstellen 
-                                if (player.started)
+                                NetworkNode.ConnectedNode connectedNode = player.User.ConnectedNode;
+                                if (connectedNode == null ||
+                                    connectedNode.Status != NetworkConnectionStatuses.Connected)
                                 {
-                                    revival += TickDelta / BuildTime;
-
-                                    if (timeelapsed >= 1)
+                                    if (player.Intellect != null)
                                     {
-                                        ServerOrSingle_CreatePlayerUnit(player);
-                                        revival = 0f;
+                                        PlayerIntellect playerIntellect = player.Intellect as PlayerIntellect;
+                                        if (playerIntellect != null)
+                                            playerIntellect.TryToRestoreMainControlledUnit();
+
+                                        if (player.Intellect.ControlledObject != null)
+                                            player.Intellect.ControlledObject.Die();
+
+                                        player.Intellect.SetForDeletion(true);
+                                        player.Intellect = null;
+                                    }
+
+                                    PlayerManager.Instance.ServerOrSingle_RemovePlayer(player);
+
+                                    goto again;
+                                }
+                            }
+                        }
+
+                        //add users
+                        foreach (UserManagementServerNetworkService.UserInfo user in
+                            userManagementService.Users)
+                        {
+                            //check whether "EntitySystem" service on the client
+                            if (user.ConnectedNode != null)
+                            {
+                                if (!user.ConnectedNode.RemoteServices.Contains("EntitySystem"))
+                                    continue;
+                            }
+
+                            PlayerManager.ServerOrSingle_Player player = PlayerManager.Instance.
+                                ServerOrSingle_GetPlayer(user);
+
+                            if (player == null)
+                            {
+                                player = PlayerManager.Instance.Server_AddClientPlayer(user);
+
+                                PlayerIntellect intellect = (PlayerIntellect)Entities.Instance.
+                                    Create("PlayerIntellect", World.Instance);
+                                intellect.PostCreate();
+
+                                player.Intellect = intellect;
+
+                                if (GameNetworkServer.Instance.UserManagementService.ServerUser != user)
+                                {
+                                    //player on client
+                                    RemoteEntityWorld remoteEntityWorld = GameNetworkServer.Instance.
+                                        EntitySystemService.GetRemoteEntityWorld(user);
+                                    intellect.Server_SendSetInstanceToClient(remoteEntityWorld);
+                                }
+                                else
+                                {
+                                    //player on this server
+                                    PlayerIntellect.SetInstance(intellect);
+                                }
+
+                            }
+                        }
+
+                        //create units
+
+                        // radius definieren
+
+                        Boolean creatAstronaut =true;
+                        foreach (PlayerManager.ServerOrSingle_Player actplayer in
+                            PlayerManager.Instance.ServerOrSingle_Players)
+                        {
+                            float radius = 10;
+
+
+
+                            if (actplayer.Intellect.ControlledObject != null)
+                            {
+
+                                Vec3 actObjPos = actplayer.Intellect.ControlledObject.Position;
+                                foreach (PlayerManager.ServerOrSingle_Player nonactplayer in PlayerManager.Instance.ServerOrSingle_Players)
+                                {
+
+                                    if (nonactplayer.Intellect.ControlledObject != null && nonactplayer != actplayer)
+                                    {
+
+                                        Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
+                                        EngineConsole.Instance.Print("Die position von den 2 Astronaut ist   " + nonactObjPos + ", " + actObjPos);
+
+
+
+                                        Map.Instance.GetObjects(new Sphere(actObjPos, radius), MapObjectSceneGraphGroups.UnitGroupMask, delegate(MapObject mapObject)
+                                        {
+
+                                            //Unit obj = (Unit)mapObject;
+
+                                            Vec3 diff = actObjPos - nonactObjPos;
+                                            float objDistance = diff.Length();
+                                            EngineConsole.Instance.Print("Die position von den 2 Astronaut ist   " + objDistance);
+
+                                            if (objDistance > radius)
+                                            {
+                                                creatAstronaut = false;
+                                                return;
+                                            }
+                                        });
+
                                     }
                                 }
-                                else ServerOrSingle_CreatePlayerUnit(player);
                             }
-						}
-					}
-				}
-			}
-		}
+                        }
 
+
+
+
+
+                        foreach (PlayerManager.ServerOrSingle_Player player in
+                            PlayerManager.Instance.ServerOrSingle_Players)
+                        {
+                            {
+                                if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
+                                {
+                                    //spawner Position ändern 
+                                    //Unit type erstellen 
+                                    if (player.started && creatAstronaut)
+                                    {
+                                        revival += TickDelta / BuildTime;
+
+                                        if (timeelapsed >= 1)
+                                        {
+                                            ServerOrSingle_CreatePlayerUnit(player);
+                                            revival = 0f;
+                                        }
+                                    }
+                                    else if(creatAstronaut)
+                                        ServerOrSingle_CreatePlayerUnit(player);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 		internal void DoActionsAfterMapCreated()
 		{
 			if( EntitySystemWorld.Instance.IsSingle() )
@@ -340,8 +394,7 @@ namespace ProjectEntities
 			needChangeMapPlayerCharacterInformation = null;
 		}
 
-        
-
+       
 		Unit ServerOrSingle_CreatePlayerUnit( PlayerManager.ServerOrSingle_Player player, MapObject spawnPoint )
 		{
             //ServerOrSingle_CreatePlayerUnit(player, spawnPoint.Position, spawnPoint.Rotation);
@@ -361,6 +414,7 @@ namespace ProjectEntities
             Unit unit = (Unit)Entities.Instance.Create(unitTypeName, Map.Instance);
             
             
+            //  prüft 
             //  prüft ob ein spieler schonmal erstellt/gestarted wurde   
             //  falls nicht
             if (!player.started)
