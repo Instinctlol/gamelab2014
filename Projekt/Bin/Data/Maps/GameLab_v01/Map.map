@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 63.47866 90.61558 18.64729
-editorCameraDirection = 2.231936 -0.9724887
+editorCameraPosition = 49.33937 97.45564 48.61246
+editorCameraDirection = 4.271595 -1.560796
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -1898,7 +1898,6 @@ entity
 	type = OutDoor
 	uin = 143
 	classPrompt = OutDoor
-	sector = 124
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2061,7 +2060,6 @@ entity
 	type = OutDoor
 	uin = 154
 	classPrompt = OutDoor
-	sector = 127
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2076,7 +2074,6 @@ entity
 	type = OutDoor
 	uin = 155
 	classPrompt = OutDoor
-	sector = 109
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2091,7 +2088,6 @@ entity
 	type = OutDoor
 	uin = 156
 	classPrompt = OutDoor
-	sector = 108
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2106,7 +2102,6 @@ entity
 	type = OutDoor
 	uin = 157
 	classPrompt = OutDoor
-	sector = 113
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2121,7 +2116,6 @@ entity
 	type = OutDoor
 	uin = 158
 	classPrompt = OutDoor
-	sector = 106
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2135,10 +2129,9 @@ entity
 	type = OutDoor
 	uin = 159
 	classPrompt = OutDoor
-	sector = 125
-	opened = False
-	needOpen = False
-	openDoorOffsetCoefficient = 0
+	opened = True
+	needOpen = True
+	openDoorOffsetCoefficient = 1
 	healthFactorAtBeginning = 1
 	position = 93.92112 0.1170368 1.851048
 	name = OutDoor_6
@@ -2149,7 +2142,6 @@ entity
 	type = OutDoor
 	uin = 160
 	classPrompt = OutDoor
-	sector = 78
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2164,7 +2156,6 @@ entity
 	type = OutDoor
 	uin = 161
 	classPrompt = OutDoor
-	sector = 77
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2179,7 +2170,6 @@ entity
 	type = OutDoor
 	uin = 162
 	classPrompt = OutDoor
-	sector = 113
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2194,7 +2184,6 @@ entity
 	type = OutDoor
 	uin = 163
 	classPrompt = OutDoor
-	sector = 107
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -15875,7 +15864,7 @@ entity
 	uin = 1464
 	classPrompt = StaticObject
 	position = 56.9 96.00001 2.8
-	rotation = 0.8816514 0.4631794 -0.06297827 -0.06472698
+	rotation = 0.9010159 0.4242815 -0.06009497 -0.06741244
 	name = B_1
 }
 entity
