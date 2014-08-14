@@ -442,7 +442,6 @@ namespace ProjectEntities
 
                     string name = item.Description.Split(':')[1].Replace("\"", "").Split('(')[0].Trim();
 
-                    EngineConsole.Instance.Print(player.Name);
 
                     if (name == player.Name)
                     {

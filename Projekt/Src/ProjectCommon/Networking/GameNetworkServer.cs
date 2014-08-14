@@ -89,7 +89,6 @@ namespace ProjectCommon
 
             foreach (var item in ConnectedNodes)
             {
-                EngineConsole.Instance.Print(item.LoginName);
                 if (item != connectedNode && !String.IsNullOrEmpty(item.LoginName) && item.LoginName == loginName)
                 {
                     rejectReason = string.Format(
