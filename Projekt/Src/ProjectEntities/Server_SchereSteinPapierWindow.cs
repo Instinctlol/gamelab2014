@@ -73,6 +73,17 @@ namespace ProjectEntities
         public void close() {
             this.Close_clicked(new Button());
         }
+        public void stein() {
+            this.Stein_clicked(new Button());
+        }
+        public void papier()
+        {
+            this.Papier_clicked(new Button());
+        }
+        public void schere()
+        {
+            this.Schere_clicked(new Button());
+        }
         private void countdown(object sender, ElapsedEventArgs e)
         {
             countdownBox.Text = ""+(int.Parse(countdownBox.Text) -1);

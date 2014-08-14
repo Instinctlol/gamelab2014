@@ -366,10 +366,17 @@ namespace Game
                         hudFunctions("Menu");
                         #endregion
                     }
-                    else if(hudControl.Controls["SchereSteinPapier"].Visible && hudControl.Controls["SchereSteinPapier"].Controls["CloseButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                    else if(hudControl.Controls["SchereSteinPapier"].Visible)
                     {
                         #region SchereSteinPapierClose
-                        if (sspw != null) sspw.close();
+                        if (hudControl.Controls["SchereSteinPapier"].Controls["CloseButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                            if (sspw != null) sspw.close();
+                        if (hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                            if (sspw != null) sspw.schere();
+                        if (hudControl.Controls["SchereSteinPapier"].Controls["SteinButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                            if (sspw != null) sspw.stein();
+                        if (hudControl.Controls["SchereSteinPapier"].Controls["PapierButton"].GetScreenRectangle().IsContainsPoint(MousePos))
+                            if (sspw != null) sspw.papier();
                         #endregion
                     }
                     else if (hudControl.Controls["Strahlen"].Controls["ButtonArea"].Controls["ChangeRoom"].GetScreenRectangle().IsContainsPoint(MousePos))
