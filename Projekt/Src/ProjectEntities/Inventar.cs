@@ -139,6 +139,14 @@ namespace ProjectEntities
                 _useItem = inventar[index];
         }
 
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+            Server_SendFlashlightEnergyToClient(flashlightEnergy);
+            Server_SendFlashlightOwnedToClient(flashlightOwned);
+            Server_SendFlashlightStatusToClient(flashlightVisible);
+        }
+
         public void addItem(Item i)
         {
             if (i != null && !this.isWeaponOrBullet(i))
