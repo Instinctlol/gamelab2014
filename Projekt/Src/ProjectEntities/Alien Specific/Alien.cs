@@ -178,6 +178,7 @@ namespace ProjectEntities
                             EngineConsole.Instance.Print("Ich bin im Sektor F1S45");
                         }
                        
+                        //if(sec.Name == "F2S23" )
                         //Probleme mit Raum F1R5 !!!!!!!!!!!!!!!
                            
                         
@@ -246,6 +247,8 @@ namespace ProjectEntities
             //});
                     
             ////////////////////////////////////////////////////////
+
+            
 
             if (minCurve == null)
             {
