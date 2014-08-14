@@ -146,8 +146,7 @@ namespace Game
                     lastSelectedSector = selectedSector.Name;
 
                     ((SectorStatusWindow)bigMinimapControl).highlight("f" + selectedSector.Name.Substring(1, 1) + "r" + selectedSector.Name.Substring(3, 1), true); //hilight new sector
-                    
-                    TuioInputDevice.cleardata();
+
                     
                 }
             });

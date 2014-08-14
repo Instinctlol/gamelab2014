@@ -440,25 +440,24 @@ namespace ProjectCommon
                 }
                 #endregion
 
-                
-
                 #region vardef
                 bool lastexeption = false;
                 if (lastpoint == null && startb && endb) lastexeption = true;
                 float timestamp = DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000 + DateTime.Now.Hour * 3600000;
                 #endregion
-
+                if (lastpoint != null)
+                    Console.WriteLine(Math.Abs(start[4] - lastpoint[4]) + " | " +  Math.Abs(start[5] - lastpoint[5]));
                 if (lastexeption || (startb && endb && Math.Abs(start[4] - lastpoint[4]) <= 0.01f && Math.Abs(start[5] - lastpoint[5]) <= 0.01f))
                 {
                     #region click
-                    cleardata();
 
                     TuioInputDeviceSpecialEvent customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
                     //InputDeviceManager.Instance.SendEvent(customEvent);
-
+                    Console.WriteLine(lastpoint[4]);
                     customEvent =
-                    new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
+                    new TuioInputDeviceSpecialEvent(this, opType.click, start[4], start[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
+                    cleardata();
                     #endregion
                 }
 
@@ -482,7 +481,7 @@ namespace ProjectCommon
                             #region regognize
                             list = Recog.Recognize(data, false);
                             TuioInputDeviceSpecialEvent customEvent =
-                                        new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
+                                        new TuioInputDeviceSpecialEvent(this, opType.term, 0f, 0f);
                             switch (list.Name)
                             {
                                 case "blitz1":
@@ -528,6 +527,7 @@ namespace ProjectCommon
                                 InputDeviceManager.Instance.SendEvent(customEvent);
                             Console.WriteLine(list.Name + " @ " + list.Score);
                             cleardata();
+                            
                             failsafebool = false;
                             failsafe = new float[8];
                             //customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
