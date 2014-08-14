@@ -9,6 +9,7 @@ control Control
 	control Control
 	{
 		horizontalAlign = Center
+		size = ScaleByResolution 1024 768
 		backTexture = "GUI\\Textures\\workbenchinfo.png"
 	}
 	control Control
