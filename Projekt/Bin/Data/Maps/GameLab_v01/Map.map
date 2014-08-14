@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 103.2858 67.36698 3.25702
-editorCameraDirection = 5.268782 -0.6842339
+editorCameraPosition = 14.4135 40.16293 29.56911
+editorCameraDirection = 0.0419021 -1.554546
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -15989,4 +15989,48 @@ entity
 	repairables
 	{
 	}
+}
+entity
+{
+	type = C
+	uin = 1571
+	classPrompt = StaticObject
+	position = -59.5 -100.3 2
+	rotation = 0 0 -0.9063078 0.4226183
+	name = C_2
+}
+entity
+{
+	type = C
+	uin = 1572
+	classPrompt = StaticObject
+	position = -28.4 -112.2 2
+	rotation = 0 0 0.6755902 0.7372774
+	name = C_3
+}
+entity
+{
+	type = C
+	uin = 1573
+	classPrompt = StaticObject
+	position = 3.9 -94.7 2
+	name = C_4
+}
+entity
+{
+	type = C
+	uin = 1574
+	classPrompt = StaticObject
+	position = 27.8 -106.4 2.2
+	rotation = 0 0 -0.7071069 0.7071068
+	name = C_5
+}
+entity
+{
+	type = C
+	uin = 1575
+	classPrompt = StaticObject
+	position = 56.5 -95.00001 2
+	rotation = 0 0 -0.9238796 -0.3826835
+	name = C_6
 }
