@@ -4,6 +4,8 @@ physicsModel
 {
 	body body1
 	{
+		massMethod = Manually
+		mass = 30
 		shape
 		{
 			type = box
