@@ -116,8 +116,8 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
+            Computer.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
-
 
         protected override void OnAttach()
         {
@@ -476,23 +476,6 @@ namespace Game
         {
             base.OnTick(delta);
             
-            //Status für Astronaut setzen (Sieger/Verlierer)
-            if (Computer.Alienwin != Computer.Astronautwin)
-            {
-                if (Computer.Astronautwin)
-                {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
-                }
-                else
-                {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
-                }
-            }
-            else
-            {
-                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
-            }
-
             //NeedWorldDestroy
             if (GameWorld.Instance.NeedWorldDestroy)
             {
@@ -2056,5 +2039,34 @@ namespace Game
                 sendMessageToHUD("Batterie der Taschenlampe ist leer.");
 
         }
+
+        /// <summary>
+        /// Öffnet die Statistik
+        /// </summary>
+        public void ShowStatistics()
+        {
+            //Status für Astronaut setzen (Sieger/Verlierer)
+            if (Computer.Alienwin != Computer.Astronautwin)
+            {
+                if (Computer.Astronautwin)
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                }
+                else
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
+                }
+                // Text anpassen
+                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
+                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
+
+                // Statistik anzeigen
+                hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+            }
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+            }
+        }        
     }
 }

@@ -74,6 +74,8 @@ namespace Game
         float timeForDeleteNotificationMessage;
         float timeForDropItemIncrementation = 300;
 
+        float timeForWin = 60;
+
         // Headtracking
         Vec3 headtrackingOffset;
         bool isHeadtrackingActive = false;
@@ -122,6 +124,7 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
+            Computer.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
         //hudFunktionen
@@ -511,7 +514,7 @@ namespace Game
 
             if (e.Key == EKeys.F8)
             {
-                ShowStatistic();
+                ShowStatistics();
             }            
 
             if (e.Key == EKeys.F10)
@@ -1080,23 +1083,16 @@ namespace Game
                 }
 
             }
+
+            timeForWin -= delta;
+            if(timeForWin< 0)
+            {
+                Computer.SetWinner(true);
+            }
             
 
             //gameStatus
             //if (string.IsNullOrEmpty(hudControl.Controls["GameStatus"].Text))
-            if (Computer.Alienwin != Computer.Astronautwin)
-            {
-                if (Computer.Alienwin)
-                {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
-                } else {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
-                }
-            }
-            else
-            {
-                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
-            }
         }
 
         protected override void OnRender()
@@ -2108,16 +2104,32 @@ namespace Game
         /// <summary>
         /// Öffnet die Statistik
         /// </summary>
-        void ShowStatistic()
-        {
-            // Text anpassen
-            hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
-            hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
+        public void ShowStatistics(){
+        if (!hudControl.Controls["Statistic"].Visible)
+            {
+                if (Computer.Alienwin != Computer.Astronautwin)
+                {
+                    if (Computer.Alienwin)
+                    {
+                        hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                    }
+                    else
+                    {
+                        hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
+                    }
+                    // Text anpassen
+                    hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
+                    hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
 
-            // Statistik anzeigen
-            hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+                    // Statistik anzeigen
+                    hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+                }
+                else
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+                }
+            }
         }
-
         
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////

@@ -7,6 +7,7 @@ using Engine;
 using Engine.EntitySystem;
 using Engine.MapSystem;
 using Engine.MathEx;
+using Engine.Utils;
 using ProjectCommon;
 
 namespace ProjectEntities
@@ -66,8 +67,16 @@ namespace ProjectEntities
         // Statistik
         static Statistic statistic = new Statistic();
 
+        // Anzeige der Statistik für Server und Clients
         static bool astronautwin = false;
         static bool alienwin = false;
+        
+        enum NetworkMessages
+        {
+            StatisticToClient
+        }
+        public static event StatisticEventDelegate showStatistic;
+        public delegate void StatisticEventDelegate();
 
         /*******************/
         /* Getter / Setter */
@@ -588,5 +597,44 @@ namespace ProjectEntities
             usedAliens = 0;
             maxItemDropGroupNr = 2;
         }
+
+        public static void SetWinner(bool alienWin)
+        {
+            alienwin = alienWin;
+            astronautwin = !alienWin;
+
+            // Clients bescheid geben
+            Computer c = new Computer();
+            c.Server_SendStatisticToClients();
+            // Event feuern, damit die Statistik angezeigt wird
+            if(showStatistic != null)
+            {
+                showStatistic();
+            }
+        }
+
+        private void Server_SendStatisticToClients()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Statistic), (ushort)NetworkMessages.StatisticToClient);
+            writer.Write(alienwin);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.StatisticToClient)]
+        void Client_ReceiveStatistic(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool win = reader.ReadBoolean();
+            if (!reader.Complete())
+                return;
+
+            alienwin = win;
+            astronautwin = !win;
+            // CaveWindow per Event mitteilen, dass die Statistik angezeigt werden soll.
+            if (showStatistic != null)
+            {
+                showStatistic();
+            }
+        }
+
     }
 }
