@@ -438,7 +438,13 @@ namespace ProjectEntities
             {
                 foreach (var item in EntitySystemWorld.Instance.RemoteEntityWorlds)
                 {
-                    if (item.Description.Contains(player.Name))
+                    
+
+                    string name = item.Description.Split(':')[1].Replace("\"", "").Split('(')[0].Trim();
+
+                    EngineConsole.Instance.Print(player.Name);
+
+                    if (name == player.Name)
                     {
                         ((PlayerCharacter)unit).Owner = item;
                         break;

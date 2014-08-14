@@ -1096,7 +1096,7 @@ namespace Game
                 String itemtext;
                 if (unit.Inventar.useItem.Name == "Taschenlampe")
                 {
-                    itemtext = unit.Inventar.useItem.Name + " " + unit.Inventar.taschenlampeEnergie + "%";
+                    itemtext = unit.Inventar.useItem.Name + " " + unit.Inventar.FlashlightEnergy + "%";
                     hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
                 }
                 else
@@ -2001,8 +2001,8 @@ namespace Game
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
         {
-            if (GetPlayerUnit().Inventar.taschenlampeEnergie > 0)
-                GetPlayerUnit().Inventar.taschenlampeEnergie -= 2;
+            if (GetPlayerUnit().Inventar.FlashlightEnergy > 0)
+                GetPlayerUnit().Inventar.FlashlightEnergy -= 2;
             else
                 sendMessageToHUD("Batterie der Taschenlampe ist leer.");
 
@@ -2069,17 +2069,17 @@ namespace Game
         public void switchTaschenlampe()
         {
             PlayerCharacter player = GetPlayerUnit() as PlayerCharacter;
-            if (player != null && player.Inventar.taschenlampeBesitz && player.Inventar.taschenlampeEnergie != 0)
+            if (player != null && player.Inventar.FlashlightOwned && player.Inventar.FlashlightEnergy != 0)
             {
-                player.Setflashlight(!player.Inventar.taschenlampevisible);
+                player.Inventar.FlashlightVisible = !player.Inventar.FlashlightVisible;
 
-                if (!player.Inventar.taschenlampevisible)
+                if (!player.Inventar.FlashlightVisible)
                 {
 
                     energieTimer.AutoReset = true;
                     energieTimer.Enabled = true;
                 }
-                else if (player.Inventar.taschenlampevisible)
+                else if (player.Inventar.FlashlightVisible)
                 {
                     energieTimer.AutoReset = false;
                     energieTimer.Enabled = false;

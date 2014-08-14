@@ -35,6 +35,12 @@ namespace ProjectEntities
         {
             AddItem,
             RemoveItem,
+            FlashLightVisibleToClient,
+            FlashLightOwnedToClient,
+            FlashLightEnergyToClient,
+            FlashLightVisibleToServer,
+            FlashLightOwnedToServer,
+            FlashLightEnergyToServer,
         }
 
         InventarType _type = null; public new InventarType Type { get { return _type; } }
@@ -43,7 +49,7 @@ namespace ProjectEntities
         private int _taschenlampeEnergie;
         private int _taschenlampeEnergieMax = 100;
         private bool _taschenlampeBesitz = false;
-        private bool _taschenlampevisible = false;
+        private bool _taschenlampeVisible = false;
 
         private bool isOpen;
 
@@ -52,29 +58,61 @@ namespace ProjectEntities
             get { return isOpen; }
             set { isOpen = value; }
         }
-        public int taschenlampeEnergieMax
+        public int FlashlightEnergyMax
         {
             get { return _taschenlampeEnergieMax; }
-            set { _taschenlampeEnergieMax = value; }
         }
 
-        public bool taschenlampevisible
+        public bool FlashlightVisible
         {
-            get { return _taschenlampevisible; }
-            set { _taschenlampevisible = value; }
+            get { return _taschenlampeVisible; }
+            set
+            {
+                _taschenlampeVisible = value;
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendFlashlightStatusToClient(_taschenlampeVisible);
+                else
+                    Client_SendFlashlightVisibleToServer(_taschenlampeVisible);
+            }
         }
 
-        public bool taschenlampeBesitz
+
+
+
+
+        public bool FlashlightOwned
         {
             get { return _taschenlampeBesitz; }
-            set { _taschenlampeBesitz = value; }
+            set
+            {
+                _taschenlampeBesitz = value;
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendFlashlightOwnedToClient(_taschenlampeBesitz);
+                else
+                    Client_SendFlashlightOwnedToServer(_taschenlampeBesitz);
+            }
         }
 
-        public int taschenlampeEnergie
+
+
+
+
+        public int FlashlightEnergy
         {
             get { return _taschenlampeEnergie; }
-            set { _taschenlampeEnergie = value; }
+            set
+            {
+                _taschenlampeEnergie = value;
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendFlashlightEnergyToClient(_taschenlampeEnergie);
+                else
+                    Client_SendFlashlightEnergyToServer(_taschenlampeEnergie);
+            }
         }
+
+
+
+
 
         /// <summary>
         /// Default constructor
@@ -86,8 +124,8 @@ namespace ProjectEntities
 
         public Item useItem
         {
-            get{ return _useItem; }
-            set{ _useItem = value; }
+            get { return _useItem; }
+            set { _useItem = value; }
         }
 
         public List<Item> getInventarliste()
@@ -97,13 +135,13 @@ namespace ProjectEntities
 
         public void setUseItem(int index)
         {
-            if(index >= 0 && index < inventar.Count)
+            if (index >= 0 && index < inventar.Count)
                 _useItem = inventar[index];
         }
 
         public void addItem(Item i)
         {
-            if(i != null && !this.isWeaponOrBullet(i))
+            if (i != null && !this.isWeaponOrBullet(i))
             {
                 //Prüft ob das Item schon vorhanden ist
                 //wenn ja dann wird die Anzahl erhöht, ansonsten wird es hinzugefügt
@@ -119,7 +157,7 @@ namespace ProjectEntities
                     //Das erste useItem setzen
                     if (useItem == null)
                         setUseItem(0);
-                }    
+                }
             }
         }
 
@@ -137,14 +175,14 @@ namespace ProjectEntities
                 else
                     inventar.Find(x => x.Type.Name == i.Type.Name).anzahl--;
             }
-                
+
             return false;
         }
 
         public bool isWeaponOrBullet(Item i)
         {
             //Handelt es sich um eine Waffe bzw Munition oder um ein anderes Item
-            if ( (i.Type.ClassInfo.ToString() == "WeaponItem" || i.Type.ClassInfo.ToString() == "BulletItem")  && !i.Type.FullName.ToLower().Equals("brechstangeitem") )
+            if ((i.Type.ClassInfo.ToString() == "WeaponItem" || i.Type.ClassInfo.ToString() == "BulletItem") && !i.Type.FullName.ToLower().Equals("brechstangeitem"))
                 return true;
             else
                 return false;
@@ -166,10 +204,10 @@ namespace ProjectEntities
                     Item item = inventar[index];
                     return item;
                 }
-            }        
+            }
         }
 
-        public int getIndexUseItem() 
+        public int getIndexUseItem()
         {
             return inventar.IndexOf(useItem);
         }
@@ -240,6 +278,114 @@ namespace ProjectEntities
 
             Item i = (Item)Entities.Instance.Create(itemtype, Map.Instance);
             removeItem(i);
+        }
+
+        private void Server_SendFlashlightStatusToClient(bool _taschenlampevisible)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightVisibleToClient);
+            writer.Write(_taschenlampevisible);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FlashLightVisibleToClient)]
+        void Client_ReceiveFlashlightStatus(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            _taschenlampeVisible = status;
+        }
+
+        private void Server_SendFlashlightOwnedToClient(bool _taschenlampeBesitz)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightOwnedToClient);
+            writer.Write(_taschenlampeBesitz);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FlashLightOwnedToClient)]
+        void Client_ReceiveFlashlightOwned(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            _taschenlampeBesitz = status;
+        }
+
+        private void Server_SendFlashlightEnergyToClient(int _taschenlampeEnergie)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightEnergyToClient);
+            writer.Write(_taschenlampeEnergie);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.FlashLightEnergyToClient)]
+        void Client_ReceiveFlashlightBattery(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            int energy = reader.ReadInt32();
+
+            if (!reader.Complete())
+                return;
+
+            _taschenlampeEnergie = energy;
+        }
+
+        private void Client_SendFlashlightEnergyToServer(int _taschenlampeEnergie)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightEnergyToServer);
+            writer.Write(_taschenlampeEnergie);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.FlashLightEnergyToServer)]
+        void Server_ReceiveFlashlightBattery(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            int energy = reader.ReadInt32();
+
+            if (!reader.Complete())
+                return;
+
+            FlashlightEnergy = energy;
+        }
+
+        private void Client_SendFlashlightOwnedToServer(bool _taschenlampeBesitz)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightOwnedToServer);
+            writer.Write(_taschenlampeBesitz);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.FlashLightOwnedToServer)]
+        void Server_ReceiveFlashlightOwned(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            FlashlightOwned = status;
+        }
+
+        private void Client_SendFlashlightVisibleToServer(bool _taschenlampevisible)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Inventar), (ushort)NetworkMessages.FlashLightVisibleToServer);
+            writer.Write(_taschenlampevisible);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.FlashLightVisibleToServer)]
+        void Server_ReceiveFlashlightVisible(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            bool status = reader.ReadBoolean();
+
+            if (!reader.Complete())
+                return;
+
+            FlashlightVisible = status;
         }
     }
 }

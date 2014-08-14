@@ -739,7 +739,7 @@ namespace ProjectEntities
                         if (Inventar != null)
                         {
                             //Taschenlampe anschalten
-                            attachedObject.Visible = Inventar.taschenlampevisible && Inventar.taschenlampeBesitz && Inventar.taschenlampeEnergie > 0;
+                            attachedObject.Visible = Inventar.FlashlightVisible && Inventar.FlashlightOwned && Inventar.FlashlightEnergy > 0;
 
                             if (fpsCamera)
                             {
@@ -945,16 +945,9 @@ namespace ProjectEntities
             IList<RemoteEntityWorld> worlds = new RemoteEntityWorld[] { remoteEntityWorld };
             Server_SendSetActiveWeaponToClients(worlds);
             Server_SendContusionTimeRemainingToClients(worlds);
-            Server_SendLightStatus(Inventar.taschenlampevisible);
-
-            Owner = remoteEntityWorld;
         }
 
-        protected override void Server_OnClientConnectedBeforePostCreate(RemoteEntityWorld remoteEntityWorld)
-        {
-            base.Server_OnClientConnectedBeforePostCreate(remoteEntityWorld);
-            Owner = remoteEntityWorld;
-        }
+
 
         void Server_SendSetActiveWeaponToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
@@ -1068,54 +1061,6 @@ namespace ProjectEntities
         public string notification()
         {
             return s;
-        }
-
-        public void Setflashlight(bool b)
-        {
-            Client_SendSwitchLight(b);
-        }
-
-        private void Client_SendSwitchLight(bool status)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
-                       (ushort)NetworkMessages.SwitchLightToServer);
-
-            writer.Write(status);
-
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.SwitchLightToServer)]
-        private void Server_ReceiveSwitchLight(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            bool status = reader.ReadBoolean();
-
-            if (!reader.Complete())
-                return;
-
-            Inventar.taschenlampevisible = status;
-            Server_SendLightStatus(status);
-        }
-
-        private void Server_SendLightStatus(bool status)
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(PlayerCharacter),
-                      (ushort)NetworkMessages.LightStatusToClient);
-
-            writer.Write(status);
-
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.LightStatusToClient)]
-        private void Client_ReceiveLightStatus(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            bool status = reader.ReadBoolean();
-
-            if (!reader.Complete())
-                return;
-
-            Inventar.taschenlampevisible = status;
         }
 
         private void Client_SendFlashLightRotation(double pitch)

@@ -96,8 +96,8 @@ namespace ProjectEntities
                         currentItem.Name = "Taschenlampe";
                         currentItem.TakeItem(unit);
                         unit.Inventar.add(currentItem);
-                        unit.Inventar.taschenlampeBesitz = true;
-                        unit.Inventar.taschenlampeEnergie = unit.Inventar.taschenlampeEnergieMax;
+                        unit.Inventar.FlashlightOwned = true;
+                        unit.Inventar.FlashlightEnergy = unit.Inventar.FlashlightEnergyMax;
                         s = "Taschenlampe";
                     }
                     else
@@ -164,21 +164,21 @@ namespace ProjectEntities
                     break;
 
                 case "battery":
-                    if (!unit.Inventar.taschenlampeBesitz)
+                    if (!unit.Inventar.FlashlightOwned)
                         s = "Noch keine Taschenlampe vorhanden. Batterie nicht";
                     else
                     {
-                        if (unit.Inventar.taschenlampeEnergie == unit.Inventar.taschenlampeEnergieMax)
+                        if (unit.Inventar.FlashlightEnergy == unit.Inventar.FlashlightEnergyMax)
                         {
                             s = "Taschenlampebatterie ist voll. Nicht";
                         }
                         else
                         {   
                             currentItem.TakeItem(unit);
-                            if (unit.Inventar.taschenlampeEnergie + 50 < unit.Inventar.taschenlampeEnergieMax)
-                                unit.Inventar.taschenlampeEnergie += 50;
+                            if (unit.Inventar.FlashlightEnergy + 50 < unit.Inventar.FlashlightEnergyMax)
+                                unit.Inventar.FlashlightEnergy += 50;
                             else
-                                unit.Inventar.taschenlampeEnergie = unit.Inventar.taschenlampeEnergieMax;
+                                unit.Inventar.FlashlightEnergy = unit.Inventar.FlashlightEnergyMax;
                             s = "Batterie";
                         }
                     }

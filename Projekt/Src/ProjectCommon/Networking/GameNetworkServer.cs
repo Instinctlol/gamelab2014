@@ -80,6 +80,24 @@ namespace ProjectCommon
 				return false;
 			}
 
+            if(UserManagementService.ServerUser.Name == connectedNode.LoginName)
+            {
+                rejectReason = string.Format(
+                    "Player with same name is already in game.");
+                return false;
+            }
+
+            foreach (var item in ConnectedNodes)
+            {
+                EngineConsole.Instance.Print(item.LoginName);
+                if (item != connectedNode && !String.IsNullOrEmpty(item.LoginName) && item.LoginName == loginName)
+                {
+                    rejectReason = string.Format(
+                    "Player with same name is already in game.");
+                    return false;
+                }
+            }
+
 			//check login and password
 			//(use this code for rejection)
 			//if(false)
