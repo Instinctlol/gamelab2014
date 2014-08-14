@@ -17,6 +17,10 @@ namespace ProjectEntities
     {
         OutDoorType _type = null; public new OutDoorType Type { get { return _type; } }
 
+        [FieldSerialize]
+        private Sector sector;
+
+        
 
         private OutDoor partnerDoor;
 
@@ -28,12 +32,27 @@ namespace ProjectEntities
             get { return partnerDoor; }
             set { partnerDoor = value; }
         }
+
+        public Sector Sector
+        {
+            get { return sector; }
+            set { 
+                if(sector != null)
+                    sector.RemoveDoor(this);
+                sector = value;
+                if (sector != null)
+                    sector.AddDoor(this);
+            }
+        }
         //***************************
 
 
         protected override void OnPostCreate(bool loaded)
         {
             base.OnPostCreate(loaded);
+
+            if (sector != null)
+                sector.AddDoor(this);
 
             if (partnerDoor != null)
                 partnerDoor.Opened = false;
@@ -45,8 +64,6 @@ namespace ProjectEntities
 
             foreach (MapObject obj in Map.Instance.GetObjects(bounds))
             {
-
-
                 OutDoor d = obj as OutDoor;
                 if (d != null && d != this)
                 {

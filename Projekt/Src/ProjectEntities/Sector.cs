@@ -39,6 +39,8 @@ namespace ProjectEntities
         //Liste aller statischen Objecte. TBD
         private List<StaticObject> statics = new List<StaticObject>();
 
+        private List<OutDoor> doors = new List<OutDoor>();
+
         //Ring zu dem dieser Sektore gehört
         [FieldSerialize]
         private Ring ring;
@@ -147,8 +149,6 @@ namespace ProjectEntities
 
             if (obj is AlienUnit && !(obj is AlienSpawner))
                 OnAlienIn();
-            else if (obj is OutDoor && ring != null)
-                ring.RotateRing += ((OutDoor)obj).OnRotate;
 
             if (obj is Dynamic)
                 OnDynamicIn((Dynamic)obj);
@@ -228,7 +228,8 @@ namespace ProjectEntities
 
                 status = !status;
                 foreach (Dynamic d in dynamics)
-                    d.Visible = status;
+                    if(!(d is AlienSpawner))
+                        d.Visible = status;
 
             }
         }
@@ -293,6 +294,13 @@ namespace ProjectEntities
                 m.Position = newRot * offset + Position;
             }
 
+            foreach (MapObject m in doors)
+            {
+                m.Rotation = newRot * m.Rotation;
+                offset = m.Position - OldPosition;
+                m.Position = newRot * offset + Position;
+            }
+
         }
 
 
@@ -320,6 +328,9 @@ namespace ProjectEntities
 
         private void OnDynamicIn(Dynamic obj)
         {
+            if (obj is OutDoor)
+                return;
+
             dynamics.Add(obj);
 
             Vec3 source = obj.Position;
@@ -355,6 +366,9 @@ namespace ProjectEntities
 
         private void OnDynamicOut(Dynamic obj)
         {
+            if (obj is OutDoor)
+                return;
+
             dynamics.Remove(obj);
         }
 
@@ -402,6 +416,20 @@ namespace ProjectEntities
                 Map.Instance.AmbientLight = new ColorValue(150f / 255f, 150f / 255f, 150f / 255f);
             else
                 Map.Instance.AmbientLight = new ColorValue(30f / 255f, 30f / 255f, 30f / 255f);
+        }
+
+        internal void AddDoor(OutDoor outDoor)
+        {
+            doors.Add(outDoor);
+            if(ring != null)
+                ring.RotateRing += outDoor.OnRotate;
+        }
+
+        internal void RemoveDoor(OutDoor outDoor)
+        {
+            doors.Remove(outDoor);
+            if (ring != null)
+                ring.RotateRing -= outDoor.OnRotate;
         }
     }
 }
