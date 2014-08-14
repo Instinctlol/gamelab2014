@@ -7,14 +7,6 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	size = ScaleByResolution 868 700
 	text = Menu
 	mouseCover = True
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 333 86
-		horizontalAlign = Center
-		size = ScaleByResolution 170 30
-		name = Close
-		text = Close
-	}
 	control SectorStatusWindow
 	{
 		position = ScaleByResolution 0 0
@@ -22,28 +14,59 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		size = ScaleByResolution 650 650
 		name = BigMinimap
 	}
-	control "Gui\\Controls\\DefaultButton.gui"
+	control Control
 	{
-		position = ScaleByResolution 333 136
-		horizontalAlign = Center
-		size = ScaleByResolution 170 30
+		position = Parent 0.8317972 0.0942857
+		size = Parent 0.1152074 0.1428571
+		name = Close
+		backTexture = "GUI\\HUD\\Icons\\frame.png"
+		control Control
+		{
+			position = Parent 0.1 0.1
+			size = Parent 0.8 0.8
+			backTexture = "GUI\\HUD\\Icons\\close.png"
+		}
+	}
+	control Control
+	{
+		position = Parent 0.8317972 0.2657143
+		size = Parent 0.1152074 0.1428571
 		name = RotateLeft
-		text = Clockwise
+		backTexture = "GUI\\HUD\\Icons\\frame.png"
+		control Control
+		{
+			position = Parent 0.1 0.1
+			size = Parent 0.8 0.8
+			backTexture = "GUI\\HUD\\Icons\\rotate.png"
+			colorMultiplier = 0 0 0
+		}
 	}
-	control "Gui\\Controls\\DefaultButton.gui"
+	control Control
 	{
-		position = ScaleByResolution 333 236
-		horizontalAlign = Center
-		size = ScaleByResolution 170 30
-		name = Power
-		text = Switch Power
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 333 186
-		horizontalAlign = Center
-		size = ScaleByResolution 170 30
+		position = Parent 0.8317972 0.4228571
+		size = Parent 0.1152074 0.1428571
 		name = RotateRight
-		text = Counterclockwise
+		backTexture = "GUI\\HUD\\Icons\\frame.png"
+		control Control
+		{
+			position = Parent 0.1 0.1
+			size = Parent 0.8 0.8
+			backTexture = "GUI\\HUD\\Icons\\rotateccw.png"
+			colorMultiplier = 0 0 0
+		}
+	}
+	control Control
+	{
+		position = Parent 0.8317972 0.58
+		size = Parent 0.1152074 0.1428571
+		name = Power
+		backTexture = "GUI\\HUD\\Icons\\frame.png"
+		control Control
+		{
+			position = Parent 0.1 0.1
+			size = Parent 0.8 0.8
+			backTexture = "GUI\\HUD\\Icons\\power.png"
+			colorMultiplier = 0 0 0
+		}
 	}
 }

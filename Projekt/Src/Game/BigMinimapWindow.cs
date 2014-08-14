@@ -184,19 +184,19 @@ namespace Game
         public void workbench_Click(Vec2 mousepos)
         {
 
-            if (isinarea((Button)window.Controls["Close"], mousepos))
+            if (window.Controls["Close"].GetScreenRectangle().IsContainsPoint(mousepos))
             {
                 closeButton_Click(window.Controls["Close"]);
             }
-            else if (isinarea((Button)window.Controls["RotateLeft"], mousepos))
+            else if (window.Controls["RotateLeft"].GetScreenRectangle().IsContainsPoint(mousepos))
             {
                 rotateLeftButton_Click(window.Controls["RotateLeft"]);
             }
-            else if (isinarea((Button)window.Controls["RotateRight"], mousepos))
+            else if (window.Controls["RotateRight"].GetScreenRectangle().IsContainsPoint(mousepos))
             {
                 rotateRightButton_Click(window.Controls["RotateRight"]);
             }
-            else if (isinarea((Button)window.Controls["Power"], mousepos))
+            else if (window.Controls["Power"].GetScreenRectangle().IsContainsPoint(mousepos))
             {
                 powerButton_Click(window.Controls["Power"]);
             }
@@ -234,10 +234,6 @@ namespace Game
                 selectedSector = null;
             }
         }
-        bool isinarea(Button button, Vec2 pos)
-        {
 
-            return button.GetScreenRectangle().IsContainsPoint(pos);
-        }
 	}
 }
