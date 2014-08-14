@@ -62,6 +62,7 @@ namespace Game
         void closeButton_Click(object sender)
         {
             window.Visible = false;
+            unselect();
             TuioInputDevice.detectgestures(false);
             TuioInputDevice.cleardata();
             EngineConsole.Instance.Print("minimap clos");
@@ -184,7 +185,6 @@ namespace Game
 
         public void workbench_Click(Vec2 mousepos)
         {
-
             if (window.Controls["Close"].GetScreenRectangle().IsContainsPoint(mousepos))
             {
                 closeButton_Click(window.Controls["Close"]);
@@ -220,10 +220,7 @@ namespace Game
             {
                 powerButton_Click(window.Controls["Power"]); 
             }
-            if (evnt == opType.unselect)
-            {
-                unselect();
-            }
+            unselect();
 
 
         }
