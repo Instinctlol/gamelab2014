@@ -94,11 +94,6 @@ type Astronaut2
 	}
 	dieObjects
 	{
-		mapObject
-		{
-			type = AstronautDead
-			copyVelocitiesFromParent = True
-		}
 		sound
 		{
 			soundName = "Types\\Units\\Rabbit\\Die.ogg"
