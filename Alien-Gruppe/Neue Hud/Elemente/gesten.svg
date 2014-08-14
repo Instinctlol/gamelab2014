@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Neues Dokument 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="270.66718"
+     inkscape:cy="589.6115"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 174.23749,185.63087 -0.62302,9.40189 0.89219,-4.99277 c 0,0 79.04585,1.94352 78.26142,82.57213 -0.48407,49.75598 -42.14762,82.70374 -89.27596,83.08017 -14.97259,0.11959 -94.391384,-3.89591 -95.034834,-84.68822 C 67.925176,204.192 147.75426,189.6509 147.75426,189.6509"
+       id="path2997-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsssc"
+       inkscape:export-filename="C:\Users\Oneidavar\Desktop\gesten\iuhr.png"
+       inkscape:export-xdpi="226.00893"
+       inkscape:export-ydpi="226.00893" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 277.28687,468.99909 184.85792,598.29861 285.36809,580.11587 213.64726,694.76818"
+       id="path3785"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Oneidavar\Desktop\gesten\blitz.png"
+       inkscape:export-xdpi="225"
+       inkscape:export-ydpi="225" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 381.34642,179.41128 0.62302,9.40189 -0.89219,-4.99277 c 0,0 -79.04585,1.94352 -78.26142,82.57213 0.48407,49.75598 42.14762,82.70374 89.27596,83.08017 14.97259,0.11959 94.39138,-3.89591 95.03483,-84.68822 0.53211,-66.81207 -79.29697,-81.35317 -79.29697,-81.35317"
+       id="path2997-9-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsssc"
+       inkscape:export-filename="C:\Users\Oneidavar\Desktop\gesten\guhr.png"
+       inkscape:export-xdpi="225.53441"
+       inkscape:export-ydpi="225.53441" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 443.20443,498.54605 -10.42509,7.54457 4.55358,-3.37769 c 0,0 108.1968,118.34568 119.99507,131.66707 11.79826,13.32138 19.46911,22.00238 19.46911,22.00238 l -150.51273,0.50508 139.40106,-156.57364"
+       id="path3813"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsccc"
+       inkscape:export-filename="C:\Users\Oneidavar\Desktop\gesten\close.png"
+       inkscape:export-xdpi="271.98138"
+       inkscape:export-ydpi="271.98138" />
+  </g>
+</svg>
