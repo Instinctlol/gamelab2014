@@ -414,7 +414,6 @@ namespace ProjectCommon
                             failsafebool = false;
                             failsafe = null;
                             endb = false;
-                            Console.WriteLine("Start Here");
                         }
                         startb = true;
                         start = elemt;
@@ -428,12 +427,11 @@ namespace ProjectCommon
                         failsafe = elemt;
                         failsafebool = true;
                         endb = true;
-                        Console.WriteLine("End here");
                     }
 
                 }
                 #endregion
-                
+
                 #region removeUsed
                 if (used.Count > 0) {
                     foreach (float[] usedelemt in used)
@@ -458,19 +456,20 @@ namespace ProjectCommon
 
                     TuioInputDeviceSpecialEvent customEvent = new TuioInputDeviceSpecialEvent(this, opType.unselect, 0f, 0f);
                     //InputDeviceManager.Instance.SendEvent(customEvent);
-                    Console.WriteLine(lastpoint[4]);
                     customEvent =
                     new TuioInputDeviceSpecialEvent(this, opType.click, start[4], start[5]);
                     InputDeviceManager.Instance.SendEvent(customEvent);
                     cleardata();
+                    
                     #endregion
                 }
 
                 else if (failsafebool && failsafe[2] + threshold < timestamp)
                 {
                     #region gesture
-                        #region convert
-                        //Daten konvertieren
+
+                    #region convert
+                    //Daten konvertieren
                         List<TimePointF> data = new List<TimePointF>();
                         foreach (float[] elemt in tuioInputData)
                         {
@@ -524,11 +523,12 @@ namespace ProjectCommon
                                         customEvent = new TuioInputDeviceSpecialEvent(this, opType.click, lastpoint[4], lastpoint[5]);
                                         break;
                                     }
+                            }
+
                             #endregion
 
-                            }
                             #region senddata
-                            if((float)list.Score > 0.75f)
+                            if ((float)list.Score > 0.75f)
                                 InputDeviceManager.Instance.SendEvent(customEvent);
                             Console.WriteLine(list.Name + " @ " + list.Score);
                             cleardata();
@@ -539,6 +539,8 @@ namespace ProjectCommon
                             //InputDeviceManager.Instance.SendEvent(customEvent);
                             #endregion
                         }
+
+
                     #endregion
                 }
 
@@ -562,6 +564,8 @@ namespace ProjectCommon
 
         public static void cleardata() {
             tuioInputData.Clear();
+            failsafebool = false;
+            failsafe = null;
         }
 
 		/// <summary>
