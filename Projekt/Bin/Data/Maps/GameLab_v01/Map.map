@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -29.58367 38.77763 8.178051
-editorCameraDirection = 2.590393 -0.1217345
+editorCameraPosition = -73.15789 3.491787 41.40656
+editorCameraDirection = 3.213915 -1.318609
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -15566,7 +15566,7 @@ entity
 	type = C
 	uin = 1451
 	classPrompt = StaticObject
-	position = -60.3 101.7 2.1
+	position = -60.3 101.7 1.9
 	rotation = 0 0 -0.3420201 0.9396926
 	name = C_1
 }
@@ -15584,7 +15584,7 @@ entity
 	type = C
 	uin = 1453
 	classPrompt = StaticObject
-	position = 27.5 106.4 2.1
+	position = 27.5 106.4 1.9
 	rotation = 0 0 -0.7071068 0.7071068
 	name = C_3
 }
@@ -15668,4 +15668,116 @@ entity
 	position = -65.4 62.5 1.9
 	rotation = 0 0 0.3826835 0.9238796
 	name = D_7
+}
+entity
+{
+	type = E
+	uin = 1552
+	classPrompt = StaticObject
+	position = -92.2 3.7 2.6
+	rotation = 0 0 0.7071068 0.7071068
+	name = E_0
+}
+entity
+{
+	type = E
+	uin = 1553
+	classPrompt = StaticObject
+	position = -72.9 -22.3 2.8
+	rotation = 0 0 -1 1.477368E-08
+	name = E_1
+}
+entity
+{
+	type = E
+	uin = 1554
+	classPrompt = StaticObject
+	position = -64.4 -34.1 2.8
+	rotation = 0 0 0.3826834 0.9238796
+	name = E_2
+}
+entity
+{
+	type = E
+	uin = 1555
+	classPrompt = StaticObject
+	position = -33.9 -66.40001 2.7
+	rotation = 0 0 -0.9238796 0.3826835
+	name = E_3
+}
+entity
+{
+	type = E
+	uin = 1556
+	classPrompt = StaticObject
+	position = -21.9 -78.8 2.8
+	rotation = 0 0 0.7071068 0.7071068
+	name = E_4
+}
+entity
+{
+	type = G
+	uin = 1557
+	classPrompt = StaticObject
+	position = -42.3 22.2 2.6
+	name = G_0
+}
+entity
+{
+	type = G
+	uin = 1558
+	classPrompt = StaticObject
+	position = -22.1 44.7 2.7
+	rotation = 0 0 0.7071068 0.7071068
+	name = G_1
+}
+entity
+{
+	type = G
+	uin = 1559
+	classPrompt = StaticObject
+	position = 3.4 57.3 2.7
+	name = G_2
+}
+entity
+{
+	type = F
+	uin = 1560
+	classPrompt = StaticObject
+	position = 42.5 -22.2 2.6
+	rotation = 0 0 1 6.69914E-08
+	name = F_0
+}
+entity
+{
+	type = F
+	uin = 1561
+	classPrompt = StaticObject
+	position = -3.3 -57.3 2.7
+	rotation = 0 0 1 7.54979E-08
+	name = F_1
+}
+entity
+{
+	type = F
+	uin = 1562
+	classPrompt = StaticObject
+	position = 22.3 -45.1 2.7
+	rotation = 0 0 -0.6755902 0.7372774
+	name = F_2
+}
+entity
+{
+	type = AlienSpawner
+	uin = 1563
+	classPrompt = AlienSpawner
+	sector = 107
+	spawnLimit = 0
+	intellectShouldDeleteAfterDetach = False
+	initialAI = AlienSpawnerAI
+	initialFaction = BadFaction
+	healthFactorAtBeginning = 1
+	position = -88.08127 17.74467 0.5730705
+	name = AlienSpawner_9
+	editorLayer = "Root Layer\\F2\\Sporner"
 }
