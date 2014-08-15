@@ -97,6 +97,8 @@ namespace ProjectEntities
         
         float patrolTickTime;
 
+        int positionChanged = 0;
+
         int counterPatrolCosts = 0; //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
 
         Vec3 oldMainBodyPosition;
@@ -137,6 +139,8 @@ namespace ProjectEntities
             }
         }
 
+       
+
         public void Patrol()
         {
             EngineConsole.Instance.Print("Ich patroulliere");
@@ -154,7 +158,7 @@ namespace ProjectEntities
 
             Vec3 source = this.Position;
             source.Z = 100;
-            Vec3 direction = new Vec3(0, 0, -1000000);
+            Vec3 direction = new Vec3(0, 0, -1000000000000000000);
             Ray ray = new Ray(source, direction);
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
@@ -177,16 +181,20 @@ namespace ProjectEntities
                             minCurve = curve;
                             EngineConsole.Instance.Print("Ich bin im Sektor F1S45");
                         }
-                       
-                        //if(sec.Name == "F2S23" )
-                        //Probleme mit Raum F1R5 !!!!!!!!!!!!!!!
-                           
-                        
-                        if (curve.Name.Substring(5, 4) == sec.Name.Substring(0, 4))
+
+                        if (sec.Name == "F2S23" && curve.Name == "CurveF2R2")
+                        {
+                            minCurve = curve;
+                            EngineConsole.Instance.Print("Ich bin im Sektor F1S23");
+                        }
+                        //Probleme mit Raum F1R5 -> aktuell wird gemeldet, dass hier Patrouillieren nicht möglich ist!!!!!!!!!!!!!!!
+
+
+                        if (curve.Name.Substring(5, 4) == sec.Name.Substring(0, 4) && sec.Name != "F1R1-S")
                         {
                             minCurve = curve;
                         }
-                        else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)))
+                        else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)) && sec.Name != "F1S45" && sec.Name != "F2S23")
                         {
                             EngineConsole.Instance.Print("Ich stehe im Gang");
 
@@ -248,7 +256,8 @@ namespace ProjectEntities
                     
             ////////////////////////////////////////////////////////
 
-            
+
+          
 
             if (minCurve == null)
             {
@@ -295,14 +304,12 @@ namespace ProjectEntities
                         }
                         counterPatrolCosts++;
 
-                           
                        
                         //laufe zum nächsten Punkt
                         MapCurvePoint pt = route[routeIndex] as MapCurvePoint;
                         Move(pt.Position);
                         routeIndex++; //nächster Route-Waypoint
-                        
-                                   
+                                
 
                         //das Alien läuft die Route zurück, wenn es am Ende der Route angekommen ist.
                         if (routeIndex >= route.Count)
@@ -423,7 +430,11 @@ namespace ProjectEntities
             if (MoveEnabled)
                 TickMove();
             else
+            {
+                Console.WriteLine("sind in OnTick");
                 path.Clear();
+            }
+                
 
             if (timeTilNextSound > 0)
             {
@@ -551,7 +562,18 @@ namespace ProjectEntities
                 }
 
                 if (pathFoundedToPosition != MovePosition.ToVec2() && pathFindWaitTime == 0)
+                {
+                    //if (patrolEnabled)
+                    //{
+                    //    patrolEnabled = false;
+                    //    ((AlienUnitAI)this.Intellect).DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Stop), false);
+
+                    //    StatusMessageHandler.sendMessage("Kein Weg gefunden");
+                    //}
+
                     path.Clear();
+                }
+                    
 
                 if (path.Count == 0)
                 {
@@ -567,11 +589,30 @@ namespace ProjectEntities
                             pathFindWaitTime = 1.0f;
                         }
                     }
+                    //else
+                    //{
+                    //    if (patrolEnabled)
+                    //    {
+                    //        patrolEnabled = false;
+                    //        ((AlienUnitAI)this.Intellect).DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Stop), false);
+
+                    //        StatusMessageHandler.sendMessage("Keinen Weg gefunden");
+                    //    }
+                    //}
                 }
             }
 
             if (path.Count == 0)
+            {
+                //if(patrolEnabled)
+                //{
+                //    patrolEnabled = false;
+                //    ((AlienUnitAI)this.Intellect).DoTask(new AlienUnitAI.Task(AlienUnitAI.Task.Types.Stop), false);
+
+                //    StatusMessageHandler.sendMessage("Kein Weg gefunden");
+                //}
                 return;
+            }
 
             //line movement to path[ 0 ]
             {
