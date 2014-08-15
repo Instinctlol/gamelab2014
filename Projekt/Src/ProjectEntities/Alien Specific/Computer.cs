@@ -22,6 +22,8 @@ namespace ProjectEntities
     /// </summary>
     public class Computer : Dynamic
     {
+        static Computer instance = new Computer();
+
         /*************/
         /* Attribute */
         /*************/
@@ -31,117 +33,132 @@ namespace ProjectEntities
         const int maxRotationCoupons = 10;
 
         [FieldSerialize]
-        static int experiencePoints = 50;
-        static int rotationCoupons = 0;
-        static int powerCoupons = 0;
-        static int availableAliens = 0;
-        static int usedAliens = 0;
-        public static bool noSpawnTime = false;
+        int experiencePoints = 50;
+        int rotationCoupons = 0;
+        int powerCoupons = 0;
+        int availableAliens = 0;
+        int usedAliens = 0;
+        bool noSpawnTime = false;
 
         // Für USB
-        static bool alienControlPaused = false;
-        static Timer alienControlTimer;
+        bool alienControlPaused = false;
+        Timer alienControlTimer;
 
         //Schere Stein PapierWindow
-        private static Task csspwTask;
+        private Task csspwTask;
         //Ob Licht geändert werden darf oder nicht
-        private static bool allowedToChangeLight;
+        private bool allowedToChangeLight;
 
-        
+
+        // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
+        int maxItemDropGroupNr = 2;
 
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
         // Bei Rechtsrotation wird 1 % 8 addiert, bei Linksrotation 1 % 8 subtrahiert.
-        static int[] ringRotations = new int[3];
+        int[] ringRotations = new int[3];
 
         // Verwaltet alle Alienleichen in der Reihenfolge, wie sie gestorben sind
-        static Queue<Corpse> corpseList = new Queue<Corpse>();
+        Queue<Corpse> corpseList = new Queue<Corpse>();
         const int maxAlienCorpses = 10;
 
         // Verwaltet die Signale für das Radar
-        public static ThreadSafeList<Signal> signalList = new ThreadSafeList<Signal>();
-
-        // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
-        static int maxItemDropGroupNr = 2;
-
+        public ThreadSafeList<Signal> signalList = new ThreadSafeList<Signal>();
+        
         // Statistik
-        static Statistic statistic = new Statistic();
+        Statistic statistic = new Statistic();
 
         // Anzeige der Statistik für Server und Clients
-        static bool astronautwin = false;
-        static bool alienwin = false;
+        bool astronautwin = false;
+        bool alienwin = false;
         
         enum NetworkMessages
         {
             StatisticToClient
         }
-        public static event StatisticEventDelegate showStatistic;
+        public event StatisticEventDelegate showStatistic;
         public delegate void StatisticEventDelegate();
 
         /*******************/
         /* Getter / Setter */
         /*******************/
-        public static bool Alienwin
+        public static Computer Instance
         {
-            get { return Computer.alienwin; }
-            set { Computer.alienwin = value; }
+            get { return instance; }
         }
 
-        public static bool Astronautwin
+        public bool Alienwin
         {
-            get { return Computer.astronautwin; }
-            set { Computer.astronautwin = value; }
+            get { return alienwin; }
+            set { alienwin = value; }
         }
 
-        public static int ExperiencePoints
+        public bool Astronautwin
+        {
+            get { return astronautwin; }
+            set { astronautwin = value; }
+        }
+
+        public int ExperiencePoints
         {
             get { return experiencePoints; }
             set { experiencePoints = value; }
         }
 
-        public static int RotationCoupons
+        public int RotationCoupons
         {
             get { return rotationCoupons; }
         }
 
-        public static int PowerCoupons
+        public int PowerCoupons
         {
             get { return powerCoupons; }
         }
 
-        public static int AvailableAliens
+        public int AvailableAliens
         {
             get { return availableAliens; }
         }
 
-        public static int UsedAliens
+        public int UsedAliens
         {
             get { return usedAliens; }
         }
 
-        public static int[] RingRotations
+        public int[] RingRotations
         {
             get { return ringRotations; }
         }
 
-        public static Task CsspwTask
+        public Task CsspwTask
         {
-            get { return Computer.csspwTask; }
-            set { Computer.csspwTask = value; }
+            get { return csspwTask; }
+            set { csspwTask = value; }
         }
 
-        public static bool AllowedToChangeLight
+        public bool AllowedToChangeLight
         {
-            get { return Computer.allowedToChangeLight; }
-            set { Computer.allowedToChangeLight = value; }
+            get { return allowedToChangeLight; }
+            set { allowedToChangeLight = value; }
         }
 
-        public static int MaxItemDropGroupNr
+        public int MaxItemDropGroupNr
         {
-            get { return Computer.maxItemDropGroupNr; }
+            get { return maxItemDropGroupNr; }
         }
 
-        public static Statistic Statistic
+        public bool AlienControlPaused
+        {
+            get { return alienControlPaused; }
+        }
+
+        public bool NoSpawnTime
+        {
+            get { return noSpawnTime; }
+            set { noSpawnTime = value; }
+        }
+
+        public Statistic Statistic
         {
             get { return statistic; }
         }
@@ -153,10 +170,10 @@ namespace ProjectEntities
         /// Anzahl erhöhen bis Gesamtanzahl an Gruppen der Drop-Items des Aliens erreicht wurde. Damit kann eingeschränkt werden, 
         /// bis zu welcher Gruppennummer die Items gedroppt werden dürfen.
         /// </summary>
-        public static void IncrementMaxItemDropGroupNr()
+        public void IncrementMaxItemDropGroupNr()
         {
             Alien a = Entities.Instance.Create("Alien", Map.Instance) as Alien;
-            if (maxItemDropGroupNr < a.Type.DieObjects.Count)
+            if (MaxItemDropGroupNr < a.Type.DieObjects.Count)
             {
                 maxItemDropGroupNr++;
             }
@@ -166,7 +183,7 @@ namespace ProjectEntities
         /// ExperiencePoints hinzufügen
         /// </summary>
         /// <param name="value"></param>
-        public static void AddExperiencePoints(int value)
+        public void AddExperiencePoints(int value)
         {
             if (value >= 0)
             {
@@ -177,9 +194,9 @@ namespace ProjectEntities
         /// <summary>
         /// ExperiencePoints um Eins erniedrigen
         /// </summary>
-        public static void DecrementExperiencePoints()
+        public void DecrementExperiencePoints()
         {
-            if (experiencePoints > 0)
+            if (ExperiencePoints > 0)
             {
                 experiencePoints--;
             }
@@ -187,9 +204,9 @@ namespace ProjectEntities
         /// <summary>
         /// Rotation Coupons um Eins erhöhen
         /// </summary>
-        public static void IncrementRotationCoupons()
+        public void IncrementRotationCoupons()
         {
-            if (rotationCoupons < maxRotationCoupons)
+            if (RotationCoupons < maxRotationCoupons)
             {
                 rotationCoupons++;
             }
@@ -197,9 +214,9 @@ namespace ProjectEntities
         /// <summary>
         /// Rotation Coupons um Eins erniedrigen
         /// </summary>
-        public static void DecrementRotationCoupons()
+        public void DecrementRotationCoupons()
         {
-            if (rotationCoupons > 0)
+            if (RotationCoupons > 0)
             {
                 rotationCoupons--;
             }
@@ -208,9 +225,9 @@ namespace ProjectEntities
         /// <summary>
         /// Power Coupons um Eins erhöhen
         /// </summary>
-        public static void IncrementPowerCoupons()
+        public void IncrementPowerCoupons()
         {
-            if (powerCoupons < maxPowerCoupons)
+            if (PowerCoupons < maxPowerCoupons)
             {
                 powerCoupons++;
             }
@@ -218,9 +235,9 @@ namespace ProjectEntities
         /// <summary>
         /// Power Coupons um Eins erniedrigen
         /// </summary>
-        public static void DecrementPowerCoupons()
+        public void DecrementPowerCoupons()
         {
-            if (powerCoupons > 0)
+            if (PowerCoupons > 0)
             {
                 powerCoupons--;
             }
@@ -229,9 +246,9 @@ namespace ProjectEntities
         /// <summary>
         /// Ein Alien wurde gespawnt, d.h. Ein verfügbares Alien weniger und ein aktives Alien mehr
         /// </summary>
-        public static void AddUsedAlien()
+        public void AddUsedAlien()
         {
-            if (availableAliens > 0)
+            if (AvailableAliens > 0)
             {
                 DecrementAvailableAliens();
                 IncrementUsedAliens();
@@ -241,9 +258,9 @@ namespace ProjectEntities
         /// <summary>
         /// Verfügbare Aliens um Eins erhöhen
         /// </summary>
-        public static void IncrementAvailableAliens()
+        public void IncrementAvailableAliens()
         {
-            if ((availableAliens + usedAliens) < maxAliens)
+            if ((AvailableAliens + UsedAliens) < maxAliens)
             {
                 availableAliens++;
             }
@@ -251,7 +268,7 @@ namespace ProjectEntities
         /// <summary>
         /// Verfügbare Aliens um Eins erniedrigen
         /// </summary>
-        private static void DecrementAvailableAliens()
+        private void DecrementAvailableAliens()
         {
             availableAliens--;
         }
@@ -259,7 +276,7 @@ namespace ProjectEntities
         /// <summary>
         /// Aktive Aliens um Eins erhöhen
         /// </summary>
-        private static void IncrementUsedAliens()
+        private void IncrementUsedAliens()
         {
             usedAliens++;
             statistic.IncrementSpawnedAliens();
@@ -267,9 +284,9 @@ namespace ProjectEntities
         /// <summary>
         /// Aktive Aliens um Eins erniedrigen
         /// </summary>
-        public static void DecrementUsedAliens()
+        public void DecrementUsedAliens()
         {
-            if (usedAliens > 0)
+            if (UsedAliens > 0)
             {
                 usedAliens--;
                 statistic.IncrementKilledAliens();
@@ -281,9 +298,9 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="ring"></param>
         /// <param name="left"></param>
-        public static void RotateRing(Ring ring, bool left)
+        public void RotateRing(Ring ring, bool left)
         {
-            if (alienControlPaused)
+            if (AlienControlPaused)
             {
                 StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
             }
@@ -292,7 +309,7 @@ namespace ProjectEntities
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
             }
-            else if (rotationCoupons <= 0)
+            else if (RotationCoupons <= 0)
             {
                 // Nachricht ausgeben
                 StatusMessageHandler.sendMessage("Keine Rotationen möglich");
@@ -303,18 +320,18 @@ namespace ProjectEntities
             }
             else
             {
-                Computer.DecrementRotationCoupons();
+                DecrementRotationCoupons();
                 int ringNumber = ring.GetRingNumber();
                 if (left)
                 {
                     EngineConsole.Instance.Print("computer links drehen");
-                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] -1 ,8);
+                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
                     ring.RotateLeft();
                 }
                 else
                 {
                     EngineConsole.Instance.Print("computer rechts drehen");
-                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] + 1, 8);
+                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
                 ///ToDo: Gridaktualisierung für die Rotation in der Map
@@ -322,7 +339,7 @@ namespace ProjectEntities
             }
         }
 
-        public static void AstronautRotateRing(Ring ring, bool left)
+        public void AstronautRotateRing(Ring ring, bool left)
         {
             if (ring == null)
             {
@@ -335,13 +352,13 @@ namespace ProjectEntities
                 if (left)
                 {
                     EngineConsole.Instance.Print("computer links drehen");
-                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] - 1, 8);
+                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
                     ring.RotateLeft();
                 }
                 else
                 {
                     EngineConsole.Instance.Print("computer rechts drehen");
-                    ringRotations[ringNumber - 1] = mod(ringRotations[ringNumber - 1] + 1, 8);
+                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
                 ///ToDo: Gridaktualisierung für die Rotation in der Map
@@ -353,27 +370,27 @@ namespace ProjectEntities
         /// Switches off or on the power of one sector (room)
         /// </summary>
         /// <param name="sector"></param>
-        public static void SetSectorPower(Sector sector)
+        public void SetSectorPower(Sector sector)
         {
-            if (alienControlPaused)
+            if (AlienControlPaused)
             {
                 StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
             }
-            else if (allowedToChangeLight)
+            else if (AllowedToChangeLight)
             {
                 if (sector == null)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
                 }
-                else if (powerCoupons <= 0)
+                else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
                 }
                 else
                 {
-                    Computer.DecrementPowerCoupons();
+                    DecrementPowerCoupons();
                     sector.SwitchLights(false);
                 }
             }
@@ -389,20 +406,20 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="sectorGroup"></param>
         /// <param name="b"</param>
-        public static void SetSectorGroupPowerAstronaut(SectorGroup sectorGroup, bool b)
+        public void SetSectorGroupPowerAstronaut(SectorGroup sectorGroup, bool b)
         {
-            if (alienControlPaused)
+            if (AlienControlPaused)
             {
                 StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
             }
-            else if (allowedToChangeLight)
+            else if (AllowedToChangeLight)
             {
                 if (sectorGroup == null)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
                 }
-                else if (powerCoupons <= 0)
+                else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
@@ -424,27 +441,27 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="sectorGroup"></param>
         /// <param name="b"</param>
-        public static void SetSectorGroupPower(SectorGroup sectorGroup, bool b)
+        public void SetSectorGroupPower(SectorGroup sectorGroup, bool b)
         {
-            if (alienControlPaused)
+            if (AlienControlPaused)
             {
                 StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
             }
-            else if (allowedToChangeLight)
+            else if (AllowedToChangeLight)
             {
                 if (sectorGroup == null)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
                 }
-                else if (powerCoupons <= 0)
+                else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
                     StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
                 }
                 else
                 {
-                    Computer.DecrementPowerCoupons();
+                    DecrementPowerCoupons();
                     sectorGroup.LightStatus = b;
                 }
             }
@@ -479,9 +496,9 @@ namespace ProjectEntities
         /// <summary>
         /// Alles wird auf das Maximum gesetzt
         /// </summary>
-        public static void SetToMaximum()
+        public void SetToMaximum()
         {
-            availableAliens = (maxAliens - usedAliens);
+            availableAliens = (maxAliens - UsedAliens);
             rotationCoupons = maxRotationCoupons;
             powerCoupons = maxPowerCoupons;
         }
@@ -492,7 +509,7 @@ namespace ProjectEntities
                 csspwSet();
         }*/
 
-        private static int mod(int x, int m)
+        private int mod(int x, int m)
         {
             return (x%m + m)%m;
         }
@@ -501,7 +518,7 @@ namespace ProjectEntities
         /// Fügt eine neue Alienleiche der Liste hinzu
         /// </summary>
         /// <param name="corpse"></param>
-        public static void AddAlienCorpse(Corpse corpse)
+        public void AddAlienCorpse(Corpse corpse)
         {
             corpseList.Enqueue(corpse);
             if (corpseList.Count > maxAlienCorpses)
@@ -514,7 +531,7 @@ namespace ProjectEntities
         /// Wenn USB von Astronauten eingesetzt wurde, dann hat das Alien für 2 Min keine Kontrolle.
         /// Timmer erstellen, der nach 2 Min die Kontrolle wieder einstellt.
         /// </summary>
-        public static void SetAlienControlPaused()
+        public void SetAlienControlPaused()
         {
             alienControlPaused = true;
             StatusMessageHandler.sendControlMessage("Astronauten haben die Kontrolle!");
@@ -528,7 +545,7 @@ namespace ProjectEntities
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        static void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             alienControlPaused = false;
             StatusMessageHandler.sendControlMessage("");
@@ -537,18 +554,18 @@ namespace ProjectEntities
         /// <summary>
         /// Löscht eine Alienleiche aus der Liste und lässt die Leiche im Spiel verschwinden
         /// </summary>
-        private static void DeleteFirstAlienCorpse()
+        private void DeleteFirstAlienCorpse()
         {
             Corpse corpse = corpseList.Dequeue();
             corpse.Die();
         }
         
-        public static void AddDamageAstronouts(float damage)
+        public void AddDamageAstronouts(float damage)
         {
             statistic.AddDamageAstronouts(damage);
         }
 
-        public static void IncrementKilledAstronouts()
+        public void IncrementKilledAstronouts()
         {
             statistic.IncrementKilledAstronouts();
         }
@@ -557,7 +574,7 @@ namespace ProjectEntities
         /// Fügt ein Signal der Minimap für eine gewisse Zeit hinzu
         /// </summary>
         /// <param name="v"></param>
-        public static void AddRadarElement(Vec2 min, Vec2 max)
+        public void AddRadarElement(Vec2 min, Vec2 max)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
             Signal s = new Signal(min, max);
@@ -575,7 +592,7 @@ namespace ProjectEntities
         /// Löscht das erste Signalelement der Signalliste
         /// </summary>
         /// <param name="v"></param>
-        static void RemoveRadarElement(object source, ElapsedEventArgs e)
+        void RemoveRadarElement(object source, ElapsedEventArgs e)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
             if (signalList.Count() > 0 && signalList != null) 
@@ -590,6 +607,11 @@ namespace ProjectEntities
         /// </summary>
         public static void Reset()
         {
+            Instance.ResetInstance();
+        }
+
+        private void ResetInstance()
+        {
             experiencePoints = 50;
             rotationCoupons = 0;
             powerCoupons = 0;
@@ -598,16 +620,15 @@ namespace ProjectEntities
             maxItemDropGroupNr = 2;
         }
 
-        public static void SetWinner(bool alienWin)
+        public void SetWinner(bool alienWin)
         {
-            alienwin = alienWin;
-            astronautwin = !alienWin;
+            //alienwin = alienWin;
+            //astronautwin = !alienWin;
 
-            // Clients bescheid geben
-            //Computer c = new Computer();
-            //c.Server_SendStatisticToClients();
-            // Event feuern, damit die Statistik angezeigt wird
-            //if(showStatistic != null)
+            //// Clients bescheid geben
+            //Server_SendStatisticToClients();
+            //// Event feuern, damit die Statistik angezeigt wird
+            //if (showStatistic != null)
             //{
             //    showStatistic();
             //}
@@ -615,7 +636,8 @@ namespace ProjectEntities
 
         private void Server_SendStatisticToClients()
         {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Statistic), (ushort)NetworkMessages.StatisticToClient);
+            Console.WriteLine("StatisticToClient: "+NetworkMessages.StatisticToClient + " " + (ushort)NetworkMessages.StatisticToClient+" "+typeof(Computer));
+            SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.StatisticToClient);
             writer.Write(alienwin);
             EndNetworkMessage();
         }
@@ -623,6 +645,7 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.StatisticToClient)]
         void Client_ReceiveStatistic(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
+            Console.WriteLine("Client receivestatistic");
             bool win = reader.ReadBoolean();
             if (!reader.Complete())
                 return;

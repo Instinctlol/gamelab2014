@@ -111,7 +111,7 @@ namespace ProjectEntities
 
             LastUse = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
-            Computer.SetAlienControlPaused();
+            Computer.Instance.SetAlienControlPaused();
         }
 
         private void Server_SendLastUse()

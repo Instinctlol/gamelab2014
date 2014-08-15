@@ -591,16 +591,16 @@ namespace ProjectEntities
         {
             base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
             // Dem Computer mitteilen, dass ein Alien einen Astronauten getroffen hat.
-            Computer.AddExperiencePoints((int)damage);
-            Computer.AddDamageAstronouts(damage);
+            Computer.Instance.AddExperiencePoints((int)damage);
+            Computer.Instance.AddDamageAstronouts(damage);
         }
 
         protected override void OnDie(MapObject prejudicial)
         {
             base.OnDie(prejudicial);
             // Bonus für Alien
-            Computer.AddExperiencePoints(50);
-            Computer.IncrementKilledAstronouts();
+            Computer.Instance.AddExperiencePoints(50);
+            Computer.Instance.IncrementKilledAstronouts();
         }
 
 		protected override void OnSuspendPhysicsDuringMapLoading( bool suspend )

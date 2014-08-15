@@ -163,7 +163,7 @@ namespace ProjectEntities
             if (productUnitAttachedMesh != null)
                 productUnitAttachedMesh.RotationOffset *= new Angles(0, angleDelta, 0).ToQuat();
 
-            if (BuildUnitProgress >= 1 || Computer.noSpawnTime)
+            if (BuildUnitProgress >= 1 || Computer.Instance.NoSpawnTime)
             {
                 CreateProductedUnit();
                 StopProductUnit();
@@ -199,19 +199,19 @@ namespace ProjectEntities
             bool spawningAllowed = true;
 
             // Prüfung ob genügend Aliens verfügbar sind
-            if (Computer.AvailableAliens == 0)
+            if (Computer.Instance.AvailableAliens == 0)
             {
                 // Kein Alien verfügbar
                 spawningAllowed = false;
                 // Nachricht anzeigen
                 StatusMessageHandler.sendMessage("Es sind keine Aliens verfügbar");
             }
-            else if (Computer.AvailableAliens < spawnNumber)
+            else if (Computer.Instance.AvailableAliens < spawnNumber)
             {
                 // Nicht Genügend Aliens verfügbar, aber min. ein Alien kann gespawnt werden
                 // Nachricht anzeigen
-                StatusMessageHandler.sendMessage(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.AvailableAliens));
-                spawnNumber = Computer.AvailableAliens;
+                StatusMessageHandler.sendMessage(String.Format("Es können nur {0:d} Aliens gespawnt werden.", Computer.Instance.AvailableAliens));
+                spawnNumber = Computer.Instance.AvailableAliens;
             }
             // Limit prüfen
             if (spawningAllowed && spawnLimit > 0)
@@ -332,7 +332,7 @@ namespace ProjectEntities
         /// </summary>
         void CreateProductedUnit()
         {
-            while (aliensToSpawn > 0 && Computer.AvailableAliens > 0)
+            while (aliensToSpawn > 0 && Computer.Instance.AvailableAliens > 0)
             {
                 // Objekt erstellen
                 Alien alien = (Alien)Entities.Instance.Create(spawnedUnit, Map.Instance);
@@ -356,7 +356,7 @@ namespace ProjectEntities
                 aliensToSpawn--;
                 spawnCounter++;
                 // Computer aktualisieren
-                Computer.AddUsedAlien();
+                Computer.Instance.AddUsedAlien();
             }
         }
 

@@ -266,7 +266,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 8
-				code = "Computer.AllowedToChangeLight=true;"
+				code = "Computer.Instance.AllowedToChangeLight=true;"
 				methodName = Repair
 				returnType = System.Void
 				parameters = 
@@ -503,7 +503,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 33
-				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Astronautwin = true;\r\n\t\t\t}"
+				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.Astronautwin = true;\r\n\t\t\t}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -522,7 +522,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 35
-				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
+				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -541,7 +541,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 37
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-B\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-B\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -551,7 +551,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 38
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -561,7 +561,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 39
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -580,7 +580,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 41
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -590,7 +590,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 42
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -600,7 +600,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 43
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-A\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-A\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -619,7 +619,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 45
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -629,7 +629,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 46
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -639,7 +639,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 47
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-C\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-C\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -658,7 +658,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 49
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -668,7 +668,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 50
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -678,7 +678,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 51
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-E\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-E\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -697,7 +697,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 53
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-D\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-D\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -707,7 +707,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 54
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -717,7 +717,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 55
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -736,7 +736,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 57
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -746,7 +746,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 58
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -756,7 +756,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 59
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-A\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-A\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -775,7 +775,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 61
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-G\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-G\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -785,7 +785,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 62
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -795,7 +795,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 63
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -814,7 +814,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 65
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -824,7 +824,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 66
-				code = "Computer.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),false);"
 				methodName = TerminalRotateRightAction
 				returnType = System.Void
 				parameters = 
@@ -834,7 +834,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 67
-				code = "Computer.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-F\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-F\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 

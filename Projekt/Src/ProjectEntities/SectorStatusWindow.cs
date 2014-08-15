@@ -110,9 +110,9 @@ namespace ProjectEntities
             //Vec3 pos = new Vec3();
             //Quat rotation = new Quat();
 
-            //for (int i = 0; i < Computer.RingRotations.Length; i++)
+            //for (int i = 0; i < Computer.Instance.RingRotations.Length; i++)
             //{
-            //    int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
+            //    int dist = Math.Abs(Computer.Instance.RingRotations[i] - currRingRotations[i]);      //Distanz zwischen curr und newest, wenn dist=0 braucht nicht gedreht werden
             //    if (dist == 4)                                                              //Distanz in der Mitte: 4x egal wohin drehen
             //    {
             //        switch (i)
@@ -131,40 +131,40 @@ namespace ProjectEntities
             //                break;
             //        }
             //    }
-            //    if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
-            //        (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
+            //    if ((dist < 4 && currRingRotations[i] < Computer.Instance.RingRotations[i]) ||     //Rechts drehen wenn das gilt. Beispiel:
+            //        (dist > 4 && currRingRotations[i] > Computer.Instance.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rechts drehen
             //    {
             //        switch (i)
             //        {
             //            case 0:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
             //                    OnOuterRotation(pos, rotation, false);
             //                break;
             //            case 1:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
             //                    OnMiddleRotation(pos, rotation, false);
             //                break;
             //            case 2:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
             //                    OnInnerRotation(pos, rotation, false);
             //                break;
             //        }
             //    }
-            //    if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
-            //        (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
+            //    if ((dist < 4 && currRingRotations[i] > Computer.Instance.RingRotations[i]) ||     //Links drehen wenn das gilt. Beispiel:
+            //        (dist > 4 && currRingRotations[i] < Computer.Instance.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: links drehen
             //    {
             //        switch (i)
             //        {
             //            case 0:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
             //                    OnOuterRotation(pos, rotation, true);
             //                break;
             //            case 1:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
             //                    OnMiddleRotation(pos, rotation, true);
             //                break;
             //            case 2:
-            //                for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+            //                for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
             //                    OnInnerRotation(pos, rotation, true);
             //                break;
             //        }
@@ -203,9 +203,9 @@ namespace ProjectEntities
             Vec3 pos = new Vec3();
             Quat rotation = new Quat();
 
-            for (int i = 0; i < Computer.RingRotations.Length; i++)
+            for (int i = 0; i < Computer.Instance.RingRotations.Length; i++)
             {
-                int dist = Math.Abs(Computer.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
+                int dist = Math.Abs(Computer.Instance.RingRotations[i] - currRingRotations[i]);      //Distance between curr and newest, if dist=0 no rotation needed
                 if (dist == 4)                                                              //If distance is in the 'middle', it doesnt matter if you rotate left or right
                 {
                     switch (i)
@@ -224,40 +224,40 @@ namespace ProjectEntities
                             break;
                     }
                 }
-                if ((dist < 4 && currRingRotations[i] < Computer.RingRotations[i]) ||     //if this applies, rotate right: e.g.
-                    (dist > 4 && currRingRotations[i] > Computer.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rotate right
+                if ((dist < 4 && currRingRotations[i] < Computer.Instance.RingRotations[i]) ||     //if this applies, rotate right: e.g.
+                    (dist > 4 && currRingRotations[i] > Computer.Instance.RingRotations[i]))       //curr=4,new=7  dist=3 curr<new || curr=7,new=0  dist=7 curr>new: rotate right
                 {
                     switch (i)
                     {
                         case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
                                 OnOuterRotation(pos, rotation, false);   //also sends to clients
                             break;
                         case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
                                 OnMiddleRotation(pos, rotation, false);  //also sends to clients
                             break;
                         case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x - 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x - 1, 8))
                                 OnInnerRotation(pos, rotation, false);   //also sends to clients
                             break;
                     }
                 }
-                if ((dist < 4 && currRingRotations[i] > Computer.RingRotations[i]) ||     //if this applies, rotate left: e.g.
-                    (dist > 4 && currRingRotations[i] < Computer.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: rotate left
+                if ((dist < 4 && currRingRotations[i] > Computer.Instance.RingRotations[i]) ||     //if this applies, rotate left: e.g.
+                    (dist > 4 && currRingRotations[i] < Computer.Instance.RingRotations[i]))       //curr=0,new=7  dist=7 curr<new: || curr=7,new=4  dist=3 curr>new: rotate left
                 {
                     switch (i)
                     {
                         case 0:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
                                 OnOuterRotation(pos, rotation, true);    //also sends to clients
                             break;
                         case 1:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
                                 OnMiddleRotation(pos, rotation, true);   //also sends to clients
                             break;
                         case 2:
-                            for (int x = currRingRotations[i]; x != Computer.RingRotations[i]; x = mod(x + 1, 8))
+                            for (int x = currRingRotations[i]; x != Computer.Instance.RingRotations[i]; x = mod(x + 1, 8))
                                 OnInnerRotation(pos, rotation, true);    //also sends to clients
                             break;
                     }

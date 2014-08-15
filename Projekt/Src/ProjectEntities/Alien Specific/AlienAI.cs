@@ -289,7 +289,7 @@ namespace ProjectEntities
                         //weapons control
                         if (lineVisibility)
                         {
-                            Computer.AddRadarElement(controlledObj.MapBounds.Minimum.ToVec2(), controlledObj.MapBounds.Maximum.ToVec2());
+                            Computer.Instance.AddRadarElement(controlledObj.MapBounds.Minimum.ToVec2(), controlledObj.MapBounds.Maximum.ToVec2());
                             
                             foreach (Weapon weapon in initialWeapons)
                             {

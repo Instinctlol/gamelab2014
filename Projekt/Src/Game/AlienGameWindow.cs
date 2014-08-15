@@ -74,7 +74,7 @@ namespace Game
         float timeForDeleteNotificationMessage;
         float timeForDropItemIncrementation = 300;
 
-        float timeForWin = 60;
+        float timeForWin = 30;
 
         // Headtracking
         Vec3 headtrackingOffset;
@@ -124,7 +124,7 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
-            Computer.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
         //hudFunktionen
@@ -261,12 +261,12 @@ namespace Game
         {
             if(sspw==null)
             {
-                sspw = new Server_SchereSteinPapierWindow(Computer.CsspwTask, hudControl.Controls["SchereSteinPapier"]);
-                sspw.start(Computer.CsspwTask);
+                sspw = new Server_SchereSteinPapierWindow(Computer.Instance.CsspwTask, hudControl.Controls["SchereSteinPapier"]);
+                sspw.start(Computer.Instance.CsspwTask);
             }
             else
             {
-                sspw.start(Computer.CsspwTask);
+                sspw.start(Computer.Instance.CsspwTask);
             }
         }
 
@@ -499,13 +499,13 @@ namespace Game
             // Alles auf Maximum (Rotation, Strom, Aliens)
             if (e.Key == EKeys.F4)
             {
-                Computer.SetToMaximum();
+                Computer.Instance.SetToMaximum();
             }
 
             // Spawntime an-/ausschalten
             if (e.Key == EKeys.F5)
             {
-                Computer.noSpawnTime = !Computer.noSpawnTime;
+                Computer.Instance.NoSpawnTime = !Computer.Instance.NoSpawnTime;
             }
 
             // Alle Aliens selektieren
@@ -516,7 +516,7 @@ namespace Game
 
             if (e.Key == EKeys.F7)
             {
-                Computer.SetAlienControlPaused();
+                Computer.Instance.SetAlienControlPaused();
             }
 
             if (e.Key == EKeys.F8)
@@ -1091,11 +1091,12 @@ namespace Game
 
             }
 
-            timeForWin -= delta;
-            if(timeForWin< 0)
-            {
-                Computer.SetWinner(true);
-            }
+            //timeForWin -= delta;
+            //if(timeForWin< 0)
+            //{
+            //    Console.WriteLine("setwinner");
+            //    Computer.Instance.SetWinner(true);
+            //}
             
 
             //gameStatus
@@ -1150,11 +1151,11 @@ namespace Game
             }
             */
             {
-                hudControl.Controls["Strahlen"].Controls["AktuelleAlien"].Controls["AlienCountActive"].Text = "" + Computer.UsedAliens;
-                hudControl.Controls["Strahlen"].Controls["MaximalAlien"].Controls["AlienCountPossible"].Text = "" + Computer.AvailableAliens;
-                hudControl.Controls["Strahlen"].Controls["Rotation"].Controls["RotationCouponCount"].Text = "" + Computer.RotationCoupons;
-                hudControl.Controls["Strahlen"].Controls["LightSwitch"].Controls["EnergyCouponCount"].Text = "" + Computer.PowerCoupons;
-                hudControl.Controls["Strahlen"].Controls["ExperienceCount"].Text = "" + Computer.ExperiencePoints;
+                hudControl.Controls["Strahlen"].Controls["AktuelleAlien"].Controls["AlienCountActive"].Text = "" + Computer.Instance.UsedAliens;
+                hudControl.Controls["Strahlen"].Controls["MaximalAlien"].Controls["AlienCountPossible"].Text = "" + Computer.Instance.AvailableAliens;
+                hudControl.Controls["Strahlen"].Controls["Rotation"].Controls["RotationCouponCount"].Text = "" + Computer.Instance.RotationCoupons;
+                hudControl.Controls["Strahlen"].Controls["LightSwitch"].Controls["EnergyCouponCount"].Text = "" + Computer.Instance.PowerCoupons;
+                hudControl.Controls["Strahlen"].Controls["ExperienceCount"].Text = "" + Computer.Instance.ExperiencePoints;
                 
                 //Anpassung der AlienHUD (rechter Bereich) an die Aufloesung
 
@@ -1327,9 +1328,9 @@ namespace Game
             if (timeForUpdateNotificationStatus < 0) //time to do it
             {
                 timeForUpdateNotificationStatus = 60;
-                Computer.IncrementAvailableAliens();
-                Computer.IncrementPowerCoupons();
-                Computer.IncrementRotationCoupons();
+                Computer.Instance.IncrementAvailableAliens();
+                Computer.Instance.IncrementPowerCoupons();
+                Computer.Instance.IncrementRotationCoupons();
             }
         }
 
@@ -1347,7 +1348,7 @@ namespace Game
             timeForDropItemIncrementation -= delta;
             if (timeForDropItemIncrementation < 0)
             {
-                Computer.IncrementMaxItemDropGroupNr();
+                Computer.Instance.IncrementMaxItemDropGroupNr();
                 timeForDropItemIncrementation = 300;
             }
         }
@@ -1745,11 +1746,11 @@ namespace Game
                 }
 
             }
-            
-            for (int i = 0; i < Computer.signalList.Count(); i++)
+
+            for (int i = 0; i < Computer.Instance.signalList.Count(); i++)
             {
                 Signal s;
-                bool peek = Computer.signalList.TryGet(i, out s);
+                bool peek = Computer.Instance.signalList.TryGet(i, out s);
                 if (!peek)
                     continue;
 
@@ -2111,30 +2112,28 @@ namespace Game
         /// <summary>
         /// Öffnet die Statistik
         /// </summary>
-        public void ShowStatistics(){
-        if (!hudControl.Controls["Statistic"].Visible)
+        public void ShowStatistics()
+        {
+            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
             {
-                if (Computer.Alienwin != Computer.Astronautwin)
+                if (Computer.Instance.Alienwin)
                 {
-                    if (Computer.Alienwin)
-                    {
-                        hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
-                    }
-                    else
-                    {
-                        hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
-                    }
-                    // Text anpassen
-                    hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
-                    hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
-
-                    // Statistik anzeigen
-                    hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
                 }
                 else
                 {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
                 }
+                // Text anpassen
+                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
+                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Instance.Statistic.GetAstronoutData();
+
+                // Statistik anzeigen
+                hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+            }
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
             }
         }
         

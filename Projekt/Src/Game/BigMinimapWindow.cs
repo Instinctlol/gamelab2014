@@ -79,7 +79,7 @@ namespace Game
             }
             else
             {
-                Computer.RotateRing(selectedSector.Ring, true);
+                Computer.Instance.RotateRing(selectedSector.Ring, true);
             }
         }
 
@@ -92,7 +92,7 @@ namespace Game
             }
             else
             {
-                Computer.RotateRing(selectedSector.Ring, false);
+                Computer.Instance.RotateRing(selectedSector.Ring, false);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Game
             }
             else
             {
-                Computer.SetSectorGroupPower(selectedSector.Group, !selectedSector.Group.LightStatus);
+                Computer.Instance.SetSectorGroupPower(selectedSector.Group, !selectedSector.Group.LightStatus);
                 EngineConsole.Instance.Print("Turn Power off for secgrp: "+selectedSector.Group.Name);
             }
         }

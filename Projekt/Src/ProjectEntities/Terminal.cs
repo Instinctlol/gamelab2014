@@ -559,7 +559,7 @@ namespace ProjectEntities
                 Server_SendWindowString("Something is broken.");
             }
             if (Active){
-                Computer.AddRadarElement(this.MapBounds.Minimum.ToVec2(), this.MapBounds.Maximum.ToVec2());
+                Computer.Instance.AddRadarElement(this.MapBounds.Minimum.ToVec2(), this.MapBounds.Maximum.ToVec2());
             }
         }
 

@@ -116,7 +116,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
-            Computer.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
         protected override void OnAttach()
@@ -2046,9 +2046,9 @@ namespace Game
         public void ShowStatistics()
         {
             //Status für Astronaut setzen (Sieger/Verlierer)
-            if (Computer.Alienwin != Computer.Astronautwin)
+            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
             {
-                if (Computer.Astronautwin)
+                if (Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
                 }
@@ -2057,8 +2057,8 @@ namespace Game
                     hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
                 }
                 // Text anpassen
-                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Statistic.GetAlienData();
-                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Statistic.GetAstronoutData();
+                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
+                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Instance.Statistic.GetAstronoutData();
 
                 // Statistik anzeigen
                 hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;

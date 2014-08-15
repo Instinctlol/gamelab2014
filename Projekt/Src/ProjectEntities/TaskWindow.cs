@@ -24,7 +24,7 @@ namespace ProjectEntities
         /// <param name="task"></param>
         protected void Server_createWindowForAlien(Task task)
         {
-            Computer.CsspwTask = task;
+            Computer.Instance.CsspwTask = task;
             if (startAlienGame != null)
             {
                 startAlienGame();

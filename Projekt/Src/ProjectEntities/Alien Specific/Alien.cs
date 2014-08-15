@@ -283,14 +283,14 @@ namespace ProjectEntities
             patrolTickTime -= TickDelta;
             if (patrolTickTime <= 0)
             {
-               
-                    if (Computer.ExperiencePoints > 0)
+
+                if (Computer.Instance.ExperiencePoints > 0)
                     {
                         //this._type.
                         if (counterPatrolCosts == 5)
                         {
-                            Computer.DecrementExperiencePoints();
-                            EngineConsole.Instance.Print("XP: " + Computer.ExperiencePoints);
+                            Computer.Instance.DecrementExperiencePoints();
+                            EngineConsole.Instance.Print("XP: " + Computer.Instance.ExperiencePoints);
                             counterPatrolCosts = 0;
                         }
                         counterPatrolCosts++;
@@ -339,7 +339,7 @@ namespace ProjectEntities
         protected override void OnDie(MapObject prejudicial)
         {
             PlaySound("die");
-            Computer.DecrementUsedAliens();
+            Computer.Instance.DecrementUsedAliens();
             base.OnDie(prejudicial);
         }
 

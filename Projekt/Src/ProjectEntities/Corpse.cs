@@ -40,7 +40,7 @@ namespace ProjectEntities
 				tree.ActivateTrigger( "death" );
 
             // Dem Computer mitteilen, dass man existiert
-            Computer.AddAlienCorpse(this);
+            Computer.Instance.AddAlienCorpse(this);
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
