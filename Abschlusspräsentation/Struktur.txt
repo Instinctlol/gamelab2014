@@ -2,7 +2,7 @@ MAP
 - Aufbau
 - Rotation
 - Tasksystem
-- Rätzel
+- Rätsel
 - Minimap
 - Fog of War
 - 
