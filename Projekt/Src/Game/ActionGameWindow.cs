@@ -1398,9 +1398,6 @@ namespace Game
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Tab) && !activeConsole)
                         DrawPlayersStatistics(renderer);
 
-                    AddTextWithShadow(renderer, "\"Tab\" for players statistics", new Vec2(.01f, .1f),
-                        HorizontalAlign.Left, VerticalAlign.Top, new ColorValue(1, 1, 1, .5f));
-
                 }
             }
 
