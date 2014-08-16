@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 4.557308 -32.59341 33.74464
-editorCameraDirection = 2.296712 -1.557671
+editorCameraPosition = 10.48562 -70.68124 28.46258
+editorCameraDirection = 4.76257 -1.438921
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -3270,7 +3270,7 @@ entity
 	type = Leiche1
 	uin = 277
 	classPrompt = StaticObject
-	position = -47.47464 54.90307 0.2913703
+	position = -48.27464 55.40307 0.2913703
 	name = Leiche1_2
 	editorLayer = "Root Layer\\F2\\Einrichtung"
 }
@@ -12584,7 +12584,7 @@ entity
 	type = Blut-Fleck
 	uin = 1150
 	classPrompt = StaticObject
-	position = -46 56.4 0.9
+	position = -45.1 56.8 0.3
 	name = Blut-Fleck_51
 	editorLayer = "Root Layer\\F2\\Blut"
 }
