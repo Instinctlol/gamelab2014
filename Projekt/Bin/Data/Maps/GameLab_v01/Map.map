@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 10.48562 -70.68124 28.46258
-editorCameraDirection = 4.76257 -1.438921
+editorCameraPosition = 42.33287 -102.3017 17.17814
+editorCameraDirection = 6.17097 -0.2904838
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -3786,7 +3786,7 @@ entity
 	type = laptop
 	uin = 326
 	classPrompt = StaticObject
-	position = 95.58311 -78.9995 1.456624
+	position = 95.58311 -78.9995 1.656624
 	rotation = 0 0 -0.3754322 0.92685
 	name = laptop_1
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3816,7 +3816,7 @@ entity
 	type = laptop
 	uin = 329
 	classPrompt = StaticObject
-	position = 93.15645 -85.91582 1.456624
+	position = 93.15645 -85.91582 1.656624
 	rotation = 0 0 -0.9186004 0.395188
 	name = laptop_2
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3918,7 +3918,7 @@ entity
 	type = laptop
 	uin = 339
 	classPrompt = StaticObject
-	position = -80.62627 -61.54448 1.456624
+	position = -80.62627 -61.54448 1.656624
 	rotation = 0 0 -0.9186004 0.395188
 	name = laptop_3
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3928,7 +3928,7 @@ entity
 	type = laptop
 	uin = 340
 	classPrompt = StaticObject
-	position = -78.19962 -54.62816 1.456624
+	position = -78.19962 -54.62816 1.656624
 	rotation = 0 0 -0.3754322 0.92685
 	name = laptop_4
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -3948,7 +3948,7 @@ entity
 	type = laptop
 	uin = 342
 	classPrompt = StaticObject
-	position = -30.80322 -61.53743 1.456624
+	position = -30.80322 -61.53743 1.656624
 	rotation = 0 0 -0.9186004 0.395188
 	name = laptop_5
 	editorLayer = "Root Layer\\F2\\Einrichtung"
@@ -3978,7 +3978,7 @@ entity
 	type = laptop
 	uin = 345
 	classPrompt = StaticObject
-	position = -28.37656 -54.62111 1.456624
+	position = -28.37656 -54.62111 1.656624
 	rotation = 0 0 -0.3754322 0.92685
 	name = laptop_6
 	editorLayer = "Root Layer\\F2\\Einrichtung"
