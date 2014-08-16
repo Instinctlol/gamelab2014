@@ -1,0 +1,5 @@
+type Computer
+{
+	class = Computer
+	networkType = Synchronized
+}

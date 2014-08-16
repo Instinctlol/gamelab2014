@@ -86,7 +86,7 @@ namespace ProjectEntities
 
 			SubscribeToTickEvent();
 
-			//create PlayerManager
+            //create PlayerManager, create Computer
 			if( EntitySystemWorld.Instance.IsServer() || EntitySystemWorld.Instance.IsSingle() )
 			{
 				if( PlayerManager.Instance == null )
@@ -94,8 +94,14 @@ namespace ProjectEntities
 					PlayerManager manager = (PlayerManager)Entities.Instance.Create(
 						"PlayerManager", this );
 					manager.PostCreate();
-				}
-			}
+                }
+
+                if (Computer.Instance == null)
+                {
+                    Computer computer = (Computer)Entities.Instance.Create("Computer", this);
+                    computer.PostCreate();
+                }
+            }
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnDestroy()"/>.</summary>

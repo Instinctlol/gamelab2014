@@ -124,7 +124,7 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
-            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            //Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
         //hudFunktionen
@@ -1091,12 +1091,13 @@ namespace Game
 
             }
 
-            //timeForWin -= delta;
-            //if(timeForWin< 0)
-            //{
-            //    Console.WriteLine("setwinner");
-            //    Computer.Instance.SetWinner(true);
-            //}
+            /// Gewinner setzen
+            timeForWin -= delta;
+            if (timeForWin < 0 && (!Computer.Instance.Alienwin || !Computer.Instance.Astronautwin))
+            {
+                Console.WriteLine("setwinner");
+                Computer.Instance.SetWinner(true);
+            }
             
 
             //gameStatus

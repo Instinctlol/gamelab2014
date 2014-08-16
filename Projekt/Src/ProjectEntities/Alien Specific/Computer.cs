@@ -12,7 +12,7 @@ using ProjectCommon;
 
 namespace ProjectEntities
 {
-    public class ComputerType : DynamicType
+    public class ComputerType : EntityType
     {
     }
 
@@ -20,9 +20,9 @@ namespace ProjectEntities
     /// Main computer that can be controlled by the boss alien and
     /// the astronauts
     /// </summary>
-    public class Computer : Dynamic
+    public class Computer : Entity
     {
-        static Computer instance = new Computer();
+        static Computer instance;
 
         /*************/
         /* Attribute */
@@ -74,7 +74,7 @@ namespace ProjectEntities
         
         enum NetworkMessages
         {
-            StatisticToClient
+            StatisticToClient,
         }
         public event StatisticEventDelegate showStatistic;
         public delegate void StatisticEventDelegate();
@@ -82,9 +82,16 @@ namespace ProjectEntities
         /*******************/
         /* Getter / Setter */
         /*******************/
-        public static Computer Instance
+        public Computer()
+		{
+			if( instance != null )
+				Log.Fatal( "Computer: Computer is already created." );
+			instance = this;
+		}
+
+        public static new Computer Instance
         {
-            get { return instance; }
+            get{ return instance; }
         }
 
         public bool Alienwin
@@ -612,6 +619,8 @@ namespace ProjectEntities
 
         private void ResetInstance()
         {
+            astronautwin = false;
+            alienwin = false;
             experiencePoints = 50;
             rotationCoupons = 0;
             powerCoupons = 0;
@@ -620,23 +629,25 @@ namespace ProjectEntities
             maxItemDropGroupNr = 2;
         }
 
-        public void SetWinner(bool alienWin)
+        public void SetWinner(bool alien)
         {
-            //alienwin = alienWin;
-            //astronautwin = !alienWin;
+            alienwin = alien;
+            astronautwin = !alien;
 
-            //// Clients bescheid geben
-            //Server_SendStatisticToClients();
-            //// Event feuern, damit die Statistik angezeigt wird
-            //if (showStatistic != null)
-            //{
-            //    showStatistic();
-            //}
+            // Clients bescheid geben
+            if (EntitySystemWorld.Instance.IsServer())
+                Server_SendStatisticToClients();
+            
+            // Event feuern, damit die Statistik angezeigt wird
+            if (showStatistic != null)
+            {
+                showStatistic();
+            }
         }
 
         private void Server_SendStatisticToClients()
         {
-            Console.WriteLine("StatisticToClient: "+NetworkMessages.StatisticToClient + " " + (ushort)NetworkMessages.StatisticToClient+" "+typeof(Computer));
+            Console.WriteLine("StatisticToClient: " + NetworkMessages.StatisticToClient + ", (Ushort): " + (ushort)NetworkMessages.StatisticToClient + ", Computer: " + typeof(Computer));
             SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.StatisticToClient);
             writer.Write(alienwin);
             EndNetworkMessage();
