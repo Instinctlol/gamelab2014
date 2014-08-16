@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 42.33287 -102.3017 17.17814
-editorCameraDirection = 6.17097 -0.2904838
+editorCameraPosition = 114.1189 0.0898172 30.32972
+editorCameraDirection = 1.550951 -1.281109
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -5252,7 +5252,7 @@ entity
 	type = Armchair3
 	uin = 462
 	classPrompt = StaticObject
-	position = 100.7262 17.24666 0.2198927
+	position = 78.9262 -7.053339 0.2198927
 	rotation = 0 0 0.73258 0.680681
 	name = Armchair3_9
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5262,7 +5262,7 @@ entity
 	type = Armchair3
 	uin = 463
 	classPrompt = StaticObject
-	position = 104.2657 14.69683 0.2419727
+	position = 82.46571 -9.60317 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
 	name = Armchair3_10
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5272,7 +5272,7 @@ entity
 	type = Armchair3
 	uin = 464
 	classPrompt = StaticObject
-	position = 106.6029 16.65992 0
+	position = 84.80289 -7.64008 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
 	name = Armchair3_11
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5282,7 +5282,7 @@ entity
 	type = Armchair3
 	uin = 465
 	classPrompt = StaticObject
-	position = 100.7262 17.24666 0.2198927
+	position = 78.9262 -7.053339 0.2198927
 	rotation = 0 0 0.73258 0.680681
 	name = Armchair3_12
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5292,7 +5292,7 @@ entity
 	type = Armchair3
 	uin = 466
 	classPrompt = StaticObject
-	position = 104.2657 14.69683 0.2419727
+	position = 82.46571 -9.60317 0.2419727
 	rotation = 0 0 0.9991352 0.04158197
 	name = Armchair3_13
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5302,7 +5302,7 @@ entity
 	type = Armchair3
 	uin = 467
 	classPrompt = StaticObject
-	position = 106.6029 16.65992 0
+	position = 84.80289 -7.64008 0
 	rotation = -0.01447391 -0.02860036 0.8043005 -0.5933578
 	name = Armchair3_14
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5312,7 +5312,7 @@ entity
 	type = Armchair3
 	uin = 468
 	classPrompt = StaticObject
-	position = 107.6747 19.39466 0.2198927
+	position = 85.8747 -4.905339 0.2198927
 	rotation = 0 0 0.7397748 -0.6728547
 	name = Armchair3_15
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5322,7 +5322,7 @@ entity
 	type = Armchair3
 	uin = 469
 	classPrompt = StaticObject
-	position = 106.5805 22.36151 0.2419727
+	position = 84.78049 -1.93849 0.2419727
 	rotation = 0 0 0.397701 -0.9175152
 	name = Armchair3_16
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -5332,7 +5332,7 @@ entity
 	type = Armchair3
 	uin = 470
 	classPrompt = StaticObject
-	position = 103.5303 22.472 0
+	position = 81.73029 -1.828 0
 	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
 	name = Armchair3_17
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -9490,7 +9490,7 @@ entity
 	type = glastisch
 	uin = 854
 	classPrompt = StaticObject
-	position = 104.3 18.8 0.3
+	position = 82.50001 -5.5 0.3
 	rotation = 0 0 -0.3007059 0.9537171
 	scale = 2.477184 3.442765 1.318584
 	name = glastisch_8
@@ -9563,7 +9563,7 @@ entity
 	type = Armchair3
 	uin = 861
 	classPrompt = StaticObject
-	position = 101.5262 20.14666 0.2198927
+	position = 79.7262 -4.15334 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
 	name = Armchair3_69
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -9573,7 +9573,7 @@ entity
 	type = Armchair3
 	uin = 862
 	classPrompt = StaticObject
-	position = 101.5262 20.14666 0.2198927
+	position = 79.7262 -4.15334 0.2198927
 	rotation = 0 0 0.5678886 0.8231055
 	name = Armchair3_70
 	editorLayer = "Root Layer\\F1\\Einrichtung"
@@ -16399,4 +16399,189 @@ entity
 	name = CutScene_Region
 	logicClass = 68
 	checkType = Bounds
+}
+entity
+{
+	type = Desk
+	uin = 1608
+	classPrompt = StaticObject
+	position = 83.2844 -20.27646 1.657189
+	rotation = 0 0 0.004225863 0.9999914
+	name = Desk_1
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 1609
+	classPrompt = StaticObject
+	position = 84.55743 -20.18729 1.618737
+	rotation = 0 0 0.9999914 -0.004225931
+	name = laptop_0
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 1610
+	classPrompt = StaticMesh
+	position = 83.26279 -20.05758 2.122545
+	rotation = 0 0 0.9998721 -0.01600735
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 1611
+	classPrompt = StaticObject
+	position = 82.06631 -20.26708 1.618737
+	rotation = 0 0 0.9999914 -0.004225931
+	name = laptop_23
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 1612
+	classPrompt = StaticObject
+	position = 83.2281 -18.47714 0.3732204
+	rotation = 0 0 0.9999914 -0.004225931
+	name = Armchair2_40
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Desk
+	uin = 1613
+	classPrompt = StaticObject
+	position = 78.8844 -20.27646 1.657189
+	rotation = 0 0 0.004225863 0.9999914
+	name = Desk_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = laptop
+	uin = 1614
+	classPrompt = StaticObject
+	position = 80.15742 -20.18729 1.618737
+	rotation = 0 0 0.9999914 -0.004225931
+	name = laptop_63
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = StaticMesh
+	uin = 1615
+	classPrompt = StaticMesh
+	position = 78.86279 -20.05758 2.122545
+	rotation = 0 0 0.9998721 -0.01600735
+	scale = 0.821943 0.9117532 0.9014972
+	name = StaticMesh_42
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+	meshName = "Types\\Items\\Computer\\iMac\\imac.mesh"
+}
+entity
+{
+	type = laptop
+	uin = 1616
+	classPrompt = StaticObject
+	position = 77.66631 -20.26708 1.618737
+	rotation = 0 0 0.9999914 -0.004225931
+	name = laptop_64
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair2
+	uin = 1617
+	classPrompt = StaticObject
+	position = 78.82809 -18.47714 0.3732204
+	rotation = 0 0 0.9999914 -0.004225931
+	name = Armchair2_41
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 1618
+	classPrompt = StaticObject
+	position = 79.5596 7.602496 2.051654
+	rotation = 0 0 0.01167005 -0.9999322
+	name = sofa_12
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = sofa
+	uin = 1619
+	classPrompt = StaticObject
+	position = 74.78809 7.69057 2.051654
+	rotation = 0 0 0.01167005 -0.9999322
+	name = sofa_13
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = glastisch
+	uin = 1620
+	classPrompt = StaticObject
+	position = 78.08382 5.512204 0.3000001
+	rotation = 0 0 -0.7071069 0.7071069
+	scale = 2.477184 3.442765 1.318584
+	name = glastisch_11
+	editorLayer = "Root Layer\\F2\\Einrichtung"
+}
+entity
+{
+	type = BettSofa
+	uin = 1621
+	classPrompt = StaticObject
+	position = 66.10001 -8.700002 1.7
+	rotation = 0 0 0.7071068 0.7071068
+	name = BettSofa_2
+	editorLayer = "Root Layer\\F3\\Einrichtung"
+}
+entity
+{
+	type = leiche2
+	uin = 1622
+	classPrompt = StaticObject
+	position = 63 -19.9 0.3
+	rotation = 0 0 0.3826834 0.9238796
+	name = leiche2_23
+	editorLayer = "Root Layer\\F2\\Items"
+}
+entity
+{
+	type = Armchair3
+	uin = 1623
+	classPrompt = StaticObject
+	position = 85.8747 -4.905339 0.2198927
+	rotation = 0 0 0.7397748 -0.6728547
+	name = Armchair3_57
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 1624
+	classPrompt = StaticObject
+	position = 84.78049 -1.93849 0.2419727
+	rotation = 0 0 0.397701 -0.9175152
+	name = Armchair3_58
+	editorLayer = "Root Layer\\F1\\Einrichtung"
+}
+entity
+{
+	type = Armchair3
+	uin = 1625
+	classPrompt = StaticObject
+	position = 81.73029 -1.828 0
+	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
+	name = Armchair3_61
+	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
