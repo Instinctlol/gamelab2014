@@ -359,6 +359,9 @@ namespace ProjectEntities
 		//Die objects
 		bool dieObjectsCreated;
 
+        // corpse
+        public static Corpse corpse;
+
 		///////////////////////////////////////////
 
 		//for NetworkMessages.BodiesPositionsToClient (PhysicsModel != null)
@@ -503,7 +506,7 @@ namespace ProjectEntities
 			}
 
 			died = true;
-
+            
 			//create die objects
 			if( !dieObjectsCreated )
 			{
@@ -1662,6 +1665,7 @@ namespace ProjectEntities
             else
             {
                 result = Type.DieObjects.CreateObjectsOfOneRandomSelectedGroup(this);
+               
             }
 
             //modify created objects:
@@ -1672,12 +1676,17 @@ namespace ProjectEntities
                 MapObjectCreateMapObject createMapObject = item.Source as MapObjectCreateMapObject;
                 if (createMapObject != null)
                 {
+
+                    
+
                     foreach (MapObject mapObject in item.CreatedObjects)
                     {
                         //Copy information to dead object
                         if (createMapObject.CopyVelocitiesFromParent)
                         {
                             Dynamic dynamic = mapObject as Dynamic;
+                            if (mapObject is Corpse)
+                                corpse = ((Corpse)mapObject);
                             if (dynamic != null)
                                 CopyInfluencesToObject(dynamic);
                         }
