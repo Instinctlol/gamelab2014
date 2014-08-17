@@ -60,6 +60,7 @@ namespace ProjectEntities
 
             public Boolean started;
             public Vec3 pos;
+            public Corpse corpse;
 
             
 
