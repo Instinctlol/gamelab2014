@@ -48,7 +48,7 @@ namespace ProjectEntities
             
 
             // Dem Computer mitteilen, dass man existiert
-            Computer.Instance.AddAlienCorpse(this);
+            Computer.AddAlienCorpse(this);
 		}
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnTick()"/>.</summary>
