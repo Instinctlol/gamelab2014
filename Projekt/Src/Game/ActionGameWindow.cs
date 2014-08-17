@@ -536,6 +536,10 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
+            if (GameWorld.showcountdown()>0)
+                sendMessageToHUD("Die Zeit ist " + GameWorld.revival);
+           
+
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
@@ -2023,6 +2027,17 @@ namespace Game
                 GetPlayerUnit().Inventar.IsOpen = true;
                 
             }
+        }
+
+
+        public void showcountdown(Boolean start ,float time) 
+        {
+            
+            
+            if(start)
+            sendMessageToHUD("zeit ." + time);
+            
+            
         }
 
         public void rechtsInventar()
