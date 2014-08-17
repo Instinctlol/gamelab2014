@@ -13,6 +13,7 @@ using Engine.Renderer;
 using Engine.Networking;
 using ProjectCommon;
 
+
 namespace ProjectEntities
 {
 	/// <summary>
@@ -35,8 +36,13 @@ namespace ProjectEntities
 		bool needWorldDestroy;
         Vec3 pos;
         Quat rot;
-        float revival;
-        float buildTime = 10;
+        public static float revival;
+        float buildTime = 20;
+        float objDistance=0;
+        Vec3 diff;
+        float radius = 10;
+        Vec3 actObjPos;
+        PlayerCharacter playercharacter;
 
 		//
 
@@ -163,9 +169,9 @@ namespace ProjectEntities
                             {
 
                                 //aktuelle position 
-
+                                
                                 player.pos = player.Intellect.ControlledObject.Position;
-
+                              //  ((Dynamic)player.Intellect.ControlledObject).Die();
                             }
 
                             if (player.User != null && player.User != userManagementService.ServerUser)
@@ -242,14 +248,16 @@ namespace ProjectEntities
                         foreach (PlayerManager.ServerOrSingle_Player actplayer in
                             PlayerManager.Instance.ServerOrSingle_Players)
                         {
-                            float radius = 10;
+
 
 
 
                             if (actplayer.Intellect.ControlledObject != null)
                             {
+                                 actObjPos = actplayer.Intellect.ControlledObject.Position;
 
-                                Vec3 actObjPos = actplayer.Intellect.ControlledObject.Position;
+
+
                                 foreach (PlayerManager.ServerOrSingle_Player nonactplayer in PlayerManager.Instance.ServerOrSingle_Players)
                                 {
 
@@ -266,46 +274,89 @@ namespace ProjectEntities
 
                                             //Unit obj = (Unit)mapObject;
 
-                                            Vec3 diff = actObjPos - nonactObjPos;
-                                            float objDistance = diff.Length();
-                                            EngineConsole.Instance.Print("Die position von den 2 Astronaut ist   " + objDistance);
-
+                                            diff = actObjPos - nonactObjPos;
+                                            objDistance = diff.Length();
+                                            EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                            EngineConsole.Instance.Print("Die zeit ist   " + revival);
                                             if (objDistance > radius)
                                             {
                                                 creatAstronaut = false;
-                                                return;
+                                                revival = 0f;
+
                                             }
                                         });
 
                                     }
                                 }
                             }
-                        }
 
-
-
-
-
-                        foreach (PlayerManager.ServerOrSingle_Player player in
-                            PlayerManager.Instance.ServerOrSingle_Players)
-                        {
+                            else if (actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null)
                             {
-                                if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
+                                foreach (PlayerManager.ServerOrSingle_Player nonactplayer in PlayerManager.Instance.ServerOrSingle_Players)
                                 {
-                                    //spawner Position ändern 
-                                    //Unit type erstellen 
-                                    if (player.started && creatAstronaut)
-                                    {
-                                        revival += TickDelta / BuildTime;
 
-                                        if (timeelapsed >= 1)
+                                    if (nonactplayer.Intellect.ControlledObject != null && nonactplayer != actplayer)
+                                    {
+
+                                        Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
+                                        diff = actplayer.pos - nonactObjPos;
+                                        objDistance = diff.Length();
+                                        EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                        EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                        
+
+                                        
+                                        //StatusMessageHandler.sendMessage(" zeit " + revival);
+                                        
+
+                                            
+                                            
+                                        if (objDistance > radius)
                                         {
-                                            ServerOrSingle_CreatePlayerUnit(player);
+                                            EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                            EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                            creatAstronaut = false;
                                             revival = 0f;
+
                                         }
                                     }
-                                    else if(creatAstronaut)
-                                        ServerOrSingle_CreatePlayerUnit(player);
+                                }
+                            }
+                        if (creatAstronaut)
+                        {
+                            foreach (PlayerManager.ServerOrSingle_Player player in
+                                PlayerManager.Instance.ServerOrSingle_Players)
+                            {
+                                
+                                    if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
+                                    {
+                                        //spawner Position ändern 
+                                        //Unit type erstellen 
+                                        if (player.started)
+                                        {
+                                            revival += TickDelta / BuildTime;
+
+                                            if (timeelapsed >= 1)
+                                            {
+                                                      EngineConsole.Instance.Print("Die zeit ist   " + revival);
+
+
+                                                   
+                                                    //playercharacter.SetForDeletion(true);
+
+                                                      
+                                                Dynamic.corpse.Die();
+                                                ServerOrSingle_CreatePlayerUnit(player);
+                                                revival = 0f;
+                                                    
+                                                    
+                                                    
+                                                
+                                            }
+                                        }
+                                        else 
+                                            ServerOrSingle_CreatePlayerUnit(player);
+                                    }
                                 }
                             }
                         }
@@ -313,6 +364,18 @@ namespace ProjectEntities
                 }
             }
         }
+
+
+        public static float showcountdown()
+        {
+            
+            if (revival>0.1)
+                return revival;
+            else return 0f;
+        }
+
+
+
 		internal void DoActionsAfterMapCreated()
 		{
 			if( EntitySystemWorld.Instance.IsSingle() )
