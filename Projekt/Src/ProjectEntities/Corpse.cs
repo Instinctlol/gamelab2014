@@ -27,6 +27,10 @@ namespace ProjectEntities
 	public class Corpse : Dynamic
 	{
 		CorpseType _type = null; public new CorpseType Type { get { return _type; } }
+        Corpse corpse;
+
+
+
 
 		/// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
 		protected override void OnPostCreate( bool loaded )
@@ -38,6 +42,10 @@ namespace ProjectEntities
 			AnimationTree tree = GetFirstAnimationTree();
 			if( tree != null )
 				tree.ActivateTrigger( "death" );
+            
+
+            //Die();
+            
 
             // Dem Computer mitteilen, dass man existiert
             Computer.Instance.AddAlienCorpse(this);
@@ -47,6 +55,8 @@ namespace ProjectEntities
 		protected override void OnTick()
 		{
 			base.OnTick();
+
+            
 
 			if( PhysicsModel != null )
 			{
