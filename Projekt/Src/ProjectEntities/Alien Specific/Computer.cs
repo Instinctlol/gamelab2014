@@ -299,9 +299,14 @@ namespace ProjectEntities
         /// </summary>
         private void IncrementUsedAliens()
         {
-            usedAliens++;
-            statistic.IncrementSpawnedAliens();
+            if (EntitySystemWorld.Instance.IsServer()){
+                usedAliens++;
+                statistic.IncrementSpawnedAliens();
+                Server_SpawnedAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
+
         }
+        
         /// <summary>
         /// Aktive Aliens um Eins erniedrigen
         /// </summary>
@@ -309,8 +314,12 @@ namespace ProjectEntities
         {
             if (UsedAliens > 0)
             {
-                usedAliens--;
-                statistic.IncrementKilledAliens();
+                if (EntitySystemWorld.Instance.IsServer())
+                {
+                    usedAliens--;
+                    statistic.IncrementKilledAliens(); 
+                    Server_KilledAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+                }                
             }
         }
 
@@ -586,13 +595,22 @@ namespace ProjectEntities
         //ToDo
         public void AddDamageAstronouts(float damage)
         {
-            statistic.AddDamageAstronouts(damage);
+            if(EntitySystemWorld.Instance.IsServer())
+            {
+                statistic.AddDamageAstronouts(damage);
+                Server_DamageAstronoutsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
+            
         }
 
         //ToDo
         public void IncrementKilledAstronouts()
         {
-            statistic.IncrementKilledAstronouts();
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                statistic.IncrementKilledAstronouts();
+                Server_KilledAstronoutsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
         }
 
         /// <summary>

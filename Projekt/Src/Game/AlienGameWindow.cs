@@ -521,7 +521,7 @@ namespace Game
 
             if (e.Key == EKeys.F8)
             {
-                ShowStatistics();
+                Computer.Instance.SetWinner(true);
             }            
 
             if (e.Key == EKeys.F10)
