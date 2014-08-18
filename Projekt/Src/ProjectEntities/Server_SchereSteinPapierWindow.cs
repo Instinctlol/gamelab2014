@@ -239,7 +239,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            countdownBox.Text = "Victory";
+            countdownBox.Text = "Sieg";
             Computer.Instance.AddExperiencePoints(50);
         }
 
@@ -263,7 +263,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            countdownBox.Text = "Draw";
+            countdownBox.Text = "Unentschieden";
         }
 
         private void defeatStuff()
@@ -286,7 +286,7 @@ namespace ProjectEntities
                     enemySelectedBox.Visible = true;
                     break;
             }
-            countdownBox.Text = "Defeat";
+            countdownBox.Text = "Niederlage";
             task.Success = true;
         }
 

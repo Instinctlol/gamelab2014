@@ -135,7 +135,7 @@ namespace ProjectEntities
             }
 
             task.Success = true;
-            countdownBox.Text = "Victory";
+            countdownBox.Text = "Sieg";
         }
 
         private void drawStuff()
@@ -157,7 +157,7 @@ namespace ProjectEntities
             }
             playButton.Enable = true;
             playButton.Visible = true;
-            countdownBox.Text = "Draw";
+            countdownBox.Text = "Unentschieden";
         }
 
         private void defeatStuff()
@@ -179,7 +179,7 @@ namespace ProjectEntities
             }
             playButton.Enable = true;
             playButton.Visible = true;
-            countdownBox.Text = "Defeat";
+            countdownBox.Text = "Niederlage";
         }
 
         private void Client_StringReceived(string message, UInt16 netMessage)

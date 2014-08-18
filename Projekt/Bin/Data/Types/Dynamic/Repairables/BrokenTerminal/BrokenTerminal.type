@@ -4,6 +4,13 @@ type BrokenTerminal
 	soundRepaired = "Sounds\\Feedback\\snap_into_place.ogg"
 	destroyedTexture = TerminalProjector_broken
 	networkType = Synchronized
+	repairItems
+	{
+		item
+		{
+			itemType = cpu
+		}
+	}
 	attachedObjects
 	{
 		mesh
