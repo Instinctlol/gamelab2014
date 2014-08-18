@@ -14,88 +14,33 @@ control Control
 		colorMultiplier = 1 1 1 0.5882353
 		mouseCover = False
 	}
-	control TextBox
-	{
-		textHorizontalAlign = Right
-		textVerticalAlign = Top
-		shadow = True
-		shadowOffset = Pixel 1 1
-		shadowColor = 0 0 0 0.4980392
-		wordWrap = True
-		position = ScaleByResolution -14.7005 10
-		horizontalAlign = Right
-		size = ScaleByResolution 549.2995 89.20009
-		name = NoShaderModel3
-		text = Warning! Shader Model 3 is not supported by your hardware or disabled, not all features are enabled.
-		colorMultiplier = 1 0 0
-	}
-	control "Gui\\Controls\\DefaultCheckBox.gui"
-	{
-		position = ScaleByResolution 312.0889 736.9276
-		name = ShowBackgroundMap
-		text = Show background map
-	}
 	control Control
 	{
-		position = ScaleByResolution 26.58908 1.979324
-		size = ScaleByResolution 256 256
+		position = ScaleByResolution 20 30
+		size = ScaleByResolution 256 154.0207
 		backColor = 1 1 1
-		backTexture = "Gui\\Textures\\Utilities_256x256.png"
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 50 -258
-		verticalAlign = Bottom
-		name = MultiView
-		text = Multi View
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 50 -158.0001
-		verticalAlign = Bottom
-		name = GUISamples2
-		text = GUI Samples 2
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 50 -298
-		verticalAlign = Bottom
-		name = ProfilingTool
-		text = Profiling Tool
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 50 -97.99999
-		verticalAlign = Bottom
-		name = About
-		text = About
+		backTexture = "GUI\\Textures\\ava_menu.png"
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 50 -338
 		verticalAlign = Bottom
 		name = Options
-		text = Options
+		text = Optionen
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
-		position = ScaleByResolution 50 -37.99999
+		position = ScaleByResolution 50 -278
 		verticalAlign = Bottom
 		name = Exit
-		text = Exit
-	}
-	control "Gui\\Controls\\DefaultButton.gui"
-	{
-		position = ScaleByResolution 50 -198.0001
-		verticalAlign = Bottom
-		name = GUISamples1
-		text = GUI Samples 1
+		text = Beenden
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 50 -398
 		verticalAlign = Bottom
+		size = ScaleByResolution 200 30.00002
 		name = Multiplayer
-		text = Play
+		text = Spielen
 	}
 }
