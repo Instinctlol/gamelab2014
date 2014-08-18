@@ -1124,6 +1124,12 @@ namespace ProjectEntities
             i.PostCreate();
         }
 
+        public void dropWeapons(String weapon, Vec3 pos)
+        {
+            ProjectEntities.WeaponItem w = (ProjectEntities.WeaponItem)Entities.Instance.Create(weapon, Map.Instance);
+            w.Position = pos;
+            w.PostCreate();
+        }
 
         public void droppen()
         {
@@ -1138,7 +1144,7 @@ namespace ProjectEntities
                 for (int j = 1; j <= count; j++)
                 {
                     //Position des Items festlegen
-                    p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.5f) + new Vec3(0, 0, -1);
+                    p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
                     p.Z = 0.3f;
                     Drop(item.Type.Name, p);
 
@@ -1147,6 +1153,66 @@ namespace ProjectEntities
                     //Winkel für das nächste Item ändern
                     winkel += 5;
                 }
+            }
+
+            if (Weapons[0].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("SubmachineGunItem", p);
+                winkel += 5;
+            }
+            
+            if (Weapons[1].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("ShotgunItem", p);
+                winkel += 5;
+            }
+            
+            if (Weapons[2].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("HammerItem", p);
+                winkel += 5;
+            }
+            
+            if (Weapons[3].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("GlockItem", p);
+                winkel += 5;
+            }
+            
+            if (Weapons[4].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("ScarItem", p);
+                winkel += 5;
+            }
+            
+            if (Weapons[5].Exists)
+            {
+                //Position der Waffe festlegen
+                p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
+                p.Z = 0.3f;
+
+                dropWeapons("BrechstangeItem", p);
+                winkel += 5;
             }
         }
 

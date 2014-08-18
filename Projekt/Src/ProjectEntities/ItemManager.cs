@@ -122,6 +122,7 @@ namespace ProjectEntities
                         currentItem.Name = "Brechstange";
                         currentItem.TakeItem(unit);
                         unit.Inventar.add(currentItem);
+                        s = "Brechstange";
                     }
                     else
                     {
