@@ -289,16 +289,6 @@
             Destroys the background world at closing the main menu.
             </summary>
         </member>
-        <member name="M:Game.MainMenuWindow.CreateMap">
-            <summary>
-            Creates the background world.
-            </summary>
-        </member>
-        <member name="M:Game.MainMenuWindow.DestroyMap">
-            <summary>
-            Destroys the background world.
-            </summary>
-        </member>
         <member name="T:Game.Program">
             <summary>
             Defines an input point in the application.

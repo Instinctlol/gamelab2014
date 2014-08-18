@@ -2113,7 +2113,7 @@ namespace Game
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = false;
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = true;
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Verlierer";
                 }
                 // Text anpassen
                 hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
@@ -2124,7 +2124,7 @@ namespace Game
             }
             else
             {
-                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+                hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "";
             }
         }
         
