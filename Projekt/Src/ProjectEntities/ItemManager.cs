@@ -237,7 +237,7 @@ namespace ProjectEntities
                         currentItem.Name = "Zugangskarte";
                         currentItem.TakeItem(unit);
                         unit.Inventar.add(currentItem);
-                        s = "AccessCard";
+                        s = "Zugangskarte";
                     }
                     else
                     {
