@@ -75,19 +75,12 @@ namespace ProjectEntities
         enum NetworkMessages
         {
             StatisticToClient,
-            DamageAstronoutsToServer,
             DamageAstronoutsToClients,
-            KilledAliensToServer,
             KilledAliensToClients,
-            KilledAstronoutsToServer,
             KilledAstronoutsToClients,
-            SpawnedAliensToServer,
             SpawnedAliensToClients,
-            ReanimationsToServer,
             ReanimationsToClients,
-            AstronoutWinToServer,
             AstronoutWinToClients,
-            AlienWinToServer,
             AlienWinToClients
         }
         public event StatisticEventDelegate showStatistic;
