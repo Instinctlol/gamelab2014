@@ -88,7 +88,7 @@ namespace Game
 		{
 			base.OnRenderUI( renderer );
 
-			Vec2 size = new Vec2( 512, 215.0f );
+			Vec2 size = new Vec2( 500, 390.0f );
 			size *= 1.0f + Time * .015f;
 			size /= new Vec2( 768.0f * renderer.AspectRatio, 768.0f );
 
