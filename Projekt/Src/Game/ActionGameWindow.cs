@@ -57,6 +57,8 @@ namespace Game
         //Timer für WaffenInfo
         Timer aTimer = new Timer(5000);
 
+        //Inventar visible?
+        bool showInventar = false;
 
         //HUD screen
         Control hudControl;
@@ -1080,9 +1082,13 @@ namespace Game
                 control.BackTexture = null;
         }
 
-        void zeigeInventar()
+        void UpdateInventar()
         {
             Unit unit = GetPlayerUnit();
+
+            if (unit.Inventar.IsOpen == false)
+                return;
+
             List<Item> inv = unit.Inventar.getInventarliste();
             string itemname;
             int indexUseItem = unit.Inventar.getIndexUseItem();
@@ -1119,22 +1125,20 @@ namespace Game
                 }
 
                 //Itemname und anzahl des Useitem ausgeben
-                String itemtext;
                 if (unit.Inventar.useItem.Name == "Taschenlampe")
                 {
-                    itemtext = unit.Inventar.useItem.Name + " " + unit.Inventar.FlashlightEnergy + "%";
-                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                    hudControl.Controls["Item_Leiste/item_name"].Text = unit.Inventar.useItem.Name + " " + unit.Inventar.FlashlightEnergy + "%";
                 }
                 else
                 {
-                    itemtext = unit.Inventar.useItem.Name + " x" + unit.Inventar.useItem.anzahl;
-                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                    hudControl.Controls["Item_Leiste/item_name"].Text = unit.Inventar.useItem.Name + " x" + unit.Inventar.useItem.anzahl;
                 }
 
             }
 
 
         }
+
 
         /// <summary>
         /// Updates HUD screen
@@ -1402,6 +1406,8 @@ namespace Game
                         DrawPlayersStatistics(renderer);
 
                 }
+
+                UpdateInventar();
             }
 
             //Game is paused on server
@@ -2013,7 +2019,6 @@ namespace Game
             }
             else
             {
-                zeigeInventar();
                 hudControl.Controls["Item_Leiste"].Visible = true;
                 GetPlayerUnit().Inventar.IsOpen = true;
                 
@@ -2040,7 +2045,6 @@ namespace Game
                 if (u.Inventar.getIndexUseItem() + 1 <= inv.Count - 1)
                 {
                     u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
-                    zeigeInventar();
                 }
             }
         }
@@ -2054,7 +2058,6 @@ namespace Game
                 if (u.Inventar.getIndexUseItem() - 1 >= 0)
                 {
                     u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
-                    zeigeInventar();
                 }
             }
         }

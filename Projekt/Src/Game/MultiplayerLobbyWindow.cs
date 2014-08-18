@@ -22,6 +22,7 @@ namespace Game
 		ListBox listBoxUsers;
 		EditBox editBoxChatMessage;
         int timesPerSec = 5;
+        bool started = false;
 
 		///////////////////////////////////////////
 
@@ -298,7 +299,7 @@ namespace Game
 		void UpdateControls()
 		{
             //Anzahl an Clients auf > 1 setzen
-            if (GameNetworkServer.Instance != null && GameNetworkServer.Instance.ConnectedNodes.Count >= 0)
+            if (GameNetworkServer.Instance != null && GameNetworkServer.Instance.ConnectedNodes.Count >= 0 && !started)
             {
                 buttonStart.Enable = true;
             }
@@ -318,6 +319,7 @@ namespace Game
             if (server != null)
             {
                 ((Button)window.Controls["Start"]).Enable = false;
+                started = true;
 
                 Timer aTimer = new System.Timers.Timer( 1000);
                 

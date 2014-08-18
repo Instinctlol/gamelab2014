@@ -75,18 +75,29 @@ namespace ProjectEntities
                 if (value && FlashlightOwned && FlashlightEnergy > 0)
                 {
                     flashlightVisible = true;
-                    energieTimer.AutoReset = true;
-                    energieTimer.Enabled = true;
                 }
                 else
                 {
                     flashlightVisible = false;
-                    energieTimer.AutoReset = false;
-                    energieTimer.Enabled = false;
                 }
 
                 if (EntitySystemWorld.Instance.IsServer())
+                {
+                    if (flashlightVisible)
+                    {
+
+                        energieTimer.AutoReset = true;
+                        energieTimer.Enabled = true;
+                    }
+                    else
+                    {
+
+                        energieTimer.AutoReset = false;
+                        energieTimer.Enabled = false;
+                    }
+
                     Server_SendFlashlightStatusToClient(flashlightVisible);
+                }
                 else
                     Client_SendFlashlightVisibleToServer(flashlightVisible);
             }
@@ -297,8 +308,11 @@ namespace ProjectEntities
             if (FlashlightEnergy > 0)
                 FlashlightEnergy -= 2;
             else
-                StatusMessageHandler.sendMessage("Batterie der Taschenlampe ist leer.");
-
+            {
+                FlashlightVisible = false;
+                energieTimer.AutoReset = false;
+                energieTimer.Enabled = false;
+            }
         }
 
         void Client_RemoveItem(Item i)
@@ -372,6 +386,8 @@ namespace ProjectEntities
                 return;
 
             flashlightEnergy = energy;
+            if (flashlightEnergy <= 0)
+                StatusMessageHandler.sendMessage("Batterie der Taschenlampe ist leer.");
         }
 
         private void Client_SendFlashlightEnergyToServer(int _taschenlampeEnergie)
