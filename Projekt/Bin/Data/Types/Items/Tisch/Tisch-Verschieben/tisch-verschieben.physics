@@ -5,7 +5,7 @@ physicsModel
 	body body1
 	{
 		massMethod = Manually
-		mass = 200
+		mass = 70
 		shape
 		{
 			type = box
