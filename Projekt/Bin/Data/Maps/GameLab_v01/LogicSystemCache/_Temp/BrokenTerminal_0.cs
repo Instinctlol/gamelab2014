@@ -36,6 +36,8 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		public void Repair()
 		{
 			Owner.Die();
+			((Repairable)Entitiese.Instance.GetByName("BrokenTerminal_0")).Visibel = true;
+			
 		}
 
 	}

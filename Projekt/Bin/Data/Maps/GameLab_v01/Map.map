@@ -522,7 +522,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 35
-				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),true);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
+				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
