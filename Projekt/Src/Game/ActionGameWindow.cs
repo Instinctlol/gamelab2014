@@ -227,7 +227,11 @@ namespace Game
                     return true;
             }
 
-            
+            if (e.Key == EKeys.F8)
+            {
+                ShowStatistics();
+            } 
+
             //change camera type
             if (e.Key == EKeys.F7)
             {
@@ -2103,6 +2107,31 @@ namespace Game
 			
             else
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
+        }
+
+        public void ShowStatistics()
+        {
+            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
+            {
+                if (Computer.Instance.Astronautwin)
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                }
+                else
+                {
+                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
+                }
+                // Text anpassen
+                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
+                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Instance.Statistic.GetAstronoutData();
+
+                // Statistik anzeigen
+                hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+            }
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["Status"].Text = "";
+            }
         }
     }
 }

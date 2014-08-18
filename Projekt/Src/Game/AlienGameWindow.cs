@@ -74,7 +74,7 @@ namespace Game
         float timeForDeleteNotificationMessage;
         float timeForDropItemIncrementation = 300;
 
-        float timeForWin = 30;
+        float timeForWin = 60;
 
         // Headtracking
         Vec3 headtrackingOffset;
@@ -1091,14 +1091,14 @@ namespace Game
 
             }
 
-            /// Gewinner setzen
-            //timeForWin -= delta;
-            //if (timeForWin < 0 && (!Computer.Instance.Alienwin || !Computer.Instance.Astronautwin))
-            //{
-            //    Console.WriteLine("setwinner");
-            //    Computer.Instance.SetWinner(true);
-            //    timeForWin = 10000000000.0f;
-            //}
+            // Gewinner setzen
+            timeForWin -= delta;
+            if (timeForWin < 0 && (!Computer.Instance.Alienwin || !Computer.Instance.Astronautwin))
+            {
+                Console.WriteLine("setwinner");
+                Computer.Instance.SetWinner(true);
+                timeForWin = 10000000000.0f;
+            }
             
 
             //gameStatus
