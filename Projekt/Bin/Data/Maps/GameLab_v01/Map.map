@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -92.35228 -57.83247 5.085589
-editorCameraDirection = 2.217435 -0.4482969
+editorCameraPosition = 96.21206 4.748406 9.846793
+editorCameraDirection = 4.974438 -1.376382
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -342,7 +342,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 16
-				code = "Owner.Die();"
+				code = "Owner.Die();\r\n"
 				methodName = Repair
 				returnType = System.Void
 				parameters = 
@@ -1832,9 +1832,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -32.95972 75.2175 3
-	rotation = 0 0 -0.7660444 -0.6427876
-	scale = 9.572958 20.68153 10.9482
+	position = -29.00896 72.82931 3
+	rotation = 0 0 -0.8701422 -0.4928007
+	scale = 6.296118 15.00469 10.9482
 	visible = False
 	name = F2S23
 	editorLayer = "Root Layer\\Rotation\\F2"
@@ -1886,9 +1886,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 71.58986 31.04519 3
-	rotation = 0 0 -0.2204835 -0.9753907
-	scale = 9.572958 22.87252 10.9482
+	position = 72.74758 29.42711 3
+	rotation = 0 0 -0.2685983 -0.9632522
+	scale = 9.572958 19.20636 10.9482
 	visible = False
 	name = F2S18
 	editorLayer = "Root Layer\\Rotation\\F2"
@@ -2147,9 +2147,9 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = -41.43666 -104.3344 3
+	position = -43.05396 -103.4836 3
 	rotation = 0 0 -0.8287271 0.5596528
-	scale = 9.572958 36.35155 10.9482
+	scale = 9.572958 30.88715 10.9482
 	visible = False
 	name = F1S56
 	editorLayer = "Root Layer\\Rotation\\F1"
@@ -2319,6 +2319,7 @@ entity
 	type = OutDoor
 	uin = 194
 	classPrompt = OutDoor
+	sector = 175
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2481,11 +2482,12 @@ entity
 	type = OutDoor
 	uin = 205
 	classPrompt = OutDoor
+	sector = 178
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
 	healthFactorAtBeginning = 1
-	position = -65.81089 67.19247 1.806979
+	position = -65.86555 67.22039 1.806979
 	rotation = -0.0009798936 0.0004066327 -0.3832845 0.9236298
 	name = OutDoor_1
 	editorLayer = "Root Layer\\F1\\Dynamics"
@@ -2495,6 +2497,7 @@ entity
 	type = OutDoor
 	uin = 206
 	classPrompt = OutDoor
+	sector = 161
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2509,6 +2512,7 @@ entity
 	type = OutDoor
 	uin = 207
 	classPrompt = OutDoor
+	sector = 159
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
@@ -2523,6 +2527,7 @@ entity
 	type = OutDoor
 	uin = 208
 	classPrompt = OutDoor
+	sector = 164
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2537,11 +2542,12 @@ entity
 	type = OutDoor
 	uin = 209
 	classPrompt = OutDoor
+	sector = 157
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
 	healthFactorAtBeginning = 1
-	position = 93.7197 -0.1610389 1.716934
+	position = 93.24319 -0.09507281 1.960078
 	name = OutDoor_5
 	editorLayer = "Root Layer\\F2\\Dynamics"
 }
@@ -2550,11 +2556,12 @@ entity
 	type = OutDoor
 	uin = 210
 	classPrompt = OutDoor
+	sector = 176
 	opened = True
 	needOpen = True
 	openDoorOffsetCoefficient = 1
 	healthFactorAtBeginning = 1
-	position = 93.92112 0.1170368 1.851048
+	position = 94.6326 0.1485433 1.889609
 	name = OutDoor_6
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
@@ -2563,11 +2570,12 @@ entity
 	type = OutDoor
 	uin = 211
 	classPrompt = OutDoor
+	sector = 129
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
 	healthFactorAtBeginning = 1
-	position = -0.07659376 -58.36517 1.717478
+	position = -0.07659376 -57.98856 1.717478
 	rotation = 0 0 -0.708742 0.7054679
 	name = OutDoor_7
 	editorLayer = "Root Layer\\F3\\Dynamics"
@@ -2577,6 +2585,7 @@ entity
 	type = OutDoor
 	uin = 212
 	classPrompt = OutDoor
+	sector = 128
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
@@ -2591,11 +2600,12 @@ entity
 	type = OutDoor
 	uin = 213
 	classPrompt = OutDoor
+	sector = 164
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
 	healthFactorAtBeginning = 1
-	position = 64.75011 -65.4426 1.842838
+	position = 64.58444 -65.38135 1.842838
 	rotation = 9.503309E-05 -4.49369E-05 -0.3805342 0.9247669
 	name = OutDoor_9
 	editorLayer = "Root Layer\\F2\\Dynamics"
@@ -2605,11 +2615,12 @@ entity
 	type = OutDoor
 	uin = 214
 	classPrompt = OutDoor
+	sector = 158
 	opened = False
 	needOpen = False
 	openDoorOffsetCoefficient = 0
 	healthFactorAtBeginning = 1
-	position = -93.21046 0.07164306 1.788434
+	position = -93.0948 0.07164306 1.788434
 	name = OutDoor_10
 	editorLayer = "Root Layer\\F2\\Dynamics"
 }
@@ -6367,7 +6378,7 @@ entity
 	subscriptionsToDeletionEvent = 17
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = -37.87189 69.58593 0.2599731
+	position = -37.86991 69.31458 0.2599731
 	rotation = 0 0 -0.9365297 0.3505882
 	scale = 1 1.571959 1.571959
 	name = "Tr\x00fcmmer"
@@ -7068,7 +7079,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -73.09342 -97.58739 1.26481
+	position = -73.09342 -97.58739 1.754765
 	rotation = 0 0 -0.9149801 0.403499
 	name = Switch_Abschnitt_1
 	logicClass = 26
@@ -7083,7 +7094,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -74.26443 -96.5242 1.26481
+	position = -74.26443 -96.5242 1.754765
 	rotation = 0 0 -0.9149801 0.4034989
 	name = Switch_Abschnitt_2
 	logicClass = 24
@@ -7098,7 +7109,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -72.02153 -98.717 1.26481
+	position = -72.02153 -98.717 1.754765
 	rotation = 0 0 -0.9149801 0.4034989
 	name = Switch_Abschnitt_3
 	logicClass = 28
@@ -7300,7 +7311,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = -56.19521 -14.05724 1.278098
+	position = -56.56559 -14.05724 1.660337
 	name = BooleanSwitch_WIN
 	logicClass = 32
 	editorLayer = "Root Layer\\F3\\Items"
@@ -16135,7 +16146,7 @@ entity
 	type = B
 	uin = 1497
 	classPrompt = StaticObject
-	position = -28.4 113.8 2.8
+	position = -28.4 115.3457 2.8
 	rotation = -0.7041904 -0.7083489 0.04627889 0.01470422
 	name = B_3
 	editorLayer = "Root Layer\\F1\\Dynamics"

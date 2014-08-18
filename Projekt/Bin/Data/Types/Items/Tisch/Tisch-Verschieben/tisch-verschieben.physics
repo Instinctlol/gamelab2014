@@ -4,13 +4,14 @@ physicsModel
 {
 	body body1
 	{
+		position = 0.007648734 0 -0.01505924
 		massMethod = Manually
 		mass = 70
 		shape
 		{
 			type = box
 			position = 0 0 0.2402074
-			dimensions = 2.843154 1 1
+			dimensions = 2.493894 1 0.9034991
 		}
 	}
 }
