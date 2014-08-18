@@ -41,17 +41,25 @@ namespace ProjectEntities
 
         public void SetLights(bool status)
         {
-            foreach (var v in AttachedObjects)
+            SetEmissionForObject(this, status);  
+        }
+
+        private void SetEmissionForObject(MapObject obj, bool status)
+        {
+            foreach (var v in obj.AttachedObjects)
             {
+                MapObjectAttachedMapObject attachedObj = v as MapObjectAttachedMapObject;
+                if (attachedObj != null)
+                    SetEmissionForObject(attachedObj.MapObject, status);
+
                 MapObjectAttachedLight light = v as MapObjectAttachedLight;
                 if (light != null)
                     light.Visible = status;
 
-
                 MapObjectAttachedMesh attachedMesh = v as MapObjectAttachedMesh;
                 if (attachedMesh != null)
                 {
-                    foreach ( Engine.Renderer.MeshObject.SubObject s in attachedMesh.MeshObject.SubObjects)
+                    foreach (Engine.Renderer.MeshObject.SubObject s in attachedMesh.MeshObject.SubObjects)
                     {
 
                         if (status == false)
@@ -64,7 +72,7 @@ namespace ProjectEntities
                         }
                     }
                 }
-            }   
+            }
         }
 
         protected override void OnPostCreate(bool loaded)
