@@ -265,7 +265,6 @@ namespace ProjectEntities
         //Wenn Ring rotiert alles im Sektor rotieren
         private void OnRotateRing(Vec3 pos, Quat rot, bool left)
         {
-
             Rotation = rot * Rotation;
             Vec3 offset = Position - pos;
             Position = rot * offset + pos;
@@ -275,30 +274,30 @@ namespace ProjectEntities
 
             foreach (MapObject m in dynamics)
             {
-                m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
+
+                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
 
             foreach (MapObject m in rooms)
             {
-                m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
+
+                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
 
             foreach (MapObject m in statics)
             {
-                m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
+
+                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
 
             foreach (MapObject m in doors)
             {
-                m.Rotation = newRot * m.Rotation;
                 offset = m.Position - OldPosition;
-                m.Position = newRot * offset + Position;
+
+                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
 
         }

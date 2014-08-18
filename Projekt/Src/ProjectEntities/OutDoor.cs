@@ -2,6 +2,7 @@
 using Engine.MathEx;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -27,6 +28,7 @@ namespace ProjectEntities
         //***************************
         //*******Getter-Setter*******
         //***************************
+        [Browsable(false)]
         public OutDoor PartnerDoor
         {
             get { return partnerDoor; }

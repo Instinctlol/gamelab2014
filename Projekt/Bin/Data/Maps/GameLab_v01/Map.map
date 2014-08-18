@@ -503,7 +503,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 33
-				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.Astronautwin = true;\r\n\t\t\t}"
+				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\t//Computer.Instance.Astronautwin = true;\r\n\t\t\t}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -522,7 +522,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 35
-				code = "if(Owner.Value && !pressed)\r\n{\r\n\tpressed = true;\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
+				code = "if(Owner.Value && !pressed)\r\n{\r\n\tpressed = true;\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}\r\nelse\r\n\tOwner.Value = true;"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
