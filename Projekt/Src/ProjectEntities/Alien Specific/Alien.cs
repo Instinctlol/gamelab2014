@@ -60,14 +60,7 @@ namespace ProjectEntities
             set { maxVelocity = value; }
         }
 
-        ////Link to the Spawner which this Alien belongs to.
-        //[LocalizedDescription("Link to the Spawner which this Alien belongs to.", "Alien")]
-        //public AlienSpawner Owner 
-        //{ 
-        //    get; 
-        //    set; 
-        //}
-	}
+    }
 
     /// <summary>
     /// The Alien character.
