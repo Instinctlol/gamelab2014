@@ -51,7 +51,7 @@ namespace ProjectEntities
 
 
         // Bis zu welcher Gruppennummer dürfen Items gedroppt werden
-        int maxItemDropGroupNr = 2;
+        int maxItemDropGroupNr = 6;
 
         // Speichert die im Spiel durchgeführten Rotationen, damit das SectorStatusWindow diese beim initialize nachmachen kann
         // ringRotations[0] ist Ring F1, ringRotations[1] ist Ring F2 und ringRotations[2] ist Ring F3 (innerer Ring)
@@ -71,6 +71,7 @@ namespace ProjectEntities
         // Anzeige der Statistik für Server und Clients
         bool winnerFound = false;
         bool astronautwin = false;
+        int diedAstronouts = 0;
         
         enum NetworkMessages
         {
@@ -169,6 +170,11 @@ namespace ProjectEntities
         {
             get { return noSpawnTime; }
             set { noSpawnTime = value; }
+        }
+
+        public int DiedAstronouts
+        {
+            get { return diedAstronouts; }
         }
 
         public Statistic Statistic
@@ -312,6 +318,15 @@ namespace ProjectEntities
                     statistic.IncrementKilledAliens(); 
                     Server_KilledAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
                 }                
+            }
+        }
+
+        public void IncrementDiedAstronouts()
+        {
+            diedAstronouts++;
+            if (diedAstronouts >= 2)
+            {
+                SetWinner(false);
             }
         }
 
@@ -653,7 +668,8 @@ namespace ProjectEntities
             powerCoupons = 0;
             availableAliens = 0;
             usedAliens = 0;
-            maxItemDropGroupNr = 2;
+            maxItemDropGroupNr = 6;
+            diedAstronouts = 0;
         }
 
         //ToDo Verändern
