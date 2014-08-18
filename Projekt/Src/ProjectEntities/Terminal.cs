@@ -556,7 +556,7 @@ namespace ProjectEntities
                 Active = !active;
             else
             {
-                Server_SendWindowString("Something is broken.");
+                Server_SendWindowString("Irgendwas ist kaputt.");
             }
             if (Active){
                 Computer.Instance.AddRadarElement(this.MapBounds.Minimum.ToVec2(), this.MapBounds.Maximum.ToVec2());
