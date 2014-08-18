@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -1.734309 -54.32302 38.13958
-editorCameraDirection = 4.667045 -1.560796
+editorCameraPosition = 72.36324 -76.20066 7.451588
+editorCameraDirection = 0.5381248 -1.198295
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -84,6 +84,8 @@ rootEditorLayer
 		layer
 		{
 			name = F3
+			visible = False
+			allowSelect = False
 		}
 		layer
 		{
@@ -1320,6 +1322,7 @@ entity
 	shapeType = Box
 	filter = All
 	position = 0 0 0
+	visible = False
 	name = F3_Ring
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1337,6 +1340,7 @@ entity
 	position = 40 0 3
 	rotation = 0 0 -1 -4.371139E-08
 	scale = 36.09863 49.58686 10.9482
+	visible = False
 	name = F3R1-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1353,6 +1357,7 @@ entity
 	filter = All
 	position = -40 0 3
 	scale = 33.84572 47.67738 10.9482
+	visible = False
 	name = F3R3-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1370,6 +1375,7 @@ entity
 	position = 0 40.3 3
 	rotation = 0 0 -0.7071068 -0.7071068
 	scale = 36.55113 48.17792 10.9482
+	visible = False
 	name = F3R2-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1387,6 +1393,7 @@ entity
 	position = 0 -40.4 3
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 36.20875 49.58686 10.9482
+	visible = False
 	name = F3R4-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -1942,6 +1949,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = -15.24333 16.67706 -0.09931804
+	visible = False
 	name = F3SG-G
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -1956,6 +1964,7 @@ entity
 	shapeType = Box
 	filter = OnlyDynamicBodies
 	position = 16.66936 -16.39301 -0.09931804
+	visible = False
 	name = F3SG-F
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Bounds
@@ -2335,6 +2344,7 @@ entity
 	position = -32.0114 32.72062 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 33.90364 10.9482
+	visible = False
 	name = F3C23-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -2363,6 +2373,7 @@ entity
 	position = 32.56227 -32.53202 3
 	rotation = 0 0 -0.917141 -0.3985627
 	scale = 8.717884 34.3275 10.9482
+	visible = False
 	name = F3C14-S
 	editorLayer = "Root Layer\\Rotation\\F3"
 	checkType = Center
@@ -4123,11 +4134,11 @@ entity
 	subscriptionsToDeletionEvent = 40
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	windowType = Rotate
+	windowType = RotateAndSingleSwitch
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 67.20062 -60.35325 1.881515
+	position = 66.60062 -60.75325 1.881515
 	rotation = 0 0 0.9231132 0.3845282
 	name = Terminal_A_Door_2
 	logicClass = 40
@@ -4144,11 +4155,11 @@ entity
 	subscriptionsToDeletionEvent = 56
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	windowType = Rotate
+	windowType = RotateAndSingleSwitch
 	taskType = ColorSequence
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 38.91021 -45.3603 1.339413
+	position = 38.91021 -45.3603 1.739413
 	rotation = 0 0 -0.3737277 0.9275385
 	name = Terminal_A_Door_F3
 	logicClass = 56
