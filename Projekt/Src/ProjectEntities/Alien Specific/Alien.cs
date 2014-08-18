@@ -60,13 +60,13 @@ namespace ProjectEntities
             set { maxVelocity = value; }
         }
 
-        //Link to the Spawner which this Alien belongs to.
-        [LocalizedDescription("Link to the Spawner which this Alien belongs to.", "Alien")]
-        public AlienSpawner Owner 
-        { 
-            get; 
-            set; 
-        }
+        ////Link to the Spawner which this Alien belongs to.
+        //[LocalizedDescription("Link to the Spawner which this Alien belongs to.", "Alien")]
+        //public AlienSpawner Owner 
+        //{ 
+        //    get; 
+        //    set; 
+        //}
 	}
 
     /// <summary>
@@ -97,8 +97,7 @@ namespace ProjectEntities
         
         float patrolTickTime;
 
-        int positionChanged = 0;
-
+        
         int counterPatrolCosts = 0; //Zähler für das Abziehen von ExperiencePoints beim Patrollieren
 
         Vec3 oldMainBodyPosition;
