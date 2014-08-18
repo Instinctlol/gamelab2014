@@ -86,12 +86,12 @@ namespace Game
 			//Controls.Add( versionTextBox );
 
 			//showBackgroundMap check box
-			CheckBox checkBox = (CheckBox)window.Controls[ "ShowBackgroundMap" ];
-			if( checkBox != null )
-			{
-				checkBox.Checked = showBackgroundMap;
-				checkBox.Click += checkBoxShowBackgroundMap_Click;
-			}
+            //CheckBox checkBox = (CheckBox)window.Controls[ "ShowBackgroundMap" ];
+            //if( checkBox != null )
+            //{
+            //    checkBox.Checked = showBackgroundMap;
+            //    checkBox.Click += checkBoxShowBackgroundMap_Click;
+            //}
 
 			//play background music
 			GameMusic.MusicPlay( "Sounds\\Music\\Game.ogg", true );
@@ -102,21 +102,21 @@ namespace Game
 				Vec3.Zero, new Vec3( 1, 0, 0 ), new Vec3( 0, 0, 1 ) );
 
 			//create the background world
-			if( showBackgroundMap )
-				CreateMap();
+            //if( showBackgroundMap )
+            //    CreateMap();
 
 			ResetTime();
 		}
 
-		void checkBoxShowBackgroundMap_Click( CheckBox sender )
-		{
-			showBackgroundMap = sender.Checked;
+        //void checkBoxShowBackgroundMap_Click( CheckBox sender )
+        //{
+        //    showBackgroundMap = sender.Checked;
 
-			if( showBackgroundMap )
-				CreateMap();
-			else
-				DestroyMap();
-		}
+        //    if( showBackgroundMap )
+        //        CreateMap();
+        //    else
+        //        DestroyMap();
+        //}
 
 		void Multiplayer_Click( Button sender )
 		{
@@ -166,7 +166,7 @@ namespace Game
 		protected override void OnDetach()
 		{
 			//destroy the background world
-			DestroyMap();
+            //DestroyMap();
 
 			base.OnDetach();
 			instance = null;
@@ -271,39 +271,39 @@ namespace Game
         }
 
 
-		/// <summary>
-		/// Creates the background world.
-		/// </summary>
-		void CreateMap()
-		{
-			DestroyMap();
+        ///// <summary>
+        ///// Creates the background world.
+        ///// </summary>
+        //void CreateMap()
+        //{
+        //    DestroyMap();
 
-			string mapName = "Maps\\MainMenu\\Map.map";
+        //    string mapName = "Maps\\MainMenu\\Map.map";
 
-			if( VirtualFile.Exists( mapName ) )
-			{
-				WorldType worldType = EntityTypes.Instance.GetByName( "SimpleWorld" ) as WorldType;
-				if( worldType == null )
-					Log.Fatal( "MainMenuWindow: CreateMap: \"SimpleWorld\" type is not exists." );
+        //    if( VirtualFile.Exists( mapName ) )
+        //    {
+        //        WorldType worldType = EntityTypes.Instance.GetByName( "SimpleWorld" ) as WorldType;
+        //        if( worldType == null )
+        //            Log.Fatal( "MainMenuWindow: CreateMap: \"SimpleWorld\" type is not exists." );
 
-				if( GameEngineApp.Instance.ServerOrSingle_MapLoad( mapName, worldType, true ) )
-				{
-					mapInstance = Map.Instance;
-					EntitySystemWorld.Instance.Simulation = true;
-				}
-			}
-		}
+        //        if( GameEngineApp.Instance.ServerOrSingle_MapLoad( mapName, worldType, true ) )
+        //        {
+        //            mapInstance = Map.Instance;
+        //            EntitySystemWorld.Instance.Simulation = true;
+        //        }
+        //    }
+        //}
 
-		/// <summary>
-		/// Destroys the background world.
-		/// </summary>
-		void DestroyMap()
-		{
-			if( mapInstance == Map.Instance )
-			{
-				MapSystemWorld.MapDestroy();
-				EntitySystemWorld.Instance.WorldDestroy();
-			}
-		}
+        ///// <summary>
+        ///// Destroys the background world.
+        ///// </summary>
+        //void DestroyMap()
+        //{
+        //    if( mapInstance == Map.Instance )
+        //    {
+        //        MapSystemWorld.MapDestroy();
+        //        EntitySystemWorld.Instance.WorldDestroy();
+        //    }
+        //}
 	}
 }

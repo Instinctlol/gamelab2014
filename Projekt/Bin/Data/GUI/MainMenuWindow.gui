@@ -7,6 +7,12 @@ control Control
 	size = Screen 1 1
 	text = Main menu
 	mouseCover = True
+	control Control
+	{
+		position = ScaleByResolution 0 0
+		name = Background
+		backTexture = "GUI\\Textures\\MenuBackground.png"
+	}
 	control "Gui\\Controls\\DefaultWindow.gui"
 	{
 		position = ScaleByResolution -710 -320
