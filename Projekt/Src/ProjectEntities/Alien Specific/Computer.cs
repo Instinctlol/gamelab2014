@@ -75,6 +75,8 @@ namespace ProjectEntities
         enum NetworkMessages
         {
             StatisticToClient,
+            UpdateComputerToServer,
+            UpdateComputerToClients
         }
         public event StatisticEventDelegate showStatistic;
         public delegate void StatisticEventDelegate();
@@ -648,6 +650,76 @@ namespace ProjectEntities
             }
         }
 
+        public void UpdateComputer(Computer c)
+        {
+            // Server
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                // Alle Werte übernehmen
+
+                // Alles an alle Clients synchronisieren
+                Server_UpdateComputerToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
+            else
+            {
+                // Client muss an Server senden
+                SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.UpdateComputerToServer);
+                // Daten schreiben
+                EndNetworkMessage();
+            }
+        }
+
+        void Server_UpdateComputerToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.UpdateComputerToClients);
+            // Daten schreiben
+            writer.Write(statistic.DamageAstronouts);
+            writer.WriteVariableInt32(statistic.KilledAliens);
+            writer.WriteVariableInt32(statistic.KilledAstronouts);
+            writer.WriteVariableInt32(statistic.SpawnedAliens);
+            writer.WriteVariableInt32(statistic.Reanimations);
+            writer.Write(astronautwin);
+            writer.Write(alienwin);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.UpdateComputerToServer)]
+        void Server_ReceiveUpdate(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            if (!reader.Complete())
+            {
+                return;
+            }
+            UpdateComputer();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.UpdateComputerToClients)]
+        void Client_ReceiveUpdate(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            float damageAstronouts = reader.ReadSingle();
+            int killedAliens = reader.ReadVariableInt32();
+            int killedAstronouts = reader.ReadVariableInt32();
+            int spawnedAliens = reader.ReadVariableInt32();
+            int reanimations = reader.ReadVariableInt32();
+            bool astronoutwin = reader.ReadBoolean();
+            bool alienwin = reader.ReadBoolean();
+            
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.DamageAstronouts = damageAstronouts;
+            this.statistic.KilledAliens = killedAliens;
+            this.statistic.KilledAstronouts = killedAstronouts;
+            this.statistic.SpawnedAliens = spawnedAliens;
+            this.statistic.Reanimations = reanimations;
+            this.astronautwin = astronoutwin;
+            this.alienwin = alienwin;
+        } 
+
         private void Server_SendStatisticToClients()
         {
             Console.WriteLine("StatisticToClient: " + NetworkMessages.StatisticToClient + ", (Ushort): " + (ushort)NetworkMessages.StatisticToClient + ", Computer: " + typeof(Computer));
@@ -662,16 +734,25 @@ namespace ProjectEntities
             Console.WriteLine("Client receivestatistic");
             bool win = reader.ReadBoolean();
             if (!reader.Complete())
+            {
+                Console.WriteLine("client_receive return");
                 return;
+            }
+
+            Console.WriteLine("vorher alienwin:" + alienwin + "astronautwin:" + astronautwin);
 
             alienwin = win;
             astronautwin = !win;
+
+            Console.WriteLine("nachher alienwin:" + alienwin + "astronautwin:" + astronautwin);
             // CaveWindow per Event mitteilen, dass die Statistik angezeigt werden soll.
             if (showStatistic != null)
             {
+                Console.WriteLine("showstatistic11");
                 showStatistic();
             }
         }
 
+       
     }
 }
