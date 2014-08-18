@@ -2105,10 +2105,14 @@ namespace Game
             {
                 if (!Computer.Instance.Astronautwin)
                 {
-                    hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = false;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Sieger";
                 }
                 else
                 {
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = false;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = true;
                     hudControl.Controls["Statistic"].Controls["Status"].Text = "Verlierer";
                 }
                 // Text anpassen
