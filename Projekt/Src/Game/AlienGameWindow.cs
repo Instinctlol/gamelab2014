@@ -1096,7 +1096,7 @@ namespace Game
             if (timeForWin < 0 && (!Computer.Instance.Alienwin || !Computer.Instance.Astronautwin))
             {
                 Console.WriteLine("setwinner");
-                Computer.Instance.SetWinner(true);
+                //Computer.Instance.SetWinner(true);
                 timeForWin = 10000000000.0f;
             }
             
