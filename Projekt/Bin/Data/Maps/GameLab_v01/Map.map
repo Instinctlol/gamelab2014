@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -64.36947 -40.01202 11.8563
-editorCameraDirection = 4.865093 -0.8186094
+editorCameraPosition = -62.1089 -52.28865 13.1847
+editorCameraDirection = 4.492956 -1.51861
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -13678,7 +13678,7 @@ entity
 	type = Desk-Verschieben
 	uin = 1271
 	classPrompt = StaticObject
-	position = -65.60213 -46.56861 0.5490702
+	position = -66.60213 -46.36861 0.5490702
 	name = Desk-Verschieben_0
 	editorLayer = "Root Layer\\F1\\Einrichtung"
 }
