@@ -111,13 +111,13 @@ namespace ProjectEntities
         public bool Alienwin
         {
             get { return alienwin; }
-            //set { alienwin = value; }
+            set { alienwin = value; }
         }
 
         public bool Astronautwin
         {
             get { return astronautwin; }
-            //set { astronautwin = value; }
+            set { astronautwin = value; }
         }
         
         public int ExperiencePoints
