@@ -24,7 +24,7 @@ namespace ProjectEntities
             Server_EvaluatingSolutions,  //disable Buttons
         }
 
-        private EngineConsole console = EngineConsole.Instance;
+        //private EngineConsole console = EngineConsole.Instance;
 
         private TextBox countdownBox, enemySelectedBox;
         private Button schereButton, steinButton, papierButton, playButton, tempButton;
@@ -232,7 +232,7 @@ namespace ProjectEntities
                 switch(msg)
                 {
                     case NetworkMessages.Client_PlayButtonClicked:
-                        console.Print("Server: received Client_PlayButtonClicked");
+                        //console.Print("Server: received Client_PlayButtonClicked");
                         Server_createWindowForAlien(task);
                         break;
                 }

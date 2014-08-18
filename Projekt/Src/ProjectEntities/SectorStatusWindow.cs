@@ -8,7 +8,7 @@ namespace ProjectEntities
 {
     public class SectorStatusWindow : Window
     {
-        private EngineConsole console = EngineConsole.Instance;
+        //private EngineConsole console = EngineConsole.Instance;
 
         private Ring ringOuter, ringInner, ringMiddle;
         private RotControl ringOuterCntrl, ringInnerCntrl, ringMiddleCntrl;
@@ -370,7 +370,7 @@ namespace ProjectEntities
             if (!left)
             {
 
-                EngineConsole.Instance.Print("sectorwindow rechts drehen");
+                //EngineConsole.Instance.Print("sectorwindow rechts drehen");
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree + 45) % 360;
 
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree + 45) % 360;
@@ -384,7 +384,7 @@ namespace ProjectEntities
             }
             else
             {
-                EngineConsole.Instance.Print("sectorwindow links drehen");
+                //EngineConsole.Instance.Print("sectorwindow links drehen");
                 ringOuterCntrl.RotateDegree = (ringOuterCntrl.RotateDegree - 45) % 360;
 
                 secgrpAR8Cntrl.RotateDegree = (secgrpAR8Cntrl.RotateDegree - 45) % 360;

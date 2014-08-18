@@ -265,7 +265,7 @@ namespace ProjectEntities
                                     {
 
                                         Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
-                                        EngineConsole.Instance.Print("Die position von den 2 Astronaut ist   " + nonactObjPos + ", " + actObjPos);
+                                        //EngineConsole.Instance.Print("Die position von den 2 Astronaut ist   " + nonactObjPos + ", " + actObjPos);
 
 
 
@@ -276,8 +276,8 @@ namespace ProjectEntities
 
                                             diff = actObjPos - nonactObjPos;
                                             objDistance = diff.Length();
-                                            EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
-                                            EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                            //EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                            //EngineConsole.Instance.Print("Die zeit ist   " + revival);
                                             if (objDistance > radius)
                                             {
                                                 creatAstronaut = false;
@@ -301,8 +301,8 @@ namespace ProjectEntities
                                         Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
                                         diff = actplayer.pos - nonactObjPos;
                                         objDistance = diff.Length();
-                                        EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
-                                        EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                        //EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                        //EngineConsole.Instance.Print("Die zeit ist   " + revival);
                                         
 
                                         
@@ -313,8 +313,8 @@ namespace ProjectEntities
                                             
                                         if (objDistance > radius)
                                         {
-                                            EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
-                                            EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                            //EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                            //EngineConsole.Instance.Print("Die zeit ist   " + revival);
                                             creatAstronaut = false;
                                             revival = 0f;
 
@@ -338,7 +338,7 @@ namespace ProjectEntities
 
                                             if (timeelapsed >= 1)
                                             {
-                                                      EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                                      //EngineConsole.Instance.Print("Die zeit ist   " + revival);
 
 
                                                    

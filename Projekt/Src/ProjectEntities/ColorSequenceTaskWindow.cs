@@ -9,7 +9,7 @@ namespace ProjectEntities
 {
     public class ColorSequenceTaskWindow : TaskWindow
     {
-        private EngineConsole console = EngineConsole.Instance;
+        //private EngineConsole console = EngineConsole.Instance;
 
         enum NetworkMessages
         {
@@ -272,7 +272,7 @@ namespace ProjectEntities
                             task.Server_SendWindowData((UInt16)NetworkMessages.LightRedToClient);
                         break;
                     default:
-                        console.Print("Something went wrong lighting buttons...");
+                        //console.Print("Something went wrong lighting buttons...");
                         break;
                 }
             else

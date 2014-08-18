@@ -135,7 +135,7 @@ namespace ProjectEntities
 
         public void Patrol()
         {
-            EngineConsole.Instance.Print("Ich patroulliere");
+            //EngineConsole.Instance.Print("Ich patroulliere");
             patrolEnabled = true;
             this.MovementRoute = null;
             MapCurve mapCurve = null;
@@ -155,8 +155,8 @@ namespace ProjectEntities
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
                 Sector sec = mObj as Sector;
-                EngineConsole.Instance.Print("Sektor:" + sec.Name);
-                EngineConsole.Instance.Print("Strahl");
+                //EngineConsole.Instance.Print("Sektor:" + sec.Name);
+                //EngineConsole.Instance.Print("Strahl");
 
                 if (sec != null)
                 {
@@ -165,19 +165,19 @@ namespace ProjectEntities
                     {
                         if (sec.Name == "F1R1-S" && curve.Name == "CurveF1R2")
                         {
-                            EngineConsole.Instance.Print("Ich bin im Sektor F1R1");
+                            //EngineConsole.Instance.Print("Ich bin im Sektor F1R1");
                             minCurve = curve;
                         }
                         if (sec.Name == "F1S45" && curve.Name == "CurveF1R4")
                         {
                             minCurve = curve;
-                            EngineConsole.Instance.Print("Ich bin im Sektor F1S45");
+                            //EngineConsole.Instance.Print("Ich bin im Sektor F1S45");
                         }
 
                         if (sec.Name == "F2S23" && curve.Name == "CurveF2R2")
                         {
                             minCurve = curve;
-                            EngineConsole.Instance.Print("Ich bin im Sektor F1S23");
+                            //EngineConsole.Instance.Print("Ich bin im Sektor F1S23");
                         }
                         //Probleme mit Raum F1R5 -> aktuell wird gemeldet, dass hier Patrouillieren nicht möglich ist!!!!!!!!!!!!!!!
 
@@ -188,7 +188,7 @@ namespace ProjectEntities
                         }
                         else if (curve.Name.Substring(6, 1) == sec.Name.Substring(1, 1) && (sec.Name.Substring(3, 1) == curve.Name.Substring(8, 1) || sec.Name.Substring(4, 1) == curve.Name.Substring(8, 1)) && sec.Name != "F1S45" && sec.Name != "F2S23")
                         {
-                            EngineConsole.Instance.Print("Ich stehe im Gang");
+                            //EngineConsole.Instance.Print("Ich stehe im Gang");
 
                             foreach (MapCurvePoint curvePoint in allPossibleCurvePoints)
                             {
@@ -199,7 +199,7 @@ namespace ProjectEntities
                                     {
                                         minDistance = distance.Length();
                                         minCurve = curve;
-                                        EngineConsole.Instance.Print("Minimale Kurve " + minCurve.Name);
+                                        //EngineConsole.Instance.Print("Minimale Kurve " + minCurve.Name);
                                     }
                                 }
                             }
@@ -207,13 +207,13 @@ namespace ProjectEntities
                         }
                         else
                         {
-                            EngineConsole.Instance.Print("Kurvenname != Sektorname ");
+                            //EngineConsole.Instance.Print("Kurvenname != Sektorname ");
                         }
                     }
                 }
                 else
                 {
-                    EngineConsole.Instance.Print("Keinen Sektor gefunden");
+                    //EngineConsole.Instance.Print("Keinen Sektor gefunden");
                 }
 
                 return false;
@@ -253,7 +253,7 @@ namespace ProjectEntities
 
             if (minCurve == null)
             {
-                EngineConsole.Instance.Print("Patroullieren ist hier nicht möglich!");
+                //EngineConsole.Instance.Print("Patroullieren ist hier nicht möglich!");
                 StatusMessageHandler.sendMessage("Patrouillieren ist hier nicht möglich!");
                 patrolEnabled = false;
                 Stop();

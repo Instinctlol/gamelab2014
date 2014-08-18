@@ -186,11 +186,8 @@ namespace Game
             };
              */
 
-            ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).Click += delegate(Button sender)
-            {
-                EngineConsole.Instance.Print("sherebutton clicked");
-            };
-            ((Button)hudControl.Controls["SchereSteinPapier"].Controls["SchereButton"]).MouseEnter += AlienGameWindow_MouseEnter;
+            
+            
             //InitControlPanelButtons();
             numPad = hudControl.Controls["rechts"].Controls["NumPad"];
             UpdateControlPanel();
@@ -249,10 +246,7 @@ namespace Game
             bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
         }
 
-        private void AlienGameWindow_MouseEnter(Control sender)
-        {
-            EngineConsole.Instance.Print("shere entered");
-        }
+        
 
         /// <summary>
         /// Duell-Spiel starten

@@ -53,7 +53,7 @@ namespace Game
         // löschen
         protected override bool OnMouseDown(EMouseButtons button)
         {
-            EngineConsole.Instance.Print("bigminimap mousedown");
+            //EngineConsole.Instance.Print("bigminimap mousedown");
             
 
             return base.OnMouseDown(button);
@@ -65,14 +65,14 @@ namespace Game
             unselect();
             TuioInputDevice.detectgestures(false);
             TuioInputDevice.cleardata();
-            EngineConsole.Instance.Print("minimap clos");
+            //EngineConsole.Instance.Print("minimap clos");
             //SetShouldDetach();
             
         }
 
         void rotateLeftButton_Click(object sender)
         {
-            EngineConsole.Instance.Print("links drehen");
+            //EngineConsole.Instance.Print("links drehen");
             if (selectedSector == null)
             {
                 StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
@@ -85,7 +85,7 @@ namespace Game
 
         void rotateRightButton_Click(object sender)
         {
-            EngineConsole.Instance.Print("rechts drehen");
+            //EngineConsole.Instance.Print("rechts drehen");
             if (selectedSector == null)
             {
                 StatusMessageHandler.sendMessage("Kein Sector eines Rings ausgewählt. (Raum mit Doppel-Click auswählen)");
@@ -105,13 +105,13 @@ namespace Game
             else
             {
                 Computer.Instance.SetSectorGroupPower(selectedSector.Group, !selectedSector.Group.LightStatus);
-                EngineConsole.Instance.Print("Turn Power off for secgrp: "+selectedSector.Group.Name);
+                //EngineConsole.Instance.Print("Turn Power off for secgrp: "+selectedSector.Group.Name);
             }
         }
         
 		protected override void OnControlDetach( Control control )
 		{
-            EngineConsole.Instance.Print("oncoltroldetach");
+            //EngineConsole.Instance.Print("oncoltroldetach");
 			base.OnControlDetach( control );
 
 			if( ( control as OptionsWindow ) != null ||
@@ -130,7 +130,7 @@ namespace Game
         /// <param name="button"></param>
         public void BigMinimapClick(Vec2 MousePosition)
         {
-            EngineConsole.Instance.Print("binminimap bigminimapclick");
+            //EngineConsole.Instance.Print("binminimap bigminimapclick");
             Vec2 pos = GetMapPositionByMouseOnMinimap(MousePosition);
             Rect rect = new Rect(pos);
             Sphere sphere = new Sphere(new Vec3(pos.X, pos.Y, 0), 0.001f);
@@ -140,7 +140,7 @@ namespace Game
                 if (obj is Sector)
                 {
                     selectedSector = (Sector)obj;
-                    EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
+                    //EngineConsole.Instance.Print("Sector: " + ((Sector)obj).Name);
 
                     if (lastSelectedSector != null)
                         ((SectorStatusWindow)bigMinimapControl).highlight("f" + lastSelectedSector.Substring(1, 1) + "r" + lastSelectedSector.Substring(3, 1), false);  //unhilight last sector

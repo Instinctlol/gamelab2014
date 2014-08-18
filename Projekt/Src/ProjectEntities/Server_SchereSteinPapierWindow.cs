@@ -9,7 +9,7 @@ namespace ProjectEntities
 {
     public class Server_SchereSteinPapierWindow : TaskWindow
     {
-        private EngineConsole console = EngineConsole.Instance;
+        //private EngineConsole console = EngineConsole.Instance;
 
         private Control window;
         private TextBox countdownBox, enemySelectedBox;
@@ -102,7 +102,7 @@ namespace ProjectEntities
             if(!(countdownBox.Text.Equals("0")))
             {
                 
-                lastSelected = steinButton.Text;
+                lastSelected = "Stein";
                 if (tempButton != steinButton) {
                     window.Controls["PapierButton"].ColorMultiplier = new ColorValue(1, 1, 1);
                     window.Controls["SchereButton"].ColorMultiplier = new ColorValue(1, 1, 1);
@@ -122,7 +122,7 @@ namespace ProjectEntities
         {
             if (!(countdownBox.Text.Equals("0")))
             {
-                lastSelected = papierButton.Text;
+                lastSelected = "Papier";
 
                 if (tempButton != papierButton)
                 {
@@ -144,7 +144,7 @@ namespace ProjectEntities
         {
             if (!(countdownBox.Text.Equals("0")))
             {
-                lastSelected = schereButton.Text;
+                lastSelected = "Schere";
 
                 if (tempButton != schereButton)
                 {
@@ -168,6 +168,8 @@ namespace ProjectEntities
             steinButton.Enable = false;
             enemySelectedBox.Text = enemyLastSelected;
             enemySelectedBox.Visible = true;
+
+            
 
             if(lastSelected == null && enemyLastSelected == null)
             {
@@ -227,15 +229,15 @@ namespace ProjectEntities
             switch (lastSelected)
             {
                 case "Schere":
-                    enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Text = "Papier";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
-                    enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Text = "Stein";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
-                    enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Text = "Schere";
                     enemySelectedBox.Visible = true;
                     break;
             }
@@ -251,15 +253,15 @@ namespace ProjectEntities
             switch (lastSelected)
             {
                 case "Schere":
-                    enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Text = "Schere";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
-                    enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Text = "Papier";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
-                    enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Text = "Stein";
                     enemySelectedBox.Visible = true;
                     break;
             }
@@ -274,15 +276,15 @@ namespace ProjectEntities
             switch (lastSelected)
             {
                 case "Schere":
-                    enemySelectedBox.Text = steinButton.Text;
+                    enemySelectedBox.Text = "Stein";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Papier":
-                    enemySelectedBox.Text = schereButton.Text;
+                    enemySelectedBox.Text = "Schere";
                     enemySelectedBox.Visible = true;
                     break;
                 case "Stein":
-                    enemySelectedBox.Text = papierButton.Text;
+                    enemySelectedBox.Text = "Papier";
                     enemySelectedBox.Visible = true;
                     break;
             }

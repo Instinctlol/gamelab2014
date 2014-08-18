@@ -348,13 +348,13 @@ namespace ProjectEntities
                 int ringNumber = ring.GetRingNumber();
                 if (left)
                 {
-                    EngineConsole.Instance.Print("computer links drehen");
+                    //EngineConsole.Instance.Print("computer links drehen");
                     ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
                     ring.RotateLeft();
                 }
                 else
                 {
-                    EngineConsole.Instance.Print("computer rechts drehen");
+                    //EngineConsole.Instance.Print("computer rechts drehen");
                     ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
@@ -376,13 +376,13 @@ namespace ProjectEntities
                 int ringNumber = ring.GetRingNumber();
                 if (left)
                 {
-                    EngineConsole.Instance.Print("computer links drehen");
+                    //EngineConsole.Instance.Print("computer links drehen");
                     ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
                     ring.RotateLeft();
                 }
                 else
                 {
-                    EngineConsole.Instance.Print("computer rechts drehen");
+                    //EngineConsole.Instance.Print("computer rechts drehen");
                     ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
