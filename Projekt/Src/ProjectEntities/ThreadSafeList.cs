@@ -22,7 +22,11 @@ namespace ProjectEntities
         {
             lock (m_lock)
             {
-                return m_list.Remove(value);
+                if (m_list.Contains<T>(value))
+                {
+                    return m_list.Remove(value);
+                }
+                return false;
             }
         }
 
@@ -30,7 +34,10 @@ namespace ProjectEntities
         {
             lock (m_lock)
             {
-                m_list.RemoveFirst();
+                if (m_list.Count > 0)
+                {
+                    m_list.RemoveFirst();
+                }
             }
         }
 
