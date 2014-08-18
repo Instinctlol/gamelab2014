@@ -222,13 +222,6 @@ namespace Game
                     return true;
             }
 
-            if (e.Key == EKeys.F8)
-            {
-                Console.WriteLine("F8");
-                ShowStatistics();
-                return true;
-            } 
-
             //change camera type
             if (e.Key == EKeys.F7)
             {
@@ -2089,10 +2082,9 @@ namespace Game
 
         public void ShowStatistics()
         {
-            Console.WriteLine("showstatistic alienwin:"+Computer.Instance.Alienwin +"astronautwin"+Computer.Instance.Astronautwin);
-            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
+            if (Computer.Instance.WinnerFound)
             {
-                if (!Computer.Instance.Alienwin)
+                if (Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
                 }

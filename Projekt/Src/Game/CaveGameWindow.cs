@@ -2046,7 +2046,7 @@ namespace Game
         public void ShowStatistics()
         {
             //Status für Astronaut setzen (Sieger/Verlierer)
-            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
+            if (Computer.Instance.WinnerFound)
             {
                 if (Computer.Instance.Astronautwin)
                 {

@@ -69,8 +69,8 @@ namespace ProjectEntities
         Statistic statistic = new Statistic();
 
         // Anzeige der Statistik für Server und Clients
+        bool winnerFound = false;
         bool astronautwin = false;
-        bool alienwin = false;
         
         enum NetworkMessages
         {
@@ -80,8 +80,7 @@ namespace ProjectEntities
             KilledAstronoutsToClients,
             SpawnedAliensToClients,
             ReanimationsToClients,
-            AstronoutWinToClients,
-            AlienWinToClients
+            AstronoutWinToClients
         }
         public event StatisticEventDelegate showStatistic;
         public delegate void StatisticEventDelegate();
@@ -101,16 +100,16 @@ namespace ProjectEntities
             get{ return instance; }
         }
 
-        public bool Alienwin
-        {
-            get { return alienwin; }
-            set { alienwin = value; }
-        }
-
         public bool Astronautwin
         {
             get { return astronautwin; }
-            set { astronautwin = value; }
+            set { SetWinner(value); }
+        }
+
+        public bool WinnerFound
+        {
+            get { return winnerFound; }
+            set { winnerFound = value; }
         }
         
         public int ExperiencePoints
@@ -649,7 +648,6 @@ namespace ProjectEntities
         private void ResetInstance()
         {
             astronautwin = false;
-            alienwin = false;
             experiencePoints = 50;
             rotationCoupons = 0;
             powerCoupons = 0;
@@ -659,17 +657,17 @@ namespace ProjectEntities
         }
 
         //ToDo Verändern
-        public void SetWinner(bool alien)
+        public void SetWinner(bool astronout)
         {
-            alienwin = alien;
-            astronautwin = !alien;
+            WinnerFound = true;
+            astronautwin = astronout;
 
             // Clients bescheid geben
             if (EntitySystemWorld.Instance.IsServer())
+            {
+                Server_AstronountWinToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
                 Server_SendStatisticToClients();
-
-            //if (EntitySystemWorld.Instance.IsClientOnly())
-                
+            }
 
             // Event feuern, damit die Statistik angezeigt wird
             if (showStatistic != null)
@@ -683,9 +681,8 @@ namespace ProjectEntities
         ///////////////////////////////////////////
         private void Server_SendStatisticToClients()
         {
-            Console.WriteLine("StatisticToClient: " + NetworkMessages.StatisticToClient + ", (Ushort): " + (ushort)NetworkMessages.StatisticToClient + ", Computer: " + typeof(Computer));
             SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.StatisticToClient);
-            writer.Write(alienwin);
+            writer.Write(astronautwin);
             EndNetworkMessage();
         }
 
@@ -727,13 +724,6 @@ namespace ProjectEntities
             writer.Write(astronautwin);
             EndNetworkMessage();
         }
-
-        void Server_AlienWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
-        {
-            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AlienWinToClients);
-            writer.Write(alienwin);
-            EndNetworkMessage();
-        }
         
         ///////////////////////////////////////////
         // Client side
@@ -742,24 +732,17 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.StatisticToClient)]
         void Client_ReceiveStatistic(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
-            Console.WriteLine("Client receivestatistic");
             bool win = reader.ReadBoolean();
             if (!reader.Complete())
             {
-                Console.WriteLine("client_receive return");
                 return;
             }
 
-            Console.WriteLine("vorher alienwin:" + alienwin + "astronautwin:" + astronautwin);
+            astronautwin = win;
 
-            alienwin = win;
-            astronautwin = !win;
-
-            Console.WriteLine("nachher alienwin:" + alienwin + "astronautwin:" + astronautwin);
             // CaveWindow per Event mitteilen, dass die Statistik angezeigt werden soll.
             if (showStatistic != null)
             {
-                Console.WriteLine("showstatistic11");
                 showStatistic();
             }
         }
@@ -851,22 +834,8 @@ namespace ProjectEntities
             }
 
             // Daten setzen 
+            this.winnerFound = true;
             this.astronautwin = astronoutwin;
         }
-        
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AlienWinToClients)]
-        void Client_ReceiveAlienWin(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            // Daten lesen
-            bool alienwin = reader.ReadBoolean();
-
-            if (!reader.Complete())
-            {
-                return;
-            }
-
-            // Daten setzen 
-            this.alienwin = alienwin;
-        } 
     }
 }

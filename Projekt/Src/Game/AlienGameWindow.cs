@@ -1084,15 +1084,6 @@ namespace Game
                 }
 
             }
-
-            // Gewinner setzen
-            timeForWin -= delta;
-            if (timeForWin < 0 && (!Computer.Instance.Alienwin || !Computer.Instance.Astronautwin))
-            {
-                Console.WriteLine("setwinner");
-                //Computer.Instance.SetWinner(true);
-                timeForWin = 10000000000.0f;
-            }
             
 
             //gameStatus
@@ -2110,9 +2101,9 @@ namespace Game
         /// </summary>
         public void ShowStatistics()
         {
-            if (Computer.Instance.Alienwin != Computer.Instance.Astronautwin)
+            if (Computer.Instance.WinnerFound)
             {
-                if (Computer.Instance.Alienwin)
+                if (!Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["Status"].Text = "Sieger";
                 }
