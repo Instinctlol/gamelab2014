@@ -20,6 +20,8 @@ namespace ProjectEntities
     {
         SectorType _type = null; public new SectorType Type { get { return _type; } }
 
+        private bool isRotating = false;
+
         private bool loaded = false;
 
         //Aktueller status der Lichter
@@ -137,6 +139,9 @@ namespace ProjectEntities
         //Registriert wenn ein Objekt den Sektor betritt
         protected override void OnObjectIn(MapObject obj)
         {
+            if (isRotating)
+                return;
+
             base.OnObjectIn(obj);
 
             if (obj is Sector || obj is Ring)
@@ -163,6 +168,9 @@ namespace ProjectEntities
         //Registriert wenn ein Object den Sektor verlässt
         protected override void OnObjectOut(MapObject obj)
         {
+            if (isRotating)
+                return;
+
             base.OnObjectOut(obj);
 
             if (obj is Sector || obj is Ring)
@@ -265,6 +273,7 @@ namespace ProjectEntities
         //Wenn Ring rotiert alles im Sektor rotieren
         private void OnRotateRing(Vec3 pos, Quat rot, bool left)
         {
+            isRotating = true;
             Rotation = rot * Rotation;
             Vec3 offset = Position - pos;
             Position = rot * offset + pos;
@@ -299,7 +308,7 @@ namespace ProjectEntities
 
                 m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
-
+            isRotating = false;
         }
 
 
