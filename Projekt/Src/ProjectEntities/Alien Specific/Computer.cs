@@ -720,6 +720,9 @@ namespace ProjectEntities
         //    this.alienwin = alienwin;
         //} 
 
+        ///////////////////////////////////////////
+        // Server side
+        ///////////////////////////////////////////
         private void Server_SendStatisticToClients()
         {
             Console.WriteLine("StatisticToClient: " + NetworkMessages.StatisticToClient + ", (Ushort): " + (ushort)NetworkMessages.StatisticToClient + ", Computer: " + typeof(Computer));
@@ -727,6 +730,10 @@ namespace ProjectEntities
             writer.Write(alienwin);
             EndNetworkMessage();
         }
+
+        ///////////////////////////////////////////
+        // Client side
+        ///////////////////////////////////////////
 
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.StatisticToClient)]
         void Client_ReceiveStatistic(RemoteEntityWorld sender, ReceiveDataReader reader)
