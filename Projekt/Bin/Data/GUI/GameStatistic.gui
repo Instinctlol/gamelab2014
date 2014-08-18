@@ -7,16 +7,6 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	size = ScaleByResolution 900 700
 	text = Statistic
 	mouseCover = True
-	control TextBox
-	{
-		font = German 0.1
-		textColor = 0 0 1
-		position = Parent 0 0.1
-		horizontalAlign = Center
-		size = Parent 0.8 0.2
-		name = Status
-		text = Sieger
-	}
 	control Control
 	{
 		position = Parent 0 0.35
@@ -68,6 +58,38 @@ control "Gui\\Controls\\DefaultWindow.gui"
 			horizontalAlign = Right
 			size = Parent 0.78 1
 			name = StatisticDataAstronaut
+		}
+	}
+	control Control
+	{
+		position = Parent 0.1 0.1
+		size = Parent 0.8 0.2
+		name = StatusControl
+		control TextBox
+		{
+			textHorizontalAlign = Left
+			font = German 0.1
+			textColor = 0 0 1
+			textOffset = Parent 0.05 0
+			position = ScaleByResolution 0 0
+			horizontalAlign = Right
+			size = Parent 0.8 1
+			name = Status
+			text = Sieger
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			size = Parent 0.2 1
+			name = Looser
+			backTexture = "GUI\\HUD\\Icons\\loser.png"
+		}
+		control Control
+		{
+			position = ScaleByResolution 0 0
+			size = Parent 0.2 1
+			name = Winner
+			backTexture = "GUI\\HUD\\Icons\\winner.png"
 		}
 	}
 }
