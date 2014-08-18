@@ -24,7 +24,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	{
 		position = ScaleByResolution 315.125 167.9047
 		name = Connect2
-		text = Cavenaut
+		text = Beamnaut
 	}
 	control TextBox
 	{
@@ -32,7 +32,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowColor = 0 0 0 0.5019608
 		autoSize = True
 		position = ScaleByResolution 50 213.75
-		size = Screen 0.09574219 0.025
+		size = Screen 0.09908204 0.025
 		text = Connect to
 	}
 	control "Gui\\Controls\\DefaultEditBox.gui"
