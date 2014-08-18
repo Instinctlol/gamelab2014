@@ -147,7 +147,7 @@ control Control
 	{
 		position = ScaleByResolution 420 290
 		size = ScaleByResolution 200 200
-		name = Spielen
+		name = Play
 		defaultControl TextBox
 		{
 			position = ScaleByResolution 0 0
