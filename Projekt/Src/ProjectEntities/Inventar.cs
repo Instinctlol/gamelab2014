@@ -14,6 +14,7 @@ using Engine.PhysicsSystem;
 using Engine.Renderer;
 using Engine.Utils;
 using ProjectCommon;
+using System.Timers;
 
 namespace ProjectEntities
 {
@@ -50,6 +51,9 @@ namespace ProjectEntities
         private int flashlightEnergyMax = 100;
         private bool flashlightOwned = false;
         private bool flashlightVisible = false;
+        //Taschenlampe Timer
+        private Timer energieTimer;
+
 
         private bool isOpen;
 
@@ -68,7 +72,19 @@ namespace ProjectEntities
             get { return flashlightVisible; }
             set
             {
-                flashlightVisible = value;
+                if (value && FlashlightOwned && FlashlightEnergy > 0)
+                {
+                    flashlightVisible = true;
+                    energieTimer.AutoReset = true;
+                    energieTimer.Enabled = true;
+                }
+                else
+                {
+                    flashlightVisible = false;
+                    energieTimer.AutoReset = false;
+                    energieTimer.Enabled = false;
+                }
+
                 if (EntitySystemWorld.Instance.IsServer())
                     Server_SendFlashlightStatusToClient(flashlightVisible);
                 else
@@ -120,6 +136,13 @@ namespace ProjectEntities
         public Inventar()
         {
             this.inventar = new List<Item>();
+
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                energieTimer = new Timer();
+                energieTimer.Interval = 5000;
+                energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
+            }
         }
 
         public Item useItem
@@ -267,6 +290,15 @@ namespace ProjectEntities
                 Client_RemoveItem(i);
                 removeItem(i);
             }
+        }
+
+        private void tlEnergieVerringern(object source, ElapsedEventArgs e)
+        {
+            if (FlashlightEnergy > 0)
+                FlashlightEnergy -= 2;
+            else
+                StatusMessageHandler.sendMessage("Batterie der Taschenlampe ist leer.");
+
         }
 
         void Client_RemoveItem(Item i)

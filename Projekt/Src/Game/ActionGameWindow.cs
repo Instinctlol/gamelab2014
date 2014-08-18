@@ -72,9 +72,6 @@ namespace Game
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
 
-        //Taschenlampe Timer
-        Timer energieTimer = new Timer();
-
         //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
@@ -196,11 +193,6 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
-
-            //Timerintervall und Event, um Taschenlampenenergie zu verringern
-            energieTimer.Interval = 5000;
-            energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
-
         }
 
         protected override void OnDetach()
@@ -2008,14 +2000,6 @@ namespace Game
             aTimer.Enabled = false;
         }
 
-        public void tlEnergieVerringern(object source, ElapsedEventArgs e)
-        {
-            if (GetPlayerUnit().Inventar.FlashlightEnergy > 0)
-                GetPlayerUnit().Inventar.FlashlightEnergy -= 2;
-            else
-                sendMessageToHUD("Batterie der Taschenlampe ist leer.");
-
-        }
 
         public void oeffneInventar()
         {
@@ -2091,18 +2075,6 @@ namespace Game
             if (player != null && player.Inventar.FlashlightOwned && player.Inventar.FlashlightEnergy != 0)
             {
                 player.Inventar.FlashlightVisible = !player.Inventar.FlashlightVisible;
-
-                if (!player.Inventar.FlashlightVisible)
-                {
-
-                    energieTimer.AutoReset = true;
-                    energieTimer.Enabled = true;
-                }
-                else if (player.Inventar.FlashlightVisible)
-                {
-                    energieTimer.AutoReset = false;
-                    energieTimer.Enabled = false;
-                }
             }
 			
             else
