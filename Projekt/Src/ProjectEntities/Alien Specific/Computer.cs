@@ -75,8 +75,6 @@ namespace ProjectEntities
         enum NetworkMessages
         {
             StatisticToClient,
-            UpdateComputerToServer,
-            UpdateComputerToClients,
             DamageAstronoutsToServer,
             DamageAstronoutsToClients,
             KilledAliensToServer,
@@ -121,8 +119,7 @@ namespace ProjectEntities
             get { return astronautwin; }
             //set { astronautwin = value; }
         }
-
-        //ToDo
+        
         public int ExperiencePoints
         {
             get { return experiencePoints; }
@@ -343,6 +340,7 @@ namespace ProjectEntities
                 StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar");
             }
             else
+                //ToDo
             {
                 DecrementRotationCoupons();
                 int ringNumber = ring.GetRingNumber();
@@ -365,6 +363,7 @@ namespace ProjectEntities
 
         public void AstronautRotateRing(Ring ring, bool left)
         {
+            //ToDo
             if (ring == null)
             {
                 // Nachricht ausgeben
@@ -584,11 +583,13 @@ namespace ProjectEntities
             corpse.Die();
         }
         
+        //ToDo
         public void AddDamageAstronouts(float damage)
         {
             statistic.AddDamageAstronouts(damage);
         }
 
+        //ToDo
         public void IncrementKilledAstronouts()
         {
             statistic.IncrementKilledAstronouts();
@@ -646,6 +647,7 @@ namespace ProjectEntities
             maxItemDropGroupNr = 2;
         }
 
+        //ToDo Verändern
         public void SetWinner(bool alien)
         {
             alienwin = alien;
