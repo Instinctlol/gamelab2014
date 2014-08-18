@@ -356,7 +356,6 @@ namespace ProjectEntities
                 StatusMessageHandler.sendMessage("Dieser Ring ist zur Zeit nicht rotierbar");
             }
             else
-                //ToDo
             {
                 DecrementRotationCoupons();
                 int ringNumber = ring.GetRingNumber();
@@ -379,7 +378,6 @@ namespace ProjectEntities
 
         public void AstronautRotateRing(Ring ring, bool left)
         {
-            //ToDo
             if (ring == null)
             {
                 // Nachricht ausgeben
@@ -599,7 +597,6 @@ namespace ProjectEntities
             corpse.Die();
         }
         
-        //ToDo
         public void AddDamageAstronouts(float damage)
         {
             if(EntitySystemWorld.Instance.IsServer())
@@ -610,7 +607,6 @@ namespace ProjectEntities
             
         }
 
-        //ToDo
         public void IncrementKilledAstronouts()
         {
             if (EntitySystemWorld.Instance.IsServer())
@@ -672,7 +668,6 @@ namespace ProjectEntities
             diedAstronouts = 0;
         }
 
-        //ToDo Verändern
         public void SetWinner(bool astronout)
         {
             WinnerFound = true;
