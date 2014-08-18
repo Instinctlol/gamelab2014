@@ -104,8 +104,9 @@ namespace ProjectEntities
 
                 if (Computer.Instance == null)
                 {
-                    Computer computer = (Computer)Entities.Instance.Create("Computer", this);
+                    Computer computer = (Computer) Entities.Instance.Create("Computer", this);
                     computer.PostCreate();
+                    Console.WriteLine("Computer: " + Computer.Instance);
                 }
             }
 		}

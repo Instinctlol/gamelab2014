@@ -637,7 +637,10 @@ namespace ProjectEntities
             // Clients bescheid geben
             if (EntitySystemWorld.Instance.IsServer())
                 Server_SendStatisticToClients();
-            
+
+            //if (EntitySystemWorld.Instance.IsClientOnly())
+                
+
             // Event feuern, damit die Statistik angezeigt wird
             if (showStatistic != null)
             {

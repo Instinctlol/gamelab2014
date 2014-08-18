@@ -124,7 +124,7 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
-            //Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
         //hudFunktionen
@@ -1097,6 +1097,7 @@ namespace Game
             {
                 Console.WriteLine("setwinner");
                 Computer.Instance.SetWinner(true);
+                timeForWin = 10000000000.0f;
             }
             
 
