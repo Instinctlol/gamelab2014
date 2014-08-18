@@ -333,6 +333,9 @@ namespace ProjectEntities
 
             dynamics.Add(obj);
 
+            if (obj is AlienSpawner)
+                return;
+
             Vec3 source = obj.Position;
             source.Z = 100;
             Vec3 direction = new Vec3(0, 0, -1000);
@@ -340,6 +343,7 @@ namespace ProjectEntities
 
             bool twoSectors = false;
 
+            
 
             Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
             {
