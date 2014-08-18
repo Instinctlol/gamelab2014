@@ -522,11 +522,19 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 35
-				code = "if(Owner.Value)\r\n{\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
+				code = "if(Owner.Value && !pressed)\r\n{\r\n\tpressed = true;\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
 				isEntityEventMethod = True
+			}
+			entity
+			{
+				type = LogicVariable
+				uin = 1874
+				variableType = System.Boolean
+				variableName = pressed
+				supportSerialization = True
 			}
 		}
 		entity
@@ -19138,7 +19146,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 1873
+	uin = 1784
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
