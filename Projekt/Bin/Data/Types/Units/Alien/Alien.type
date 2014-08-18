@@ -1,7 +1,8 @@
 type Alien
 {
 	class = Alien
-	optimalAttackDistanceRange = 0 40
+	radius = 0.05
+	optimalAttackDistanceRange = 0 30
 	allowPlayerControl = True
 	initialAI = AlienAI
 	viewRadius = 20
