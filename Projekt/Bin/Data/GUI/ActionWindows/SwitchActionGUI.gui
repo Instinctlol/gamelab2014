@@ -7,6 +7,6 @@ control Window
 		position = ScaleByResolution 340 310
 		size = ScaleByResolution 370 140
 		name = SwitchButton
-		text = Switch
+		text = Schalter
 	}
 }

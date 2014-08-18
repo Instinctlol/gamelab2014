@@ -101,7 +101,7 @@ namespace ProjectEntities
 
             }
             else if (!HasItem(unit))
-                StatusMessageHandler.sendMessage("You dont have what it takes to make this go boom");
+                StatusMessageHandler.sendMessage("Du brauchst Dynamit.");
         }
 
         public void EndUse(Unit unit)

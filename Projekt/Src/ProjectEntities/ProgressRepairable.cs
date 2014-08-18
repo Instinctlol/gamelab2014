@@ -60,7 +60,7 @@ namespace ProjectEntities
         {
             if (!CanRepair(unit))
             {
-                StatusMessageHandler.sendMessage("You are hitting it with your hands, but nothing happens.");
+                StatusMessageHandler.sendMessage("Du benutzt dein aktives Item, aber es passiert nichts.");
                 return;
             }
 

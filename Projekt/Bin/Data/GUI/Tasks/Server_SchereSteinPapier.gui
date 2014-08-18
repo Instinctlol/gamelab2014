@@ -165,47 +165,48 @@ control Window
 	}
 	control Button
 	{
-		position = ScaleByResolution 450 470
-		size = Parent 0.2535282 0.1118845
+		position = ScaleByResolution 490 470
+		size = Parent 0.189012 0.1118845
 		name = CloseButton
-		text = Close
+		text = Schliessen
 		enable = False
 		defaultControl TextBox
 		{
-			font = Default 0.05
+			font = German 0.05
 			position = ScaleByResolution 0 0
-			text = Close
+			text = "Schlie\x00dfen"
 			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 			visible = False
 		}
 		overControl TextBox
 		{
-			font = Default 0.05
+			font = German 0.025
 			position = ScaleByResolution 0 0
-			text = Close
+			text = "Schlie\x00dfen"
 			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
 		pushControl TextBox
 		{
-			font = Default 0.05
+			font = German 0.025
 			position = ScaleByResolution 0 0
-			text = Close
+			text = "Schlie\x00dfen"
 			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
+			font = German 0.025
 			position = ScaleByResolution 0 0
-			text = Close
+			text = "Schlie\x00dfen"
 			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
 		{
-			font = Default 0.05
+			font = German 0.025
 			position = ScaleByResolution 0 0
-			text = Close
+			text = "Schlie\x00dfen"
 			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 		}
 	}

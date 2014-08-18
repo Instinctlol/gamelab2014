@@ -77,7 +77,7 @@ namespace ProjectEntities
                 Client_SendPress();
             }
             else if(!hasItem(unit))
-                StatusMessageHandler.sendMessage("You should try to get " + Type.RequiredToUse + " instead of inserting your finger");
+                StatusMessageHandler.sendMessage("Du solltest " + Type.RequiredToUse + " benutzen.");
         }
 
 

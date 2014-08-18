@@ -7,6 +7,6 @@ control Window
 		position = ScaleByResolution 330 320
 		size = ScaleByResolution 370 140
 		name = SwitchButton
-		text = Switch Lights
+		text = Licht
 	}
 }

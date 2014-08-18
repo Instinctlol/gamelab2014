@@ -7,27 +7,27 @@ control Window
 		position = ScaleByResolution 130 220
 		size = ScaleByResolution 370 140
 		name = LeftButton
-		text = Rotate Clockwise
+		text = Rotiere im Uhrzeigersinn
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 130 390
 		size = ScaleByResolution 370 140
 		name = LightSwitchButton
-		text = Switch Lights
+		text = Licht
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 530 220
 		size = ScaleByResolution 370 140
 		name = RightButton
-		text = Rotate Counterclockwise
+		text = Rotiere gegen den Uhrzeigersinn
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 530 390
 		size = ScaleByResolution 370 140
 		name = DoorSwitchButton
-		text = Switch Door
+		text = Tuer
 	}
 }

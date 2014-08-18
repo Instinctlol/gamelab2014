@@ -7,13 +7,13 @@ control Window
 		position = ScaleByResolution 330 220
 		size = ScaleByResolution 370 140
 		name = LightSwitchButton
-		text = Switch Lights
+		text = Licht
 	}
 	control "GUI\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 330 390
 		size = ScaleByResolution 370 140
 		name = DoorSwitchButton
-		text = Switch Door
+		text = Tuer
 	}
 }

@@ -169,14 +169,14 @@ control Window
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Play
+			text = Spielen
 			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
 		}
 		overControl TextBox
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Play
+			text = Spielen
 			backColor = 0.5254902 0.7098039 0.9215687 0.7843138
 			visible = False
 		}
@@ -184,21 +184,21 @@ control Window
 		{
 			font = Default 0.05
 			position = ScaleByResolution 0 0
-			text = Play
+			text = Spielen
 			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		activeControl TextBox
 		{
 			position = ScaleByResolution 0 0
-			text = Play
+			text = Spielen
 			backColor = 0.7098039 0.8431373 1 0.7843138
 			visible = False
 		}
 		disableControl TextBox
 		{
 			position = ScaleByResolution 0 0
-			text = Play
+			text = Spielen
 			backColor = 0.3921569 0.3921569 0.4705883 0.7843138
 			visible = False
 		}
