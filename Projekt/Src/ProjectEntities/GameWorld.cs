@@ -106,7 +106,6 @@ namespace ProjectEntities
                 {
                     Computer computer = (Computer) Entities.Instance.Create("Computer", this);
                     computer.PostCreate();
-                    Console.WriteLine("Computer: " + Computer.Instance);
                 }
             }
 		}

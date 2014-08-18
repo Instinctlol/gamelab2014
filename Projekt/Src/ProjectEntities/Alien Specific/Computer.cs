@@ -113,15 +113,16 @@ namespace ProjectEntities
         public bool Alienwin
         {
             get { return alienwin; }
-            set { alienwin = value; }
+            //set { alienwin = value; }
         }
 
         public bool Astronautwin
         {
             get { return astronautwin; }
-            set { astronautwin = value; }
+            //set { astronautwin = value; }
         }
 
+        //ToDo
         public int ExperiencePoints
         {
             get { return experiencePoints; }
@@ -664,76 +665,6 @@ namespace ProjectEntities
             }
         }
 
-        public void UpdateComputer(Computer c)
-        {
-            // Server
-            if (EntitySystemWorld.Instance.IsServer())
-            {
-                // Alle Werte übernehmen
-
-                // Alles an alle Clients synchronisieren
-                Server_UpdateComputerToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
-            }
-            else
-            {
-                // Client muss an Server senden
-                SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.UpdateComputerToServer);
-                // Daten schreiben
-                EndNetworkMessage();
-            }
-        }
-
-        void Server_UpdateComputerToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
-        {
-            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.UpdateComputerToClients);
-            // Daten schreiben
-            writer.Write(statistic.DamageAstronouts);
-            writer.WriteVariableInt32(statistic.KilledAliens);
-            writer.WriteVariableInt32(statistic.KilledAstronouts);
-            writer.WriteVariableInt32(statistic.SpawnedAliens);
-            writer.WriteVariableInt32(statistic.Reanimations);
-            writer.Write(astronautwin);
-            writer.Write(alienwin);
-            EndNetworkMessage();
-        }
-
-        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.UpdateComputerToServer)]
-        void Server_ReceiveUpdate(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            if (!reader.Complete())
-            {
-                return;
-            }
-            UpdateComputer();
-        }
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.UpdateComputerToClients)]
-        void Client_ReceiveUpdate(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            // Daten lesen
-            float damageAstronouts = reader.ReadSingle();
-            int killedAliens = reader.ReadVariableInt32();
-            int killedAstronouts = reader.ReadVariableInt32();
-            int spawnedAliens = reader.ReadVariableInt32();
-            int reanimations = reader.ReadVariableInt32();
-            bool astronoutwin = reader.ReadBoolean();
-            bool alienwin = reader.ReadBoolean();
-            
-            if (!reader.Complete())
-            {
-                return;
-            }
-
-            // Daten setzen 
-            this.statistic.DamageAstronouts = damageAstronouts;
-            this.statistic.KilledAliens = killedAliens;
-            this.statistic.KilledAstronouts = killedAstronouts;
-            this.statistic.SpawnedAliens = spawnedAliens;
-            this.statistic.Reanimations = reanimations;
-            this.astronautwin = astronoutwin;
-            this.alienwin = alienwin;
-        } 
-
         ///////////////////////////////////////////
         // Server side
         ///////////////////////////////////////////
@@ -745,6 +676,52 @@ namespace ProjectEntities
             EndNetworkMessage();
         }
 
+        void Server_DamageAstronoutsToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.DamageAstronoutsToClients);
+            writer.Write(statistic.DamageAstronouts);
+            EndNetworkMessage();
+        }
+        void Server_KilledAliensToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.KilledAliensToClients);
+            writer.WriteVariableInt32(statistic.KilledAliens);
+            EndNetworkMessage();
+        }
+        void Server_KilledAstronoutsToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.KilledAstronoutsToClients);
+            writer.WriteVariableInt32(statistic.KilledAstronouts);
+            EndNetworkMessage();
+        }
+        void Server_SpawnedAliensToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.SpawnedAliensToClients);
+            writer.WriteVariableInt32(statistic.SpawnedAliens);
+            EndNetworkMessage();
+        }
+
+        void Server_ReanimationsToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.ReanimationsToClients);
+            writer.WriteVariableInt32(statistic.Reanimations);
+            EndNetworkMessage();
+        }
+        
+        void Server_AstronountWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
+            writer.Write(astronautwin);
+            EndNetworkMessage();
+        }
+
+        void Server_AlienWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AlienWinToClients);
+            writer.Write(alienwin);
+            EndNetworkMessage();
+        }
+        
         ///////////////////////////////////////////
         // Client side
         ///////////////////////////////////////////
@@ -774,6 +751,109 @@ namespace ProjectEntities
             }
         }
 
-       
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.DamageAstronoutsToClients)]
+        void Client_ReceiveDamageAstronounts(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            float damageAstronouts = reader.ReadSingle();
+
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.DamageAstronouts = damageAstronouts;
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAliensToClients)]
+        void Client_ReceiveKilledAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            int killedAliens = reader.ReadVariableInt32();
+        
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.KilledAliens = killedAliens;
+        }
+        
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAstronoutsToClients)]
+        void Client_ReceiveKilledAstronounts(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            int killedAstronouts = reader.ReadVariableInt32();
+        
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.KilledAstronouts = killedAstronouts;
+        }
+        
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.SpawnedAliensToClients)]
+        void Client_ReceiveSpawnedAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            int spawnedAliens = reader.ReadVariableInt32();
+        
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.SpawnedAliens = spawnedAliens;
+        }
+        
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ReanimationsToClients)]
+        void Client_ReceiveReanimations(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            int reanimations = reader.ReadVariableInt32();
+        
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.statistic.Reanimations = reanimations;
+        }
+        
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AstronoutWinToClients)]
+        void Client_ReceiveAstronoutWin(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            bool astronoutwin = reader.ReadBoolean();
+        
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.astronautwin = astronoutwin;
+        }
+        
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AlienWinToClients)]
+        void Client_ReceiveAlienWin(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            bool alienwin = reader.ReadBoolean();
+
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.alienwin = alienwin;
+        } 
     }
 }
