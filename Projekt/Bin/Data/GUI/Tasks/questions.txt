@@ -6,7 +6,7 @@ Vervollstaendigen Sie folgende Zahlenreihe: -2 5 -4 3 -6;1;0;-3;-4
 Vervollstaendigen Sie folgende Zahlenreihe: 1 4 9 16 25;36;29;33;42
 Vervollstaendigen Sie folgende Zahlenreihe: 75 15 25 5 15;3;7;5;2
 Vervollstaendigen Sie folgende Zahlenreihe: 1 2 6 24 120;720;240;540;740 
-Vervollstaendigen Sie folgende Sprachanalogie:Telefon/Kommunikation=Waffen/…;Kaempfen;Fernseher;Waffe;Messer
+Vervollstaendigen Sie folgende Sprachanalogie:Telefon/Kommunikation=Waffen/…;Kampf;Fernseher;Waffe;Messer
 Vervollstaendigen Sie folgende Sprachanalogie:Gramm/Kilogramm=.../Meter;Millimeter;Zentimeter;Dezimeter;Nanometer
 Vervollstaendigen Sie folgende Sprachanalogie:Wo/ueberall=Wann/…;Immer;Meistens;Oft;Nie
 Vervollstaendigen Sie folgende Sprachanalogie:Schreiber/Buch=Maler/…;Bild;Rembrandt;Goethe;Pinsel
