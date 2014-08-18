@@ -43,7 +43,7 @@ control Control
 	control TextBox
 	{
 		textVerticalAlign = Top
-		font = German 0.02
+		font = German 0.018
 		textColor = 0.007843138 1 0.8509805
 		position = ScaleByResolution 300 300
 		size = Screen 0.4142306 0.08510417
@@ -58,7 +58,7 @@ control Control
 		name = Game
 		control Control
 		{
-			position = Screen -0.4215913 0.4427083
+			position = Screen -0.55831 0.4427083
 			horizontalAlign = Right
 			size = ScaleByResolution 162.2905 99.09412
 			name = WeaponCircle
@@ -115,6 +115,7 @@ control Control
 			size = ScaleByResolution 142.2238 15.36
 			name = Player
 			text = Player
+			visible = False
 		}
 		control TextBox
 		{
@@ -126,6 +127,7 @@ control Control
 			position = ScaleByResolution 120 650
 			size = ScaleByResolution 181.7948 18.00002
 			text = Health
+			visible = False
 		}
 		control TextBox
 		{
@@ -137,6 +139,7 @@ control Control
 			position = ScaleByResolution 120 726
 			size = ScaleByResolution 180.4274 18
 			text = Energy
+			visible = False
 		}
 		control Control
 		{
@@ -169,6 +172,7 @@ control Control
 			size = ScaleByResolution 111.1111 17.99999
 			name = Weapon
 			text = Weapon
+			visible = False
 		}
 		control Control
 		{
@@ -188,7 +192,7 @@ control Control
 		}
 		control Control
 		{
-			position = Screen -0.4355469 0.4427083
+			position = Screen -0.2695313 0.4557292
 			horizontalAlign = Right
 			size = Screen 0.125 0.1145834
 			name = WeaponIcon
@@ -211,6 +215,7 @@ control Control
 			size = ScaleByResolution 100.4274 18.00002
 			name = WeaponBulletCountAlternative
 			text = "50/100"
+			visible = False
 		}
 		control Control
 		{
@@ -221,8 +226,10 @@ control Control
 			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
 			control Control
 			{
-				position = Screen 0.4199219 0.2994792
-				size = Screen 0.160156 0.02555716
+				position = ScaleByResolution 3 30.00002
+				horizontalAlign = Center
+				size = ScaleByResolution 210 40
+				anchor = Top
 				name = HealthBar
 				backTexture = "GUI\\HUD\\HealthBar4.png"
 				colorMultiplier = 1 0.7333333 0.6392157
@@ -234,7 +241,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -474.9402 450
+			position = ScaleByResolution -614.9402 450
 			horizontalAlign = Right
 			size = Screen 0.07720687 0.02343748
 			name = WeaponBulletCountNormal
@@ -246,7 +253,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen -0.002412193 0.5598958
+			position = Screen -0.139131 0.5598958
 			horizontalAlign = Center
 			size = ScaleByResolution 79.05984 18.00003
 			name = WeaponMagazineCountNormal
@@ -268,8 +275,8 @@ control Control
 		}
 		control TextBox
 		{
-			position = ScaleByResolution 160 90
-			size = Parent 0.35 0.28
+			position = ScaleByResolution 169.9999 90
+			size = Parent 0.3301272 0.28
 			name = item_name
 		}
 		control Control

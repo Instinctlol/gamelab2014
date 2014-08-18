@@ -58,7 +58,7 @@ control Control
 		name = Game
 		control Control
 		{
-			position = Screen -0.421875 0.4166667
+			position = Screen -0.6855469 0.390625
 			horizontalAlign = Right
 			size = Screen 0.1484375 0.2005208
 			name = WeaponCircle
@@ -192,7 +192,7 @@ control Control
 		}
 		control Control
 		{
-			position = Screen -0.4355469 0.4296875
+			position = Screen -0.6992188 0.4036458
 			horizontalAlign = Right
 			size = Screen 0.1347656 0.1666667
 			name = WeaponIcon
@@ -226,8 +226,10 @@ control Control
 			backTexture = "GUI\\HUD\\Halo Prototype by Entereri\\Halo Prototype Blue 1920 x 1080\\Top\\top.png"
 			control Control
 			{
-				position = Screen 0.390625 0.05208333
-				size = Screen 0.2285153 0.05159883
+				position = Screen 0.00390631 0.05208333
+				horizontalAlign = Center
+				size = Screen 0.265625 0.05729167
+				anchor = Top
 				name = HealthBar
 				backTexture = "GUI\\HUD\\HealthBar4.png"
 				colorMultiplier = 1 0.7333333 0.6392157
@@ -239,7 +241,7 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -464.9402 490
+			position = Screen -0.7274806 0.6119792
 			horizontalAlign = Right
 			size = Screen 0.07720687 0.02343748
 			name = WeaponBulletCountNormal
@@ -251,9 +253,9 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = Screen 0.007353432 0.6119791
+			position = Screen -0.2660841 0.5859375
 			horizontalAlign = Center
-			size = ScaleByResolution 79.05984 18.00003
+			size = Screen 0.07720687 0.02343754
 			name = WeaponMagazineCountNormal
 			text = "10/30"
 		}
