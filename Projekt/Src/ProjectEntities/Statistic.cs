@@ -25,26 +25,31 @@ namespace ProjectEntities
         public float DamageAstronouts
         {
             get { return damageAstronouts; }
+            set { damageAstronouts = value; }
         }
 
         public int KilledAliens
         {
             get { return killedAliens; }
+            set { killedAliens = value; }
         }
 
         public int KilledAstronouts
         {
             get { return killedAstronouts; }
+            set { killedAstronouts = value; }
         }
 
         public int SpawnedAliens
         {
             get { return spawnedAliens; }
+            set { spawnedAliens = value; }
         }
 
         public int Reanimations
         {
             get { return reanimations; }
+            set { reanimations = value; }
         }
 
 
