@@ -54,6 +54,8 @@ namespace Game
        
         ItemManager iManager = ItemManager.Instance;
 
+		//Timer für WaffenInfo
+        Timer aTimer = new Timer(5000);
         //HUD screen
         Control hudControl;
 
@@ -91,15 +93,27 @@ namespace Game
                 MessageList.Add(message);
             }
 
-
-            hudControl.Controls["MessageBox"].Visible = true;
-
+			if (hudControl.Controls["MessageBox"] != null)
+            {
+                hudControl.Controls["MessageBox"].Visible = true;
+            }
+            else
+            {
+                Console.WriteLine("MessageBox not found (Visible)");
+            }
             foreach (string element in MessageList)
             {
                 output += (element + "\r\n");
             }
 
-            hudControl.Controls["MessageBox"].Text = output;
+			if (hudControl.Controls["MessageBox"] != null)
+            {
+                hudControl.Controls["MessageBox"].Text = output;
+            }
+            else
+            {
+                Console.WriteLine("MessageBox not found (Text)");
+            }
             //hudControl.Controls["MessageBox"].Text = hudControl.Controls["MessageBox"].Text + message + "\r\n";
             BoxTimer.Interval = 5000;
             BoxTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
@@ -125,6 +139,8 @@ namespace Game
 
             InitializeEventListener();
 
+			// Timer für WaffenInfo
+            aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
             hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\OculusHUD Inventar.gui");
@@ -519,6 +535,8 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
+			if (GameWorld.showcountdown()>0)
+                sendMessageToHUD("Die Zeit ist " + GameWorld.revival);
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
@@ -647,6 +665,10 @@ namespace Game
                 playerUseDistance : playerUseDistanceTPS;
 
             Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
+			maxDistance = (ray.Direction.GetNormalize().Z * (-1F) + 1F) / 2F * maxDistance;
+
+            if (maxDistance < 0.5F)
+                maxDistance = 0.5F;
             ray.Direction = ray.Direction.GetNormalize() * maxDistance;
 
 
@@ -1375,9 +1397,6 @@ namespace Game
                     if (EngineApp.Instance.IsKeyPressed(EKeys.Tab) && !activeConsole)
                         DrawPlayersStatistics(renderer);
 
-                    AddTextWithShadow(renderer, "\"Tab\" for players statistics", new Vec2(.01f, .1f),
-                        HorizontalAlign.Left, VerticalAlign.Top, new ColorValue(1, 1, 1, .5f));
-
                 }
             }
 
@@ -1919,9 +1938,13 @@ namespace Game
                     {
                         linksInventar();
                     }
-                    if (evt.ControlKey == GameControlKeys.Fire2)
+                    if (evt.ControlKey == GameControlKeys.Light)
                     {
                         switchTaschenlampe();
+                    }
+                    if (evt.ControlKey == GameControlKeys.WeaponStatus)
+                    {
+                        zeigeWaffeninfo();
                     }
 
                     
@@ -1997,6 +2020,10 @@ namespace Game
         {
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
             hudControl.Controls["Game/WeaponCircle"].Visible = false;
+			hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
+            hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
+            
+            aTimer.Enabled = false;
         }
 
         public void tlEnergieVerringern(object source, ElapsedEventArgs e)
@@ -2024,6 +2051,15 @@ namespace Game
             }
         }
 
+		public void showcountdown(Boolean start ,float time) 
+        {
+            
+            
+            if(start)
+            sendMessageToHUD("zeit ." + time);
+            
+            
+        }
         public void rechtsInventar()
         {
             if (hudControl.Controls["Item_Leiste"].Visible == true)
@@ -2054,16 +2090,17 @@ namespace Game
 
         public void zeigeWaffeninfo()
         {
-            if (hudControl.Controls["Game/WeaponIcon"].Visible == false)
-            {
-                hudControl.Controls["Game/WeaponIcon"].Visible = true;
-                hudControl.Controls["Game/WeaponCircle"].Visible = true; 
-                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
-                hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
-                Timer aTimer = new Timer(5000);
-                aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
-                aTimer.Enabled = true;
-            }
+				if (aTimer.Enabled == false)
+                {
+
+
+                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                    hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
+                    hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
+                    
+                    aTimer.Enabled = true;
+                }
         }
 
         public void switchTaschenlampe()
