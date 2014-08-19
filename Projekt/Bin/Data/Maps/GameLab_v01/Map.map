@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 96.21206 4.748406 9.846793
-editorCameraDirection = 4.974438 -1.376382
+editorCameraPosition = -79.55352 67.69235 1.723592
+editorCameraDirection = 3.002718 -0.1439164
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -783,7 +783,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 62
-				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-G\"),true);"
+				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
 				methodName = TerminalRotateLeftAction
 				returnType = System.Void
 				parameters = 
@@ -803,7 +803,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 64
-				code = "Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F3_Ring\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-G\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -12215,7 +12215,7 @@ entity
 	type = Blut-Fleck
 	uin = 1108
 	classPrompt = StaticObject
-	position = -56.4 95.9 0.5
+	position = -56.4 95.9 0.3
 	name = Blut-Fleck_8
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -12224,7 +12224,7 @@ entity
 	type = Blut-Fleck
 	uin = 1109
 	classPrompt = StaticObject
-	position = -66.1 94 0.7
+	position = -66.1 94 0.3
 	name = Blut-Fleck_9
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -12233,7 +12233,7 @@ entity
 	type = Blut-Fleck
 	uin = 1110
 	classPrompt = StaticObject
-	position = -85 73 0.7
+	position = -85 73 0.3
 	name = Blut-Fleck_10
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -12242,7 +12242,7 @@ entity
 	type = Blut-Fleck
 	uin = 1111
 	classPrompt = StaticObject
-	position = -93 65.1 0.7
+	position = -93 65.1 0.3
 	name = Blut-Fleck_11
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -12287,7 +12287,7 @@ entity
 	type = Blut-Fleck
 	uin = 1116
 	classPrompt = StaticObject
-	position = -97 -23.7 0.2
+	position = -97 -23.7 0.3
 	name = Blut-Fleck_16
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -12585,7 +12585,7 @@ entity
 	type = Blut-Fleck
 	uin = 1149
 	classPrompt = StaticObject
-	position = -18.3 81.9 0.2
+	position = -18.3 81.9 0.3
 	name = Blut-Fleck_49
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12612,7 +12612,7 @@ entity
 	type = Blut-Fleck
 	uin = 1152
 	classPrompt = StaticObject
-	position = -39.5 44.9 0.2
+	position = -39.5 44.9 0.3
 	name = Blut-Fleck_52
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12639,7 +12639,7 @@ entity
 	type = Blut-Fleck
 	uin = 1155
 	classPrompt = StaticObject
-	position = -53.4 31.3 0.2
+	position = -53.4 31.3 0.3
 	name = Blut-Fleck_55
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12648,7 +12648,7 @@ entity
 	type = Blut-Fleck
 	uin = 1156
 	classPrompt = StaticObject
-	position = -53.5 31.3 0.2
+	position = -53.5 31.3 0.3
 	name = Blut-Fleck_56
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12720,7 +12720,7 @@ entity
 	type = Blut-Fleck
 	uin = 1164
 	classPrompt = StaticObject
-	position = -89.2 -17.7 0.2
+	position = -89.2 -17.7 0.3
 	name = Blut-Fleck_64
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12792,7 +12792,7 @@ entity
 	type = Blut-Fleck
 	uin = 1172
 	classPrompt = StaticObject
-	position = -14.2 -62.2 1.2
+	position = -14.2 -62.2 0.3
 	name = Blut-Fleck_72
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12927,7 +12927,7 @@ entity
 	type = Blut-Fleck
 	uin = 1187
 	classPrompt = StaticObject
-	position = 83 16.6 0.2
+	position = 83 16.6 0.3
 	name = Blut-Fleck_87
 	editorLayer = "Root Layer\\F2\\Blut"
 }
@@ -12972,7 +12972,7 @@ entity
 	type = Blut-Fleck
 	uin = 1192
 	classPrompt = StaticObject
-	position = 26.2 -15.2 0.2
+	position = 26.2 -15.2 0.3
 	name = Blut-Fleck_92
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13080,7 +13080,7 @@ entity
 	type = Blut-Fleck
 	uin = 1204
 	classPrompt = StaticObject
-	position = 5 -46.5 0.6
+	position = 5 -46.5 0.3
 	name = Blut-Fleck_104
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13152,7 +13152,7 @@ entity
 	type = Blut-Fleck
 	uin = 1212
 	classPrompt = StaticObject
-	position = -27.7 -11.3 0.2
+	position = -27.7 -11.3 0.3
 	name = Blut-Fleck_112
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13197,7 +13197,7 @@ entity
 	type = Blut-Fleck
 	uin = 1217
 	classPrompt = StaticObject
-	position = -12.5 29.5 0.2
+	position = -12.5 29.5 0.3
 	name = Blut-Fleck_118
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13206,7 +13206,7 @@ entity
 	type = Blut-Fleck
 	uin = 1218
 	classPrompt = StaticObject
-	position = -12 29.4 0.2
+	position = -12 29.4 0.3
 	name = Blut-Fleck_119
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13233,7 +13233,7 @@ entity
 	type = Blut-Fleck
 	uin = 1221
 	classPrompt = StaticObject
-	position = -16.1 29.6 0.2
+	position = -16.1 29.6 0.3
 	name = Blut-Fleck_122
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13251,7 +13251,7 @@ entity
 	type = Blut-Fleck
 	uin = 1223
 	classPrompt = StaticObject
-	position = 0.9 51.3 0.2
+	position = 0.9 51.3 0.3
 	name = Blut-Fleck_124
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13260,7 +13260,7 @@ entity
 	type = Blut-Fleck
 	uin = 1224
 	classPrompt = StaticObject
-	position = 19.1 46.4 0.2
+	position = 19.1 46.4 0.3
 	name = Blut-Fleck_125
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13305,7 +13305,7 @@ entity
 	type = Blut-Fleck
 	uin = 1229
 	classPrompt = StaticObject
-	position = -13.7 53 0.2
+	position = -13.7 53 0.3
 	name = Blut-Fleck_130
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13314,7 +13314,7 @@ entity
 	type = Blut-Fleck
 	uin = 1230
 	classPrompt = StaticObject
-	position = -12.2 52.5 0.2
+	position = -12.2 52.5 0.3
 	name = Blut-Fleck_131
 	editorLayer = "Root Layer\\F1\\Blut"
 }
@@ -13406,7 +13406,7 @@ entity
 	type = leiche2
 	uin = 1240
 	classPrompt = StaticObject
-	position = -90.6 -55.7 0.4
+	position = -90.6 -55.7 0.3
 	name = leiche2_14
 	editorLayer = "Root Layer\\F1\\Leichen"
 }
@@ -13606,7 +13606,7 @@ entity
 	type = leiche2
 	uin = 1262
 	classPrompt = StaticObject
-	position = 49.4 1.4 0.2
+	position = 49.4 1.4 0.3
 	name = leiche2_21
 	editorLayer = "Root Layer\\F3\\Items"
 }
@@ -16282,7 +16282,7 @@ entity
 	fov = 0
 	owner = 1506
 	time = 6
-	position = 5.13466 59.54222 11.91998
+	position = 5.13466 59.54222 13.85901
 	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
 	editorLayer = "Root Layer\\CutScene"
 }
