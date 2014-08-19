@@ -445,32 +445,8 @@ namespace ProjectEntities
         /// <param name="b"</param>
         public void SetSectorGroupPowerAstronaut(SectorGroup sectorGroup, bool b)
         {
-            if (AlienControlPaused)
-            {
-                StatusMessageHandler.sendMessage("Die Astronauten haben die Kontrolle");
-            }
-            else if (AllowedToChangeLight)
-            {
-                if (sectorGroup == null)
-                {
-                    // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
-                }
-                else if (PowerCoupons <= 0)
-                {
-                    // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
-                }
-                else
-                {
-                    sectorGroup.LightStatus = b;
-                }
-            }
-            else
-            {
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
-            }
-
+            if(sectorGroup != null)
+                sectorGroup.LightStatus = b;
         }
 
         /// <summary>

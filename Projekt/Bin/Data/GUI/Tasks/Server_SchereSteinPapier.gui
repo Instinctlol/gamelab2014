@@ -172,7 +172,7 @@ control Window
 		enable = False
 		defaultControl TextBox
 		{
-			font = German 0.05
+			font = German 0.025
 			position = ScaleByResolution 0 0
 			text = "Schlie\x00dfen"
 			backColor = 0.2901961 0.6039216 0.8666667 0.7843138
