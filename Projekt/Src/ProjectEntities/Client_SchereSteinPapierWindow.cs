@@ -134,7 +134,6 @@ namespace ProjectEntities
                     break;
             }
 
-            task.Success = true;
             countdownBox.Text = "Sieg";
         }
 

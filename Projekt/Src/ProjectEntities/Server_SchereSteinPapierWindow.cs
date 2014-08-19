@@ -16,11 +16,13 @@ namespace ProjectEntities
         private Button schereButton, steinButton, papierButton, tempButton, closeButton;
         private string lastSelected, enemyLastSelected;
         private Timer aTimer;
+        Task currTask;
 
         public Server_SchereSteinPapierWindow(Task task, Control attachToThis) : base(task)
         {
             window = attachToThis;
             window.Visible = false;
+            currTask = task;
         }
 
         private void Close_clicked(Button sender)
@@ -36,6 +38,7 @@ namespace ProjectEntities
 
         public void start(Task task)
         {
+            currTask = task;
             schereButton = (Button)window.Controls["SchereButton"];
             steinButton = (Button)window.Controls["SteinButton"];
             papierButton = (Button)window.Controls["PapierButton"];
@@ -46,13 +49,12 @@ namespace ProjectEntities
             countdownBox.Text = "5";
             lastSelected = null;
             enemyLastSelected=null;
+            tempButton = null;
 
             schereButton.Click += Schere_clicked;
             papierButton.Click += Papier_clicked;
             steinButton.Click += Stein_clicked;
             closeButton.Click += Close_clicked;
-
-            window.TopMost = true;
 
             schereButton.Enable = true;
             steinButton.Enable = true;
@@ -60,10 +62,10 @@ namespace ProjectEntities
             enemySelectedBox.Visible = false;
             closeButton.Visible = false;
 
-            if (task.IsServer)
+            if (currTask.IsServer)
             {
                 window.Visible = true;
-                task.Server_WindowDataReceived += Server_WindowDataReceived;
+                currTask.Server_WindowDataReceived += Server_WindowDataReceived;
                 aTimer = new System.Timers.Timer(1000); //jede Sekunde
                 aTimer.Elapsed += countdown;
                 aTimer.Enabled = true;
@@ -87,10 +89,10 @@ namespace ProjectEntities
         private void countdown(object sender, ElapsedEventArgs e)
         {
             countdownBox.Text = ""+(int.Parse(countdownBox.Text) -1);
-            task.Server_SendWindowString(countdownBox.Text, (UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_UpdateTimer);
+            currTask.Server_SendWindowString(countdownBox.Text, (UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_UpdateTimer);
             if (countdownBox.Text.Equals("0"))
             {
-                task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_EvaluatingSolutions);
+                currTask.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_EvaluatingSolutions);
                 aTimer.Enabled = false;
                 compareSolutions();
             }
@@ -225,7 +227,7 @@ namespace ProjectEntities
         {
             closeButton.Enable = true;
             closeButton.Visible = true;
-            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientLoses);
+            currTask.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientLoses);
             switch (lastSelected)
             {
                 case "Schere":
@@ -249,7 +251,7 @@ namespace ProjectEntities
         {
             closeButton.Enable = true;
             closeButton.Visible = true;
-            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_Draw);
+            currTask.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_Draw);
             switch (lastSelected)
             {
                 case "Schere":
@@ -272,7 +274,7 @@ namespace ProjectEntities
         {
             closeButton.Enable = true;
             closeButton.Visible = true;
-            task.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientWins);
+            currTask.Server_SendWindowData((UInt16)Client_SchereSteinPapierWindow.NetworkMessages.Server_ClientWins);
             switch (lastSelected)
             {
                 case "Schere":
@@ -289,26 +291,23 @@ namespace ProjectEntities
                     break;
             }
             countdownBox.Text = "Niederlage";
-            task.Success = true;
+            currTask.Success = true;
         }
 
         private void Server_WindowDataReceived(ushort message)
         {
-            if(task.IsServer)
+            Client_SchereSteinPapierWindow.NetworkMessages msg = (Client_SchereSteinPapierWindow.NetworkMessages)message;
+            switch(msg)
             {
-                Client_SchereSteinPapierWindow.NetworkMessages msg = (Client_SchereSteinPapierWindow.NetworkMessages)message;
-                switch(msg)
-                {
-                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_PapierButtonClicked:
-                        enemyLastSelected = "Papier";
-                        break;
-                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_SchereButtonClicked:
-                        enemyLastSelected = "Schere";
-                        break;
-                    case Client_SchereSteinPapierWindow.NetworkMessages.Client_SteinButtonClicked:
-                        enemyLastSelected = "Stein";
-                        break;
-                }
+                case Client_SchereSteinPapierWindow.NetworkMessages.Client_PapierButtonClicked:
+                    enemyLastSelected = "Papier";
+                    break;
+                case Client_SchereSteinPapierWindow.NetworkMessages.Client_SchereButtonClicked:
+                    enemyLastSelected = "Schere";
+                    break;
+                case Client_SchereSteinPapierWindow.NetworkMessages.Client_SteinButtonClicked:
+                    enemyLastSelected = "Stein";
+                    break;
             }
         }
     }

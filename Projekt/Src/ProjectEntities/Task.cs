@@ -97,7 +97,7 @@ namespace ProjectEntities
         {
             CreateWindow();
             SetTerminalWindow(Window);
-            Server_SendWindowString("Another operator has canceled your operation.");
+            Server_SendWindowString("Ein anderer Benutzer hat deine Operation verhindert.");
             if (Window == null)
                 SendTaskFinished(true);
             else
