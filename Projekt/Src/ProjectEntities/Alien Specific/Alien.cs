@@ -423,7 +423,7 @@ namespace ProjectEntities
                 TickMove();
             else
             {
-                Console.WriteLine("sind in OnTick");
+                //Console.WriteLine("sind in OnTick");
                 path.Clear();
             }
                 
@@ -710,25 +710,18 @@ namespace ProjectEntities
         {
             if (timeTilNextSound <= 0 || currentSoundName != name)
             {
-                if (alienChannel != null)
-                {
-                    alienChannel.Stop();
-                }
-                // Play sound
+                // Find right Sound
                 IEnumerable<MapObjectTypeAttachedSound> sounds = this._type.AttachedObjects.OfType<MapObjectTypeAttachedSound>();
                 foreach (MapObjectTypeAttachedSound s in sounds)
                 {
                     if (s.Alias == name)
                     {
+                        // Play sound
                         alienSound = SoundWorld.Instance.SoundCreate(s.SoundName, SoundMode.Record);
                         currentSoundName = name;
+                        AlienSound.Instance.PlaySound(name, alienSound);
                         break;
                     }
-                }
-                // Sound erstellen
-                if (alienSound != null)
-                {
-                    this.alienChannel = SoundWorld.Instance.SoundPlay(alienSound, EngineApp.Instance.DefaultSoundChannelGroup, 1f, false);
                 }
                 timeTilNextSound = 2;
             }
@@ -764,9 +757,6 @@ namespace ProjectEntities
         /// </summary>
         public void DoSuicide()
         {
-            Console.WriteLine("Dosuicide");
-
-
             // Alien soll sterben
             this.Die();
 

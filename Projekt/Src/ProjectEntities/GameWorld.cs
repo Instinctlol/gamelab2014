@@ -107,6 +107,12 @@ namespace ProjectEntities
                     Computer computer = (Computer) Entities.Instance.Create("Computer", this);
                     computer.PostCreate();
                 }
+
+                if (AlienSound.Instance == null)
+                {
+                    AlienSound alienSound = (AlienSound)Entities.Instance.Create("AlienSound", this);
+                    alienSound.PostCreate();
+                }
             }
 		}
 

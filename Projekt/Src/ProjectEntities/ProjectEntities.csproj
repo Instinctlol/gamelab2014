@@ -144,6 +144,7 @@
     <Compile Include="Aircraft.cs" />
     <Compile Include="Alien Specific\Alien.cs" />
     <Compile Include="Alien Specific\AlienAI.cs" />
+    <Compile Include="Alien Specific\AlienSound.cs" />
     <Compile Include="Alien Specific\AlienSpawner.cs" />
     <Compile Include="Alien Specific\AlienSpawnerAI.cs" />
     <Compile Include="Alien Specific\AlienUnit.cs" />

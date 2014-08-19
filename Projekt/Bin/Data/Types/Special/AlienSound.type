@@ -1,0 +1,5 @@
+type AlienSound
+{
+	class = AlienSound
+	networkType = Synchronized
+}
