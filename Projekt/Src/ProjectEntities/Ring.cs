@@ -97,7 +97,6 @@ namespace ProjectEntities
                PlayerCharacter player = obj as PlayerCharacter;
                if (player != null)
                {
-                   player.ContusionTimeRemaining = 10;
                    player.SoundPlay3D("Sounds\\rotationSound.ogg", 0.5f, false);
                }
            }
