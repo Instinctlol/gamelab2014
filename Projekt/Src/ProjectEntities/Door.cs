@@ -301,6 +301,13 @@ namespace ProjectEntities
 			}
 		}
 
+        protected override void Server_OnClientConnectedAfterPostCreate(RemoteEntityWorld remoteEntityWorld)
+        {
+            base.Server_OnClientConnectedAfterPostCreate(remoteEntityWorld);
+
+            Server_SendOpenSettingsToClients(new RemoteEntityWorld[] { remoteEntityWorld });
+        }
+
 		protected override void Server_OnClientConnectedBeforePostCreate(
 			RemoteEntityWorld remoteEntityWorld )
 		{
