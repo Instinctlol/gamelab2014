@@ -854,7 +854,7 @@ namespace Game
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
 
-                    text += "Press \"Use\" to repair";
+                    text += "Drücke \"A\" zum reparieren";
 
                     //get binded keyboard key or mouse button
                 }
@@ -879,7 +879,7 @@ namespace Game
 
                 if (currentUseObject != null)
                 {
-                    text += "Insert USB stick";
+                    text += "USB-Stick einstecken";
                 }
             }
 
@@ -958,7 +958,7 @@ namespace Game
                     if (overDetonationObject != null && overDetonationObject.Useable)
                     {
                         currentUseObject = overDetonationObject;
-                        text += "Attach Dynamite";
+                        text += "Dynamit anbringen";
                     }
                     else
                         currentUseObject = null;
