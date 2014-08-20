@@ -19,6 +19,5 @@ Welches dieser Worte ist richtig geschrieben?;Kaffeeernte;Kafeernte;Kaffeernte;K
 Welcher Tag war vorgestern, wenn morgen Montag ist?;Freitag;Donnerstag;Samstag;Mittwoch
 Welcher Tag war zwei Tage vor gestern, wenn uebermorgen Mittwoch ist?;Freitag;Samstag;Montag;Sonntag
 Welcher Buchstabenmix ist ein weiblicher Vorname?;E L H E N E;D E K P A;A N S I O;K A D N R I
-Welche Laender bilden Skandinavien?; Island, Norwegen, Schweden, Finnland, Daenemark; Schottland, Norwegen, Schweden, Finnland, Daenemark; Island, Groenland, Schweden, Finnland, Daenemark; Irland, Norwegen, Schweden, Finnland, Daenemark
 Wie nennt man eine flache Insel im Wattenmeer vor der Westkueste Schleswig-Holsteins?;Hallig;Eiland;Polje;Rundling
 Welches dieser Werke ist nicht von Leonardo Da Vinci?; Sternennacht;Der vitruvianische Mensch;Das Abendmahl;Mona Lisa
