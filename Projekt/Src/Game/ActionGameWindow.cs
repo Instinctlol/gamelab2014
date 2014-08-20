@@ -854,7 +854,7 @@ namespace Game
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
 
-                    text += "Drücke \"A\" zum reparieren";
+                    text += "Druecke \"A\" zum reparieren";
 
                     //get binded keyboard key or mouse button
                 }
