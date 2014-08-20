@@ -13,9 +13,9 @@ type ScarItem
 		{
 			meshName = "Types\\Weapons\\Scar\\scar.mesh"
 			castDynamicShadows = True
-			position = 0.06730662 0 -0.0001935586
+			position = 0.06730662 0 0.1225508
 			rotation = 0 0 -0.1318847 -0.9912651
-			scale = 0.4255319 0.4255319 0.4255319
+			scale = 0.8085105 0.8085105 0.8085105
 		}
 	}
 }
