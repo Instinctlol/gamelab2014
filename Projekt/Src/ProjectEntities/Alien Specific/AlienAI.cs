@@ -148,7 +148,7 @@ namespace ProjectEntities
                 }
                 
                  
-
+            
                 
                 return false;
         }
@@ -219,11 +219,9 @@ namespace ProjectEntities
                     }
                     break;
 
-                //Attack, Repair
+                //Attack
                 case Task.Types.Attack:
                 case Task.Types.BreakableAttack:
-                //case Task.Types.Repair:
-                //case Task.Types.BreakableRepair:
                 {
                    float needDistance = controlledObj.Type.OptimalAttackDistanceRange.Maximum;
 
@@ -241,7 +239,7 @@ namespace ProjectEntities
                         {
                             if (distance < needDistance)
                             {
-                                lineVisibility = true;
+                                lineVisibility = true; 
 
                                 //direct line visibility check 
 
