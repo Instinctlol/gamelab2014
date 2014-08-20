@@ -1,0 +1,14 @@
+type DurchgangDrehen
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\durchgangWall.mesh"
+			collision = True
+			position = -1.266525 0.2984359 1.835137
+		}
+	}
+}

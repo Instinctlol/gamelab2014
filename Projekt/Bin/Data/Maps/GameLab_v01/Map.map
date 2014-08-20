@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 480.3408 16.00274 26.23437
-editorCameraDirection = 2.603444 -1.203658
+editorCameraPosition = -40.30324 3.662882 1.968854
+editorCameraDirection = 4.701315 -0.1906694
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -6377,7 +6377,7 @@ entity
 	value = False
 	oneTimeUse = False
 	healthFactorAtBeginning = 1
-	position = 23.75287 19.40019 1.89934
+	position = 23.65287 19.40019 1.89934
 	name = BooleanSwitch2_InnerRing
 	logicClass = 9
 }
@@ -9496,7 +9496,7 @@ entity
 	openDoorOffsetCoefficient = 0
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = -39.63122 -6.644405 1.748956
+	position = -39.83122 -6.644405 1.848956
 	rotation = 0 0 0.7048077 0.7093984
 	name = BrokenDoor_0
 	editorLayer = "Root Layer\\F3\\Dynamics"
@@ -19343,7 +19343,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1860
+	uin = 1773
 	classPrompt = StaticObject
 	position = 509.2 28.9 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19353,7 +19353,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1861
+	uin = 1774
 	classPrompt = StaticObject
 	position = 509.2 19.5 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19363,7 +19363,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1862
+	uin = 1775
 	classPrompt = StaticObject
 	position = 509.2 8.599999 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19373,7 +19373,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1863
+	uin = 1776
 	classPrompt = StaticObject
 	position = 470.1 1.799999 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19383,7 +19383,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1864
+	uin = 1777
 	classPrompt = StaticObject
 	position = 470.1 11.8 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19393,10 +19393,20 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1865
+	uin = 1778
 	classPrompt = StaticObject
 	position = 470.1 22.8 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
 	name = megaComputer_5
 	editorLayer = "Root Layer\\Endkampf\\Einrichtung"
+}
+entity
+{
+	type = DurchgangDrehen
+	uin = 1866
+	classPrompt = StaticObject
+	position = -40.1 -7.3 -1.192093E-07
+	rotation = 0 0 -0.7071068 0.7071068
+	scale = 1 0.9344738 1
+	name = DurchgangDrehen_0
 }
