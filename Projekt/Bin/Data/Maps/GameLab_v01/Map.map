@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 73.81777 -78.6021 4.142159
-editorCameraDirection = 1.433641 -0.8868151
+editorCameraPosition = -37.68193 6.391405 8.727261
+editorCameraDirection = 4.578011 -0.630931
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -3259,7 +3259,7 @@ entity
 	taskType = None
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = -62.64104 34.47863 1.903036
+	position = -62.94104 34.27863 1.803036
 	rotation = 0 0 0.3836389 0.9234833
 	name = Terminal_Status_2
 	editorLayer = "Root Layer\\F2\\Terminal"
@@ -3447,7 +3447,7 @@ entity
 	taskType = Quiz
 	isBroken = False
 	healthFactorAtBeginning = 1
-	position = 91.39593 -4.431122 1.914252
+	position = 91.39593 -4.431122 1.714252
 	rotation = 0 0 -1 -4.371139E-08
 	name = Terminal_D_Door
 	logicClass = 53
@@ -6387,6 +6387,7 @@ entity
 	windowType = RotateAndSingleSwitch
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	terminalLogic = 274
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.33804 -75.50452 1.606234
