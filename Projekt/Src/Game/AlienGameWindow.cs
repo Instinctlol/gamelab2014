@@ -71,13 +71,13 @@ namespace Game
         Control minimapControl;
 
         // Time Counter
-        float timeForUpdateNotificationStatus;
+        float timeForIncrementAliens = 60;
+        float timeForIncrementRotations = 300;
+        float timeForIncrementEnergy = 180;
         float timeForDeleteNotificationMessage;
-        float timeForDropItemIncrementation = 300;
+        float timeForDropItemIncrementation = 120;
         Timer endTimer;
-
-        float timeForWin = 60;
-
+        
         // Headtracking
         Vec3 headtrackingOffset;
         bool isHeadtrackingActive = false;
@@ -1311,13 +1311,23 @@ namespace Game
 
         void UpdateStatusNotificationTop(float delta)
         {
-            timeForUpdateNotificationStatus -= delta;
-            if (timeForUpdateNotificationStatus < 0) //time to do it
+            timeForIncrementAliens -= delta;
+            timeForIncrementRotations -= delta;
+            timeForIncrementEnergy -= delta;
+            if (timeForIncrementAliens < 0) //time to do it
             {
-                timeForUpdateNotificationStatus = 60;
+                timeForIncrementAliens = 60;
                 Computer.Instance.IncrementAvailableAliens();
-                Computer.Instance.IncrementPowerCoupons();
+            }
+            if (timeForIncrementRotations < 0) //time to do it
+            {
+                timeForIncrementRotations = 300;
                 Computer.Instance.IncrementRotationCoupons();
+            }
+            if (timeForIncrementEnergy < 0) //time to do it
+            {
+                timeForIncrementEnergy = 180;
+                Computer.Instance.IncrementPowerCoupons();
             }
         }
 
@@ -2113,7 +2123,6 @@ namespace Game
         {
             ShowStatistics();
 
-            // Erst MenuWindow erstellen und dann exittomenu aufrufen TODO
             GameEngineApp.Instance.SetFadeOutScreenAndExit();
             endTimer.Enabled = false;
         }

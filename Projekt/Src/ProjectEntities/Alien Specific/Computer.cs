@@ -34,9 +34,9 @@ namespace ProjectEntities
 
         [FieldSerialize]
         int experiencePoints = 50;
-        int rotationCoupons = 0;
-        int powerCoupons = 0;
-        int availableAliens = 0;
+        int rotationCoupons = 1;
+        int powerCoupons = 1;
+        int availableAliens = 2;
         int usedAliens = 0;
         bool noSpawnTime = false;
 
@@ -96,6 +96,8 @@ namespace ProjectEntities
 			if( instance != null )
 				Log.Fatal( "Computer: Computer is already created." );
 			instance = this;
+            // Dies ist ganz wichtig, weil der Client sonst nie new Statistic() aufrufen würde. Reset() wird schließlich nur im AlienGameWindow 
+            // aufgerufen.
             statistic = new Statistic();
 		}
 
@@ -305,7 +307,6 @@ namespace ProjectEntities
                 statistic.IncrementSpawnedAliens();
                 Server_SpawnedAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
-
         }
         
         /// <summary>
@@ -324,12 +325,25 @@ namespace ProjectEntities
             }
         }
 
+        public void IncrementReanimations()
+        {
+            if (EntitySystemWorld.Instance.IsServer())
+            {
+                statistic.IncrementReanimations();
+                Server_ReanimationsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
+        }
+
         public void IncrementDiedAstronouts()
         {
-            diedAstronouts++;
-            if (diedAstronouts >= 2)
+            if (EntitySystemWorld.Instance.IsServer())
             {
-                SetWinner(false);
+                diedAstronouts++;
+                if (diedAstronouts >= 2)
+                {
+                    SetWinner(false);
+                }
+                Server_KilledAstronoutsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
         }
 
@@ -640,11 +654,11 @@ namespace ProjectEntities
             statistic = new Statistic();
             astronautwin = false;
             experiencePoints = 50;
-            rotationCoupons = 0;
-            powerCoupons = 0;
-            availableAliens = 0;
+            rotationCoupons = 1;
+            powerCoupons = 1;
+            availableAliens = 2;
             usedAliens = 0;
-            maxItemDropGroupNr = 6;
+            maxItemDropGroupNr = 3;
             diedAstronouts = 0;
         }
 
