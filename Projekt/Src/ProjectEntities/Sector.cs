@@ -308,6 +308,10 @@ namespace ProjectEntities
 
                 m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
             }
+
+            foreach (OutDoor d in doors)
+                d.CheckForPartner();
+
             isRotating = false;
         }
 
@@ -433,15 +437,11 @@ namespace ProjectEntities
         internal void AddDoor(OutDoor outDoor)
         {
             doors.Add(outDoor);
-            if(ring != null)
-                ring.RotateRing += outDoor.OnRotate;
         }
 
         internal void RemoveDoor(OutDoor outDoor)
         {
             doors.Remove(outDoor);
-            if (ring != null)
-                ring.RotateRing -= outDoor.OnRotate;
         }
     }
 }

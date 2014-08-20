@@ -53,33 +53,11 @@ namespace ProjectEntities
         {
             base.OnPostCreate(loaded);
 
-            if (sector != null)
-                sector.AddDoor(this);
-
-            if (partnerDoor != null)
-                partnerDoor.Opened = false;
-            Opened = false;
-            partnerDoor = null;
-
-            Box bounds = GetBox();
-            bounds.Expand(15);
-
-            foreach (MapObject obj in Map.Instance.GetObjects(bounds))
-            {
-                OutDoor d = obj as OutDoor;
-                if (d != null && d != this)
-                {
-                    partnerDoor = d;
-                    d.Opened = true;
-                    d.PartnerDoor = this;
-                    Opened = true;
-                    return;
-                }
-            }
+            CheckForPartner();
         }
 
 
-        public void OnRotate(Vec3 pos, Quat rot, bool left)
+        public void CheckForPartner()
         {
             if (partnerDoor != null)
                 partnerDoor.Opened = false;
