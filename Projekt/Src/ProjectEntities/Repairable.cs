@@ -170,12 +170,7 @@ namespace ProjectEntities
 
             if (repairItems.Count == 0)
                 return true;
-
-            foreach (RepairableType.RepairItem item in repairItems)
-            {
-                if (item.ItemType.FullName.Equals(useItem))
-                    repairItems.Remove(item);
-            }
+            repairItems.RemoveAll(item => item.ItemType.FullName.Equals(useItem));
 
             if (repairItems.Count == 0)
                 return true;
