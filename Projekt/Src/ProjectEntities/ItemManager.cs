@@ -82,7 +82,7 @@ namespace ProjectEntities
                     }
                     break;
 
-                case "Kabel":
+                case "cable":
                     if (!unit.Inventar.inBesitz(currentItem))
                         currentItem.Name = "Kabel";
                     currentItem.TakeItem(unit);
