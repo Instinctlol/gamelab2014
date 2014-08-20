@@ -236,7 +236,7 @@ namespace ProjectEntities
 
                 status = !status;
                 foreach (Dynamic d in dynamics)
-                    if(!(d is AlienSpawner))
+                    if(!(d is AlienSpawner) && !(d is Repairable) && !(d is ServerRack) && !(d is DetonationObject))
                         d.Visible = status;
 
             }
@@ -345,7 +345,7 @@ namespace ProjectEntities
 
             dynamics.Add(obj);
 
-            if (obj is AlienSpawner)
+            if ((obj is AlienSpawner) || (obj is Repairable) || (obj is ServerRack) || (obj is DetonationObject))
                 return;
 
             Vec3 source = obj.Position;
