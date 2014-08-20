@@ -128,12 +128,12 @@ namespace ProjectEntities
                 }
 
                 if (EntitySystemWorld.Instance.IsClientOnly())
-                    SoundPlay3D(Type.SoundRepaired, .5f, false);
+                    SoundPlay3D(Type.SoundRepaired, 1f, false);
                 else
                 {
-                    OnRepair();
                     if(!EntitySystemWorld.Instance.IsEditor())
                         Server_SendRepairedToAllClients();
+                    OnRepair();
                 }
 
             }
