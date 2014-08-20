@@ -1373,7 +1373,11 @@ namespace Game
                 {
                     foreach (Alien a in alienList)
                     {
-                        List<AlienUnitAI.UserControlPanelTask> t = (a.Intellect as AlienUnitAI).GetControlPanelTasks();
+                        AlienUnitAI alienIntellect = a.Intellect as AlienUnitAI;
+                        if (alienIntellect == null)
+                            continue;
+
+                        List<AlienUnitAI.UserControlPanelTask> t = alienIntellect.GetControlPanelTasks();
                         if (tasks == null)
                         {
                             tasks = t;
@@ -2109,6 +2113,7 @@ namespace Game
         {
             ShowStatistics();
 
+            // Erst MenuWindow erstellen und dann exittomenu aufrufen TODO
             GameEngineApp.Instance.SetFadeOutScreenAndExit();
             endTimer.Enabled = false;
         }
