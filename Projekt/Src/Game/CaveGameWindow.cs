@@ -70,6 +70,7 @@ namespace Game
 
         //Taschenlampe Timer
         Timer energieTimer = new Timer();
+        Timer endTimer;
 
         //Message System here===================================
 
@@ -116,7 +117,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
-            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
         }
 
         protected override void OnAttach()
@@ -2040,6 +2041,23 @@ namespace Game
 
         }
 
+        public void EndGame()
+        {
+            ShowStatistics();
+
+            Timer endTimer = new Timer(10000);
+            endTimer.Elapsed += beenden;
+            endTimer.Enabled = true;
+        }
+
+        private void beenden(object sender, ElapsedEventArgs e)
+        {
+            ShowStatistics();
+
+            GameEngineApp.Instance.SetFadeOutScreenAndExit();
+            endTimer.Enabled = false;
+        }
+
         /// <summary>
         /// Öffnet die Statistik
         /// </summary>
@@ -2048,6 +2066,7 @@ namespace Game
             //Status für Astronaut setzen (Sieger/Verlierer)
             if (Computer.Instance.WinnerFound)
             {
+                EngineApp.Instance.KeysAndMouseButtonUpAll();
                 if (Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
@@ -2071,6 +2090,6 @@ namespace Game
             {
                 hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "";
             }
-        }        
+        }
     }
 }

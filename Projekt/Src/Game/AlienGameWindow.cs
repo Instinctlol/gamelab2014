@@ -15,6 +15,7 @@ using Engine.FileSystem;
 using Engine.Utils;
 using ProjectCommon;
 using ProjectEntities;
+using System.Timers;
 
 namespace Game
 {
@@ -73,6 +74,7 @@ namespace Game
         float timeForUpdateNotificationStatus;
         float timeForDeleteNotificationMessage;
         float timeForDropItemIncrementation = 300;
+        Timer endTimer;
 
         float timeForWin = 60;
 
@@ -124,7 +126,7 @@ namespace Game
             HeadTracker.Instance.TrackingEvent += new HeadTracker.receiveTrackingData(receiveTrackingData);
             // Event zum Starten von Duell-Spielen
             TaskWindow.startAlienGame += csspwSet;
-            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
         }
 
         //hudFunktionen
@@ -245,8 +247,6 @@ namespace Game
 
             bigMinimapObj = new BigMinimapWindow(hudControl.Controls["BigMinimap"]);
         }
-
-        
 
         /// <summary>
         /// Duell-Spiel starten
@@ -490,6 +490,11 @@ namespace Game
                 mapDrawPathMotionMap = !mapDrawPathMotionMap;
             }
 
+            if (e.Key == EKeys.F2)
+            {
+                Computer.Instance.SetWinner(true);
+            }
+
             // Alles auf Maximum (Rotation, Strom, Aliens)
             if (e.Key == EKeys.F4)
             {
@@ -512,11 +517,6 @@ namespace Game
             {
                 Computer.Instance.SetAlienControlPaused();
             }
-
-            if (e.Key == EKeys.F8)
-            {
-                Computer.Instance.SetWinner(true);
-            }            
 
             if (e.Key == EKeys.F10)
             {
@@ -2096,6 +2096,23 @@ namespace Game
             }
         }
 
+        public void EndGame()
+        {
+            ShowStatistics();
+            
+            endTimer = new Timer(10000);
+            endTimer.Elapsed += beenden;
+            endTimer.Enabled = true;
+        }
+        
+        private void beenden(object sender, ElapsedEventArgs e)
+        {
+            ShowStatistics();
+
+            GameEngineApp.Instance.SetFadeOutScreenAndExit();
+            endTimer.Enabled = false;
+        }
+ 
         /// <summary>
         /// Öffnet die Statistik
         /// </summary>
@@ -2103,6 +2120,7 @@ namespace Game
         {
             if (Computer.Instance.WinnerFound)
             {
+                EngineApp.Instance.KeysAndMouseButtonUpAll();
                 if (!Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
@@ -2118,7 +2136,7 @@ namespace Game
                 // Text anpassen
                 hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
                 hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Instance.Statistic.GetAstronoutData();
-
+                
                 // Statistik anzeigen
                 hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
             }
@@ -2127,7 +2145,8 @@ namespace Game
                 hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "";
             }
         }
-        
+
+       
         //////////////////////////////////////////////////////////////////
         ////                        BigMinimap                        ////
         //////////////////////////////////////////////////////////////////

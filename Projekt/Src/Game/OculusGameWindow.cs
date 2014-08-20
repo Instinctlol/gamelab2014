@@ -56,6 +56,8 @@ namespace Game
 
 		//Timer für WaffenInfo
         Timer aTimer = new Timer(5000);
+        Timer endTimer;
+
 		//Inventar visible?
         bool showInventar = false;
         //HUD screen
@@ -129,7 +131,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
-			Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+			Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
         }
 
 
@@ -2122,29 +2124,40 @@ namespace Game
             else
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
         }
-		
+        
+        public void EndGame()
+        {
+            ShowStatistics();
+
+            endTimer = new Timer(10000);
+            endTimer.Elapsed += beenden;
+            endTimer.Enabled = true;
+        }
+
+        private void beenden(object sender, ElapsedEventArgs e)
+        {
+            ShowStatistics();
+
+            GameEngineApp.Instance.SetFadeOutScreenAndExit();
+            endTimer.Enabled = false;
+        }
+
 		public void ShowStatistics()
         {
             if (Computer.Instance.WinnerFound)
             {
+                EngineApp.Instance.KeysAndMouseButtonUpAll();
                 if (Computer.Instance.Astronautwin)
-
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = false;
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Sieger";
-
-
-
                 }
                 else
-
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = false;
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = true;
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Verlierer";
-
-
                 }
                 // Text anpassen
                 hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
@@ -2153,12 +2166,10 @@ namespace Game
                 // Statistik anzeigen
                 hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
             }
-
             else
             {
                 hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "";
             }
-
         }
     }
 }

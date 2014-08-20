@@ -66,25 +66,27 @@ namespace ProjectEntities
         public ThreadSafeList<Signal> signalList = new ThreadSafeList<Signal>();
         
         // Statistik
-        Statistic statistic = new Statistic();
+        Statistic statistic;
 
         // Anzeige der Statistik für Server und Clients
         bool winnerFound = false;
         bool astronautwin = false;
+        bool ende = false;
         int diedAstronouts = 0;
         
         enum NetworkMessages
         {
-            StatisticToClient,
             DamageAstronoutsToClients,
             KilledAliensToClients,
             KilledAstronoutsToClients,
             SpawnedAliensToClients,
             ReanimationsToClients,
-            AstronoutWinToClients
+            AstronoutWinToClients,
+            EndGameToClients
         }
-        public event StatisticEventDelegate showStatistic;
+        public event StatisticEventDelegate endGame;
         public delegate void StatisticEventDelegate();
+        
 
         /*******************/
         /* Getter / Setter */
@@ -634,6 +636,7 @@ namespace ProjectEntities
 
         private void ResetInstance()
         {
+            statistic = new Statistic();
             astronautwin = false;
             experiencePoints = 50;
             rotationCoupons = 0;
@@ -653,26 +656,23 @@ namespace ProjectEntities
             if (EntitySystemWorld.Instance.IsServer())
             {
                 Server_AstronountWinToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
-                Server_SendStatisticToClients();
             }
 
-            // Event feuern, damit die Statistik angezeigt wird
-            if (showStatistic != null)
+            ende = true;
+
+            if (EntitySystemWorld.Instance.IsServer())
             {
-                showStatistic();
+                Server_EndGameToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
+            }
+            if (endGame != null)
+            {
+                endGame();
             }
         }
 
         ///////////////////////////////////////////
         // Server side
         ///////////////////////////////////////////
-        private void Server_SendStatisticToClients()
-        {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Computer), (ushort)NetworkMessages.StatisticToClient);
-            writer.Write(astronautwin);
-            EndNetworkMessage();
-        }
-
         void Server_DamageAstronoutsToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.DamageAstronoutsToClients);
@@ -697,43 +697,28 @@ namespace ProjectEntities
             writer.WriteVariableInt32(statistic.SpawnedAliens);
             EndNetworkMessage();
         }
-
         void Server_ReanimationsToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.ReanimationsToClients);
             writer.WriteVariableInt32(statistic.Reanimations);
             EndNetworkMessage();
-        }
-        
+        }      
         void Server_AstronountWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
             writer.Write(astronautwin);
             EndNetworkMessage();
         }
-        
+        void Server_EndGameToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.EndGameToClients);
+            writer.Write(ende);
+            EndNetworkMessage();
+        }
+
         ///////////////////////////////////////////
         // Client side
         ///////////////////////////////////////////
-
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.StatisticToClient)]
-        void Client_ReceiveStatistic(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            bool win = reader.ReadBoolean();
-            if (!reader.Complete())
-            {
-                return;
-            }
-
-            astronautwin = win;
-
-            // CaveWindow per Event mitteilen, dass die Statistik angezeigt werden soll.
-            if (showStatistic != null)
-            {
-                showStatistic();
-            }
-        }
-
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.DamageAstronoutsToClients)]
         void Client_ReceiveDamageAstronounts(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -748,7 +733,6 @@ namespace ProjectEntities
             // Daten setzen 
             this.statistic.DamageAstronouts = damageAstronouts;
         }
-
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAliensToClients)]
         void Client_ReceiveKilledAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -763,7 +747,6 @@ namespace ProjectEntities
             // Daten setzen 
             this.statistic.KilledAliens = killedAliens;
         }
-        
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAstronoutsToClients)]
         void Client_ReceiveKilledAstronounts(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -778,7 +761,6 @@ namespace ProjectEntities
             // Daten setzen 
             this.statistic.KilledAstronouts = killedAstronouts;
         }
-        
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.SpawnedAliensToClients)]
         void Client_ReceiveSpawnedAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -793,7 +775,6 @@ namespace ProjectEntities
             // Daten setzen 
             this.statistic.SpawnedAliens = spawnedAliens;
         }
-        
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ReanimationsToClients)]
         void Client_ReceiveReanimations(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -808,7 +789,6 @@ namespace ProjectEntities
             // Daten setzen 
             this.statistic.Reanimations = reanimations;
         }
-        
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AstronoutWinToClients)]
         void Client_ReceiveAstronoutWin(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -823,6 +803,20 @@ namespace ProjectEntities
             // Daten setzen 
             this.winnerFound = true;
             this.astronautwin = astronoutwin;
+        }
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.EndGameToClients)]
+        void Client_ReceiveEndGame(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            // Daten lesen
+            bool endeGame = reader.ReadBoolean();
+
+            if (!reader.Complete())
+            {
+                return;
+            }
+
+            // Daten setzen 
+            this.ende = endeGame;
         }
     }
 }

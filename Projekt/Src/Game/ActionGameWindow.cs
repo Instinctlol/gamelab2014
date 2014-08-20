@@ -56,6 +56,7 @@ namespace Game
 
         //Timer für WaffenInfo
         Timer aTimer = new Timer(5000);
+        Timer endTimer;
 
         //Inventar visible?
         bool showInventar = false;
@@ -134,7 +135,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
-            Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
+            Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
         }
 
 
@@ -2100,10 +2101,28 @@ namespace Game
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
         }
 
+        public void EndGame()
+        {
+            ShowStatistics();
+
+            endTimer = new Timer(10000);
+            endTimer.Elapsed += beenden;
+            endTimer.Enabled = true;
+        }
+
+        private void beenden(object sender, ElapsedEventArgs e)
+        {
+            ShowStatistics();
+
+            GameEngineApp.Instance.SetFadeOutScreenAndExit();
+            endTimer.Enabled = false;
+        }
+
         public void ShowStatistics()
         {
             if (Computer.Instance.WinnerFound)
             {
+                EngineApp.Instance.KeysAndMouseButtonUpAll();
                 if (Computer.Instance.Astronautwin)
                 {
                     hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
