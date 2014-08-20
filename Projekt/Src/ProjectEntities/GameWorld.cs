@@ -12,6 +12,7 @@ using Engine.PhysicsSystem;
 using Engine.Renderer;
 using Engine.Networking;
 using ProjectCommon;
+using Engine.Utils;
 
 
 namespace ProjectEntities
@@ -45,10 +46,16 @@ namespace ProjectEntities
         float radius = 10;
         Vec3 actObjPos;
         PlayerCharacter playercharacter;
+        Boolean bothdied = false;
+        Boolean oncedied = false;
+        public static Boolean showtimer = false; 
 
 		//
 
-
+        enum NetworkMessages
+        {
+            respawntimer,
+        }
 
 		GameWorldType _type = null;
         
@@ -185,9 +192,9 @@ namespace ProjectEntities
                             {
 
                                 //aktuelle position 
-                                
+
                                 player.pos = player.Intellect.ControlledObject.Position;
-                              //  ((Dynamic)player.Intellect.ControlledObject).Die();
+                                //  ((Dynamic)player.Intellect.ControlledObject).Die();
                             }
 
                             if (player.User != null && player.User != userManagementService.ServerUser)
@@ -260,17 +267,16 @@ namespace ProjectEntities
 
                         // radius definieren 
 
-                        Boolean creatAstronaut =true;
+                        Boolean creatAstronaut = true;
                         foreach (PlayerManager.ServerOrSingle_Player actplayer in
                             PlayerManager.Instance.ServerOrSingle_Players)
                         {
 
 
 
-
-                            if (actplayer.Intellect.ControlledObject != null)
+                            if (actplayer.Intellect.ControlledObject != null && actplayer.started)
                             {
-                                 actObjPos = actplayer.Intellect.ControlledObject.Position;
+                                actObjPos = actplayer.Intellect.ControlledObject.Position;
 
 
 
@@ -294,12 +300,12 @@ namespace ProjectEntities
                                             objDistance = diff.Length();
                                             //EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
                                             //EngineConsole.Instance.Print("Die zeit ist   " + revival);
-                                            
-                                                creatAstronaut = false;
-                                                revival = 0f;
-                                                timer = 0f;
 
-                                            
+                                            creatAstronaut = false;
+                                            revival = 0f;
+                                            timer = 0f;
+
+
                                         });
 
                                     }
@@ -307,97 +313,160 @@ namespace ProjectEntities
                             }
 
 
-                                // wenn ein Astronaut stirbt
-                            else if (actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null)
-                            {
-                                //Computer.Instance.IncrementDiedAstronouts();
-                                
 
+                            // wenn ein Astronaut stirbt
 
-                                foreach (PlayerManager.ServerOrSingle_Player nonactplayer in PlayerManager.Instance.ServerOrSingle_Players)
+                            showtimer = false;
+                            
+                                if (actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && actplayer.started)
                                 {
+                                    //Computer.Instance.IncrementDiedAstronouts();
 
-                                    if (nonactplayer.Intellect.ControlledObject != null && nonactplayer != actplayer)
+
+
+                                    foreach (PlayerManager.ServerOrSingle_Player nonactplayer in PlayerManager.Instance.ServerOrSingle_Players)
                                     {
 
-                                        Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
-                                        diff = actplayer.pos - nonactObjPos;
-                                        objDistance = diff.Length();
-                                        EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
-                                        EngineConsole.Instance.Print("Die zeit ist   " + revival);
-
-
-
-                                        //StatusMessageHandler.sendMessage(" zeit " + revival);
-
-
-
-
-                                        if (objDistance > radius)
+                                        if (nonactplayer.Intellect.ControlledObject != null && nonactplayer != actplayer)
                                         {
-                                            
+
+                                            Vec3 nonactObjPos = nonactplayer.Intellect.ControlledObject.Position;
+                                            diff = actplayer.pos - nonactObjPos;
+                                            objDistance = diff.Length();
                                             EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
                                             EngineConsole.Instance.Print("Die zeit ist   " + revival);
-                                            creatAstronaut = false;
-                                            revival = 0f;
-                                            timer += TickDelta / RespawnBuildtime;
 
+
+
+                                            //StatusMessageHandler.sendMessage(" zeit " + revival);
+
+
+
+
+                                            if (objDistance > radius)
+                                            {
+
+                                                EngineConsole.Instance.Print("Der abstand zwichen den 2 Astronaut ist   " + objDistance);
+                                                EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                                EngineConsole.Instance.Print("Die zeit für timer   " + timer);
+                                                creatAstronaut = false;
+                                                showtimer = true;
+                                                revival = 0f;
+                                                timer += TickDelta / RespawnBuildtime;
+                                                Server_Sendrespawntime();
+
+                                            }
+                                        }
+                                        // wenn der 2 spieler stirbt
+                                        if (nonactplayer.Intellect.ControlledObject == null && nonactplayer.Intellect != null && nonactplayer.User.ConnectedNode != null
+                                            && actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && nonactplayer != actplayer && !bothdied)
+                                        {
+                                            bothdied = true;
+                                            Computer.Instance.IncrementDiedAstronouts();
                                         }
                                     }
-                                       // wenn der 2 spieler stirbt
-                                    if (nonactplayer.Intellect.ControlledObject == null && nonactplayer.Intellect != null && nonactplayer.User.ConnectedNode != null
-                                        && actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && nonactplayer != actplayer)
-                                        Computer.Instance.IncrementDiedAstronouts(); 
-
                                 }
-                            }
-                        if (creatAstronaut && timeelapsed <= 1)
-                        {
-                            foreach (PlayerManager.ServerOrSingle_Player player in
-                                PlayerManager.Instance.ServerOrSingle_Players)
+                            
+
+
+
+                            if (creatAstronaut && timeelapsed <= 1 && !bothdied)
                             {
-                                
+                                foreach (PlayerManager.ServerOrSingle_Player player in
+                                    PlayerManager.Instance.ServerOrSingle_Players)
+                                {
+
                                     if (player.Intellect != null && player.Intellect.ControlledObject == null && player.User.ConnectedNode != null)
                                     {
                                         //spawner Position ändern 
                                         //Unit type erstellen 
                                         if (player.started) //prüft ob der Spieler schonmal gesponed wurde.  
                                         {
+
+                                            showtimer = true;
                                             revival += TickDelta / BuildTime;
+                                            Server_Sendrespawntime();
 
                                             if (timerevival >= 1)
                                             {
-                                                      EngineConsole.Instance.Print("Die zeit ist   " + revival);
+                                                EngineConsole.Instance.Print("Die zeit ist   " + revival);
 
 
-                                                   
-                                                    //playercharacter.SetForDeletion(true);
 
-                                                      
+                                                //playercharacter.SetForDeletion(true);
+
+
                                                 Dynamic.corpse.Die();
                                                 ServerOrSingle_CreatePlayerUnit(player);
+                                                
                                                 revival = 0f;
                                                 timer = 0f;
-                                                 
-                                                    
-                                                    
-                                                
+
+
+
+
+
                                             }
                                         }
-                                        else 
+                                        else
                                             ServerOrSingle_CreatePlayerUnit(player);
                                     }
                                 }
+
                             }
 
-                        
-                        else if (timeelapsed > 1)
-                            Computer.Instance.IncrementDiedAstronouts(); 
-                        
+                            if (creatAstronaut && timeelapsed > 1 && !bothdied && !oncedied)
+                            {
+                                Computer.Instance.IncrementDiedAstronouts();
+                                oncedied = true;
+                                
+                            }
+
+
+
+
                         }
+
                     }
                 }
             }
+        }
+
+
+        
+        void AddTextWithShadow(GuiRenderer renderer, string text, Vec2 position, HorizontalAlign horizontalAlign,
+            VerticalAlign verticalAlign, ColorValue color)
+        {
+            Vec2 shadowOffset = 2.0f / RendererWorld.Instance.DefaultViewport.DimensionsInPixels.Size.ToVec2();
+
+            renderer.AddText(text, position + shadowOffset, horizontalAlign, verticalAlign,
+                new ColorValue(0, 0, 0, color.Alpha / 2));
+            renderer.AddText(text, position, horizontalAlign, verticalAlign, color);
+        }
+
+
+
+        private void Server_Sendrespawntime()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(GameWorld),
+                      (ushort)NetworkMessages.respawntimer);
+
+            writer.Write(revival);
+            writer.Write(timer);
+            writer.Write(showtimer);
+
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.respawntimer)]
+        private void Client_Receiverespawntime(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            revival = reader.ReadSingle();
+            timer = reader.ReadSingle();
+            showtimer = reader.ReadBoolean();
+            
+
+            
         }
 
 
