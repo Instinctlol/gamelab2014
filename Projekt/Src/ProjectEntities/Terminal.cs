@@ -142,7 +142,8 @@ namespace ProjectEntities
         
         //***************************
         //*******Getter-Setter*******
-        //***************************   
+        //*************************** 
+        [Browsable(false)]
         public bool Active
         {
             get { return active; }

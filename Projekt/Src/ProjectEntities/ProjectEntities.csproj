@@ -155,6 +155,7 @@
     <Compile Include="Alien Specific\Signal.cs" />
     <Compile Include="BooleanSwitch.cs" />
     <Compile Include="BrokenDoor.cs" />
+    <Compile Include="BrokenTerminal.cs" />
     <Compile Include="DetonationObject.cs" />
     <Compile Include="Inventar.cs" />
     <Compile Include="MedicCabinet.cs" />

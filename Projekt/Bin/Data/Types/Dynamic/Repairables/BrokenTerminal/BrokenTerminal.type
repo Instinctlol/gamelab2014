@@ -1,6 +1,6 @@
 type BrokenTerminal
 {
-	class = Repairable
+	class = BrokenTerminal
 	soundRepaired = "Sounds\\Feedback\\snap_into_place.ogg"
 	destroyedTexture = TerminalProjector_broken
 	networkType = Synchronized

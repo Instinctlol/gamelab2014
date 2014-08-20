@@ -92,15 +92,6 @@ namespace ProjectEntities
            if (!CanRotate() && !force)
                return;
 
-           foreach (MapObject obj in Map.Instance.SceneGraphObjects)
-           {
-               PlayerCharacter player = obj as PlayerCharacter;
-               if (player != null)
-               {
-                   player.SoundPlay3D("Sounds\\rotationSound.ogg", 0.5f, false);
-               }
-           }
-
            lastRotate = (UInt32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 10;
 
            ringPosition = mod(ringPosition - 1, corners);
