@@ -1,6 +1,7 @@
 type megaComputer
 {
 	class = StaticObject
+	networkType = Synchronized
 	attachedObjects
 	{
 		mesh
