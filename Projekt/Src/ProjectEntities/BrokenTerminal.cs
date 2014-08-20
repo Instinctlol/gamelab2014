@@ -29,13 +29,13 @@ namespace ProjectEntities
         private string taskSuccessSound;
 
         [FieldSerialize]
-        private Entity terminalLogic;
+        private string terminalLogic;
         
 
         //***************************
         //*******Getter-Setter*******
         //***************************
-        public Entity TerminalLogic
+        public String  TerminalLogic
         {
             get { return terminalLogic; }
             set { terminalLogic = value; }
@@ -115,7 +115,7 @@ namespace ProjectEntities
             terminal.TaskType = TaskType;
             terminal.SectorStatusData = SectorStatusData;
 
-            terminal.LogicClass = (LogicClass)TerminalLogic;
+            terminal.LogicClass = (LogicClass)Entities.Instance.Create(TerminalLogic, terminal);
 
             terminal.PostCreate();
 
