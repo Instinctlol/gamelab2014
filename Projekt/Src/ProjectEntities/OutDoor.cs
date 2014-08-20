@@ -65,12 +65,10 @@ namespace ProjectEntities
             partnerDoor = null;
 
             Box bounds = GetBox();
-            bounds.Expand(15);
+            bounds.Expand(5);
 
             foreach( MapObject obj in Map.Instance.GetObjects(bounds) )
             {
-
-
                 OutDoor d = obj as OutDoor;
                 if(d != null && d != this)
                 {
