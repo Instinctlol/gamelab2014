@@ -63,12 +63,15 @@ namespace ProjectEntities
         public void CheckForPartner()
         {
             if (partnerDoor != null)
+            {
                 partnerDoor.Opened = false;
+                partnerDoor.PartnerDoor = null;
+            }
             Opened = false;
             partnerDoor = null;
 
             Box bounds = GetBox();
-            bounds.Expand(5);
+            bounds.Expand(3);
 
             foreach( MapObject obj in Map.Instance.GetObjects(bounds) )
             {
@@ -79,7 +82,6 @@ namespace ProjectEntities
                     d.Opened = true;
                     d.PartnerDoor = this;
                     Opened = true;
-                    return;
                 }
             }
 
