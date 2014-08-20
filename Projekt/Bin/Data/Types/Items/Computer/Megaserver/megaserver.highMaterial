@@ -1,0 +1,13 @@
+highLevelMaterial megaserver
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.588 0.588 0.588
+	diffuse1Map
+	{
+		texture = ".\\textuer\\SC Texture .bmp"
+	}
+	emissionMap
+	{
+		texture = ".\\textuer\\SC Texture (1).bmp"
+	}
+}

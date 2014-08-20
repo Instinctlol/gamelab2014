@@ -1,0 +1,12 @@
+type megaComputer
+{
+	class = StaticObject
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Super camputer (1).mesh"
+			collision = True
+		}
+	}
+}
