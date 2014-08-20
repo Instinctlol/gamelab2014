@@ -1,7 +1,6 @@
 type iMac
 {
 	class = StaticObject
-	physicsModel = ".\\Object.physics"
 	networkType = Synchronized
 	attachedObjects
 	{
