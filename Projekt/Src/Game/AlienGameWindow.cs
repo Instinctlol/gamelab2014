@@ -1264,7 +1264,7 @@ namespace Game
                         int zahl = 0;
                         foreach (Alien alien in selectedUnits.OfType<Alien>())
                         {
-                            Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl.ToString()];;
+                            Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl.ToString()];
 
                             if (control == null)
                                 break;
@@ -1283,6 +1283,10 @@ namespace Game
                             }
                             healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
                             zahl++;
+                        }
+                        for (int zahl2 = zahl; zahl <= 10; zahl++) {
+                            Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl2.ToString()];
+                            control.Visible = false;
                         }
                     }
                 }
