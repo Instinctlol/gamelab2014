@@ -37,7 +37,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void TerminalRotateLeftAction()
 		{
-			Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F1SG-G"),true);
+			Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),true);
 		}
 
 		public void TerminalRotateRightAction()
@@ -47,7 +47,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 
 		public void TerminalSwitchAction()
 		{
-			Computer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName("F3_Ring"),true);
+			Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F1SG-G"),true);
 		}
 
 	}
