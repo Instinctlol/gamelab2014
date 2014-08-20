@@ -372,6 +372,9 @@ namespace ProjectEntities
             }
             if (sector.ObjectsInRegion != null && sector.ObjectsInRegion.Count > 0)
             {
+                //Endkampfraumy
+                if (sector.Name.Equals("Sector_Endkampf"))
+                    return false;
                 // Iteriere durch alle MapObjects in dem Sector
                 foreach (MapObject obj in sector.ObjectsInRegion)
                 {
