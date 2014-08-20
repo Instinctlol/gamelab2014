@@ -32,7 +32,15 @@ namespace ProjectEntities
         public OutDoor PartnerDoor
         {
             get { return partnerDoor; }
-            set { partnerDoor = value; }
+            set { 
+                
+                partnerDoor = value;
+                if (partnerDoor != null)
+                    partnerDoor.Opened = this.Opened;
+                else
+                    Opened = false;
+            
+            }
         }
 
         public Sector Sector
@@ -62,13 +70,10 @@ namespace ProjectEntities
 
         public void CheckForPartner()
         {
-            if (partnerDoor != null)
-            {
-                partnerDoor.Opened = false;
-                partnerDoor.PartnerDoor = null;
-            }
-            Opened = false;
-            partnerDoor = null;
+            if (PartnerDoor != null)
+                PartnerDoor.PartnerDoor = null;
+
+            PartnerDoor = null;
 
             Box bounds = GetBox();
             bounds.Expand(3);
@@ -78,10 +83,9 @@ namespace ProjectEntities
                 OutDoor d = obj as OutDoor;
                 if(d != null && d != this)
                 {
-                    partnerDoor = d;
-                    d.Opened = true;
-                    d.PartnerDoor = this;
                     Opened = true;
+                    PartnerDoor = d;
+                    d.PartnerDoor = this;
                 }
             }
 

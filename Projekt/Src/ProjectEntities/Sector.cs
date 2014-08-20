@@ -431,7 +431,7 @@ namespace ProjectEntities
             if (status)
                 Map.Instance.AmbientLight = new ColorValue(150f / 255f, 150f / 255f, 150f / 255f);
             else
-                Map.Instance.AmbientLight = new ColorValue(30f / 255f, 30f / 255f, 30f / 255f);
+                Map.Instance.AmbientLight = new ColorValue(15f / 255f, 15f / 255f, 15f / 255f);
         }
 
         internal void AddDoor(OutDoor outDoor)
