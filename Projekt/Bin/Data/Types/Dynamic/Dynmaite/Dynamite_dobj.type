@@ -15,7 +15,7 @@ type Dynamite_dobj
 		{
 			meshName = "Types\\Items\\Dynamite\\Dynamite.mesh"
 			alias = dynamesh
-			position = -0.004298881 0.02823339 0.8873107
+			position = -0.004298881 0.02823339 0.9733562
 			scale = 0.00443038 0.00443038 0.004474925
 			visible = False
 		}
