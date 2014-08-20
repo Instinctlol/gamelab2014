@@ -43,7 +43,7 @@ namespace Game
         static float tpsCameraCenterOffset = 1.6f;
 
         //For management of pressing of the player on switches and management ingame GUI
-        const float playerUseDistance = 2;
+        const float playerUseDistance = 3;
         const float playerUseDistanceTPS = 10;
         //Current ingame GUI which with which the player can cooperate
         MapObjectAttachedGui currentAttachedGuiObject;
@@ -56,6 +56,8 @@ namespace Game
 
 		//Timer für WaffenInfo
         Timer aTimer = new Timer(5000);
+		//Inventar visible?
+        bool showInventar = false;
         //HUD screen
         Control hudControl;
 
@@ -69,9 +71,6 @@ namespace Game
 
         //Character: wiggle camera when walking
         float wiggleWhenWalkingSpeedFactor;
-
-        //Taschenlampe Timer
-        Timer energieTimer = new Timer();
 
         //Message System here===================================
 
@@ -130,6 +129,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
+			Computer.Instance.showStatistic += new Computer.StatisticEventDelegate(ShowStatistics);
         }
 
 
@@ -188,10 +188,6 @@ namespace Game
 
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
-
-            //Timerintervall und Event, um Taschenlampenenergie zu verringern
-            energieTimer.Interval = 5000;
-            energieTimer.Elapsed += new ElapsedEventHandler(tlEnergieVerringern);
 
 			//Oculus initialisieren
 			if (OculusManager.Instance == null)
@@ -855,7 +851,7 @@ namespace Game
                     if (pRepair != null)
                         text = "                  " + (int)((float)pRepair.Progress / (float)pRepair.Type.ProgressRequired * 100f) + "% \n";
 
-                    text += "Press \"Use\" to repair";
+                    text += "Druecke \"A\" zum reparieren";
 
                     //get binded keyboard key or mouse button
                 }
@@ -880,7 +876,7 @@ namespace Game
 
                 if (currentUseObject != null)
                 {
-                    text += "Insert USB stick";
+                    text += "USB-Stick einstecken";
                 }
             }
 
@@ -959,7 +955,7 @@ namespace Game
                     if (overDetonationObject != null && overDetonationObject.Useable)
                     {
                         currentUseObject = overDetonationObject;
-                        text += "Attach Dynamite";
+                        text += "Dynamit anbringen";
                     }
                     else
                         currentUseObject = null;
@@ -1076,9 +1072,11 @@ namespace Game
                 control.BackTexture = null;
         }
 
-        void zeigeInventar()
+        void UpdateInventar()
         {
             Unit unit = GetPlayerUnit();
+			if (unit.Inventar.IsOpen == false)
+                return;
             List<Item> inv = unit.Inventar.getInventarliste();
             string itemname;
             int indexUseItem = unit.Inventar.getIndexUseItem();
@@ -1115,16 +1113,16 @@ namespace Game
                 }
 
                 //Itemname und anzahl des Useitem ausgeben
-                String itemtext;
+
                 if (unit.Inventar.useItem.Name == "Taschenlampe")
                 {
-                    itemtext = unit.Inventar.useItem.Name + " " + unit.Inventar.FlashlightEnergy + "%";
-                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                    hudControl.Controls["Item_Leiste/item_name"].Text = unit.Inventar.useItem.Name + " " + unit.Inventar.FlashlightEnergy + "%";
+
                 }
                 else
                 {
-                    itemtext = unit.Inventar.useItem.Name + " x" + unit.Inventar.useItem.anzahl;
-                    hudControl.Controls["Item_Leiste/item_name"].Text = itemtext;
+                    hudControl.Controls["Item_Leiste/item_name"].Text = unit.Inventar.useItem.Name + " x" + unit.Inventar.useItem.anzahl;
+
                 }
 
             }
@@ -1258,6 +1256,25 @@ namespace Game
                         textBox.TextColor = color;
                     }
                 }
+            }
+			ColorValue textColor = new ColorValue();
+            if (GameWorld.showtimer)
+            {
+                String  revivaltime = GameWorld.revival.ToString("N2");
+                String countdown = GameWorld.timer.ToString("N2");
+                
+                if ((Time % 2) < 1)
+                    textColor = new ColorValue(1, 1, 0);
+                else
+                    textColor = new ColorValue(0, 1, 0);
+                
+                String s = "" +revivaltime + "\r\n" + countdown +"";
+
+               // AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+               //     VerticalAlign.Center, new ColorValue(1.0f,1.0f,1.0f));
+
+                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                   VerticalAlign.Center, textColor);
             }
         }
 
@@ -1398,6 +1415,7 @@ namespace Game
                         DrawPlayersStatistics(renderer);
 
                 }
+				UpdateInventar();
             }
 
             //Game is paused on server
@@ -2026,14 +2044,6 @@ namespace Game
             aTimer.Enabled = false;
         }
 
-        public void tlEnergieVerringern(object source, ElapsedEventArgs e)
-        {
-            if (GetPlayerUnit().Inventar.FlashlightEnergy > 0)
-                GetPlayerUnit().Inventar.FlashlightEnergy -= 2;
-            else
-                sendMessageToHUD("Batterie der Taschenlampe ist leer.");
-
-        }
 
         public void oeffneInventar()
         {
@@ -2044,7 +2054,6 @@ namespace Game
             }
             else
             {
-                zeigeInventar();
                 hudControl.Controls["Item_Leiste"].Visible = true;
                 GetPlayerUnit().Inventar.IsOpen = true;
                 
@@ -2069,7 +2078,6 @@ namespace Game
                 if (u.Inventar.getIndexUseItem() + 1 <= inv.Count - 1)
                 {
                     u.Inventar.setUseItem(u.Inventar.getIndexUseItem() + 1);
-                    zeigeInventar();
                 }
             }
         }
@@ -2083,7 +2091,7 @@ namespace Game
                 if (u.Inventar.getIndexUseItem() - 1 >= 0)
                 {
                     u.Inventar.setUseItem(u.Inventar.getIndexUseItem() - 1);
-                    zeigeInventar();
+
                 }
             }
         }
@@ -2109,22 +2117,48 @@ namespace Game
             if (player != null && player.Inventar.FlashlightOwned && player.Inventar.FlashlightEnergy != 0)
             {
                 player.Inventar.FlashlightVisible = !player.Inventar.FlashlightVisible;
-
-                if (!player.Inventar.FlashlightVisible)
-                {
-
-                    energieTimer.AutoReset = true;
-                    energieTimer.Enabled = true;
-                }
-                else if (player.Inventar.FlashlightVisible)
-                {
-                    energieTimer.AutoReset = false;
-                    energieTimer.Enabled = false;
-                }
             }
 			
             else
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
+        }
+		
+		public void ShowStatistics()
+        {
+            if (Computer.Instance.WinnerFound)
+            {
+                if (Computer.Instance.Astronautwin)
+
+                {
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = true;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = false;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Sieger";
+
+
+
+                }
+                else
+
+                {
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Winner"].Visible = false;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Looser"].Visible = true;
+                    hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "Verlierer";
+
+
+                }
+                // Text anpassen
+                hudControl.Controls["Statistic"].Controls["StatisticAlien"].Controls["StatisticDataAlien"].Text = Computer.Instance.Statistic.GetAlienData();
+                hudControl.Controls["Statistic"].Controls["StatisticAstronaut"].Controls["StatisticDataAstronaut"].Text = Computer.Instance.Statistic.GetAstronoutData();
+
+                // Statistik anzeigen
+                hudControl.Controls["Statistic"].Visible = !hudControl.Controls["Statistic"].Visible;
+            }
+
+            else
+            {
+                hudControl.Controls["Statistic"].Controls["StatusControl"].Controls["Status"].Text = "";
+            }
+
         }
     }
 }
