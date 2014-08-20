@@ -53,6 +53,9 @@ namespace ProjectEntities
         {
             base.OnPostCreate(loaded);
 
+            if (sector != null)
+                sector.AddDoor(this);
+
             CheckForPartner();
         }
 
