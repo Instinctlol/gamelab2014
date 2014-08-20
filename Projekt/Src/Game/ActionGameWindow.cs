@@ -1260,6 +1260,26 @@ namespace Game
                     }
                 }
             }
+
+            ColorValue textColor = new ColorValue();
+            if (GameWorld.showtimer)
+            {
+                String  revivaltime = GameWorld.revival.ToString("N2");
+                String countdown = GameWorld.timer.ToString("N2");
+                
+                if ((Time % 2) < 1)
+                    textColor = new ColorValue(1, 1, 0);
+                else
+                    textColor = new ColorValue(0, 1, 0);
+                
+                String s = "" +revivaltime + "\r\n" + countdown +"";
+
+               // AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+               //     VerticalAlign.Center, new ColorValue(1.0f,1.0f,1.0f));
+
+                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                   VerticalAlign.Center, textColor);
+            }
         }
 
         /// <summary>
