@@ -9,13 +9,13 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -41.86532 -21.80811 20.89714
-editorCameraDirection = 4.752855 -1.560796
+editorCameraPosition = 467.0772 12.66216 12.58275
+editorCameraDirection = 0.6522719 -0.7144035
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
 fov = 60
-nearFarClipDistance = 0.1 75
+nearFarClipDistance = 0.1 750
 logicSystemManager = 3
 staticBatchingRenderingEnabled = False
 staticBatchingPhysicsEnabledInMapEditor = False
@@ -199,7 +199,6 @@ rootEditorLayer
 	layer
 	{
 		name = Endkampf
-		allowSelect = False
 		layer
 		{
 			name = Sporner
@@ -530,7 +529,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 35
-				code = "if(Owner.Value && !pressed)\r\n{\r\n\tpressed = true;\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\r\n}\r\nelse\r\n\tOwner.Value = true;"
+				code = "if(Owner.Value && !pressed)\r\n{\r\n\tpressed = true;\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).Opened = true;\r\n\tComputer.Instance.AstronautRotateRing((Ring)Entities.Instance.GetByName(\"F2_Ring\"),false);\r\n\t((AutomaticOpenDoor)Entities.Instance.GetByName(\"Door_Anfangsrotation_Aufwachraum\")).NoAutomaticOpen = false;\t\r\n}\r\nelse\r\n\tOwner.Value = true;"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -1263,6 +1262,40 @@ entity
 						}
 					}
 				}
+			}
+		}
+		entity
+		{
+			type = LogicEntityClass
+			uin = 1853
+			subscriptionsToDeletionEvent = 1852
+			entityClassName = Region
+			className = Region_EndKampf
+			customScriptCodeCreated = False
+			entity
+			{
+				type = LogicScriptMethod
+				uin = 1854
+				code = "if(!firstIn && obj is PlayerCharacter)\r\n{\r\n\tGameMap.Instance.GameMusic = \"Sounds\\\\Music\\\\ava_bossfight_looping.ogg\";\r\n\tfirstIn = true;\r\n}"
+				methodName = ObjectIn
+				returnType = System.Void
+				parameters = 1855
+				isEntityEventMethod = True
+				entity
+				{
+					type = LogicParameter
+					uin = 1855
+					parameterType = Engine.MapSystem.MapObject
+					parameterName = obj
+				}
+			}
+			entity
+			{
+				type = LogicVariable
+				uin = 1856
+				variableType = System.Boolean
+				variableName = firstIn
+				supportSerialization = False
 			}
 		}
 	}
@@ -18861,7 +18894,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1850
+	uin = 1763
 	classPrompt = AlienSpawner
 	sector = 128
 	spawnLimit = 0
@@ -18876,7 +18909,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1851
+	uin = 1764
 	classPrompt = AlienSpawner
 	sector = 129
 	spawnLimit = 0
@@ -18887,4 +18920,20 @@ entity
 	position = -16.37914 -29.0441 0.4604104
 	name = AlienSpawner_0
 	editorLayer = "Root Layer\\F3\\Sporner"
+}
+entity
+{
+	type = Region
+	uin = 1852
+	classPrompt = Region
+	subscriptionsToDeletionEvent = 1853
+	enabled = True
+	shapeType = Box
+	filter = OnlyDynamicBodies
+	position = 476.9757 15.01418 0.9076462
+	scale = 7.719745 7.719745 2.227053
+	name = Region_EndKampf
+	logicClass = 1853
+	editorLayer = "Root Layer\\Endkampf"
+	checkType = Bounds
 }

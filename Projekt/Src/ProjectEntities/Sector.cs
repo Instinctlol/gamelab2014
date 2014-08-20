@@ -210,7 +210,7 @@ namespace ProjectEntities
             if (loaded)
                 return;
 
-            if (aliensInSector <= 0 && (GameMap.Instance != null && GameMap.Instance.IsAlien))
+            if (aliensInSector <= 0 && EntitySystemWorld.Instance.IsServer())
             {
                 aliensInSector = 0;
                 IsHidden = true;
@@ -222,7 +222,7 @@ namespace ProjectEntities
 
         private void SetFoWEnabled(bool status)
         {
-            if (GameMap.Instance.IsAlien)
+            if (EntitySystemWorld.Instance.IsServer())
             {
 
                 if (status)
@@ -390,7 +390,7 @@ namespace ProjectEntities
 
         private void OnAlienIn()
         {
-            if (GameMap.Instance.IsAlien)
+            if (EntitySystemWorld.Instance.IsServer())
             {
                 aliensInSector++;
                 IsHidden = false;
@@ -399,7 +399,7 @@ namespace ProjectEntities
 
         private void OnAlienOut()
         {
-            if (GameMap.Instance.IsAlien)
+            if (EntitySystemWorld.Instance.IsServer())
             {
                 aliensInSector--;
                 if (aliensInSector <= 0)

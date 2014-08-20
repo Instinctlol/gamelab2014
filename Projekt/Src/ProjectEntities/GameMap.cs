@@ -27,21 +27,6 @@ namespace ProjectEntities
 	{
 		static GameMap instance;
 
-        //If alien playing set to true
-        bool isAlien = false;
-
-        public bool IsAlien
-        {
-            get { return isAlien; }
-            set { 
-                isAlien = value;
-                if (isAlien)
-                    Map.Instance.AmbientLight = new ColorValue(1,1,1);
-                else
-                    Map.Instance.AmbientLight = new ColorValue(150f / 255f, 150f / 255f, 150f / 255f);
-            }
-        }
-
 		[FieldSerialize]
 		[DefaultValue( GameMap.GameTypes.Action )]
 		GameTypes gameType = GameTypes.Action;
@@ -88,10 +73,17 @@ namespace ProjectEntities
 
 		enum NetworkMessages
 		{
-			GameTypeToClient
+			GameTypeToClient,
+            GameMusicToClient,
 		}
 
 		///////////////////////////////////////////
+
+        public delegate void GameMusicChangedDelegate(string newMusic);
+
+        public event GameMusicChangedDelegate GameMusicChanged;
+
+        ///////////////////////////////////////////
 
 		GameMapType _type = null; public new GameMapType Type { get { return _type; } }
 
@@ -149,6 +141,8 @@ namespace ProjectEntities
 			{
 				gameType = value;
 
+                
+
 				//send to clients
 				if( EntitySystemWorld.Instance.IsServer() )
 					Server_SendGameTypeToClients( EntitySystemWorld.Instance.RemoteEntityWorlds );
@@ -176,8 +170,36 @@ namespace ProjectEntities
 		public string GameMusic
 		{
 			get { return gameMusic; }
-			set { gameMusic = value; }
+			set { 
+                gameMusic = value;
+
+                if (GameMusicChanged != null)
+                    GameMusicChanged(gameMusic);
+
+                if (EntitySystemWorld.Instance.IsServer())
+                    Server_SendGameMusicToClients(gameMusic);
+            }
 		}
+
+        
+
+
+
+        private void Server_SendGameMusicToClients(string gameMusic)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(GameMap), (ushort)NetworkMessages.GameMusicToClient);
+            writer.Write(gameMusic);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.GameMusicToClient)]
+        void Client_ReceiveGameMusic(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string value = reader.ReadString();
+            if (!reader.Complete())
+                return;
+            GameMusic = value;
+        }
 
 		void Server_SendGameTypeToClients( IList<RemoteEntityWorld> remoteEntityWorlds )
 		{

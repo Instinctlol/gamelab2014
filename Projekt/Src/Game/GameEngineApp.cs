@@ -959,7 +959,6 @@ namespace Game
                 {
                     //Ich bin Alien
                     gameWindow = new AlienGameWindow();
-                    GameMap.Instance.IsAlien = true;
                     TuioInputDevice.InitDevice();
                     HeadTracker.Instance.Start();
                 }
@@ -968,13 +967,11 @@ namespace Game
                     if(client != null && client.isOculus == true)
                     {
                         gameWindow = new OculusGameWindow();
-                        GameMap.Instance.IsAlien = false;
                         ExampleCustomInputDevice.InitDevice();
                     }
                     else
                     {
                         gameWindow = new ActionGameWindow();
-                        GameMap.Instance.IsAlien = false;
                         ExampleCustomInputDevice.InitDevice();
                     }
                 }
@@ -1122,8 +1119,11 @@ namespace Game
 			//play music
 			if( !noChangeWindows )
 			{
-				if( GameMap.Instance != null )
-					GameMusic.MusicPlay( GameMap.Instance.GameMusic, true );
+                if (GameMap.Instance != null)
+                {
+                    GameMusic.MusicPlay(GameMap.Instance.GameMusic, true);
+                    GameMap.Instance.GameMusicChanged += OnGameMusicChanged;
+                }
 			}
 
 			EntitySystemWorld.Instance.ResetExecutedTime();
@@ -1221,8 +1221,11 @@ namespace Game
 			CreateGameWindowForMap();
 
 			//play music
-			if( GameMap.Instance != null )
-				GameMusic.MusicPlay( GameMap.Instance.GameMusic, true );
+            if (GameMap.Instance != null)
+            {
+                GameMusic.MusicPlay(GameMap.Instance.GameMusic, true);
+                GameMap.Instance.GameMusicChanged += OnGameMusicChanged;
+            }
 
 			return true;
 		}
@@ -1365,11 +1368,20 @@ namespace Game
 				ExampleOfProceduralMapCreation.Client_CreateEntities();
 
 			//play music
-			if( GameMap.Instance != null )
-				GameMusic.MusicPlay( GameMap.Instance.GameMusic, true );
+            if (GameMap.Instance != null)
+            {
+                GameMusic.MusicPlay(GameMap.Instance.GameMusic, true);
+                GameMap.Instance.GameMusicChanged += OnGameMusicChanged;
+            }
 
 			CreateGameWindowForMap();
 		}
+
+        void OnGameMusicChanged(string newMusic)
+        {
+            GameMusic.MusicStop();
+            GameMusic.MusicPlay(newMusic, true);
+        }
 
 		void Map_Client_MapLoadingBegin()
 		{

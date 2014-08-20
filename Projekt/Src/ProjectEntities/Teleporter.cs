@@ -185,7 +185,7 @@ namespace ProjectEntities
         {
             base.OnCreate();
 
-            if(!(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor) && GameMap.Instance.IsAlien)
+            if (!(EntitySystemWorld.Instance.WorldSimulationType == WorldSimulationTypes.Editor) && EntitySystemWorld.Instance.IsServer())
             {
                 this.Visible = false;
             }
