@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Timers;
 
 namespace ProjectEntities
 {
@@ -25,6 +26,8 @@ namespace ProjectEntities
 
         [FieldSerialize]
         string detonationItem;
+
+        
 
         public string DetonationItem
         {
@@ -46,6 +49,9 @@ namespace ProjectEntities
     public class DetonationObject : Dynamic
     {
         DetonationObjectType _type = null; public new DetonationObjectType Type { get { return _type; } }
+        Timer aTimer;
+        private bool firstUse=true;
+        private int timeToGo;
 
         enum NetworkMessages
         {
@@ -97,11 +103,33 @@ namespace ProjectEntities
             if (useable && HasItem(unit))
             {
                 if (EntitySystemWorld.Instance.IsClientOnly())
+                {
                     Client_SendStartUse();
+                    timeToGo = (int)Type.SecondsToUse;
+                    StatusMessageHandler.sendMessage("Bringe Dynamit an..");
+                    StatusMessageHandler.sendMessage(".." + timeToGo--);
+                    aTimer = new System.Timers.Timer(1000);
+                    aTimer.Elapsed += usingMessage;
+                    aTimer.AutoReset = true;
+                    aTimer.Enabled = true;
+                }
+                    
 
             }
             else if (!HasItem(unit))
                 StatusMessageHandler.sendMessage("Du brauchst Dynamit.");
+        }
+
+        private void usingMessage(object sender, ElapsedEventArgs e)
+        {
+            if(timeToGo>=0)
+            {
+                StatusMessageHandler.sendMessage(".." + timeToGo--);
+            }
+            else
+            {
+                aTimer.Enabled = false;
+            }
         }
 
         public void EndUse(Unit unit)
@@ -111,6 +139,8 @@ namespace ProjectEntities
                 if (EntitySystemWorld.Instance.IsClientOnly())
                 {
                     Client_SendEndUse(unit);
+                    aTimer.Enabled = false;
+                    aTimer.Elapsed -= usingMessage;
                 }
             }
         }
