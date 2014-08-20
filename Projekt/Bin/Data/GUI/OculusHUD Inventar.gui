@@ -310,4 +310,12 @@ control Control
 			name = item3
 		}
 	}
+	control "GUI\\GameStatistic.gui"
+	{
+		position = ScaleByResolution 4 3
+		size = ScaleByResolution 432 294
+		name = Statistic
+		visible = False
+		enable = False
+	}
 }
