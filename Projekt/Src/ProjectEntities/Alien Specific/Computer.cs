@@ -96,9 +96,10 @@ namespace ProjectEntities
 			if( instance != null )
 				Log.Fatal( "Computer: Computer is already created." );
 			instance = this;
+            statistic = new Statistic();
 		}
 
-        public static new Computer Instance
+        public static Computer Instance
         {
             get{ return instance; }
         }
@@ -729,9 +730,9 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
-            this.statistic.DamageAstronouts = damageAstronouts;
+            Statistic.DamageAstronouts = damageAstronouts;
         }
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAliensToClients)]
         void Client_ReceiveKilledAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
@@ -743,9 +744,9 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
-            this.statistic.KilledAliens = killedAliens;
+            Statistic.KilledAliens = killedAliens;
         }
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.KilledAstronoutsToClients)]
         void Client_ReceiveKilledAstronounts(RemoteEntityWorld sender, ReceiveDataReader reader)
@@ -757,9 +758,9 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
-            this.statistic.KilledAstronouts = killedAstronouts;
+            Statistic.KilledAstronouts = killedAstronouts;
         }
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.SpawnedAliensToClients)]
         void Client_ReceiveSpawnedAliens(RemoteEntityWorld sender, ReceiveDataReader reader)
@@ -771,9 +772,9 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
-            this.statistic.SpawnedAliens = spawnedAliens;
+            Statistic.SpawnedAliens = spawnedAliens;
         }
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ReanimationsToClients)]
         void Client_ReceiveReanimations(RemoteEntityWorld sender, ReceiveDataReader reader)
@@ -785,9 +786,9 @@ namespace ProjectEntities
             {
                 return;
             }
-
+           
             // Daten setzen 
-            this.statistic.Reanimations = reanimations;
+            Statistic.Reanimations = reanimations;
         }
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AstronoutWinToClients)]
         void Client_ReceiveAstronoutWin(RemoteEntityWorld sender, ReceiveDataReader reader)
@@ -799,7 +800,7 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
             this.winnerFound = true;
             this.astronautwin = astronoutwin;
@@ -814,7 +815,7 @@ namespace ProjectEntities
             {
                 return;
             }
-
+            
             // Daten setzen 
             this.ende = endeGame;
         }
