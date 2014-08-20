@@ -56,10 +56,10 @@ namespace ProjectEntities
             set { destroyedTexture = value; }
         }
 
-       
-        [Description( "The sound when the object got repaired." )]
-		[Editor( typeof( EditorSoundUITypeEditor ), typeof( UITypeEditor ) )]
-		[SupportRelativePath]
+
+        [Description("The sound when the object got repaired.")]
+        [Editor(typeof(EditorSoundUITypeEditor), typeof(UITypeEditor))]
+        [SupportRelativePath]
         public string SoundRepaired
         {
             get { return soundRepaired; }
@@ -67,9 +67,9 @@ namespace ProjectEntities
         }
 
 
-        [Description( "The sound when the object is getting repaired." )]
-		[Editor( typeof( EditorSoundUITypeEditor ), typeof( UITypeEditor ) )]
-		[SupportRelativePath]
+        [Description("The sound when the object is getting repaired.")]
+        [Editor(typeof(EditorSoundUITypeEditor), typeof(UITypeEditor))]
+        [SupportRelativePath]
         public string SoundUsing
         {
             get { return soundUsing; }
@@ -88,7 +88,7 @@ namespace ProjectEntities
         private MeshObject mesh;
         private string originalTexture;
         private string destroyedTexture;
-
+        private List<RepairableType.RepairItem> repairItems;
 
         enum NetworkMessages
         {
@@ -101,6 +101,8 @@ namespace ProjectEntities
 
         [LogicSystemBrowsable(true)]
         public event RepairDelegate Repair;
+
+
 
         protected virtual void OnRepair()
         {
@@ -131,7 +133,7 @@ namespace ProjectEntities
                     SoundPlay3D(Type.SoundRepaired, 1f, false);
                 else
                 {
-                    if(!EntitySystemWorld.Instance.IsEditor())
+                    if (!EntitySystemWorld.Instance.IsEditor())
                         Server_SendRepairedToAllClients();
                     OnRepair();
                 }
@@ -142,14 +144,14 @@ namespace ProjectEntities
         public virtual void Press(Unit unit)
         {
 
-            if(!CanRepair(unit))
+            if (!CanRepair(unit))
             {
                 StatusMessageHandler.sendMessage("Falscher Gegenstand");
                 return;
             }
 
             //Wenn nur client ist
-            if(EntitySystemWorld.Instance.IsClientOnly())
+            if (EntitySystemWorld.Instance.IsClientOnly())
             {
                 SoundPlay3D(Type.SoundUsing, .5f, false);
                 Client_SendPressToServer();
@@ -166,14 +168,18 @@ namespace ProjectEntities
             if (unit.Inventar.useItem!= null)
                 useItem = unit.Inventar.useItem.Type.FullName;
 
-            if (Type.RepairItems.Count == 0)
+            if (repairItems.Count == 0)
                 return true;
 
-            foreach (RepairableType.RepairItem item in Type.RepairItems)
+            foreach (RepairableType.RepairItem item in repairItems)
             {
                 if (item.ItemType.FullName.Equals(useItem))
-                    return true;
+                    repairItems.Remove(item);
             }
+
+            if (repairItems.Count == 0)
+                return true;
+
             return false;
         }
 
@@ -181,13 +187,13 @@ namespace ProjectEntities
         {
             base.OnPostCreate(loaded);
 
-            foreach(var v in AttachedObjects)
+            foreach (var v in AttachedObjects)
             {
                 MapObjectAttachedMesh attachedMesh = v as MapObjectAttachedMesh;
-                if(attachedMesh != null)
+                if (attachedMesh != null)
                 {
                     mesh = attachedMesh.MeshObject;
-                    originalTexture = mesh.SubObjects[ 0 ].MaterialName;
+                    originalTexture = mesh.SubObjects[0].MaterialName;
                     break;
                 }
             }
@@ -198,12 +204,15 @@ namespace ProjectEntities
 
             if (mesh != null && !String.IsNullOrEmpty(destroyedTexture))
                 mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
+            
+
+            repairItems = new List<RepairableType.RepairItem>(Type.RepairItems);
         }
 
 
         void Client_SendPressToServer()
         {
-            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable), 
+            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable),
                 (ushort)NetworkMessages.PressToServer);
             EndNetworkMessage();
         }
