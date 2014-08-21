@@ -36,29 +36,21 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
 		position = ScaleByResolution 33 353
-		size = Screen 0.04082032 0.025
+		size = Screen 0.0403125 0.025
 		text = Chat
 	}
 	control "Gui\\Controls\\DefaultListBox.gui"
 	{
-		position = ScaleByResolution 33 113
-		size = ScaleByResolution 700 230
+		position = ScaleByResolution 33 75.99998
+		size = ScaleByResolution 700 267
 		name = Users
 	}
 	control TextBox
 	{
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
-		position = ScaleByResolution 33 93
-		size = Screen 0.04824219 0.025
+		position = ScaleByResolution 33 55.99999
+		size = Screen 0.046875 0.025
 		text = Users
-	}
-	control "Gui\\Controls\\DefaultCheckBox.gui"
-	{
-		checked = True
-		position = ScaleByResolution 33 56
-		name = AllowToConnectDuringGame
-		text = Allow to connect during the simulation
-		enable = False
 	}
 }
