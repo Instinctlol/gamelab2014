@@ -4,7 +4,7 @@ type Alien
 	optimalAttackDistanceRange = 0 15
 	allowPlayerControl = True
 	initialAI = AlienAI
-	viewRadius = 15
+	viewRadius = 18
 	takeItemsRadius = 0
 	healthMax = 30
 	targetPriority = 1
