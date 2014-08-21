@@ -6411,6 +6411,7 @@ entity
 	type = BrokenTerminal
 	uin = 565
 	classPrompt = BrokenTerminal
+	terminal = 1750
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.44952 -75.1067 1.606234
