@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -1.299299 56.47956 53.02126
-editorCameraDirection = 4.710155 -1.172517
+editorCameraPosition = 473.5993 37.75787 10.67876
+editorCameraDirection = 5.296743 -0.18197
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -202,8 +202,6 @@ rootEditorLayer
 		layer
 		{
 			name = Sporner
-			visible = False
-			allowSelect = False
 		}
 		layer
 		{
@@ -7254,9 +7252,8 @@ entity
 	enabled = True
 	shapeType = Box
 	filter = All
-	position = 488.7833 16.23597 0.7748142
+	position = 488.7833 16.23597 12.21525
 	scale = 48.35442 84.23899 9.883558
-	visible = False
 	name = Sector_Endkampf
 	editorLayer = "Root Layer\\Endkampf\\Sporner"
 	checkType = Center
@@ -7288,7 +7285,6 @@ entity
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
 	position = 491.3521 32.75819 0.5735672
-	visible = False
 	name = AlienSpawner_Endkampf
 	editorLayer = "Root Layer\\Endkampf\\Sporner"
 }
@@ -12117,7 +12113,6 @@ entity
 	initialFaction = BadFaction
 	healthFactorAtBeginning = 1
 	position = 490.6297 0.1074394 0.5735672
-	visible = False
 	name = AlienSpawner_Endkampf_2
 	editorLayer = "Root Layer\\Endkampf\\Sporner"
 }
