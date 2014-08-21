@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 473.5993 37.75787 10.67876
-editorCameraDirection = 5.296743 -0.18197
+editorCameraPosition = 472.4727 -17.76805 9.909786
+editorCameraDirection = 3.874539 -1.161193
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -18724,4 +18724,26 @@ entity
 	rotation = 0 0 -0.7071068 0.7071068
 	scale = 1 0.9344738 1
 	name = DurchgangDrehen_0
+}
+entity
+{
+	type = Predator
+	uin = 1840
+	classPrompt = StaticObject
+	position = 469.6 -21.7 0.3
+	rotation = 0 0 0.9215898 0.3881652
+	scale = 1.296216 1 1.296216
+	name = Predator_0
+	editorLayer = "Root Layer\\Endkampf\\Einrichtung"
+}
+entity
+{
+	type = Predator
+	uin = 1839
+	classPrompt = StaticObject
+	position = 509.9 -22.3 0.3
+	rotation = 0 0 -0.9224583 0.3860968
+	scale = 1.185361 1 1.185361
+	name = Predator_1
+	editorLayer = "Root Layer\\Endkampf\\Einrichtung"
 }

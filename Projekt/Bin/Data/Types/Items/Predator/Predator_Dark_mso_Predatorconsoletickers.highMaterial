@@ -1,0 +1,6 @@
+highLevelMaterial Predator_Dark_mso_Predatorconsoletickers
+{
+	template = ShaderBaseMaterial
+	blending = AlphaBlend
+	diffuseColor = 0.64 0.64 0.64 0
+}

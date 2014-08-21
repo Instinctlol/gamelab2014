@@ -1,0 +1,9 @@
+highLevelMaterial Predator_Dark_mso_Predatorbody1
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.64 0.64 0.64
+	diffuse1Map
+	{
+		texture = ".\\Predator_body_D.tga"
+	}
+}

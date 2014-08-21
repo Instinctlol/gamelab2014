@@ -1,0 +1,13 @@
+type Predator
+{
+	class = StaticObject
+	networkType = Synchronized
+	attachedObjects
+	{
+		mesh
+		{
+			meshName = ".\\Predator_Dark.mesh"
+			collision = True
+		}
+	}
+}
