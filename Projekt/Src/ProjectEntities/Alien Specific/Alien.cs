@@ -105,7 +105,7 @@ namespace ProjectEntities
 
         // Waffe stärker machen
         float timeForStrongerWeapon = 300;
-        int weaponStrength = 1;
+        int weaponStrength = 2;
 
 
       
