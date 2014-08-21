@@ -9,7 +9,7 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 472.4727 -17.76805 9.909786
+editorCameraPosition = 75.84554 -75.04596 3.453851
 editorCameraDirection = 3.874539 -1.161193
 shadowColor = 1 1 1
 shadowFarDistance = 10
@@ -6396,6 +6396,7 @@ entity
 	windowType = RotateAndSingleSwitch
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
+	terminalLogic = Terminal_C_Door
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.33804 -75.50452 1.606234
@@ -18728,7 +18729,7 @@ entity
 entity
 {
 	type = Predator
-	uin = 1840
+	uin = 1752
 	classPrompt = StaticObject
 	position = 469.6 -21.7 0.3
 	rotation = 0 0 0.9215898 0.3881652
@@ -18739,7 +18740,7 @@ entity
 entity
 {
 	type = Predator
-	uin = 1839
+	uin = 1753
 	classPrompt = StaticObject
 	position = 509.9 -22.3 0.3
 	rotation = 0 0 -0.9224583 0.3860968
