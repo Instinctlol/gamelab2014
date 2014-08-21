@@ -648,9 +648,11 @@ namespace ProjectEntities
             WinnerFound = true;
             astronautwin = astronout;
 
+            Console.WriteLine("SetWinner: " + astronautwin);
             // Clients bescheid geben
             if (EntitySystemWorld.Instance.IsServer())
             {
+                Console.WriteLine("An Clients senden");
                 Server_AstronountWinToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
 
@@ -658,6 +660,7 @@ namespace ProjectEntities
 
             if (EntitySystemWorld.Instance.IsServer())
             {
+                Console.WriteLine("Ende: An Clients senden");
                 Server_EndGameToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
             if (endGame != null)
@@ -701,6 +704,7 @@ namespace ProjectEntities
         }      
         void Server_AstronountWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
+            Console.WriteLine("AstronautWinToClients");
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
             writer.Write(astronautwin);
             EndNetworkMessage();
@@ -708,6 +712,7 @@ namespace ProjectEntities
         void Server_EndGameToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.EndGameToClients);
+            Console.WriteLine("EndGameToClients");
             writer.Write(ende);
             EndNetworkMessage();
         }
@@ -788,6 +793,7 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AstronoutWinToClients)]
         void Client_ReceiveAstronoutWin(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
+            Console.WriteLine("AstronautWinReceive");
             // Daten lesen
             bool astronoutwin = reader.ReadBoolean();
         
@@ -803,6 +809,7 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.EndGameToClients)]
         void Client_ReceiveEndGame(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
+            Console.WriteLine("ReceiveEndGame");
             // Daten lesen
             bool endeGame = reader.ReadBoolean();
 
