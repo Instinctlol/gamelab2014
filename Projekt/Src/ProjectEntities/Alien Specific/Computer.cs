@@ -658,7 +658,7 @@ namespace ProjectEntities
         {
             WinnerFound = true;
             astronautwin = astronout;
-
+            Console.WriteLine("setwinner");
             // Clients bescheid geben
             if (EntitySystemWorld.Instance.IsServer())
             {
@@ -666,6 +666,7 @@ namespace ProjectEntities
             }
             if (endGame != null)
             {
+                Console.WriteLine("endgame aufruf");
                 endGame();
             }
         }
