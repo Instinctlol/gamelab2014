@@ -97,7 +97,6 @@ namespace ProjectEntities
         Vec3 mainBodyVelocity;
         // Channel zum abspielen des Default-Sounds für die kleinen Aliens
         Sound alienSound;
-        VirtualChannel alienChannel;
         
         AlienType _type = null; public new AlienType Type { get { return _type; } }
 
@@ -106,7 +105,7 @@ namespace ProjectEntities
 
         // Waffe stärker machen
         float timeForStrongerWeapon = 300;
-        int weaponStrength = 3;
+        int weaponStrength = 1;
 
 
       
