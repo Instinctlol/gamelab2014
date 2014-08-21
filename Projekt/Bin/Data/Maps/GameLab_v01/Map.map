@@ -18763,7 +18763,7 @@ entity
 entity
 {
 	type = cable
-	uin = 1844
+	uin = 1755
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -18772,7 +18772,7 @@ entity
 entity
 {
 	type = Schrauben
-	uin = 1845
+	uin = 1756
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -18781,7 +18781,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1846
+	uin = 1757
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -18790,7 +18790,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1847
+	uin = 1758
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -18799,7 +18799,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1848
+	uin = 1759
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -18808,7 +18808,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1849
+	uin = 1760
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -18817,7 +18817,7 @@ entity
 entity
 {
 	type = Dynamite
-	uin = 1850
+	uin = 1761
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -18826,7 +18826,7 @@ entity
 entity
 {
 	type = cpu
-	uin = 1851
+	uin = 1762
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -18835,7 +18835,7 @@ entity
 entity
 {
 	type = BrokenTerminal
-	uin = 1852
+	uin = 1763
 	classPrompt = BrokenTerminal
 	terminal = 1750
 	repaired = False
@@ -18843,4 +18843,13 @@ entity
 	position = -35.6417 6.654769 1.407875
 	rotation = 0 0 0.9995974 -0.02837472
 	name = BrokenTerminal_1
+}
+entity
+{
+	type = "Schraubenschl\x00fcssel"
+	uin = 1853
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -41.77904 2.25053 0.3184835
 }
