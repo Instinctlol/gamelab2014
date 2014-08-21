@@ -51,14 +51,14 @@ namespace Game
         MapObject currentUseObject;
 
         bool currentUsing;
-       
+
         ItemManager iManager = ItemManager.Instance;
 
-		//Timer für WaffenInfo
+        //Timer für WaffenInfo
         Timer aTimer = new Timer(5000);
         Timer endTimer;
 
-		//Inventar visible?
+        //Inventar visible?
         bool showInventar = false;
         //HUD screen
         Control hudControl;
@@ -77,7 +77,7 @@ namespace Game
         //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
-        const int maxIndex = 4;  // maximale Nachrichten in der Messagebox
+        const int maxIndex = 1;  // maximale Nachrichten in der Messagebox
         List<string> MessageList = new List<string>(); // hier stecken die Nachichten drin 
 
         public void sendMessageToHUD(String message)
@@ -94,7 +94,7 @@ namespace Game
                 MessageList.Add(message);
             }
 
-			if (hudControl.Controls["MessageBox"] != null)
+            if (hudControl.Controls["MessageBox"] != null)
             {
                 hudControl.Controls["MessageBox"].Visible = true;
             }
@@ -107,7 +107,7 @@ namespace Game
                 output += (element + "\r\n");
             }
 
-			if (hudControl.Controls["MessageBox"] != null)
+            if (hudControl.Controls["MessageBox"] != null)
             {
                 hudControl.Controls["MessageBox"].Text = output;
             }
@@ -131,7 +131,7 @@ namespace Game
         {
             // Event zum Erhalten von Status Nachrichten, die angezeigt werden müssen registrieren
             StatusMessageHandler.showMessage += new StatusMessageHandler.StatusMessageEventDelegate(sendMessageToHUD);
-			Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
+            Computer.Instance.endGame += new Computer.StatisticEventDelegate(EndGame);
         }
 
 
@@ -141,7 +141,7 @@ namespace Game
 
             InitializeEventListener();
 
-			// Timer für WaffenInfo
+            // Timer für WaffenInfo
             aTimer.Elapsed += new ElapsedEventHandler(WeaponIconTimeElapsed);
             //To load the HUD screen
             //hudControl = ControlDeclarationManager.Instance.CreateControl("Gui\\AlienHUD.gui");
@@ -154,7 +154,7 @@ namespace Game
 
             //Waffeninfos ausblenden
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
-            hudControl.Controls["Game/WeaponCircle"].Visible = false; 
+            hudControl.Controls["Game/WeaponCircle"].Visible = false;
             hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
             hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
 
@@ -191,10 +191,10 @@ namespace Game
             //accept commands of the player
             GameControlsManager.Instance.GameControlsEvent += GameControlsManager_GameControlsEvent;
 
-			//Oculus initialisieren
-			if (OculusManager.Instance == null)
+            //Oculus initialisieren
+            if (OculusManager.Instance == null)
                 OculusManager.Init(true);
-			
+
         }
 
         protected override void OnDetach()
@@ -203,8 +203,8 @@ namespace Game
             GameControlsManager.Instance.GameControlsEvent -= GameControlsManager_GameControlsEvent;
 
             base.OnDetach();
-			
-			if (OculusManager.Instance != null)
+
+            if (OculusManager.Instance != null)
                 OculusManager.Shutdown();
         }
 
@@ -224,7 +224,7 @@ namespace Game
                     return true;
             }
 
-            
+
             //change camera type
             if (e.Key == EKeys.F7)
             {
@@ -291,7 +291,7 @@ namespace Game
                 currentAttachedGuiObject.ControlManager.DoKeyPress(e);
                 return true;
             }
-            
+
             return base.OnKeyPress(e);
         }
 
@@ -391,7 +391,7 @@ namespace Game
                 }
             }
 
-			if (OculusManager.Instance != null)
+            if (OculusManager.Instance != null)
                 OculusManager.Instance.OnMouseMove(MousePosition);
 
         }
@@ -417,19 +417,19 @@ namespace Game
             //If atop openly any window to not process
             if (Controls.Count != 1)
                 return base.OnJoystickEvent(e);
-            
-            
+
+
             //GameControlsManager
             if (EntitySystemWorld.Instance.Simulation)
             {
                 if (GetRealCameraType() != CameraType.Free && !IsCutSceneEnabled())
                 {
                     if (GameControlsManager.Instance.DoJoystickEvent(e))
-                        
+
                         return true;
                 }
 
-             }
+            }
 
             return base.OnJoystickEvent(e);
         }
@@ -533,7 +533,7 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
-			
+
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
@@ -547,87 +547,179 @@ namespace Game
 
         void DrawObjectSelectionBorder(Bounds bounds)
         {
-            Camera camera = RendererWorld.Instance.DefaultCamera;
-            GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
-
-            Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
-            Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
-
-            float sizeY = .08f;
-            Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
-            float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
-
-            Rect screenRectangle = Rect.Cleared;
+            if (OculusManager.Instance != null)
             {
-                Vec3[] points = null;
-                bounds.ToPoints(ref points);
-                foreach (Vec3 point in points)
+                foreach (OculusManager.View view in OculusManager.Instance.Views)
                 {
-                    Vec2 screenPoint;
-                    if (camera.ProjectToScreenCoordinates(point, out screenPoint))
-                    {
-                        screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
-                        screenRectangle.Add(screenPoint);
-                    }
-                }
+                    Camera camera = RendererWorld.Instance.DefaultCamera;
+                    GuiRenderer renderer = view.GuiRenderer;
 
-                Vec2[] screenPositions = new Vec2[] { 
+                    Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
+                    Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
+
+                    float sizeY = .08f;
+                    Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
+                    float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
+
+                    Rect screenRectangle = Rect.Cleared;
+                    {
+                        Vec3[] points = null;
+                        bounds.ToPoints(ref points);
+                        foreach (Vec3 point in points)
+                        {
+                            Vec2 screenPoint;
+                            if (camera.ProjectToScreenCoordinates(point, out screenPoint))
+                            {
+                                screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
+                                screenRectangle.Add(screenPoint);
+                            }
+                        }
+
+                        Vec2[] screenPositions = new Vec2[] { 
 					new Vec2( 0, 0 ), 
 					new Vec2( 1, 0 ), 
 					new Vec2( 0, 1 ), 
 					new Vec2( 1, 1 ) };
-                foreach (Vec2 screenPosition in screenPositions)
-                {
-                    Ray ray = camera.GetCameraToViewportRay(screenPosition);
-                    if (bounds.RayIntersection(ray))
-                        screenRectangle.Add(screenPosition);
+                        foreach (Vec2 screenPosition in screenPositions)
+                        {
+                            Ray ray = camera.GetCameraToViewportRay(screenPosition);
+                            if (bounds.RayIntersection(ray))
+                                screenRectangle.Add(screenPosition);
+                        }
+
+                        if (screenRectangle.GetSize().X < size.X * 2)
+                        {
+                            screenRectangle = new Rect(
+                                screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
+                                screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                        }
+                        if (screenRectangle.GetSize().Y < size.Y * 2)
+                        {
+                            screenRectangle = new Rect(
+                                screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
+                                screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                        }
+                    }
+
+                    {
+                        Vec2 point = screenRectangle.LeftTop;
+                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                        Rect rectangle = new Rect(point, point + size);
+                        Rect texCoord = new Rect(0, 0, .5f, .5f);
+                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                    }
+
+                    {
+                        Vec2 point = screenRectangle.RightTop;
+                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                        Rect rectangle = new Rect(point - new Vec2(size.X, 0), point + new Vec2(0, size.Y));
+                        Rect texCoord = new Rect(.5f, 0, 1, .5f);
+                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                    }
+
+                    {
+                        Vec2 point = screenRectangle.LeftBottom;
+                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                        Rect rectangle = new Rect(point - new Vec2(0, size.Y), point + new Vec2(size.X, 0));
+                        Rect texCoord = new Rect(0, .5f, .5f, 1);
+                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                    }
+
+                    {
+                        Vec2 point = screenRectangle.RightBottom;
+                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                        Rect rectangle = new Rect(point - size, point);
+                        Rect texCoord = new Rect(.5f, .5f, 1, 1);
+                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                    }
                 }
 
-                if (screenRectangle.GetSize().X < size.X * 2)
+            }
+            else
+            {
+                Camera camera = RendererWorld.Instance.DefaultCamera;
+                GuiRenderer renderer = EngineApp.Instance.ScreenGuiRenderer;
+
+                Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
+                Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
+
+                float sizeY = .08f;
+                Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
+                float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
+
+                Rect screenRectangle = Rect.Cleared;
                 {
-                    screenRectangle = new Rect(
-                        screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
-                        screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                    Vec3[] points = null;
+                    bounds.ToPoints(ref points);
+                    foreach (Vec3 point in points)
+                    {
+                        Vec2 screenPoint;
+                        if (camera.ProjectToScreenCoordinates(point, out screenPoint))
+                        {
+                            screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
+                            screenRectangle.Add(screenPoint);
+                        }
+                    }
+
+                    Vec2[] screenPositions = new Vec2[] { 
+					new Vec2( 0, 0 ), 
+					new Vec2( 1, 0 ), 
+					new Vec2( 0, 1 ), 
+					new Vec2( 1, 1 ) };
+                    foreach (Vec2 screenPosition in screenPositions)
+                    {
+                        Ray ray = camera.GetCameraToViewportRay(screenPosition);
+                        if (bounds.RayIntersection(ray))
+                            screenRectangle.Add(screenPosition);
+                    }
+
+                    if (screenRectangle.GetSize().X < size.X * 2)
+                    {
+                        screenRectangle = new Rect(
+                            screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
+                            screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                    }
+                    if (screenRectangle.GetSize().Y < size.Y * 2)
+                    {
+                        screenRectangle = new Rect(
+                            screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
+                            screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                    }
                 }
-                if (screenRectangle.GetSize().Y < size.Y * 2)
+
                 {
-                    screenRectangle = new Rect(
-                        screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
-                        screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                    Vec2 point = screenRectangle.LeftTop;
+                    point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                    Rect rectangle = new Rect(point, point + size);
+                    Rect texCoord = new Rect(0, 0, .5f, .5f);
+                    renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                }
+
+                {
+                    Vec2 point = screenRectangle.RightTop;
+                    point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                    Rect rectangle = new Rect(point - new Vec2(size.X, 0), point + new Vec2(0, size.Y));
+                    Rect texCoord = new Rect(.5f, 0, 1, .5f);
+                    renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                }
+
+                {
+                    Vec2 point = screenRectangle.LeftBottom;
+                    point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                    Rect rectangle = new Rect(point - new Vec2(0, size.Y), point + new Vec2(size.X, 0));
+                    Rect texCoord = new Rect(0, .5f, .5f, 1);
+                    renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                }
+
+                {
+                    Vec2 point = screenRectangle.RightBottom;
+                    point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                    Rect rectangle = new Rect(point - size, point);
+                    Rect texCoord = new Rect(.5f, .5f, 1, 1);
+                    renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
                 }
             }
 
-            {
-                Vec2 point = screenRectangle.LeftTop;
-                point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                Rect rectangle = new Rect(point, point + size);
-                Rect texCoord = new Rect(0, 0, .5f, .5f);
-                renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-            }
-
-            {
-                Vec2 point = screenRectangle.RightTop;
-                point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                Rect rectangle = new Rect(point - new Vec2(size.X, 0), point + new Vec2(0, size.Y));
-                Rect texCoord = new Rect(.5f, 0, 1, .5f);
-                renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-            }
-
-            {
-                Vec2 point = screenRectangle.LeftBottom;
-                point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                Rect rectangle = new Rect(point - new Vec2(0, size.Y), point + new Vec2(size.X, 0));
-                Rect texCoord = new Rect(0, .5f, .5f, 1);
-                renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-            }
-
-            {
-                Vec2 point = screenRectangle.RightBottom;
-                point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                Rect rectangle = new Rect(point - size, point);
-                Rect texCoord = new Rect(.5f, .5f, 1, 1);
-                renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-            }
         }
 
         static Sphere GetUseableUseAttachedMeshWorldSphere(MapObjectAttachedMesh attachedMesh)
@@ -662,7 +754,7 @@ namespace Game
                 playerUseDistance : playerUseDistanceTPS;
 
             Ray ray = camera.GetCameraToViewportRay(EngineApp.Instance.MousePosition);
-			maxDistance = (ray.Direction.GetNormalize().Z * (-1F) + 1F) / 2F * maxDistance;
+            maxDistance = (ray.Direction.GetNormalize().Z * (-1F) + 1F) / 2F * maxDistance;
 
             if (maxDistance < 0.75F)
                 maxDistance = 0.75F;
@@ -808,7 +900,7 @@ namespace Game
 
                     temp = obj as ProjectEntities.DetonationObject;
 
-                    if(temp != null)
+                    if (temp != null)
                     {
                         overObject = temp;
                         isDetonationObject = true;
@@ -833,7 +925,7 @@ namespace Game
             if (isRepairable)
             {
                 ProjectEntities.Repairable overRepairable = overObject as Repairable;
-               
+
                 if (overRepairable != null && overRepairable.Repaired == false)
                     bounds = overRepairable.MapBounds;
 
@@ -862,7 +954,7 @@ namespace Game
             if (isServerRack)
             {
                 ProjectEntities.ServerRack overServerRack = overObject as ServerRack;
-                
+
                 if (overServerRack != null && overServerRack.CanUse())
                     bounds = overServerRack.MapBounds;
 
@@ -981,10 +1073,15 @@ namespace Game
                     text += string.Format(" ({0})", value.ToString());
                 }
 
+                if (OculusManager.Instance != null)
+                    foreach (OculusManager.View item in OculusManager.Instance.Views)
+                    {
+                        AddTextWithShadow(item.GuiRenderer, text, new Vec2(.5f, .6f), HorizontalAlign.Center,
+                        VerticalAlign.Center, textColor);
+                    }
 
-                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, text, new Vec2(.5f, .9f), HorizontalAlign.Center,
-                    VerticalAlign.Center, textColor);
             }
+
 
         }
 
@@ -1076,7 +1173,7 @@ namespace Game
         void UpdateInventar()
         {
             Unit unit = GetPlayerUnit();
-			if (unit.Inventar.IsOpen == false)
+            if (unit.Inventar.IsOpen == false)
                 return;
             List<Item> inv = unit.Inventar.getInventarliste();
             string itemname;
@@ -1258,27 +1355,33 @@ namespace Game
                     }
                 }
             }
-			ColorValue textColor = new ColorValue();
-			String s ="";
+            ColorValue textColor = new ColorValue();
+            String s = "";
             if (GameWorld.showtimer)
             {
                 String revivaltime = ((int)(Math.Round(10 - (GameWorld.revival * 10)))).ToString();
-                String countdown = ((int)(3*10 - (GameWorld.timer * 10*3))).ToString();
-                
+                String countdown = ((int)(3 * 10 - (GameWorld.timer * 10 * 3))).ToString();
+
                 if ((Time % 2) < 1)
                     textColor = new ColorValue(1, 1, 0);
                 else
                     textColor = new ColorValue(0, 1, 0);
-                
-                 s = "\r\n" +" "+ revivaltime+" Sek. " + "\r\n" +" "+ countdown + " Sek.";
 
-               // AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
-               //     VerticalAlign.Center, new ColorValue(1.0f,1.0f,1.0f));
+                s = "\r\n" + " " + revivaltime + " Sek. " + "\r\n" + " " + countdown + " Sek.";
 
-			}
-                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .6f), HorizontalAlign.Center,
+                // AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+                //     VerticalAlign.Center, new ColorValue(1.0f,1.0f,1.0f));
+
+            }
+
+            if (OculusManager.Instance != null)
+                foreach (OculusManager.View item in OculusManager.Instance.Views)
+                {
+                    AddTextWithShadow(item.GuiRenderer, s, new Vec2(.5f, .6f), HorizontalAlign.Center,
                    VerticalAlign.Center, textColor);
-            
+                }
+
+
         }
 
         /// <summary>
@@ -1418,7 +1521,7 @@ namespace Game
                         DrawPlayersStatistics(renderer);
 
                 }
-				UpdateInventar();
+                UpdateInventar();
             }
 
             //Game is paused on server
@@ -1526,7 +1629,7 @@ namespace Game
             }
 
             DetonationObject detonationObject = currentUseObject as DetonationObject;
-            if(detonationObject != null)
+            if (detonationObject != null)
             {
                 detonationObject.StartUse(GetPlayerUnit());
                 currentUsing = true;
@@ -1950,12 +2053,12 @@ namespace Game
                         oeffneInventar();
                     }
 
-                    if (evt.ControlKey == GameControlKeys.PreviousWeapon )
+                    if (evt.ControlKey == GameControlKeys.PreviousWeapon)
                     {
                         rechtsInventar();
                     }
 
-                    if (evt.ControlKey == GameControlKeys.NextWeapon )
+                    if (evt.ControlKey == GameControlKeys.NextWeapon)
                     {
                         linksInventar();
                     }
@@ -1968,7 +2071,7 @@ namespace Game
                         zeigeWaffeninfo();
                     }
 
-                    
+
 
                     return;
                 }
@@ -2000,24 +2103,28 @@ namespace Game
                 if (evt != null && OculusManager.Instance != null)
                 {
                     //Looking
-                    PlayerIntellect intellect = (PlayerIntellect)GetPlayerUnit().Intellect as PlayerIntellect;
-                    Vec2 sensitivity = GameControlsManager.Instance.JoystickAxesSensitivity * 0.8f;
+                    if (GetPlayerUnit() != null)
+                    {
+                        PlayerIntellect intellect = (PlayerIntellect)GetPlayerUnit().Intellect as PlayerIntellect;
+                        Vec2 sensitivity = GameControlsManager.Instance.JoystickAxesSensitivity * 0.8f;
 
-                    Vec2 offset = Vec2.Zero;
+                        Vec2 offset = Vec2.Zero;
 
-                    offset.X -= intellect.GetControlKeyStrength(GameControlKeys.LookLeft);
-                    offset.X += intellect.GetControlKeyStrength(GameControlKeys.LookRight);
-                    offset.Y += intellect.GetControlKeyStrength(GameControlKeys.LookUp);
-                    offset.Y -= intellect.GetControlKeyStrength(GameControlKeys.LookDown);
+                        offset.X -= intellect.GetControlKeyStrength(GameControlKeys.LookLeft);
+                        offset.X += intellect.GetControlKeyStrength(GameControlKeys.LookRight);
+                        offset.Y += intellect.GetControlKeyStrength(GameControlKeys.LookUp);
+                        offset.Y -= intellect.GetControlKeyStrength(GameControlKeys.LookDown);
 
-                    offset *= evt.Delta * sensitivity;
+                        offset *= evt.Delta * sensitivity;
 
-                    ////Test
-                    //lookDirection.Horizontal -= offset.X;
-                    //lookDirection.Vertical += offset.Y;
-                    ////Test
+                        ////Test
+                        //lookDirection.Horizontal -= offset.X;
+                        //lookDirection.Vertical += offset.Y;
+                        ////Test
 
-                    OculusManager.Instance.OnMouseMove(offset);
+                        OculusManager.Instance.OnMouseMove(offset);
+                    }
+
                 }
             }
         }
@@ -2041,9 +2148,9 @@ namespace Game
         {
             hudControl.Controls["Game/WeaponIcon"].Visible = false;
             hudControl.Controls["Game/WeaponCircle"].Visible = false;
-			hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
+            hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = false;
             hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = false;
-            
+
             aTimer.Enabled = false;
         }
 
@@ -2059,18 +2166,18 @@ namespace Game
             {
                 hudControl.Controls["Item_Leiste"].Visible = true;
                 GetPlayerUnit().Inventar.IsOpen = true;
-                
+
             }
         }
 
-		public void showcountdown(Boolean start ,float time) 
+        public void showcountdown(Boolean start, float time)
         {
-            
-            
-            if(start)
-            sendMessageToHUD("zeit ." + time);
-            
-            
+
+
+            if (start)
+                sendMessageToHUD("zeit ." + time);
+
+
         }
         public void rechtsInventar()
         {
@@ -2101,17 +2208,17 @@ namespace Game
 
         public void zeigeWaffeninfo()
         {
-				if (aTimer.Enabled == false)
-                {
+            if (aTimer.Enabled == false)
+            {
 
 
-                    hudControl.Controls["Game/WeaponIcon"].Visible = true;
-                    hudControl.Controls["Game/WeaponCircle"].Visible = true;
-                    hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
-                    hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
-                    
-                    aTimer.Enabled = true;
-                }
+                hudControl.Controls["Game/WeaponIcon"].Visible = true;
+                hudControl.Controls["Game/WeaponCircle"].Visible = true;
+                hudControl.Controls["Game/WeaponBulletCountNormal"].Visible = true;
+                hudControl.Controls["Game/WeaponMagazineCountNormal"].Visible = true;
+
+                aTimer.Enabled = true;
+            }
         }
 
         public void switchTaschenlampe()
@@ -2121,11 +2228,11 @@ namespace Game
             {
                 player.Inventar.FlashlightVisible = !player.Inventar.FlashlightVisible;
             }
-			
+
             else
                 sendMessageToHUD("Taschenlampe nicht vorhanden oder Batterie ist leer");
         }
-        
+
         public void EndGame()
         {
             ShowStatistics();
@@ -2143,7 +2250,7 @@ namespace Game
             endTimer.Enabled = false;
         }
 
-		public void ShowStatistics()
+        public void ShowStatistics()
         {
             if (Computer.Instance.WinnerFound)
             {

@@ -79,6 +79,12 @@ namespace Game
 
             GuiRenderer guiRenderer; // <<<<
 
+            public GuiRenderer GuiRenderer
+            {
+                get { return guiRenderer; }
+                set { guiRenderer = value; }
+            }
+
 
 
 			class ViewRenderTargetListener : RenderTargetListener
@@ -132,7 +138,7 @@ namespace Game
 
                     if (owner.Render != null)
                     {
-                        GameEngineApp.Instance.ControlManager.DoRenderUI(owner.guiRenderer);
+                        GameEngineApp.Instance.ControlManager.DoRenderUI(owner.GuiRenderer);
                     }
 				}
 			}
@@ -989,6 +995,16 @@ namespace Game
             }
 
             return true;
+        }
+
+        void AddTextWithShadow(GuiRenderer renderer, string text, Vec2 position, HorizontalAlign horizontalAlign,
+            VerticalAlign verticalAlign, ColorValue color)
+        {
+            Vec2 shadowOffset = 2.0f / RendererWorld.Instance.DefaultViewport.DimensionsInPixels.Size.ToVec2();
+
+            renderer.AddText(text, position + shadowOffset, horizontalAlign, verticalAlign,
+                new ColorValue(0, 0, 0, color.Alpha / 2));
+            renderer.AddText(text, position, horizontalAlign, verticalAlign, color);
         }
     }
 }
