@@ -1266,7 +1266,7 @@ namespace Game
             if (GameWorld.showtimer)
             {
                 String revivaltime = ((int)(Math.Round(10 - (GameWorld.revival * 10)))).ToString();
-                String countdown = ((int)(10 - (GameWorld.timer * 10))).ToString();
+                String countdown = ((int)(3*10 - (GameWorld.timer * 10*3))).ToString();
 
                 if ((Time % 2) < 1)
                     textColor = new ColorValue(1, 1, 0);
