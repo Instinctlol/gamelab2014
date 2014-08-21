@@ -2129,7 +2129,7 @@ namespace Game
         {
             ShowStatistics();
 
-            endTimer = new Timer(10000);
+            endTimer = new Timer(30000);
             endTimer.Elapsed += beenden;
             endTimer.Enabled = true;
         }

@@ -2045,7 +2045,7 @@ namespace Game
         {
             ShowStatistics();
 
-            Timer endTimer = new Timer(10000);
+            Timer endTimer = new Timer(30000);
             endTimer.Elapsed += beenden;
             endTimer.Enabled = true;
         }

@@ -80,8 +80,7 @@ namespace ProjectEntities
             KilledAstronoutsToClients,
             SpawnedAliensToClients,
             ReanimationsToClients,
-            AstronoutWinToClients,
-            EndGameToClients
+            AstronoutWinToClients
         }
         public event StatisticEventDelegate endGame;
         public delegate void StatisticEventDelegate();
@@ -655,14 +654,6 @@ namespace ProjectEntities
                 Console.WriteLine("An Clients senden");
                 Server_AstronountWinToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
-
-            ende = true;
-
-            if (EntitySystemWorld.Instance.IsServer())
-            {
-                Console.WriteLine("Ende: An Clients senden");
-                Server_EndGameToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
-            }
             if (endGame != null)
             {
                 endGame();
@@ -707,13 +698,6 @@ namespace ProjectEntities
             Console.WriteLine("AstronautWinToClients");
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
             writer.Write(astronautwin);
-            EndNetworkMessage();
-        }
-        void Server_EndGameToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
-        {
-            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.EndGameToClients);
-            Console.WriteLine("EndGameToClients");
-            writer.Write(ende);
             EndNetworkMessage();
         }
 
@@ -804,22 +788,7 @@ namespace ProjectEntities
             
             // Daten setzen 
             this.winnerFound = true;
-            this.astronautwin = astronoutwin;
-        }
-        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.EndGameToClients)]
-        void Client_ReceiveEndGame(RemoteEntityWorld sender, ReceiveDataReader reader)
-        {
-            Console.WriteLine("ReceiveEndGame");
-            // Daten lesen
-            bool endeGame = reader.ReadBoolean();
-
-            if (!reader.Complete())
-            {
-                return;
-            }
-            
-            // Daten setzen 
-            this.ende = endeGame;
+            SetWinner(astronoutwin);
         }
     }
 }
