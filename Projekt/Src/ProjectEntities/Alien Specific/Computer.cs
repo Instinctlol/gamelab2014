@@ -43,6 +43,7 @@ namespace ProjectEntities
         // Für USB
         bool alienControlPaused = false;
         Timer alienControlTimer;
+        Timer radarTimer;
 
         //Schere Stein PapierWindow
         private Task csspwTask;
@@ -602,8 +603,8 @@ namespace ProjectEntities
             {
                 signalList.AddLast(s);
 
-                Timer radarTimer = new Timer(30000);
-                radarTimer.Elapsed += new ElapsedEventHandler(RemoveRadarElement);
+                radarTimer = new Timer(30000);
+                radarTimer.Elapsed += RemoveRadarElement;
                 radarTimer.Enabled = true;
             }
         }
@@ -618,6 +619,7 @@ namespace ProjectEntities
             if (signalList.Count() > 0 && signalList != null) 
             {
                 signalList.TryRemoveFirst();
+                radarTimer.Enabled = false;
             }
         }
 
