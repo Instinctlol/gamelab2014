@@ -47,6 +47,8 @@ namespace ProjectEntities
         {
             base.OnRepair();
 
+            if (terminal == null)
+                return;
 
             terminal.Visible = true;
 
