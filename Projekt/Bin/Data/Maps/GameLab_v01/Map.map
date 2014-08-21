@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 45.69619 37.89645 7.038177
-editorCameraDirection = 1.903117 -0.007825553
+editorCameraPosition = -6.118833 -37.20709 37.0514
+editorCameraDirection = 4.689779 -1.425731
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -676,7 +676,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 50
-				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-E\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F2SG-E\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -695,7 +695,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 52
-				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-D\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F2SG-D\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -793,7 +793,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 62
-				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-G\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F3SG-G\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -832,7 +832,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 66
-				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F1SG-F\"),true);"
+				code = "Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName(\"F3SG-F\"),true);"
 				methodName = TerminalSwitchAction
 				returnType = System.Void
 				parameters = 
@@ -2370,7 +2370,7 @@ entity
 	uin = 198
 	classPrompt = Sector
 	ring = 127
-	group = 175
+	group = 174
 	enabled = True
 	shapeType = Box
 	filter = All
@@ -6393,7 +6393,8 @@ entity
 	type = BrokenTerminal
 	uin = 565
 	classPrompt = BrokenTerminal
-	terminal = 1754
+	taskType = None
+	windowType = Rotate
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.44952 -75.1067 1.606234
@@ -11599,7 +11600,7 @@ entity
 	type = Terminal
 	uin = 1054
 	classPrompt = Terminal
-	taskData = f3r4
+	sectorStatusData = f3r4
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
 	windowType = SectorStatus
