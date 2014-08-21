@@ -1,4 +1,5 @@
 ﻿using Engine.EntitySystem;
+using Engine.MapSystem;
 using Engine.MathEx;
 using Engine.PhysicsSystem;
 using Engine.SoundSystem;
@@ -133,6 +134,13 @@ namespace ProjectEntities
                     return;
 
                 needOpen = value;
+
+                foreach(var obj in AttachedObjects)
+                {
+                    MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
+                    if (mesh != null)
+                        mesh.Collision = false;
+                }
 
                 if (EntitySystemWorld.Instance.IsEditor())
                 {

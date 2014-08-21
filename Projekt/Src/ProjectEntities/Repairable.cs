@@ -154,9 +154,7 @@ namespace ProjectEntities
             if (EntitySystemWorld.Instance.IsClientOnly())
             {
                 SoundPlay3D(Type.SoundUsing, .5f, false);
-                Client_SendPressToServer();
-
-                unit.Inventar.remove(unit.Inventar.useItem);
+                Client_SendPressToServer();                
             }
         }
 
@@ -170,6 +168,7 @@ namespace ProjectEntities
             if (repairItems.Count == 0)
                 return true;
             repairItems.RemoveAll(item => item.ItemType.FullName.Equals(useItem));
+            unit.Inventar.remove(unit.Inventar.useItem);
 
             if (repairItems.Count == 0)
                 return true;
