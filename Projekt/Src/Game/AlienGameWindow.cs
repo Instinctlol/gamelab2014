@@ -1284,9 +1284,12 @@ namespace Game
                             healthBar.Size = new ScaleValue(ScaleType.Parent, new Vec2(sizeX, 0.2f));
                             zahl++;
                         }
-                        for (int zahl2 = zahl; zahl <= 10; zahl++) {
-                            Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl2.ToString()];
-                            control.Visible = false;
+                        if (zahl <= 10) {
+                            for (int zahl2 = zahl; zahl2 <= 10; zahl2++)
+                            {
+                                Control control = hudControl.Controls["links"].Controls["Alienanzeige" + zahl2.ToString()];
+                                control.Visible = false;
+                            }
                         }
                     }
                 }
