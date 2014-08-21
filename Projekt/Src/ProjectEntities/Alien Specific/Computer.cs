@@ -422,7 +422,7 @@ namespace ProjectEntities
                 else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Stromabschalten moeglich");
+                    StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
                 }
                 else
                 {
@@ -432,7 +432,7 @@ namespace ProjectEntities
             }
             else
             {
-                StatusMessageHandler.sendMessage("Kein Stromabschalten moeglich");
+                StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
             }
             
         }
@@ -474,7 +474,7 @@ namespace ProjectEntities
                 else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                    StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
                 }
                 else
                 {
@@ -484,7 +484,7 @@ namespace ProjectEntities
             }
             else
             {
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
             }
             
         }
