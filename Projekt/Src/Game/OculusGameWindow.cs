@@ -533,8 +533,7 @@ namespace Game
                     GameControlsManager.Instance.DoTick(delta);
             }
 
-			if (GameWorld.showcountdown()>0)
-                sendMessageToHUD("Die Zeit ist " + GameWorld.revival);
+			
         }
 
         static Vec2 SnapToPixel(Vec2 value, Vec2 viewportSize)
@@ -1260,24 +1259,26 @@ namespace Game
                 }
             }
 			ColorValue textColor = new ColorValue();
+			String s ="";
             if (GameWorld.showtimer)
             {
-                String  revivaltime = GameWorld.revival.ToString("N2");
-                String countdown = GameWorld.timer.ToString("N2");
+                String revivaltime = ((int)(Math.Round(10 - (GameWorld.revival * 10)))).ToString();
+                String countdown = ((int)(3*10 - (GameWorld.timer * 10*3))).ToString();
                 
                 if ((Time % 2) < 1)
                     textColor = new ColorValue(1, 1, 0);
                 else
                     textColor = new ColorValue(0, 1, 0);
                 
-                String s = "" +revivaltime + "\r\n" + countdown +"";
+                 s = "\r\n" +" "+ revivaltime+" Sek. " + "\r\n" +" "+ countdown + " Sek.";
 
                // AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
                //     VerticalAlign.Center, new ColorValue(1.0f,1.0f,1.0f));
 
-                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .9f), HorizontalAlign.Center,
+			}
+                AddTextWithShadow(EngineApp.Instance.ScreenGuiRenderer, s, new Vec2(.5f, .6f), HorizontalAlign.Center,
                    VerticalAlign.Center, textColor);
-            }
+            
         }
 
         /// <summary>
