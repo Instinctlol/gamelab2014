@@ -135,13 +135,6 @@ namespace ProjectEntities
 
                 needOpen = value;
 
-                foreach(var obj in AttachedObjects)
-                {
-                    MapObjectAttachedMesh mesh = obj as MapObjectAttachedMesh;
-                    if (mesh != null)
-                        mesh.Collision = false;
-                }
-
                 if (EntitySystemWorld.Instance.IsEditor())
                 {
                     openDoorOffsetCoefficient = 1;
