@@ -816,7 +816,7 @@ namespace ProjectEntities
             if (!reader.Complete())
                 return;
 
-            
+            StatusMessageHandler.sendMessage(msg);
         }
     }
 }
