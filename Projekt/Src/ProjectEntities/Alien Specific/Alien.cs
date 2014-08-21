@@ -104,7 +104,7 @@ namespace ProjectEntities
         String currentSoundName;
 
         // Waffe stärker machen
-        float timeForStrongerWeapon = 300;
+        float timeForStrongerWeapon = 180;
         int weaponStrength = 2;
 
 
