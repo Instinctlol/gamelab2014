@@ -11,7 +11,7 @@ physicsModel
 		{
 			type = box
 			position = 0 0 0.2402074
-			dimensions = 2.493894 1 0.9034991
+			dimensions = 3.29248 1.370573 1.189285
 		}
 	}
 }
