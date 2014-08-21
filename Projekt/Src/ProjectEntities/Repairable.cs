@@ -88,14 +88,28 @@ namespace ProjectEntities
         private MeshObject mesh;
         private string originalTexture;
         private string destroyedTexture;
-        
-        [FieldSerialize]
-        private List<RepairableType.RepairItem> repairItems;
+
+        //random high number
+        private int itemsRequired = 500;
+
+        public int ItemsRequired
+        {
+            get { return itemsRequired; }
+            set
+            {
+
+                itemsRequired = value;
+                if (itemsRequired <= 0 && EntitySystemWorld.Instance.IsServer())
+                    Repaired = true;
+            }
+        }
 
         enum NetworkMessages
         {
             PressToServer,
             RepairedToClient,
+            DecreaseItemRequiredToServer,
+            ItemsRequiredToClient,
         }
 
 
@@ -123,6 +137,13 @@ namespace ProjectEntities
 
                 this.repaired = value;
 
+                foreach (var item in AttachedObjects)
+                {
+                    MapObjectAttachedMesh mesh = item as MapObjectAttachedMesh;
+                    if (mesh != null)
+                        mesh.Collision = false;
+                }
+
                 if (!String.IsNullOrEmpty(destroyedTexture))
                 {
                     if (repaired)
@@ -148,16 +169,11 @@ namespace ProjectEntities
 
             if (!CanRepair(unit))
             {
-                StatusMessageHandler.sendMessage("Falscher Gegenstand");
+                StatusMessageHandler.sendMessage("Falscher Gegenstand oder noch mehr zu reperieren");
                 return;
             }
 
-            //Wenn nur client ist
-            if (EntitySystemWorld.Instance.IsClientOnly())
-            {
-                SoundPlay3D(Type.SoundUsing, .5f, false);
-                Client_SendPressToServer();                
-            }
+            Client_SendPressToServer();
         }
 
         protected bool CanRepair(Unit unit)
@@ -165,16 +181,30 @@ namespace ProjectEntities
             string useItem = "";
 
             if (unit.Inventar.useItem != null)
-                useItem = unit.Inventar.useItem.Type.Name;
+                useItem = unit.Inventar.useItem.Type.FullName;
 
-            if(repairItems.RemoveAll(item => item.ItemType.Name.Equals(useItem)) > 0)
-                unit.Inventar.remove(unit.Inventar.useItem);
+            if (itemsRequired <= 0)
+                return true;
 
-            if (repairItems.Count == 0)
+            foreach (var item in Type.RepairItems)
+            {
+                if (item.ItemType.FullName == useItem)
+                {
+                    unit.Inventar.remove(unit.Inventar.useItem);
+                    SoundPlay3D(Type.SoundUsing, .5f, false);
+                    Client_SendDecreaseItemsRequired();
+                    break;
+                }
+            }
+
+            if (itemsRequired <= 0)
                 return true;
 
             return false;
         }
+
+
+
 
         protected override void OnPostCreate(bool loaded)
         {
@@ -197,11 +227,49 @@ namespace ProjectEntities
 
             if (mesh != null && !String.IsNullOrEmpty(destroyedTexture))
                 mesh.SetMaterialNameForAllSubObjects(destroyedTexture);
-            
 
-            repairItems = new List<RepairableType.RepairItem>(Type.RepairItems);
+            if (EntitySystemWorld.Instance.IsServer())
+                itemsRequired = Type.RepairItems.Count;
         }
 
+
+        private void Client_SendDecreaseItemsRequired()
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable),
+                (ushort)NetworkMessages.DecreaseItemRequiredToServer);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToServer, (ushort)NetworkMessages.DecreaseItemRequiredToServer)]
+        void Server_ReceveiveDecreaseItemsRequired(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            if (!reader.Complete())
+                return;
+            itemsRequired--;
+
+
+
+            Server_SendItemsRequiredToClients(itemsRequired);
+        }
+
+
+        private void Server_SendItemsRequiredToClients(int itemsRequired)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Repairable),
+                (ushort)NetworkMessages.ItemsRequiredToClient);
+            writer.WriteVariableInt32(itemsRequired);
+            EndNetworkMessage();
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.ItemsRequiredToClient)]
+        void Client_ReceveiveItemsRequired(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            int value = reader.ReadVariableInt32();
+
+            if (!reader.Complete())
+                return;
+            itemsRequired = value;
+        }
 
         void Client_SendPressToServer()
         {
