@@ -192,7 +192,7 @@ control Control
 		}
 		control Control
 		{
-			position = Screen -0.2695313 0.4557292
+			position = Screen -0.5820313 0.4427083
 			horizontalAlign = Right
 			size = Screen 0.125 0.1145834
 			name = WeaponIcon
