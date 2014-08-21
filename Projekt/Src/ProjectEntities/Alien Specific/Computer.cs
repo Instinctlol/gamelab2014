@@ -345,12 +345,12 @@ namespace ProjectEntities
             else if (ring == null)
             {
                 // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Ring ausgewaehlt");
+                StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
             }
             else if (RotationCoupons <= 0)
             {
                 // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Keine Rotationen moeglich");
+                StatusMessageHandler.sendMessage("Keine Rotationen möglich");
             }
             else if (ring.CanRotate() == false)
             {
@@ -383,7 +383,7 @@ namespace ProjectEntities
         {
             if (!ring.CanRotate())
             {
-                Server_SendMessageToClients("Kein Rotieren moeglich.");
+                Server_SendMessageToClients("Kein Rotieren möglich.");
                 return;
             }
 
@@ -421,7 +421,7 @@ namespace ProjectEntities
                 if (sector == null)
                 {
                     // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Sector ausgewaehlt");
+                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
                 }
                 else if (PowerCoupons <= 0)
                 {
@@ -454,7 +454,7 @@ namespace ProjectEntities
                     sectorGroup.LightStatus = b;
             }
             else
-                Server_SendMessageToClients("Kein Stromabschalten moeglich");
+                Server_SendMessageToClients("Kein Stromabschalten möglich");
         }
 
         /// <summary>
