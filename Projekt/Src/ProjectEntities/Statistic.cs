@@ -85,7 +85,11 @@ namespace ProjectEntities
 
         public String GetAlienData()
         {
-            return "Astronautenschaden: " + DamageAstronouts + "\n"
+            if (!Computer.Instance.Astronautwin)
+            {
+                KilledAstronouts = 2;
+            }
+            return "Astronautenschaden: " + ((int)DamageAstronouts) + "\n"
                 + "Getötete Astronauten: " + KilledAstronouts + "\n"
                 + "Gespawnte Aliens: " + SpawnedAliens;
         }
