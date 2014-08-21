@@ -551,89 +551,91 @@ namespace Game
             {
                 foreach (OculusManager.View view in OculusManager.Instance.Views)
                 {
-                    Camera camera = RendererWorld.Instance.DefaultCamera;
-                    GuiRenderer renderer = view.GuiRenderer;
-
-                    Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
-                    Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
-
-                    float sizeY = .08f;
-                    Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
-                    float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
-
-                    Rect screenRectangle = Rect.Cleared;
+                    if (view != null && view.GuiRenderer != null)
                     {
-                        Vec3[] points = null;
-                        bounds.ToPoints(ref points);
-                        foreach (Vec3 point in points)
-                        {
-                            Vec2 screenPoint;
-                            if (camera.ProjectToScreenCoordinates(point, out screenPoint))
-                            {
-                                screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
-                                screenRectangle.Add(screenPoint);
-                            }
-                        }
+                        Camera camera = RendererWorld.Instance.DefaultCamera;
+                        GuiRenderer renderer = view.GuiRenderer;
 
-                        Vec2[] screenPositions = new Vec2[] { 
+                        Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
+                        Vec2 viewportSize = renderer.ViewportForScreenGuiRenderer.DimensionsInPixels.Size.ToVec2();
+
+                        float sizeY = .08f;
+                        Vec2 size = SnapToPixel(new Vec2(sizeY / camera.AspectRatio, sizeY), viewportSize);
+                        float alpha = MathFunctions.Sin(Time * MathFunctions.PI) * .5f + .5f;
+
+                        Rect screenRectangle = Rect.Cleared;
+                        {
+                            Vec3[] points = null;
+                            bounds.ToPoints(ref points);
+                            foreach (Vec3 point in points)
+                            {
+                                Vec2 screenPoint;
+                                if (camera.ProjectToScreenCoordinates(point, out screenPoint))
+                                {
+                                    screenPoint.Clamp(new Vec2(0, 0), new Vec2(1, 1));
+                                    screenRectangle.Add(screenPoint);
+                                }
+                            }
+
+                            Vec2[] screenPositions = new Vec2[] { 
 					new Vec2( 0, 0 ), 
 					new Vec2( 1, 0 ), 
 					new Vec2( 0, 1 ), 
 					new Vec2( 1, 1 ) };
-                        foreach (Vec2 screenPosition in screenPositions)
-                        {
-                            Ray ray = camera.GetCameraToViewportRay(screenPosition);
-                            if (bounds.RayIntersection(ray))
-                                screenRectangle.Add(screenPosition);
+                            foreach (Vec2 screenPosition in screenPositions)
+                            {
+                                Ray ray = camera.GetCameraToViewportRay(screenPosition);
+                                if (bounds.RayIntersection(ray))
+                                    screenRectangle.Add(screenPosition);
+                            }
+
+                            if (screenRectangle.GetSize().X < size.X * 2)
+                            {
+                                screenRectangle = new Rect(
+                                    screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
+                                    screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                            }
+                            if (screenRectangle.GetSize().Y < size.Y * 2)
+                            {
+                                screenRectangle = new Rect(
+                                    screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
+                                    screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                            }
                         }
 
-                        if (screenRectangle.GetSize().X < size.X * 2)
                         {
-                            screenRectangle = new Rect(
-                                screenRectangle.GetCenter().X - size.X, screenRectangle.Top,
-                                screenRectangle.GetCenter().X + size.X, screenRectangle.Bottom);
+                            Vec2 point = screenRectangle.LeftTop;
+                            point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                            Rect rectangle = new Rect(point, point + size);
+                            Rect texCoord = new Rect(0, 0, .5f, .5f);
+                            renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
                         }
-                        if (screenRectangle.GetSize().Y < size.Y * 2)
+
                         {
-                            screenRectangle = new Rect(
-                                screenRectangle.Left, screenRectangle.GetCenter().Y - size.Y,
-                                screenRectangle.Right, screenRectangle.GetCenter().Y + size.Y);
+                            Vec2 point = screenRectangle.RightTop;
+                            point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                            Rect rectangle = new Rect(point - new Vec2(size.X, 0), point + new Vec2(0, size.Y));
+                            Rect texCoord = new Rect(.5f, 0, 1, .5f);
+                            renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
                         }
-                    }
 
-                    {
-                        Vec2 point = screenRectangle.LeftTop;
-                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                        Rect rectangle = new Rect(point, point + size);
-                        Rect texCoord = new Rect(0, 0, .5f, .5f);
-                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-                    }
+                        {
+                            Vec2 point = screenRectangle.LeftBottom;
+                            point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                            Rect rectangle = new Rect(point - new Vec2(0, size.Y), point + new Vec2(size.X, 0));
+                            Rect texCoord = new Rect(0, .5f, .5f, 1);
+                            renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                        }
 
-                    {
-                        Vec2 point = screenRectangle.RightTop;
-                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                        Rect rectangle = new Rect(point - new Vec2(size.X, 0), point + new Vec2(0, size.Y));
-                        Rect texCoord = new Rect(.5f, 0, 1, .5f);
-                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-                    }
-
-                    {
-                        Vec2 point = screenRectangle.LeftBottom;
-                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                        Rect rectangle = new Rect(point - new Vec2(0, size.Y), point + new Vec2(size.X, 0));
-                        Rect texCoord = new Rect(0, .5f, .5f, 1);
-                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
-                    }
-
-                    {
-                        Vec2 point = screenRectangle.RightBottom;
-                        point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
-                        Rect rectangle = new Rect(point - size, point);
-                        Rect texCoord = new Rect(.5f, .5f, 1, 1);
-                        renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                        {
+                            Vec2 point = screenRectangle.RightBottom;
+                            point = SnapToPixel(point, viewportSize) + new Vec2(.25f, .25f) / viewportSize;
+                            Rect rectangle = new Rect(point - size, point);
+                            Rect texCoord = new Rect(.5f, .5f, 1, 1);
+                            renderer.AddQuad(rectangle, texCoord, texture, new ColorValue(1, 1, 1, alpha), true);
+                        }
                     }
                 }
-
             }
             else
             {
@@ -1076,8 +1078,11 @@ namespace Game
                 if (OculusManager.Instance != null)
                     foreach (OculusManager.View item in OculusManager.Instance.Views)
                     {
+                        if (item != null && item.GuiRenderer != null)
+                        {
                         AddTextWithShadow(item.GuiRenderer, text, new Vec2(.5f, .6f), HorizontalAlign.Center,
                         VerticalAlign.Center, textColor);
+                        }
                     }
 
             }
@@ -1377,8 +1382,12 @@ namespace Game
             if (OculusManager.Instance != null)
                 foreach (OculusManager.View item in OculusManager.Instance.Views)
                 {
-                    AddTextWithShadow(item.GuiRenderer, s, new Vec2(.5f, .6f), HorizontalAlign.Center,
-                   VerticalAlign.Center, textColor);
+                    if (item != null && item.GuiRenderer != null)
+                    {
+                        AddTextWithShadow(item.GuiRenderer, s, new Vec2(.5f, .6f), HorizontalAlign.Center,
+                        VerticalAlign.Center, textColor);
+                    }
+                    
                 }
 
 
