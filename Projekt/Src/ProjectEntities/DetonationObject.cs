@@ -143,6 +143,8 @@ namespace ProjectEntities
                     aTimer.Elapsed -= usingMessage;
                 }
             }
+
+            EngineConsole.Instance.Print(this.Name+": "+Useable);
         }
 
         public bool HasItem(Unit unit)

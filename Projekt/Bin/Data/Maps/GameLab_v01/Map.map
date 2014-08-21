@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -42.81071 9.686562 12.86789
-editorCameraDirection = 4.859575 -1.147633
+editorCameraPosition = -43.86316 -4.197171 7.941088
+editorCameraDirection = 4.889603 -0.3776789
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -493,7 +493,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 31
-				code = "if( ! ((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.SetWinner(true);\r\n\t\t\t}"
+				code = "if( Owner.Value && !((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.SetWinner(true);\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t\tOwner.Value=false;\r\n\t\t\t}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
@@ -1806,7 +1806,7 @@ entity
 	classPrompt = SpawnPoint
 	faction = GoodFaction
 	defaultPoint = True
-	position = -38.20731 4.139541 0.3781009
+	position = 97.20994 68.32716 0.6073232
 	name = SpawnPoint_0
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
@@ -6316,6 +6316,12 @@ entity
 	name = SicherungskastenRepairable_0
 	logicClass = 7
 	editorLayer = "Root Layer\\F2\\Dynamics"
+	repairItems
+	{
+		item
+		{
+		}
+	}
 }
 entity
 {
@@ -6373,6 +6379,12 @@ entity
 	name = "Tr\x00fcmmer"
 	logicClass = 15
 	editorLayer = "Root Layer\\F1\\Items"
+	repairItems
+	{
+		item
+		{
+		}
+	}
 }
 entity
 {
@@ -6387,6 +6399,12 @@ entity
 	name = CardReader_0
 	logicClass = 17
 	editorLayer = "Root Layer\\F2\\Items"
+	repairItems
+	{
+		item
+		{
+		}
+	}
 }
 entity
 {
@@ -6399,6 +6417,12 @@ entity
 	rotation = 0 0 -0.9225186 0.3859528
 	name = BrokenTerminal_0
 	editorLayer = "Root Layer\\F1\\Items"
+	repairItems
+	{
+		item
+		{
+		}
+	}
 }
 entity
 {
@@ -9410,6 +9434,18 @@ entity
 	rotation = 0 0 0.7048077 0.7093984
 	name = BrokenDoor_0
 	editorLayer = "Root Layer\\F3\\Dynamics"
+	repairItems
+	{
+		item
+		{
+		}
+		item
+		{
+		}
+		item
+		{
+		}
+	}
 }
 entity
 {
@@ -18759,97 +18795,4 @@ entity
 	rotation = 0 0 0.706893 -0.7073206
 	name = sofa_23
 	editorLayer = "Root Layer\\F3\\Einrichtung"
-}
-entity
-{
-	type = cable
-	uin = 1755
-	classPrompt = Item
-	respawnTime = 0
-	healthFactorAtBeginning = 1
-	position = -45.35754 4.500709 0.271822
-}
-entity
-{
-	type = Schrauben
-	uin = 1756
-	classPrompt = Item
-	respawnTime = 0
-	healthFactorAtBeginning = 1
-	position = -44.86882 3.195891 0.5288166
-}
-entity
-{
-	type = Dynamite
-	uin = 1757
-	classPrompt = Item
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -45.14597 0.1782141 0.275529
-}
-entity
-{
-	type = Dynamite
-	uin = 1758
-	classPrompt = Item
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -44.66706 -0.7636576 0.2754042
-}
-entity
-{
-	type = Dynamite
-	uin = 1759
-	classPrompt = Item
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -45.40813 -2.131273 0.2745842
-}
-entity
-{
-	type = Dynamite
-	uin = 1760
-	classPrompt = Item
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -44.60359 -2.392938 0.2747867
-}
-entity
-{
-	type = Dynamite
-	uin = 1761
-	classPrompt = Item
-	respawnTime = 10
-	healthFactorAtBeginning = 1
-	position = -22.13287 -78.57809 3.259404
-}
-entity
-{
-	type = cpu
-	uin = 1762
-	classPrompt = Item
-	respawnTime = 0
-	healthFactorAtBeginning = 1
-	position = -42.69712 2.906249 0.2726994
-}
-entity
-{
-	type = BrokenTerminal
-	uin = 1763
-	classPrompt = BrokenTerminal
-	terminal = 1750
-	repaired = False
-	healthFactorAtBeginning = 1
-	position = -35.6417 6.654769 1.407875
-	rotation = 0 0 0.9995974 -0.02837472
-	name = BrokenTerminal_1
-}
-entity
-{
-	type = "Schraubenschl\x00fcssel"
-	uin = 1853
-	classPrompt = Item
-	respawnTime = 0
-	healthFactorAtBeginning = 1
-	position = -41.77904 2.25053 0.3184835
 }
