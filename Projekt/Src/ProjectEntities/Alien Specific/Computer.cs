@@ -65,7 +65,7 @@ namespace ProjectEntities
 
         // Verwaltet die Signale für das Radar
         public ThreadSafeList<Signal> signalList = new ThreadSafeList<Signal>();
-        
+
         // Statistik
         Statistic statistic;
 
@@ -73,7 +73,7 @@ namespace ProjectEntities
         bool winnerFound = false;
         bool astronautwin = false;
         bool ende = false;
-        
+
         enum NetworkMessages
         {
             DamageAstronoutsToClients,
@@ -86,24 +86,24 @@ namespace ProjectEntities
         }
         public event StatisticEventDelegate endGame;
         public delegate void StatisticEventDelegate();
-        
+
 
         /*******************/
         /* Getter / Setter */
         /*******************/
         public Computer()
-		{
-			if( instance != null )
-				Log.Fatal( "Computer: Computer is already created." );
-			instance = this;
+        {
+            if (instance != null)
+                Log.Fatal("Computer: Computer is already created.");
+            instance = this;
             // Dies ist ganz wichtig, weil der Client sonst nie new Statistic() aufrufen würde. Reset() wird schließlich nur im AlienGameWindow 
             // aufgerufen.
             statistic = new Statistic();
-		}
+        }
 
         public static Computer Instance
         {
-            get{ return instance; }
+            get { return instance; }
         }
 
         public bool Astronautwin
@@ -117,7 +117,7 @@ namespace ProjectEntities
             get { return winnerFound; }
             set { winnerFound = value; }
         }
-        
+
         public int ExperiencePoints
         {
             get { return experiencePoints; }
@@ -297,13 +297,14 @@ namespace ProjectEntities
         /// </summary>
         private void IncrementUsedAliens()
         {
-            if (EntitySystemWorld.Instance.IsServer()){
+            if (EntitySystemWorld.Instance.IsServer())
+            {
                 usedAliens++;
                 statistic.IncrementSpawnedAliens();
                 Server_SpawnedAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
         }
-        
+
         /// <summary>
         /// Aktive Aliens um Eins erniedrigen
         /// </summary>
@@ -314,9 +315,9 @@ namespace ProjectEntities
                 if (EntitySystemWorld.Instance.IsServer())
                 {
                     usedAliens--;
-                    statistic.IncrementKilledAliens(); 
+                    statistic.IncrementKilledAliens();
                     Server_KilledAliensToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
-                }                
+                }
             }
         }
 
@@ -377,30 +378,29 @@ namespace ProjectEntities
 
         public void AstronautRotateRing(Ring ring, bool left)
         {
-            if (ring == null)
+            if (!ring.CanRotate())
             {
-                // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Ring ausgewaehlt");
+                Server_SendMessageToClients("Kein Rotieren moeglich.");
+                return;
+            }
+
+            int ringNumber = ring.GetRingNumber();
+            if (left)
+            {
+                //EngineConsole.Instance.Print("computer links drehen");
+                ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
+                ring.RotateLeft();
             }
             else
             {
-                int ringNumber = ring.GetRingNumber();
-                if (left)
-                {
-                    //EngineConsole.Instance.Print("computer links drehen");
-                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] - 1, 8);
-                    ring.RotateLeft();
-                }
-                else
-                {
-                    //EngineConsole.Instance.Print("computer rechts drehen");
-                    ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
-                    ring.RotateRight();
-                }
-                ///ToDo: Gridaktualisierung für die Rotation in der Map
-                GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
+                //EngineConsole.Instance.Print("computer rechts drehen");
+                ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
+                ring.RotateRight();
             }
+            ///ToDo: Gridaktualisierung für die Rotation in der Map
+            GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
         }
+
 
         /// <summary>
         /// Switches off or on the power of one sector (room)
@@ -434,7 +434,7 @@ namespace ProjectEntities
             {
                 StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
             }
-            
+
         }
 
         /// <summary>
@@ -486,7 +486,7 @@ namespace ProjectEntities
             {
                 StatusMessageHandler.sendMessage("Kein Lichtausschalten möglich");
             }
-            
+
         }
 
         /// <summary>
@@ -528,7 +528,7 @@ namespace ProjectEntities
 
         private int mod(int x, int m)
         {
-            return (x%m + m)%m;
+            return (x % m + m) % m;
         }
 
         /// <summary>
@@ -576,15 +576,15 @@ namespace ProjectEntities
             Corpse corpse = corpseList.Dequeue();
             corpse.Die();
         }
-        
+
         public void AddDamageAstronouts(float damage)
         {
-            if(EntitySystemWorld.Instance.IsServer())
+            if (EntitySystemWorld.Instance.IsServer())
             {
                 statistic.AddDamageAstronouts(damage);
                 Server_DamageAstronoutsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
-            
+
         }
 
         public void IncrementKilledAstronouts()
@@ -622,7 +622,7 @@ namespace ProjectEntities
         void RemoveRadarElement(object source, ElapsedEventArgs e)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
-            if (signalList.Count() > 0 && signalList != null) 
+            if (signalList.Count() > 0 && signalList != null)
             {
                 signalList.TryRemoveFirst();
                 radarTimer.Enabled = false;
@@ -698,7 +698,7 @@ namespace ProjectEntities
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.ReanimationsToClients);
             writer.WriteVariableInt32(statistic.Reanimations);
             EndNetworkMessage();
-        }      
+        }
         void Server_AstronountWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
@@ -727,7 +727,7 @@ namespace ProjectEntities
             {
                 return;
             }
-            
+
             // Daten setzen 
             Statistic.DamageAstronouts = damageAstronouts;
         }
@@ -736,12 +736,12 @@ namespace ProjectEntities
         {
             // Daten lesen
             int killedAliens = reader.ReadVariableInt32();
-        
+
             if (!reader.Complete())
             {
                 return;
             }
-            
+
             // Daten setzen 
             Statistic.KilledAliens = killedAliens;
         }
@@ -750,12 +750,12 @@ namespace ProjectEntities
         {
             // Daten lesen
             int killedAstronouts = reader.ReadVariableInt32();
-        
+
             if (!reader.Complete())
             {
                 return;
             }
-            
+
             // Daten setzen 
             Statistic.KilledAstronouts = killedAstronouts;
         }
@@ -764,12 +764,12 @@ namespace ProjectEntities
         {
             // Daten lesen
             int spawnedAliens = reader.ReadVariableInt32();
-        
+
             if (!reader.Complete())
             {
                 return;
             }
-            
+
             // Daten setzen 
             Statistic.SpawnedAliens = spawnedAliens;
         }
@@ -778,12 +778,12 @@ namespace ProjectEntities
         {
             // Daten lesen
             int reanimations = reader.ReadVariableInt32();
-        
+
             if (!reader.Complete())
             {
                 return;
             }
-           
+
             // Daten setzen 
             Statistic.Reanimations = reanimations;
         }
@@ -792,12 +792,12 @@ namespace ProjectEntities
         {
             // Daten lesen
             bool astronoutwin = reader.ReadBoolean();
-        
+
             if (!reader.Complete())
             {
                 return;
             }
-            
+
             // Daten setzen 
             this.winnerFound = true;
             SetWinner(astronoutwin);
