@@ -17,6 +17,7 @@ using Engine.SoundSystem;
 using Engine.FileSystem;
 using ProjectCommon;
 using System.Collections;
+using System.Timers;
 
 
 namespace ProjectEntities
@@ -106,6 +107,9 @@ namespace ProjectEntities
         // Waffe stärker machen
         float timeForStrongerWeapon = 180;
         int weaponStrength = 2;
+
+        Timer doubleViewRadiusTimer;
+        float originalViewRadius = 18;
 
 
       
@@ -347,7 +351,21 @@ namespace ProjectEntities
             if (prejudicial.Type.ToString() != "ShotgunBullet2 (Bullet)")
             {
                 base.OnDamage(prejudicial, pos, shape, damage, allowMoveDamageToParent);
+                // View Radius verdoppeln, damit wir die Astronauten bei einem Angriff doch sehen und die uns nicht einfach töten können
+                this.ViewRadius = this.ViewRadius * 2;
+                if (doubleViewRadiusTimer == null)
+                {
+                    doubleViewRadiusTimer = new Timer(20000);
+                    doubleViewRadiusTimer.Elapsed += new ElapsedEventHandler(ResetViewRadius);
+                    doubleViewRadiusTimer.Enabled = true;               
+                }
             }
+        }
+
+        void ResetViewRadius(object sender, ElapsedEventArgs e)
+        {
+            this.ViewRadius = this.originalViewRadius;
+            doubleViewRadiusTimer = null;
         }
 
         /// <summary>Overridden from <see cref="Engine.EntitySystem.Entity.OnPostCreate(Boolean)"/>.</summary>
