@@ -3,7 +3,7 @@ type ExplosionBarrelExplosion2
 	class = Explosion
 	latency = 0.1
 	radius = 5
-	damage = 10
+	damage = 40
 	impulse = 175000
 	influenceType = FireInfluence
 	influenceMaxTime = 5
