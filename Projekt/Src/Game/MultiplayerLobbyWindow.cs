@@ -312,12 +312,16 @@ namespace Game
 
 		void Start_Click( Button sender )
 		{
-
-            
-
             GameNetworkServer server = GameNetworkServer.Instance;
             if (server != null)
             {
+                //ToDo
+                //AllowToConnectDuringGame
+                //server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
+                server.AllowToConnectNewClients = false;
+
+                //GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
+                
                 ((Button)window.Controls["Start"]).Enable = false;
                 started = true;
 
@@ -327,15 +331,6 @@ namespace Game
                 server.ChatService.SayToAll(".." + timesPerSec-- + "!");
                 aTimer.Enabled = true;
             }
-
-                
-
-            //ToDo
-			//AllowToConnectDuringGame
-			//server.AllowToConnectNewClients = checkBoxAllowToConnectDuringGame.Checked;
-            //server.AllowToConnectNewClients = false;
-
-            //GameEngineApp.Instance.SetNeedMapLoad("Maps\\GameLab_v01\\Map.map");
 		}
 
         private void CountDownmessage(object sender, ElapsedEventArgs e)
