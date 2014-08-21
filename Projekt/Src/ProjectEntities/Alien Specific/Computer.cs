@@ -81,7 +81,8 @@ namespace ProjectEntities
             KilledAstronoutsToClients,
             SpawnedAliensToClients,
             ReanimationsToClients,
-            AstronoutWinToClients
+            AstronoutWinToClients,
+            MessageToClients
         }
         public event StatisticEventDelegate endGame;
         public delegate void StatisticEventDelegate();
@@ -342,12 +343,12 @@ namespace ProjectEntities
             else if (ring == null)
             {
                 // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
+                StatusMessageHandler.sendMessage("Kein Ring ausgewaehlt");
             }
             else if (RotationCoupons <= 0)
             {
                 // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Keine Rotationen möglich");
+                StatusMessageHandler.sendMessage("Keine Rotationen moeglich");
             }
             else if (ring.CanRotate() == false)
             {
@@ -379,7 +380,7 @@ namespace ProjectEntities
             if (ring == null)
             {
                 // Nachricht ausgeben
-                StatusMessageHandler.sendMessage("Kein Ring ausgewählt");
+                StatusMessageHandler.sendMessage("Kein Ring ausgewaehlt");
             }
             else
             {
@@ -416,12 +417,12 @@ namespace ProjectEntities
                 if (sector == null)
                 {
                     // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Sector ausgewählt");
+                    StatusMessageHandler.sendMessage("Kein Sector ausgewaehlt");
                 }
                 else if (PowerCoupons <= 0)
                 {
                     // Nachricht ausgeben
-                    StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                    StatusMessageHandler.sendMessage("Kein Stromabschalten moeglich");
                 }
                 else
                 {
@@ -431,7 +432,7 @@ namespace ProjectEntities
             }
             else
             {
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+                StatusMessageHandler.sendMessage("Kein Stromabschalten moeglich");
             }
             
         }
@@ -449,9 +450,7 @@ namespace ProjectEntities
                     sectorGroup.LightStatus = b;
             }
             else
-            {
-                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
-            }
+                Server_SendMessageToClients("Kein Stromabschalten moeglich");
         }
 
         /// <summary>
@@ -710,6 +709,14 @@ namespace ProjectEntities
             EndNetworkMessage();
         }
 
+        void Server_SendMessageToClients(string message)
+        {
+            SendDataWriter writer = BeginNetworkMessage(typeof(Computer),
+                       (ushort)NetworkMessages.MessageToClients);
+            writer.Write(message);
+            EndNetworkMessage();
+        }
+
         ///////////////////////////////////////////
         // Client side
         ///////////////////////////////////////////
@@ -798,6 +805,18 @@ namespace ProjectEntities
             // Daten setzen 
             this.winnerFound = true;
             SetWinner(astronoutwin);
+        }
+
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MessageToClients)]
+        private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            string msg = reader.ReadString();
+            UInt16 netMsg = reader.ReadUInt16();
+
+            if (!reader.Complete())
+                return;
+
+            
         }
     }
 }
