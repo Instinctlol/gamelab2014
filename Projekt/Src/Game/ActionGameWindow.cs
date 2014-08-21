@@ -43,7 +43,7 @@ namespace Game
         static float tpsCameraCenterOffset = 1.6f;
 
         //For management of pressing of the player on switches and management ingame GUI
-        const float playerUseDistance = 3;
+        const float playerUseDistance = 4.5f;
         const float playerUseDistanceTPS = 10;
         //Current ingame GUI which with which the player can cooperate
         MapObjectAttachedGui currentAttachedGuiObject;
@@ -665,8 +665,8 @@ namespace Game
 
             maxDistance = (ray.Direction.GetNormalize().Z * (-1F) + 1F) / 2F * maxDistance;
 
-            if (maxDistance < 0.5F)
-                maxDistance = 0.5F;
+            if (maxDistance < 0.75F)
+                maxDistance = 0.75F;
 
             ray.Direction = ray.Direction.GetNormalize() * maxDistance; 
 
