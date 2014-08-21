@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = 7.344141 -62.35999 5.277142
-editorCameraDirection = 4.489801 -0.3566675
+editorCameraPosition = -42.81071 9.686562 12.86789
+editorCameraDirection = 4.859575 -1.147633
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -1806,7 +1806,7 @@ entity
 	classPrompt = SpawnPoint
 	faction = GoodFaction
 	defaultPoint = True
-	position = 3.52198 -67.97588 0.3781009
+	position = -38.20731 4.139541 0.3781009
 	name = SpawnPoint_0
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
@@ -18767,7 +18767,7 @@ entity
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
-	position = -3.628243 -67.61471 0.271822
+	position = -45.35754 4.500709 0.271822
 }
 entity
 {
@@ -18776,7 +18776,7 @@ entity
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
-	position = -3.139527 -68.91953 0.5288166
+	position = -44.86882 3.195891 0.5288166
 }
 entity
 {
@@ -18785,7 +18785,7 @@ entity
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = -3.416673 -71.9372 0.275529
+	position = -45.14597 0.1782141 0.275529
 }
 entity
 {
@@ -18794,7 +18794,7 @@ entity
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = -2.937762 -72.87907 0.2754042
+	position = -44.66706 -0.7636576 0.2754042
 }
 entity
 {
@@ -18803,7 +18803,7 @@ entity
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = -3.678836 -74.24669 0.2745842
+	position = -45.40813 -2.131273 0.2745842
 }
 entity
 {
@@ -18812,7 +18812,7 @@ entity
 	classPrompt = Item
 	respawnTime = 10
 	healthFactorAtBeginning = 1
-	position = -2.874295 -74.50835 0.2747867
+	position = -44.60359 -2.392938 0.2747867
 }
 entity
 {
@@ -18830,15 +18830,17 @@ entity
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
-	position = -0.9678241 -69.20917 0.2726994
+	position = -42.69712 2.906249 0.2726994
 }
 entity
 {
 	type = BrokenTerminal
 	uin = 1852
 	classPrompt = BrokenTerminal
+	terminal = 1750
 	repaired = False
 	healthFactorAtBeginning = 1
-	position = -5.960502 -66.71655 1.407875
+	position = -35.6417 6.654769 1.407875
+	rotation = 0 0 0.9995974 -0.02837472
 	name = BrokenTerminal_1
 }
