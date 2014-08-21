@@ -1,7 +1,7 @@
 type Shotgun
 {
 	class = Gun
-	reloadTime = 1.5
+	reloadTime = 5
 	soundEmpty = "Types\\Weapons\\SubmachineGun\\Empty.ogg"
 	characterBoneSlot = gunHolderThirdPersonCamera_Shotgun
 	characterBoneSlotFirstPersonCamera = gunHolderFirstPersonCamera_Shotgun
@@ -12,12 +12,12 @@ type Shotgun
 		bulletType = ShotgunBullet
 		bulletCapacity = 100
 		bulletExpense = 0
-		fireCount = 5
-		dispersionAngle = 5
-		betweenFireTime = 2.1
+		fireCount = 12
+		dispersionAngle = 12
+		betweenFireTime = 1
 		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
 		useDistanceRange = 0 40
-		fireTimes = 0.1 0.2 0.3 0.4 0.5
+		fireTimes = 
 		fireAnimationTrigger = fire
 		fireObjects
 		{
