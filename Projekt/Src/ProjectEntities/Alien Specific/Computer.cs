@@ -655,11 +655,9 @@ namespace ProjectEntities
             WinnerFound = true;
             astronautwin = astronout;
 
-            Console.WriteLine("SetWinner: " + astronautwin);
             // Clients bescheid geben
             if (EntitySystemWorld.Instance.IsServer())
             {
-                Console.WriteLine("An Clients senden");
                 Server_AstronountWinToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
             if (endGame != null)
@@ -703,7 +701,6 @@ namespace ProjectEntities
         }      
         void Server_AstronountWinToClients(IList<RemoteEntityWorld> remoteEntityWorlds)
         {
-            Console.WriteLine("AstronautWinToClients");
             SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer), (ushort)NetworkMessages.AstronoutWinToClients);
             writer.Write(astronautwin);
             EndNetworkMessage();
@@ -793,7 +790,6 @@ namespace ProjectEntities
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.AstronoutWinToClients)]
         void Client_ReceiveAstronoutWin(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
-            Console.WriteLine("AstronautWinReceive");
             // Daten lesen
             bool astronoutwin = reader.ReadBoolean();
         
