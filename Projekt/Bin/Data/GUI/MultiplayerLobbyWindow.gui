@@ -11,13 +11,13 @@ control "Gui\\Controls\\DefaultWindow.gui"
 	{
 		position = ScaleByResolution 753 56
 		name = Exit
-		text = Exit
+		text = Beenden
 	}
 	control "Gui\\Controls\\DefaultButton.gui"
 	{
 		position = ScaleByResolution 753 623
 		name = Start
-		text = Start game
+		text = Spiel starten
 	}
 	control "Gui\\Controls\\DefaultListBox.gui"
 	{
@@ -36,7 +36,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
 		position = ScaleByResolution 33 353
-		size = Screen 0.0403125 0.025
+		size = Screen 0.04230468 0.025
 		text = Chat
 	}
 	control "Gui\\Controls\\DefaultListBox.gui"
@@ -50,7 +50,7 @@ control "Gui\\Controls\\DefaultWindow.gui"
 		shadowOffset = ScaleByResolution 2 2
 		autoSize = True
 		position = ScaleByResolution 33 55.99999
-		size = Screen 0.046875 0.025
-		text = Users
+		size = Screen 0.170332 0.025
+		text = Verbundene Spieler
 	}
 }
