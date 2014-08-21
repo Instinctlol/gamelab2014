@@ -386,7 +386,7 @@ namespace ProjectEntities
                 return;
 
             flashlightEnergy = energy;
-            if (flashlightEnergy <= 0)
+            if (flashlightEnergy <= 0 && flashlightOwned)
                 StatusMessageHandler.sendMessage("Batterie der Taschenlampe ist leer.");
         }
 

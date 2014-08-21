@@ -43,10 +43,10 @@ control Control
 	control TextBox
 	{
 		textVerticalAlign = Top
-		font = German 0.018
+		font = German 0.015
 		textColor = 0.007843138 1 0.8509805
-		position = ScaleByResolution 300 300
-		size = Screen 0.4142306 0.08510417
+		position = ScaleByResolution 330 320
+		size = Screen 0.3458712 0.08510417
 		name = MessageBox
 	}
 	control Control
@@ -241,8 +241,8 @@ control Control
 			shadow = True
 			shadowOffset = Pixel 1 1
 			shadowColor = 0 0 0 0.5019608
-			position = ScaleByResolution -614.9402 450
-			horizontalAlign = Right
+			position = ScaleByResolution -142.4701 450
+			horizontalAlign = Center
 			size = Screen 0.07720687 0.02343748
 			name = WeaponBulletCountNormal
 			text = "50/100"

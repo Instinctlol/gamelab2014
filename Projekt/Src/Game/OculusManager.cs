@@ -66,7 +66,8 @@ namespace Game
 
 			Texture texture;
 			Vec2I initializedTextureSize;
-			Camera camera;
+            Camera camera;
+
 			Viewport viewport;
 			ViewRenderTargetListener renderTargetListener;
 
@@ -101,7 +102,7 @@ namespace Game
 					base.OnPreRenderTargetUpdate( evt );
                     
 					Camera defaultCamera = RendererWorld.Instance.DefaultCamera;
-					Camera camera = owner.camera;
+					Camera camera = owner.Camera;
 
 					//set camera settings to default state
 					camera.ProjectionType = defaultCamera.ProjectionType;

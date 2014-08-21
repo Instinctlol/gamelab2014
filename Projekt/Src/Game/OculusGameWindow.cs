@@ -553,7 +553,7 @@ namespace Game
                 {
                     if (view != null && view.GuiRenderer != null)
                     {
-                        Camera camera = RendererWorld.Instance.DefaultCamera;
+                        Camera camera = view.Camera;
                         GuiRenderer renderer = view.GuiRenderer;
 
                         Texture texture = TextureManager.Instance.Load("Gui\\Textures\\ObjectSelectionBorder.png");
