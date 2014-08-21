@@ -1,8 +1,8 @@
 type GlockBullet
 {
 	class = Bullet
-	maxDistance = 100
-	damage = 8
+	maxDistance = 50
+	damage = 10
 	impulse = 7000
 	creatableInMapEditor = False
 	networkType = Synchronized

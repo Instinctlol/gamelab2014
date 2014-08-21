@@ -13,8 +13,7 @@ type Glock
 		bulletType = GlockBullet
 		bulletCapacity = 120
 		magazineCapacity = 12
-		dispersionAngle = 2
-		betweenFireTime = 0.5
+		betweenFireTime = 0.25
 		soundFire = ".\\pistole_schuss.ogg"
 		startOffsetPosition = 1 0 0
 		fireTimes = 

@@ -12,7 +12,7 @@ type Shotgun
 		bulletType = ShotgunBullet
 		bulletCapacity = 100
 		bulletExpense = 0
-		dispersionAngle = 2
+		dispersionAngle = 5
 		betweenFireTime = 2.1
 		soundFire = "Types\\Weapons\\Shotgun\\Fire.ogg"
 		useDistanceRange = 0 40
