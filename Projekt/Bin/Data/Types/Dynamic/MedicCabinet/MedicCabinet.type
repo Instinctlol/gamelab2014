@@ -9,6 +9,7 @@ type MedicCabinet
 		mesh
 		{
 			meshName = ".\\fbox.mesh"
+			collision = True
 			scale = 0.06702413 0.06702413 0.06702413
 		}
 	}

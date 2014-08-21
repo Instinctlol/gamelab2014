@@ -39,6 +39,7 @@ type Terminal
 		mesh
 		{
 			meshName = ".\\TerminalProjector.mesh"
+			collision = True
 			alias = terminalProjector
 			position = -1 0 0
 			rotation = -0.006071072 -0.006145701 -0.006071072 0.9999443

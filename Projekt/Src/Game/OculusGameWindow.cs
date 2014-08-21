@@ -827,6 +827,8 @@ namespace Game
 
                 foreach (MapObject obj in Map.Instance.GetObjects(sphere))
                 {
+                    if (!obj.Visible)
+                        continue;
 
                     MapObject temp = null;
                     temp = obj as ProjectEntities.Repairable;

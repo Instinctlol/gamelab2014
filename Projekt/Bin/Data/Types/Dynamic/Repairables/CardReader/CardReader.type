@@ -16,6 +16,7 @@ type CardReader
 		mesh
 		{
 			meshName = ".\\CardReader.mesh"
+			collision = True
 			position = 0 0 0.3
 		}
 	}

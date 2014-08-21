@@ -16,6 +16,7 @@ type BrokenTerminal
 		mesh
 		{
 			meshName = "Types\\Dynamic\\Terminal\\TerminalProjector.mesh"
+			collision = True
 			position = 0 0 0.3
 			scale = 1.058369 1.052933 1.030025
 		}
