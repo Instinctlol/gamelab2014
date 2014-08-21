@@ -156,8 +156,7 @@ namespace ProjectEntities
                 SoundPlay3D(Type.SoundUsing, .5f, false);
                 Client_SendPressToServer();
 
-                unit.Inventar.removeItem(unit.Inventar.useItem);
-
+                unit.Inventar.remove(unit.Inventar.useItem);
             }
         }
 
