@@ -600,7 +600,6 @@ namespace ProjectEntities
             base.OnDie(prejudicial);
             // Bonus für Alien
             Computer.Instance.AddExperiencePoints(50);
-            Computer.Instance.IncrementKilledAstronouts();
         }
 
 		protected override void OnSuspendPhysicsDuringMapLoading( bool suspend )

@@ -320,7 +320,7 @@ namespace ProjectEntities
                             
                                 if (actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && actplayer.started)
                                 {
-                                    //Computer.Instance.IncrementDiedAstronouts();
+                                    //  Computer.Instance.IncrementKilledAstronouts();
 
 
 
@@ -367,7 +367,8 @@ namespace ProjectEntities
                                             && actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && nonactplayer != actplayer && !bothdied)
                                         {
                                             bothdied = true;
-                                            Computer.Instance.IncrementDiedAstronouts();
+                                            Computer.Instance.IncrementKilledAstronouts();
+                                            Computer.Instance.SetWinner(false);
                                         }
                                     }
                                 }
@@ -403,6 +404,7 @@ namespace ProjectEntities
 
                                                 Dynamic.corpse.Die();
                                                 ServerOrSingle_CreatePlayerUnit(player);
+                                                Computer.Instance.IncrementReanimations();
                                                 
                                                 revival = 0f;
                                                 timer = 0f;
@@ -423,7 +425,7 @@ namespace ProjectEntities
                             if (creatAstronaut && timeelapsed > 1 && !bothdied && !oncedied)
                             {
                                 showtimer = false;
-                                Computer.Instance.IncrementDiedAstronouts();
+                                Computer.Instance.IncrementKilledAstronouts();
                                 oncedied = true;
                                 Server_Sendrespawntime();
                                 

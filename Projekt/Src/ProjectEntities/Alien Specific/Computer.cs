@@ -72,7 +72,6 @@ namespace ProjectEntities
         bool winnerFound = false;
         bool astronautwin = false;
         bool ende = false;
-        int diedAstronouts = 0;
         
         enum NetworkMessages
         {
@@ -175,11 +174,6 @@ namespace ProjectEntities
         {
             get { return noSpawnTime; }
             set { noSpawnTime = value; }
-        }
-
-        public int DiedAstronouts
-        {
-            get { return diedAstronouts; }
         }
 
         public Statistic Statistic
@@ -331,19 +325,6 @@ namespace ProjectEntities
             {
                 statistic.IncrementReanimations();
                 Server_ReanimationsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
-            }
-        }
-
-        public void IncrementDiedAstronouts()
-        {
-            if (EntitySystemWorld.Instance.IsServer())
-            {
-                diedAstronouts++;
-                if (diedAstronouts >= 2)
-                {
-                    SetWinner(false);
-                }
-                Server_KilledAstronoutsToClients(EntitySystemWorld.Instance.RemoteEntityWorlds);
             }
         }
 
@@ -612,7 +593,8 @@ namespace ProjectEntities
         /// <summary>
         /// Fügt ein Signal der Minimap für eine gewisse Zeit hinzu
         /// </summary>
-        /// <param name="v"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
         public void AddRadarElement(Vec2 min, Vec2 max)
         {
             //Position an AlienGameWindow senden, um damit weiter zu arbeiten
@@ -659,7 +641,6 @@ namespace ProjectEntities
             availableAliens = 2;
             usedAliens = 0;
             maxItemDropGroupNr = 3;
-            diedAstronouts = 0;
         }
 
         public void SetWinner(bool astronout)
