@@ -40,7 +40,7 @@ namespace ProjectEntities
         public static float revival;
         public static float timer;
         float buildTime = 20;
-        float respawnbuildtime = 60;
+        float respawnbuildtime = 40;
         float objDistance=0;
         Vec3 diff;
         float radius = 10;
@@ -304,8 +304,8 @@ namespace ProjectEntities
                                             creatAstronaut = false;
                                             revival = 0f;
                                             timer = 0f;
-
-
+                                            showtimer = false;
+                                            Server_Sendrespawntime();
                                         });
 
                                     }
@@ -316,7 +316,7 @@ namespace ProjectEntities
 
                             // wenn ein Astronaut stirbt
 
-                            showtimer = false;
+                            
                             
                                 if (actplayer.Intellect != null && actplayer.Intellect.ControlledObject == null && actplayer.User.ConnectedNode != null && actplayer.started)
                                 {
@@ -355,6 +355,11 @@ namespace ProjectEntities
                                                 timer += TickDelta / RespawnBuildtime;
                                                 Server_Sendrespawntime();
 
+                                            }
+                                            if (oncedied) 
+                                            {
+                                                showtimer = false;
+                                                Server_Sendrespawntime();
                                             }
                                         }
                                         // wenn der 2 spieler stirbt
@@ -417,8 +422,10 @@ namespace ProjectEntities
 
                             if (creatAstronaut && timeelapsed > 1 && !bothdied && !oncedied)
                             {
+                                showtimer = false;
                                 Computer.Instance.IncrementDiedAstronouts();
                                 oncedied = true;
+                                Server_Sendrespawntime();
                                 
                             }
 
