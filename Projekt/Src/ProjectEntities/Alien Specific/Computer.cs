@@ -443,8 +443,15 @@ namespace ProjectEntities
         /// <param name="b"</param>
         public void SetSectorGroupPowerAstronaut(SectorGroup sectorGroup, bool b)
         {
-            if(sectorGroup != null)
-                sectorGroup.LightStatus = b;
+            if (AllowedToChangeLight)
+            {
+                if (sectorGroup != null)
+                    sectorGroup.LightStatus = b;
+            }
+            else
+            {
+                StatusMessageHandler.sendMessage("Kein Stromabschalten möglich");
+            }
         }
 
         /// <summary>
