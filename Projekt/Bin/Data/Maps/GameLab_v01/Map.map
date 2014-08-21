@@ -493,7 +493,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 31
-				code = "if( Owner.Value && !((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable) \r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.SetWinner(true);\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t\tOwner.Value=false;\r\n\t\t\t}"
+				code = "if( Owner.Value && !(((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_0\")).Useable && \r\n\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_1\")).Useable &&\r\n\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_2\")).Useable &&\r\n\t\t\t((DetonationObject)Entities.Instance.GetByName(\"Dynamite_dobj_3\")).Useable))\r\n\t\t\t{\r\n\t\t\t\tComputer.Instance.SetWinner(true);\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t\tOwner.Value=false;\r\n\t\t\t}"
 				methodName = ValueChange
 				returnType = System.Void
 				parameters = 
