@@ -35,7 +35,7 @@ namespace ProjectEntities
         //***************************
         //*******Getter-Setter*******
         //***************************
-        public String  TerminalLogic
+        public string  TerminalLogic
         {
             get { return terminalLogic; }
             set { terminalLogic = value; }
@@ -119,7 +119,8 @@ namespace ProjectEntities
 
             terminal.PostCreate();
 
-            this.Die();
+            if(!this.Died)
+                this.Die();
         }
 
 
