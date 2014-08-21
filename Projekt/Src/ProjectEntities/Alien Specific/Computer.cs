@@ -811,7 +811,6 @@ namespace ProjectEntities
         private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
             string msg = reader.ReadString();
-            UInt16 netMsg = reader.ReadUInt16();
 
             if (!reader.Complete())
                 return;
