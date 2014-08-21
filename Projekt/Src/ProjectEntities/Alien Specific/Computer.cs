@@ -383,7 +383,7 @@ namespace ProjectEntities
         {
             if (!ring.CanRotate())
             {
-                Server_SendMessageToClients("Kein Rotieren möglich.");
+                Server_SendMessageToClients("Kein Rotieren moeglich.");
                 return;
             }
 
@@ -454,7 +454,7 @@ namespace ProjectEntities
                     sectorGroup.LightStatus = b;
             }
             else
-                Server_SendMessageToClients("Kein Stromabschalten möglich");
+                Server_SendMessageToClients("Kein Stromabschalten moeglich");
         }
 
         /// <summary>
