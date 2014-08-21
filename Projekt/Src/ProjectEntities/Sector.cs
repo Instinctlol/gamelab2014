@@ -281,6 +281,13 @@ namespace ProjectEntities
             Quat newRot = Rotation * OldRotation.GetInverse();
             newRot.Normalize();
 
+            foreach (MapObject m in doors)
+            {
+                offset = m.Position - OldPosition;
+
+                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
+            }
+
             foreach (MapObject m in dynamics)
             {
                 offset = m.Position - OldPosition;
@@ -296,13 +303,6 @@ namespace ProjectEntities
             }
 
             foreach (MapObject m in statics)
-            {
-                offset = m.Position - OldPosition;
-
-                m.SetTransform(newRot * offset + Position, newRot * m.Rotation, m.Scale);
-            }
-
-            foreach (MapObject m in doors)
             {
                 offset = m.Position - OldPosition;
 

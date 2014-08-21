@@ -36,7 +36,7 @@ namespace ProjectEntities
                 
                 partnerDoor = value;
                 if (partnerDoor != null)
-                    partnerDoor.Opened = this.Opened;
+                    partnerDoor.Opened = true;
                 else
                     Opened = false;
             
@@ -83,7 +83,6 @@ namespace ProjectEntities
                 OutDoor d = obj as OutDoor;
                 if(d != null && d != this)
                 {
-                    Opened = true;
                     PartnerDoor = d;
                     d.PartnerDoor = this;
                 }
