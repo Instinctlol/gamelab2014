@@ -78,7 +78,7 @@ namespace Game
         //Message System here===================================
 
         System.Timers.Timer BoxTimer = new System.Timers.Timer(); // neuer Timer zum Ausbleneden der MB
-        const int maxIndex = 4;  // maximale Nachrichten in der Messagebox
+        const int maxIndex = 1;  // maximale Nachrichten in der Messagebox (+1)
         List<string> MessageList = new List<string>(); // hier stecken die Nachichten drin 
 
         public void sendMessageToHUD(String message)
