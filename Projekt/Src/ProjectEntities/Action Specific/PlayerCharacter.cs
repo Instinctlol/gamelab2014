@@ -1159,7 +1159,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("SubmachineGunItem", p);
                 winkel += 5;
@@ -1169,7 +1169,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("ShotgunItem", p);
                 winkel += 5;
@@ -1179,7 +1179,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("HammerItem", p);
                 winkel += 5;
@@ -1189,7 +1189,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("GlockItem", p);
                 winkel += 5;
@@ -1199,7 +1199,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("ScarItem", p);
                 winkel += 5;
@@ -1209,7 +1209,7 @@ namespace ProjectEntities
             {
                 //Position der Waffe festlegen
                 p = pos + ((Mat3.FromRotateByZ(winkel) * dir) * 1.8f) + new Vec3(0, 0, -1);
-                p.Z = 0.3f;
+                p.Z = 0.4f;
 
                 dropWeapons("BrechstangeItem", p);
                 winkel += 5;
