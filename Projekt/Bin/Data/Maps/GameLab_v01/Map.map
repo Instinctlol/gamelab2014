@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -11.45877 -38.10472 30.30623
-editorCameraDirection = 4.59165 -1.449108
+editorCameraPosition = 7.344141 -62.35999 5.277142
+editorCameraDirection = 4.489801 -0.3566675
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -1806,7 +1806,7 @@ entity
 	classPrompt = SpawnPoint
 	faction = GoodFaction
 	defaultPoint = True
-	position = 97.20994 68.32716 0.6073232
+	position = 3.52198 -67.97588 0.3781009
 	name = SpawnPoint_0
 	editorLayer = "Root Layer\\F1\\Dynamics"
 }
@@ -6393,8 +6393,6 @@ entity
 	type = BrokenTerminal
 	uin = 565
 	classPrompt = BrokenTerminal
-	taskType = None
-	windowType = Rotate
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.44952 -75.1067 1.606234
@@ -18725,7 +18723,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1840
+	uin = 1751
 	classPrompt = StaticObject
 	position = -19.5 -41.1 2.1
 	rotation = 0 0 0.7068738 0.7073398
@@ -18735,7 +18733,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1841
+	uin = 1752
 	classPrompt = StaticObject
 	position = -19.5 -46.1 2.1
 	rotation = 0 0 0.7068738 0.7073398
@@ -18745,7 +18743,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1842
+	uin = 1753
 	classPrompt = StaticObject
 	position = -7.996841 -45.6 2.1
 	rotation = 0 0 0.706893 -0.7073206
@@ -18755,10 +18753,92 @@ entity
 entity
 {
 	type = sofa
-	uin = 1843
+	uin = 1754
 	classPrompt = StaticObject
 	position = -8.003159 -40.6 2.1
 	rotation = 0 0 0.706893 -0.7073206
 	name = sofa_23
 	editorLayer = "Root Layer\\F3\\Einrichtung"
+}
+entity
+{
+	type = cable
+	uin = 1844
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -3.628243 -67.61471 0.271822
+}
+entity
+{
+	type = Schrauben
+	uin = 1845
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -3.139527 -68.91953 0.5288166
+}
+entity
+{
+	type = Dynamite
+	uin = 1846
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -3.416673 -71.9372 0.275529
+}
+entity
+{
+	type = Dynamite
+	uin = 1847
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -2.937762 -72.87907 0.2754042
+}
+entity
+{
+	type = Dynamite
+	uin = 1848
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -3.678836 -74.24669 0.2745842
+}
+entity
+{
+	type = Dynamite
+	uin = 1849
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -2.874295 -74.50835 0.2747867
+}
+entity
+{
+	type = Dynamite
+	uin = 1850
+	classPrompt = Item
+	respawnTime = 10
+	healthFactorAtBeginning = 1
+	position = -22.13287 -78.57809 3.259404
+}
+entity
+{
+	type = cpu
+	uin = 1851
+	classPrompt = Item
+	respawnTime = 0
+	healthFactorAtBeginning = 1
+	position = -0.9678241 -69.20917 0.2726994
+}
+entity
+{
+	type = BrokenTerminal
+	uin = 1852
+	classPrompt = BrokenTerminal
+	repaired = False
+	healthFactorAtBeginning = 1
+	position = -5.960502 -66.71655 1.407875
+	name = BrokenTerminal_1
 }
