@@ -50,7 +50,7 @@ namespace ProjectEntities
 
             terminal.Visible = true;
 
-            terminal.Position = Position + new Engine.MathEx.Vec3(-1.007327f, 0.0f, -0.3f);
+            terminal.Position = Position + new Engine.MathEx.Vec3(-1.007327f, 0.0f, 0.3f);
             terminal.Rotation = Rotation;
 
             if (!this.Died)
