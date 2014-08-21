@@ -88,6 +88,8 @@ namespace ProjectEntities
         private MeshObject mesh;
         private string originalTexture;
         private string destroyedTexture;
+        
+        [FieldSerialize]
         private List<RepairableType.RepairItem> repairItems;
 
         enum NetworkMessages
@@ -162,13 +164,10 @@ namespace ProjectEntities
         {
             string useItem = "";
 
-            if (unit.Inventar.useItem!= null)
-                useItem = unit.Inventar.useItem.Type.FullName;
+            if (unit.Inventar.useItem != null)
+                useItem = unit.Inventar.useItem.Type.Name;
 
-            if (repairItems.Count == 0)
-                return true;
-
-            if(repairItems.RemoveAll(item => item.ItemType.FullName.Equals(useItem)) > 0)
+            if(repairItems.RemoveAll(item => item.ItemType.Name.Equals(useItem)) > 0)
                 unit.Inventar.remove(unit.Inventar.useItem);
 
             if (repairItems.Count == 0)
