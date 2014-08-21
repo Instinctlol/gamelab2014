@@ -135,12 +135,67 @@ namespace ProjectEntities
                 SwitchLights(group.LightStatus);
         }
 
+        public void ObjectIn(MapObject obj)
+        {
+            if (obj is Sector || obj is Ring)
+                return;
+
+            if (obj is PlayerCharacter)
+            {
+                Server_SendLightToClient(lightStatus, ((PlayerCharacter)obj).Owner);
+            }
+
+            if (obj is AlienUnit && !(obj is AlienSpawner))
+                OnAlienIn();
+
+            if (obj is Dynamic)
+                OnDynamicIn((Dynamic)obj);
+            else if (obj is Room)
+                OnRoomIn((Room)obj);
+            else if (obj is StaticObject)
+                OnStaticIn((StaticObject)obj);
+        }
+
+        public void ObjectOut(MapObject obj)
+        {
+            if (obj is Sector || obj is Ring)
+                return;
+
+
+            if (obj is Dynamic)
+                OnDynamicOut((Dynamic)obj);
+
+            if (obj is AlienUnit && !(obj is AlienSpawner))
+                OnAlienOut();
+            else if (obj is Room)
+                OnRoomOut((Room)obj);
+            else if (obj is StaticObject)
+                OnStaticOut((StaticObject)obj);
+        }
 
         //Registriert wenn ein Objekt den Sektor betritt
         protected override void OnObjectIn(MapObject obj)
         {
             if (isRotating)
                 return;
+
+            Vec3 source = obj.Position;
+            source.Z = 100;
+            Vec3 direction = new Vec3(0, 0, -1000);
+            Ray ray = new Ray(source, direction);
+
+            //Find first sector and throw him in
+            Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
+            {
+                Sector sec = mObj as Sector;
+
+                if (sec != null && sec != this)
+                {
+                    sec.ObjectOut(obj);
+                }
+
+                return true;
+            });
 
             base.OnObjectIn(obj);
 
@@ -161,8 +216,6 @@ namespace ProjectEntities
                 OnRoomIn((Room)obj);
             else if (obj is StaticObject)
                 OnStaticIn((StaticObject)obj);
-
-
         }
 
         //Registriert wenn ein Object den Sektor verlässt
@@ -170,6 +223,25 @@ namespace ProjectEntities
         {
             if (isRotating)
                 return;
+
+            Vec3 source = obj.Position;
+            source.Z = 100;
+            Vec3 direction = new Vec3(0, 0, -1000);
+            Ray ray = new Ray(source, direction);
+
+            //Find first sector and throw him in
+            Map.Instance.GetObjects(ray, delegate(MapObject mObj, float scale)
+            {
+                Sector sec = mObj as Sector;
+
+                if (sec != null && sec != this)
+                {
+                    sec.ObjectIn(obj);
+                    return false;
+                }
+
+                return true;
+            });
 
             base.OnObjectOut(obj);
 
@@ -182,6 +254,10 @@ namespace ProjectEntities
 
             if (obj is AlienUnit && !(obj is AlienSpawner))
                 OnAlienOut();
+            else if (obj is Room)
+                OnRoomOut((Room)obj);
+            else if (obj is StaticObject)
+                OnStaticOut((StaticObject)obj);
 
         }
 
@@ -318,6 +394,9 @@ namespace ProjectEntities
 
         private void OnRoomIn(Room obj)
         {
+            if (rooms.Contains(obj))
+                return;
+
             rooms.Add(obj);
 
             obj.LightStatus = lightStatus;
@@ -327,8 +406,16 @@ namespace ProjectEntities
 
         }
 
+        private void OnRoomOut(Room obj)
+        {
+            rooms.Remove(obj);
+        }
+
         private void OnStaticIn(StaticObject obj)
         {
+            if (statics.Contains(obj))
+                return;
+
             statics.Add(obj);
 
             obj.LightStatus = lightStatus;
@@ -338,9 +425,14 @@ namespace ProjectEntities
 
         }
 
+        private void OnStaticOut(StaticObject obj)
+        {
+            statics.Remove(obj);
+        }
+
         private void OnDynamicIn(Dynamic obj)
         {
-            if (obj is OutDoor)
+            if (obj is OutDoor || dynamics.Contains(obj))
                 return;
 
             dynamics.Add(obj);
@@ -353,7 +445,7 @@ namespace ProjectEntities
             Vec3 direction = new Vec3(0, 0, -1000);
             Ray ray = new Ray(source, direction);
 
-            bool twoSectors = false;
+            bool visible = !IsHidden;
 
             
 
@@ -363,19 +455,15 @@ namespace ProjectEntities
 
                 if (sec != null && sec != this)
                 {
-                    obj.Visible = !(sec.IsHidden && IsHidden);
-                    twoSectors = true;
-
-
-                    return false;
+                    visible = visible || !sec.IsHidden;
                 }
 
                 return true;
             });
 
 
-            if (!twoSectors)
-                obj.Visible = !IsHidden;
+
+            obj.Visible = visible;
 
 
         }
