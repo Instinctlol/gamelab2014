@@ -73,7 +73,7 @@ namespace ProjectEntities
             if (PartnerDoor != null)
                 PartnerDoor.PartnerDoor = null;
 
-            PartnerDoor = null;
+            
 
             Box bounds = GetBox();
             bounds.Expand(3);
@@ -85,8 +85,11 @@ namespace ProjectEntities
                 {
                     PartnerDoor = d;
                     d.PartnerDoor = this;
+                    return;
                 }
             }
+
+            PartnerDoor = null;
 
         }
 
