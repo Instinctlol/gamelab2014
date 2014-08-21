@@ -341,6 +341,7 @@ control Control
 	}
 	control "GUI\\Tasks\\Server_SchereSteinPapier.gui"
 	{
+		topMost = True
 		position = ScaleByResolution 190 110
 		name = SchereSteinPapier
 		visible = False
