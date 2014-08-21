@@ -167,8 +167,9 @@ namespace ProjectEntities
 
             if (repairItems.Count == 0)
                 return true;
-            repairItems.RemoveAll(item => item.ItemType.FullName.Equals(useItem));
-            unit.Inventar.remove(unit.Inventar.useItem);
+
+            if(repairItems.RemoveAll(item => item.ItemType.FullName.Equals(useItem)) > 0);
+                unit.Inventar.remove(unit.Inventar.useItem);
 
             if (repairItems.Count == 0)
                 return true;

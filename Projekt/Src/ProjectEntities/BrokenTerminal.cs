@@ -27,8 +27,6 @@ namespace ProjectEntities
             set
             {
                 terminal = value;
-                if (terminal != null)
-                    terminal.Visible = false;
             }
 
             get { return terminal; }
@@ -36,21 +34,12 @@ namespace ProjectEntities
         //*********************************
 
 
-        protected override void OnPostCreate(bool loaded)
-        {
-            base.OnPostCreate(loaded);
-            if (terminal != null)
-                terminal.Visible = false;
-        }
-
         protected override void OnRepair()
         {
             base.OnRepair();
 
             if (terminal == null)
                 return;
-
-            terminal.Visible = true;
 
             terminal.Position = Position + new Engine.MathEx.Vec3(-1.007327f, 0.0f, 0.3f);
             terminal.Rotation = Rotation;
