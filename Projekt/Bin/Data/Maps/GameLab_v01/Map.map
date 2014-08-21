@@ -9,8 +9,8 @@ playerUnitType = Astronaut
 resetYCoordinateForDynamicBodies = False
 destroyObjectsBelowHeight = -200
 ambientLight = 0.8627452 0.8627452 0.8627452
-editorCameraPosition = -40.30324 3.662882 1.968854
-editorCameraDirection = 4.701315 -0.1906694
+editorCameraPosition = -1.299299 56.47956 53.02126
+editorCameraDirection = 4.710155 -1.172517
 shadowColor = 1 1 1
 shadowFarDistance = 10
 shadowPSSMSplitFactors = 0.1 0.4
@@ -217,8 +217,6 @@ rootEditorLayer
 	layer
 	{
 		name = Patrolien
-		visible = False
-		allowSelect = False
 		layer
 		{
 			name = F1
@@ -865,7 +863,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 69
-			subscriptionsToDeletionEvent = 1517
+			subscriptionsToDeletionEvent = 1491
 			entityClassName = Region
 			className = CutScene_Region
 			customScriptCodeCreated = False
@@ -1132,15 +1130,15 @@ entity
 						{
 							type = LogicCallGetEntityMethodAction
 							uin = 102
-							subscriptionsToDeletionEvent = 1504
-							entity = 1504
+							subscriptionsToDeletionEvent = 1478
+							entity = 1478
 						}
 						entity
 						{
 							type = LogicCallGetEntityMethodAction
 							uin = 103
-							subscriptionsToDeletionEvent = 1504
-							entity = 1504
+							subscriptionsToDeletionEvent = 1478
+							entity = 1478
 						}
 					}
 					entity
@@ -1274,7 +1272,7 @@ entity
 		{
 			type = LogicEntityClass
 			uin = 119
-			subscriptionsToDeletionEvent = 1769
+			subscriptionsToDeletionEvent = 1743
 			entityClassName = Region
 			className = Region_EndKampf
 			customScriptCodeCreated = False
@@ -6420,7 +6418,6 @@ entity
 	windowType = RotateAndSingleSwitch
 	taskFailSound = "Sounds\\taskFail.ogg"
 	taskSuccessSound = "Sounds\\taskSuccess.ogg"
-	terminalLogic = Terminal_C_Door
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.33804 -75.50452 1.606234
@@ -8574,7 +8571,6 @@ entity
 	owner = 771
 	time = 0
 	position = -87.2 61.3 0.3
-	visible = False
 	name = CurveF1R3
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -8587,7 +8583,6 @@ entity
 	owner = 771
 	time = 1
 	position = -85.1 63.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8599,7 +8594,6 @@ entity
 	owner = 771
 	time = 2
 	position = -82.89999 65.50002 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8611,7 +8605,6 @@ entity
 	owner = 771
 	time = 3
 	position = -80.70001 67.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8623,7 +8616,6 @@ entity
 	owner = 771
 	time = 4
 	position = -78.2 70.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8635,7 +8627,6 @@ entity
 	owner = 771
 	time = 5
 	position = -75.6 73.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8647,7 +8638,6 @@ entity
 	owner = 771
 	time = 6
 	position = -73.19998 76.60002 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8659,7 +8649,6 @@ entity
 	owner = 771
 	time = 7
 	position = -71.20001 79.90001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8671,7 +8660,6 @@ entity
 	owner = 771
 	time = 8
 	position = -69.99998 83.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8683,7 +8671,6 @@ entity
 	owner = 771
 	time = 9
 	position = -70.49998 87.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8695,7 +8682,6 @@ entity
 	owner = 771
 	time = 10
 	position = -73.39999 88.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8707,7 +8693,6 @@ entity
 	owner = 771
 	time = 11
 	position = -76.99999 88.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8719,7 +8704,6 @@ entity
 	owner = 771
 	time = 12
 	position = -80.40002 88.30001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8731,7 +8715,6 @@ entity
 	owner = 771
 	time = 13
 	position = -82.09999 90.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8743,7 +8726,6 @@ entity
 	owner = 771
 	time = 14
 	position = -80.19998 94 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8755,7 +8737,6 @@ entity
 	owner = 771
 	time = 15
 	position = -77.39999 95.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8767,7 +8748,6 @@ entity
 	owner = 771
 	time = 16
 	position = -74.49998 97.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8781,7 +8761,6 @@ entity
 	owner = 788
 	time = 0
 	position = -109.3 19.8 0.3
-	visible = False
 	name = CurveF1R4
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -8794,7 +8773,6 @@ entity
 	owner = 788
 	time = 1
 	position = -112.2 19.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8806,7 +8784,6 @@ entity
 	owner = 788
 	time = 2
 	position = -114.8 19.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8818,7 +8795,6 @@ entity
 	owner = 788
 	time = 3
 	position = -117.3 18.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8830,7 +8806,6 @@ entity
 	owner = 788
 	time = 4
 	position = -120 17.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8842,7 +8817,6 @@ entity
 	owner = 788
 	time = 5
 	position = -121.4 14.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8854,7 +8828,6 @@ entity
 	owner = 788
 	time = 6
 	position = -121.9 11.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8866,7 +8839,6 @@ entity
 	owner = 788
 	time = 7
 	position = -122 7.900001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8878,7 +8850,6 @@ entity
 	owner = 788
 	time = 8
 	position = -122 4.700001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8890,7 +8861,6 @@ entity
 	owner = 788
 	time = 9
 	position = -121.7 1.200001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8902,7 +8872,6 @@ entity
 	owner = 788
 	time = 10
 	position = -120.5 -2.099999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8914,7 +8883,6 @@ entity
 	owner = 788
 	time = 11
 	position = -118.7 -4.799999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8926,7 +8894,6 @@ entity
 	owner = 788
 	time = 12
 	position = -116.4 -7.199999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8938,7 +8905,6 @@ entity
 	owner = 788
 	time = 13
 	position = -114 -9.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8950,7 +8916,6 @@ entity
 	owner = 788
 	time = 14
 	position = -111.5 -11.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8962,7 +8927,6 @@ entity
 	owner = 788
 	time = 15
 	position = -108.9 -14.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8974,7 +8938,6 @@ entity
 	owner = 788
 	time = 16
 	position = -106.2 -16.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8986,7 +8949,6 @@ entity
 	owner = 788
 	time = 17
 	position = -103.5 -18 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -8998,7 +8960,6 @@ entity
 	owner = 788
 	time = 18
 	position = -100.5 -19.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9012,7 +8973,6 @@ entity
 	owner = 807
 	time = 0
 	position = -19 -111.9 0.3
-	visible = False
 	name = CurveF1R6
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -9025,7 +8985,6 @@ entity
 	owner = 807
 	time = 1
 	position = -19 -108 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9037,7 +8996,6 @@ entity
 	owner = 807
 	time = 2
 	position = -18.8 -103.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9049,7 +9007,6 @@ entity
 	owner = 807
 	time = 3
 	position = -17.2 -100.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9061,7 +9018,6 @@ entity
 	owner = 807
 	time = 4
 	position = -13.3 -98.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9073,7 +9029,6 @@ entity
 	owner = 807
 	time = 5
 	position = -8.7 -98.20001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9085,7 +9040,6 @@ entity
 	owner = 807
 	time = 6
 	position = -4.8 -100.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9097,7 +9051,6 @@ entity
 	owner = 807
 	time = 7
 	position = -2.7 -103.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9109,7 +9062,6 @@ entity
 	owner = 807
 	time = 8
 	position = -2.2 -107.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9121,7 +9073,6 @@ entity
 	owner = 807
 	time = 9
 	position = -2 -111.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9133,7 +9084,6 @@ entity
 	owner = 807
 	time = 10
 	position = -1.6 -115.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9145,7 +9095,6 @@ entity
 	owner = 807
 	time = 11
 	position = 0.1000001 -118.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9157,7 +9106,6 @@ entity
 	owner = 807
 	time = 12
 	position = 4.1 -120.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9169,7 +9117,6 @@ entity
 	owner = 807
 	time = 13
 	position = 8.400001 -120.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9181,7 +9128,6 @@ entity
 	owner = 807
 	time = 14
 	position = 12.2 -118.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9193,7 +9139,6 @@ entity
 	owner = 807
 	time = 15
 	position = 13.5 -114 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9205,7 +9150,6 @@ entity
 	owner = 807
 	time = 16
 	position = 13.5 -109.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9217,7 +9161,6 @@ entity
 	owner = 807
 	time = 17
 	position = 13.5 -105.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9229,7 +9172,6 @@ entity
 	owner = 807
 	time = 18
 	position = 14 -100.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9241,7 +9183,6 @@ entity
 	owner = 807
 	time = 19
 	position = 17.2 -97.90001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9253,7 +9194,6 @@ entity
 	owner = 807
 	time = 20
 	position = 21.5 -98.60001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9265,7 +9205,6 @@ entity
 	owner = 807
 	time = 21
 	position = 23.4 -101.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -9277,7 +9216,6 @@ entity
 	owner = 807
 	time = 22
 	position = 23.4 -106 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10694,7 +10632,6 @@ entity
 	owner = 967
 	time = 0
 	position = 91.5 -63.7 0.3
-	visible = False
 	name = CurveF1R7
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -10707,7 +10644,6 @@ entity
 	owner = 967
 	time = 1
 	position = 88.8 -61.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10719,7 +10655,6 @@ entity
 	owner = 967
 	time = 2
 	position = 85.6 -59.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10731,7 +10666,6 @@ entity
 	owner = 967
 	time = 3
 	position = 82.2 -59.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10743,7 +10677,6 @@ entity
 	owner = 967
 	time = 4
 	position = 79.7 -61.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10755,7 +10688,6 @@ entity
 	owner = 967
 	time = 5
 	position = 78.49999 -64.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10767,7 +10699,6 @@ entity
 	owner = 967
 	time = 6
 	position = 79.39999 -68.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10779,7 +10710,6 @@ entity
 	owner = 967
 	time = 7
 	position = 81.49999 -70.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10791,7 +10721,6 @@ entity
 	owner = 967
 	time = 8
 	position = 83.89999 -73.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10803,7 +10732,6 @@ entity
 	owner = 967
 	time = 9
 	position = 86.49999 -76 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10815,7 +10743,6 @@ entity
 	owner = 967
 	time = 10
 	position = 88.49999 -78.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10827,7 +10754,6 @@ entity
 	owner = 967
 	time = 11
 	position = 88.89999 -81.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10839,7 +10765,6 @@ entity
 	owner = 967
 	time = 12
 	position = 87.99999 -84.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10851,7 +10776,6 @@ entity
 	owner = 967
 	time = 13
 	position = 85.89999 -87.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10863,7 +10787,6 @@ entity
 	owner = 967
 	time = 14
 	position = 82.79999 -88.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10875,7 +10798,6 @@ entity
 	owner = 967
 	time = 15
 	position = 79.79999 -86.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10887,7 +10809,6 @@ entity
 	owner = 967
 	time = 16
 	position = 77.29999 -84.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10899,7 +10820,6 @@ entity
 	owner = 967
 	time = 17
 	position = 74.99998 -81.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10911,7 +10831,6 @@ entity
 	owner = 967
 	time = 18
 	position = 72.59998 -79.49999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10923,7 +10842,6 @@ entity
 	owner = 967
 	time = 19
 	position = 70.09998 -77.69999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10935,7 +10853,6 @@ entity
 	owner = 967
 	time = 20
 	position = 67.09998 -76.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10947,7 +10864,6 @@ entity
 	owner = 967
 	time = 21
 	position = 64.09998 -77.79999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10959,7 +10875,6 @@ entity
 	owner = 967
 	time = 22
 	position = 61.89998 -79.69999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10971,7 +10886,6 @@ entity
 	owner = 967
 	time = 23
 	position = 60.59998 -82.99998 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10983,7 +10897,6 @@ entity
 	owner = 967
 	time = 24
 	position = 61.29998 -86.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -10995,7 +10908,6 @@ entity
 	owner = 967
 	time = 25
 	position = 63.09998 -88.79999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11007,7 +10919,6 @@ entity
 	owner = 967
 	time = 26
 	position = 65.39999 -91.19999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11021,7 +10932,6 @@ entity
 	owner = 994
 	time = 0
 	position = 118.4 -19.4 0.3
-	visible = False
 	name = CurveF1R8
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -11034,7 +10944,6 @@ entity
 	owner = 994
 	time = 1
 	position = 115.7 -17.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11046,7 +10955,6 @@ entity
 	owner = 994
 	time = 2
 	position = 113.3 -16 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11058,7 +10966,6 @@ entity
 	owner = 994
 	time = 3
 	position = 111.8 -12.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11070,7 +10977,6 @@ entity
 	owner = 994
 	time = 4
 	position = 111.4 -8.900001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11082,7 +10988,6 @@ entity
 	owner = 994
 	time = 5
 	position = 111.4 -5.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11094,7 +10999,6 @@ entity
 	owner = 994
 	time = 6
 	position = 111.4 -1.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11106,7 +11010,6 @@ entity
 	owner = 994
 	time = 7
 	position = 111.3 1.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11118,7 +11021,6 @@ entity
 	owner = 994
 	time = 8
 	position = 111 5.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11130,7 +11032,6 @@ entity
 	owner = 994
 	time = 9
 	position = 110.1 9.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11142,7 +11043,6 @@ entity
 	owner = 994
 	time = 10
 	position = 108.3 12 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11154,7 +11054,6 @@ entity
 	owner = 994
 	time = 11
 	position = 105.5 13 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11166,7 +11065,6 @@ entity
 	owner = 994
 	time = 12
 	position = 102.8 11.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11178,7 +11076,6 @@ entity
 	owner = 994
 	time = 13
 	position = 101.4 8.800001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11190,7 +11087,6 @@ entity
 	owner = 994
 	time = 14
 	position = 101.2 5.300001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11202,7 +11098,6 @@ entity
 	owner = 994
 	time = 15
 	position = 101.3 1.400001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11216,7 +11111,6 @@ entity
 	owner = 1010
 	time = 0
 	position = 37.9 59 0.3
-	visible = False
 	name = CurveF2R1
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -11229,7 +11123,6 @@ entity
 	owner = 1010
 	time = 1
 	position = 40.2 61.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11241,7 +11134,6 @@ entity
 	owner = 1010
 	time = 2
 	position = 42.7 63.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11253,7 +11145,6 @@ entity
 	owner = 1010
 	time = 3
 	position = 45.4 66.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11265,7 +11156,6 @@ entity
 	owner = 1010
 	time = 4
 	position = 48.5 68.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11277,7 +11167,6 @@ entity
 	owner = 1010
 	time = 5
 	position = 51.8 68.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11289,7 +11178,6 @@ entity
 	owner = 1010
 	time = 6
 	position = 55 66.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11301,7 +11189,6 @@ entity
 	owner = 1010
 	time = 7
 	position = 56.9 63.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11313,7 +11200,6 @@ entity
 	owner = 1010
 	time = 8
 	position = 57 59.90001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11325,7 +11211,6 @@ entity
 	owner = 1010
 	time = 9
 	position = 55.6 56.40001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11337,7 +11222,6 @@ entity
 	owner = 1010
 	time = 10
 	position = 53.3 53.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11349,7 +11233,6 @@ entity
 	owner = 1010
 	time = 11
 	position = 50.7 51.10001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11361,7 +11244,6 @@ entity
 	owner = 1010
 	time = 12
 	position = 48.4 48.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11373,7 +11255,6 @@ entity
 	owner = 1010
 	time = 13
 	position = 46.9 45.90001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11385,7 +11266,6 @@ entity
 	owner = 1010
 	time = 14
 	position = 46.8 42.40001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11397,7 +11277,6 @@ entity
 	owner = 1010
 	time = 15
 	position = 49 39.30001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11409,7 +11288,6 @@ entity
 	owner = 1010
 	time = 16
 	position = 52.3 37.60001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11421,7 +11299,6 @@ entity
 	owner = 1010
 	time = 17
 	position = 55.9 38.40001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11433,7 +11310,6 @@ entity
 	owner = 1010
 	time = 18
 	position = 58.7 40.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11445,7 +11321,6 @@ entity
 	owner = 1010
 	time = 19
 	position = 61.4 43.40001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11457,7 +11332,6 @@ entity
 	owner = 1010
 	time = 20
 	position = 64 46 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11469,7 +11343,6 @@ entity
 	owner = 1010
 	time = 21
 	position = 66.7 48.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11483,7 +11356,6 @@ entity
 	owner = 1032
 	time = 0
 	position = 13.9 69.9 0.3
-	visible = False
 	name = CurveF2R2
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -11496,7 +11368,6 @@ entity
 	owner = 1032
 	time = 1
 	position = 13.8 72.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11508,7 +11379,6 @@ entity
 	owner = 1032
 	time = 2
 	position = 13.7 75.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11520,7 +11390,6 @@ entity
 	owner = 1032
 	time = 3
 	position = 13.4 78.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11532,7 +11401,6 @@ entity
 	owner = 1032
 	time = 4
 	position = 12.8 81.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11544,7 +11412,6 @@ entity
 	owner = 1032
 	time = 5
 	position = 11.5 84 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11556,7 +11423,6 @@ entity
 	owner = 1032
 	time = 6
 	position = 9 86.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11568,7 +11434,6 @@ entity
 	owner = 1032
 	time = 7
 	position = 5.9 87.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11580,7 +11445,6 @@ entity
 	owner = 1032
 	time = 8
 	position = 2.6 86.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11592,7 +11456,6 @@ entity
 	owner = 1032
 	time = 9
 	position = 0.9999998 84 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11604,7 +11467,6 @@ entity
 	owner = 1032
 	time = 10
 	position = 0.2999998 80.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11616,7 +11478,6 @@ entity
 	owner = 1032
 	time = 11
 	position = -0.2000003 77.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11628,7 +11489,6 @@ entity
 	owner = 1032
 	time = 12
 	position = -0.6000004 74.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11640,7 +11500,6 @@ entity
 	owner = 1032
 	time = 13
 	position = -1.1 71.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11652,7 +11511,6 @@ entity
 	owner = 1032
 	time = 14
 	position = -2 68 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11664,7 +11522,6 @@ entity
 	owner = 1032
 	time = 15
 	position = -4.2 65.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11676,7 +11533,6 @@ entity
 	owner = 1032
 	time = 16
 	position = -7.700001 65 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11688,7 +11544,6 @@ entity
 	owner = 1032
 	time = 17
 	position = -10.7 66.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11700,7 +11555,6 @@ entity
 	owner = 1032
 	time = 18
 	position = -12.1 69.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11712,7 +11566,6 @@ entity
 	owner = 1032
 	time = 19
 	position = -12.2 72.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11724,7 +11577,6 @@ entity
 	owner = 1032
 	time = 20
 	position = -12.2 76.10001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11736,7 +11588,6 @@ entity
 	owner = 1032
 	time = 21
 	position = -12.2 79.60001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11748,7 +11599,6 @@ entity
 	owner = 1032
 	time = 22
 	position = -12.3 83.20001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11821,7 +11671,6 @@ entity
 	owner = 1058
 	time = 0
 	position = 66 -11.2 0.3
-	visible = False
 	name = CurveF2R8
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -11834,7 +11683,6 @@ entity
 	owner = 1058
 	time = 1
 	position = 66.5 -14.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11846,7 +11694,6 @@ entity
 	owner = 1058
 	time = 2
 	position = 68.2 -17.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11858,7 +11705,6 @@ entity
 	owner = 1058
 	time = 3
 	position = 71.1 -19.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11870,7 +11716,6 @@ entity
 	owner = 1058
 	time = 4
 	position = 74.2 -18.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11882,7 +11727,6 @@ entity
 	owner = 1058
 	time = 5
 	position = 76.39999 -15.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11894,7 +11738,6 @@ entity
 	owner = 1058
 	time = 6
 	position = 77.2 -11.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11906,7 +11749,6 @@ entity
 	owner = 1058
 	time = 7
 	position = 77.39999 -7.900002 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11918,7 +11760,6 @@ entity
 	owner = 1058
 	time = 8
 	position = 76.79999 -4.100001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11930,7 +11771,6 @@ entity
 	owner = 1058
 	time = 9
 	position = 75.09999 -0.8000013 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11942,7 +11782,6 @@ entity
 	owner = 1058
 	time = 10
 	position = 72.19999 1.599999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11954,7 +11793,6 @@ entity
 	owner = 1058
 	time = 11
 	position = 68.89999 3.099999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11966,7 +11804,6 @@ entity
 	owner = 1058
 	time = 12
 	position = 66.19999 5.199999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11978,7 +11815,6 @@ entity
 	owner = 1058
 	time = 13
 	position = 64.59999 8.599999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -11990,7 +11826,6 @@ entity
 	owner = 1058
 	time = 14
 	position = 64.59999 12.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12002,7 +11837,6 @@ entity
 	owner = 1058
 	time = 15
 	position = 66.59999 15.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12014,7 +11848,6 @@ entity
 	owner = 1058
 	time = 16
 	position = 69.99999 16.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12026,7 +11859,6 @@ entity
 	owner = 1058
 	time = 17
 	position = 73.39999 16.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12038,7 +11870,6 @@ entity
 	owner = 1058
 	time = 18
 	position = 77.09999 16.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12050,7 +11881,6 @@ entity
 	owner = 1058
 	time = 19
 	position = 81.09999 16.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12064,7 +11894,6 @@ entity
 	owner = 1078
 	time = 0
 	position = -49.6 66.1 0.3
-	visible = False
 	name = CurveF2R3
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -12077,7 +11906,6 @@ entity
 	owner = 1078
 	time = 1
 	position = -52.10001 63.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12089,7 +11917,6 @@ entity
 	owner = 1078
 	time = 2
 	position = -54.70001 61.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12101,7 +11928,6 @@ entity
 	owner = 1078
 	time = 3
 	position = -57.30001 58.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12113,7 +11939,6 @@ entity
 	owner = 1078
 	time = 4
 	position = -59.90001 55.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12125,7 +11950,6 @@ entity
 	owner = 1078
 	time = 5
 	position = -62.3 53.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12137,7 +11961,6 @@ entity
 	owner = 1078
 	time = 6
 	position = -64.60001 50.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12149,7 +11972,6 @@ entity
 	owner = 1078
 	time = 7
 	position = -66.4 46.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12161,7 +11983,6 @@ entity
 	owner = 1078
 	time = 8
 	position = -67.1 43.60001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12173,7 +11994,6 @@ entity
 	owner = 1078
 	time = 9
 	position = -66.4 40.50001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12185,7 +12005,6 @@ entity
 	owner = 1078
 	time = 10
 	position = -64.00001 38 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12197,7 +12016,6 @@ entity
 	owner = 1078
 	time = 11
 	position = -60.90001 37.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12209,7 +12027,6 @@ entity
 	owner = 1078
 	time = 12
 	position = -57.60001 38.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12221,7 +12038,6 @@ entity
 	owner = 1078
 	time = 13
 	position = -54.50002 40.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12233,7 +12049,6 @@ entity
 	owner = 1078
 	time = 14
 	position = -51.60001 43.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12245,7 +12060,6 @@ entity
 	owner = 1078
 	time = 15
 	position = -48.90001 45.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12257,7 +12071,6 @@ entity
 	owner = 1078
 	time = 16
 	position = -46.10001 48.60001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12269,7 +12082,6 @@ entity
 	owner = 1078
 	time = 17
 	position = -43.70001 51 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12281,7 +12093,6 @@ entity
 	owner = 1078
 	time = 18
 	position = -41.40001 53.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -12293,7 +12104,6 @@ entity
 	owner = 1078
 	time = 19
 	position = -38.90001 55.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13917,7 +13727,6 @@ entity
 	owner = 1274
 	time = 0
 	position = -85.1 12.8 0.3
-	visible = False
 	name = CurveF2R4
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -13930,7 +13739,6 @@ entity
 	owner = 1274
 	time = 1
 	position = -81.9 12.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13942,7 +13750,6 @@ entity
 	owner = 1274
 	time = 2
 	position = -78.6 11.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13954,7 +13761,6 @@ entity
 	owner = 1274
 	time = 3
 	position = -75.4 11.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13966,7 +13772,6 @@ entity
 	owner = 1274
 	time = 4
 	position = -72.3 9.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13978,7 +13783,6 @@ entity
 	owner = 1274
 	time = 5
 	position = -69.00001 8.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -13990,7 +13794,6 @@ entity
 	owner = 1274
 	time = 6
 	position = -66.8 6.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14002,7 +13805,6 @@ entity
 	owner = 1274
 	time = 7
 	position = -66.8 2.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14014,7 +13816,6 @@ entity
 	owner = 1274
 	time = 8
 	position = -69 0.5999996 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14026,7 +13827,6 @@ entity
 	owner = 1274
 	time = 9
 	position = -71.99999 -0.2000004 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14038,7 +13838,6 @@ entity
 	owner = 1274
 	time = 10
 	position = -75.1 -0.3000004 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14050,7 +13849,6 @@ entity
 	owner = 1274
 	time = 11
 	position = -78.1 -0.4000004 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14062,7 +13860,6 @@ entity
 	owner = 1274
 	time = 12
 	position = -81.3 -0.5000004 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14074,7 +13871,6 @@ entity
 	owner = 1274
 	time = 13
 	position = -84.49999 -1.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14086,7 +13882,6 @@ entity
 	owner = 1274
 	time = 14
 	position = -86.99999 -4.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14098,7 +13893,6 @@ entity
 	owner = 1274
 	time = 15
 	position = -87.4 -7.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14110,7 +13904,6 @@ entity
 	owner = 1274
 	time = 16
 	position = -85.7 -10.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14122,7 +13915,6 @@ entity
 	owner = 1274
 	time = 17
 	position = -82.7 -12.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14134,7 +13926,6 @@ entity
 	owner = 1274
 	time = 18
 	position = -79.3 -12.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14146,7 +13937,6 @@ entity
 	owner = 1274
 	time = 19
 	position = -75.89999 -12.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14158,7 +13948,6 @@ entity
 	owner = 1274
 	time = 20
 	position = -72.8 -12.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14170,7 +13959,6 @@ entity
 	owner = 1274
 	time = 21
 	position = -69.39999 -12.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14184,7 +13972,6 @@ entity
 	owner = 1296
 	time = 0
 	position = -47.8 -69.3 0.3
-	visible = False
 	name = CurveF2R5
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -14197,7 +13984,6 @@ entity
 	owner = 1296
 	time = 1
 	position = -45.8 -66.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14209,7 +13995,6 @@ entity
 	owner = 1296
 	time = 2
 	position = -44.9 -63.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14221,7 +14006,6 @@ entity
 	owner = 1296
 	time = 3
 	position = -45.2 -60.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14233,7 +14017,6 @@ entity
 	owner = 1296
 	time = 4
 	position = -46 -56.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14245,7 +14028,6 @@ entity
 	owner = 1296
 	time = 5
 	position = -47.3 -53.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14257,7 +14039,6 @@ entity
 	owner = 1296
 	time = 6
 	position = -48.9 -49.79999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14269,7 +14050,6 @@ entity
 	owner = 1296
 	time = 7
 	position = -50.7 -46.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14281,7 +14061,6 @@ entity
 	owner = 1296
 	time = 8
 	position = -52.7 -44.09999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14293,7 +14072,6 @@ entity
 	owner = 1296
 	time = 9
 	position = -55.3 -40.99999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14305,7 +14083,6 @@ entity
 	owner = 1296
 	time = 10
 	position = -57.9 -38.49999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14319,7 +14096,6 @@ entity
 	owner = 1307
 	time = 0
 	position = 13.7 -84.1 0.3
-	visible = False
 	name = CurveF2R6
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -14332,7 +14108,6 @@ entity
 	owner = 1307
 	time = 1
 	position = 13.7 -80.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14344,7 +14119,6 @@ entity
 	owner = 1307
 	time = 2
 	position = 13.7 -77.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14356,7 +14130,6 @@ entity
 	owner = 1307
 	time = 3
 	position = 13.4 -73.99999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14368,7 +14141,6 @@ entity
 	owner = 1307
 	time = 4
 	position = 12.6 -70.99999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14380,7 +14152,6 @@ entity
 	owner = 1307
 	time = 5
 	position = 10.8 -68.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14392,7 +14163,6 @@ entity
 	owner = 1307
 	time = 6
 	position = 8 -66.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14404,7 +14174,6 @@ entity
 	owner = 1307
 	time = 7
 	position = 4.5 -66.49999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14416,7 +14185,6 @@ entity
 	owner = 1307
 	time = 10
 	position = 0.1999999 -75.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14428,7 +14196,6 @@ entity
 	owner = 1307
 	time = 8
 	position = 1.599999 -68.69999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14440,7 +14207,6 @@ entity
 	owner = 1307
 	time = 9
 	position = 0.4999993 -71.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14452,7 +14218,6 @@ entity
 	owner = 1307
 	time = 11
 	position = 0.1999997 -78.49999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14464,7 +14229,6 @@ entity
 	owner = 1307
 	time = 12
 	position = -0.2000004 -81.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14476,7 +14240,6 @@ entity
 	owner = 1307
 	time = 13
 	position = -1.6 -84.99999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14488,7 +14251,6 @@ entity
 	owner = 1307
 	time = 14
 	position = -4.3 -86.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14500,7 +14262,6 @@ entity
 	owner = 1307
 	time = 15
 	position = -7.8 -86.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14512,7 +14273,6 @@ entity
 	owner = 1307
 	time = 16
 	position = -11 -85.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14524,7 +14284,6 @@ entity
 	owner = 1307
 	time = 17
 	position = -12.5 -82.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14536,7 +14295,6 @@ entity
 	owner = 1307
 	time = 18
 	position = -12.7 -78.59999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14548,7 +14306,6 @@ entity
 	owner = 1307
 	time = 19
 	position = -12.7 -75.49999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14560,7 +14317,6 @@ entity
 	owner = 1307
 	time = 20
 	position = -12.6 -72.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14572,7 +14328,6 @@ entity
 	owner = 1307
 	time = 21
 	position = -12.6 -68.89999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14586,7 +14341,6 @@ entity
 	owner = 1329
 	time = 0
 	position = 56.5 -38.6 0.3
-	visible = False
 	name = CurveF2R7
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -14599,7 +14353,6 @@ entity
 	owner = 1329
 	time = 1
 	position = 59.4 -39.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14611,7 +14364,6 @@ entity
 	owner = 1329
 	time = 2
 	position = 62.4 -40.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14623,7 +14375,6 @@ entity
 	owner = 1329
 	time = 3
 	position = 65.59999 -41.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14635,7 +14386,6 @@ entity
 	owner = 1329
 	time = 4
 	position = 68.59999 -43.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14647,7 +14397,6 @@ entity
 	owner = 1329
 	time = 5
 	position = 70.79999 -46 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14659,7 +14408,6 @@ entity
 	owner = 1329
 	time = 6
 	position = 71.29999 -49.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14671,7 +14419,6 @@ entity
 	owner = 1329
 	time = 7
 	position = 70.09998 -52.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14683,7 +14430,6 @@ entity
 	owner = 1329
 	time = 8
 	position = 67.49998 -55.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14695,7 +14441,6 @@ entity
 	owner = 1329
 	time = 9
 	position = 64.09998 -57.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14707,7 +14452,6 @@ entity
 	owner = 1329
 	time = 10
 	position = 60.49998 -57.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14719,7 +14463,6 @@ entity
 	owner = 1329
 	time = 11
 	position = 56.99998 -56.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14731,7 +14474,6 @@ entity
 	owner = 1329
 	time = 12
 	position = 54.09998 -55.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14743,7 +14485,6 @@ entity
 	owner = 1329
 	time = 13
 	position = 51.49998 -52.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14755,7 +14496,6 @@ entity
 	owner = 1329
 	time = 14
 	position = 49.49998 -50.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14767,7 +14507,6 @@ entity
 	owner = 1329
 	time = 15
 	position = 46.69998 -48.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14779,7 +14518,6 @@ entity
 	owner = 1329
 	time = 16
 	position = 43.49998 -48.10001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14791,7 +14529,6 @@ entity
 	owner = 1329
 	time = 17
 	position = 40.39998 -49.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14803,7 +14540,6 @@ entity
 	owner = 1329
 	time = 18
 	position = 38.79998 -52.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14815,7 +14551,6 @@ entity
 	owner = 1329
 	time = 19
 	position = 38.89998 -55.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14827,7 +14562,6 @@ entity
 	owner = 1329
 	time = 20
 	position = 40.59998 -58.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14839,7 +14573,6 @@ entity
 	owner = 1329
 	time = 21
 	position = 43.09998 -61.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14851,7 +14584,6 @@ entity
 	owner = 1329
 	time = 22
 	position = 45.49998 -63.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14863,7 +14595,6 @@ entity
 	owner = 1329
 	time = 23
 	position = 47.99998 -66.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14875,7 +14606,6 @@ entity
 	owner = 1329
 	time = 24
 	position = 50.59998 -68.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14889,7 +14619,6 @@ entity
 	owner = 1354
 	time = 0
 	position = -13.7 -48.3 0.3
-	visible = False
 	name = CurveF3R4
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -14902,7 +14631,6 @@ entity
 	owner = 1354
 	time = 1
 	position = -13.7 -44.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14914,7 +14642,6 @@ entity
 	owner = 1354
 	time = 2
 	position = -13.6 -41.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14926,7 +14653,6 @@ entity
 	owner = 1354
 	time = 3
 	position = -13.5 -37.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14938,7 +14664,6 @@ entity
 	owner = 1354
 	time = 4
 	position = -13 -33.39999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14950,7 +14675,6 @@ entity
 	owner = 1354
 	time = 5
 	position = -11.4 -29.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14962,7 +14686,6 @@ entity
 	owner = 1354
 	time = 6
 	position = -8.1 -27.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14974,7 +14697,6 @@ entity
 	owner = 1354
 	time = 7
 	position = -4 -28.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14986,7 +14708,6 @@ entity
 	owner = 1354
 	time = 8
 	position = -1.4 -31.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -14998,7 +14719,6 @@ entity
 	owner = 1354
 	time = 9
 	position = -0.5 -35 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15010,7 +14730,6 @@ entity
 	owner = 1354
 	time = 10
 	position = -0.4000001 -39.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15022,7 +14741,6 @@ entity
 	owner = 1354
 	time = 11
 	position = -0.3000001 -43 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15034,7 +14752,6 @@ entity
 	owner = 1354
 	time = 12
 	position = 0.09999995 -46.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15046,7 +14763,6 @@ entity
 	owner = 1354
 	time = 13
 	position = 1.5 -49.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15058,7 +14774,6 @@ entity
 	owner = 1354
 	time = 14
 	position = 4.2 -51.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15070,7 +14785,6 @@ entity
 	owner = 1354
 	time = 15
 	position = 7.9 -51.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15082,7 +14796,6 @@ entity
 	owner = 1354
 	time = 16
 	position = 11.5 -49.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15094,7 +14807,6 @@ entity
 	owner = 1354
 	time = 17
 	position = 13.5 -47.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15106,7 +14818,6 @@ entity
 	owner = 1354
 	time = 18
 	position = 14.5 -43.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15118,7 +14829,6 @@ entity
 	owner = 1354
 	time = 19
 	position = 14.7 -39.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15130,7 +14840,6 @@ entity
 	owner = 1354
 	time = 20
 	position = 14.1 -35.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15142,7 +14851,6 @@ entity
 	owner = 1354
 	time = 21
 	position = 12.5 -32.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15156,7 +14864,6 @@ entity
 	owner = 1376
 	time = 0
 	position = 29.5 19.6 0.3
-	visible = False
 	name = CurveF3R1
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -15169,7 +14876,6 @@ entity
 	owner = 1376
 	time = 1
 	position = 32.7 19.6 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15181,7 +14887,6 @@ entity
 	owner = 1376
 	time = 2
 	position = 35.7 19.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15193,7 +14898,6 @@ entity
 	owner = 1376
 	time = 3
 	position = 37.40001 16.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15205,7 +14909,6 @@ entity
 	owner = 1376
 	time = 4
 	position = 36.2 14.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15217,7 +14920,6 @@ entity
 	owner = 1376
 	time = 5
 	position = 33.4 13.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15229,7 +14931,6 @@ entity
 	owner = 1376
 	time = 6
 	position = 30.2 13.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15241,7 +14942,6 @@ entity
 	owner = 1376
 	time = 7
 	position = 27.4 13.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15253,7 +14953,6 @@ entity
 	owner = 1376
 	time = 8
 	position = 27.2 10.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15265,7 +14964,6 @@ entity
 	owner = 1376
 	time = 9
 	position = 30 9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15277,7 +14975,6 @@ entity
 	owner = 1376
 	time = 10
 	position = 33.5 8.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15289,7 +14986,6 @@ entity
 	owner = 1376
 	time = 11
 	position = 37.8 9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15301,7 +14997,6 @@ entity
 	owner = 1376
 	time = 12
 	position = 41.4 9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15313,7 +15008,6 @@ entity
 	owner = 1376
 	time = 13
 	position = 45 9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15325,7 +15019,6 @@ entity
 	owner = 1376
 	time = 14
 	position = 49 9.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15337,7 +15030,6 @@ entity
 	owner = 1376
 	time = 15
 	position = 50.4 6.400001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15349,7 +15041,6 @@ entity
 	owner = 1376
 	time = 16
 	position = 47.7 5.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15361,7 +15052,6 @@ entity
 	owner = 1376
 	time = 17
 	position = 43.8 4.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15373,7 +15063,6 @@ entity
 	owner = 1376
 	time = 18
 	position = 40.60001 4.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15385,7 +15074,6 @@ entity
 	owner = 1376
 	time = 19
 	position = 37.40001 4.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15397,7 +15085,6 @@ entity
 	owner = 1376
 	time = 20
 	position = 34.2 4.9 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15409,7 +15096,6 @@ entity
 	owner = 1376
 	time = 21
 	position = 31.1 4.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15421,7 +15107,6 @@ entity
 	owner = 1376
 	time = 22
 	position = 31.1 1.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15433,7 +15118,6 @@ entity
 	owner = 1376
 	time = 23
 	position = 33.7 0.7000001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15445,7 +15129,6 @@ entity
 	owner = 1376
 	time = 24
 	position = 37.3 0.7000001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15457,7 +15140,6 @@ entity
 	owner = 1376
 	time = 25
 	position = 41 0.7000001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15469,7 +15151,6 @@ entity
 	owner = 1376
 	time = 26
 	position = 44.8 0.7000001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15481,7 +15162,6 @@ entity
 	owner = 1376
 	time = 27
 	position = 47.9 0.1000001 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15493,7 +15173,6 @@ entity
 	owner = 1376
 	time = 28
 	position = 49.9 -2.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15505,7 +15184,6 @@ entity
 	owner = 1376
 	time = 29
 	position = 50.6 -6.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15517,7 +15195,6 @@ entity
 	owner = 1376
 	time = 30
 	position = 49.8 -9.7 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15529,7 +15206,6 @@ entity
 	owner = 1376
 	time = 31
 	position = 47.4 -11.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15541,7 +15217,6 @@ entity
 	owner = 1376
 	time = 32
 	position = 44.1 -12.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15553,7 +15228,6 @@ entity
 	owner = 1376
 	time = 33
 	position = 40.6 -12.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15565,7 +15239,6 @@ entity
 	owner = 1376
 	time = 34
 	position = 37.3 -12.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15577,7 +15250,6 @@ entity
 	owner = 1376
 	time = 35
 	position = 33.7 -12.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15589,7 +15261,6 @@ entity
 	owner = 1376
 	time = 36
 	position = 31 -13.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15601,7 +15272,6 @@ entity
 	owner = 1376
 	time = 37
 	position = 30.9 -16.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15613,7 +15283,6 @@ entity
 	owner = 1376
 	time = 38
 	position = 33.8 -17.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15625,7 +15294,6 @@ entity
 	owner = 1376
 	time = 39
 	position = 37.3 -17.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15637,7 +15305,6 @@ entity
 	owner = 1376
 	time = 40
 	position = 40.7 -17.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15649,7 +15316,6 @@ entity
 	owner = 1376
 	time = 41
 	position = 43.7 -17.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15661,7 +15327,6 @@ entity
 	owner = 1376
 	time = 42
 	position = 47 -17.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15675,7 +15340,6 @@ entity
 	owner = 1419
 	time = 0
 	position = -31.9 3.1 0.3
-	visible = False
 	name = CurveF3R3
 	editorLayer = "Root Layer\\Patrolien"
 }
@@ -15688,7 +15352,6 @@ entity
 	owner = 1419
 	time = 1
 	position = -34.2 0.3 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15700,7 +15363,6 @@ entity
 	owner = 1419
 	time = 2
 	position = -36.7 -1.8 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15712,7 +15374,6 @@ entity
 	owner = 1419
 	time = 3
 	position = -40.5 -2.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15724,7 +15385,6 @@ entity
 	owner = 1419
 	time = 4
 	position = -43.30001 -0.1999999 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15736,7 +15396,6 @@ entity
 	owner = 1419
 	time = 5
 	position = -44.00001 3.5 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15748,7 +15407,6 @@ entity
 	owner = 1419
 	time = 6
 	position = -42.80001 7.2 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15760,7 +15418,6 @@ entity
 	owner = 1419
 	time = 7
 	position = -40.80001 10.1 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
@@ -15772,328 +15429,12 @@ entity
 	owner = 1419
 	time = 8
 	position = -38.10001 12.7 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurve
-	uin = 1428
-	classPrompt = MapCurve
-	subscriptionsToDeletionEvent = 1429 1430 1431 1432 1433 1434 1435 1436 1437 1438 1439 1440 1441 1442 1443 1444 1445 1446 1447 1448 1449 1450 1451 1452 1453
-	curveType = UniformCubicSpline
-	points = 1428 1429 1430 1431 1432 1433 1434 1435 1436 1437 1438 1439 1440 1441 1442 1443 1444 1445 1446 1447 1448 1449 1450 1451 1452 1453
-	owner = 1428
-	time = 0
-	position = 13.4 49.1 0.3
-	visible = False
-	name = CurveF3R2
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1429
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 1
-	position = 13.6 45.8 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1430
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 2
-	position = 13.6 42.5 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1431
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 3
-	position = 13.6 39.2 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1432
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 4
-	position = 13.8 35.8 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1433
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 5
-	position = 13.8 32.4 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1434
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 6
-	position = 12.8 29.1 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1435
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 7
-	position = 10.2 27.1 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1436
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 8
-	position = 6.800001 26.9 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1437
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 9
-	position = 3.300001 28 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1438
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 10
-	position = 1.000001 30.8 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1439
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 11
-	position = 9.536743E-07 34.4 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1440
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 12
-	position = -0.1999992 37.6 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1441
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 13
-	position = -0.1999993 41.3 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1442
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 14
-	position = -0.3999994 45.3 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1443
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 15
-	position = -0.8999994 49 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1444
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 16
-	position = -2.799999 52 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1445
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 17
-	position = -6.2 53.4 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1446
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 18
-	position = -10.1 53.4 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1447
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 19
-	position = -13.9 51.9 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1448
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 20
-	position = -16.2 49.1 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1449
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 21
-	position = -16.6 45.4 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1450
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 22
-	position = -16.5 41.8 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1451
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 23
-	position = -16.3 38.39999 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1452
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 24
-	position = -16 34.7 0.3
-	visible = False
-	editorLayer = "Root Layer\\Patrolien"
-}
-entity
-{
-	type = MapCurvePoint
-	uin = 1453
-	classPrompt = MapCurvePoint
-	subscriptionsToDeletionEvent = 1428
-	owner = 1428
-	time = 25
-	position = -15.6 31.4 0.3
-	visible = False
 	editorLayer = "Root Layer\\Patrolien"
 }
 entity
 {
 	type = Blut-Fleck
-	uin = 1454
+	uin = 1428
 	classPrompt = StaticObject
 	position = -108.4 25.6 0.3
 	name = Blut-Fleck_136
@@ -16102,7 +15443,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1455
+	uin = 1429
 	classPrompt = StaticObject
 	position = -121.6 -24.4 0.3
 	name = Blut-Fleck_137
@@ -16111,7 +15452,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1456
+	uin = 1430
 	classPrompt = StaticObject
 	position = -92.1 -56.6 0.3
 	name = Blut-Fleck_138
@@ -16120,7 +15461,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1457
+	uin = 1431
 	classPrompt = StaticObject
 	position = -68.6 -65.6 0.3
 	name = Blut-Fleck_139
@@ -16129,7 +15470,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1458
+	uin = 1432
 	classPrompt = StaticObject
 	position = -81 -92.3 0.3
 	name = Blut-Fleck_140
@@ -16138,7 +15479,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1459
+	uin = 1433
 	classPrompt = StaticObject
 	position = -13 -95.7 0.3
 	name = Blut-Fleck_141
@@ -16147,7 +15488,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1460
+	uin = 1434
 	classPrompt = StaticObject
 	position = 68.1 -87.6 0.3
 	name = Blut-Fleck_142
@@ -16156,7 +15497,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1461
+	uin = 1435
 	classPrompt = StaticObject
 	position = 65.8 -72.3 0.3
 	name = Blut-Fleck_143
@@ -16165,7 +15506,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1462
+	uin = 1436
 	classPrompt = StaticObject
 	position = 79.3 -59.3 0.3
 	name = Blut-Fleck_144
@@ -16174,7 +15515,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1463
+	uin = 1437
 	classPrompt = StaticObject
 	position = 98.1 8.999999 0.3
 	name = Blut-Fleck_145
@@ -16183,7 +15524,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1464
+	uin = 1438
 	classPrompt = StaticObject
 	position = -17.2 -87.3 0.3
 	name = Blut-Fleck_146
@@ -16192,7 +15533,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1465
+	uin = 1439
 	classPrompt = StaticObject
 	position = 19.6 -68.8 0.3
 	name = Blut-Fleck_147
@@ -16201,7 +15542,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1466
+	uin = 1440
 	classPrompt = StaticObject
 	position = 49.9 -62.1 0.3
 	name = Blut-Fleck_148
@@ -16210,7 +15551,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1467
+	uin = 1441
 	classPrompt = StaticObject
 	position = 49 -38.8 0.3
 	name = Blut-Fleck_149
@@ -16219,7 +15560,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1468
+	uin = 1442
 	classPrompt = StaticObject
 	position = 74.60001 -10.4 0.3
 	name = Blut-Fleck_150
@@ -16228,7 +15569,7 @@ entity
 entity
 {
 	type = Blut-Fleck
-	uin = 1469
+	uin = 1443
 	classPrompt = StaticObject
 	position = 3.499999 55 0.3
 	name = Blut-Fleck_151
@@ -16237,7 +15578,7 @@ entity
 entity
 {
 	type = A
-	uin = 1470
+	uin = 1444
 	classPrompt = StaticObject
 	position = 94.89999 -2.8 2.8
 	rotation = 0 0 -0.7071068 0.7071068
@@ -16247,7 +15588,7 @@ entity
 entity
 {
 	type = A
-	uin = 1471
+	uin = 1445
 	classPrompt = StaticObject
 	position = 43 -39.6 2.7
 	rotation = 0 0 0.3826835 0.9238796
@@ -16257,7 +15598,7 @@ entity
 entity
 {
 	type = A
-	uin = 1472
+	uin = 1446
 	classPrompt = StaticObject
 	position = 61.6 -67.2 2.7
 	rotation = 0 0 0.3826835 0.9238796
@@ -16267,7 +15608,7 @@ entity
 entity
 {
 	type = D
-	uin = 1473
+	uin = 1447
 	classPrompt = StaticObject
 	position = 92.3 -3.3 2
 	rotation = 0 0 -0.7071068 0.7071068
@@ -16277,7 +15618,7 @@ entity
 entity
 {
 	type = D
-	uin = 1474
+	uin = 1448
 	classPrompt = StaticObject
 	position = 69.9 22.1 1.9
 	rotation = 0 0 3.721745E-09 1
@@ -16287,7 +15628,7 @@ entity
 entity
 {
 	type = D
-	uin = 1475
+	uin = 1449
 	classPrompt = StaticObject
 	position = 62.97243 32.4712 1.9
 	rotation = 0.02741003 -0.06838597 -0.927201 0.3672476
@@ -16297,7 +15638,7 @@ entity
 entity
 {
 	type = D
-	uin = 1476
+	uin = 1450
 	classPrompt = StaticObject
 	position = 33.3 65.8 2.1
 	rotation = 0 0 0.3826834 0.9238796
@@ -16307,7 +15648,7 @@ entity
 entity
 {
 	type = D
-	uin = 1477
+	uin = 1451
 	classPrompt = StaticObject
 	position = 22.3 69.86556 1.9
 	rotation = 0 0 -0.7071069 0.7071068
@@ -16317,7 +15658,7 @@ entity
 entity
 {
 	type = D
-	uin = 1478
+	uin = 1452
 	classPrompt = StaticObject
 	position = -22.2 82.84481 1.9
 	rotation = 0 0 0.7372774 0.6755902
@@ -16327,7 +15668,7 @@ entity
 entity
 {
 	type = D
-	uin = 1479
+	uin = 1453
 	classPrompt = StaticObject
 	position = -39.61063 72.32054 1.9
 	rotation = 0 0 -0.3826835 0.9238796
@@ -16337,7 +15678,7 @@ entity
 entity
 {
 	type = D
-	uin = 1480
+	uin = 1454
 	classPrompt = StaticObject
 	position = -65.4 62.5 1.9
 	rotation = 0 0 0.3826835 0.9238796
@@ -16347,7 +15688,7 @@ entity
 entity
 {
 	type = E
-	uin = 1481
+	uin = 1455
 	classPrompt = StaticObject
 	position = -92.2 3.7 2.6
 	rotation = 0 0 0.7071068 0.7071068
@@ -16357,7 +15698,7 @@ entity
 entity
 {
 	type = E
-	uin = 1482
+	uin = 1456
 	classPrompt = StaticObject
 	position = -72.07804 -22.3 2.8
 	rotation = 0 0 -1 1.477368E-08
@@ -16367,7 +15708,7 @@ entity
 entity
 {
 	type = E
-	uin = 1483
+	uin = 1457
 	classPrompt = StaticObject
 	position = -61.91673 -31.56127 2.77019
 	rotation = 0 0 0.3826834 0.9238796
@@ -16377,7 +15718,7 @@ entity
 entity
 {
 	type = E
-	uin = 1484
+	uin = 1458
 	classPrompt = StaticObject
 	position = -33.9 -66.40001 2.7
 	rotation = 0 0 -0.9238796 0.3826835
@@ -16387,7 +15728,7 @@ entity
 entity
 {
 	type = E
-	uin = 1485
+	uin = 1459
 	classPrompt = StaticObject
 	position = -22.19921 -83.46822 2.8
 	rotation = 0 0 0.7071068 0.7071068
@@ -16397,7 +15738,7 @@ entity
 entity
 {
 	type = G
-	uin = 1486
+	uin = 1460
 	classPrompt = StaticObject
 	position = -22.27111 48.55589 2.7
 	rotation = 0 0 0.7071068 0.7071068
@@ -16407,7 +15748,7 @@ entity
 entity
 {
 	type = G
-	uin = 1487
+	uin = 1461
 	classPrompt = StaticObject
 	position = 3.4 57.3 2.7
 	name = G_2
@@ -16416,7 +15757,7 @@ entity
 entity
 {
 	type = F
-	uin = 1488
+	uin = 1462
 	classPrompt = StaticObject
 	position = 32.95071 -22.2 2.6
 	rotation = 0 0 1 6.69914E-08
@@ -16426,7 +15767,7 @@ entity
 entity
 {
 	type = F
-	uin = 1489
+	uin = 1463
 	classPrompt = StaticObject
 	position = -3.3 -57.37001 2.7
 	rotation = 0 0 1 7.54979E-08
@@ -16436,7 +15777,7 @@ entity
 entity
 {
 	type = F
-	uin = 1490
+	uin = 1464
 	classPrompt = StaticObject
 	position = 22.3 -33.82002 2.7
 	rotation = 0 0 -0.6755902 0.7372774
@@ -16446,7 +15787,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1491
+	uin = 1465
 	classPrompt = AlienSpawner
 	sector = 162
 	spawnLimit = 0
@@ -16461,7 +15802,7 @@ entity
 entity
 {
 	type = B
-	uin = 1492
+	uin = 1466
 	classPrompt = StaticObject
 	position = -69 65.4 2.7
 	rotation = -0.3760327 0.9244556 0.05740009 -0.02620549
@@ -16471,7 +15812,7 @@ entity
 entity
 {
 	type = B
-	uin = 1493
+	uin = 1467
 	classPrompt = StaticObject
 	position = 56.9 96.00001 2.8
 	rotation = 0.9010159 0.4242815 -0.06009497 -0.06741244
@@ -16481,7 +15822,7 @@ entity
 entity
 {
 	type = B
-	uin = 1494
+	uin = 1468
 	classPrompt = StaticObject
 	position = 27.3 106.4 2.8
 	rotation = 0.6769583 -0.734418 0.01670889 -0.04559345
@@ -16491,7 +15832,7 @@ entity
 entity
 {
 	type = B
-	uin = 1495
+	uin = 1469
 	classPrompt = StaticObject
 	position = -28.4 115.3457 2.8
 	rotation = -0.7041904 -0.7083489 0.04627889 0.01470422
@@ -16501,7 +15842,7 @@ entity
 entity
 {
 	type = B
-	uin = 1496
+	uin = 1470
 	classPrompt = StaticObject
 	position = -60.1 101.5 2.8
 	rotation = -0.9239112 0.3795137 0.004125233 0.04838318
@@ -16511,7 +15852,7 @@ entity
 entity
 {
 	type = C
-	uin = 1497
+	uin = 1471
 	classPrompt = StaticObject
 	position = -107.2 -28.1 1.9
 	rotation = 0 0 -1 4.093919E-08
@@ -16521,7 +15862,7 @@ entity
 entity
 {
 	type = C
-	uin = 1498
+	uin = 1472
 	classPrompt = StaticObject
 	position = -93.8 -55.4 2.1
 	rotation = 0 0 0.3826834 0.9238796
@@ -16531,7 +15872,7 @@ entity
 entity
 {
 	type = C
-	uin = 1499
+	uin = 1473
 	classPrompt = StaticObject
 	position = -59.5 -100.3 2
 	rotation = 0 0 -0.9063078 0.4226183
@@ -16541,7 +15882,7 @@ entity
 entity
 {
 	type = C
-	uin = 1500
+	uin = 1474
 	classPrompt = StaticObject
 	position = -28.4 -112.2 2
 	rotation = 0 0 0.6755902 0.7372774
@@ -16551,7 +15892,7 @@ entity
 entity
 {
 	type = C
-	uin = 1501
+	uin = 1475
 	classPrompt = StaticObject
 	position = 3.9 -93.56255 2
 	name = C_4
@@ -16560,7 +15901,7 @@ entity
 entity
 {
 	type = C
-	uin = 1502
+	uin = 1476
 	classPrompt = StaticObject
 	position = 27.8 -105.794 1.858445
 	rotation = 0 0 -0.7071069 0.7071068
@@ -16570,7 +15911,7 @@ entity
 entity
 {
 	type = C
-	uin = 1503
+	uin = 1477
 	classPrompt = StaticObject
 	position = 56.5 -95.00001 2
 	rotation = 0 0 -0.9238796 -0.3826835
@@ -16580,14 +15921,14 @@ entity
 entity
 {
 	type = MapCameraCurve
-	uin = 1504
+	uin = 1478
 	classPrompt = MapCameraCurve
-	subscriptionsToDeletionEvent = 1505 1506 1507 1508 1509 1510 1511 1512 1513 1514 1515 1516 102 103
+	subscriptionsToDeletionEvent = 1479 1480 1481 1482 1483 1484 1485 1486 1487 1488 1489 1490 102 103
 	fov = 0
 	curveType = UniformCubicSpline
-	points = 1504 1505 1506 1507 1508 1509 1510 1511 1512 1513 1514 1515 1516
+	points = 1478 1479 1480 1481 1482 1483 1484 1485 1486 1487 1488 1489 1490
 	automaticTimeStep = 2
-	owner = 1504
+	owner = 1478
 	time = 0
 	position = 0 10.87214 48.34142
 	rotation = 0 0.6285775 0 0.777747
@@ -16597,11 +15938,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1505
+	uin = 1479
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 2
 	position = 0 10.87214 34.67023
 	rotation = 0 -0.4347773 0 -0.900538
@@ -16610,11 +15951,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1506
+	uin = 1480
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 4
 	position = 1.744454 38.4765 30.42215
 	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
@@ -16623,11 +15964,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1507
+	uin = 1481
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 6
 	position = 5.13466 59.54222 13.85901
 	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
@@ -16636,11 +15977,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1508
+	uin = 1482
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 8
 	position = 5.13466 83.519 12.82866
 	rotation = 0.1426898 -0.2225078 -0.5206179 -0.8118416
@@ -16649,11 +15990,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1509
+	uin = 1483
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 10
 	position = 5.13466 100.0583 16.13514
 	rotation = 0.1785188 -0.1582662 -0.3345147 -0.9116922
@@ -16662,11 +16003,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1510
+	uin = 1484
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 12
 	position = 15.83209 100.0583 7.851943
 	rotation = 0.1950135 -0.1125057 -0.3251751 -0.9184625
@@ -16675,11 +16016,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1511
+	uin = 1485
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 14
 	position = 54.51519 94.44654 7.530905
 	rotation = 0.1950135 -0.1125057 -0.3251751 -0.9184625
@@ -16688,11 +16029,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1512
+	uin = 1486
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 16
 	position = 67.95351 96.13575 3.270762
 	rotation = 0.105268 -0.0680095 0.1557988 -0.9798062
@@ -16701,11 +16042,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1513
+	uin = 1487
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 18
 	position = 77.04156 91.31927 3.130527
 	rotation = 0 0 -0.4025608 0.9153933
@@ -16714,11 +16055,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1514
+	uin = 1488
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 20
 	position = 86.54374 77.38165 3.130527
 	rotation = 0 0 -0.4025608 0.9153933
@@ -16727,11 +16068,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1515
+	uin = 1489
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 22
 	position = 91.79404 68.26581 3.130527
 	rotation = 0 0 0.03670057 0.9993263
@@ -16740,11 +16081,11 @@ entity
 entity
 {
 	type = MapCameraCurvePoint
-	uin = 1516
+	uin = 1490
 	classPrompt = MapCameraCurvePoint
-	subscriptionsToDeletionEvent = 1504
+	subscriptionsToDeletionEvent = 1478
 	fov = 0
-	owner = 1504
+	owner = 1478
 	time = 24
 	position = 97.64034 63.02386 3.130527
 	rotation = 0 0 0.656794 0.7540702
@@ -16753,7 +16094,7 @@ entity
 entity
 {
 	type = Region
-	uin = 1517
+	uin = 1491
 	classPrompt = Region
 	subscriptionsToDeletionEvent = 69
 	enabled = True
@@ -16769,7 +16110,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1518
+	uin = 1492
 	classPrompt = StaticObject
 	position = 83.2844 -20.27646 1.657189
 	rotation = 0 0 0.004225863 0.9999914
@@ -16779,7 +16120,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1519
+	uin = 1493
 	classPrompt = StaticObject
 	position = 84.55743 -20.18729 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16789,7 +16130,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1520
+	uin = 1494
 	classPrompt = StaticObject
 	position = 82.06631 -20.26708 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16799,7 +16140,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1521
+	uin = 1495
 	classPrompt = StaticObject
 	position = 83.2281 -18.47714 0.3732204
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16809,7 +16150,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1522
+	uin = 1496
 	classPrompt = StaticObject
 	position = 78.8844 -20.27646 1.657189
 	rotation = 0 0 0.004225863 0.9999914
@@ -16819,7 +16160,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1523
+	uin = 1497
 	classPrompt = StaticObject
 	position = 80.15742 -20.18729 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16829,7 +16170,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1524
+	uin = 1498
 	classPrompt = StaticObject
 	position = 77.66631 -20.26708 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16839,7 +16180,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1525
+	uin = 1499
 	classPrompt = StaticObject
 	position = 78.82809 -18.47714 0.3732204
 	rotation = 0 0 0.9999914 -0.004225931
@@ -16849,7 +16190,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1526
+	uin = 1500
 	classPrompt = StaticObject
 	position = 79.5596 7.602496 2.051654
 	rotation = 0 0 0.01167005 -0.9999322
@@ -16859,7 +16200,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1527
+	uin = 1501
 	classPrompt = StaticObject
 	position = 74.78809 7.69057 2.051654
 	rotation = 0 0 0.01167005 -0.9999322
@@ -16869,7 +16210,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 1528
+	uin = 1502
 	classPrompt = StaticObject
 	position = 78.08382 5.512204 0.3000001
 	rotation = 0 0 -0.7071069 0.7071069
@@ -16880,7 +16221,7 @@ entity
 entity
 {
 	type = BettSofa
-	uin = 1529
+	uin = 1503
 	classPrompt = StaticObject
 	position = 66.10001 -8.700002 1.7
 	rotation = 0 0 0.7071068 0.7071068
@@ -16890,7 +16231,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1530
+	uin = 1504
 	classPrompt = StaticObject
 	position = 63 -19.9 0.3
 	rotation = 0 0 0.3826834 0.9238796
@@ -16900,7 +16241,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1531
+	uin = 1505
 	classPrompt = StaticObject
 	position = 85.8747 -4.905339 0.2198927
 	rotation = 0 0 0.7397748 -0.6728547
@@ -16910,7 +16251,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1532
+	uin = 1506
 	classPrompt = StaticObject
 	position = 84.78049 -1.93849 0.2419727
 	rotation = 0 0 0.397701 -0.9175152
@@ -16920,7 +16261,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1533
+	uin = 1507
 	classPrompt = StaticObject
 	position = 81.73029 -1.828 0
 	rotation = 0.02149243 -0.02378129 -0.2648477 -0.9637576
@@ -16930,7 +16271,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 1534
+	uin = 1508
 	classPrompt = StaticMesh
 	position = -100.8483 -14.00017 0.2751936
 	name = StaticMesh_43
@@ -16940,7 +16281,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1535
+	uin = 1509
 	classPrompt = StaticObject
 	position = -97.56416 -16.13052 0.3732204
 	rotation = 0 0 0.6980613 -0.7160379
@@ -16950,7 +16291,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1536
+	uin = 1510
 	classPrompt = StaticObject
 	position = -95.76604 -16.04365 1.657189
 	rotation = 0 0 0.7160379 0.6980613
@@ -16960,7 +16301,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1537
+	uin = 1511
 	classPrompt = StaticObject
 	position = -107.1772 -7.22296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -16970,7 +16311,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1538
+	uin = 1512
 	classPrompt = StaticObject
 	position = -103.722 -7.460053 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -16980,7 +16321,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1539
+	uin = 1513
 	classPrompt = StaticObject
 	position = -107.1772 -7.22296 0
 	rotation = -0.0300389 -0.01118655 0.9934227 0.1099274
@@ -16990,7 +16331,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1540
+	uin = 1514
 	classPrompt = StaticObject
 	position = -103.722 -7.460053 0.24
 	rotation = 0 0 -0.9786119 0.2057152
@@ -17000,7 +16341,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1541
+	uin = 1515
 	classPrompt = StaticObject
 	position = -108.819 -3.84837 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -17010,7 +16351,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1542
+	uin = 1516
 	classPrompt = StaticObject
 	position = -107.0571 -1.31827 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -17020,7 +16361,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1543
+	uin = 1517
 	classPrompt = StaticObject
 	position = -103.7877 -1.5883 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -17030,7 +16371,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 1544
+	uin = 1518
 	classPrompt = StaticObject
 	position = -105.2 -4.299999 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -17041,7 +16382,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1545
+	uin = 1519
 	classPrompt = StaticObject
 	position = -108.819 -3.84837 0.2419727
 	rotation = 0 0 0.7056872 0.7085235
@@ -17051,7 +16392,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1546
+	uin = 1520
 	classPrompt = StaticObject
 	position = -107.0571 -1.31827 0.2198927
 	rotation = 0 0 0.07622074 0.997091
@@ -17061,7 +16402,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1547
+	uin = 1521
 	classPrompt = StaticObject
 	position = -103.7877 -1.5883 0
 	rotation = -0.009865625 0.03049826 -0.1531553 0.9876822
@@ -17071,7 +16412,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 1548
+	uin = 1522
 	classPrompt = StaticObject
 	position = -105.2 -4.299999 0.3
 	rotation = 0 0 -0.7071068 0.7071068
@@ -17082,7 +16423,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1549
+	uin = 1523
 	classPrompt = StaticObject
 	position = -101.8436 -3.94129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -17092,7 +16433,7 @@ entity
 entity
 {
 	type = Armchair3
-	uin = 1550
+	uin = 1524
 	classPrompt = StaticObject
 	position = -101.8436 -3.94129 0.2419727
 	rotation = 0 0 -0.7386308 0.6741102
@@ -17102,7 +16443,7 @@ entity
 entity
 {
 	type = battery
-	uin = 1551
+	uin = 1525
 	classPrompt = Item
 	respawnTime = 0
 	healthFactorAtBeginning = 1
@@ -17112,7 +16453,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1552
+	uin = 1526
 	classPrompt = StaticObject
 	position = -70.9 -90.3 0.3
 	name = leiche2_24
@@ -17121,7 +16462,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1553
+	uin = 1527
 	classPrompt = StaticObject
 	position = -67.7 -89.4 0.3
 	rotation = 0 0 -0.3826834 0.9238796
@@ -17131,7 +16472,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 1554
+	uin = 1528
 	classPrompt = StaticObject
 	position = -74.18367 -95.62747 0.2555158
 	rotation = 0 0 0.3826834 0.9238796
@@ -17141,7 +16482,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 1555
+	uin = 1529
 	classPrompt = StaticObject
 	position = -76.38367 -93.52747 0.2555158
 	rotation = 0 0 0.3826834 0.9238796
@@ -17151,7 +16492,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 1556
+	uin = 1530
 	classPrompt = StaticObject
 	position = -78.28367 -91.52747 0.2555158
 	rotation = 0 0 0.3826834 0.9238796
@@ -17161,7 +16502,7 @@ entity
 entity
 {
 	type = BettOne
-	uin = 1557
+	uin = 1531
 	classPrompt = StaticObject
 	position = -80.48367 -89.42747 0.2555158
 	rotation = 0 0 0.3826834 0.9238796
@@ -17171,7 +16512,7 @@ entity
 entity
 {
 	type = Kueche
-	uin = 1558
+	uin = 1532
 	classPrompt = StaticObject
 	position = -6.389848 -121.726 0
 	rotation = 0 0 -0.7075161 -0.7066974
@@ -17182,7 +16523,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 1559
+	uin = 1533
 	classPrompt = StaticObject
 	position = -4.200005 -120.2 0.3
 	rotation = 0 0 -0.9238797 0.3826835
@@ -17193,7 +16534,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1560
+	uin = 1534
 	classPrompt = StaticObject
 	position = 6.544575 -112.0473 2.051654
 	rotation = 0 0 0.7153108 -0.6988069
@@ -17203,7 +16544,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1561
+	uin = 1535
 	classPrompt = StaticObject
 	position = 6.632645 -107.2758 2.051654
 	rotation = 0 0 0.7153108 -0.6988069
@@ -17213,7 +16554,7 @@ entity
 entity
 {
 	type = glastisch
-	uin = 1562
+	uin = 1536
 	classPrompt = StaticObject
 	position = 4.454279 -110.5716 0.3000001
 	rotation = 0 0 -1 9.687143E-09
@@ -17224,7 +16565,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1563
+	uin = 1537
 	classPrompt = StaticObject
 	position = -24.79336 -96.74474 1.657189
 	rotation = 0 0 -0.9186004 0.3951879
@@ -17234,7 +16575,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1564
+	uin = 1538
 	classPrompt = StaticObject
 	position = -23.45839 -97.95252 0.3732204
 	rotation = 0 0 0.3951879 0.9186004
@@ -17244,7 +16585,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1565
+	uin = 1539
 	classPrompt = StaticObject
 	position = -25.02475 -96.76109 1.656624
 	rotation = 0 0 0.3951879 0.9186004
@@ -17254,7 +16595,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1566
+	uin = 1540
 	classPrompt = StaticObject
 	position = 64.88793 52.6708 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17264,7 +16605,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1567
+	uin = 1541
 	classPrompt = StaticObject
 	position = 62.18353 49.73657 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17274,7 +16615,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1568
+	uin = 1542
 	classPrompt = StaticObject
 	position = 59.44087 46.80598 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17284,7 +16625,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1569
+	uin = 1543
 	classPrompt = StaticObject
 	position = 57.18793 44.4708 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17294,7 +16635,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1570
+	uin = 1544
 	classPrompt = StaticObject
 	position = 54.48353 41.53657 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17304,7 +16645,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1571
+	uin = 1545
 	classPrompt = StaticObject
 	position = 20.18116 91.12151 0.3331405
 	rotation = 0 0 0.3420201 0.9396926
@@ -17314,7 +16655,7 @@ entity
 entity
 {
 	type = leiche2
-	uin = 1572
+	uin = 1546
 	classPrompt = StaticObject
 	position = 18.70527 90.30758 0.3
 	rotation = 0 0 0.6090083 0.7931638
@@ -17324,7 +16665,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1573
+	uin = 1547
 	classPrompt = StaticObject
 	position = 49.58793 63.9708 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17334,7 +16675,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1574
+	uin = 1548
 	classPrompt = StaticObject
 	position = 46.88353 61.03657 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17344,7 +16685,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1575
+	uin = 1549
 	classPrompt = StaticObject
 	position = 44.14087 58.10598 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17354,7 +16695,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1576
+	uin = 1550
 	classPrompt = StaticObject
 	position = 41.88793 55.7708 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17364,7 +16705,7 @@ entity
 entity
 {
 	type = BunkBed
-	uin = 1577
+	uin = 1551
 	classPrompt = StaticObject
 	position = 39.18353 52.83657 0
 	rotation = 0 0 0.9169375 0.3990308
@@ -17374,7 +16715,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1578
+	uin = 1552
 	classPrompt = StaticObject
 	position = -10.93483 61.63686 2.051654
 	rotation = 0 0 -1 8.282065E-05
@@ -17384,7 +16725,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1579
+	uin = 1553
 	classPrompt = StaticObject
 	position = -19.93483 86.63686 2.051654
 	rotation = 0 0 -0.7071654 -0.7070482
@@ -17394,7 +16735,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1580
+	uin = 1554
 	classPrompt = StaticObject
 	position = -16.63483 90.53686 2.051654
 	rotation = 0 0 -8.290124E-05 -1
@@ -17404,7 +16745,7 @@ entity
 entity
 {
 	type = sofa
-	uin = 1581
+	uin = 1555
 	classPrompt = StaticObject
 	position = -59.56426 43.26661 2.052581
 	rotation = 0.007852183 -0.005636828 -0.3932128 -0.9193969
@@ -17414,7 +16755,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1582
+	uin = 1556
 	classPrompt = StaticObject
 	position = 40.93933 -70.91135 1.657189
 	rotation = 0 0 -0.378776 0.9254888
@@ -17424,7 +16765,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1583
+	uin = 1557
 	classPrompt = StaticObject
 	position = 41.90255 -71.74846 1.618737
 	rotation = 0 0 0.9254888 0.3787759
@@ -17434,7 +16775,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1584
+	uin = 1558
 	classPrompt = StaticObject
 	position = 40.08465 -70.0434 1.618737
 	rotation = 0 0 0.9254888 0.3787759
@@ -17444,7 +16785,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1585
+	uin = 1559
 	classPrompt = StaticObject
 	position = 37.82806 -67.80008 1.657189
 	rotation = 0 0 -0.378776 0.9254888
@@ -17454,7 +16795,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1586
+	uin = 1560
 	classPrompt = StaticObject
 	position = 38.79128 -68.63718 1.618737
 	rotation = 0 0 0.9254888 0.3787759
@@ -17464,7 +16805,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1587
+	uin = 1561
 	classPrompt = StaticObject
 	position = 36.97338 -66.93213 1.618737
 	rotation = 0 0 0.9254888 0.3787759
@@ -17474,7 +16815,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1588
+	uin = 1562
 	classPrompt = StaticObject
 	position = 42.17183 -69.59922 0.3732204
 	rotation = 0 0 0.9254888 0.3787759
@@ -17484,7 +16825,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1589
+	uin = 1563
 	classPrompt = StaticObject
 	position = 39.06056 -66.48795 0.3732204
 	rotation = 0 0 0.9254888 0.3787759
@@ -17494,7 +16835,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1590
+	uin = 1564
 	classPrompt = StaticObject
 	position = -14.33259 -53.69906 0.3732204
 	rotation = 0 0 -0.9999081 0.01357296
@@ -17504,7 +16845,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1591
+	uin = 1565
 	classPrompt = StaticObject
 	position = -14.24265 -55.49706 1.657189
 	rotation = 0 0 -0.01357296 -0.9999081
@@ -17514,7 +16855,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1592
+	uin = 1566
 	classPrompt = StaticObject
 	position = -14.06748 -55.64911 1.656624
 	rotation = 0 0 -0.9999081 0.01357296
@@ -17524,7 +16865,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1593
+	uin = 1567
 	classPrompt = StaticObject
 	position = -7.61505 -52.64786 1.657189
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17534,7 +16875,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1594
+	uin = 1568
 	classPrompt = StaticObject
 	position = -7.460993 -52.47444 1.656624
 	rotation = 0 0 -0.7015443 0.7126261
@@ -17544,7 +16885,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1595
+	uin = 1569
 	classPrompt = StaticObject
 	position = -9.413959 -52.71717 0.3732204
 	rotation = 0 0 -0.7015443 0.7126261
@@ -17554,7 +16895,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 1596
+	uin = 1570
 	classPrompt = StaticMesh
 	position = -20.37076 -43.62844 0.2564104
 	rotation = 0 0 -0.694479 -0.7195131
@@ -17565,7 +16906,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 1597
+	uin = 1571
 	classPrompt = StaticMesh
 	position = -20.37076 -38.22844 0.2564104
 	rotation = 0 0 -0.694479 -0.7195131
@@ -17576,7 +16917,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 1598
+	uin = 1572
 	classPrompt = StaticMesh
 	position = -4.670756 -46.78043 0.2564104
 	rotation = 0 0 -0.694479 -0.7195131
@@ -17587,7 +16928,7 @@ entity
 entity
 {
 	type = StaticMesh
-	uin = 1599
+	uin = 1573
 	classPrompt = StaticMesh
 	position = -4.670756 -37.3741 0.2564104
 	rotation = 0 0 -0.694479 -0.7195131
@@ -17598,7 +16939,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1600
+	uin = 1574
 	classPrompt = StaticObject
 	position = 7.634323 -39.65188 1.656624
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17608,7 +16949,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1601
+	uin = 1575
 	classPrompt = StaticObject
 	position = 9.587294 -39.40915 0.3732204
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17618,7 +16959,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1602
+	uin = 1576
 	classPrompt = StaticObject
 	position = 7.788384 -39.47845 1.657189
 	rotation = 0 0 0.7015443 -0.7126261
@@ -17628,7 +16969,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1603
+	uin = 1577
 	classPrompt = StaticObject
 	position = 7.634323 -35.25188 1.656624
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17638,7 +16979,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1604
+	uin = 1578
 	classPrompt = StaticObject
 	position = 9.587294 -35.00914 0.3732204
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17648,7 +16989,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1605
+	uin = 1579
 	classPrompt = StaticObject
 	position = 7.788384 -35.07845 1.657189
 	rotation = 0 0 0.7015443 -0.7126261
@@ -17658,7 +16999,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1606
+	uin = 1580
 	classPrompt = StaticObject
 	position = 7.534323 -30.55188 1.656624
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17668,7 +17009,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1607
+	uin = 1581
 	classPrompt = StaticObject
 	position = 9.487293 -30.30914 0.3732204
 	rotation = 0 0 -0.7126261 -0.7015443
@@ -17678,7 +17019,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1608
+	uin = 1582
 	classPrompt = StaticObject
 	position = 7.688384 -30.37845 1.657189
 	rotation = 0 0 0.7015443 -0.7126261
@@ -17688,7 +17029,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1609
+	uin = 1583
 	classPrompt = StaticObject
 	position = 78.8844 -20.27646 1.657189
 	rotation = 0 0 0.004225863 0.9999914
@@ -17698,7 +17039,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1610
+	uin = 1584
 	classPrompt = StaticObject
 	position = 77.66631 -20.26708 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17708,7 +17049,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1611
+	uin = 1585
 	classPrompt = StaticObject
 	position = 83.2844 -20.27646 1.657189
 	rotation = 0 0 0.004225863 0.9999914
@@ -17718,7 +17059,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1612
+	uin = 1586
 	classPrompt = StaticObject
 	position = 84.55743 -20.18729 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17728,7 +17069,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1613
+	uin = 1587
 	classPrompt = StaticObject
 	position = 82.06631 -20.26708 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17738,7 +17079,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1614
+	uin = 1588
 	classPrompt = StaticObject
 	position = 80.15742 -20.18729 1.618737
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17748,7 +17089,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1615
+	uin = 1589
 	classPrompt = StaticObject
 	position = 83.2281 -18.47714 0.3732204
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17758,7 +17099,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1616
+	uin = 1590
 	classPrompt = StaticObject
 	position = 78.82809 -18.47714 0.3732204
 	rotation = 0 0 0.9999914 -0.004225931
@@ -17768,7 +17109,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1617
+	uin = 1591
 	classPrompt = StaticObject
 	position = 8.756459 41.24229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17778,7 +17119,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1618
+	uin = 1592
 	classPrompt = StaticObject
 	position = 8.765843 42.46038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17788,7 +17129,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1619
+	uin = 1593
 	classPrompt = StaticObject
 	position = 8.756459 41.24229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17798,7 +17139,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1620
+	uin = 1594
 	classPrompt = StaticObject
 	position = 8.765843 42.46038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17808,7 +17149,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1621
+	uin = 1595
 	classPrompt = StaticObject
 	position = 8.756458 36.84229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17818,7 +17159,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1622
+	uin = 1596
 	classPrompt = StaticObject
 	position = 8.845633 35.56927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17828,7 +17169,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1623
+	uin = 1597
 	classPrompt = StaticObject
 	position = 8.765843 38.06038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17838,7 +17179,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1624
+	uin = 1598
 	classPrompt = StaticObject
 	position = 8.845633 39.96927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17848,7 +17189,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1625
+	uin = 1599
 	classPrompt = StaticObject
 	position = 8.756458 36.84229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17858,7 +17199,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1626
+	uin = 1600
 	classPrompt = StaticObject
 	position = 8.845633 35.56927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17868,7 +17209,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1627
+	uin = 1601
 	classPrompt = StaticObject
 	position = 8.765843 38.06038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17878,7 +17219,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1628
+	uin = 1602
 	classPrompt = StaticObject
 	position = 8.845633 39.96927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17888,7 +17229,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1629
+	uin = 1603
 	classPrompt = StaticObject
 	position = 10.55577 36.8986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -17898,7 +17239,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1630
+	uin = 1604
 	classPrompt = StaticObject
 	position = 10.55578 41.2986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -17908,7 +17249,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1631
+	uin = 1605
 	classPrompt = StaticObject
 	position = 10.55577 36.8986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -17918,7 +17259,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1632
+	uin = 1606
 	classPrompt = StaticObject
 	position = 10.55578 41.2986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -17928,7 +17269,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1633
+	uin = 1607
 	classPrompt = StaticObject
 	position = 8.756459 50.74229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17938,7 +17279,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1634
+	uin = 1608
 	classPrompt = StaticObject
 	position = 8.765843 51.96038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17948,7 +17289,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1635
+	uin = 1609
 	classPrompt = StaticObject
 	position = 8.756459 50.74229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17958,7 +17299,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1636
+	uin = 1610
 	classPrompt = StaticObject
 	position = 8.765843 51.96038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17968,7 +17309,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1637
+	uin = 1611
 	classPrompt = StaticObject
 	position = 8.756458 46.34229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -17978,7 +17319,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1638
+	uin = 1612
 	classPrompt = StaticObject
 	position = 8.845633 45.06927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17988,7 +17329,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1639
+	uin = 1613
 	classPrompt = StaticObject
 	position = 8.765843 47.56038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -17998,7 +17339,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1640
+	uin = 1614
 	classPrompt = StaticObject
 	position = 8.845633 49.46927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18008,7 +17349,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1641
+	uin = 1615
 	classPrompt = StaticObject
 	position = 8.756458 46.34229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18018,7 +17359,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1642
+	uin = 1616
 	classPrompt = StaticObject
 	position = 8.845633 45.06927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18028,7 +17369,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1643
+	uin = 1617
 	classPrompt = StaticObject
 	position = 8.765843 47.56038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18038,7 +17379,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1644
+	uin = 1618
 	classPrompt = StaticObject
 	position = 8.845633 49.46927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18048,7 +17389,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1645
+	uin = 1619
 	classPrompt = StaticObject
 	position = 10.55577 46.3986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18058,7 +17399,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1646
+	uin = 1620
 	classPrompt = StaticObject
 	position = 10.55578 50.7986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18068,7 +17409,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1647
+	uin = 1621
 	classPrompt = StaticObject
 	position = 10.55577 46.3986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18078,7 +17419,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1648
+	uin = 1622
 	classPrompt = StaticObject
 	position = 10.55578 50.7986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18088,7 +17429,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1649
+	uin = 1623
 	classPrompt = StaticObject
 	position = -4.134157 33.26038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18098,7 +17439,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1650
+	uin = 1624
 	classPrompt = StaticObject
 	position = -4.134157 33.26038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18108,7 +17449,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1651
+	uin = 1625
 	classPrompt = StaticObject
 	position = -2.344226 32.0986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18118,7 +17459,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1652
+	uin = 1626
 	classPrompt = StaticObject
 	position = -2.344226 32.0986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18128,7 +17469,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1653
+	uin = 1627
 	classPrompt = StaticObject
 	position = -4.054368 30.76927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18138,7 +17479,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1654
+	uin = 1628
 	classPrompt = StaticObject
 	position = -4.054368 30.76927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18148,7 +17489,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1655
+	uin = 1629
 	classPrompt = StaticObject
 	position = -4.143541 36.4423 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18158,7 +17499,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1656
+	uin = 1630
 	classPrompt = StaticObject
 	position = -4.143541 36.4423 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18168,7 +17509,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1657
+	uin = 1631
 	classPrompt = StaticObject
 	position = -4.143542 32.04229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18178,7 +17519,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1658
+	uin = 1632
 	classPrompt = StaticObject
 	position = -4.054368 35.16927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18188,7 +17529,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1659
+	uin = 1633
 	classPrompt = StaticObject
 	position = -4.143542 32.04229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18198,7 +17539,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1660
+	uin = 1634
 	classPrompt = StaticObject
 	position = -4.054368 35.16927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18208,7 +17549,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1661
+	uin = 1635
 	classPrompt = StaticObject
 	position = -4.134157 37.66038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18218,7 +17559,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1662
+	uin = 1636
 	classPrompt = StaticObject
 	position = -4.134157 37.66038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18228,7 +17569,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1663
+	uin = 1637
 	classPrompt = StaticObject
 	position = -2.344225 36.4986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18238,7 +17579,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1664
+	uin = 1638
 	classPrompt = StaticObject
 	position = -2.344225 36.4986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18248,7 +17589,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1665
+	uin = 1639
 	classPrompt = StaticObject
 	position = -4.054368 44.66927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18258,7 +17599,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1666
+	uin = 1640
 	classPrompt = StaticObject
 	position = -4.054368 44.66927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18268,7 +17609,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1667
+	uin = 1641
 	classPrompt = StaticObject
 	position = -4.134157 42.76038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18278,7 +17619,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1668
+	uin = 1642
 	classPrompt = StaticObject
 	position = -4.134157 42.76038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18288,7 +17629,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1669
+	uin = 1643
 	classPrompt = StaticObject
 	position = -2.344226 41.5986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18298,7 +17639,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1670
+	uin = 1644
 	classPrompt = StaticObject
 	position = -2.344226 41.5986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18308,7 +17649,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1671
+	uin = 1645
 	classPrompt = StaticObject
 	position = -4.143542 41.54229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18318,7 +17659,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1672
+	uin = 1646
 	classPrompt = StaticObject
 	position = -4.054368 40.26927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18328,7 +17669,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1673
+	uin = 1647
 	classPrompt = StaticObject
 	position = -4.143542 41.54229 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18338,7 +17679,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1674
+	uin = 1648
 	classPrompt = StaticObject
 	position = -4.054368 40.26927 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18348,7 +17689,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1675
+	uin = 1649
 	classPrompt = StaticObject
 	position = -4.143541 45.9423 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18358,7 +17699,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1676
+	uin = 1650
 	classPrompt = StaticObject
 	position = -4.143541 45.9423 1.657189
 	rotation = 0 0 -0.7041125 0.7100888
@@ -18368,7 +17709,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1677
+	uin = 1651
 	classPrompt = StaticObject
 	position = -4.134157 47.16038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18378,7 +17719,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1678
+	uin = 1652
 	classPrompt = StaticObject
 	position = -4.134157 47.16038 1.618737
 	rotation = 0 0 0.7100889 0.7041125
@@ -18388,7 +17729,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1679
+	uin = 1653
 	classPrompt = StaticObject
 	position = -2.344225 45.9986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18398,7 +17739,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1680
+	uin = 1654
 	classPrompt = StaticObject
 	position = -2.344225 45.9986 0.3732204
 	rotation = 0 0 0.7100889 0.7041125
@@ -18408,7 +17749,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1681
+	uin = 1655
 	classPrompt = StaticObject
 	position = 5.29378 48.8334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18418,7 +17759,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1682
+	uin = 1656
 	classPrompt = StaticObject
 	position = 5.29378 48.8334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18428,7 +17769,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1683
+	uin = 1657
 	classPrompt = StaticObject
 	position = 3.503845 49.99519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18438,7 +17779,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1684
+	uin = 1658
 	classPrompt = StaticObject
 	position = 3.503845 49.99519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18448,7 +17789,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1685
+	uin = 1659
 	classPrompt = StaticObject
 	position = 5.213991 51.32451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18458,7 +17799,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1686
+	uin = 1660
 	classPrompt = StaticObject
 	position = 5.213991 51.32451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18468,7 +17809,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1687
+	uin = 1661
 	classPrompt = StaticObject
 	position = 5.30316 45.65149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18478,7 +17819,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1688
+	uin = 1662
 	classPrompt = StaticObject
 	position = 5.30316 45.65149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18488,7 +17829,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1689
+	uin = 1663
 	classPrompt = StaticObject
 	position = 5.303161 50.05149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18498,7 +17839,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1690
+	uin = 1664
 	classPrompt = StaticObject
 	position = 5.213991 46.92451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18508,7 +17849,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1691
+	uin = 1665
 	classPrompt = StaticObject
 	position = 5.303161 50.05149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18518,7 +17859,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1692
+	uin = 1666
 	classPrompt = StaticObject
 	position = 5.213991 46.92451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18528,7 +17869,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1693
+	uin = 1667
 	classPrompt = StaticObject
 	position = 5.293779 44.4334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18538,7 +17879,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1694
+	uin = 1668
 	classPrompt = StaticObject
 	position = 5.293779 44.4334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18548,7 +17889,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1695
+	uin = 1669
 	classPrompt = StaticObject
 	position = 3.503847 45.59518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18558,7 +17899,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1696
+	uin = 1670
 	classPrompt = StaticObject
 	position = 3.503847 45.59518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18568,7 +17909,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1697
+	uin = 1671
 	classPrompt = StaticObject
 	position = 5.213986 37.42451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18578,7 +17919,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1698
+	uin = 1672
 	classPrompt = StaticObject
 	position = 5.213986 37.42451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18588,7 +17929,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1699
+	uin = 1673
 	classPrompt = StaticObject
 	position = 5.293777 39.3334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18598,7 +17939,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1700
+	uin = 1674
 	classPrompt = StaticObject
 	position = 5.293777 39.3334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18608,7 +17949,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1701
+	uin = 1675
 	classPrompt = StaticObject
 	position = 3.50385 40.49519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18618,7 +17959,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1702
+	uin = 1676
 	classPrompt = StaticObject
 	position = 3.50385 40.49519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18628,7 +17969,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1703
+	uin = 1677
 	classPrompt = StaticObject
 	position = 5.303163 40.55149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18638,7 +17979,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1704
+	uin = 1678
 	classPrompt = StaticObject
 	position = 5.21399 41.82451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18648,7 +17989,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1705
+	uin = 1679
 	classPrompt = StaticObject
 	position = 5.303163 40.55149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18658,7 +17999,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1706
+	uin = 1680
 	classPrompt = StaticObject
 	position = 5.21399 41.82451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18668,7 +18009,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1707
+	uin = 1681
 	classPrompt = StaticObject
 	position = 5.303161 36.15149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18678,7 +18019,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1708
+	uin = 1682
 	classPrompt = StaticObject
 	position = 5.303161 36.15149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18688,7 +18029,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1709
+	uin = 1683
 	classPrompt = StaticObject
 	position = 5.293779 34.9334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18698,7 +18039,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1710
+	uin = 1684
 	classPrompt = StaticObject
 	position = 5.293779 34.9334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18708,7 +18049,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1711
+	uin = 1685
 	classPrompt = StaticObject
 	position = 3.503847 36.09518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18718,7 +18059,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1712
+	uin = 1686
 	classPrompt = StaticObject
 	position = 3.503847 36.09518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18728,7 +18069,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1713
+	uin = 1687
 	classPrompt = StaticObject
 	position = -7.606221 43.3334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18738,7 +18079,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1714
+	uin = 1688
 	classPrompt = StaticObject
 	position = -7.606221 43.3334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18748,7 +18089,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1715
+	uin = 1689
 	classPrompt = StaticObject
 	position = -9.396155 44.49519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18758,7 +18099,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1716
+	uin = 1690
 	classPrompt = StaticObject
 	position = -9.396155 44.49519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18768,7 +18109,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1717
+	uin = 1691
 	classPrompt = StaticObject
 	position = -7.686009 45.82451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18778,7 +18119,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1718
+	uin = 1692
 	classPrompt = StaticObject
 	position = -7.686009 45.82451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18788,7 +18129,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1719
+	uin = 1693
 	classPrompt = StaticObject
 	position = -7.59684 40.15149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18798,7 +18139,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1720
+	uin = 1694
 	classPrompt = StaticObject
 	position = -7.59684 40.15149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18808,7 +18149,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1721
+	uin = 1695
 	classPrompt = StaticObject
 	position = -7.596839 44.55149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18818,7 +18159,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1722
+	uin = 1696
 	classPrompt = StaticObject
 	position = -7.68601 41.42451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18828,7 +18169,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1723
+	uin = 1697
 	classPrompt = StaticObject
 	position = -7.596839 44.55149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18838,7 +18179,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1724
+	uin = 1698
 	classPrompt = StaticObject
 	position = -7.68601 41.42451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18848,7 +18189,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1725
+	uin = 1699
 	classPrompt = StaticObject
 	position = -7.606221 38.9334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18858,7 +18199,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1726
+	uin = 1700
 	classPrompt = StaticObject
 	position = -7.606221 38.9334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18868,7 +18209,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1727
+	uin = 1701
 	classPrompt = StaticObject
 	position = -9.396153 40.09518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18878,7 +18219,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1728
+	uin = 1702
 	classPrompt = StaticObject
 	position = -9.396153 40.09518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18888,7 +18229,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1729
+	uin = 1703
 	classPrompt = StaticObject
 	position = -7.686015 31.92451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18898,7 +18239,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1730
+	uin = 1704
 	classPrompt = StaticObject
 	position = -7.686015 31.92451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18908,7 +18249,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1731
+	uin = 1705
 	classPrompt = StaticObject
 	position = -7.606223 33.8334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18918,7 +18259,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1732
+	uin = 1706
 	classPrompt = StaticObject
 	position = -7.606223 33.8334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18928,7 +18269,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1733
+	uin = 1707
 	classPrompt = StaticObject
 	position = -9.396151 34.99519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18938,7 +18279,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1734
+	uin = 1708
 	classPrompt = StaticObject
 	position = -9.396151 34.99519 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -18948,7 +18289,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1735
+	uin = 1709
 	classPrompt = StaticObject
 	position = -7.596838 35.05149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18958,7 +18299,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1736
+	uin = 1710
 	classPrompt = StaticObject
 	position = -7.68601 36.32451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18968,7 +18309,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1737
+	uin = 1711
 	classPrompt = StaticObject
 	position = -7.596838 35.05149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18978,7 +18319,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1738
+	uin = 1712
 	classPrompt = StaticObject
 	position = -7.68601 36.32451 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -18988,7 +18329,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1739
+	uin = 1713
 	classPrompt = StaticObject
 	position = -7.596839 30.65149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -18998,7 +18339,7 @@ entity
 entity
 {
 	type = Desk
-	uin = 1740
+	uin = 1714
 	classPrompt = StaticObject
 	position = -7.596839 30.65149 1.657189
 	rotation = 0 0 -0.710089 -0.7041125
@@ -19008,7 +18349,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1741
+	uin = 1715
 	classPrompt = StaticObject
 	position = -7.606222 29.4334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -19018,7 +18359,7 @@ entity
 entity
 {
 	type = laptop
-	uin = 1742
+	uin = 1716
 	classPrompt = StaticObject
 	position = -7.606222 29.4334 1.618737
 	rotation = 0 0 -0.7041125 0.710089
@@ -19028,7 +18369,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1743
+	uin = 1717
 	classPrompt = StaticObject
 	position = -9.396154 30.59518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -19038,7 +18379,7 @@ entity
 entity
 {
 	type = Armchair2
-	uin = 1744
+	uin = 1718
 	classPrompt = StaticObject
 	position = -9.396154 30.59518 0.3732204
 	rotation = 0 0 -0.7041125 0.710089
@@ -19048,7 +18389,7 @@ entity
 entity
 {
 	type = SmallHealthItem
-	uin = 1745
+	uin = 1719
 	classPrompt = HealthItem
 	respawnTime = 10
 	healthFactorAtBeginning = 1
@@ -19058,7 +18399,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1746
+	uin = 1720
 	classPrompt = StaticObject
 	position = 83.16134 -20.01398 2.977806
 	rotation = 0 0 -1 1.216796E-08
@@ -19068,7 +18409,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1747
+	uin = 1721
 	classPrompt = StaticObject
 	position = 78.97627 -20.01398 2.977806
 	rotation = 0 0 -1 1.216796E-08
@@ -19078,7 +18419,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1748
+	uin = 1722
 	classPrompt = StaticObject
 	position = 40.99929 -70.73915 2.919924
 	rotation = 0 0 0.9253126 0.3792055
@@ -19088,7 +18429,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1749
+	uin = 1723
 	classPrompt = StaticObject
 	position = 37.81908 -67.70163 2.919924
 	rotation = 0 0 0.9253126 0.3792055
@@ -19098,7 +18439,7 @@ entity
 entity
 {
 	type = G
-	uin = 1750
+	uin = 1724
 	classPrompt = StaticObject
 	position = -33.33525 22.2 2.6
 	name = G_0
@@ -19107,7 +18448,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1751
+	uin = 1725
 	classPrompt = StaticObject
 	position = 5.5 36.2 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19117,7 +18458,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1752
+	uin = 1726
 	classPrompt = StaticObject
 	position = 5.5 40.5 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19127,7 +18468,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1753
+	uin = 1727
 	classPrompt = StaticObject
 	position = 5.5 45.9 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19137,7 +18478,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1754
+	uin = 1728
 	classPrompt = StaticObject
 	position = 5.5 50.1 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19147,7 +18488,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1755
+	uin = 1729
 	classPrompt = StaticObject
 	position = 8.7 50.7 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19157,7 +18498,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1756
+	uin = 1730
 	classPrompt = StaticObject
 	position = 8.7 46.4 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19167,7 +18508,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1757
+	uin = 1731
 	classPrompt = StaticObject
 	position = 8.7 41.5 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19177,7 +18518,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1758
+	uin = 1732
 	classPrompt = StaticObject
 	position = 8.7 37 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19187,7 +18528,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1759
+	uin = 1733
 	classPrompt = StaticObject
 	position = -7.5 35 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19197,7 +18538,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1760
+	uin = 1734
 	classPrompt = StaticObject
 	position = -7.5 30.6 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19207,7 +18548,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1761
+	uin = 1735
 	classPrompt = StaticObject
 	position = -7.5 40.1 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19217,7 +18558,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1762
+	uin = 1736
 	classPrompt = StaticObject
 	position = -7.5 44.5 2.95
 	rotation = 0 0 -0.7111939 0.7029959
@@ -19227,7 +18568,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1763
+	uin = 1737
 	classPrompt = StaticObject
 	position = -4.2 36.6 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19237,7 +18578,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1764
+	uin = 1738
 	classPrompt = StaticObject
 	position = -4.400001 32.2 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19247,7 +18588,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1765
+	uin = 1739
 	classPrompt = StaticObject
 	position = -4.2 41.8 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19257,7 +18598,7 @@ entity
 entity
 {
 	type = iMac
-	uin = 1766
+	uin = 1740
 	classPrompt = StaticObject
 	position = -4.2 46.09999 2.95
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19267,7 +18608,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1767
+	uin = 1741
 	classPrompt = AlienSpawner
 	sector = 132
 	spawnLimit = 0
@@ -19282,7 +18623,7 @@ entity
 entity
 {
 	type = AlienSpawner
-	uin = 1768
+	uin = 1742
 	classPrompt = AlienSpawner
 	sector = 133
 	spawnLimit = 0
@@ -19297,7 +18638,7 @@ entity
 entity
 {
 	type = Region
-	uin = 1769
+	uin = 1743
 	classPrompt = Region
 	subscriptionsToDeletionEvent = 119
 	enabled = True
@@ -19313,7 +18654,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1770
+	uin = 1744
 	classPrompt = StaticObject
 	position = -63.5 -7.7 0.3
 	rotation = 0 0 0.4052004 0.914228
@@ -19323,7 +18664,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1771
+	uin = 1745
 	classPrompt = StaticObject
 	position = -69.9 -7.7 0.3
 	rotation = 0 0 0.01452272 0.9998946
@@ -19333,7 +18674,7 @@ entity
 entity
 {
 	type = Leiche1
-	uin = 1772
+	uin = 1746
 	classPrompt = StaticObject
 	position = -67.8 -7.7 0.3
 	rotation = 0 0 0.2195462 0.9756022
@@ -19343,7 +18684,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1773
+	uin = 1747
 	classPrompt = StaticObject
 	position = 509.2 28.9 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19353,7 +18694,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1774
+	uin = 1748
 	classPrompt = StaticObject
 	position = 509.2 19.5 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19363,7 +18704,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1775
+	uin = 1749
 	classPrompt = StaticObject
 	position = 509.2 8.599999 0.3
 	rotation = 0 0 -0.7086381 0.7055722
@@ -19373,7 +18714,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1776
+	uin = 1750
 	classPrompt = StaticObject
 	position = 470.1 1.799999 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19383,7 +18724,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1777
+	uin = 1751
 	classPrompt = StaticObject
 	position = 470.1 11.8 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19393,7 +18734,7 @@ entity
 entity
 {
 	type = megaComputer
-	uin = 1778
+	uin = 1752
 	classPrompt = StaticObject
 	position = 470.1 22.8 0.3
 	rotation = 0 0 -0.7071068 -0.7071068
@@ -19403,7 +18744,7 @@ entity
 entity
 {
 	type = DurchgangDrehen
-	uin = 1866
+	uin = 1753
 	classPrompt = StaticObject
 	position = -40.1 -7.3 -1.192093E-07
 	rotation = 0 0 -0.7071068 0.7071068
