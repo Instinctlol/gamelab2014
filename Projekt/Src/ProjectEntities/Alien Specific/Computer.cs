@@ -82,7 +82,8 @@ namespace ProjectEntities
             SpawnedAliensToClients,
             ReanimationsToClients,
             AstronoutWinToClients,
-            MessageToClients
+            MessageToClients,
+            RotationToClients
         }
         public event StatisticEventDelegate endGame;
         public delegate void StatisticEventDelegate();
@@ -371,6 +372,8 @@ namespace ProjectEntities
                     ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                     ring.RotateRight();
                 }
+
+                Server_SendRotationToClients(EntitySystemWorld.Instance.RemoteEntityWorlds, ringNumber - 1, ringRotations[ringNumber - 1]);
                 ///ToDo: Gridaktualisierung für die Rotation in der Map
                 GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
             }
@@ -397,6 +400,7 @@ namespace ProjectEntities
                 ringRotations[ringNumber - 1] = mod(RingRotations[ringNumber - 1] + 1, 8);
                 ring.RotateRight();
             }
+            Server_SendRotationToClients(EntitySystemWorld.Instance.RemoteEntityWorlds, ringNumber - 1, ringRotations[ringNumber - 1]);
             ///ToDo: Gridaktualisierung für die Rotation in der Map
             GridBasedNavigationSystem.Instances[0].UpdateMotionMap();
         }
@@ -705,12 +709,19 @@ namespace ProjectEntities
             writer.Write(astronautwin);
             EndNetworkMessage();
         }
-
         void Server_SendMessageToClients(string message)
         {
             SendDataWriter writer = BeginNetworkMessage(typeof(Computer),
                        (ushort)NetworkMessages.MessageToClients);
             writer.Write(message);
+            EndNetworkMessage();
+        }
+        void Server_SendRotationToClients(IList<RemoteEntityWorld> remoteEntityWorlds, int ringNumber, int ringPosition)
+        {
+            SendDataWriter writer = BeginNetworkMessage(remoteEntityWorlds, typeof(Computer),
+                       (ushort)NetworkMessages.RotationToClients);
+            writer.WriteVariableInt32(ringNumber);
+            writer.WriteVariableInt32(ringPosition);
             EndNetworkMessage();
         }
 
@@ -802,7 +813,6 @@ namespace ProjectEntities
             this.winnerFound = true;
             SetWinner(astronoutwin);
         }
-
         [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.MessageToClients)]
         private void Client_ReceiveWindowString(RemoteEntityWorld sender, ReceiveDataReader reader)
         {
@@ -812,6 +822,18 @@ namespace ProjectEntities
                 return;
 
             StatusMessageHandler.sendMessage(msg);
+        }
+        [NetworkReceive(NetworkDirections.ToClient, (ushort)NetworkMessages.RotationToClients)]
+        private void Client_ReceiveRotation(RemoteEntityWorld sender, ReceiveDataReader reader)
+        {
+            int ringNumber = reader.ReadVariableInt32();
+            int ringPosition = reader.ReadVariableInt32();
+
+            if (!reader.Complete())
+                return;
+
+            // Ring speichern
+            ringRotations[ringNumber] = ringPosition;
         }
     }
 }
