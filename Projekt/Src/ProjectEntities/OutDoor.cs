@@ -70,7 +70,7 @@ namespace ProjectEntities
 
         public void CheckForPartner()
         {
-            if (PartnerDoor != null)
+            if (PartnerDoor != null && PartnerDoor.PartnerDoor == this)
                 PartnerDoor.PartnerDoor = null;
 
             
