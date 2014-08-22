@@ -87,7 +87,7 @@ namespace ProjectEntities
         {
             if (!Computer.Instance.Astronautwin)
             {
-                KilledAstronouts = 2;
+                KilledAstronouts = Reanimations + 2;
             }
             return "Astronautenschaden: " + ((int)DamageAstronouts) + "\n"
                 + "Getötete Astronauten: " + KilledAstronouts + "\n"
