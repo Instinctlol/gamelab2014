@@ -1260,7 +1260,7 @@ entity
 			{
 				type = LogicScriptMethod
 				uin = 118
-				code = "if(!firstIn && obj is PlayerCharacter)\r\n{\r\n\tGameMap.Instance.GameMusic = \"Sounds\\\\Music\\\\ava_bossfight_looping.ogg\";\r\n\tfirstIn = true;\r\n}"
+				code = "if(obj is PlayerCharacter)\r\n{\r\n\tif(!firstIn)\r\n\t{\r\n\t\tGameMap.Instance.GameMusic = \"Sounds\\\\Music\\\\ava_bossfight_looping.ogg\";\r\n\t\tfirstIn = true;\r\n\t}\r\n\tobj.Visible = true;\r\n}\r\nelse if(obj is Teleporter)\r\n\tobj.Visible = false;"
 				methodName = ObjectIn
 				returnType = System.Void
 				parameters = 119
@@ -6316,12 +6316,6 @@ entity
 	name = SicherungskastenRepairable_0
 	logicClass = 7
 	editorLayer = "Root Layer\\F2\\Dynamics"
-	repairItems
-	{
-		item
-		{
-		}
-	}
 }
 entity
 {
@@ -6379,12 +6373,6 @@ entity
 	name = "Tr\x00fcmmer"
 	logicClass = 15
 	editorLayer = "Root Layer\\F1\\Items"
-	repairItems
-	{
-		item
-		{
-		}
-	}
 }
 entity
 {
@@ -6399,31 +6387,20 @@ entity
 	name = CardReader_0
 	logicClass = 17
 	editorLayer = "Root Layer\\F2\\Items"
-	repairItems
-	{
-		item
-		{
-		}
-	}
 }
 entity
 {
 	type = BrokenTerminal
 	uin = 565
 	classPrompt = BrokenTerminal
-	terminal = 1750
+	taskType = None
+	windowType = Rotate
 	repaired = False
 	healthFactorAtBeginning = 1
 	position = 75.44952 -75.1067 1.606234
 	rotation = 0 0 -0.9225186 0.3859528
 	name = BrokenTerminal_0
 	editorLayer = "Root Layer\\F1\\Items"
-	repairItems
-	{
-		item
-		{
-		}
-	}
 }
 entity
 {
@@ -9435,18 +9412,6 @@ entity
 	rotation = 0 0 0.7048077 0.7093984
 	name = BrokenDoor_0
 	editorLayer = "Root Layer\\F3\\Dynamics"
-	repairItems
-	{
-		item
-		{
-		}
-		item
-		{
-		}
-		item
-		{
-		}
-	}
 }
 entity
 {

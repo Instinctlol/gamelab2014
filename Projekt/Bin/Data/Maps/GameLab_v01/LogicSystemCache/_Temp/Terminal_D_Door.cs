@@ -37,7 +37,7 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void TerminalSwitchAction()
 		{
-			Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F1SG-D"),true);
+			Computer.Instance.SetSectorGroupPowerAstronaut((SectorGroup)Entities.Instance.GetByName("F2SG-D"),true);
 		}
 
 		public void TerminalRotateLeftAction()

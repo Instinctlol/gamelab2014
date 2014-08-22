@@ -169,7 +169,6 @@ namespace ProjectEntities
 
             if (!CanRepair(unit))
             {
-                StatusMessageHandler.sendMessage("Falscher Gegenstand oder noch mehr zu reperieren");
                 return;
             }
 
@@ -179,6 +178,7 @@ namespace ProjectEntities
         protected bool CanRepair(Unit unit)
         {
             string useItem = "";
+            bool wrongItem = true;
 
             if (unit.Inventar.useItem != null)
                 useItem = unit.Inventar.useItem.Type.FullName;
@@ -193,9 +193,13 @@ namespace ProjectEntities
                     unit.Inventar.remove(unit.Inventar.useItem);
                     SoundPlay3D(Type.SoundUsing, .5f, false);
                     Client_SendDecreaseItemsRequired();
+                    wrongItem = false;
                     break;
                 }
             }
+
+            if (wrongItem)
+                StatusMessageHandler.sendMessage("Falscher Gegenstand");
 
             if (itemsRequired <= 0)
                 return true;

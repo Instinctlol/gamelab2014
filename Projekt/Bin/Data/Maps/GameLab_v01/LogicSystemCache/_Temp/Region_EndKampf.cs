@@ -36,11 +36,17 @@ namespace Maps_GameLab_v___LogicSystem_LogicSystemScripts
 		
 		public void ObjectIn( Engine.MapSystem.MapObject obj )
 		{
-			if(!firstIn && obj is PlayerCharacter)
+			if(obj is PlayerCharacter)
 			{
-				GameMap.Instance.GameMusic = "Sounds\\Music\\ava_bossfight_looping.ogg";
-				firstIn = true;
+				if(!firstIn)
+				{
+					GameMap.Instance.GameMusic = "Sounds\\Music\\ava_bossfight_looping.ogg";
+					firstIn = true;
+				}
+				obj.Visible = true;
 			}
+			else if(obj is Teleporter)
+				obj.Visible = false;
 		}
 
 	}
