@@ -5,6 +5,6 @@ GameLab 2014
 
 ######How To Start:
 
-* eins
-* zwei
-* drei
+* Open "Projekt\Src\GameLab.sln" in Visual Studio (preferably 2013)
+* Compile Project as Release Build
+* Start "Projekt\Bin\Game.exe"
