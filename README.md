@@ -5,3 +5,6 @@ GameLab 2014
 
 ######How To Start:
 
+* eins
+* zwei
+* drei
